@@ -9,7 +9,7 @@ export const lang = 'en';
 export const skipContent = 'Skip to content';
 export const author = {
   name: 'Kyle Reddoch', // i.e. Lene Saile - page / blog author's name. Must be set.
-  avatar: '/icon-512x512.png', // path to the author's avatar. In this case just using a favicon.
+  avatar: '/assets/images/logo/logo.png', // path to the author's avatar. In this case just using a favicon.
   email: 'kyle@kylereddoch.me', // i.e. hola@lenesaile.com - email of the author
   website: 'https://www.kylereddoch.me', // i.e. https.://www.lenesaile.com - the personal site of the author
   fediverse: '@beardedtechguy@infosec.exchange' // used for highlighting journalism on the fediverse. Can be Mastodon, Flipboard, Threads, WordPress (with the ActivityPub plugin installed), PeerTube, Pixelfed, etc. https://blog.joinmastodon.org/2024/07/highlighting-journalism-on-mastodon/
@@ -20,7 +20,7 @@ export const creator = {
   website: 'https://www.kylereddoch.me',
   social: 'https://infosec.exchange/@beardedtechguy' // i.e. creator's social media account
 };
-export const pathToSvgLogo = 'src/assets/svg/misc/logo.svg'; // used for favicon generation
+export const pathToSvgLogo = '/assets/images/logo/logo.png'; // used for favicon generation
 export const themeColor = '#dd4462'; // used in manifest, for example primary color value
 export const themeLight = '#f8f8f8'; // used for meta tag theme-color, if light colors are prefered. best use value set for light bg
 export const themeDark = '#2e2e2e'; // used for meta tag theme-color, if dark colors are prefered. best use value set for dark bg

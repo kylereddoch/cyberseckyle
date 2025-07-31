@@ -4,8 +4,8 @@ schema: BlogPosting
 ---
 
 <div class="region" style="--region-space-top: var(--space-xl-2xl)">
-  <div class="wrapper flow prose">
-    <h1 class="gradient-text-linear">{{ title }}</h1>
+  <div class="wrapper flow">
+    <h1 class="gradient-text">{{ title }}</h1>
 
     {% if image %}
       <!-- image -->
@@ -51,6 +51,16 @@ schema: BlogPosting
 <template id="mastodon-post-template">
 {% include 'partials/mastodon-temp.njk' %}
 </template>
+
+{% if mastodon.url %}
+<section class="full | region">
+  <div class="wrapper flow">
+    <mastodon-post><i class="fa-brands fa-mastodon"></i> <a href="{{meta.creator.social}}/{{ mastodon.url }}" rel="me" style="font-size: 1.5em; font-weight: 600; text-shadow: .025em .025em .025em rgba(0,0,0,.25); color: #bd93f9;">Discuss on Mastodon</a></mastodon-post>
+  </div>
+{% endif %}
+
+
+</section>
 
 {%- css "local" -%}
   {%- include 'css/post.css' -%}

@@ -50,8 +50,8 @@ h3 {
 
 blockquote {
   padding: var(--space-m-l);
-  border-inline-start: 0.5rem solid var(--color-primary);
-  font-size: var(--size-step-2);
+  border-inline-start: 0.5rem solid var(--color-maroon);
+  font-size: var(--size-step-1);
 }
 
 blockquote > * + * {

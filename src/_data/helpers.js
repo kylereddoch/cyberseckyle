@@ -52,3 +52,4 @@ export function buildTime() {
     const today = new Date().toLocaleString();
     return today;
 }
+

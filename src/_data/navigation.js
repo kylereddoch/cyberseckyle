@@ -11,8 +11,12 @@ export default {
   ],
   bottom: [
     {
-      text: 'Style guide',
-      url: '/styleguide/'
+      text: 'Slashes',
+      url: '/slashes/'
+    },
+    {
+      text: 'Media Kit',
+      url: '/media-kit/'
     }
   ]
 };
