@@ -47,3 +47,8 @@ export function random() {
   };
   return `${segment()}-${segment()}-${segment()}`;
 }
+
+export function buildTime() { 
+    const today = new Date().toLocaleString();
+    return today;
+}

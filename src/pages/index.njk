@@ -1,36 +1,48 @@
 ---
 layout: base
 permalink: /index.html
-title: 'Eleventy Excellent'
+title: 'Beep...Boop...you made it!'
 description: 'Eleventy starter using modern CSS, fluid type, fluid spacing, flexible layout and progressive enhancement.'
 blog:
   title: 'Blog'
-  intro: "I'm showing the last 4 blog posts, but there might be more!"
+  intro: "Here are the 4 most recent posts. There's probably more though..."
 ---
 
 <div class="wrapper">
   <header class="full | section" style="--spot-color: var(--color-primary)">
     <div class="section__inner flow region">
-      <h1 class="text-center" style="color: var(--color-light);">{{ title }}</h1>
+      <h1 class="text-center" style="color: var(--color-bg);">{{ title }}</h1>
     </div>
-    {% svg "divider/waves", null, "divider" %}
+    {% svg "divider/pixels", null, "divider" %}
   </header>
 
   <article class="full | region">
     <div class="wrapper flow prose">
-      <h2 id="an-eleventy-starter">An Eleventy starter</h2>
-      <p>
-        Built around a CSS workflow that emphasizes guiding browser styling rather than micromanaging it. It
-        incorporates progressive enhancement, fluid type and spacing, and utilizes modern CSS features for
-        layout. The goal is to develop frontends that provide a great experience across all devices,
-        connection speeds, and usage contexts.
-      </p>
-      <p>
-        <strong>This is <a href="https://github.com/madrilene/eleventy-excellent/">version 4</a>.</strong> I keep a
-        <a href="https://github.com/madrilene/eleventy-excellent/tree/v1">branch of v1</a>,
-        <a href="https://github.com/madrilene/eleventy-excellent/tree/v2">v2</a> and <a href="https://github.com/madrilene/eleventy-excellent/tree/v3">v3</a>. I  tried to <a href="/get-started/#docs-lol">document most features and methodologies</a>.
-      </p>
-      <p><strong>Have fun</strong> and let me know if you find any issues or have ideas for improvements!</p>
+      <h2 id="an-eleventy-starter">I'm Kyle!</h2>
+      <p>I'm an IT professional working in the MSP/Cybersecurity industry. I love everything tech. You can check out more about me <a href="https://profile.kylereddoch.me">here</a> or read my blog posts below.</p>
+{% highlight "bash" %}
+$ hostname
+cyberseckyle.local
+
+$ cat about-$(hostname).config
+description = "Cybersecurity analyst and MSP operator focused on securing modern infrastructure. Lover of all things tech and coffee."
+author = "Kyle Reddoch"
+focus_areas = ["Endpoint Hardening", "Network Security", "Threat Intelligence", "Cloud Security"]
+tech_stack = ["PowerShell", "Python", "Linux", "SonicWall", "Kaseya", "EDR/XDR", "SIEM"]
+philosophy = "Secure by design. Practical by default."
+
+$ diagnostics --run full
+> Scanning system configs... ✅
+> Verifying patch compliance... ✅
+> Reviewing firewall rules... ⚠️  minor gaps found
+> Checking audit logs... ✅
+> Correlating threat intel... ✅
+
+Report saved to /opt/kyle/intel/summary-2025-07-30.log
+
+$ buildtime
+{{ helpers.buildTime() }}
+{% endhighlight %}
     </div>
   </article>
 
@@ -51,4 +63,10 @@ blog:
       </div>
     </div>
   </section>
+
+    <div class="wrapper flow prose">
+      <div class="feature |  region region-space-l">
+      <p><a href="/blog/">View more posts.</a></p>
+      </div>
+  </div>
 </div>
