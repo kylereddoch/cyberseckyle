@@ -13,7 +13,6 @@ pre {
   font-family: var(--font-mono);
   font-size: var(--size-step-min-1);
   background-color: var(--color-code-bg);
-
   border-radius: var(--border-radius-medium);
 }
 
@@ -24,6 +23,10 @@ pre[class*='language-'] {
   word-break: normal;
   word-wrap: normal;
   hyphens: none;
+}
+
+blockquote code {
+  color: var(--color-code-violet);
 }
 
 /* Specific Styles for <pre> Elements */
