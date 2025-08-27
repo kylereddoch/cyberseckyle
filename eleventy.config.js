@@ -15,16 +15,17 @@ dotenv.config();
 import yaml from 'js-yaml';
 
 //  config import
-import {getAllPosts, showInSitemap, tagList} from './src/_config/collections.js';
+import { getAllPosts, showInSitemap, tagList } from './src/_config/collections.js';
 import events from './src/_config/events.js';
 import filters from './src/_config/filters.js';
+import dateFilters from './src/_config/filters/oldpost.js';
 import plugins from './src/_config/plugins.js';
 import shortcodes from './src/_config/shortcodes.js';
-import {buildAllCss} from './src/_config/plugins/css-config.js';
-import {buildAllJs} from './src/_config/plugins/js-config.js';
+import { buildAllCss } from './src/_config/plugins/css-config.js';
+import { buildAllJs } from './src/_config/plugins/js-config.js';
 
-
-
+// ✅ NEW: reading time plugin
+import readingTime from 'eleventy-plugin-reading-time';
 
 export default async function (eleventyConfig) {
 
@@ -73,8 +74,30 @@ export default async function (eleventyConfig) {
     }
   });
 
+  // ✅ NEW: register reading time plugin (provides a tag)
+  eleventyConfig.addPlugin(readingTime);
+
+  // ✅ NEW: add a simple "readTime" filter you can use as {{ content | readTime }}
+  eleventyConfig.addFilter('readTime', (html, opts = {}) => {
+    const wpm = opts.wpm || 225;
+    const text = String(html || '')
+      .replace(/<style[\s\S]*?<\/style>/gi, '')
+      .replace(/<script[\s\S]*?<\/script>/gi, '')
+      .replace(/<\/?[^>]+(>|$)/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+    const words = text ? text.split(' ').length : 0;
+    const minutes = Math.max(1, Math.round(words / wpm));
+    return `${minutes} min read`;
+  });
+
+  // date filters
+  Object.keys(dateFilters).forEach(filterName => {
+    eleventyConfig.addFilter(filterName, dateFilters[filterName])
+  })
+
   // ---------------------  bundle
-  eleventyConfig.addBundle('css', {hoist: true});
+  eleventyConfig.addBundle('css', { hoist: true });
 
   // 	--------------------- Library and Data
   eleventyConfig.setLibrary('md', plugins.markdownLib);
@@ -113,6 +136,10 @@ export default async function (eleventyConfig) {
 
     // -- node_modules
     'node_modules/lite-youtube-embed/src/lite-yt-embed.{css,js}': `assets/components/`
+  });
+
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/@daviddarnes/mastodon-post/mastodon-post.js": "assets/js/mastodon-post.js",
   });
 
   // --------------------- general config

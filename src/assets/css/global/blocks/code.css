@@ -5,7 +5,7 @@
   --color-code-violet: hsl(314, 70%, 60%);
   --color-code-pink: hsl(350, 70%, 60%);
   --color-code-gray: hsl(0, 0%, 58%);
-  --color-code-bg: color-mix(in oklab, var(--color-bg) 92%, black);
+  --color-code-bg: var(--color-gray-900);
 }
 
 code,
@@ -37,7 +37,7 @@ pre {
 }
 
 /* Style Adjustments for <code> within different contexts */
-:where(:not(pre)) > code {
+:where(:not(pre))>code {
   position: relative;
   top: -0.05em;
   padding: 0.1em 0.4em;
@@ -213,7 +213,7 @@ pre[class*='language-'] {
 }
 
 .prose .cp_embed_wrapper,
-.prose .cp_embed_wrapper + script + *:not(h2) {
+.prose .cp_embed_wrapper+script+*:not(h2) {
   --flow-space: var(--space-l);
 }
 

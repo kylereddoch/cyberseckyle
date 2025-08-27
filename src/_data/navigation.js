@@ -7,13 +7,13 @@ export default {
     {
       text: 'Blog',
       url: '/blog/'
-    }
-  ],
-  bottom: [
+    },
     {
       text: 'Slashes',
       url: '/slashes/'
-    },
+    }
+  ],
+  bottom: [
     {
       text: 'Media Kit',
       url: '/media-kit/'

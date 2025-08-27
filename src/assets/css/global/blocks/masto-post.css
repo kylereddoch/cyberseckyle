@@ -1,11 +1,33 @@
 .discuss-mastodon {
-    border: 1px solid var(--color-gray-400);
-    border-radius: 5px;
+    border: 2px solid var(--color-bg-accent);
+    border-radius: 8px;
     font-size: var(--size-step-min-2) !important;
     font-family: var(--font-base);
     margin: 2em auto;
-    padding: 2em 2em 0 2em;;
+    width: 75% !important;
 
+}
+
+.mastodon-post span.invisible {
+    visibility: visible !important;
+}
+
+.mastodon-post span.ellipsis {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100% !important;
+}
+
+.discuss-mastodon a,
+.discuss-mastodon a:link,
+.discuss-mastodon a:visited {
+    font-size: var(--size-step-min-2) !important;
+    font-family: var(--font-base);
+    display: inline-block;
+    word-break: break-word !important;
+    /* or break-all if you prefer */
+    overflow-wrap: anywhere !important;
 }
 
 .mastodon-post {
@@ -26,30 +48,40 @@
 }
 
 
-a.mastodon-post, a.mastodon-post:link, a.mastodon-post:visited  {
+a.mastodon-post,
+a.mastodon-post:link,
+a.mastodon-post:visited {
     font-size: var(--size-step-min-2) !important;
     font-family: var(--font-base);
+    padding: 0 !important;
 }
 
-blockquote.mastodon-post-quote  {
+blockquote.mastodon-post-quote {
     font-size: var(--size-step-min-2) !important;
     font-family: var(--font-base);
     border-left: none !important;
-    width: auto !important;
+    padding: 1em 1em 0 1em !important;
+    background-color: var(--color-gray-800) !important;
 }
 
 .mastodon-post__caption {
-    margin: 1.5em 1em
+    font-size: var(--size-step-min-2) !important;
+    font-family: var(--font-base);
+    background: var(--color-gray-900);
+    padding: 1.25em 1em .75em 1em;
+    border-top: 2px solid var(--color-bg-accent);
 }
 
 .mastodon-post__stats {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5em;
-    margin: 1.5em 0 0
+    align-items: center;
+    justify-content: space-around;
+    /* gap: 1.5em; */
 }
 
-.mastodon-post__stat dt,.mastodon-post__stat dd {
+.mastodon-post__stat dt,
+.mastodon-post__stat dd {
     display: inline-block;
     margin: 0
 }

@@ -37,31 +37,32 @@ h3 {
 }
 
 h1 {
-  font-size: var(--size-step-6);
-}
-
-h2 {
   font-size: var(--size-step-4);
 }
 
+h2 {
+  font-size: var(--size-step-3);
+}
+
 h3 {
-  font-size: var(--size-step-2);
+  font-size: var(--size-step-1);
 }
 
 blockquote {
   padding: var(--space-m-l);
   border-inline-start: 0.5rem solid var(--color-maroon);
-  font-size: var(--size-step-1);
+  font-size: var(--size-step-0);
+  background-color: var(--color-gray-700);
 }
 
-blockquote > * + * {
+blockquote>*+* {
   margin-block-start: var(--space-m-l);
 }
 
 blockquote :last-child {
   font-family: var(--font-base);
-  font-style: normal;
-  font-size: var(--size-step-1);
+  font-style: italic;
+  font-size: var(--size-step-0);
 }
 
 input,
@@ -97,7 +98,7 @@ figcaption {
 }
 
 figcaption:after {
-  border-block: var(--stroke);
+  /* border-block: var(--stroke); */
   content: '';
   display: block;
   margin-block: var(--space-xs);
