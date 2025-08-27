@@ -83,7 +83,7 @@ via [Robb](https://social.lol/@robb/) on Mastodon
 
 This post is sponsored by Proton VPN.
 
-[![Secure VPN from Proton](https://www.kylereddoch.me/assets/kylestechkorner/sponsors/proton/proton_vpn_secure.png)](https://go.getproton.me/SH1F5)
+[![Secure VPN from Proton](/assets/sponsors/proton/proton_vpn_secure.png)](https://go.getproton.me/SH1F5)
 <!-- VPN Black Friday URL -->
 
 <div>
