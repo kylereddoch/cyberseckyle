@@ -33,8 +33,13 @@ jobs:
           path: ./.cache
           key: ${{ runner.os }}-eleventy-fetch-cache
 
-      - run: npm install
-      - run: npm run build-ghpages
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build site
+        run: npm run build-ghpages
+        env:
+          TZ: America/Chicago
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
