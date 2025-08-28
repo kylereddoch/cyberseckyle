@@ -1,4 +1,4 @@
-export const url = process.env.URL || 'http://localhost:8080';
+export const url = process.env.URL || 'https://kylereddoch.me';
 // Extract domain from `url`
 export const domain = new URL(url).hostname;
 export const siteName = 'Kyles Tech Korner';
@@ -10,7 +10,7 @@ export const skipContent = 'Skip to content';
 export const author = {
   name: 'Kyle Reddoch', // i.e. Lene Saile - page / blog author's name. Must be set.
   avatar: '/assets/images/logo/logo.png', // path to the author's avatar. In this case just using a favicon.
-  email: 'kyle@kylereddoch.me', // i.e. hola@lenesaile.com - email of the author
+  email: 'kyle@kylereddoch.me', // i.e. email of the author
   website: 'https://www.kylereddoch.me', // i.e. https.://www.lenesaile.com - the personal site of the author
   fediverse: '@beardedtechguy@infosec.exchange' // used for highlighting journalism on the fediverse. Can be Mastodon, Flipboard, Threads, WordPress (with the ActivityPub plugin installed), PeerTube, Pixelfed, etc. https://blog.joinmastodon.org/2024/07/highlighting-journalism-on-mastodon/
 };
