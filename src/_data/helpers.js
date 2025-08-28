@@ -48,8 +48,43 @@ export function random() {
   return `${segment()}-${segment()}-${segment()}`;
 }
 
-export function buildTime() { 
-    const today = new Date().toLocaleString();
-    return today;
+/* ---------- NEW: build time helpers (timezone-safe) ---------- */
+
+function nowInTZ(timeZone = 'America/Chicago') {
+  // Use Date + Intl so output is stable on CI and local
+  const d = new Date();
+  return { d, timeZone };
 }
 
+/** Human readable (MM/DD/YY, HH:MM:SS AM/PM) — keeps your original behavior but stable */
+export function buildTimeHuman(timeZone = 'America/Chicago') {
+  const { d } = nowInTZ(timeZone);
+  return new Intl.DateTimeFormat('en-US', {
+    timeZone,
+    dateStyle: 'short',      // MM/DD/YY
+    timeStyle: 'medium'      // HH:MM:SS AM/PM
+  }).format(d);
+}
+
+/** Filename style (MM-DD-YY) */
+export function buildTimeFile(timeZone = 'America/Chicago') {
+  const { d } = nowInTZ(timeZone);
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone,
+    year: '2-digit',
+    month: '2-digit',
+    day: '2-digit'
+  }).formatToParts(d).reduce((acc, p) => (acc[p.type] = p.value, acc), {});
+  return `${parts.month}-${parts.day}-${parts.year}`;
+}
+
+/** Backwards-compatible: previous `buildTime()` now maps to human format */
+export function buildTime(timeZone = 'America/Chicago') {
+  return buildTimeHuman(timeZone);
+}
+
+export default {
+  buildTimeHuman,
+  buildTimeFile,
+  buildTime,
+}
