@@ -25,10 +25,10 @@ Here is the list of podcasts that I enjoy listening to. They are in no particula
 - **Cyber Security Headlines** - [Website](https://cisoseries.com/category/podcast/cyber-security-headlines/) | [RSS](https://cisoseries.libsyn.com/rss)
 
 #### Podcasts no longer listening to
-- ~**Primary Technology** - [Website](https://primarytech.fm) | [RSS](https://feeds.transistor.fm/primary-technology)~
-- ~**iOS Today** - [Website](https://twit.tv/shows/ios-today) | [RSS](https://feeds.twit.tv/ipad.xml)~
-- ~**The MacRumours Show** - [Website](https://www.macrumors.com/guide/the-macrumors-show/) | [RSS](https://audioboom.com/channels/5096144.rss)~
-- ~**Clockwise** - [Website](https://www.relay.fm/clockwise) | [RSS](https://www.relay.fm/clockwise/feed)~
-- ~**Macworld Podcast** - [Website](https://www.macworld.com/opinion/podcast) | [RSS](https://feeds.megaphone.fm/macworld)~
-- ~**Tech News Weekly** - [Website](https://twit.tv/shows/tech-news-weekly) | [RSS](https://feeds.twit.tv/tnw.xml)~
-- ~**Automators** - [Website](https://www.relay.fm/automators) | [RSS](https://www.relay.fm/automators/feed)~
+- ~~**Primary Technology** - [Website](https://primarytech.fm) | [RSS](https://feeds.transistor.fm/primary-technology)~~
+- ~~**iOS Today** - [Website](https://twit.tv/shows/ios-today) | [RSS](https://feeds.twit.tv/ipad.xml)~~
+- ~~**The MacRumours Show** - [Website](https://www.macrumors.com/guide/the-macrumors-show/) | [RSS](https://audioboom.com/channels/5096144.rss)~~
+- ~~**Clockwise** - [Website](https://www.relay.fm/clockwise) | [RSS](https://www.relay.fm/clockwise/feed)~~
+- ~~**Macworld Podcast** - [Website](https://www.macworld.com/opinion/podcast) | [RSS](https://feeds.megaphone.fm/macworld)~~
+- ~~**Tech News Weekly** - [Website](https://twit.tv/shows/tech-news-weekly) | [RSS](https://feeds.twit.tv/tnw.xml)~~
+- ~~**Automators** - [Website](https://www.relay.fm/automators) | [RSS](https://www.relay.fm/automators/feed)~~
