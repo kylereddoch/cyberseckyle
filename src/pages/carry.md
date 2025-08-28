@@ -1,7 +1,7 @@
 ---
 title: Everyday Carry
 permalink: /carry/index.html
-description: 'These are the things that I carry every day. I usually don''t leave the house without them.'
+description: "These are the things that I carry every day. I usually don't leave the house without them."
 layout: page
 ---
 
