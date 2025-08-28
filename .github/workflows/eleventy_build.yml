@@ -42,3 +42,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          publish_branch: gh-pages          # default, but being explicit is nice
+          cname: www.kylereddoch.me             # <-- your apex (or subdomain if that’s your site)
+          enable_jekyll: false              # writes .nojekyll so assets aren’t hidden
