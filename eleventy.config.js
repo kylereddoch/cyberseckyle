@@ -14,6 +14,8 @@ dotenv.config();
 // add yaml support
 import yaml from 'js-yaml';
 
+import { HtmlBasePlugin } from "@11ty/eleventy";
+
 //  config import
 import { getAllPosts, showInSitemap, tagList } from './src/_config/collections.js';
 import events from './src/_config/events.js';
@@ -153,4 +155,12 @@ export default async function (eleventyConfig) {
       layouts: '_layouts'
     }
   };
+}
+
+export default function (eleventyConfig) {
+  eleventyConfig.addPlugin(HtmlBasePlugin);
+};
+
+export const config = {
+  pathPrefix: "/",
 }
