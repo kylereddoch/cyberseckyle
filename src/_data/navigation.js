@@ -15,6 +15,10 @@ export default {
   ],
   bottom: [
     {
+      text: 'Guestbook',
+      url: '/guestbook/'
+    },
+    {
       text: 'Media Kit',
       url: '/media-kit/'
     }

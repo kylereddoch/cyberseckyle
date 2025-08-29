@@ -1,4 +1,4 @@
-export const url = process.env.URL || 'https://kylereddoch.me';
+export const url = process.env.URL || 'https://www.kylereddoch.me';
 // Extract domain from `url`
 export const domain = new URL(url).hostname;
 export const siteName = 'Kyles Tech Korner';
