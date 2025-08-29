@@ -1,4 +1,4 @@
-<footer class="site-footer mt-l-xl p-s-m">
+<footer class="site-footer p-s-m">
   <div class="wrapper">
     <div class="cluster gutter-xs">
       <nav class="cluster text-step-0" aria-label="{{ meta.navigation.ariaBottom }}">
@@ -21,7 +21,10 @@
         {% endfor %}
       </nav>
 
-      <nav class="cluster" aria-label="{{ meta.navigation.ariaPlatforms }}">
+    </div>
+
+    <aside class="cluster">
+      <nav class="cluster gutter-2xs text-step-min-0 mt-xl" aria-label="{{ meta.navigation.ariaPlatforms }}">
         <!-- gets the first item from the feed loop set in meta -->
         <a href="{{ meta.blog.feedLinks[0].url }}" rel="alternate" type="{{ meta.blog.feedLinks[0].type }}">
           <span class="visually-hidden">{{ meta.blog.feedLinks[0].title }}</span>
@@ -38,14 +41,13 @@
           {% endif %}
         {% endfor %}
       </nav>
-    </div>
+    </aside>
 
     <!-- {% include 'partials/theme-switch.njk' %} -->
 
     <aside class="creator | cluster gutter-2xs text-step-min-1 mt-xl">
       Made with <span class="visually-hidden">love</span> <span>{% svg "misc/heart" %}</span> and
-      <a class="no-indicator" href="https://www.11ty.dev/">{% svg "misc/11ty", "Eleventy" %}</a> by
-      <a href="{{ meta.creator.website }}">{{ meta.creator.name }}</a>
+      <a class="no-indicator" href="https://www.11ty.dev/">{% svg "misc/11ty", "Eleventy" %}</a>
     </aside>
   </div>
 </footer>

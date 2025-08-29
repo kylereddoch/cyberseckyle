@@ -12,7 +12,7 @@ Redragon has built a solid reputation for making high-quality, budget-friendly p
 
 <div align="center">
 
-![Behemoth K724 Pro Keyboard](/assets/images/redrago_behemoth_hero.jpg){ width=75% height=57% }
+{% image "/assets/images/redrago_behemoth_hero.jpg", "Behemoth K724 Pro Keyboard", null, "eager", null, null, [400], "(min-width:30em) 50vw, 100vw" %}
 
 </div>
 
@@ -56,7 +56,7 @@ One of the standout features is the **1.41-inch TFT "Info-Island" screen**. This
 
 <div align="center">
 
-![TFT "Info-Island" Screen Display](/assets/images/redrago_behemoth_tft.jpg){ width=50% height=50% }
+{% image "/assets/images/redrago_behemoth_tft.jpg", "TFT \"Info-Island\" Screen Display", null, "eager", null, null, [400], "(min-width:30em) 50vw, 100vw" %}
 
 </div>
 
