@@ -12,13 +12,13 @@ export const author = {
   avatar: '/assets/images/logo/logo.png', // path to the author's avatar. In this case just using a favicon.
   email: 'kyle@kylereddoch.me', // i.e. email of the author
   website: 'https://www.kylereddoch.me', // i.e. https.://www.lenesaile.com - the personal site of the author
-  fediverse: '@beardedtechguy@infosec.exchange' // used for highlighting journalism on the fediverse. Can be Mastodon, Flipboard, Threads, WordPress (with the ActivityPub plugin installed), PeerTube, Pixelfed, etc. https://blog.joinmastodon.org/2024/07/highlighting-journalism-on-mastodon/
+  fediverse: '@cyberseckyle@infosec.exchange' // used for highlighting journalism on the fediverse. Can be Mastodon, Flipboard, Threads, WordPress (with the ActivityPub plugin installed), PeerTube, Pixelfed, etc. https://blog.joinmastodon.org/2024/07/highlighting-journalism-on-mastodon/
 };
 export const creator = {
   name: 'Kyle Reddoch', // i.e. Lene Saile - creator's (developer) name.
   email: 'kyle@kylereddoch.me',
   website: 'https://www.kylereddoch.me',
-  social: 'https://infosec.exchange/@beardedtechguy' // i.e. creator's social media account
+  social: 'https://infosec.exchange/@cyberseckyle' // i.e. creator's social media account
 };
 export const pathToSvgLogo = '/assets/images/logo/logo.png'; // used for favicon generation
 export const themeColor = '#dd4462'; // used in manifest, for example primary color value
