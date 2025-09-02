@@ -3,9 +3,11 @@ date: 2025-08-29
 draft: true
 title: 'From Start to Finish: Moving My Blog to Eleventy + GitHub Pages'
 description: "A step-by-step guide on migrating my blog from using Weblog by OMGlol to Eleventy, hosted on GitHub Pages."
-tags: [eleventy, github pages, web development, tutorials]
+tags: [eleventy, github-pages, web development, tutorials]
 #mastodon_url: https://infosec.exchange/@beardedtechguy/114915822528845707
 ---
+
+{% raw %}
 
 For the longest time, my blog lived in a half-custom setup. I wanted something cleaner, faster, and developer-friendly. Enter **[Eleventy](https://www.11ty.dev/)**, specifically the [Eleventy Excellent theme](https://github.com/madrilene/eleventy-excellent). Here’s how I moved my site, customized it, and deployed it to GitHub Pages with a custom domain.
 
@@ -171,3 +173,5 @@ On the DNS side, I pointed my domain’s A records to GitHub Pages IPs.
 ## Final Thoughts
 
 The move to Eleventy Excellent plus GitHub Pages gave me a clean, blazing-fast, version-controlled blog. I have full control, from custom filters to build helpers, and deployment is 100% automated.
+
+{% endraw %}
