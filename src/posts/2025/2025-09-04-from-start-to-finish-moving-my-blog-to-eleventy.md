@@ -3,7 +3,7 @@ date: 2025-09-04
 title: 'From Start to Finish: Moving My Blog to Eleventy + GitHub Pages'
 description: "A step-by-step guide on migrating my blog from using Weblog by OMGlol to Eleventy, hosted on GitHub Pages."
 tags: [eleventy, github-pages, web development, tutorials]
-#mastodon_url: https://infosec.exchange/@beardedtechguy/114915822528845707
+mastodon_url: https://infosec.exchange/@cyberseckyle/115146980155527998
 ---
 
 ![A hero image showing Eleventy and GitHub logos](/assets/images/eleventy_github@2x.jpg){loading="eager" eleventy:widths="auto"}
