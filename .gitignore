@@ -13,7 +13,6 @@ src/_includes/scripts
 .env
 .DS_Store
 .vscode/*
-.DS_Store
 src/.DS_Store
 src/assets/.DS_Store
 src/assets/svg/.DS_Store
