@@ -1,6 +1,5 @@
 ---
-date: 2025-08-29
-draft: true
+date: 2025-09-04
 title: 'From Start to Finish: Moving My Blog to Eleventy + GitHub Pages'
 description: "A step-by-step guide on migrating my blog from using Weblog by OMGlol to Eleventy, hosted on GitHub Pages."
 tags: [eleventy, github-pages, web development, tutorials]
