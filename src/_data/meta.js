@@ -21,9 +21,9 @@ export const creator = {
   social: 'https://infosec.exchange/@cyberseckyle' // i.e. creator's social media account
 };
 export const pathToSvgLogo = '/assets/images/logo/logo.png'; // used for favicon generation
-export const themeColor = '#dd4462'; // used in manifest, for example primary color value
-export const themeLight = '#f8f8f8'; // used for meta tag theme-color, if light colors are prefered. best use value set for light bg
-export const themeDark = '#2e2e2e'; // used for meta tag theme-color, if dark colors are prefered. best use value set for dark bg
+export const themeColor = '#cba6f7'; // used in manifest, for example primary color value
+export const themeLight = '#1e1e2e'; // used for meta tag theme-color, if light colors are prefered. best use value set for light bg
+export const themeDark = '#1e1e2e'; // used for meta tag theme-color, if dark colors are prefered. best use value set for dark bg
 export const opengraph_default = '/assets/images/template/opengraph-default.jpg'; // fallback/default meta image
 export const opengraph_default_alt =
   "Kyle's Tech Korner - My life and journey through this world of technology. A blog about tech, cybersecurity, and everything in between."; // alt text for default meta image"
