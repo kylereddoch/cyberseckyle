@@ -5,8 +5,12 @@
 	project: https://cube.fyi/css.html
 */
 
-html {
+/* html {
   color-scheme: light dark;
+} */
+
+html {
+  color-scheme: dark;
 }
 
 body {
