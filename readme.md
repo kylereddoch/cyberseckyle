@@ -88,4 +88,4 @@ This site is based on the excellent work of:
 
 ## License
 
-MIT --- see [LICENSE](/LICENSE.md) file.
+MIT --- see [LICENSE](LICENSE.MD) file.
