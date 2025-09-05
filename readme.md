@@ -8,7 +8,7 @@ theme](https://github.com/madrilene/eleventy-excellent) as a foundation
 and then heavily customized.
 
 [![Build and
-Deploy](https://github.com/kylereddoch/kylereddoch.me/actions/workflows/eleventy_build.yml/badge.svg)](https://github.com/kylereddoch/kylereddoch.me/actions/workflows/eleventy_build.yml)
+Deploy](https://github.com/kylereddoch/cyberseckyle/actions/workflows/eleventy_build.yml/badge.svg)](https://github.com/kylereddoch/cyberseckyle/actions/workflows/eleventy_build.yml)
 ![Built with
 Eleventy](https://img.shields.io/badge/Built%20with-Eleventy-44B78B?logo=eleventy&logoColor=white&style=flat-square)
 [![Follow
