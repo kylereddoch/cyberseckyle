@@ -22,6 +22,7 @@ gallery:
   - image: /assets/images/gallery/wyvern-k689/wyvern-k689_switches.jpg
     alt: "Close-up of the switches on the Redragon WYVERN K689 PRO keyboard."
     caption: 'The close-up view of the switches on the Redragon WYVERN K689 PRO keyboard highlights its customization options.'
+mastodon_url: 'https://infosec.exchange/@cyberseckyle/115187943677737623'
 ---
 
 ![Hero Shot](/assets/images/gallery/wyvern-k689/wyvern-k689_top.jpg)
