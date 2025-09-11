@@ -56,7 +56,7 @@ blockquote {
   padding: var(--space-m-l);
   border-inline-start: 0.5rem solid var(--color-maroon);
   font-size: var(--size-step-0);
-  background-color: var(--color-gray-700);
+  background-color: var(--color-code-bg);
 }
 
 blockquote>*+* {

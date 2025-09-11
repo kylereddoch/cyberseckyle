@@ -5,7 +5,7 @@
   --color-code-violet: hsl(314, 70%, 60%);
   --color-code-pink: hsl(350, 70%, 60%);
   --color-code-gray: hsl(0, 0%, 58%);
-  --color-code-bg: var(--color-gray-900);
+  --color-code-bg: var(--color-bg-accent);
 }
 
 code,
@@ -26,7 +26,7 @@ pre[class*='language-'] {
 }
 
 blockquote code {
-  color: var(--color-code-violet);
+  color: var(--color-code-indigo);
 }
 
 /* Specific Styles for <pre> Elements */
@@ -42,7 +42,7 @@ pre {
   position: relative;
   top: -0.05em;
   padding: 0.1em 0.4em;
-  color: var(--color-code-violet);
+  color: var(--color-code-indigo);
 }
 
 pre[class*='language-'] {
