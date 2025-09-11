@@ -1,6 +1,6 @@
 
-/* TEAM */ Developer: Kyle Reddoch Contact: kyle@kylereddoch.me Site:
-https://www.kylereddoch.me
+/* TEAM */ Developer: Kyle Reddoch Contact: kyle@kylereddoch.me
+Site: https://www.kylereddoch.me
 
   Find me on: https://infosec.exchange/@cyberseckyle
 
