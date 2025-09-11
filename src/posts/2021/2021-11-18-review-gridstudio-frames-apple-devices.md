@@ -23,12 +23,6 @@ Grid Studio was generous enough to send me a couple of devices for this review. 
 
 {% include "partials/gallery.njk" %}
 
-<ul class="gallery" role="list" style="padding: 0;">
-  {%- for item in gallery -%}
-    <li>{% image item.image, item.alt %}</li>
-  {%- endfor -%}
-</ul>
-
 ### Conclusion
 
 One thing is sure, Grid Studio considered every possible detail of each device and elegantly framed it all for lasting display. If you are an Apple fan and want to grab a piece of technological history or like to gift it to someone, Grid Studio is the best solution by far.

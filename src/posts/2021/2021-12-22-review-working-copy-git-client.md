@@ -66,12 +66,6 @@ Working Copy also supports iOS's Files app if all the above features aren't enou
 
 {% include "partials/gallery.njk" %}
 
-<ul class="gallery" role="list" style="padding: 0;">
-  {%- for item in gallery -%}
-    <li>{% image item.image, item.alt %}</li>
-  {%- endfor -%}
-</ul>
-
 ## Using Working Copy and Ulysses for this site
 
 When I'm on the go, I can manage my site from any of my devices. I use Working Copy to keep my files in sync with my GitHub repository. Once on my device, whether my iPhone or iPad, I use Ulysses to edit/work on those files. From there, I push the changes back to GitHub.

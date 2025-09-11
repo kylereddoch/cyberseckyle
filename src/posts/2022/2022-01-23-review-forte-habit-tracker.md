@@ -34,12 +34,6 @@ What sets this habit tracker apart from all the others out there is, it doesn't 
 
 {% include "partials/gallery.njk" %}
 
-<ul class="gallery" role="list" style="padding: 0;">
-  {%- for item in gallery -%}
-    <li>{% image item.image, item.alt %}</li>
-  {%- endfor -%}
-</ul>
-
 ## Features
 
 Forte is full of features.
