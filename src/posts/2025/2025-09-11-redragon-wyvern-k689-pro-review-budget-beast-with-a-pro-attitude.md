@@ -1,8 +1,8 @@
 ---
-date: 2025-09-11
+date: 2025-09-11T14:00:00-05:00
 title: 'Review: Redragon WYVERN K689 PRO Mechanical Keyboard: Budget Beast with a Pro Attitude'
 description: "A detailed review of the Redragon WYVERN K689 PRO mechanical keyboard, exploring its features, performance, and value."
-tags: [reviews, keyboards, tech, budget]
+tags: [reviews, keyboards, tech]
 gallery:
   - image: /assets/images/gallery/wyvern-k689/wyvern-k689_kit.jpg
     alt: 'The Redragon WYVERN K689 PRO keyboard with its accessories laid out.'
