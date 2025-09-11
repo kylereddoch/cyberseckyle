@@ -101,6 +101,6 @@ If you're looking to dip into mechanical keyboards or want an affordable, custom
 
 ### Save 10% with my Discount Code!
 
-Thanks to the awesome folks over at Redragon for giving me the opportunity to review this product. They have also provided me with a special URL that anyone can use to save a total of 10% off of your entire purchase across their site. So if you’re interested in purchasing the Redragon Predator M612 Pro RGB Gaming Mouse, or any of their products, you can click this link and shop: **Save 10% On Your Entire Order**.
+Thanks to the awesome folks over at Redragon for giving me the opportunity to review this product. They have also provided me with a special URL that anyone can use to save a total of 10% off of your entire purchase across their site. So if you’re interested in purchasing the Redragon Predator M612 Pro RGB Gaming Mouse, or any of their products, you can click this link and shop: [**Save 10% On Your Entire Order**](https://www.redragonshop.com/discount/beardedtechguy?ref=weblog.kylereddoch.me).
 
 If you don’t click the link, you can always manually input **beardedtechguy** as the code during check out.
