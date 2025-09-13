@@ -3,8 +3,9 @@ date: 2025-09-13T14:00:00-05:00
 title: 'Apple’s September Event: What Mattered, What’s Hype, and What I’m Actually Buying'
 description: "Deep dive into Apple’s Sept 2025 event: iPhone 17 and Pro, iPhone Air, Watch Series 11 and Ultra 3, and AirPods Pro 3, with practical, no hype buying advice."
 tags: [tech, apple, editorials]
-image: /assets/images/apple_sept_2025_product_lineup.jpg
 ---
+
+![Apple September 2025 Product Lineup](/assets/images/apple_sept_2025_product_lineup.jpg){loading="eager" eleventy:widths="auto"}
 
 ---
 
@@ -24,7 +25,7 @@ If you like neat stacks of shiny rectangles, Tuesday was a feast. Apple rolled o
 
 ## iPhone 17: The “Default iPhone” Finally Feels Premium
 
-![iPhone 17](https://www.apple.com/newsroom/images/2025/09/apple-debuts-iphone-17/article/Apple-iPhone-17-hero-250909_inline.jpg.large.jpg)  
+![iPhone 17](/assets/images/apple_17_hero.jpg){loading="eager" eleventy:widths="450"}
 *Image credit: [Apple Newsroom](https://www.apple.com/newsroom/2025/09/apple-debuts-iphone-17/)*
 
 **What’s new (useful bits only):**
@@ -41,7 +42,7 @@ If you like neat stacks of shiny rectangles, Tuesday was a feast. Apple rolled o
 
 ## iPhone 17 Pro & Pro Max: Thermal Design Meets Camera Ambition
 
-![iPhone 17 Pro in Cosmic Orange](https://www.apple.com/newsroom/images/2025/09/apple-unveils-iphone-17-pro-and-iphone-17-pro-max/article/Apple-iPhone-17-Pro-cosmic-orange-250909_inline.jpg.large.jpg)  
+![iPhone 17 Pro in Cosmic Orange](/assets/images/apple_iphone17_pro_hero.jpg){loading="eager" eleventy:widths="auto"}
 *Image credit: [Apple Newsroom](https://www.apple.com/newsroom/2025/09/apple-unveils-iphone-17-pro-and-iphone-17-pro-max/)*
 
 **Headliners:**
@@ -58,7 +59,7 @@ If you like neat stacks of shiny rectangles, Tuesday was a feast. Apple rolled o
 
 ## iPhone Air: Ultra-Thin Without the Battery Anxiety
 
-![iPhone Air side profile](https://www.apple.com/newsroom/images/2025/09/introducing-iphone-air-a-powerful-new-iphone-with-a-breakthrough-design/article/Apple-iPhone-Air-hero-250909_big.jpg.large.jpg)  
+![iPhone Air side profile](/assets/images/apple_iphoneair_hero.jpg){loading="eager" eleventy:widths="auto"}
 *Image credit: [Apple Newsroom](https://www.apple.com/newsroom/2025/09/introducing-iphone-air-a-powerful-new-iphone-with-a-breakthrough-design/)*
 
 **Why it exists:** At **5.6 mm** thin with a **grade-5 titanium** frame and a precision-milled back “plateau,” this is a new branch in the family—lighter than your patience, still “all-day” battery.
@@ -74,7 +75,7 @@ If you like neat stacks of shiny rectangles, Tuesday was a feast. Apple rolled o
 
 ## Apple Watch Series 11: Health Signals Get Sharper
 
-![Apple Watch Series 11](https://www.apple.com/newsroom/images/2025/09/apple-debuts-apple-watch-series-11-featuring-groundbreaking-health-insights/article/Apple-Watch-Series-11-hero-250909_big.jpg.large.jpg)  
+![Apple Watch Series 11](/assets/images/apple_watch_series11_hero.jpg){loading="eager" eleventy:widths="auto"}
 *Image credit: [Apple Newsroom](https://www.apple.com/newsroom/2025/09/apple-debuts-apple-watch-series-11-featuring-groundbreaking-health-insights/)*
 
 **Real-world upgrades:**
@@ -88,7 +89,7 @@ If you like neat stacks of shiny rectangles, Tuesday was a feast. Apple rolled o
 
 ## Apple Watch Ultra 3: Now With Two-Way Satellite
 
-![Apple Watch Ultra 3](https://www.apple.com/newsroom/images/2025/09/introducing-apple-watch-ultra-3/article/Apple-Watch-Ultra-3-hero-250909_big.jpg.large.jpg)  
+![Apple Watch Ultra 3](/assets/images/apple_watch_ultra3_hero.jpg)  
 *Image credit: [Apple Newsroom](https://www.apple.com/newsroom/2025/09/introducing-apple-watch-ultra-3/)*
 
 **For the field:**
@@ -102,7 +103,7 @@ If you like neat stacks of shiny rectangles, Tuesday was a feast. Apple rolled o
 
 ## Apple Watch SE 3: The New Default
 
-![Apple Watch SE 3](https://www.apple.com/newsroom/images/2025/09/apple-introduces-apple-watch-se-3/article/Apple-Watch-SE-3-hero-250909_big.jpg.large.jpg)  
+![Apple Watch SE 3](/assets/images/apple_watch_se3_hero.jpg){loading="eager" eleventy:widths="auto"}
 *Image credit: [Apple Newsroom](https://www.apple.com/newsroom/2025/09/apple-introduces-apple-watch-se-3/)*
 
 **What changed:**
@@ -115,7 +116,7 @@ If you like neat stacks of shiny rectangles, Tuesday was a feast. Apple rolled o
 
 ## AirPods Pro 3: Better Seal, Smarter Sensors
 
-![AirPods Pro 3](https://www.apple.com/newsroom/images/2025/09/introducing-airpods-pro-3-the-ultimate-audio-experience/article/Apple-AirPods-Pro-3-hero-250909_inline.jpg.large.jpg)  
+![AirPods Pro 3](/assets/images/apple_airpods_pro3_hero.jpg){loading="eager" eleventy:widths="auto"}
 *Image credit: [Apple Newsroom](https://www.apple.com/newsroom/2025/09/introducing-airpods-pro-3-the-ultimate-audio-experience/)*
 
 **Upgrades that matter:**
