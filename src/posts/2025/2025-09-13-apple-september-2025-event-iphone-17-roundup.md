@@ -3,6 +3,7 @@ date: 2025-09-13T14:00:00-05:00
 title: 'Apple’s September Event: What Mattered, What’s Hype, and What I’m Actually Buying'
 description: "Deep dive into Apple’s Sept 2025 event: iPhone 17 and Pro, iPhone Air, Watch Series 11 and Ultra 3, and AirPods Pro 3, with practical, no hype buying advice."
 tags: [tech, apple, editorials]
+mastodon_url: https://infosec.exchange/@cyberseckyle/115199081829557421
 ---
 
 ![Apple September 2025 Product Lineup](/assets/images/apple_sept_2025_product_lineup.jpg){loading="eager" eleventy:widths="auto"}
