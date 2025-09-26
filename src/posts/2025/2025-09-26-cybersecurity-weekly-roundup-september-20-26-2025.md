@@ -3,7 +3,7 @@ date: 2025-09-26T16:30:00-05:00
 title: 'Cybersecurity Weekly Roundup for September 22–26, 2025'
 description: "A deep dive into top cybersecurity breakthroughs, critical vulnerabilities, and emerging threats from September 22-26, 2025, with actionable insights for MSPs and security teams. Curated by me."
 tags: [cybersecurity weekly roundup, cybersecurity, infosecurity, news]
-#mastodon_url: https://infosec.exchange/@beardedtechguy/114915822528845707
+mastodon_url: https://infosec.exchange/@cyberseckyle/115272752822210994
 ---
 
 Forgive me for the last few weeks of absence. I have been sick with pneumonia and have had some back back problems that have made it hard to sit at a computer for long periods of time. I am on the mend now and hope to be back to my normal self.
