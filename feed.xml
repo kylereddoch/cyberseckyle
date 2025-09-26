@@ -4,12 +4,133 @@
   <subtitle>My life and journey through this world of technology. A blog about tech, cybersecurity, and everything in between.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-09-13T21:29:17Z</updated>
+  <updated>2025-09-26T21:33:12Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>Cybersecurity Weekly Roundup for September 22–26, 2025</title>
+      <link href="https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-22-26-2025/" />
+      <updated>2025-09-26T21:30:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-22-26-2025/</id>
+      <content type="html">
+				&lt;p&gt;Forgive me for the last few weeks of absence. I have been sick with pneumonia and have had some back back problems that have made it hard to sit at a computer for long periods of time. I am on the mend now and hope to be back to my normal self.&lt;/p&gt;
+&lt;p&gt;Let’s get back to it.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;It’s been another active week in cybersecurity. Major exploits, ransomware movements, and high-impact vulnerabilities made headlines again. Here’s a rundown of the top 10 stories security professionals should be tracking right now.&lt;/p&gt;
+&lt;p&gt;Cybersecurity this week was defined by a wave of urgent Cisco fixes and a CISA emergency directive, an actively exploited Chrome zero-day added to KEV, and disruptive ransomware hitting critical aviation software and U.S. local government services. For MSP-led environments, Patch Tuesday triage, rapid Chrome and Cisco patching, and tightening identity and network monitoring controls were the highest-impact moves to reduce real-world risk right now.&lt;/p&gt;
+&lt;h3 id=&quot;breakthroughs&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-22-26-2025/#breakthroughs&quot; class=&quot;heading-anchor&quot;&gt;Breakthroughs&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Okta showcased AI-driven identity governance and security capabilities at Oktane25, signaling deeper convergence of identity, AI, and automation in enterprise workflows and CIAM, with emphasis on adaptive controls and governance reach into customer identity estates.&lt;/li&gt;
+&lt;li&gt;Apple backported zero-day ImageIO fixes (CVE-2025-43300) to older iPhones and iPads, underscoring sustained investment in hardening the mobile ecosystem against sophisticated spyware operations targeting high-risk users.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;major-vulnerabilities&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-22-26-2025/#major-vulnerabilities&quot; class=&quot;heading-anchor&quot;&gt;Major vulnerabilities&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Cisco disclosed multiple critical issues across Secure Firewall ASA/FTD and IOS XE, with exploitation observed and a CISA emergency directive (ED 25-03) mandating federal action, elevating priority for enterprises and service providers operating Cisco edge and core infrastructure.&lt;/li&gt;
+&lt;li&gt;Google patched Chrome zero-day CVE-2025-10585 in V8, with CISA adding it to KEV and recommending urgent patching across enterprises due to active exploitation risk and prevalence of Chromium-based browsers.&lt;/li&gt;
+&lt;li&gt;Microsoft’s September Patch Tuesday addressed 80+ CVEs including two zero-days, with nine critical issues spanning RCE, EoP, and information disclosure, reinforcing monthly patch hygiene as a foundational control for Windows estates.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;emerging-trends&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-22-26-2025/#emerging-trends&quot; class=&quot;heading-anchor&quot;&gt;Emerging trends&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Ransomware activity continues to escalate, with exfiltration-first and affiliate-driven models driving more victims and operational disruption, evidenced by aviation software impact at major European airports and fresh local-government compromises.&lt;/li&gt;
+&lt;li&gt;Identity remains a prime battleground, with vendors emphasizing AI-powered governance and detections, while adversaries blend credential theft, social engineering, and device exploits to bypass controls at scale.&lt;/li&gt;
+&lt;li&gt;Rapid zero-day cadence across browsers, network devices, and mobile platforms amplifies time-to-patch pressure; KEV additions and emergency directives are increasingly the trigger for immediate operational response in enterprise and MSP contexts.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;top-10-articles-and-brief-summaries&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-22-26-2025/#top-10-articles-and-brief-summaries&quot; class=&quot;heading-anchor&quot;&gt;Top 10 articles and brief summaries&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;1️⃣-cisa-issues-emergency-directive-on-compromised-cisco-devices&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-22-26-2025/#1%EF%B8%8F%E2%83%A3-cisa-issues-emergency-directive-on-compromised-cisco-devices&quot; class=&quot;heading-anchor&quot;&gt;1️⃣ &lt;strong&gt;CISA Issues Emergency Directive on Compromised Cisco Devices&lt;/strong&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;CISA has issued Emergency Directive 25-03, mandating federal agencies to immediately identify and mitigate potential compromise of Cisco security devices. This follows active exploitation of previously unknown vulnerabilities in ASA/FTD firewalls and IOS XE systems. The directive sets a critical precedent for enterprise and MSP response protocols when perimeter security is at risk.&lt;/p&gt;
+&lt;h4 id=&quot;2️⃣-google-patches-sixth-chrome-zero-day-of-2025-cve-2025-10585&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-22-26-2025/#2%EF%B8%8F%E2%83%A3-google-patches-sixth-chrome-zero-day-of-2025-cve-2025-10585&quot; class=&quot;heading-anchor&quot;&gt;2️⃣ &lt;strong&gt;Google Patches Sixth Chrome Zero-Day of 2025 (CVE-2025-10585)&lt;/strong&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Google has released an emergency update for Chrome to address CVE-2025-10585, a V8 engine vulnerability actively exploited in the wild. This marks the sixth Chrome zero-day patched this year, highlighting the browser as a primary attack vector. CISA has added the vulnerability to its Known Exploited Vulnerabilities catalog with urgent patching deadlines.&lt;/p&gt;
+&lt;h4 id=&quot;3️⃣-multiple-critical-cisco-vulnerabilities-under-active-exploitation&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-22-26-2025/#3%EF%B8%8F%E2%83%A3-multiple-critical-cisco-vulnerabilities-under-active-exploitation&quot; class=&quot;heading-anchor&quot;&gt;3️⃣ &lt;strong&gt;Multiple Critical Cisco Vulnerabilities Under Active Exploitation&lt;/strong&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Cisco disclosed three critical vulnerabilities affecting ASA/FTD and IOS XE platforms, with CVE-2025-20333 (RCE) and CVE-2025-20362 (authentication bypass) already seeing active exploitation. The vulnerabilities can be chained together for complete system compromise, prompting immediate patch deployment across enterprise networks.&lt;/p&gt;
+&lt;h4 id=&quot;4️⃣-microsoft-september-patch-tuesday-addresses-81-flaws-including-two-zero-days&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-22-26-2025/#4%EF%B8%8F%E2%83%A3-microsoft-september-patch-tuesday-addresses-81-flaws-including-two-zero-days&quot; class=&quot;heading-anchor&quot;&gt;4️⃣ &lt;strong&gt;Microsoft September Patch Tuesday Addresses 81 Flaws Including Two Zero-Days&lt;/strong&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Microsoft’s September update cycle patched 81 vulnerabilities, including two actively exploited zero-days and nine critical-severity issues spanning remote code execution and elevation of privilege. The scope underscores the continued need for rapid patch deployment in Windows-centric environments.&lt;/p&gt;
+&lt;h4 id=&quot;5️⃣-ransomware-disrupts-major-european-airport-operations&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-22-26-2025/#5%EF%B8%8F%E2%83%A3-ransomware-disrupts-major-european-airport-operations&quot; class=&quot;heading-anchor&quot;&gt;5️⃣ &lt;strong&gt;Ransomware Disrupts Major European Airport Operations&lt;/strong&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;RTX Corporation confirmed that ransomware compromised Collins Aerospace’s MUSE passenger processing software, causing significant disruptions at multiple European airports. The incident highlights the vulnerability of critical aviation infrastructure and the cascading effects of supply chain compromises.&lt;/p&gt;
+&lt;h4 id=&quot;6️⃣-ohio-county-ransomware-attack-impacts-45000-residents&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-22-26-2025/#6%EF%B8%8F%E2%83%A3-ohio-county-ransomware-attack-impacts-45000-residents&quot; class=&quot;heading-anchor&quot;&gt;6️⃣ &lt;strong&gt;Ohio County Ransomware Attack Impacts 45,000 Residents&lt;/strong&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;A ransomware attack on an Ohio county government has compromised personal information of over 45,000 residents, including Social Security numbers and sensitive documents. The incident exemplifies the continued targeting of state and local government infrastructure with limited cybersecurity resources.&lt;/p&gt;
+&lt;h4 id=&quot;7️⃣-apple-backports-zero-day-fixes-to-legacy-ios-devices&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-22-26-2025/#7%EF%B8%8F%E2%83%A3-apple-backports-zero-day-fixes-to-legacy-ios-devices&quot; class=&quot;heading-anchor&quot;&gt;7️⃣ &lt;strong&gt;Apple Backports Zero-Day Fixes to Legacy iOS Devices&lt;/strong&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Apple has released security updates for older iPhone and iPad models to address CVE-2025-43300, an ImageIO vulnerability being exploited in targeted spyware attacks. The backporting effort demonstrates Apple’s commitment to securing devices across the entire ecosystem lifecycle.&lt;/p&gt;
+&lt;h4 id=&quot;8️⃣-pnc-financial-services-under-investigation-for-740000-customer-data-breach&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-22-26-2025/#8%EF%B8%8F%E2%83%A3-pnc-financial-services-under-investigation-for-740000-customer-data-breach&quot; class=&quot;heading-anchor&quot;&gt;8️⃣ &lt;strong&gt;PNC Financial Services Under Investigation for 740,000 Customer Data Breach&lt;/strong&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;PNC Financial Services faces regulatory investigation following a data breach affecting 740,000 customer records. The incident adds to a growing list of financial services breaches in 2025, emphasizing the need for enhanced data protection in the banking sector.&lt;/p&gt;
+&lt;h4 id=&quot;9️⃣-scattered-spider-linked-to-new-wave-of-ransomware-campaigns&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-22-26-2025/#9%EF%B8%8F%E2%83%A3-scattered-spider-linked-to-new-wave-of-ransomware-campaigns&quot; class=&quot;heading-anchor&quot;&gt;9️⃣ &lt;strong&gt;Scattered Spider Linked to New Wave of Ransomware Campaigns&lt;/strong&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Intelligence reports have connected the Scattered Spider threat group to a fresh series of ransomware attacks targeting enterprise environments. The group’s sophisticated social engineering techniques and multi-stage attack chains continue to challenge traditional security controls.&lt;/p&gt;
+&lt;h4 id=&quot;🔟-okta-unveils-ai-powered-identity-governance-at-oktane25&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-22-26-2025/#%F0%9F%94%9F-okta-unveils-ai-powered-identity-governance-at-oktane25&quot; class=&quot;heading-anchor&quot;&gt;🔟 &lt;strong&gt;Okta Unveils AI-Powered Identity Governance at Oktane25&lt;/strong&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;At Oktane25, Okta demonstrated new AI-driven identity governance and security capabilities, signaling the industry’s shift toward automated identity management and adaptive access controls. The announcements highlight emerging opportunities for MSPs to enhance customer identity security postures.&lt;/p&gt;
+&lt;h3 id=&quot;notes-on-impact&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-22-26-2025/#notes-on-impact&quot; class=&quot;heading-anchor&quot;&gt;Notes on impact&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Cisco’s cluster of high-severity issues plus a federal directive materially raise edge-infrastructure risk for enterprises and service providers, warranting immediate engineering sprints and expanded telemetry on VPN, SNMP, and device integrity.&lt;/li&gt;
+&lt;li&gt;The Chrome zero-day streak shows browser engines remain lucrative targets, making automated and enforced update channels a baseline requirement for SOC and endpoint governance.&lt;/li&gt;
+&lt;li&gt;Ransomware’s operational impact across aviation and local government reiterates the need to detect data staging/exfiltration earlier in the kill chain and to exercise restoration runbooks that assume partial SaaS outages.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This Cybersecurity Weekly Roundup prioritizes actions for MSP-led environments in the Texas Panhandle and beyond where mixed Cisco stacks, Windows estates, and Chromium browsers are prevalent, pairing vendor directives with pragmatic controls that reduce risk quickly.&lt;/p&gt;
+&lt;h4 id=&quot;🔗-references&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-22-26-2025/#%F0%9F%94%97-references&quot; class=&quot;heading-anchor&quot;&gt;🔗 References&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ol&gt;
+&lt;li&gt;CISA Emergency Directive ED 25-03 - Identify and Mitigate Potential Compromise of Cisco Devices&lt;br&gt;
+(&lt;a href=&quot;https://www.cisa.gov/news-events/directives/ed-25-03-identify-and-mitigate-potential-compromise-cisco-devices&quot; rel=&quot;noopener&quot;&gt;external link&lt;/a&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;Reuters - US sounds alarm over hackers targeting Cisco security devices&lt;br&gt;
+(&lt;a href=&quot;https://www.reuters.com/legal/litigation/us-sounds-alarm-over-hackers-targeting-cisco-security-devices-2025-09-25/&quot; rel=&quot;noopener&quot;&gt;external link&lt;/a&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;Rapid7 - Multiple critical vulnerabilities affecting Cisco products CVE-2025-20333, CVE-2025-20362, CVE-2025-20363&lt;br&gt;
+(&lt;a href=&quot;https://www.rapid7.com/blog/post/etr-cve-2025-20333-cve-2025-20362-cve-2025-20363-multiple-critical-vulnerabilities-affecting-cisco-products/&quot; rel=&quot;noopener&quot;&gt;external link&lt;/a&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;Cisco Security Advisory - ASA/FTD WebVPN Vulnerabilities&lt;br&gt;
+(&lt;a href=&quot;https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-webvpn-z5xP8EUB&quot; rel=&quot;noopener&quot;&gt;external link&lt;/a&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&quot;5&quot;&gt;
+&lt;li&gt;Cisco Security Advisory - IOS XE Software Secure Boot Bypass Vulnerabilities&lt;br&gt;
+(&lt;a href=&quot;https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-secboot-UqFD8AvC&quot; rel=&quot;noopener&quot;&gt;external link&lt;/a&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&quot;6&quot;&gt;
+&lt;li&gt;BleepingComputer - Google patches sixth Chrome zero-day exploited in attacks this year&lt;br&gt;
+(&lt;a href=&quot;https://www.bleepingcomputer.com/news/security/google-patches-sixth-chrome-zero-day-exploited-in-attacks-this-year/&quot; rel=&quot;noopener&quot;&gt;external link&lt;/a&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&quot;7&quot;&gt;
+&lt;li&gt;GBHackers - CISA Issues Alert on Actively Exploited Google Chrome 0-Day Vulnerability&lt;br&gt;
+(&lt;a href=&quot;https://gbhackers.com/cisa-issues-chrome-0-day-vulnerability/&quot; rel=&quot;noopener&quot;&gt;external link&lt;/a&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&quot;8&quot;&gt;
+&lt;li&gt;BleepingComputer - Microsoft September 2025 Patch Tuesday fixes 81 flaws, two zero-days&lt;br&gt;
+(&lt;a href=&quot;https://www.bleepingcomputer.com/news/microsoft/microsoft-september-2025-patch-tuesday-fixes-81-flaws-two-zero-days/&quot; rel=&quot;noopener&quot;&gt;external link&lt;/a&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&quot;9&quot;&gt;
+&lt;li&gt;Cybersecurity Dive - RTX confirms hack of passenger boarding software involved ransomware&lt;br&gt;
+(&lt;a href=&quot;https://www.cybersecuritydive.com/news/rtx-hack-passenger-boarding-software-ransomware/761265/&quot; rel=&quot;noopener&quot;&gt;external link&lt;/a&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&quot;10&quot;&gt;
+&lt;li&gt;The Record - Ransomware attack on Ohio county impacts over 45,000 residents&lt;br&gt;
+(&lt;a href=&quot;https://therecord.media/ohio-ransomware-attack-impacts-45000&quot; rel=&quot;noopener&quot;&gt;external link&lt;/a&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+ 			</content>
+    </entry><entry>
       <title>Apple’s September Event: What Mattered, What’s Hype, and What I’m Actually Buying</title>
       <link href="https://www.kylereddoch.me/blog/apples-september-event-what-mattered-whats-hype-and-what-im-actually-buying/" />
       <updated>2025-09-13T19:00:00Z</updated>
