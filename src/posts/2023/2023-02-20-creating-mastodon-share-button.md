@@ -1,7 +1,7 @@
 ---
 title: 'How to Add a Mastodon Share Button to Your Website'
 description: "Learn how to add a Mastodon share button to your website using a little bit of HTML and JavaScript."
-tags: [mastodon, javascript, html, tutorial]
+tags: [mastodon, javascript, html, tutorials, social media]
 date: 2023-02-20
 ---
 
