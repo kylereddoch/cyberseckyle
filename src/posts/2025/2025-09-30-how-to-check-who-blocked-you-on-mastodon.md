@@ -3,7 +3,7 @@ date: 2025-09-30T09:00:00-05:00
 title: 'How to Check Who Blocked You on Mastodon with Python'
 description: "You cannot get a complete list of who blocked you on Mastodon, but you can verify specific accounts and check whether specific servers block your instance. This is a practical, code-first guide with Python scripts for single and batch checks."
 tags: [mastodon, tutorials, python, social media]
-# mastodon_url: https://infosec.exchange/@cyberseckyle/115272752822210994
+mastodon_url: https://infosec.exchange/@cyberseckyle/115293684055517553
 ---
 
 > **Quick disclaimer:** Mastodon does not provide a master list of “who blocked me.” That is a privacy and anti-harassment design choice. You can only verify specific accounts, and you can sometimes see if specific servers publish that they block your home instance. Treat this as a diagnostic guide, not a call-out kit.
