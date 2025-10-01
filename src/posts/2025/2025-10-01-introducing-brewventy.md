@@ -3,7 +3,7 @@ date: 2025-10-01T11:00:00-05:00
 title: "Introducing Brewventy: Your Coffee-Themed Eleventy Starter Kit"
 description: “Discover Brewventy, a customizable coffee-themed Eleventy starter with dark/light modes, SCSS-driven theming, and built-in deployment workflows for effortless site launches.”
 tags: [eleventy]
-#mastodon_url: https://infosec.exchange/@cyberseckyle/115293684055517553
+mastodon_url: https://infosec.exchange/@cyberseckyle/115299796012179776
 ---
 
 ![Brewventy Website Screenshot shown on a Macbook](/assets/images/brewventy-macbook-hero.png){loading="eager" eleventy:widths="auto"}
