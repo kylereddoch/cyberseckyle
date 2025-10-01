@@ -1,19 +1,18 @@
 ---
-date: 2025-10-01T09:00:00-05:00
+date: 2025-10-01T11:00:00-05:00
 title: "Introducing Brewventy: Your Coffee-Themed Eleventy Starter Kit"
 description: “Discover Brewventy, a customizable coffee-themed Eleventy starter with dark/light modes, SCSS-driven theming, and built-in deployment workflows for effortless site launches.”
 tags: [eleventy]
 #mastodon_url: https://infosec.exchange/@cyberseckyle/115293684055517553
-draft: true
 ---
+
+![Brewventy Website Screenshot shown on a Macbook](/assets/images/brewventy-macbook-hero.png){loading="eager" eleventy:widths="auto"}
 
 Unlock the perfect brew of **design**, **performance**, and **developer experience** with **Brewventy**, a fully customizable Eleventy starter kit. Whether you’re launching a personal blog, documentation site, or simple landing page, Brewventy provides a coffee-inspired theme, easy theming system, and deployment-ready tooling—so you can focus on content, not configuration.
 
----
-
 ## What Is Brewventy?
 
-Brewventy is an open-source Eleventy template that blends:
+[Brewventy](https://github.com/kylereddoch/brewventy) is an open-source Eleventy template that blends:
 
 - **Elegant design**: A clean, responsive layout with a subtle coffee aesthetic  
 - **Dark & light modes**: Toggle between _Mocha_ (dark) and _Latte_ (light) themes seamlessly  
@@ -21,8 +20,6 @@ Brewventy is an open-source Eleventy template that blends:
 - **Accessibility**: WCAG-friendly focus styles, semantic HTML, and proper aria labels
 
 It ships with sensible defaults—typography, color palette, and animations—yet remains fully customizable via SCSS variables, Nunjucks shortcodes, and Eleventy config.
-
----
 
 ## Key Features
 
@@ -32,7 +29,7 @@ It ships with sensible defaults—typography, color palette, and animations—ye
 - SCSS variables in `src/styles/themes/_variables.scss` let you tweak every color and spacing token
 
 ### Eleventy Foundation  
-- Powered by **@11ty/eleventy@^3.1.2** with built-in plugins for navigation, RSS feeds, and syntax highlighting  
+- Powered by **Eleventy 3.1.2** with built-in plugins for navigation, RSS feeds, and syntax highlighting  
 - Markdown and Nunjucks support for flexible content authoring  
 - Data files under `src/_data/` automate site metadata, navigation, and social links
 
@@ -46,8 +43,6 @@ It ships with sensible defaults—typography, color palette, and animations—ye
 - **GitHub Actions** workflow (on `main` pushes) builds the site and deploys `_site/` to your `gh-pages` branch  
 - Detailed guides for Netlify, Vercel, and GitHub Pages in `DOCS/DEPLOYMENT.md`  
 - One-click sponsorship via GitHub Sponsors badge in README
-
----
 
 ## Getting Started
 
@@ -75,8 +70,6 @@ It ships with sensible defaults—typography, color palette, and animations—ye
    Your static files will be in the `_site/` directory.
 
 5. **Deploy** via GitHub Pages (automatic via Actions) or follow `DOCS/DEPLOYMENT.md` for Netlify/Vercel.
-
----
 
 ## Theming & Customization
 
@@ -112,8 +105,6 @@ eleventyConfig.addShortcode("coffeeToggle", () => {
 });
 ```
 
----
-
 ## Deployment Guides
 
 Find step-by-step instructions in `DOCS/DEPLOYMENT.md`, covering:
@@ -122,14 +113,10 @@ Find step-by-step instructions in `DOCS/DEPLOYMENT.md`, covering:
 - **Vercel**: Run `vercel` CLI, configure output folder `_site/`.  
 - **GitHub Pages**: Push `gh-pages` branch via Actions workflow using `peaceiris/actions-gh-pages`.
 
----
-
 ## Contribute & Support
 
 - **Issues & PRs**: Open on [GitHub Issues](https://github.com/kylereddoch/brewventy/issues).  
 - **Sponsor**: Keep the coffee flowing via GitHub Sponsors (link in README).  
 - **Roadmap**: Future enhancements include additional theme variants, improved blog components, and plugin extensions.
-
----
 
 Brewventy combines a delightful coffee-inspired UI with the power and flexibility of Eleventy. Clone, customize, and launch your site today—**and enjoy your perfect brew**! ☕🚀
