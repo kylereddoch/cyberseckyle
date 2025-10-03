@@ -3,8 +3,7 @@ date: 2025-10-03T16:30:00-05:00
 title: 'Cybersecurity Weekly Roundup for September 27–October 03, 2025'
 description: "A deep dive into top cybersecurity breakthroughs, critical vulnerabilities, and emerging threats from September 27-October 03, 2025, with actionable insights for MSPs and security teams. Curated by me."
 tags: [cybersecurity weekly roundup, cybersecurity, infosecurity, news]
-#mastodon_url: https://infosec.exchange/@cyberseckyle/115272752822210994
----
+mastodon_url: https://infosec.exchange/@cyberseckyle/115312478378688235
 
 It’s been a punchy week. We saw a genuine crypto breakthrough from Signal, a flurry of high-severity patches across browsers and Cisco, and a policy change in Washington that could chill threat-intel sharing. Extortion crews are probing SaaS and supply chains, and ransomware continues to hit operations.
 
