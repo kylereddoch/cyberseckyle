@@ -4,12 +4,118 @@
   <subtitle>My life and journey through this world of technology. A blog about tech, cybersecurity, and everything in between.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-10-01T16:19:30Z</updated>
+  <updated>2025-10-03T21:58:38Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>Cybersecurity Weekly Roundup for September 27–October 03, 2025</title>
+      <link href="https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-27-october-03-2025/" />
+      <updated>2025-10-03T21:30:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-27-october-03-2025/</id>
+      <content type="html">
+				&lt;p&gt;It’s been a punchy week. We saw a genuine crypto breakthrough from Signal, a flurry of high-severity patches across browsers and Cisco, and a policy change in Washington that could chill threat-intel sharing. Extortion crews are probing SaaS and supply chains, and ransomware continues to hit operations.&lt;/p&gt;
+&lt;p&gt;For MSPs and security teams, your near-term playbook is: &lt;strong&gt;ship browser and Cisco updates, track CISA KEV adds, harden identity and SaaS, and validate offline backups.&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;breakthroughs&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-27-october-03-2025/#breakthroughs&quot; class=&quot;heading-anchor&quot;&gt;Breakthroughs&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Signal ships a post-quantum ratchet (SPQR).&lt;/strong&gt; A practical upgrade that layers post-quantum exchanges into the Signal Protocol. This preserves forward secrecy and improves post-compromise security, and it sets a template other E2EE clients are likely to follow.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;U.K. NCSC pushes PQC migrations.&lt;/strong&gt; The NCSC reopened its PQC pilot, clarifying language and partner pathways. For enterprises plotting crypto-modernization, this reduces planning ambiguity and gives a firmer glide path.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;major-vulnerabilities-and-patching&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-27-october-03-2025/#major-vulnerabilities-and-patching&quot; class=&quot;heading-anchor&quot;&gt;Major vulnerabilities and patching&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Enterprise browsers.&lt;/strong&gt; Chrome 141 and Firefox 143 shipped with high-severity fixes. Enforce auto-update, remove blocker extensions, and verify kiosk and VDI images are refreshed.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cisco advisories.&lt;/strong&gt; New and updated notices this week include issues that can trigger control-plane instability or exposure on ASA/FTD and IOS/IOS XE. Inventory versions, minimize internet-exposed management, and monitor for abnormal SNMP or VPN behavior.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CISA KEV momentum.&lt;/strong&gt; Several newly added exploited CVEs should drive internal patch SLAs. Treat KEV due dates as operational deadlines, not suggestions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;emerging-trends-and-likely-impact&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-27-october-03-2025/#emerging-trends-and-likely-impact&quot; class=&quot;heading-anchor&quot;&gt;Emerging trends and likely impact&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Extortion pivots to business apps.&lt;/strong&gt; Campaigns are leaning into ERP and CRM ecosystems. Expect more board-pressure emails and threats to leak aggregated customer data.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Supply-chain fragility.&lt;/strong&gt; Manufacturer and consumer-brand incidents show how quickly operational disruptions ripple through logistics and retail. Prove manual fallbacks and vendor contingencies.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Policy uncertainty.&lt;/strong&gt; A lapse in the U.S. cyber-intel sharing framework could make some organizations hesitate to exchange indicators until Congress clarifies liability protections. Build bilateral ISAC/ISAO ties and get counsel involved in your intel workflows.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;top-10-articles-and-brief-summaries&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-27-october-03-2025/#top-10-articles-and-brief-summaries&quot; class=&quot;heading-anchor&quot;&gt;Top 10 articles and brief summaries&lt;/a&gt;&lt;/h2&gt;
+&lt;h4 id=&quot;oracle-customer-extortion-campaign&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-27-october-03-2025/#oracle-customer-extortion-campaign&quot; class=&quot;heading-anchor&quot;&gt;Oracle customer extortion campaign&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Oracle warned that threat actors are pressuring E-Business Suite customers with ransom demands after exploiting known flaws. Patch hygiene and credential hardening on business apps should rise in priority.&lt;/p&gt;
+&lt;h4 id=&quot;claims-of-large-scale-theft-from-salesforce-customer-databases&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-27-october-03-2025/#claims-of-large-scale-theft-from-salesforce-customer-databases&quot; class=&quot;heading-anchor&quot;&gt;Claims of large-scale theft from Salesforce customer databases&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;A group is sending extortion emails alleging access to CRM records. Treat this as a SaaS posture wake-up call: review OAuth tokens, IP allowlists, SSO enforcement, and export-anomaly alerts.&lt;/p&gt;
+&lt;h4 id=&quot;new-entries-in-cisas-known-exploited-vulnerabilities-catalog&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-27-october-03-2025/#new-entries-in-cisas-known-exploited-vulnerabilities-catalog&quot; class=&quot;heading-anchor&quot;&gt;New entries in CISA’s Known Exploited Vulnerabilities catalog&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;The latest KEV additions raise patch priority across mixed fleets. Use KEV to drive exception-free change windows.&lt;/p&gt;
+&lt;h4 id=&quot;chrome-141-and-firefox-143-ship-security-fixes&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-27-october-03-2025/#chrome-141-and-firefox-143-ship-security-fixes&quot; class=&quot;heading-anchor&quot;&gt;Chrome 141 and Firefox 143 ship security fixes&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Browsers remain prime targets, and high-severity fixes continue to land. Enforce updates and track lagging Chromium forks in your estate.&lt;/p&gt;
+&lt;h4 id=&quot;us-cyber-intel-sharing-protections-lapse&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-27-october-03-2025/#us-cyber-intel-sharing-protections-lapse&quot; class=&quot;heading-anchor&quot;&gt;U.S. cyber-intel sharing protections lapse&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;The expiration of the 2015 law may chill voluntary sharing until there is legislative clarity. Expect more conservative legal stances from risk-averse orgs.&lt;/p&gt;
+&lt;h4 id=&quot;asahi-incident-disrupts-orders-and-shipments-in-japan&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-27-october-03-2025/#asahi-incident-disrupts-orders-and-shipments-in-japan&quot; class=&quot;heading-anchor&quot;&gt;Asahi incident disrupts orders and shipments in Japan&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;A cyberattack forced manual workarounds and delayed product flows, a concrete example of operational risk from IT incidents.&lt;/p&gt;
+&lt;h4 id=&quot;renault-and-dacia-customer-data-impacted-via-a-third-party-provider-uk&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-27-october-03-2025/#renault-and-dacia-customer-data-impacted-via-a-third-party-provider-uk&quot; class=&quot;heading-anchor&quot;&gt;Renault and Dacia customer data impacted via a third-party provider (U.K.)&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Another reminder that vendor access and data sharing magnify exposure. Re-score suppliers and tighten token scopes.&lt;/p&gt;
+&lt;h4 id=&quot;cisco-releases-updated-advisories&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-27-october-03-2025/#cisco-releases-updated-advisories&quot; class=&quot;heading-anchor&quot;&gt;Cisco releases updated advisories&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Review the semiannual bundle and new notes, especially SNMP-related issues and internet-exposed devices. Add control-plane telemetry where you lack visibility.&lt;/p&gt;
+&lt;h4 id=&quot;signal-unveils-spqr-post-quantum-ratchet&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-27-october-03-2025/#signal-unveils-spqr-post-quantum-ratchet&quot; class=&quot;heading-anchor&quot;&gt;Signal unveils SPQR (post-quantum ratchet)&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;A real, deployable move toward post-quantum protections in mainstream messaging. Watch for downstream adoption and guidance from standards bodies.&lt;/p&gt;
+&lt;h4 id=&quot;ncsc-pqc-pilot-and-guidance&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-27-october-03-2025/#ncsc-pqc-pilot-and-guidance&quot; class=&quot;heading-anchor&quot;&gt;NCSC PQC pilot and guidance&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;The U.K. is actively smoothing enterprise migrations to PQC. For multinationals, align crypto roadmaps with this guidance to avoid fragmented deployments.&lt;/p&gt;
+&lt;h2 id=&quot;what-matters-now-msp-ready-checklist&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-27-october-03-2025/#what-matters-now-msp-ready-checklist&quot; class=&quot;heading-anchor&quot;&gt;What matters now (MSP-ready checklist)&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Ship browser updates&lt;/strong&gt; across fleets and shared kiosks. Kill legacy extensions that block upgrades.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Audit Cisco exposure&lt;/strong&gt; on management interfaces, SNMP, and VPN. Confirm versions from this week’s advisories.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Map KEV to assets&lt;/strong&gt; and set SLAs that beat CISA timelines. Escalate where compensating controls are weak.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Harden SaaS&lt;/strong&gt; for Salesforce and Oracle: rotate and scope tokens, enforce SSO, add export and API anomaly alerts.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Scenario-test supply-chain outages,&lt;/strong&gt; including offline restore paths and manual order intake.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Start PQC planning&lt;/strong&gt; now: inventory cryptographic dependencies, prioritize protocols with internet exposure, and track SPQR as an implementation signal.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;references&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-september-27-october-03-2025/#references&quot; class=&quot;heading-anchor&quot;&gt;References&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Reuters:&lt;/strong&gt; “Oracle says hackers are trying to extort its customers”&lt;br&gt;
+&lt;a href=&quot;https://www.reuters.com/business/oracle-says-hackers-are-trying-extort-its-customers-2025-10-03/&quot; rel=&quot;noopener&quot;&gt;https://www.reuters.com/business/oracle-says-hackers-are-trying-extort-its-customers-2025-10-03/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;TechCrunch:&lt;/strong&gt; “Hacking group claims theft of records from Salesforce customer databases”&lt;br&gt;
+&lt;a href=&quot;https://techcrunch.com/2025/10/03/hacking-group-claims-theft-of-1-billion-records-from-salesforce-customer-databases/&quot; rel=&quot;noopener&quot;&gt;https://techcrunch.com/2025/10/03/hacking-group-claims-theft-of-1-billion-records-from-salesforce-customer-databases/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;CISA Alert:&lt;/strong&gt; “CISA adds five Known Exploited Vulnerabilities to the catalog”&lt;br&gt;
+&lt;a href=&quot;https://www.cisa.gov/news-events/alerts/2025/10/02/cisa-adds-five-known-exploited-vulnerabilities-catalog&quot; rel=&quot;noopener&quot;&gt;https://www.cisa.gov/news-events/alerts/2025/10/02/cisa-adds-five-known-exploited-vulnerabilities-catalog&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;SecurityWeek:&lt;/strong&gt; “Chrome 141 and Firefox 143 patches fix high-severity vulnerabilities”&lt;br&gt;
+&lt;a href=&quot;https://www.securityweek.com/chrome-141-and-firefox-143-patches-fix-high-severity-vulnerabilities/&quot; rel=&quot;noopener&quot;&gt;https://www.securityweek.com/chrome-141-and-firefox-143-patches-fix-high-severity-vulnerabilities/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;The Wall Street Journal:&lt;/strong&gt; “Congress let cyber-intel sharing act lapse” and &lt;strong&gt;World Economic Forum&lt;/strong&gt; explainer&lt;br&gt;
+&lt;a href=&quot;https://www.wsj.com/articles/congress-let-cyber-intel-sharing-act-lapse-does-it-matter-c031e6bd&quot; rel=&quot;noopener&quot;&gt;https://www.wsj.com/articles/congress-let-cyber-intel-sharing-act-lapse-does-it-matter-c031e6bd&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://www.weforum.org/stories/2025/10/key-us-cyber-law-expire-cybersecurity-news/&quot; rel=&quot;noopener&quot;&gt;https://www.weforum.org/stories/2025/10/key-us-cyber-law-expire-cybersecurity-news/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Associated Press:&lt;/strong&gt; “Cyberattack disrupts orders and shipments at Asahi”&lt;br&gt;
+&lt;a href=&quot;https://apnews.com/article/e8854524dcd02eee4aa9e3d65464d019&quot; rel=&quot;noopener&quot;&gt;https://apnews.com/article/e8854524dcd02eee4aa9e3d65464d019&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Cybersecurity-Review (news digest page):&lt;/strong&gt; “Renault &amp;amp; Dacia customer data impacted via third-party provider (UK)”&lt;br&gt;
+&lt;a href=&quot;https://www.cybersecurity-review.com/news-october-2025/&quot; rel=&quot;noopener&quot;&gt;https://www.cybersecurity-review.com/news-october-2025/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Cisco Security Advisories:&lt;/strong&gt; Advisory index and SNMP advisory&lt;br&gt;
+&lt;a href=&quot;https://sec.cloudapps.cisco.com/security/center/publicationListing.x&quot; rel=&quot;noopener&quot;&gt;https://sec.cloudapps.cisco.com/security/center/publicationListing.x&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snmp-x4LPhte&quot; rel=&quot;noopener&quot;&gt;https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snmp-x4LPhte&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Signal Blog:&lt;/strong&gt; “SPQR: a new post-quantum ratchet for Signal,” and &lt;strong&gt;BleepingComputer&lt;/strong&gt; coverage&lt;br&gt;
+&lt;a href=&quot;https://signal.org/blog/spqr/&quot; rel=&quot;noopener&quot;&gt;https://signal.org/blog/spqr/&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://www.bleepingcomputer.com/news/security/signal-adds-new-cryptographic-defense-against-quantum-attacks/&quot; rel=&quot;noopener&quot;&gt;https://www.bleepingcomputer.com/news/security/signal-adds-new-cryptographic-defense-against-quantum-attacks/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;techUK:&lt;/strong&gt; “NCSC shares update on PQC pilot scheme,” and &lt;strong&gt;Tenable&lt;/strong&gt; briefing&lt;br&gt;
+&lt;a href=&quot;https://www.techuk.org/resource/ncsc-shares-update-on-post-quantum-cryptography-pilot-scheme.html&quot; rel=&quot;noopener&quot;&gt;https://www.techuk.org/resource/ncsc-shares-update-on-post-quantum-cryptography-pilot-scheme.html&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://www.tenable.com/blog/cybersecurity-snapshot-cybersecurity-awareness-month-arrives-to-find-ai-security-a-hot-mess-as&quot; rel=&quot;noopener&quot;&gt;https://www.tenable.com/blog/cybersecurity-snapshot-cybersecurity-awareness-month-arrives-to-find-ai-security-a-hot-mess-as&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+ 			</content>
+    </entry><entry>
       <title>Introducing Brewventy: Your Coffee-Themed Eleventy Starter Kit</title>
       <link href="https://www.kylereddoch.me/blog/introducing-brewventy-your-coffee-themed-eleventy-starter-kit/" />
       <updated>2025-10-01T16:00:00Z</updated>
