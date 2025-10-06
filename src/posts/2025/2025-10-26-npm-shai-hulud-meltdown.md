@@ -3,7 +3,7 @@ date: 2025-10-06T11:30:00-05:00
 title: 'The npm ‘Shai-Hulud’ Supply-Chain Meltdown: What It Broke, What It Means, and What We Fix Next'
 description: "A practitioner's take on the September 2025 npm worm that trojanized hundreds of packages, how it rippled through CI/CD and cloud, and the concrete moves teams should make to harden their software supply chain right now."
 tags: [cybersecurity, infosecurity, news, npm,]
-#mastodon_url: https://infosec.exchange/@cyberseckyle/115312478378688235
+mastodon_url: https://infosec.exchange/@cyberseckyle/115328301952815157
 ---
 
 ![npm logo](https://upload.wikimedia.org/wikipedia/commons/d/db/Npm-logo.svg "npm logo")  
