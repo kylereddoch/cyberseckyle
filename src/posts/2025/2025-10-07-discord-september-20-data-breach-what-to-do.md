@@ -3,7 +3,7 @@ date: 2025-10-07T14:00:00-05:00
 title: 'What To Do If You Were Affected By Discord’s 9/20 Security Incident'
 description: "Practical, security focused steps to take if you received Discord’s September 20, 2025 breach notification. Includes account hardening, identity protection, and anti‑phishing tips."
 tags: [cybersecurity, infosecurity, news, discord]
-#mastodon_url: https://infosec.exchange/@cyberseckyle/115328301952815157
+mastodon_url: https://infosec.exchange/@cyberseckyle/115334541393623997
 ---
 
 ![Discord data breach hero image](/assets/images/discord_data_breach_hero.png){loading="eager" eleventy:widths="auto"}
