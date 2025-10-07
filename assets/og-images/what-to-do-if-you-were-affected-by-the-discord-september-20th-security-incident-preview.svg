@@ -23,7 +23,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="130">
+    <tspan x="160" y="90">
       10 / 07 / 2025
     </tspan>
   </text>
@@ -38,11 +38,13 @@
     letter-spacing="-3"
   >
     
-      <tspan x="160" y="230"> What To Do If You Were </tspan>
+      <tspan x="160" y="190"> What To Do If You Were </tspan>
     
-      <tspan x="160" y="315"> Affected By Discord’s </tspan>
+      <tspan x="160" y="275"> Affected By The </tspan>
     
-      <tspan x="160" y="400"> 9/20 Security Incident </tspan>
+      <tspan x="160" y="360"> Discord September 20th </tspan>
+    
+      <tspan x="160" y="445"> Security Incident </tspan>
     
   </text>
 

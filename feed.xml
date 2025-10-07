@@ -4,38 +4,38 @@
   <subtitle>My life and journey through this world of technology. A blog about tech, cybersecurity, and everything in between.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-10-07T19:34:45Z</updated>
+  <updated>2025-10-07T20:35:31Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
-      <title>What To Do If You Were Affected By Discord’s 9/20 Security Incident</title>
-      <link href="https://www.kylereddoch.me/blog/what-to-do-if-you-were-affected-by-discords-9/20-security-incident/" />
+      <title>What To Do If You Were Affected By The Discord September 20th Security Incident</title>
+      <link href="https://www.kylereddoch.me/blog/what-to-do-if-you-were-affected-by-the-discord-september-20th-security-incident/" />
       <updated>2025-10-07T19:00:00Z</updated>
-      <id>https://www.kylereddoch.me/blog/what-to-do-if-you-were-affected-by-discords-9/20-security-incident/</id>
+      <id>https://www.kylereddoch.me/blog/what-to-do-if-you-were-affected-by-the-discord-september-20th-security-incident/</id>
       <content type="html">
 				&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/GmvFkymIzj-1536.webp 1536w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/GmvFkymIzj-1536.jpeg&quot; alt=&quot;Discord data breach hero image&quot; width=&quot;1536&quot; height=&quot;1024&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
 &lt;p&gt;On or around &lt;strong&gt;September 20, 2025&lt;/strong&gt;, attackers compromised a &lt;strong&gt;third‑party customer service provider&lt;/strong&gt; used by Discord. Discord reports that the intruder accessed data tied to &lt;strong&gt;support interactions&lt;/strong&gt; for a limited set of users. Impacted users are being notified by email.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;If you got the notification: proceed through the steps below in order. If you are unsure whether the email is real, treat it as hostile and verify through Discord directly.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;what-data-may-have-been-exposed&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/what-to-do-if-you-were-affected-by-discords-9/20-security-incident/#what-data-may-have-been-exposed&quot; class=&quot;heading-anchor&quot;&gt;What data may have been exposed&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;what-data-may-have-been-exposed&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/what-to-do-if-you-were-affected-by-the-discord-september-20th-security-incident/#what-data-may-have-been-exposed&quot; class=&quot;heading-anchor&quot;&gt;What data may have been exposed&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Names, Discord usernames, email addresses, and contact details.&lt;/li&gt;
 &lt;li&gt;Limited billing metadata, IP addresses, and support ticket contents.&lt;/li&gt;
 &lt;li&gt;For a small number of users, &lt;strong&gt;images of government‑issued IDs&lt;/strong&gt; submitted for age‑verification appeals. If this applies to you, the Discord email should say so clearly.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;what-was-not-exposed&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/what-to-do-if-you-were-affected-by-discords-9/20-security-incident/#what-was-not-exposed&quot; class=&quot;heading-anchor&quot;&gt;What was not exposed&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;what-was-not-exposed&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/what-to-do-if-you-were-affected-by-the-discord-september-20th-security-incident/#what-was-not-exposed&quot; class=&quot;heading-anchor&quot;&gt;What was not exposed&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Discord indicates no passwords, full card numbers or CVV, or general Discord messages/activity were taken. The incident targeted a support vendor, not Discord’s core production systems.&lt;/p&gt;
-&lt;h2 id=&quot;step-1-verify-the-email-is-legitimate-then-avoid-clicking-links&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/what-to-do-if-you-were-affected-by-discords-9/20-security-incident/#step-1-verify-the-email-is-legitimate-then-avoid-clicking-links&quot; class=&quot;heading-anchor&quot;&gt;Step 1: Verify the email is legitimate, then avoid clicking links&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;step-1-verify-the-email-is-legitimate-then-avoid-clicking-links&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/what-to-do-if-you-were-affected-by-the-discord-september-20th-security-incident/#step-1-verify-the-email-is-legitimate-then-avoid-clicking-links&quot; class=&quot;heading-anchor&quot;&gt;Step 1: Verify the email is legitimate, then avoid clicking links&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Phishing thrives on confusion. If you received an email:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Check the sender. Discord breach notices reference &lt;strong&gt;noreply[at]discord[dot]com&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;Do not click through. Open the Discord app or go to &lt;strong&gt;&lt;a href=&quot;http://discord.com&quot; rel=&quot;noopener&quot;&gt;discord.com&lt;/a&gt;&lt;/strong&gt; directly to verify.&lt;/li&gt;
 &lt;li&gt;Cross‑check against Discord’s official incident update.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&quot;step-2-lock-down-your-discord-account&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/what-to-do-if-you-were-affected-by-discords-9/20-security-incident/#step-2-lock-down-your-discord-account&quot; class=&quot;heading-anchor&quot;&gt;Step 2: Lock down your Discord account&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;step-2-lock-down-your-discord-account&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/what-to-do-if-you-were-affected-by-the-discord-september-20th-security-incident/#step-2-lock-down-your-discord-account&quot; class=&quot;heading-anchor&quot;&gt;Step 2: Lock down your Discord account&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Even if passwords were not reported stolen, hardening your account is the smart move.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Turn on Multi‑Factor Authentication (MFA).&lt;/strong&gt; Prefer &lt;strong&gt;passkeys&lt;/strong&gt; or &lt;strong&gt;hardware security keys&lt;/strong&gt;, then &lt;strong&gt;authenticator app&lt;/strong&gt; codes. Store &lt;strong&gt;backup codes&lt;/strong&gt; offline.&lt;/li&gt;
@@ -45,16 +45,16 @@
 &lt;li&gt;Be cautious with &lt;strong&gt;QR code logins&lt;/strong&gt;. Approve only logins you initiate, on your device, at that moment.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;strong&gt;Power‑user tip:&lt;/strong&gt; Use a password manager for unique credentials. Prefer a passphrase of 14+ characters if you cannot use a manager.&lt;/p&gt;
-&lt;h2 id=&quot;step-3-if-your-id-image-was-included-add-identity‑theft-safeguards&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/what-to-do-if-you-were-affected-by-discords-9/20-security-incident/#step-3-if-your-id-image-was-included-add-identity%E2%80%91theft-safeguards&quot; class=&quot;heading-anchor&quot;&gt;Step 3: If your &lt;strong&gt;ID image&lt;/strong&gt; was included, add identity‑theft safeguards&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;step-3-if-your-id-image-was-included-add-identity‑theft-safeguards&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/what-to-do-if-you-were-affected-by-the-discord-september-20th-security-incident/#step-3-if-your-id-image-was-included-add-identity%E2%80%91theft-safeguards&quot; class=&quot;heading-anchor&quot;&gt;Step 3: If your &lt;strong&gt;ID image&lt;/strong&gt; was included, add identity‑theft safeguards&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;If the notification states your &lt;strong&gt;driver’s license or passport image&lt;/strong&gt; was accessed, treat this like an identity risk event:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Place a credit freeze&lt;/strong&gt; with &lt;strong&gt;Equifax, Experian, and TransUnion&lt;/strong&gt;. This blocks new credit in your name unless you thaw it.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Monitor credit&lt;/strong&gt; and consider a &lt;strong&gt;fraud alert&lt;/strong&gt; if you want fewer hurdles than a full freeze.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Replace your driver’s license&lt;/strong&gt; if your state recommends it after exposure. Start with your state DMV portal.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&quot;step-4-expect-follow‑on-scams&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/what-to-do-if-you-were-affected-by-discords-9/20-security-incident/#step-4-expect-follow%E2%80%91on-scams&quot; class=&quot;heading-anchor&quot;&gt;Step 4: Expect follow‑on scams&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;step-4-expect-follow‑on-scams&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/what-to-do-if-you-were-affected-by-the-discord-september-20th-security-incident/#step-4-expect-follow%E2%80%91on-scams&quot; class=&quot;heading-anchor&quot;&gt;Step 4: Expect follow‑on scams&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Watch for targeted phishing that references your support ticket, “age verification,” or billing. Red flags include pressure to re‑verify your identity, QR codes to “secure” your account, or requests for card details. If anything feels off, do not click. Navigate to &lt;strong&gt;&lt;a href=&quot;http://discord.com&quot; rel=&quot;noopener&quot;&gt;discord.com&lt;/a&gt;&lt;/strong&gt; or the app directly and check your messages there.&lt;/p&gt;
-&lt;h2 id=&quot;step-5-extra-hygiene-for-the-whole-stack&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/what-to-do-if-you-were-affected-by-discords-9/20-security-incident/#step-5-extra-hygiene-for-the-whole-stack&quot; class=&quot;heading-anchor&quot;&gt;Step 5: Extra hygiene for the whole stack&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;step-5-extra-hygiene-for-the-whole-stack&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/what-to-do-if-you-were-affected-by-the-discord-september-20th-security-incident/#step-5-extra-hygiene-for-the-whole-stack&quot; class=&quot;heading-anchor&quot;&gt;Step 5: Extra hygiene for the whole stack&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Password manager&lt;/strong&gt; across all accounts, plus MFA on your &lt;strong&gt;email&lt;/strong&gt; first.&lt;/li&gt;
 &lt;li&gt;Check your primary email on &lt;strong&gt;Have I Been Pwned&lt;/strong&gt; to understand broader breach exposure.&lt;/li&gt;
@@ -62,7 +62,7 @@
 &lt;li&gt;&lt;strong&gt;Server owners and community mods&lt;/strong&gt;: rotate any bot tokens, webhooks, or OAuth secrets that were ever shared via support tickets.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id=&quot;quick-checklist&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/what-to-do-if-you-were-affected-by-discords-9/20-security-incident/#quick-checklist&quot; class=&quot;heading-anchor&quot;&gt;Quick checklist&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;quick-checklist&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/what-to-do-if-you-were-affected-by-the-discord-september-20th-security-incident/#quick-checklist&quot; class=&quot;heading-anchor&quot;&gt;Quick checklist&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;[ ] Verified the email through the app or site&lt;/li&gt;
 &lt;li&gt;[ ] Turned on MFA with passkeys or a hardware key and stored backup codes&lt;/li&gt;
@@ -71,7 +71,7 @@
 &lt;li&gt;[ ] Set an ongoing phishing watch and avoid QR prompts you did not initiate&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id=&quot;references-and-further-reading&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/what-to-do-if-you-were-affected-by-discords-9/20-security-incident/#references-and-further-reading&quot; class=&quot;heading-anchor&quot;&gt;References and further reading&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;references-and-further-reading&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/what-to-do-if-you-were-affected-by-the-discord-september-20th-security-incident/#references-and-further-reading&quot; class=&quot;heading-anchor&quot;&gt;References and further reading&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Discord: &lt;em&gt;Update on a Security Incident Involving Third‑Party Customer Service&lt;/em&gt; — official incident statement.&lt;/li&gt;
 &lt;li&gt;TechRadar coverage of Discord’s support‑vendor breach and notice details.&lt;/li&gt;
