@@ -5,12 +5,20 @@ export default {
       url: '/about/'
     },
     {
+      text: 'Slashes',
+      url: '/slashes/'
+    },
+    {
       text: 'Blog',
       url: '/blog/'
     },
     {
-      text: 'Slashes',
-      url: '/slashes/'
+      text: 'Weekly Notes',
+      url: '/tags/weeklynotes/'
+    },
+    {
+      text: 'Tags',
+      url: '/tags/'
     }
   ],
   bottom: [
