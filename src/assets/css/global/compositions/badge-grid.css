@@ -1,0 +1,113 @@
+/* ================================
+   Badge Grid + Badges + Indicators
+   ================================ */
+
+/* Badge grid: responsive up to 5 columns via class .cols-2..cols-5 */
+.badge-grid {
+    --gap: var(--space-s, 0.625rem);
+    --badge-min-w: 8rem;
+    /* minimum cell width */
+    display: grid;
+    gap: var(--gap);
+    justify-items: center;
+    /* center badge horizontally */
+    align-items: center;
+    /* center badge vertically */
+    margin: var(--space-s) auto 0 auto;
+    grid-template-columns: repeat(1, minmax(var(--badge-min-w), 1fr));
+    /* base: 1 col */
+}
+
+/* ≥480px: up to 2 columns */
+@media (min-width: 480px) {
+
+    .badge-grid.cols-2,
+    .badge-grid.cols-3,
+    .badge-grid.cols-4,
+    .badge-grid.cols-5 {
+        grid-template-columns: repeat(2, minmax(var(--badge-min-w), 1fr));
+    }
+}
+
+/* ≥768px: up to 3 columns */
+@media (min-width: 768px) {
+
+    .badge-grid.cols-3,
+    .badge-grid.cols-4,
+    .badge-grid.cols-5 {
+        grid-template-columns: repeat(3, minmax(var(--badge-min-w), 1fr));
+    }
+}
+
+/* ≥1024px: up to 4 columns */
+@media (min-width: 1024px) {
+
+    .badge-grid.cols-4,
+    .badge-grid.cols-5 {
+        grid-template-columns: repeat(4, minmax(var(--badge-min-w), 1fr));
+    }
+}
+
+/* ≥1280px: up to 5 columns */
+@media (min-width: 1280px) {
+    .badge-grid.cols-5 {
+        grid-template-columns: repeat(5, minmax(var(--badge-min-w), 1fr));
+    }
+}
+
+/* Optional divider line between grid rows */
+.badge-grid.grid-divided>*:not(:last-child) {
+    border-bottom: 1px solid var(--color-bg-accent, #f7f7f7);
+}
+
+/* Each direct child of .badge-grid is ONE grid cell */
+.badge {
+    display: inline-flex;
+    /* allows multiple inner links + text */
+    align-items: center;
+    justify-content: center;
+    gap: .6ch;
+    padding: .35rem .65rem;
+    /*border: 1px solid var(--color-bg-accent-2, #404040);
+    border-radius: var(--border-radius, .3rem);*/
+    text-decoration: none;
+    line-height: 1.1;
+    max-width: 100%;
+    white-space: nowrap;
+    /* keep compact; remove if you want wrapping */
+}
+
+/* Make a whole-badge link look identical to a div.badge */
+a.badge {
+    text-decoration: none;
+}
+
+a.badge:hover {
+    text-decoration: none;
+}
+
+/* Inner links inside a badge */
+.badge a {
+    text-decoration: none;
+}
+
+.badge a:hover {
+    text-decoration: none;
+}
+
+/* Utility: compact variant */
+.badge--compact {
+    gap: .4ch;
+    padding: .25rem .5rem;
+    font-size: 0.95em;
+}
+
+/* Manual opt-out utility for any edge case */
+.no-indicator {
+    position: static !important;
+    padding-inline-end: 0 !important;
+}
+
+.no-indicator::after {
+    content: none !important;
+}

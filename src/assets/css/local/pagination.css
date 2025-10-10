@@ -2,6 +2,11 @@
   --gutter: var(--space-xs-s);
 }
 
+.pagination ol {
+  display: flex !important;
+  justify-content: center !important;
+}
+
 .pagination li {
   color: var(--pagination-text, var(--color-text));
   background-color: var(--pagination-bg, var(--color-bg));

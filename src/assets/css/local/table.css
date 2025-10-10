@@ -1,96 +1,58 @@
-table {
+/* === Grid Table: equal columns, centered content === */
+
+/* Opt-in class so this won't affect other tables */
+table.grid-table {
+  width: 100%;
+  border-collapse: separate;
+  /* keep gaps clean */
+  border-spacing: 0;
+}
+
+/* Each row becomes a grid */
+table.grid-table tr {
+  display: grid;
+
+  /* MODE A (default): per-row column count via --cols
+     e.g., <tr style="--cols: 2"> or set it on <table> */
+  grid-template-columns: repeat(var(--cols, 0), 1fr);
+
+  /* Fallback when --cols is not set: one column per cell, auto-made */
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+
+  /* spacing + centering */
+  gap: var(--table-gap, var(--space-s, 0.625rem));
+  justify-items: center;
+  /* center content horizontally in each cell */
+  align-items: center;
+  /* center content vertically in each cell */
+  padding: var(--space-xs, 0.3125rem) 0;
+}
+
+/* Cells as grid items */
+table.grid-table td,
+table.grid-table th {
+  display: block;
+  /* grid item */
+  text-align: center;
+  /* center text */
+  padding: var(--space-s, 0.625rem);
   border: 0;
-  inline-size: 100%;
+  vertical-align: middle;
+  /* harmless here, for safety */
 }
 
-table br {
-  display: none;
+/* Optional: row divider */
+table.grid-table.grid-divided tr:not(:last-child) {
+  border-bottom: 1px solid var(--color-bg-accent, #f7f7f7);
 }
 
-thead {
-  border: none;
-  clip: rect(0 0 0 0);
-  block-size: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  inline-size: 1px;
+/* If you previously used mobile “card labels”, kill them here */
+table.grid-table td::before {
+  display: none !important;
 }
 
-tr {
-  border: var(--stroke);
-  display: block;
-  margin-block-end: var(--space-s);
-}
-
-th,
-td {
-  padding: var(--space-xs) var(--space-s);
-  vertical-align: sub;
-}
-
-td {
-  border-block-end: var(--stroke);
-  display: block;
-  text-align: start;
-}
-
-td::before {
-  content: attr(data-label);
-  float: start;
-  font-weight: var(--font-bold);
-}
-
-td:last-child {
-  border-block-end: 0;
-}
-
-@media screen(sm) {
-  table {
-    border-collapse: collapse;
-    margin: 0;
-    padding: 0;
-    table-layout: fixed;
-  }
-
-  table br {
-    display: block;
-  }
-
-  thead {
-    position: static;
-    text-align: start;
-    display: table-header-group;
-  }
-
-  caption {
-    margin: var(--space-xs) 0 var(--space-s);
-  }
-
-  tr {
-    border: 0;
-    padding: var(--space-xs);
-    margin: 0;
-    display: table-row;
-  }
-
-  tr:not(:last-child) {
-    border-block-end: var(--stroke);
-  }
-
-  td {
-    border: none;
-  }
-
-  td::before {
-    display: none;
-  }
-
-  th,
-  td {
-    padding: var(--space-s);
-    text-align: start;
-    display: table-cell;
-  }
+/* Remove legacy small-screen header hiding if it exists */
+table.grid-table thead {
+  display: contents;
 }
