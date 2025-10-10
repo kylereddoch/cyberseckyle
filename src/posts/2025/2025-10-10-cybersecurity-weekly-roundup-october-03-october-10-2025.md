@@ -3,7 +3,7 @@ date: 2025-10-10T15:00:00-05:00
 title: 'Cybersecurity Weekly Roundup for October 3–10, 2025'
 description: "A deep dive into top cybersecurity breakthroughs, critical vulnerabilities, and emerging threats from October 3-10, 2025, with actionable insights for MSPs and security teams. Curated by me."
 tags: [cybersecurity weekly roundup, cybersecurity, infosecurity, news]
-#mastodon_url: https://infosec.exchange/@cyberseckyle/115312478378688235
+mastodon_url: https://infosec.exchange/@cyberseckyle/115351726071909943
 ---
 
 ### 🧭 Overview  
