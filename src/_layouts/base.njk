@@ -46,8 +46,7 @@
 
     <main id="main" class="flow">{{ content | safe }}</main>
 
-    <section class="region">
-  <div class="wrapper prose text-center">
+  <div class="wrapper prose text-center text-step-min-1">
     <p>This site is member of the following webrings!</p>
 
     <!-- 2-column badge grid -->
@@ -69,7 +68,6 @@
       </p>
       </div>
   </div>
-</section>
 
     {% include "partials/footer.njk" %}
     {%- if meta.easteregg -%}
