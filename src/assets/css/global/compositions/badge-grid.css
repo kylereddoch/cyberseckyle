@@ -103,11 +103,11 @@ a.badge:hover {
 }
 
 /* Manual opt-out utility for any edge case */
-.no-indicator {
+.badge-grid .no-indicator {
     position: static !important;
     padding-inline-end: 0 !important;
 }
 
-.no-indicator::after {
+.badge-grid .no-indicator::after {
     content: none !important;
 }
