@@ -15,4 +15,4 @@ I also love to do side projects in my spare time that either contribute to the o
 
 ## Connect with me
 
-If you want to say hi or have any questions, I am happy to help! You can reach me at the social profiles below in the footer. If you rather send an email, that's fine also. You can hit me up at [kyle@kylereddoch.me](mailto:kyle@kylereddoch.me). My calendar is also open to [schedule a meeting](https://calendly.com/beardedtechguy/30min).
+If you want to say hi or have any questions, I am happy to help! You can reach me at the social profiles below in the footer. If you rather send an email, that's fine also. You can hit me up at [kyle@kylereddoch.me](mailto:kyle@kylereddoch.me). My calendar is also open to [schedule a meeting](https://calendly.com/cyberseckyle/30min).
