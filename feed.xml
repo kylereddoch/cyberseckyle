@@ -4,12 +4,41 @@
   <subtitle>My life and journey through this world of technology. A blog about tech, cybersecurity, and everything in between.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-10-10T20:25:03Z</updated>
+  <updated>2025-10-13T16:43:39Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>Weekly Notes: Week 41, 2025</title>
+      <link href="https://www.kylereddoch.me/blog/weekly-notes-week-41-2025/" />
+      <updated>2025-10-13T15:15:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/weekly-notes-week-41-2025/</id>
+      <content type="html">
+				&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.webp 1200w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.jpeg&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;Last week was a fairly normal week. I worked on a few articles, did some reading, and spent time with my family. Here are some highlights from the week:&lt;/p&gt;
+&lt;h3 id=&quot;😎-personal&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-41-2025/#%F0%9F%98%8E-personal&quot; class=&quot;heading-anchor&quot;&gt;😎 Personal&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;This week there was no F1 race which made the weekend a bit slow. I didn’t get my usual boost of adrenaline as I do from watching the races. I did get to watch a few movies with my wife which was nice. We watched “Kiss the Girls” and “Along Came a Spider”. Both of course which are great movies. We also are still continuing out binging of Criminal Minds. We just starting season 13. Most of our shows are coming back on so we will be busy watching those as well.&lt;/p&gt;
+&lt;p&gt;I also got to spend some time with the sole remaining daughter left at home which is always a highlight of my week.&lt;/p&gt;
+&lt;p&gt;I have been looking for a way to get our family iCloud calendar to sync with an Android phone and Google Calendar. I finally found a solution that works and best of all, it is free. It is an app called &lt;a href=&quot;https://www.davx5.com&quot; rel=&quot;noopener&quot;&gt;DAVx5&lt;/a&gt;. Weird name aside, it works great. It syncs our iCloud calendar and contacts with Google Calendar and Google Contacts. It also supports two-way sync which is great. If you are looking for a way to do this, I highly recommend it. Before anyone asks, it is for my youngest daughter, not for me. I am sticking with my iPhone and Apple ecosystem. 😆&lt;/p&gt;
+&lt;h3 id=&quot;💻-work&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-41-2025/#%F0%9F%92%BB-work&quot; class=&quot;heading-anchor&quot;&gt;💻 Work&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Last week at work was fairly normal again. We are still working on geting a few clients migrated to Windows 11. I also worked on a few internal projects including our website. I am hoping to get more done this week.&lt;/p&gt;
+&lt;h3 id=&quot;🤖-sora-app&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-41-2025/#%F0%9F%A4%96-sora-app&quot; class=&quot;heading-anchor&quot;&gt;🤖 Sora App&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;This past week I finally got access to Sora, an AI video generation app from OpenAI. I have been testing it out and writing a review of it. I will be publishing the review shortly. I have been having fun creating all sorts of videos with it. I have to say, I am impressed with the quality of the videos it generates. Also, I can see this app creating a lot of controversy. I will be interested to see how it plays out. As a cybersecurity professional, I am concerned absolutely concerned about the potential for deepfakes and misuse. I have already tested it with creating deepfakes of historical figures. I will be writing more about this in my review coming out soon.&lt;/p&gt;
+&lt;h3 id=&quot;📅-now-page&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-41-2025/#%F0%9F%93%85-now-page&quot; class=&quot;heading-anchor&quot;&gt;📅 Now Page&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Ever since &lt;s&gt;the great falling out between Adam of OMG.lol and I&lt;/s&gt; I had to move my Now Page, I still haven’t had the chance to fully bring it back to life. I have been working on my new page though but haven’t yet completed it. I am working on a new starter template for a Now Page that I will be using for this. I am also planning on open sourcing it as well. That way others can use it. Stay tuned for that.&lt;/p&gt;
+&lt;h3 id=&quot;📝-articles&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-41-2025/#%F0%9F%93%9D-articles&quot; class=&quot;heading-anchor&quot;&gt;📝 Articles&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Here were the articles I wrote last week.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-npm-shai-hulud-supply-chain-meltdown-what-it-broke-what-it-means-and-what-we-fix-next/&quot;&gt;The npm ‘Shai-Hulud’ Supply-Chain Meltdown: What It Broke, What It Means, and What We Fix Next&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-41-2025/blog/what-to-do-if-you-were-affected-by-the-discord-september-20th-security-incident/&quot;&gt;What To Do If You Were Affected By The Discord September 20th Security Incident&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-october-03-10-2025/&quot;&gt;Cybersecurity Weekly Roundup for October 3–10, 2025&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
+
+ 			</content>
+    </entry><entry>
       <title>Cybersecurity Weekly Roundup for October 3–10, 2025</title>
       <link href="https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-october-3-10-2025/" />
       <updated>2025-10-10T20:00:00Z</updated>
