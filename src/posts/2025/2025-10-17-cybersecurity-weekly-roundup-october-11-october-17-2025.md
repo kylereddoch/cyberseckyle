@@ -1,9 +1,9 @@
 ---
 date: 2025-10-17T15:00:00-05:00
-title: 'Cybersecurity Weekly Roundup – October 11–17, 2025'
+title: 'Cybersecurity Weekly Roundup forOctober 11–17, 2025'
 description: "Cybersecurity news for October 11–17, 2025: VMware Cloud Foundation exploit, Lazarus crypto attacks, SmartScreen zero-day, libcurl patch, and AI-driven phishing—analyzed by a cybersecurity specialist."
 tags: [cybersecurity weekly roundup, cybersecurity, infosecurity, news]
-#mastodon_url: https://infosec.exchange/@cyberseckyle/115351726071909943
+mastodon_url: https://infosec.exchange/@cyberseckyle/115391528679512830
 ---
 
 ### 🧭 Overview  
