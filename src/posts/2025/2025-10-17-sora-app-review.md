@@ -3,7 +3,7 @@ date: 2025-10-17T16:15:00-05:00
 title: "Sora, Hands-On: thrilling for creators, thorny for privacy"
 description: "A deep dive into Sora’s cameos, guardrails, watermarking, and what this means for privacy and security after a week of real testing."
 tags: [sora, open-ai, reviews, privacy, cybersecurity, infosecurity, ai]
-#mastodon_url: https://infosec.exchange/@cyberseckyle/115351726071909943
+mastodon_url: https://infosec.exchange/@cyberseckyle/115391753546733118
 ---
 
 ![Sora hero](/assets/images/sora-hero-logo-colors.png){loading="eager" eleventy:widths="auto"}
