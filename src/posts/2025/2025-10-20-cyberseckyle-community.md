@@ -7,7 +7,7 @@ tags: [discord, cyberseckyle, cybersecurity, community, tech,]
 draft: true
 ---
 
-![Sora hero](/assets/images/discord_cyberseckyle_join.png){loading="eager" eleventy:widths="auto"}
+![CybersecKyle Community hero](/assets/images/discord_cyberseckyle_join.png){loading="eager" eleventy:widths="auto"}
 
 After weeks of planning, testing, and building, I am excited to open the doors to the **CybersecKyle Community**, a Discord space for people who care about **security** and **technology** in equal measure. It is for beginners learning the ropes, students and career changers building momentum, and experienced folks who enjoy trading notes and sharpening their craft.
 
