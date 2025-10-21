@@ -3,7 +3,7 @@ date: 2025-10-20T15:15:00-05:00
 title: "The CybersecKyle Community is live: security and tech, together"
 description: "A welcoming Discord community where cybersecurity and infosec meet the broader world of technology. Learn, share, and build together whether you are brand-new, leveling up, or a seasoned pro."
 tags: [discord, cyberseckyle, cybersecurity, community, tech]
-#mastodon_url: https://infosec.exchange/@cyberseckyle/115391753546733118
+mastodon_url: https://infosec.exchange/@cyberseckyle/115412966791788789
 ---
 
 ![CybersecKyle Community hero](/assets/images/discord_cyberseckyle_join.png){loading="eager" eleventy:widths="auto"}
