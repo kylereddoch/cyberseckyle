@@ -15,10 +15,6 @@ export default {
     {
       text: 'Weekly Notes',
       url: '/tags/weeklynotes/'
-    },
-    {
-      text: 'Tags',
-      url: '/tags/'
     }
   ],
   bottom: [
@@ -29,6 +25,10 @@ export default {
     {
       text: 'Media Kit',
       url: '/media-kit/'
+    },
+    {
+      text: 'Tags',
+      url: '/tags/'
     }
   ]
 };
