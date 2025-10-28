@@ -3,7 +3,7 @@ date: 2025-10-28T10:00:00-05:00
 title: Remove Preinstalled Microsoft Store Apps in Windows 11 (24H2 & 25H2)
 description: A practical tutorial for removing Microsoft Store apps for existing users, future profiles, and at scale with Intune/GPO on Windows 11 Enterprise & Education.
 tags: [windows-11, windows, intune, gpo, powershell, tutorials, IT]
-#mastodon_url: https://infosec.exchange/@cyberseckyle/115412966791788789
+mastodon_url: https://infosec.exchange/@cyberseckyle/115452568772511610
 ---
 
 ![Windows 11 Store Apps Removal hero](/assets/images/win11_appx_apps_removal_hero.png){loading="eager" eleventy:widths="auto"}
