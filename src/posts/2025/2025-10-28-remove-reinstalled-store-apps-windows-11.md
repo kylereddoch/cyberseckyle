@@ -6,6 +6,13 @@ tags: [windows-11, windows, intune, gpo, powershell, tutorials, IT]
 mastodon_url: https://infosec.exchange/@cyberseckyle/115452568772511610
 ---
 
+<small><i>last updated on October 29, 2025</i></small>
+
+> Update October 29, 2025:
+> [@deejayy](https://mastodon.social/@deejayy) over on Mastodon brought to my attention a great Powershell script that also removes all the bloatware from > > Windows 11. Check it out on [Github](https://github.com/Raphire/Win11Debloat). I have given this a try and it works great!
+
+{% mastodon "https://mastodon.social/@deejayy/115454110249651937", 650, "bleed" %}
+
 ![Windows 11 Store Apps Removal hero](/assets/images/win11_appx_apps_removal_hero.png){loading="eager" eleventy:widths="auto"}
 
 _For new user profiles, existing users, and at-scale management with Intune_
