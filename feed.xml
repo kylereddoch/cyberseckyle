@@ -4,7 +4,7 @@
   <subtitle>My life and journey through this world of technology. A blog about tech, cybersecurity, and everything in between.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-10-28T15:51:00Z</updated>
+  <updated>2025-10-29T22:00:10Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
@@ -15,7 +15,24 @@
       <updated>2025-10-28T15:00:00Z</updated>
       <id>https://www.kylereddoch.me/blog/remove-preinstalled-microsoft-store-apps-in-windows-11-24h2-and-25h2/</id>
       <content type="html">
-				&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/qC6aAwxS8i-1536.webp 1536w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/qC6aAwxS8i-1536.jpeg&quot; alt=&quot;Windows 11 Store Apps Removal hero&quot; width=&quot;1536&quot; height=&quot;1024&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+				&lt;p&gt;&lt;small&gt;&lt;i&gt;last updated on October 29, 2025&lt;/i&gt;&lt;/small&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Update October 29, 2025:&lt;br&gt;
+&lt;a href=&quot;https://mastodon.social/@deejayy&quot; rel=&quot;noopener&quot;&gt;@deejayy&lt;/a&gt; over on Mastodon brought to my attention a great Powershell script that also removes all the bloatware from &amp;gt; &amp;gt; Windows 11. Check it out on &lt;a href=&quot;https://github.com/Raphire/Win11Debloat&quot; rel=&quot;noopener&quot;&gt;Github&lt;/a&gt;. I have given this a try and it works great!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;script&gt;
+  (function(id, src){
+    if (!document.getElementById(id)) {
+      var s = document.createElement(&#39;script&#39;);
+      s.id = id; s.src = &#39;https://mastodon.social/embed.js&#39;;
+      document.head.appendChild(s);
+    }
+  })(&#39;masto-embed-loader-httpsmastodonsocial&#39;, &#39;https://mastodon.social/embed.js&#39;);
+&lt;/script&gt;
+&lt;div style=&quot;width:100vw; position:relative; left:50%; right:50%; margin-left:-50vw; margin-right:-50vw; display:grid; place-items:center&quot; class=&quot;mastodon-embed-wrapper&quot;&gt;
+  &lt;iframe src=&quot;https://mastodon.social/@deejayy/115454110249651937/embed&quot; sandbox=&quot;allow-scripts allow-same-origin allow-popups&quot; allow=&quot;fullscreen&quot; loading=&quot;lazy&quot; style=&quot;width:min(100vw, 650px); border:0; display:block; overflow:hidden; min-height:300px&quot; class=&quot;mastodon-embed&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/qC6aAwxS8i-1536.webp 1536w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/qC6aAwxS8i-1536.jpeg&quot; alt=&quot;Windows 11 Store Apps Removal hero&quot; width=&quot;1536&quot; height=&quot;1024&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;For new user profiles, existing users, and at-scale management with Intune&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Windows 11 ships with a pile of inbox Microsoft Store apps. Some are useful, others add noise. This guide shows you how to remove them the right way:&lt;/p&gt;
 &lt;ul&gt;
