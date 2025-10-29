@@ -24,8 +24,64 @@ import shortcodes from './src/_config/shortcodes.js';
 import { buildAllCss } from './src/_config/plugins/css-config.js';
 import { buildAllJs } from './src/_config/plugins/js-config.js';
 
-// ✅ NEW: reading time plugin
+// reading time plugin
 import readingTime from 'eleventy-plugin-reading-time';
+
+// Mastodon Direct-Embed: bleed-friendly, auto-height reliable
+async function mastodonEmbedShortcode(statusUrl, maxWidth = 720, layout = 'normal') {
+  try {
+    const u = new URL(String(statusUrl));
+    const embedSrc = `${u.origin}${u.pathname}/embed`;
+    const scriptSrc = `${u.origin}/embed.js`;
+    const w = Math.max(1, Number(maxWidth) || 720);
+    const bleed = String(layout).toLowerCase() === 'bleed';
+
+    // Wrapper:
+    // - normal: constrained box centered in prose column
+    // - bleed: full viewport width, center child, but clamp child width to your cap
+    const wrapperStyle = bleed
+      ? `style="width:100vw; position:relative; left:50%; right:50%; margin-left:-50vw; margin-right:-50vw; display:grid; place-items:center;"`
+      : `style="max-width:${w}px; margin:0 auto;"`;
+
+    // Iframe:
+    // - no fixed height; min-height avoids FOUC before resize
+    // - in bleed, clamp width with min(100vw, cap)
+    const iframeStyle = bleed
+      ? `style="width:min(100vw, ${w}px); border:0; display:block; overflow:hidden; min-height:300px;"`
+      : `style="width:100%; border:0; display:block; overflow:hidden; min-height:300px;"`;
+
+    // Important: load embed.js first (non-async), then render iframe
+    // Also avoid duplicate loads by guarding with an ID per origin.
+    const loaderId = `masto-embed-loader-${u.origin.replace(/[^a-z0-9]/gi, '')}`;
+    const loader = `
+<script>
+  (function(id, src){
+    if (!document.getElementById(id)) {
+      var s = document.createElement('script');
+      s.id = id; s.src = '${scriptSrc}';
+      document.head.appendChild(s);
+    }
+  })('${loaderId}', '${scriptSrc}');
+</script>`.trim();
+
+    return `
+${loader}
+<div class="mastodon-embed-wrapper" ${wrapperStyle}>
+  <iframe
+    class="mastodon-embed"
+    src="${embedSrc}"
+    ${iframeStyle}
+    sandbox="allow-scripts allow-same-origin allow-popups"
+    allow="fullscreen"
+    loading="lazy"
+  ></iframe>
+</div>`.trim();
+
+  } catch {
+    return `<p><a href="${statusUrl}">${statusUrl}</a></p>`;
+  }
+}
+
 
 export default async function (eleventyConfig) {
 
@@ -74,10 +130,10 @@ export default async function (eleventyConfig) {
     }
   });
 
-  // ✅ NEW: register reading time plugin (provides a tag)
+  // reading time plugin (provides a tag)
   eleventyConfig.addPlugin(readingTime);
 
-  // ✅ NEW: add a simple "readTime" filter you can use as {{ content | readTime }}
+  // "readTime" filter usable as {{ content | readTime }}
   eleventyConfig.addFilter('readTime', (html, opts = {}) => {
     const wpm = opts.wpm || 225;
     const text = String(html || '')
@@ -118,14 +174,17 @@ export default async function (eleventyConfig) {
   eleventyConfig.addShortcode('image', shortcodes.imageShortcode);
   eleventyConfig.addShortcode('year', () => `${new Date().getFullYear()}`);
 
+  // ✅ Mastodon direct-embed shortcode registrations
+  eleventyConfig.addNunjucksAsyncShortcode('mastodon', mastodonEmbedShortcode);
+  eleventyConfig.addLiquidShortcode('mastodon', (url, w, h) => mastodonEmbedShortcode(url, w, h));
+  eleventyConfig.addJavaScriptFunction('mastodon', mastodonEmbedShortcode);
+
   // --------------------- Events ---------------------
   if (process.env.ELEVENTY_RUN_MODE === 'serve') {
     eleventyConfig.on('eleventy.after', events.svgToJpeg);
   }
 
   // --------------------- Passthrough File Copy
-
-  // -- same path
   ['src/assets/fonts/', 'src/assets/images/template', 'src/assets/og-images'].forEach(path =>
     eleventyConfig.addPassthroughCopy(path)
   );
@@ -133,7 +192,6 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     // -- to root
     'src/assets/images/favicon/*': '/',
-
     // -- node_modules
     'node_modules/lite-youtube-embed/src/lite-yt-embed.{css,js}': `assets/components/`
   });
