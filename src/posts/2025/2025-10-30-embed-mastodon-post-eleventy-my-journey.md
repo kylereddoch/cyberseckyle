@@ -3,7 +3,7 @@ date: 2025-10-30T10:00:00-05:00
 title: "Embedding Mastodon Posts in Eleventy: My Journey"
 description: "What finally worked to embed Mastodon posts in Eleventy: a tiny shortcode that lets embed.js set height and supports a clean full-bleed layout."
 tags: [eleventy, mastodon, tutorials]
-#mastodon_url: https://infosec.exchange/@cyberseckyle/115452568772511610
+mastodon_url: https://infosec.exchange/@cyberseckyle/115464348578987565
 ---
 
 ![Mastodon Embed hero](/assets/images/mastodon_embed_eleventy_hero.png){loading="eager" eleventy:widths="auto"}
