@@ -4,12 +4,144 @@
   <subtitle>My life and journey through this world of technology. A blog about tech, cybersecurity, and everything in between.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-10-29T22:00:10Z</updated>
+  <updated>2025-10-30T17:34:19Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>Embedding Mastodon Posts in Eleventy: My Journey</title>
+      <link href="https://www.kylereddoch.me/blog/embedding-mastodon-posts-in-eleventy-my-journey/" />
+      <updated>2025-10-30T15:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/embedding-mastodon-posts-in-eleventy-my-journey/</id>
+      <content type="html">
+				&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/u3WA9lGSs7-1536.webp 1536w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/u3WA9lGSs7-1536.jpeg&quot; alt=&quot;Mastodon Embed hero&quot; width=&quot;1536&quot; height=&quot;1024&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;I wanted a Mastodon status to sit inside an Eleventy post without breaking my layout or forcing weird fixed sizes. I tried the usual suspects and hit the same walls each time. In the end, a simple shortcode solved it. The page controls width and Mastodon’s script sets height. It also supports a full-bleed option when I want the embed to break out of the narrow reading column.&lt;/p&gt;
+&lt;p&gt;This write-up documents what failed fast, what finally worked, and the exact code I am using now.&lt;/p&gt;
+&lt;h2 id=&quot;what-i-tried-first&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/embedding-mastodon-posts-in-eleventy-my-journey/#what-i-tried-first&quot; class=&quot;heading-anchor&quot;&gt;What I tried first&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;oEmbed or plugin output that injected an iframe with fixed width and height. Looked fine at one breakpoint, broke at others.&lt;/li&gt;
+&lt;li&gt;CSS overrides on the iframe. As soon as the script rerendered, my sizes lost.&lt;/li&gt;
+&lt;li&gt;Loading the iframe before the embed script. The first height message went missing, so the card stayed short.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;the-working-approach&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/embedding-mastodon-posts-in-eleventy-my-journey/#the-working-approach&quot; class=&quot;heading-anchor&quot;&gt;The working approach&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;I control &lt;strong&gt;width&lt;/strong&gt; with the container. Inside the prose column it uses the column width. In full-bleed mode it uses &lt;code&gt;min(100vw, cap)&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Mastodon controls &lt;strong&gt;height&lt;/strong&gt;. No fixed height is set. Height is updated by &lt;code&gt;embed.js&lt;/code&gt; via &lt;code&gt;postMessage&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;I load &lt;code&gt;embed.js&lt;/code&gt; &lt;strong&gt;before&lt;/strong&gt; the iframe so the listener is ready when the first message arrives.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;step-1-add-the-shortcode-to-eleventyjs&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/embedding-mastodon-posts-in-eleventy-my-journey/#step-1-add-the-shortcode-to-eleventyjs&quot; class=&quot;heading-anchor&quot;&gt;Step 1: Add the shortcode to eleventy.js&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Paste this function into your Eleventy config and register it. It guards against loading the script twice per origin and supports an optional &lt;code&gt;bleed&lt;/code&gt; layout.&lt;/p&gt;
+&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// Mastodon Direct-Embed: bleed-friendly, auto-height reliable&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mastodonEmbedShortcode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;statusUrl&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; maxWidth &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;720&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; layout &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;normal&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; u &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;URL&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;statusUrl&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; embedSrc  &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;u&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;origin&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;u&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pathname&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;/embed&quot;;
+    const scriptSrc = &lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;$&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;u&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;origin&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;embed&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;js&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;;
+    const w = Math.max(1, Number(maxWidth) || 720);
+    const bleed = String(layout).toLowerCase() === &#39;bleed&#39;;
+
+    // Wrapper: normal uses a capped box; bleed escapes the prose column and centers content
+    const wrapperStyle = bleed
+      ? &lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;style&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;width:100vw; position:relative; left:50%; right:50%; margin-left:-50vw; margin-right:-50vw; display:grid; place-items:center;&quot;&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;
+      : &lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;style&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;max-width:${w}px; margin:0 auto;&quot;&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;;
+
+    // Iframe: do not fix height; let embed.js resize it. Give a small min-height to avoid a flash.
+    const iframeStyle = bleed
+      ? &lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;style&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;width:min(100vw, ${w}px); border:0; display:block; overflow:hidden; min-height:300px;&quot;&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;
+      : &lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;style&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;width:100%; border:0; display:block; overflow:hidden; min-height:300px;&quot;&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;;
+
+    // Load embed.js first (non-async), once per origin
+    const loaderId = &lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;masto&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;embed&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;loader&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;$&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;u&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;origin&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token regex&quot;&gt;&lt;span class=&quot;token regex-delimiter&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token regex-source language-regex&quot;&gt;[^a-z0-9]&lt;/span&gt;&lt;span class=&quot;token regex-delimiter&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token regex-flags&quot;&gt;gi&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;`&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; loader &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &#92;`
+&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; src&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;id&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; s &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;script&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      s&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; id&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; s&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;src &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;&#92;${scriptSrc}&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;head&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;s&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;&#92;${loaderId}&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;&#92;${scriptSrc}&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;script&lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt;&#92;`&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;trim&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &#92;`
+&#92;$&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;loader&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;div &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;mastodon-embed-wrapper&quot;&lt;/span&gt; &#92;$&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;wrapperStyle&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;iframe
+    &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;mastodon-embed&quot;&lt;/span&gt;
+    src&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&#92;${embedSrc}&quot;&lt;/span&gt;
+    &#92;$&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;iframeStyle&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    sandbox&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;allow-scripts allow-same-origin allow-popups&quot;&lt;/span&gt;
+    allow&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;fullscreen&quot;&lt;/span&gt;
+    loading&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;lazy&quot;&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;iframe&lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;div&lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt;&#92;`&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;trim&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &#92;`&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;a href&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&#92;${statusUrl}&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt;&#92;$&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;statusUrl&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;a&lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;p&lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt;&#92;`&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// Register for all template engines you use&lt;/span&gt;
+eleventyConfig&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addNunjucksAsyncShortcode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;mastodon&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; mastodonEmbedShortcode&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+eleventyConfig&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addLiquidShortcode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;mastodon&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;url&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; w&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; layout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mastodonEmbedShortcode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;url&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; w&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; layout&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+eleventyConfig&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addJavaScriptFunction&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;mastodon&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; mastodonEmbedShortcode&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;step-2-use-it-in-content&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/embedding-mastodon-posts-in-eleventy-my-journey/#step-2-use-it-in-content&quot; class=&quot;heading-anchor&quot;&gt;Step 2: Use it in content&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Inside the regular reading column:&lt;/p&gt;
+&lt;pre class=&quot;language-plaintext&quot;&gt;&lt;code class=&quot;language-plaintext&quot;&gt;{% mastodon &quot;https://mastodon.social/@deejayy/115454110249651937&quot; %}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Full-bleed across the viewport, capped at 720:&lt;/p&gt;
+&lt;pre class=&quot;language-plaintext&quot;&gt;&lt;code class=&quot;language-plaintext&quot;&gt;{% mastodon &quot;https://mastodon.social/@deejayy/115454110249651937&quot;, 720, &quot;bleed&quot; %}&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;result&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/embedding-mastodon-posts-in-eleventy-my-journey/#result&quot; class=&quot;heading-anchor&quot;&gt;Result&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Here is how the embed would look on your page:&lt;/p&gt;
+&lt;p&gt;Regular width:&lt;/p&gt;
+&lt;script&gt;
+  (function(id, src){
+    if (!document.getElementById(id)) {
+      var s = document.createElement(&#39;script&#39;);
+      s.id = id; s.src = &#39;https://infosec.exchange/embed.js&#39;;
+      document.head.appendChild(s);
+    }
+  })(&#39;masto-embed-loader-httpsinfosecexchange&#39;, &#39;https://infosec.exchange/embed.js&#39;);
+&lt;/script&gt;
+&lt;div style=&quot;max-width:720px; margin:0 auto&quot; class=&quot;mastodon-embed-wrapper&quot;&gt;
+  &lt;iframe src=&quot;https://infosec.exchange/@cyberseckyle/115452568772511610/embed&quot; sandbox=&quot;allow-scripts allow-same-origin allow-popups&quot; allow=&quot;fullscreen&quot; loading=&quot;lazy&quot; style=&quot;width:100%; border:0; display:block; overflow:hidden; min-height:300px&quot; class=&quot;mastodon-embed&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;p&gt;Full-bleed:&lt;/p&gt;
+&lt;script&gt;
+  (function(id, src){
+    if (!document.getElementById(id)) {
+      var s = document.createElement(&#39;script&#39;);
+      s.id = id; s.src = &#39;https://infosec.exchange/embed.js&#39;;
+      document.head.appendChild(s);
+    }
+  })(&#39;masto-embed-loader-httpsinfosecexchange&#39;, &#39;https://infosec.exchange/embed.js&#39;);
+&lt;/script&gt;
+&lt;div style=&quot;width:100vw; position:relative; left:50%; right:50%; margin-left:-50vw; margin-right:-50vw; display:grid; place-items:center&quot; class=&quot;mastodon-embed-wrapper&quot;&gt;
+  &lt;iframe src=&quot;https://infosec.exchange/@cyberseckyle/115452568772511610/embed&quot; sandbox=&quot;allow-scripts allow-same-origin allow-popups&quot; allow=&quot;fullscreen&quot; loading=&quot;lazy&quot; style=&quot;width:min(100vw, 720px); border:0; display:block; overflow:hidden; min-height:300px&quot; class=&quot;mastodon-embed&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;troubleshooting-quick-hits&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/embedding-mastodon-posts-in-eleventy-my-journey/#troubleshooting-quick-hits&quot; class=&quot;heading-anchor&quot;&gt;Troubleshooting quick hits&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;If the height never adjusts, check for a global CSS rule that forces &lt;code&gt;iframe { height: ... !important }&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Make sure your Content Security Policy allows &lt;code&gt;&amp;lt;instance&amp;gt;/embed.js&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Ad blockers can sometimes block the script. Allow it.&lt;/li&gt;
+&lt;li&gt;If you use multiple Mastodon instances on one page, this loader only injects one script per origin.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;why-i-skipped-plugins-this-time&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/embedding-mastodon-posts-in-eleventy-my-journey/#why-i-skipped-plugins-this-time&quot; class=&quot;heading-anchor&quot;&gt;Why I skipped plugins this time&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I like batteries-included tools, but the layout rules in my theme are opinionated. A small shortcode gave me reliable control over width while letting Mastodon handle height correctly. Less glue, fewer surprises.&lt;/p&gt;
+&lt;h2 id=&quot;references&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/embedding-mastodon-posts-in-eleventy-my-journey/#references&quot; class=&quot;heading-anchor&quot;&gt;References&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Eleventy Plugin: Embed Everything&lt;br&gt;
+&lt;a href=&quot;https://gfscott.com/embed-everything/&quot; rel=&quot;noopener&quot;&gt;https://gfscott.com/embed-everything/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;eleventy-plugin-embed-everything (npm)&lt;br&gt;
+&lt;a href=&quot;https://www.npmjs.com/package/eleventy-plugin-embed-everything&quot; rel=&quot;noopener&quot;&gt;https://www.npmjs.com/package/eleventy-plugin-embed-everything&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;eleventy-plugin-embed-mastodon (npm)&lt;br&gt;
+&lt;a href=&quot;https://www.npmjs.com/package/eleventy-plugin-embed-mastodon&quot; rel=&quot;noopener&quot;&gt;https://www.npmjs.com/package/eleventy-plugin-embed-mastodon&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Andy Piper — Mastodon oEmbed examples&lt;br&gt;
+&lt;a href=&quot;https://andypiper.org/mastodon-embeds-examples/single-post-oembed.html&quot; rel=&quot;noopener&quot;&gt;https://andypiper.org/mastodon-embeds-examples/single-post-oembed.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+ 			</content>
+    </entry><entry>
       <title>Remove Preinstalled Microsoft Store Apps in Windows 11 (24H2 &amp; 25H2)</title>
       <link href="https://www.kylereddoch.me/blog/remove-preinstalled-microsoft-store-apps-in-windows-11-24h2-and-25h2/" />
       <updated>2025-10-28T15:00:00Z</updated>
