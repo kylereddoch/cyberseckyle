@@ -3,7 +3,7 @@ date: 2025-10-30T15:00:00-05:00
 title: WSUS just became an attacker’s dream. Stop publishing your patch pipeline to the internet.
 description: A blunt analyst take on the actively exploited WSUS RCE, why public-facing patch tiers are indefensible, and a practical playbook for SMB and mid-market orgs.
 tags: [windows, cybersecurity, incident-response, security-architecture, analysis, editorials]
-#mastodon_url: https://infosec.exchange/@cyberseckyle
+mastodon_url: https://infosec.exchange/@cyberseckyle/115465185577249077
 ---
 
 ![Hero Image](/assets/images/wsus_hottake_hero.png){loading="eager" eleventy:widths="auto"}
