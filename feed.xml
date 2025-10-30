@@ -4,12 +4,55 @@
   <subtitle>My life and journey through this world of technology. A blog about tech, cybersecurity, and everything in between.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-10-30T17:46:34Z</updated>
+  <updated>2025-10-30T21:12:30Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>WSUS just became an attacker’s dream. Stop publishing your patch pipeline to the internet.</title>
+      <link href="https://www.kylereddoch.me/blog/wsus-just-became-an-attackers-dream-stop-publishing-your-patch-pipeline-to-the-internet/" />
+      <updated>2025-10-30T20:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/wsus-just-became-an-attackers-dream-stop-publishing-your-patch-pipeline-to-the-internet/</id>
+      <content type="html">
+				&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/u8ZSTX9Z52-1536.webp 1536w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/u8ZSTX9Z52-1536.jpeg&quot; alt=&quot;Hero Image&quot; width=&quot;1536&quot; height=&quot;1024&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;When a patching platform turns into an initial-access vector, you are looking at failure stacked on failure. That is exactly what &lt;strong&gt;CVE-2025-59287&lt;/strong&gt; did for Windows Server Update Services (WSUS): an unauthenticated remote code execution flaw from unsafe deserialization, actively exploited in the wild, with an emergency out-of-band fix from Microsoft after the regular Patch Tuesday did not fully close the hole (Unit 42, 2025; TechRadar Pro, 2025). Translation for busy admins and business owners: the service you trust to keep Windows updated can be abused to run attacker code as SYSTEM.&lt;/p&gt;
+&lt;p&gt;As a security analyst working with small and midsize environments, I will be blunt. Too many WSUS servers are exposed to the open internet on 8530 and 8531. That is not modern IT. That is rolling out a welcome mat. Palo Alto Networks’ Unit 42 observed live exploitation within hours of Microsoft’s emergency release, and external scans found thousands of exposed WSUS endpoints. CISA added the CVE to the Known Exploited Vulnerabilities catalog and told federal agencies to fix it on a deadline. When the government sets a date, the rest of us should read the room (Unit 42, 2025; Infosecurity Magazine, 2025; NIST NVD, 2025).&lt;/p&gt;
+&lt;h2 id=&quot;what-this-incident-actually-teaches&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/wsus-just-became-an-attackers-dream-stop-publishing-your-patch-pipeline-to-the-internet/#what-this-incident-actually-teaches&quot; class=&quot;heading-anchor&quot;&gt;What this incident actually teaches&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Asset management and network design beat hero patching.&lt;/strong&gt; If WSUS is reachable from the internet, a single mistake becomes an enterprise problem. Your patching tier belongs behind a VPN or private access broker, not on public IPs. Flat networks make every bug high impact.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;“We patched” is not a control.&lt;/strong&gt; Microsoft’s first fix was incomplete. That happens. Compensating controls like strict ingress rules, TLS termination you control, and allow-listed admin paths would have reduced blast radius while you validated the out-of-band update (TechRadar Pro, 2025; ITPro, 2025).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Logs are your truth serum.&lt;/strong&gt; The early tradecraft is boring in the best way: parent processes from &lt;code&gt;wsusservice.exe&lt;/code&gt; or &lt;code&gt;w3wp.exe&lt;/code&gt; spawning &lt;code&gt;cmd.exe&lt;/code&gt; then &lt;code&gt;powershell.exe&lt;/code&gt;, followed by quick recon and exfil to webhook collectors. If your EDR never flags that tree, do not call your detection program mature (Unit 42, 2025).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;my-playbook-for-smb-and-mid-market-clients-this-week&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/wsus-just-became-an-attackers-dream-stop-publishing-your-patch-pipeline-to-the-internet/#my-playbook-for-smb-and-mid-market-clients-this-week&quot; class=&quot;heading-anchor&quot;&gt;My playbook for SMB and mid market clients this week&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Kill exposure first.&lt;/strong&gt; If 8530 or 8531 is open to the world, close it. Use an access broker, private link, or at minimum source IP allow listing. Internet facing WSUS is a non starter.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Apply the out of band updates and reboot.&lt;/strong&gt; Verify the right KB per server version and confirm the binary build after patch. Do not stop at Installed in Windows Update history. Cross check against the NVD entry and the vendor advisories for version coverage (NIST NVD, 2025; TechRadar Pro, 2025).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hunt now, not next quarter.&lt;/strong&gt; Query EDR for the specific process chains tied to WSUS service and IIS. Review IIS &lt;code&gt;WSUSPool&lt;/code&gt; logs for unusual POSTs to cookie or reporting endpoints over the last 14 to 21 days. Treat any finding as potential lateral movement.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Segment and service bind.&lt;/strong&gt; WSUS should only talk to domain members and Microsoft upstream. No east west free for all. Put it on its own VLAN with ACLs that match those facts.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Re evaluate WSUS as a pattern, not as a product.&lt;/strong&gt; If your organization cannot safely run internet adjacent infrastructure, move to update models that reduce on prem attack surface, like Windows Update for Business or controlled cloud management, and keep on prem only when you can enforce private access and hard boundaries.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Turn this into tabletop fuel.&lt;/strong&gt; Add core patch pipeline compromised to your incident response scenarios. Practice what you would do if the very system that distributes trust is hostile for a day.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;why-this-is-a-bigger-story-than-one-cve&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/wsus-just-became-an-attackers-dream-stop-publishing-your-patch-pipeline-to-the-internet/#why-this-is-a-bigger-story-than-one-cve&quot; class=&quot;heading-anchor&quot;&gt;Why this is a bigger story than one CVE&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Ransomware crews want reliable paths to domain trust. A management tier that is reachable, under monitored, and running high privilege services gives them exactly that. We keep calling Zero Trust a strategy, then publish WSUS to the internet for convenience. That gap is where intrusions start.&lt;/p&gt;
+&lt;p&gt;If this stings a little, good. Security culture changes when something that always worked is finally seen as fragile. This month is the moment to retire habits that were fine in 2015 and indefensible in 2025.&lt;/p&gt;
+&lt;h2 id=&quot;references&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/wsus-just-became-an-attackers-dream-stop-publishing-your-patch-pipeline-to-the-internet/#references&quot; class=&quot;heading-anchor&quot;&gt;References&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Infosecurity Magazine. (2025, October 28). &lt;em&gt;Actively exploited WSUS bug added to CISA KEV list&lt;/em&gt;. &lt;a href=&quot;https://www.infosecurity-magazine.com/news/actively-exploited-wsus-bug-cisa/&quot; rel=&quot;noopener&quot;&gt;https://www.infosecurity-magazine.com/news/actively-exploited-wsus-bug-cisa/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;NIST National Vulnerability Database. (2025). &lt;em&gt;CVE-2025-59287 detail&lt;/em&gt;. &lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2025-59287&quot; rel=&quot;noopener&quot;&gt;https://nvd.nist.gov/vuln/detail/CVE-2025-59287&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;TechRadar Pro. (2025, October 24). &lt;em&gt;Microsoft issues emergency Windows Server security patch&lt;/em&gt;. &lt;a href=&quot;https://www.techradar.com/pro/security/microsoft-issues-emergency-windows-server-security-patch-update-now-or-risk-attack&quot; rel=&quot;noopener&quot;&gt;https://www.techradar.com/pro/security/microsoft-issues-emergency-windows-server-security-patch-update-now-or-risk-attack&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;TechRadar Pro. (2025, October 28). &lt;em&gt;US government orders patching of critical Windows Server security issue&lt;/em&gt;. &lt;a href=&quot;https://www.techradar.com/pro/security/us-government-orders-patching-of-critical-windows-server-security-issue&quot; rel=&quot;noopener&quot;&gt;https://www.techradar.com/pro/security/us-government-orders-patching-of-critical-windows-server-security-issue&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Unit 42. (2025, October 28). &lt;em&gt;Microsoft WSUS Remote Code Execution (CVE-2025-59287) actively exploited in the wild&lt;/em&gt; [Threat brief]. &lt;a href=&quot;https://unit42.paloaltonetworks.com/microsoft-cve-2025-59287/&quot; rel=&quot;noopener&quot;&gt;https://unit42.paloaltonetworks.com/microsoft-cve-2025-59287/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;ITPro. (2025, October 27). &lt;em&gt;CISA issues alert after botched Windows Server patch exposes critical flaw&lt;/em&gt;. &lt;a href=&quot;https://www.itpro.com/security/cisa-issues-alert-after-botched-windows-server-patch-exposes-critical-flaw&quot; rel=&quot;noopener&quot;&gt;https://www.itpro.com/security/cisa-issues-alert-after-botched-windows-server-patch-exposes-critical-flaw&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Forbes. (2025, October 26). &lt;em&gt;Act now: Microsoft issues emergency Windows update as attacks begin&lt;/em&gt;. &lt;a href=&quot;https://www.forbes.com/sites/daveywinder/2025/10/26/act-now---microsoft-issues-emergency-windows-update-as-attacks-begin/&quot; rel=&quot;noopener&quot;&gt;https://www.forbes.com/sites/daveywinder/2025/10/26/act-now---microsoft-issues-emergency-windows-update-as-attacks-begin/&lt;/a&gt;&lt;/p&gt;
+
+ 			</content>
+    </entry><entry>
       <title>Embedding Mastodon Posts in Eleventy: My Journey</title>
       <link href="https://www.kylereddoch.me/blog/embedding-mastodon-posts-in-eleventy-my-journey/" />
       <updated>2025-10-30T15:00:00Z</updated>
