@@ -4,12 +4,37 @@
   <subtitle>My life and journey through this world of technology. A blog about tech, cybersecurity, and everything in between.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-10-30T21:18:55Z</updated>
+  <updated>2025-11-03T22:06:56Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>Weekly Notes: Week 44, 2025</title>
+      <link href="https://www.kylereddoch.me/blog/weekly-notes-week-44-2025/" />
+      <updated>2025-11-03T19:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/weekly-notes-week-44-2025/</id>
+      <content type="html">
+				&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.webp 1200w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.jpeg&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;Last week was a nice week. It was not too eventful at work, had a easy time around the house. On and the weather was just perfect. Here are my notes for the week.&lt;/p&gt;
+&lt;h3 id=&quot;💻-work&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-44-2025/#%F0%9F%92%BB-work&quot; class=&quot;heading-anchor&quot;&gt;💻 Work&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Work was quiet last week. Nothing major happened which is always nice, but it also gives me some weariness about what might be coming. 😄 I was able to get some schoolwork done in between work (don’t tell my boss, LOL).&lt;/p&gt;
+&lt;p&gt;We also had some meetings with a vendor of ours about some possible new additions to the toolset we already use with them. I am also looking into some new training options for the team as well. I will probably be getting busy in the near future with those things.&lt;/p&gt;
+&lt;h3 id=&quot;😎-personal&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-44-2025/#%F0%9F%98%8E-personal&quot; class=&quot;heading-anchor&quot;&gt;😎 Personal&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Personal life was good last week. The weather was amazing most of the week. It was sunny and in the 60s and 70s most days. The mornings were chilly which I really enjoyed! I started a new open-source project last week as well that I am pretty excited about. It is a plugin for Eleventy that I have wanted for my site so I decided to build it and share it with the community. I will be sharing more about it soon.&lt;/p&gt;
+&lt;p&gt;My &lt;a href=&quot;https://purl.kylereddoch.me/cyberseckyle_community&quot; rel=&quot;noopener&quot;&gt;Discord community&lt;/a&gt; also launched last week. I have met some really cool people already and I am excited to see where it goes. I am still working on getting things organized (what to share, how-tos, etc) but I am excited about the possibilities. I am also working on some partnerships to bring in some guest speakers and do some events as well. Stay tuned for more on that.&lt;/p&gt;
+&lt;h3 id=&quot;📝-articles&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-44-2025/#%F0%9F%93%9D-articles&quot; class=&quot;heading-anchor&quot;&gt;📝 Articles&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Here are the articles I wrote last week:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/remove-preinstalled-microsoft-store-apps-in-windows-11-24h2-and-25h2/&quot;&gt;Remove Preinstalled Microsoft Store Apps in Windows 11 (24H2 &amp;amp; 25H2)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/embedding-mastodon-posts-in-eleventy-my-journey/&quot;&gt;Embedding Mastodon Posts in Eleventy: My Journey&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/wsus-just-became-an-attackers-dream-stop-publishing-your-patch-pipeline-to-the-internet/&quot;&gt;WSUS just became an attacker’s dream. Stop publishing your patch pipeline to the internet.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
+
+ 			</content>
+    </entry><entry>
       <title>WSUS just became an attacker’s dream. Stop publishing your patch pipeline to the internet.</title>
       <link href="https://www.kylereddoch.me/blog/wsus-just-became-an-attackers-dream-stop-publishing-your-patch-pipeline-to-the-internet/" />
       <updated>2025-10-30T20:00:00Z</updated>
@@ -4044,7 +4069,7 @@ final_pay &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span c
       <updated>2021-11-08T00:00:00Z</updated>
       <id>https://www.kylereddoch.me/blog/welcome-to-the-beginning/</id>
       <content type="html">
-				&lt;p&gt;First off, let me thank you all for coming. It has taken me way to long to create a place that I can share shortcuts (take a look at my &lt;a href=&quot;https://www.kylereddoch.me/shortcuts-gallery&quot;&gt;Shortcuts Gallery&lt;/a&gt;),  tech/news, my journey in coding, and more with those interested. I hope you enjoy.&lt;/p&gt;
+				&lt;p&gt;First off, let me thank you all for coming. It has taken me way to long to create a place that I can share shortcuts (take a look at my &lt;a href=&quot;https://www.kylereddoch.me/shortcuts-gallery&quot;&gt;Shortcuts Gallery&lt;/a&gt;), tech/news, my journey in coding, and more with those interested. I hope you enjoy.&lt;/p&gt;
 &lt;p&gt;This journey has been a wild, but good one. For this site I decided to do something different. Testing my skills, I went with &lt;a href=&quot;https://jekyllrb.com/&quot; rel=&quot;noopener&quot;&gt;Jekyll&lt;/a&gt; as the backbone of it. The theme comes from &lt;a href=&quot;https://github.com/sylhare&quot; rel=&quot;noopener&quot;&gt;Sylhare&lt;/a&gt; on Github. Then it is being hosted on &lt;a href=&quot;https://github.com/kylereddoch/kylereddoch.github.io&quot; rel=&quot;noopener&quot;&gt;Github Pages&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Have a look at the &lt;a href=&quot;https://www.kylereddoch.me/about&quot;&gt;About&lt;/a&gt; page to get to know a little bit about me. You can also find me at the following places below (social icons).&lt;/p&gt;
 
