@@ -33,7 +33,8 @@ main {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-family: var(--font-display);
   font-weight: var(--font-extra-bold);
   line-height: var(--leading-fine);
@@ -46,10 +47,17 @@ h1 {
 
 h2 {
   font-size: var(--size-step-3);
+  color: var(--color-mauve);
 }
 
 h3 {
   font-size: var(--size-step-1);
+  color: var(--color-peach);
+}
+
+h4 {
+  font-size: var(--size-step-0);
+  color: var(--color-sapphire);
 }
 
 blockquote {
@@ -83,6 +91,7 @@ svg {
 b,
 strong {
   font-weight: var(--font-bold);
+  color: var(--color-rosewater);
 }
 
 hr {
