@@ -8,6 +8,8 @@ tags: [cyberseckyle-howto-series, security, tutorials, IT, mfa, password-manager
 
 >This article is part of the CybersecKyle Security How-To Series, a step-by-step collection that starts with everyday safety and ramps up to blue team skills. New to the series? Start here.
 
+![Part 1 of CybersecKyle Security How-to Series](/assets/images/cyberseckyle_security-howto_partone_hero.png){loading="eager" eleventy:widths="auto"}
+
 ### Why this matters
 
 Most breaches start with weak or reused passwords. A password manager creates one strong vault to generate and store unique logins. Multi factor authentication (MFA) adds a second check so a stolen password alone is not enough. The goal is fewer logins in your head, stronger logins on every site, and a plan that prevents lockouts.
