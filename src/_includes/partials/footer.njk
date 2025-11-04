@@ -5,28 +5,27 @@
     <!-- 2-column badge grid -->
     <div class="badge-grid cols-2">
       <div class="badge">
-    <a class="no-indicator" href="https://fediring.net/previous?host=www.kylereddoch.me">←</a>
-    <span>Fediring</span>
-    <a class="no-indicator" href="https://fediring.net/next?host=www.kylereddoch.me">→</a>
-  </div>
-    <div class="badge">
-    <a class="no-indicator" href="https://xn--sr8hvo.ws/previous">←</a>
-    <span>IndieWeb Webring</span>
-    <a class="no-indicator" href="https://xn--sr8hvo.ws/next">→</a>
-  </div>
+        <a class="no-indicator" href="https://fediring.net/previous?host=www.kylereddoch.me">←</a>
+        <span>Fediring</span>
+        <a class="no-indicator" href="https://fediring.net/next?host=www.kylereddoch.me">→</a>
+      </div>
+      <div class="badge">
+        <a class="no-indicator" href="https://xn--sr8hvo.ws/previous">←</a>
+        <span>IndieWeb Webring</span>
+        <a class="no-indicator" href="https://xn--sr8hvo.ws/next">→</a>
+      </div>
     </div>
-  <div class="badge-grid cols-1">
-    <p>
+    <div class="badge-grid cols-1">
+      <p>
         👻 Proud member of <a href="https://darktheme.club">darktheme.club</a> 👻
       </p>
-      </div>
+    </div>
   </div>
   <div class="wrapper mt-l-xl">
     <div class="cluster gutter-xs">
       <nav class="cluster text-step-0" aria-label="{{ meta.navigation.ariaBottom }}">
-        &copy; {% year %}
-        <a href="/" {{ indicateActiveHome }}><span class="font-display">{{ meta.siteName }}</span>
-        </a>
+        <a href="/license">&copy; {% year %}
+        <span class="font-display">{{ meta.siteName }}</span></a>
 
         {% for item in navigation.bottom %}
         <a href="{{ item.url }}" {{ helpers.getLinkActiveState(item.url, page.url) | safe }}>{{ item.text }}</a>
@@ -56,4 +55,5 @@
       <a class="no-indicator" href="https://www.11ty.dev/">{% svg "misc/11ty", "Eleventy" %}</a>
     </aside>
   </div>
+
 </footer>
