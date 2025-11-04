@@ -3,9 +3,8 @@
     border-radius: 8px;
     font-size: var(--size-step-min-2) !important;
     font-family: var(--font-base);
-    margin: 2em auto;
-    width: 75% !important;
-
+    margin: var(--space-3xl) auto 0 auto;
+    width: 85% !important;
 }
 
 .mastodon-post span.invisible {
@@ -40,11 +39,16 @@
 .mastodon-post p {
     font-size: var(--size-step-min-2) !important;
     font-family: var(--font-base);
+    max-inline-size: 100% !important;
 }
 
 .mastodon-post span {
     font-size: var(--size-step-min-2) !important;
     font-family: var(--font-base);
+}
+
+.mastodon-post figcaption {
+    margin-block-start: var(--space-l) !important;
 }
 
 
@@ -60,8 +64,9 @@ blockquote.mastodon-post-quote {
     font-size: var(--size-step-min-2) !important;
     font-family: var(--font-base);
     border-left: none !important;
-    padding: 1em 1em 0 1em !important;
+    padding: 1.5em 1.5em 0 1.5em !important;
     background-color: var(--color-gray-800) !important;
+    max-inline-size: 100% !important;
 }
 
 .mastodon-post__caption {
@@ -78,6 +83,7 @@ blockquote.mastodon-post-quote {
     align-items: center;
     justify-content: space-around;
     /* gap: 1.5em; */
+    max-inline-size: 100% !important;
 }
 
 .mastodon-post__stat dt,
