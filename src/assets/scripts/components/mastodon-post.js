@@ -1,9 +1,10 @@
-const mastodonPostTemplate=document.createElement("template");mastodonPostTemplate.innerHTML=`
+const mastodonPostTemplate = document.createElement("template");
+mastodonPostTemplate.innerHTML = `
 <figure>
   <blockquote data-key="content"></blockquote>
   <figcaption>
     <cite>
-      <a data-key="url"><span data-key="username"></span>@<span data-key="hostname"></span></a>
+      <a data-key="url" class="no-indicator"><span data-key="username"></span>@<span data-key="hostname"></span></a>
     </cite>
     <dl>
       <dt>Reposts</dt><dd data-key="reblogs_count"></dd>
@@ -12,4 +13,70 @@ const mastodonPostTemplate=document.createElement("template");mastodonPostTempla
     </dl>
   </figcaption>
 </figure>
-`,mastodonPostTemplate.id="mastodon-post-template",document.getElementById(mastodonPostTemplate.id)||document.body.appendChild(mastodonPostTemplate);class MastodonPost extends HTMLElement{static register(e){"customElements"in window&&customElements.define(e||"mastodon-post",MastodonPost)}async connectedCallback(){this.append(this.template);const e={...await this.data,...this.linkData};this.querySelectorAll("[data-key]").forEach(async t=>{const{key:s}=t.dataset,n=e[s];s==="content"?t.innerHTML=n:typeof n=="string"&&n.startsWith("http")?(t.localName==="a"&&(t.href=n),t.localName==="img"&&(t.src=n)):t.textContent=n})}get template(){return document.getElementById(mastodonPostTemplate.id).content.cloneNode(!0)}get link(){return this.querySelector("a").href}get linkData(){const e=new URL(this.link),t=e.pathname.split("/").filter(e=>e.length);return{url:this.link,hostname:e.hostname,username:t.find(e=>e.startsWith("@")),postId:t.find(e=>!e.startsWith("@"))}}get endpoint(){return`https://${this.linkData.hostname}/api/v1/statuses/${this.linkData.postId}`}get data(){return fetch(this.endpoint).then(e=>e.json())}}MastodonPost.register()
+`;
+mastodonPostTemplate.id = "mastodon-post-template";
+document.getElementById(mastodonPostTemplate.id) || document.body.appendChild(mastodonPostTemplate);
+
+class MastodonPost extends HTMLElement {
+  static register(tagName) {
+    if ("customElements" in window) customElements.define(tagName || "mastodon-post", MastodonPost);
+  }
+
+  async connectedCallback() {
+    this.append(this.template);
+
+    const data = { ...(await this.data), ...this.linkData };
+
+    this.querySelectorAll("[data-key]").forEach(async el => {
+      const { key } = el.dataset;
+      const val = data[key];
+
+      if (key === "content") {
+        el.innerHTML = val;
+        return;
+      }
+
+      if (typeof val === "string" && val.startsWith("http")) {
+        if (el.localName === "a") {
+          el.href = val;
+          // Ensure the link uses the "no-indicator" class once the URL is set
+          el.classList.add("no-indicator");
+        } else if (el.localName === "img") {
+          el.src = val;
+        }
+        return;
+      }
+
+      el.textContent = val;
+    });
+  }
+
+  get template() {
+    return document.getElementById(mastodonPostTemplate.id).content.cloneNode(true);
+  }
+
+  get link() {
+    return this.querySelector("a").href;
+  }
+
+  get linkData() {
+    const u = new URL(this.link);
+    const parts = u.pathname.split("/").filter(p => p.length);
+    return {
+      url: this.link,
+      hostname: u.hostname,
+      username: parts.find(p => p.startsWith("@")),
+      postId: parts.find(p => !p.startsWith("@")),
+    };
+  }
+
+  get endpoint() {
+    return `https://${this.linkData.hostname}/api/v1/statuses/${this.linkData.postId}`;
+  }
+
+  get data() {
+    return fetch(this.endpoint).then(r => r.json());
+  }
+}
+
+MastodonPost.register();
