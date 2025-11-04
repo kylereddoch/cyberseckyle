@@ -88,4 +88,4 @@ This site is based on the excellent work of:
 
 ## License
 
-MIT --- see [LICENSE](LICENSE.MD) file.
+The contents of this repository, unless otherwise specified, are licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) --- see [LICENSE](LICENSE.MD) file.
