@@ -28,7 +28,7 @@ Start from zero and lock down daily life without breaking your flow.
 
 Planned parts:
 
-1. Password Managers + MFA [[Live now](/blog/cyberseckyle-how-to-series-everyday-defense-part-1-password-managers-mfa/)]
+1. Password Managers + MFA [[Live now](/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/)]
 2. 2FA Rescue and Recovery
 3. Browser hygiene that sticks
 4. Phone hardening you can live with
