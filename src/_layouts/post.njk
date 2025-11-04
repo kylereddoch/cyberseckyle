@@ -21,10 +21,7 @@ schema: BlogPosting
     </p>
 
     <p class="meta | cluster gutter-xs-s">
-    {%
-        if tags.length >
-        1
-      %}
+    {% if tags.length > 1 %}
         <!-- tags -->
         {% for tag in tags %}{% if tag != "posts" %}
           <a class="button" href="/tags/{{ tag | slugify }}/" data-small-button> {{ tag }} </a>
@@ -45,7 +42,7 @@ schema: BlogPosting
     {% endif %}
 
     {{ content | safe }}
-    <!-- {% include 'partials/edit-on.njk' %} -->
+
   </div>
 
   <!--  h-card infos: https://indieweb.org/authorship -->
@@ -60,6 +57,7 @@ schema: BlogPosting
     />
   </div>
 
+
 {% if mastodon_url %}
 <div class="wrapper flow prose">
   <!-- Discuss on Mastodon -->
@@ -69,7 +67,7 @@ schema: BlogPosting
 
 <div class="discuss-mastodon">
 <section class="full">
-    <mastodon-post><i class="fa-brands fa-mastodon"></i> <a href="{{ mastodon_url }}" rel="me" style="color: #bd93f9; padding: 1em 0 0 1em !important; display: inline-block;">Discuss on Mastodon</a></mastodon-post>
+    <mastodon-post><i class="fa-brands fa-mastodon"></i> <a href="{{ mastodon_url }}" rel="me" style="color: #bd93f9; padding: .8em 0 0 .8em !important; display: inline-block; font-size: 1.75em !important;" class="no-indicator">Discuss on Mastodon</a></mastodon-post>
     </section>
   </div>
 </div>
