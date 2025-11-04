@@ -3,7 +3,7 @@ date: 2025-11-04T10:00:00-05:00
 title: 'CybersecKyle Security How-To Series: Everyday Defense, Part 1: Password Managers + MFA'
 description: "Why password managers matter, how MFA protects you, and a calm migration plan with a recovery kit."
 tags: [cyberseckyle-howto-series, security, tutorials, IT, mfa, password-managers]
-#mastodon_url: https://infosec.exchange/@cyberseckyle
+mastodon_url: https://infosec.exchange/@cyberseckyle/115492434294338788
 ---
 
 >This article is part of the CybersecKyle Security How-To Series, a step-by-step collection that starts with everyday safety and ramps up to blue team skills. New to the series? Start here.
