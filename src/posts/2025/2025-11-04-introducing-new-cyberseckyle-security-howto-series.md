@@ -6,7 +6,7 @@ tags: [cyberseckyle-howto-series, cybersecurity, tutorials, security]
 mastodon_url: https://infosec.exchange/@cyberseckyle/115492350638217573
 ---
 
-![Mastodon Embed hero](/assets/images/cyberseckyle_security-howto_hero.png){loading="eager" eleventy:widths="auto"}
+![CybersecKyle Security How-To Series](/assets/images/cyberseckyle_security-howto_hero.png){loading="eager" eleventy:widths="auto"}
 
 This will be the home base for my new **CybersecKyle Security How-To Series**. It is a library of practical guides. Each guide ships a small download and a quick way to prove your changes worked.
 
