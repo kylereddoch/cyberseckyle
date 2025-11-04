@@ -4,12 +4,182 @@
   <subtitle>My life and journey through this world of technology. A blog about tech, cybersecurity, and everything in between.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-11-03T22:17:36Z</updated>
+  <updated>2025-11-04T16:14:23Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>CybersecKyle Security How-To Series: Everyday Defense, Part 1: Password Managers + MFA</title>
+      <link href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/" />
+      <updated>2025-11-04T15:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/</id>
+      <content type="html">
+				&lt;blockquote&gt;
+&lt;p&gt;This article is part of the CybersecKyle Security How-To Series, a step-by-step collection that starts with everyday safety and ramps up to blue team skills. New to the series? Start here.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;why-this-matters&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/#why-this-matters&quot; class=&quot;heading-anchor&quot;&gt;Why this matters&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Most breaches start with weak or reused passwords. A password manager creates one strong vault to generate and store unique logins. Multi factor authentication (MFA) adds a second check so a stolen password alone is not enough. The goal is fewer logins in your head, stronger logins on every site, and a plan that prevents lockouts.&lt;/p&gt;
+&lt;h2 id=&quot;what-you-will-build&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/#what-you-will-build&quot; class=&quot;heading-anchor&quot;&gt;What you will build&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;A password manager that holds your logins and generates new ones&lt;/li&gt;
+&lt;li&gt;MFA on your most important accounts&lt;/li&gt;
+&lt;li&gt;A small recovery kit that you can store safely&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;key-terms-in-plain-language&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/#key-terms-in-plain-language&quot; class=&quot;heading-anchor&quot;&gt;Key terms in plain language&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Password manager:&lt;/strong&gt; An app that stores and fills logins. Good ones encrypt on your device before sync.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TOTP:&lt;/strong&gt; A six digit code that refreshes every 30 seconds. Works offline.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hardware key:&lt;/strong&gt; A small USB or NFC device that proves you are you. Phishing resistant.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Backup codes:&lt;/strong&gt; One time codes that let you in if your phone or key is missing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;what-to-choose&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/#what-to-choose&quot; class=&quot;heading-anchor&quot;&gt;What to choose&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Pick one manager you will use daily. I suggest &lt;a href=&quot;https://go.getproton.me/SH24R&quot; rel=&quot;noopener&quot;&gt;Proton Pass&lt;/a&gt;(you can get 60% off right now for their Black Friday deal) as a strong, privacy-focused option. I use Proton’s apps myself, and absolutely recommend them for personal and family use.&lt;/p&gt;
+&lt;p&gt;Other Password Managers like Bitwarden, 1Password, or iCloud Keychain are all solid as well. The best choice is the one you will open every day on every device. Decide once and commit.&lt;/p&gt;
+&lt;h2 id=&quot;risks-and-how-we-reduce-them&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/#risks-and-how-we-reduce-them&quot; class=&quot;heading-anchor&quot;&gt;Risks and how we reduce them&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Lockout risk:&lt;/strong&gt; We set at least two factors and store backup codes in the vault item.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Phishing risk:&lt;/strong&gt; We prefer TOTP or a hardware key over SMS.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data loss risk:&lt;/strong&gt; We keep a written master passphrase in a sealed envelope.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;prerequisites&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/#prerequisites&quot; class=&quot;heading-anchor&quot;&gt;Prerequisites&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Your computer and your phone&lt;/li&gt;
+&lt;li&gt;About 60 to 90 minutes the first time&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;steps&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/#steps&quot; class=&quot;heading-anchor&quot;&gt;Steps&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Install and secure the manager&lt;/strong&gt;&lt;br&gt;
+Install the desktop app, the browser extension, and the phone app. Create your account. Set a long master passphrase made from at least 20 characters (use a mix of letters, numbers, and symbols).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Turn on MFA for the manager&lt;/strong&gt;&lt;br&gt;
+Open your account security page. Enable TOTP or a hardware key. Enroll at least two factors. Phone plus a spare hardware key is ideal.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Import what you already have&lt;/strong&gt;&lt;br&gt;
+Export passwords from your old browser or manager as CSV. Import into the new manager. Run the health check to find weak, reused, or breached passwords.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Clean up and strengthen&lt;/strong&gt;&lt;br&gt;
+Merge duplicates. Remove stale entries. For any reused password, generate a unique one and update the site. Start with the most important accounts.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Enable MFA on the top ten&lt;/strong&gt;&lt;br&gt;
+Email, bank, cloud storage, social, phone carrier, domain registrar, your password manager, Apple or Google account. Prefer TOTP or a hardware key. Avoid SMS if you can. Save backup codes in the item’s secure notes.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Build a recovery kit&lt;/strong&gt;&lt;br&gt;
+Store you master password somewhere safe and secure (I keep mine in Apple Note and lock it). Add a second factor on a different device or a second hardware key. Store the spare key away from home. Document a trusted contact if you want that safety net.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;validate-your-work&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/#validate-your-work&quot; class=&quot;heading-anchor&quot;&gt;Validate your work&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Sign out of the manager on your desktop and sign back in with MFA.&lt;/li&gt;
+&lt;li&gt;On your phone, autofill three different sites.&lt;/li&gt;
+&lt;li&gt;For one critical account, sign out everywhere and sign back in with MFA.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;common-pitfalls&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/#common-pitfalls&quot; class=&quot;heading-anchor&quot;&gt;Common pitfalls&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Browser keeps saving new passwords. Turn the browser’s password saving off to avoid new duplicates.&lt;/li&gt;
+&lt;li&gt;Only one hardware key enrolled. Add two and label them.&lt;/li&gt;
+&lt;li&gt;Backup codes get lost. Store codes inside each item’s secure notes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;privacy-notes&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/#privacy-notes&quot; class=&quot;heading-anchor&quot;&gt;Privacy notes&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Good managers encrypt on your device before sync. That means the provider cannot read your vault.&lt;/li&gt;
+&lt;li&gt;TOTP codes stored in the same manager are convenient. Storing TOTP on a separate authenticator or hardware key is stronger but less convenient. Choose based on risk.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;keep-going&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/#keep-going&quot; class=&quot;heading-anchor&quot;&gt;Keep going&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Next in the series: Browser hygiene that sticks without breaking your favorite sites.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&quot;downloadables&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/#downloadables&quot; class=&quot;heading-anchor&quot;&gt;Downloadables&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Password Migration Checklist (PDF): &lt;a href=&quot;https://www.kylereddoch.me/assets/downloads/how-to-series/CybersecKyle_Password_Migration_Checklist.pdf&quot;&gt;Download&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Top Ten Account Security Worksheet (CSV): &lt;a href=&quot;https://www.kylereddoch.me/assets/downloads/how-to-series/Top_Ten_Account_Security_Worksheet.csv&quot;&gt;Download&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+ 			</content>
+    </entry><entry>
+      <title>Introducing my new CybersecKyle Security How-To Series: the full roadmap</title>
+      <link href="https://www.kylereddoch.me/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/" />
+      <updated>2025-11-04T15:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/</id>
+      <content type="html">
+				&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/4dt43myAFp-1536.webp 1536w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/4dt43myAFp-1536.jpeg&quot; alt=&quot;Mastodon Embed hero&quot; width=&quot;1536&quot; height=&quot;1024&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;This will be the home base for my new &lt;strong&gt;CybersecKyle Security How-To Series&lt;/strong&gt;. It is a library of practical guides. Each guide ships a small download and a quick way to prove your changes worked.&lt;/p&gt;
+&lt;p&gt;This roadmap is a working plan. I will adjust as I go, based on feedback along the way. My goal is to make security skills approachable, useful, and even fun.&lt;/p&gt;
+&lt;p&gt;Each part will link to its own post with full details, steps, and downloads. Continue to check back here or subscribe to the RSS feed for updates.&lt;/p&gt;
+&lt;p&gt;I will also post updates on my &lt;a href=&quot;https://infosec.exchange/@cyberseckyle&quot; rel=&quot;noopener&quot;&gt;Mastodon&lt;/a&gt; with hashtags, &lt;strong&gt;#CybersecKyleHowTo&lt;/strong&gt; and the track tag, e.g. &lt;strong&gt;#EverydayDefense&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;how-this-works&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/#how-this-works&quot; class=&quot;heading-anchor&quot;&gt;How this works&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Guides are grouped into &lt;strong&gt;tracks&lt;/strong&gt;, I call them seasons.&lt;/li&gt;
+&lt;li&gt;Posts use clear steps, plain language, and a validation section.&lt;/li&gt;
+&lt;li&gt;Most posts include a checklist, worksheet, or drill card you can keep.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;season-1-·-everyday-defense-beginner&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/#season-1-%C2%B7-everyday-defense-beginner&quot; class=&quot;heading-anchor&quot;&gt;Season 1 · Everyday Defense (Beginner)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Start from zero and lock down daily life without breaking your flow.&lt;/p&gt;
+&lt;p&gt;Planned parts:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Password Managers + MFA [&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-how-to-series-everyday-defense-part-1-password-managers-mfa/&quot;&gt;Live now&lt;/a&gt;]&lt;/li&gt;
+&lt;li&gt;2FA Rescue and Recovery&lt;/li&gt;
+&lt;li&gt;Browser hygiene that sticks&lt;/li&gt;
+&lt;li&gt;Phone hardening you can live with&lt;/li&gt;
+&lt;li&gt;Scam spotting with a 60 second pause protocol&lt;/li&gt;
+&lt;li&gt;Backups that actually restore&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;season-2-·-home-network-and-devices-beginner-to-intermediate&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/#season-2-%C2%B7-home-network-and-devices-beginner-to-intermediate&quot; class=&quot;heading-anchor&quot;&gt;Season 2 · Home Network and Devices (Beginner to Intermediate)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Make home gear sane and predictable. Keep risky gadgets in their lane.&lt;/p&gt;
+&lt;p&gt;Planned parts:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Router sanity check and guest Wi-Fi&lt;/li&gt;
+&lt;li&gt;Windows 11 and macOS baselines you can live with&lt;/li&gt;
+&lt;li&gt;Safe file storage with encryption and snapshots&lt;/li&gt;
+&lt;li&gt;IoT quarantine and DNS choices&lt;/li&gt;
+&lt;li&gt;Passwordless sign in with passkeys and keys&lt;/li&gt;
+&lt;li&gt;Privacy tune up that is not tedious&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;season-3-·-power-user-and-small-team-intermediate&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/#season-3-%C2%B7-power-user-and-small-team-intermediate&quot; class=&quot;heading-anchor&quot;&gt;Season 3 · Power User and Small Team (Intermediate)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Treat a household or small shop like a tiny org. Less drama, more control.&lt;/p&gt;
+&lt;p&gt;Planned parts:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Account inventory and least privilege&lt;/li&gt;
+&lt;li&gt;Email security with SPF, DKIM, DMARC&lt;/li&gt;
+&lt;li&gt;Secrets management 101 for side projects&lt;/li&gt;
+&lt;li&gt;Light self hosting behind a reverse proxy&lt;/li&gt;
+&lt;li&gt;Security logging at home&lt;/li&gt;
+&lt;li&gt;Travel mode for laptops and phones&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;season-4-·-blue-team-fundamentals-intermediate-to-advanced&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/#season-4-%C2%B7-blue-team-fundamentals-intermediate-to-advanced&quot; class=&quot;heading-anchor&quot;&gt;Season 4 · Blue Team Fundamentals (Intermediate to Advanced)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Baselines, visibility, and signals that matter.&lt;/p&gt;
+&lt;p&gt;Planned parts:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Windows workstation baseline with Defender and ASR rules&lt;/li&gt;
+&lt;li&gt;macOS baseline with profiles and audit basics&lt;/li&gt;
+&lt;li&gt;Vulnerability scanning with real triage&lt;/li&gt;
+&lt;li&gt;Threat modeling a small target&lt;/li&gt;
+&lt;li&gt;First response at home&lt;/li&gt;
+&lt;li&gt;SIEM-lite with a few useful alerts&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;season-5-·-light-offensive-to-think-defensively-advanced&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/#season-5-%C2%B7-light-offensive-to-think-defensively-advanced&quot; class=&quot;heading-anchor&quot;&gt;Season 5 · Light Offensive to Think Defensively (Advanced)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Learn how attacks work in a safe lab so you can fix the real gaps.&lt;/p&gt;
+&lt;p&gt;Planned parts:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Build a safe lab with snapshots&lt;/li&gt;
+&lt;li&gt;Phishing simulation to study prompts and controls&lt;/li&gt;
+&lt;li&gt;Recon and password attack theory inside the lab&lt;/li&gt;
+&lt;li&gt;From findings to fixes with a short report&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;what-you-can-expect&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/#what-you-can-expect&quot; class=&quot;heading-anchor&quot;&gt;What you can expect&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Clear steps you can finish in one sitting&lt;/li&gt;
+&lt;li&gt;A tangible download every time&lt;/li&gt;
+&lt;li&gt;A quick validation so you know it worked&lt;/li&gt;
+&lt;/ul&gt;
+
+ 			</content>
+    </entry><entry>
       <title>Weekly Notes: Week 44, 2025</title>
       <link href="https://www.kylereddoch.me/blog/weekly-notes-week-44-2025/" />
       <updated>2025-11-03T19:00:00Z</updated>
