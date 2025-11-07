@@ -9,10 +9,10 @@ These are the things that I carry every day. I usually don't leave the house wit
 
 ### Tech
 
-- **Phone**: iPhone 16 Pro Max (Desert Titanium) - 512gb
+- **Phone**: iPhone 18 Pro Max (Cosmic Orange) - 512gb
 - **Watch**: Apple Watch Ultra (with black Nike sport loop band)
 - **Laptop**: 14" MacBook Pro M1 Pro - 512gb, 16gb RAM
-- **Earbuds**: Apple Airpods Pro
+- **Earbuds**: Apple Airpods Pro (2nd Generation)
 - **Headphones**: JBL Tune 510BT
 
 ### Other
@@ -20,8 +20,7 @@ These are the things that I carry every day. I usually don't leave the house wit
 - **Backpack**: Matein Travel Laptop Backpack (from Amazon)
 - **Wedding Ring**: Qalo Rubber ring (black)
 - **Phone case**: Insignia clear case with MagSafe
-- **iPad case**: Nillkin Bluetooth keyboard case
-- **Wallet**: Nomad Horween Card Wallet Plus with Card for Airtag
+- **Wallet**: Medrega Minimalist RFID Blocking Wallet with AirTag clip (from Amazon)
 
 ### Accessories
 

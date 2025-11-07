@@ -11,18 +11,18 @@ _Some links many contain affiliate links for products and apps that I use and lo
 
 ### Apps and Services I use
 
-- Mail: [Proton](https://go.getproton.me/SHzt) (personal email), Outlook (work email)
-- Messaging: Messages.app, Discord, Matrix, Signal
-- Social Media: Ice Cubes, Mona, Ivory, Instagram, Pixelfed
-- Password Management/2FA: Proton Pass
-- VPN Software: [Proton VPN](https://go.getproton.me/SHyN)
-- Cloud Storage: iCloud
-- Search Engine: Kagi Search, DDG
-- Note keeping: Notes.app, [Notion](https://affiliate.notion.so/ao2r2weoe2jx)
-- Browser: [Vivaldi](https://purl.kylereddoch.me/vivaldi_download)
-- Music: Music.app
-- Mental Health/Health/Fitness: Day One, Finch, Zenitizer, Health.app, Fitness.app, AutoSleep, Waterllama, Aura
-- Reading: Books.app, News.app, NetNewsWire, Feedbin
-- Weather: CARROT, MyRadar
-- IDEs: Visual Studio Code, JetBrains, Xcode
-- Photo Management: Photos.app, Pixelmator Pro
+- **Mail**: [Proton](https://go.getproton.me/SHzt) (personal email), Outlook (work email)
+- **Messaging**: Messages.app, Discord, Matrix, Signal
+- **Social Media**: Mona, Ivory, Instagram
+- **Password Management/2FA**: Proton Pass
+- **VPN Software**: [Proton VPN](https://go.getproton.me/SHyN)
+- **Cloud Storage**: iCloud
+- **Search Engine**: DDG
+- **Note keeping**: Notes.app, [Notion](https://affiliate.notion.so/ao2r2weoe2jx)
+- **Browser**: [Vivaldi](https://purl.kylereddoch.me/vivaldi_download)
+- **Music**: Music.app
+- **Mental Health/Health/Fitness**: Day One, Zenitizer, Health.app, Fitness.app, AutoSleep, Waterllama, Aura
+- **Reading**: Books.app, News.app, Unread, Feedbin
+- **Weather**: Weather.app, MyRadar
+- **IDEs**: Visual Studio Code, JetBrains, Xcode
+- **Photo Management**: Photos.app, Pixelmator Pro
