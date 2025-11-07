@@ -1,4 +1,4 @@
-{% set headingLevel = headingLevel | default("h2") %}
+{% set headingLevel = headingLevel | default("h3") %}
 {% set definedDate = definedDate | default(item.date) %}
 {% set showTags = showTags | default(true) %}
 
@@ -11,7 +11,7 @@
     <div slot="tag" webc:nokeep>
       {% for tag in item.data.tags %}
         {% if tag != "posts" %}
-          <span class="button" data-small-button>{{ tag }}</span>
+          <span class="button" data-small-button>#{{ tag }}</span>
         {% endif %}
       {% endfor %}
     </div>

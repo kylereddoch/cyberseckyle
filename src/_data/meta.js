@@ -44,9 +44,9 @@ export const blog = {
     }
   ],
   // Tags
-  tagSingle: 'Posts with tag',
-  tagPlural: 'Tags',
-  tagMore: 'More tags:',
+  tagSingle: '#',
+  tagPlural: 'Post Tags',
+  tagMore: '#',
   // pagination
   paginationLabel: 'Blog',
   paginationPage: 'Page',
@@ -69,7 +69,7 @@ export const navigation = {
   ariaTop: 'Main',
   ariaBottom: 'Complementary',
   ariaPlatforms: 'Platforms',
-  drawerNav: false,
+  drawerNav: true,
   subMenu: false
 };
 export const viewRepo = {
@@ -77,4 +77,4 @@ export const viewRepo = {
   allow: false,
   infoText: 'View this page on GitHub'
 };
-export const easteregg = true;
+export const easteregg = false;
