@@ -4,16 +4,16 @@
                     data-key="username"></span>@<span data-key="hostname"></span></a></cite>-->
         <dl class="mastodon-post__stats">
             <div class="mastodon-post__stat">
-                <dt><i class="fa-solid fa-retweet u-color--purple u-gap--right"></i>Reposts</dt>
-                <dd data-key="reblogs_count"></dd>
+                <a href="{{ mastodon_url }}/reblogs/" class="no-indicator"><dt><i class="fa-solid fa-rocket"></i></dt>
+                <dd data-key="reblogs_count"></dd></a>
             </div>
             <div class="mastodon-post__stat">
-                <dt><i class="fa-solid fa-comment u-color--purple u-gap--right"></i>Replies</dt>
-                <dd data-key="replies_count"></dd>
+                <a href="{{ mastodon_url }}/" class="no-indicator"><dt><i class="fa-solid fa-comment"></i></dt>
+                <dd data-key="replies_count"></dd></a>
             </div>
             <div class="mastodon-post__stat">
-                <dt><i class="fa-solid fa-star u-color--purple u-gap--right"></i>Favorites</dt>
-                <dd data-key="favourites_count"></dd>
+                <a href="{{ mastodon_url }}/favourites/" class="no-indicator"><dt><i class="fa-solid fa-heart"></i></dt>
+                <dd data-key="favourites_count"></dd></a>
             </div>
         </dl>
     </figcaption>

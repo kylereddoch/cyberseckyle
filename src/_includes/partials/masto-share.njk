@@ -1,0 +1,74 @@
+{# ==== inputs (safe defaults) ==== #}
+{% set _label    = label    | default("Share on Mastodon") %}
+{% set _hashtags = hashtags | default([]) %}
+{% set _text     = text     | default("") %}
+
+{# Build query once: ?text=... and optional &hashtags=... #}
+{% set _qs = "" %}
+{% if _text %}
+  {% set _qs = "?text=" ~ (_text | urlencode) %}
+{% endif %}
+{% if _hashtags | length %}
+  {% if _qs %}
+    {% set _qs = _qs ~ "&hashtags=" ~ (_hashtags | join(",") | urlencode) %}
+  {% else %}
+    {% set _qs = "?hashtags=" ~ (_hashtags | join(",") | urlencode) %}
+  {% endif %}
+{% endif %}
+
+{% set _fallbackHost = "mastodon.social" %}
+
+<div class="masto-share"
+     data-masto-query="{{ _qs }}"
+     data-masto-fallback="{{ _fallbackHost }}">
+  {# Primary action: uses saved instance if present, else prompts & saves #}
+  <a class="button no-indicator" data-variant="tertiary" data-size="sm"
+     href="https://{{ _fallbackHost }}/share{{ _qs }}"
+     data-masto-action="primary-share">
+    <i class="fa-brands fa-mastodon" aria-hidden="true"></i>
+    <span class="visually-hidden">{{ _label }}</span><span aria-hidden="true">{{ _label }}</span>
+  </a>
+
+  {# Instance menu wired to your footer JS #}
+  <div class="masto-share__menu">
+    <details data-align="end">
+      <summary class="button" data-ghost data-size="sm">
+        <i class="fa-brands fa-mastodon" aria-hidden="true"></i>
+        Choose popular instances
+      </summary>
+
+      <div class="masto-share__dropdown" role="menu">
+  <div class="masto-share__section masto-share__section--saved">
+    <button type="button" role="menuitem" data-masto-action="use-saved">
+      <i class="fa-brands fa-mastodon" aria-hidden="true"></i>
+      Use saved instance <small>(<span data-masto-current>none</span>)</small>
+    </button>
+
+    <button type="button" role="menuitem" data-masto-action="set-saved">
+      <i class="fa-brands fa-mastodon" aria-hidden="true"></i>
+      Set / change saved instance…
+    </button>
+
+    <button type="button" role="menuitem" data-masto-action="clear-saved">
+      <i class="fa-brands fa-mastodon" aria-hidden="true"></i>
+      Clear saved instance
+    </button>
+  </div>
+
+  <hr class="masto-share__divider" aria-hidden="true">
+
+  <div class="masto-share__section" role="group" aria-label="Suggested instances">
+    <button type="button" role="menuitem" data-masto-host="infosec.exchange">
+      <i class="fa-brands fa-mastodon" aria-hidden="true"></i>
+      infosec.exchange
+    </button>
+    <button type="button" role="menuitem" data-masto-host="mastodon.social">
+      <i class="fa-brands fa-mastodon" aria-hidden="true"></i>
+      mastodon.social
+    </button>
+  </div>
+</div>
+
+    </details>
+  </div>
+</div>

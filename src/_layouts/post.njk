@@ -3,9 +3,9 @@ layout: base
 schema: BlogPosting
 ---
 
-<div class="region" style="--region-space-top: var(--space-xl)">
+<div class="region" style="--region-space-top: var(--space-2xl)">
   <div class="wrapper flow prose">
-    <h1 class="gradient-text">{{ title }}</h1>
+    <h1 class="gradient-text" style="font-size: var(--size-step-4) !important;">{{ title }}</h1>
     {% if image %}
       <!-- image -->
       {% image image, alt or "", credit, "eager", "feature"  %}
@@ -24,7 +24,7 @@ schema: BlogPosting
     {% if tags.length > 1 %}
         <!-- tags -->
         {% for tag in tags %}{% if tag != "posts" %}
-          <a class="button" href="/tags/{{ tag | slugify }}/" data-small-button> {{ tag }} </a>
+          <a class="button" href="/tags/{{ tag | slugify }}/" data-small-button> #{{ tag }} </a>
         {% endif %}{% endfor %}
       {% endif %}
       </p>
@@ -43,6 +43,26 @@ schema: BlogPosting
 
     {{ content | safe }}
 
+    <hr />
+
+<div class="flow" style="margin-top: var(--space-xl);">
+  <h4>Enjoyed this post?</h4>
+  <p class="text-step-min-1">If you found this post helpful, consider sharing it on Mastodon! Or you can start a discussion below.</p>
+  <!-- Share on Mastodon -->
+{# Build the final share text exactly as before #}
+{% set fullUrl  = page.url | url | absoluteUrl(meta.url) %}
+{% set hashtags = mastodon_hashtags | default([]) %}
+
+{% set tagsInline = "" %}
+{% if (hashtags | length) > 0 %}
+  {% set tagsInline = "\n\n#" ~ (hashtags | join(' #')) %}
+{% endif %}
+
+{% set text = (title ~ " — " ~ (description or "")) ~ "\n\n" ~ fullUrl ~ tagsInline %}
+{% set label = "Share on Mastodon" %}
+
+{% include "partials/masto-share.njk" %}
+</div>
   </div>
 
   <!--  h-card infos: https://indieweb.org/authorship -->
@@ -67,7 +87,7 @@ schema: BlogPosting
 
 <div class="discuss-mastodon">
 <section class="full">
-    <mastodon-post><i class="fa-brands fa-mastodon"></i> <a href="{{ mastodon_url }}" rel="me" style="color: #bd93f9; padding: .8em 0 0 .8em !important; display: inline-block; font-size: 1.75em !important;" class="no-indicator">Discuss on Mastodon</a></mastodon-post>
+    <mastodon-post><i class="fa-brands fa-mastodon fa-xl" style="color: #bd93f9; padding: 1em 1.5em 0 1em !important; "></i> <a href="{{ mastodon_url }}" rel="me" style="color: #bd93f9; padding: 1em 0 0 0 !important; display: inline-block; font-size: 1.25em !important;" class="no-indicator">Discuss on Mastodon</a></mastodon-post>
     </section>
   </div>
 </div>

@@ -3,8 +3,26 @@
     border-radius: 8px;
     font-size: var(--size-step-min-2) !important;
     font-family: var(--font-base);
-    margin: var(--space-3xl) auto 0 auto;
-    width: 85% !important;
+    margin: var(--space-2xl) auto 0 auto;
+    width: 100% !important;
+}
+
+/* Keep Mastodon block styling isolated from global link rules */
+.discuss-mastodon a,
+.discuss-mastodon a:link,
+.discuss-mastodon a:visited {
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: var(--size-step-min-2) !important;
+    font-family: var(--font-base);
+    display: inline-block;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+}
+
+.discuss-mastodon a:hover {
+    color: var(--color-text);
+    text-decoration: none;
 }
 
 .mastodon-post span.invisible {
@@ -16,17 +34,6 @@
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     max-width: 100% !important;
-}
-
-.discuss-mastodon a,
-.discuss-mastodon a:link,
-.discuss-mastodon a:visited {
-    font-size: var(--size-step-min-2) !important;
-    font-family: var(--font-base);
-    display: inline-block;
-    word-break: break-word !important;
-    /* or break-all if you prefer */
-    overflow-wrap: anywhere !important;
 }
 
 .mastodon-post {
@@ -50,7 +57,6 @@
 .mastodon-post figcaption {
     margin-block-start: var(--space-l) !important;
 }
-
 
 a.mastodon-post,
 a.mastodon-post:link,
@@ -81,7 +87,7 @@ blockquote.mastodon-post-quote {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     /* gap: 1.5em; */
     max-inline-size: 100% !important;
 }
@@ -92,6 +98,30 @@ blockquote.mastodon-post-quote {
     margin: 0
 }
 
-.mastodon-post__stat dd {
-    margin-left: .5em
+.mastodon-post__stat i {
+    font-size: var(--size-step-min-1);
+}
+
+/* Mastodon stats links — hover to green only in this block */
+.mastodon-post__stats a.no-indicator,
+.mastodon-post__stats a.no-indicator:link,
+.mastodon-post__stats a.no-indicator:visited {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+/* More specific than the generic .discuss-mastodon a:hover rule above */
+.mastodon-post__stats a.no-indicator:hover {
+    color: var(--color-green);
+    text-decoration: none;
+}
+
+/* Ensure children inherit the anchor color on hover */
+.mastodon-post__stats a.no-indicator :is(dt, dd, i, span) {
+    color: inherit;
+}
+
+.mastodon-post__stats a.no-indicator:focus,
+.mastodon-post__stats a.no-indicator:active {
+    color: var(--color-green);
 }
