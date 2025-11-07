@@ -1,11 +1,114 @@
+/* =========================
+   Footer (full replacement)
+   ========================= */
 .site-footer {
-  --cluster-horizontal-alignment: center;
+  background-color: var(--color-gray-700) !important;
+  color: var(--color-gray-100);
+  padding-block: var(--space-2xl);
+  width: 100%;
+  display: block;
+  border-top: 1px solid color-mix(in oklab, var(--color-gray-100) 8%, transparent);
 }
 
-/* increase tab size */
-.site-footer a:not(.creator a) {
+/* keep wrapper transparent inside footer band */
+.site-footer>.wrapper {
+  background: transparent;
+}
+
+/* ===== Footer grid (independent of site .wrapper grid) */
+/* Base (mobile): stack, LEFT then RIGHT, both left-aligned */
+.site-footer .footer-grid {
+  display: grid;
+  gap: var(--space-l);
+  align-items: start;
+  grid-template-areas:
+    "left"
+    "right";
+}
+
+.site-footer .footer-grid>* {
+  min-width: 0;
+}
+
+/* Panes (mobile defaults) */
+.left-pane {
+  grid-area: left;
+  text-align: left;
+  --cluster-horizontal-alignment: start;
+}
+
+.right-pane {
+  grid-area: right;
+  display: grid;
+  gap: var(--space-m);
+  text-align: left;
+  --cluster-horizontal-alignment: start;
+}
+
+.right-pane .cluster {
+  justify-content: flex-start;
+}
+
+/* ===== Desktop (≥ 860px): two columns,
+   LEFT pane stays left-aligned, RIGHT pane right-aligned */
+@media (min-width: 53.75rem) {
+  .site-footer .footer-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: "left right";
+  }
+
+  /* Left pane remains LEFT */
+  .site-footer .left-pane {
+    text-align: left;
+    --cluster-horizontal-alignment: start;
+    justify-items: start;
+    align-items: start;
+  }
+
+  .site-footer .left-pane .cluster {
+    justify-content: flex-start;
+  }
+
+  /* Right pane becomes RIGHT */
+  .site-footer .right-pane {
+    text-align: right;
+    --cluster-horizontal-alignment: end;
+    justify-items: end;
+    align-items: start;
+  }
+
+  .site-footer .right-pane .cluster {
+    justify-content: flex-end;
+  }
+}
+
+/* ===== Tap targets (apply to all, cancel in creator) */
+.site-footer a {
   padding: var(--space-xs);
 }
+
+.site-footer .creator a {
+  padding: 0;
+}
+
+/* ===== Link palette + hover */
+.site-footer .footer-link,
+.site-footer .platforms a,
+.site-footer .webrings a {
+  color: var(--color-gray-100);
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 0.12em;
+  text-decoration-color: color-mix(in oklab, var(--color-gray-100) 30%, transparent);
+}
+
+.site-footer .footer-link:hover,
+.site-footer .platforms a:hover,
+.site-footer .webrings a:hover {
+  color: var(--color-green);
+  text-decoration: none;
+}
+
+/* ===== Creator rainbow hover */
 .site-footer .creator a:hover {
   color: transparent;
   background-image: var(--gradient-rainbow);
@@ -16,4 +119,60 @@
 
 .site-footer .creator a:hover svg {
   color: var(--color-primary);
+}
+
+/* ===== Webrings (flex “cluster”) — left-aligned by design */
+.webrings {
+  text-align: left;
+}
+
+.webrings>.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  list-style: none;
+  margin: var(--space-s) 0 0;
+  padding: 0;
+}
+
+.webring {
+  display: inline-flex;
+  align-items: center;
+  gap: .6ch;
+  padding: .4rem .65rem;
+  line-height: 1.15;
+  background: color-mix(in oklab, var(--color-gray-100) 6%, transparent);
+  border-radius: .25rem;
+  max-inline-size: 100%;
+  overflow: hidden;
+}
+
+.webring__label {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.webrings .small {
+  font-size: .9em;
+  opacity: .9;
+}
+
+.webrings .no-wrap {
+  white-space: nowrap;
+}
+
+.webrings .no-indicator {
+  position: static !important;
+  padding-inline-end: 0 !important;
+}
+
+.webrings .no-indicator::after {
+  content: none !important;
+}
+
+.webrings-note {
+  margin: var(--space-s) 0 0;
+  text-align: left;
 }

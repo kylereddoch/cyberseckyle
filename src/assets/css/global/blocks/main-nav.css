@@ -48,7 +48,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .mainnav > ul {
+  .mainnav>ul {
     --nav-list-transform: translateX(100%);
     --nav-list-opacity: 1;
     transform: var(--nav-list-transform);
@@ -73,7 +73,8 @@
   line-height: var(--leading-flat);
 }
 
-.mainnav [data-drawer-toggle][aria-expanded='true'] + ul {
+/* reveal drawer */
+.mainnav [data-drawer-toggle][aria-expanded='true']+ul {
   --cluster-wrap: nowrap;
   --nav-list-visibility: visible;
   --nav-list-transform: translateX(0);
@@ -102,10 +103,11 @@ body:has([data-drawer-toggle][aria-expanded='true']) {
   transform: rotate(45deg);
 }
 
+/* NAV ITEM BASE — white, no underline */
 .mainnav :is(a, [data-submenu-toggle]) {
-  /* configuration */
   --nav-item-background: transparent;
-  --nav-item-text-color: var(--color-text);
+  --nav-item-text-color: #fff;
+  /* stay white */
   --nav-item-padding: var(--space-xs) var(--space-2xs);
   --nav-item-decoration-color: transparent;
   --nav-item-font-size: var(--size-step-0);
@@ -117,8 +119,8 @@ body:has([data-drawer-toggle][aria-expanded='true']) {
   padding: var(--nav-item-padding);
   display: block;
   border-radius: var(--border-radius-medium);
-  text-decoration-line: underline;
-  text-decoration-color: var(--nav-item-decoration-color);
+  text-decoration: none;
+  /* no underline by default */
   text-decoration-thickness: 3px;
   text-underline-offset: 0.2em;
 }
@@ -139,29 +141,36 @@ body:has([data-drawer-toggle][aria-expanded='true']) {
   margin-inline-end: calc(var(--gap) - var(--nav-list-padding-inline));
 }
 
+/* HOVER — tertiary + underline */
 .mainnav :is(a, [data-submenu-toggle]):hover {
   --nav-item-background: transparent;
-  --nav-item-text-color: var(--color-text);
-  --nav-item-decoration-color: var(--color-bg-accent-2);
+  --nav-item-text-color: var(--color-tertiary);
+  --nav-item-decoration-color: var(--color-tertiary);
+  color: var(--nav-item-text-color);
+  text-decoration: underline;
 }
 
+/* ACTIVE/CURRENT — tertiary + underline */
 .mainnav [aria-current='page'],
 .mainnav [data-state='active'] {
   --nav-item-background: var(--color-bg);
-  --nav-item-text-color: var(--color-primary);
-  --nav-item-decoration-color: var(--color-primary);
+  --nav-item-text-color: var(--color-tertiary);
+  --nav-item-decoration-color: var(--color-tertiary);
+  color: var(--nav-item-text-color);
+  text-decoration: underline;
 }
 
 /* current parent (if submenu) */
-li:has(ul a[aria-current='page']) > [data-submenu-toggle] {
+li:has(ul a[aria-current='page'])>[data-submenu-toggle] {
   --nav-item-background: var(--color-bg);
-  --nav-item-text-color: var(--color-text);
-  --nav-item-decoration-color: var(--color-text);
+  --nav-item-text-color: var(--color-tertiary);
+  --nav-item-decoration-color: var(--color-tertiary);
+  color: var(--nav-item-text-color);
+  text-decoration: underline;
 }
 
 /* sub menu */
-
-.mainnav [data-submenu-toggle][aria-expanded='false'] + ul {
+.mainnav [data-submenu-toggle][aria-expanded='false']+ul {
   display: none;
 }
 
@@ -210,12 +219,15 @@ li:has(ul a[aria-current='page']) > [data-submenu-toggle] {
     --nav-list-opacity: 1;
   }
 
+  /* Keep active styles consistent on wide screens */
   .mainnav [aria-current='page'],
   .mainnav [data-state='active'],
-  li:has(ul a[aria-current='page']) > [data-submenu-toggle] {
+  li:has(ul a[aria-current='page'])>[data-submenu-toggle] {
     --nav-item-background: transparent;
-    --nav-item-text-color: var(--color-primary);
-    --nav-item-decoration-color: var(--color-primary);
+    --nav-item-text-color: var(--color-tertiary);
+    --nav-item-decoration-color: var(--color-tertiary);
+    color: var(--nav-item-text-color);
+    text-decoration: underline;
   }
 
   .mainnav [data-submenu-toggle] {
@@ -239,9 +251,7 @@ li:has(ul a[aria-current='page']) > [data-submenu-toggle] {
   }
 }
 
-/* Repeat the settings to provide a different styling when JavaScript is disabled or drawerNav is set to false. The selector
-assumes that the button doesn’t exist without JS, making the list the first child within the navigation. */
-
+/* No-JS fallbacks unchanged… */
 .mainnav ul:first-child {
   --cluster-direction: row;
   --nav-list-position: static;
@@ -258,16 +268,16 @@ assumes that the button doesn’t exist without JS, making the list the first ch
 .mainnav ul:first-child [aria-current='page'],
 .mainnav ul:first-child [data-state='active'] {
   --nav-item-background: transparent;
-  --nav-item-text-color: var(--color-primary);
-  --nav-item-decoration-color: var(--color-primary);
+  --nav-item-text-color: var(--color-tertiary);
+  --nav-item-decoration-color: var(--color-tertiary);
+  color: var(--nav-item-text-color);
+  text-decoration: underline;
 }
 
-/* make menu wrap without drawer */
 .mainnav:has(ul:first-child) {
   --nav-position: relative;
 }
 
-/* no JS fallback for sub menus */
 @media (scripting: none) {
   .mainnav ul:first-child ul.nav-sublist {
     --cluster-direction: row;

@@ -11,7 +11,7 @@
 }
 
 /* make featured image alwyays 16/9 */
-.post h1 + :is(picture, figure) img {
+.post h1+ :is(picture, figure) img {
   max-inline-size: var(--max-img-width, 100%);
   block-size: auto;
   aspect-ratio: 16/9;
@@ -36,4 +36,5 @@
 
 .post .meta {
   font-size: var(--size-step-min-1);
+
 }

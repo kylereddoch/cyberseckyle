@@ -9,25 +9,11 @@
 
   display: grid;
   grid-template-columns:
-    [full-start] var(--full)
-    [feature-start] var(--feature)
-    [popout-start] var(--popout)
-    [content-start] var(--content) [content-end]
-    var(--popout) [popout-end]
-    var(--feature) [feature-end]
-    var(--full) [full-end];
+    [full-start] var(--full) [feature-start] var(--feature) [popout-start] var(--popout) [content-start] var(--content) [content-end] var(--popout) [popout-end] var(--feature) [feature-end] var(--full) [full-end];
 }
 
-.wrapper > * {
+.wrapper>* {
   grid-column: content;
-}
-
-.prose-wrapper {
-  --wrapper-width: 64rem;
-}
-
-.popout {
-  grid-column: popout;
 }
 
 .feature {

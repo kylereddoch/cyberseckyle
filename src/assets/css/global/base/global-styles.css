@@ -31,6 +31,19 @@ main {
   flex: auto;
 }
 
+/* BODY CONTENT LINKS (unclassed) — tertiary + underlined, hover removes underline */
+main a:not([class]):not([h2]):not([h3]):not([h4]) {
+  color: var(--color-tertiary);
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.15ex;
+  text-underline-offset: 0.2ch;
+}
+
+main a:not([class]):not([h2]):not([h3]):not([h4]):hover {
+  color: var(--color-tertiary);
+  text-decoration: none;
+}
+
 h1,
 h2,
 h3,
@@ -51,12 +64,12 @@ h2 {
 }
 
 h3 {
-  font-size: var(--size-step-1);
+  font-size: var(--size-step-2);
   color: var(--color-peach);
 }
 
 h4 {
-  font-size: var(--size-step-0);
+  font-size: var(--size-step-1);
   color: var(--color-sapphire);
 }
 
@@ -91,17 +104,18 @@ svg {
 b,
 strong {
   font-weight: var(--font-bold);
-  color: var(--color-rosewater);
+  color: var(--color-flamingo);
 }
 
-hr {
+/* global */
+hr:not(.masto-share__divider) {
   border: none;
   height: 1px;
-  width: 10%;
-  margin-block: var(--flow-space, var(--space-m-l));
-  margin-inline-start: 0;
+  width: 50%;
+  margin: var(--space-xl) auto !important;
   background-color: var(--color-bg-accent-2);
 }
+
 
 figcaption {
   margin-block-start: var(--space-s);
@@ -126,6 +140,8 @@ a {
   text-underline-offset: 0.2ch;
 }
 
+/* Keep hover removal only for general unclassed anchors elsewhere,
+   but body content is handled above. */
 a:not([class]):hover {
   text-decoration: none;
 }
@@ -139,8 +155,7 @@ a:not([class]):hover {
   outline-offset: var(--focus-offset, 0.3ch);
 }
 
-/* reduce focus offset for Firefox
-*/
+/* reduce focus offset for Firefox */
 @supports (-moz-appearance: none) {
   :root {
     --focus-offset: 0.08em;

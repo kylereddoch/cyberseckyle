@@ -1,59 +1,61 @@
-<footer class="site-footer p-s-m mt-l-xl">
-  <div class="wrapper prose text-center text-step-min-1">
-    <p>This site is member of the following webrings!</p>
+<footer class="site-footer mt-l-xl">
+  <div class="wrapper">
+    <div class="footer-grid">
+      <section class="left-pane text-step-min-1">
+        <p>This site is member of the following webrings!</p>
 
-    <!-- 2-column badge grid -->
-    <div class="badge-grid cols-2">
-      <div class="badge">
-        <a class="no-indicator" href="https://fediring.net/previous?host=www.kylereddoch.me">←</a>
-        <span>Fediring</span>
-        <a class="no-indicator" href="https://fediring.net/next?host=www.kylereddoch.me">→</a>
-      </div>
-      <div class="badge">
-        <a class="no-indicator" href="https://xn--sr8hvo.ws/previous">←</a>
-        <span>IndieWeb Webring</span>
-        <a class="no-indicator" href="https://xn--sr8hvo.ws/next">→</a>
-      </div>
-    </div>
-    <div class="badge-grid cols-1">
-      <p>
-        👻 Proud member of <a href="https://darktheme.club">darktheme.club</a> 👻
-      </p>
+        <div id="webrings" class="webrings">
+          <ol class="cluster">
+            <li class="webring">
+              <a class="no-indicator small no-wrap" href="https://fediring.net/previous?host=www.kylereddoch.me">← Previous</a>
+              <a class="no-indicator webring__label" href="https://fediring.net/">Fediring</a>
+              <a class="no-indicator small no-wrap" href="https://fediring.net/random?host=www.kylereddoch.me">rANdoM</a>
+              <a class="no-indicator small no-wrap" href="https://fediring.net/next?host=www.kylereddoch.me">Next →</a>
+            </li>
+            <li class="webring">
+              <a class="no-indicator small no-wrap" href="https://xn--sr8hvo.ws/previous">← Previous</a>
+              <a class="no-indicator webring__label" href="https://xn--sr8hvo.ws/">IndieWeb Webring</a>
+              <a class="no-indicator small no-wrap" href="https://xn--sr8hvo.ws/random">RANDom</a>
+              <a class="no-indicator small no-wrap" href="https://xn--sr8hvo.ws/next">Next →</a>
+            </li>
+          </ol>
+        </div>
+
+        <p class="webrings-note">👻 Proud member of <a class="footer-link" href="https://darktheme.club">darktheme.club</a> 👻</p>
+      </section>
+
+      <section class="right-pane">
+        <nav class="cluster gutter-xs text-step-min-1" aria-label="{{ meta.navigation.ariaBottom }}">
+          <a class="footer-link" href="/license">&copy; {% year %} <span class="font-display">{{ meta.siteName }}</span></a>
+          {% for item in navigation.bottom %}
+            <a class="footer-link" href="{{ item.url }}" {{ helpers.getLinkActiveState(item.url, page.url) | safe }}>{{ item.text }}</a>
+          {% endfor %}
+        </nav>
+
+        <nav class="platforms | cluster gutter-xs text-step-min-0" aria-label="{{ meta.navigation.ariaPlatforms }}">
+          <a class="no-indicator" href="{{ meta.blog.feedLinks[0].url }}" rel="alternate" type="{{ meta.blog.feedLinks[0].type }}">
+            <span class="visually-hidden">{{ meta.blog.feedLinks[0].title }}</span>
+            {% svg "misc/rss" %}
+          </a>
+          {% for key, value in personal.platforms %}
+          {% if value != "" %}
+            <a class="no-indicator" href="{{ value }}" rel="me" title="{{ key | capitalize }}">
+              <span class="visually-hidden">{{ key | capitalize }}</span>
+              {% svg 'platform/' + key %}
+            </a>
+          {% endif %}
+          {% endfor %}
+        </nav>
+
+        <aside class="creator | cluster gutter-2xs text-step-min-1">
+          Made with <span class="visually-hidden">love</span> <span>{% svg "misc/heart" %}</span> and
+          <a class="no-indicator" href="https://www.11ty.dev/">{% svg "misc/11ty", "Eleventy" %}</a>
+        </aside>
+
+        <!-- Speedlify -->
+<p class="text-step-min-2"><speedlify-score speedlify-url="https://www.11ty.dev/speedlify" hash="e33de02c" requests weight rank rank-change score></speedlify-score></p>
+<script src="/assets/scripts/components/masto-share.js" defer></script>
+      </section>
     </div>
   </div>
-  <div class="wrapper mt-l-xl">
-    <div class="cluster gutter-xs">
-      <nav class="cluster text-step-0" aria-label="{{ meta.navigation.ariaBottom }}">
-        <a href="/license">&copy; {% year %}
-        <span class="font-display">{{ meta.siteName }}</span></a>
-
-        {% for item in navigation.bottom %}
-        <a href="{{ item.url }}" {{ helpers.getLinkActiveState(item.url, page.url) | safe }}>{{ item.text }}</a>
-        {% endfor %}
-      </nav>
-      <nav class="cluster text-step-min-0" aria-label="{{ meta.navigation.ariaPlatforms }}">
-        <!-- gets the first item from the feed loop set in meta -->
-        <a href="{{ meta.blog.feedLinks[0].url }}" rel="alternate" type="{{ meta.blog.feedLinks[0].type }}">
-          <span class="visually-hidden">{{ meta.blog.feedLinks[0].title }}</span>
-          {% svg "misc/rss" %}
-        </a>
-
-        {% for key, value in personal.platforms %}
-        {% if value != "" %}
-        <!-- regular platforms -->
-        <a class="no-indicator" href="{{ value }}" rel="me" title="{{ key | capitalize }}">
-          <span class="visually-hidden">{{ key | capitalize }}</span>
-          {% svg 'platform/' + key %}
-        </a>
-        {% endif %}
-        {% endfor %}
-      </nav>
-    </div>
-
-    <aside class="creator | cluster gutter-2xs text-step-min-1">
-      Made with <span class="visually-hidden">love</span> <span>{% svg "misc/heart" %}</span> and
-      <a class="no-indicator" href="https://www.11ty.dev/">{% svg "misc/11ty", "Eleventy" %}</a>
-    </aside>
-  </div>
-
 </footer>

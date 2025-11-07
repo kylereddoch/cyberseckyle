@@ -1,46 +1,79 @@
+/* Pagination — cleaned + accessible */
 .pagination {
   --gutter: var(--space-xs-s);
+  --pagination-text: var(--color-text);
+  --pagination-bg: var(--color-bg);
+  --pagination-border: var(--color-bg-accent);
 }
 
+/* List layout */
 .pagination ol {
-  display: flex !important;
-  justify-content: center !important;
+  display: flex;
+  justify-content: center;
+  gap: var(--gutter);
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
+/* Chip base */
 .pagination li {
-  color: var(--pagination-text, var(--color-text));
-  background-color: var(--pagination-bg, var(--color-bg));
-  border: 3px solid var(--pagination-border, var(--color-bg-accent));
+  color: var(--pagination-text);
+  background-color: var(--pagination-bg);
+  border: 3px solid var(--pagination-border);
   border-radius: var(--border-radius-medium);
 }
 
+/* Disabled chip (no link) */
 .pagination li:not(:has(a)) {
   padding: var(--space-xs) var(--space-s-m);
-  opacity: 0.6;
+  opacity: 0.9;
+  /* keep contrast */
+  pointer-events: none;
 }
 
+/* Link chip */
 .pagination a {
-  text-decoration: none;
-}
-
-.pagination a {
-  padding: var(--space-xs) var(--space-s-m);
-  text-decoration: none;
   display: block;
-}
-
-.pagination li:not(:has(a)) {
   padding: var(--space-xs) var(--space-s-m);
-  opacity: 0.6;
+  text-decoration: none;
+  color: var(--color-tertiary);
+  /* orange by default */
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 0.12em;
+  text-decoration-color: color-mix(in oklab, var(--color-tertiary) 50%, transparent);
 }
 
+/* Hover/focus: blue link + highlight chip */
+.pagination a:hover,
+.pagination a:focus-visible {
+  color: var(--color-secondary);
+  /* blue on interaction */
+  text-decoration: none;
+  outline: 3px solid var(--color-secondary);
+  outline-offset: 2px;
+  border-radius: var(--border-radius-medium);
+}
+
+/* also tint the chip on hover */
 .pagination li:has(a:hover) {
   --pagination-bg: var(--color-bg-accent);
   --pagination-border: var(--color-bg-accent);
 }
 
-.pagination li:has(a[aria-current='page']) {
+/* Current page chip (orange) */
+.pagination li:has(a[aria-current="page"]) {
   --pagination-bg: var(--color-secondary);
   --pagination-border: var(--color-secondary);
-  --pagination-text: var(--color-light);
+  --pagination-text: var(--color-bg);
+}
+
+/* ensure the current link text is readable on the orange chip */
+.pagination [aria-current="page"] {
+  color: var(--color-bg);
+}
+
+/* Base text color for any non-link text near pagination (optional scope) */
+nav[aria-labelledby="pagination_label"] .pagination {
+  color: var(--color-text);
 }
