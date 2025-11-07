@@ -27,6 +27,7 @@ import { buildAllJs } from './src/_config/plugins/js-config.js';
 // reading time plugin
 import readingTime from 'eleventy-plugin-reading-time';
 
+
 // Mastodon Direct-Embed: bleed-friendly, auto-height reliable
 async function mastodonEmbedShortcode(statusUrl, maxWidth = 720, layout = 'normal') {
   try {
@@ -104,6 +105,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addCollection('showInSitemap', showInSitemap);
   eleventyConfig.addCollection('tagList', tagList);
 
+
   // ---------------------  Plugins
   eleventyConfig.addPlugin(plugins.htmlConfig);
   eleventyConfig.addPlugin(plugins.drafts);
@@ -111,6 +113,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(plugins.EleventyRenderPlugin);
   eleventyConfig.addPlugin(plugins.rss);
   eleventyConfig.addPlugin(plugins.syntaxHighlight);
+
 
   eleventyConfig.addPlugin(plugins.webc, {
     components: ['./src/_includes/webc/**/*.webc'],
@@ -169,6 +172,24 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter('alphabetic', filters.sortAlphabetically);
   eleventyConfig.addFilter('slugify', filters.slugifyString);
 
+  // Build a Mastodon /share URL
+  eleventyConfig.addFilter("mastoShareUrl", (instance, url, text, title, hashtags = []) => {
+    try {
+      const u = new URL(`https://${instance}/share`);
+      if (text) u.searchParams.set("text", text);
+      if (url) u.searchParams.set("url", url);
+      if (title && !text) u.searchParams.set("title", title);
+      if (Array.isArray(hashtags) && hashtags.length) {
+        u.searchParams.set("hashtags", hashtags.join(","));
+      }
+      return u.toString();
+    } catch {
+      return "#";
+    }
+  });
+
+  eleventyConfig.addFilter('split', (str, sep) => String(str).split(sep));
+
   // --------------------- Shortcodes
   eleventyConfig.addShortcode('svg', shortcodes.svgShortcode);
   eleventyConfig.addShortcode('image', shortcodes.imageShortcode);
@@ -199,6 +220,9 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "node_modules/@daviddarnes/mastodon-post/mastodon-post.js": "assets/js/mastodon-post.js",
   });
+
+  eleventyConfig.addPassthroughCopy({ "src/assets/svg": "assets/svg" });
+
 
   // --------------------- general config
   return {
