@@ -85,8 +85,6 @@ Other Password Managers like Bitwarden, 1Password, or iCloud Keychain are all so
 
 Next in the series: Browser hygiene that sticks without breaking your favorite sites.
 
----
-
 #### Downloadables
 
 - Password Migration Checklist (PDF): [Download](/assets/downloads/how-to-series/CybersecKyle_Password_Migration_Checklist.pdf)  
