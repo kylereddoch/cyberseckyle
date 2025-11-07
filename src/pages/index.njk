@@ -5,19 +5,19 @@ title: 'Beep...Boop...'
 description: 'Eleventy starter using modern CSS, fluid type, fluid spacing, flexible layout and progressive enhancement.'
 blog:
   title: 'Blog'
-  intro: "Here are the 4 most recent posts. There's probably more though..."
+  intro: "Here are the 6 most recent posts. There's probably more though..."
 ---
 
 <div class="wrapper">
   <header class="full | section" style="--spot-color: var(--color-primary)">
-    <div class="section__inner flow region" style="--region-space-top: var(--space-xl-2xl)">
-      <h1 class="text-center" style="color: var(--color-text); font-size: var(--size-step-6) !important;">{{ title }}</h1>
+    <div class="section__inner flow region">
+      <h1 class="text-center" style="color: var(--color-text);  font-size: var(--size-step-6) !important;">{{ title }}</h1>
     </div>
     {% svg "divider/edgy", null, "divider" %}
   </header>
 
   <article class="full | region">
-    <div class="wrapper flow prose">
+    <div class="wrapper flow">
       <h2 id="an-eleventy-starter">I'm Kyle! (aka CyberSecKyle)</h2>
       <p>I'm an IT professional working in the MSP/Cybersecurity industry. I love everything tech. You can check out more about me <a href="https://profile.kylereddoch.me">here</a> or read my blog posts below. I blog about cybersecurity, technology trends, and best practices in IT. I even share the occasional tech review every now and then.</p>
 {% highlight "bash" %}
@@ -45,7 +45,7 @@ $ buildtime
   </article>
 
   <section class="full | region">
-    <div class="wrapper flow prose">
+    <div class="wrapper flow">
       <h2>{{ blog.title }}</h2>
       {% if blog.intro %}
         <p>{{ blog.intro }}</p>
@@ -53,7 +53,7 @@ $ buildtime
       <div class="feature |  region region-space-l">
         <custom-masonry layout="50-50">
           {% set itemList = collections.allPosts %}
-					{% asyncEach item in itemList.slice(0, 4) %}
+					{% asyncEach item in itemList.slice(0, 6) %}
             {% set headingLevel = "h3" %}
 						{% include "partials/card-blog.njk" %}
 					{% endeach %}
@@ -61,8 +61,8 @@ $ buildtime
       </div>
     </div>
 
-    <div class="wrapper flow">
-      <p style="text-align: center;"><a href="/blog/">View more posts</a></p>
+    <div class="wrapper flow mt-l-xl">
+      <p style="text-align: center;"><a href="/blog/" class="button" data-button-variant="tertiary">View more posts</a></p>
   </div>
   </section>
     
