@@ -7,14 +7,21 @@
     width: 100% !important;
 }
 
+.discuss-mastodon i.fa-mastodon {
+    font-size: 1.5rem !important;
+    line-height: 1 !important;
+    margin-right: .5rem !important;
+    padding: 1rem 1rem 0 1rem !important;
+}
+
 /* Keep Mastodon block styling isolated from global link rules */
 .discuss-mastodon a,
 .discuss-mastodon a:link,
 .discuss-mastodon a:visited {
     color: var(--color-text);
     text-decoration: none;
-    font-size: var(--size-step-min-2) !important;
     font-family: var(--font-base);
+    font-size: var(--size-step-min-2) !important;
     display: inline-block;
     word-break: break-word !important;
     overflow-wrap: anywhere !important;
@@ -99,7 +106,8 @@ blockquote.mastodon-post-quote {
 }
 
 .mastodon-post__stat i {
-    font-size: var(--size-step-min-1);
+    font-size: 1.25rem;
+    line-height: 1;
 }
 
 /* Mastodon stats links — hover to green only in this block */
@@ -108,12 +116,14 @@ blockquote.mastodon-post-quote {
 .mastodon-post__stats a.no-indicator:visited {
     color: var(--color-text);
     text-decoration: none;
+    font-size: var(--size-step-min-2) !important;
 }
 
 /* More specific than the generic .discuss-mastodon a:hover rule above */
 .mastodon-post__stats a.no-indicator:hover {
     color: var(--color-green);
     text-decoration: none;
+    font-size: var(--size-step-min-2) !important;
 }
 
 /* Ensure children inherit the anchor color on hover */
