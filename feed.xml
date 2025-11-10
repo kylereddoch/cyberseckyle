@@ -4,12 +4,214 @@
   <subtitle>My life and journey through this world of technology. A blog about tech, cybersecurity, and everything in between.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-11-10T22:32:42Z</updated>
+  <updated>2025-11-10T23:07:47Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>Responding to NIST’s 2025 Password Standard Update (SP 800-63B-4)</title>
+      <link href="https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/" />
+      <updated>2025-11-10T21:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/</id>
+      <content type="html">
+				&lt;blockquote&gt;
+&lt;p&gt;This article covers the changes in NIST’s July 2025 revision of the Digital Identity Guidelines for authentication (SP 800-63B-4), why they matter, and how to update your policies and controls accordingly. It is aimed at security leaders, IT teams, and MSPs who manage authentication for users.&lt;/p&gt;
+&lt;p&gt;I have read it so you don’t have to. Here are the key takeaways and action items.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/CznOByVjvp-1536.webp 1536w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/CznOByVjvp-1536.jpeg&quot; alt=&quot;NISTs New 2025 Password Standards&quot; width=&quot;1536&quot; height=&quot;1024&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;NIST finalized the 2025 revision of the Digital Identity Guidelines for authentication, &lt;a href=&quot;https://pages.nist.gov/800-63-3/sp800-63b.html&quot; rel=&quot;noopener&quot;&gt;&lt;strong&gt;SP 800-63B-4&lt;/strong&gt;&lt;/a&gt;. The headline is simple: length and screening beat complexity rules, forced resets are out unless there is evidence of compromise, and the experience must support password managers and modern character sets. NIST also states clearly that passwords are &lt;strong&gt;not&lt;/strong&gt; phishing-resistant, so they are a floor, not the ceiling, of your authentication strategy.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2 id=&quot;what-changed-in-2025&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#what-changed-in-2025&quot; class=&quot;heading-anchor&quot;&gt;What changed in 2025&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;NIST tightened and clarified several requirements and reorganized the presentation. The big shifts you should act on now:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Minimum length&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Passwords used as the &lt;strong&gt;only&lt;/strong&gt; factor must be &lt;strong&gt;at least 15 characters&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Passwords used &lt;strong&gt;only as one factor in MFA&lt;/strong&gt; may be shorter but must be &lt;strong&gt;at least 8 characters&lt;/strong&gt;.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1:1&quot;&gt;[1:1]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Maximum length and character acceptance&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Verifiers should permit &lt;strong&gt;at least 64 characters&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Accept &lt;strong&gt;all printing ASCII characters plus spaces&lt;/strong&gt;, and NIST &lt;strong&gt;recommends accepting Unicode&lt;/strong&gt;; count each Unicode code point as a single character.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1:2&quot;&gt;[1:2]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;No composition rules&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Do not require mixtures of character types. Replace brittle complexity rules with smarter screening and rate limiting.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1:3&quot;&gt;[1:3]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;No arbitrary periodic resets&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Do not force periodic password changes. Require a change &lt;strong&gt;only&lt;/strong&gt; when there is evidence of compromise or upon user request.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1:4&quot;&gt;[1:4]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Blocklist screening is mandatory&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Screen new passwords against a &lt;strong&gt;blocklist&lt;/strong&gt; that includes breach corpuses, dictionary words, and context-specific terms such as the service name and username derivatives. Reject and explain why.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1:5&quot;&gt;[1:5]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Support password managers and usability&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Allow paste and autofill. Offer a show-password option. Normalize Unicode before hashing if accepted.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1:6&quot;&gt;[1:6]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Storage and verification&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use salted, modern password hashing with tunable work factors, and keep versioning metadata so you can migrate safely later.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn2&quot; id=&quot;fnref2&quot;&gt;[2]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;why-this-matters&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#why-this-matters&quot; class=&quot;heading-anchor&quot;&gt;Why this matters&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Short minimums, quirky composition rules, blocked paste, and monthly resets train users into predictable behavior and make defenders chase noise. Attackers exploit those patterns. The 2025 guidance centers controls on the math that matters: longer secrets, denial of weak choices, and throttling that makes online guessing expensive. It also aligns UX with real behavior through managers, passphrases, and Unicode acceptance.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1:7&quot;&gt;[1:7]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2 id=&quot;policy-text-you-can-adopt-today&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#policy-text-you-can-adopt-today&quot; class=&quot;heading-anchor&quot;&gt;Policy text you can adopt today&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Use language like the following to align with SP 800-63B-4:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Length&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Single-factor passwords must be &lt;strong&gt;15+ characters&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Passwords used only as one factor in MFA must be &lt;strong&gt;8+ characters&lt;/strong&gt;.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1:8&quot;&gt;[1:8]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Acceptance&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Permit &lt;strong&gt;≥64 characters&lt;/strong&gt;; accept all printing ASCII and spaces.&lt;/li&gt;
+&lt;li&gt;Accept Unicode; count by code point.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1:9&quot;&gt;[1:9]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Creation rules&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Do &lt;strong&gt;not&lt;/strong&gt; impose character class requirements.&lt;/li&gt;
+&lt;li&gt;Do &lt;strong&gt;not&lt;/strong&gt; use password hints or knowledge-based questions.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1:10&quot;&gt;[1:10]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Screening&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Compare proposed passwords against a &lt;strong&gt;blocklist&lt;/strong&gt; of commonly used, expected, or compromised values. Provide actionable feedback on rejection.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1:11&quot;&gt;[1:11]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Reset policy&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;No periodic changes unless there is evidence of compromise, or the user requests it.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1:12&quot;&gt;[1:12]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;UX and managers&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Permit paste and autofill. Provide a show-password toggle. Normalize Unicode before hashing.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1:13&quot;&gt;[1:13]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Rate limiting&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Throttle failed attempts per account with sensible lockout and messaging. Follow the verifier controls in Section 3.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1:14&quot;&gt;[1:14]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Storage&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hash with a modern algorithm and unique salt; record algorithm and parameters for future migration.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn2&quot; id=&quot;fnref2:1&quot;&gt;[2:1]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;engineering-checklist&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#engineering-checklist&quot; class=&quot;heading-anchor&quot;&gt;Engineering checklist&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Enrollment and change flows&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Add a breach-corpus screen to every new or changed password. Combine with rate limiting.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1:15&quot;&gt;[1:15]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Input controls&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Enable paste and autofill. Add a show-password control. Avoid truncation. Accept spaces and do not strip intended Unicode.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1:16&quot;&gt;[1:16]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Normalization&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If Unicode is accepted, apply NFC normalization before hashing.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1:17&quot;&gt;[1:17]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Hashing&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use a modern password hashing scheme with strong, tunable cost factors and unique per-secret salts. Track parameters to raise costs over time.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn2&quot; id=&quot;fnref2:2&quot;&gt;[2:2]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Abuse controls&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Enforce attempt throttling per account. Keep error messages non-revealing.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1:18&quot;&gt;[1:18]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;strategy-for-leaders&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#strategy-for-leaders&quot; class=&quot;heading-anchor&quot;&gt;Strategy for leaders&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Treat passwords as a legacy factor&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Passwords are not phishing-resistant. Raise the bar with phishing-resistant authenticators such as passkeys and FIDO2 security keys for material risk, while keeping passwords to reduce support friction where needed.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1:19&quot;&gt;[1:19]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Make policy humane&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Replace composition rules and arbitrary rotation with screening, length, and throttling. Users respond to friction by choosing predictable patterns. The 2025 model is designed to break those patterns.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1:20&quot;&gt;[1:20]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Instrument the pipeline&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Log password creation outcomes, rejection reasons, and throttling events. Use the telemetry to tune blocklists and cost factors.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Roll out in phases&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Phase 1: Enable paste, show-password, and Unicode acceptance.&lt;/li&gt;
+&lt;li&gt;Phase 2: Add breach screening and rate limiting.&lt;/li&gt;
+&lt;li&gt;Phase 3: Raise minimums to 15 for single-factor flows, keep 8 for MFA-only flows.&lt;/li&gt;
+&lt;li&gt;Phase 4: Move priority populations to phishing-resistant authenticators.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;frequently-asked-questions&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#frequently-asked-questions&quot; class=&quot;heading-anchor&quot;&gt;Frequently asked questions&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Do we really have to allow 64 characters and spaces?&lt;/strong&gt;&lt;br&gt;
+NIST’s usability and security guidance calls for at least 64, allows spaces, and recommends accepting Unicode. This supports passphrases and password managers.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1:21&quot;&gt;[1:21]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Can we still require a number and a special character?&lt;/strong&gt;&lt;br&gt;
+No. Composition rules are out. Use a blocklist and length requirements instead.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1:22&quot;&gt;[1:22]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;What about quarterly password changes?&lt;/strong&gt;&lt;br&gt;
+Stop doing that unless there is evidence of compromise. That is explicit in the new text.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1:23&quot;&gt;[1:23]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Are passwords enough if we screen and throttle correctly?&lt;/strong&gt;&lt;br&gt;
+They reduce risk when done right, but they are not phishing-resistant. Use phishing-resistant MFA for accounts with meaningful privileges or sensitive data.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fn1&quot; id=&quot;fnref1:24&quot;&gt;[1:24]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&quot;footnotes&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#footnotes&quot; class=&quot;heading-anchor&quot;&gt;Footnotes&lt;/a&gt;&lt;/h4&gt;
+&lt;hr class=&quot;footnotes-sep&quot;&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn1&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;NIST SP 800-63B-4, &lt;em&gt;Digital Identity Guidelines: Authentication and Authenticator Management&lt;/em&gt; (final, July 2025). Online HTML reference with normative requirements for password length, composition, screening, resets, Unicode, and usability: &lt;a href=&quot;https://pages.nist.gov/800-63-4/sp800-63b.html&quot; rel=&quot;noopener&quot;&gt;https://pages.nist.gov/800-63-4/sp800-63b.html&lt;/a&gt;. &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1:1&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1:2&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1:3&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1:4&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1:5&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1:6&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1:7&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1:8&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1:9&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1:10&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1:11&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1:12&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1:13&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1:14&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1:15&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1:16&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1:17&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1:18&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1:19&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1:20&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1:21&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1:22&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1:23&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref1:24&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&quot;fn2&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;NIST SP 800-63B-4, &lt;em&gt;Digital Identity Guidelines: Authentication and Authenticator Management&lt;/em&gt; (final, July 2025). PDF for archival citation: &lt;a href=&quot;https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63B-4.pdf&quot; rel=&quot;noopener&quot;&gt;https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63B-4.pdf&lt;/a&gt;. &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref2&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref2:1&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/#fnref2:2&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+
+ 			</content>
+    </entry><entry>
       <title>Weekly Notes: Week 45, 2025</title>
       <link href="https://www.kylereddoch.me/blog/weekly-notes-week-45-2025/" />
       <updated>2025-11-10T19:00:00Z</updated>
