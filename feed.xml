@@ -4,12 +4,36 @@
   <subtitle>My life and journey through this world of technology. A blog about tech, cybersecurity, and everything in between.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-11-07T17:52:44Z</updated>
+  <updated>2025-11-10T22:19:23Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>Weekly Notes: Week 45, 2025</title>
+      <link href="https://www.kylereddoch.me/blog/weekly-notes-week-45-2025/" />
+      <updated>2025-11-10T19:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/weekly-notes-week-45-2025/</id>
+      <content type="html">
+				&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.webp 1200w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.jpeg&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;Last week had a bit of everything. Work stayed calm, I carved out time to tune up my site, and my back and neck reminded me who’s boss. That part was not fun.&lt;/p&gt;
+&lt;h3 id=&quot;💻-work&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-45-2025/#%F0%9F%92%BB-work&quot; class=&quot;heading-anchor&quot;&gt;💻 Work&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Quiet week overall, which let me chip away at schoolwork during the day and save evenings for family. I also started a small facelift for the site. More on that below.&lt;/p&gt;
+&lt;p&gt;Friday picked up when we signed a new MSP client. I spent the afternoon getting them onboarded into our stack. It was not chaotic, just steady. The RMM onboarding scripts did their job and kept things smooth. There is always one odd edge case to chase, but nothing critical.&lt;/p&gt;
+&lt;h3 id=&quot;😎-personal&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-45-2025/#%F0%9F%98%8E-personal&quot; class=&quot;heading-anchor&quot;&gt;😎 Personal&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;I finally gave the site some personality. As many of you already know, it runs on &lt;a href=&quot;https://www.11ty.dev&quot; rel=&quot;noopener&quot;&gt;Eleventy&lt;/a&gt; with &lt;a href=&quot;https://eleventy-excellent.netlify.app&quot; rel=&quot;noopener&quot;&gt;Eleventy Excellent&lt;/a&gt; as the base. When I &lt;a href=&quot;https://www.kylereddoch.me/blog/from-start-to-finish-moving-my-blog-to-eleventy-github-pages/&quot;&gt;moved to Eleventy&lt;/a&gt; I did not customize much. This week I focused on the footer and split it into two sections for better structure and future expansion. I also added some more color to the headers, links, buttons, and other accents. It feels more “me” now.&lt;/p&gt;
+&lt;p&gt;I also started a new project: an Eleventy plugin that adds a Mastodon share button. The goal is simple and useful. Drop it into a post template and readers can share with one click. I am close to done and happy with how it feels. You can see it working on this post.&lt;/p&gt;
+&lt;h3 id=&quot;📝-articles&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-45-2025/#%F0%9F%93%9D-articles&quot; class=&quot;heading-anchor&quot;&gt;📝 Articles&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Here are the articles I wrote last week:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/&quot;&gt;Introducing my new CybersecKyle Security How-To Series: the full roadmap&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/&quot;&gt;CybersecKyle Security How-To Series: Everyday Defense, Part 1: Password Managers + MFA&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
+
+ 			</content>
+    </entry><entry>
       <title>CybersecKyle Security How-To Series: Everyday Defense, Part 1: Password Managers + MFA</title>
       <link href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/" />
       <updated>2025-11-04T15:00:00Z</updated>
