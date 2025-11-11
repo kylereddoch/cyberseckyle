@@ -3,7 +3,7 @@ date: 2025-11-10T16:00:00-05:00
 title: 'Responding to NIST’s 2025 Password Standard Update (SP 800-63B-4)'
 description: "What changed in NIST’s 2025 password guidance, why it matters, and how to update policies, controls, and user experience without breaking your estate."
 tags: [nist, passwords, mfa, cybersecurity, MSP, IT, news]
-#mastodon_url: https://infosec.exchange/@cyberseckyle
+mastodon_url: https://infosec.exchange/@cyberseckyle/115528153554395143
 ---
 
 >This article covers the changes in NIST’s July 2025 revision of the Digital Identity Guidelines for authentication (SP 800-63B-4), why they matter, and how to update your policies and controls accordingly. It is aimed at security leaders, IT teams, and MSPs who manage authentication for users.
