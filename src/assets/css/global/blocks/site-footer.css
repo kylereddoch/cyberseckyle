@@ -121,6 +121,18 @@
   color: var(--color-primary);
 }
 
+/* Speedlify link in footer - no underline */
+.site-footer a[href*="11ty.dev/speedlify/kylereddoch-me"] {
+  text-decoration: none;
+}
+
+.site-footer a[href*="11ty.dev/speedlify/kylereddoch-me"]:hover {
+  /* color: var(--color-green);
+   same hover color as other footer links */
+  text-decoration: none;
+}
+
+
 /* ===== Webrings (flex “cluster”) — left-aligned by design */
 .webrings {
   text-align: left;
