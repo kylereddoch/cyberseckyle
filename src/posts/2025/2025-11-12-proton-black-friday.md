@@ -3,7 +3,7 @@ date: 2025-11-12T10:30:00-06:00
 title: 'Proton Black Friday 2025 — Why I run on Proton and the best deals to grab'
 description: "What makes Proton my daily pick for secure mail, VPN, storage, and passwords, plus partner Black Friday deals you can claim now."
 tags: [black-friday-deals, deals, proton, privacy, security, vpn, email, password-managers]
-#mastodon_url: https://infosec.exchange/@CybersecKyle
+mastodon_url: https://infosec.exchange/@cyberseckyle/115538521761133221
 ---
 
 ![Proton Black Friday hero](/assets/images/proton_BF2025_hero.png){loading="eager" eleventy:widths="auto"}
