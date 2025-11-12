@@ -23,10 +23,6 @@ export default {
       url: '/guestbook/'
     },
     {
-      text: 'Media Kit',
-      url: '/media-kit/'
-    },
-    {
       text: 'Tags',
       url: '/tags/'
     }
