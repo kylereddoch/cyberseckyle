@@ -30,7 +30,7 @@ Right now, Proton is having their Black Friday Deals. This year, you can get up 
 
 ## Proton Mail - encrypted email that does not farm your life
 
-[![Proton Mail Black Friday banner](/assets/images/proton/02MAIL_728x90_01.png)](https://go.getproton.me/SHzq){loading="eager" eleventy:widths="auto" class="text-center no-indicator"}
+[![Proton Mail Black Friday banner](/assets/images/proton/02Mail_728x90_01.png)](https://go.getproton.me/SHzq){loading="eager" eleventy:widths="auto" class="text-center no-indicator"}
 
 **How I use it daily:** I route client-facing aliases through custom domains and use message expiration for sensitive threads. Tracker protection strips spy pixels and known tracking links out of inbound mail, which helps keep engagement data from flowing back to senders.
 
