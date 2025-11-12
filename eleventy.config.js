@@ -195,6 +195,10 @@ export default async function (eleventyConfig) {
   eleventyConfig.addShortcode('image', shortcodes.imageShortcode);
   eleventyConfig.addShortcode('year', () => `${new Date().getFullYear()}`);
 
+  eleventyConfig.addShortcode("affiliateNote", () =>
+    '>**Affiliate disclosure**: This article contains affiliate links. If you choose to purchase through these links, I may receive a commission. This helps support my work and does not affect the price you pay. I only recommend products I use and trust. My views are my own.'
+  );
+
   // ✅ Mastodon direct-embed shortcode registrations
   eleventyConfig.addNunjucksAsyncShortcode('mastodon', mastodonEmbedShortcode);
   eleventyConfig.addLiquidShortcode('mastodon', (url, w, h) => mastodonEmbedShortcode(url, w, h));
