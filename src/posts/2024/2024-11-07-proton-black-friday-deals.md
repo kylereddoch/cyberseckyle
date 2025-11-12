@@ -2,7 +2,7 @@
 date: 2024-11-07
 title: 'Proton Black Friday Deals'
 description: "If you have been looking to buy Proton’s products, now may be the time. They are having a huge Black Friday deal that lasts until December 2nd."
-tags: [black friday deals, proton, tech]
+tags: [black-friday-deals, proton, tech]
 ---
 
 If you have been looking to buy Proton’s products, now may be the time. They are having a huge Black Friday deal that lasts until December 2nd.
