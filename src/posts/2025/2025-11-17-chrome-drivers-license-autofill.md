@@ -3,7 +3,7 @@ date: 2025-11-17T12:00:00-05:00
 title: 'Chrome’s New Driver’s License Autofill Is a Terrible Idea'
 description: "Chrome can now store and autofill driver’s licenses, passports, and vehicle IDs. From a cybersecurity and privacy standpoint, putting government ID numbers into the world’s most-targeted browser is a bad trade, no matter how convenient it feels."
 tags: [privacy, pii, security, infosecurity, browsers, editorials]
-#mastodon_url: https://infosec.exchange/@cyberseckyle
+mastodon_url: https://infosec.exchange/@cyberseckyle/115566973238147534
 ---
 
 {% image "/assets/images/chrome_dl_autofill_hero.png", "Chrome DL Autofill Hero", null, "eager", "text-center", "!important", [650], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
