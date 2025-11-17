@@ -4,12 +4,251 @@
   <subtitle>My life and journey through this world of technology. A blog about tech, cybersecurity, and everything in between.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-11-12T20:09:57Z</updated>
+  <updated>2025-11-17T20:36:36Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>Chrome’s New Driver’s License Autofill Is a Terrible Idea</title>
+      <link href="https://www.kylereddoch.me/blog/chromes-new-drivers-license-autofill-is-a-terrible-idea/" />
+      <updated>2025-11-17T17:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/chromes-new-drivers-license-autofill-is-a-terrible-idea/</id>
+      <content type="html">
+				&lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/chrome_dl_autofill_hero-650w.webp 650w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
+&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/chrome_dl_autofill_hero-650w.jpeg 650w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/chrome_dl_autofill_hero-650w.jpeg&quot; width=&quot;650&quot; height=&quot;433&quot; alt=&quot;Chrome DL Autofill Hero&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;Last week Google quietly gave Chrome a “helpful” upgrade: &lt;strong&gt;enhanced autofill&lt;/strong&gt; that can now store and fill in your driver’s license number, passport number, and vehicle details like license plate and VIN.&lt;/p&gt;
+&lt;p&gt;As someone who lives in browser logs, EDR alerts, and infostealer reports for a living, I think this is a very bad idea.&lt;/p&gt;
+&lt;p&gt;Yes, the feature is off by default. Yes, Google encrypts the data and asks for confirmation before filling it.&lt;/p&gt;
+&lt;p&gt;That does not change the core problem:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;You are putting high-value government ID numbers inside the single most targeted consumer app on the planet.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Convenience for you is convenience for attackers too.&lt;/p&gt;
+&lt;h2 id=&quot;what-chromes-new-enhanced-autofill-actually-does&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/chromes-new-drivers-license-autofill-is-a-terrible-idea/#what-chromes-new-enhanced-autofill-actually-does&quot; class=&quot;heading-anchor&quot;&gt;What Chrome’s new “enhanced autofill” actually does&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;According to &lt;a href=&quot;https://blog.google/products/chrome/enhanced-autofill/&quot; rel=&quot;noopener&quot;&gt;Google’s own announcement&lt;/a&gt; and &lt;a href=&quot;https://support.google.com/chrome/answer/142893&quot; rel=&quot;noopener&quot;&gt;support docs&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Enhanced autofill lets Chrome store and autofill:
+&lt;ul&gt;
+&lt;li&gt;Driver’s license numbers&lt;/li&gt;
+&lt;li&gt;Passport numbers&lt;/li&gt;
+&lt;li&gt;Vehicle details such as license plate and VIN&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;It is currently &lt;strong&gt;desktop-only&lt;/strong&gt;, off by default, and requires you to:
+&lt;ul&gt;
+&lt;li&gt;Sign into Chrome with a Google account&lt;/li&gt;
+&lt;li&gt;Manually enable “Enhanced autofill” under &lt;em&gt;Settings → Autofill and passwords&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;When enabled, Chrome:
+&lt;ul&gt;
+&lt;li&gt;Offers to save this information the first time you enter it&lt;/li&gt;
+&lt;li&gt;Encrypts it and stores it for reuse&lt;/li&gt;
+&lt;li&gt;Asks you to confirm before filling it into a form&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;To improve autofill, &lt;strong&gt;Chrome may send the page URL and form content to Google&lt;/strong&gt; when you visit a site with a form.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Malwarebytes, &lt;a href=&quot;https://www.malwarebytes.com/blog/news/2025/11/should-you-let-chrome-store-your-drivers-license-and-passport&quot; rel=&quot;noopener&quot;&gt;which did a nice write-up on this&lt;/a&gt;, summarized the feature accurately and then asked the right question: &lt;em&gt;“Should you let Chrome store your driver’s license and passport?”&lt;/em&gt; Their conclusion: just because you can does not mean you should.&lt;/p&gt;
+&lt;p&gt;I agree.&lt;/p&gt;
+&lt;h2 id=&quot;threat-model-reality-your-browser-is-already-a-war-zone&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/chromes-new-drivers-license-autofill-is-a-terrible-idea/#threat-model-reality-your-browser-is-already-a-war-zone&quot; class=&quot;heading-anchor&quot;&gt;Threat model reality: your browser is already a war zone&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;When I look at features like this, I do not start from marketing claims. I start from incident reports.&lt;/p&gt;
+&lt;p&gt;Modern &lt;strong&gt;infostealer malware&lt;/strong&gt; like &lt;a href=&quot;https://flare.io/learn/resources/blog/redline-stealer-malware/&quot; rel=&quot;noopener&quot;&gt;RedLine&lt;/a&gt;, Raccoon, Vidar, Lumma and friends exists almost entirely to loot browsers. They are sold as “Malware-as-a-Service” and explicitly target browser data: passwords, cookies, credit card numbers, and &lt;strong&gt;autofill data&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;These tools:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Decrypt Chrome’s local databases using the same OS-level keys Chrome uses&lt;/li&gt;
+&lt;li&gt;Export everything into log files that get resold in bulk on underground markets&lt;/li&gt;
+&lt;li&gt;Give attackers one-click access to your accounts, sessions, and sensitive personal data&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;RedLine, for example, is documented to &lt;strong&gt;steal saved passwords, credit cards, autofill data, and other browser information by decrypting Chromium and Firefox databases with extracted master keys&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Info-stealer campaigns are not rare edge cases. Security firms are watching &lt;strong&gt;hundreds of thousands of stealer “logs”&lt;/strong&gt; show up for sale, each log representing a fully looted system with browser data, credentials, and PII.&lt;/p&gt;
+&lt;p&gt;So when Chrome offers to hold your driver’s license number next to all that, you are not adding risk in theory. You are adding a new prize to an active, industrialized theft pipeline.&lt;/p&gt;
+&lt;h2 id=&quot;government-id-numbers-are-not-just-more-autofill-data&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/chromes-new-drivers-license-autofill-is-a-terrible-idea/#government-id-numbers-are-not-just-more-autofill-data&quot; class=&quot;heading-anchor&quot;&gt;Government ID numbers are not just “more autofill data”&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Addresses and phone numbers leaking is bad. Driver’s license and passport numbers leaking is worse.&lt;/p&gt;
+&lt;p&gt;Across US states and many other jurisdictions, &lt;strong&gt;driver’s license and government ID numbers are treated as “high-risk” identifiers&lt;/strong&gt; under breach notification laws and identity theft statutes. They are used in:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Credit applications and fraud checks&lt;/li&gt;
+&lt;li&gt;KYC (Know Your Customer) and account opening flows&lt;/li&gt;
+&lt;li&gt;Account recovery flows at banks, utilities, and telcos&lt;/li&gt;
+&lt;li&gt;Background checks and government portals&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You cannot rotate a driver’s license number the way you rotate a password. In many states, getting a new number issued after compromise is slow, painful, or practically impossible.&lt;/p&gt;
+&lt;p&gt;Putting that kind of identifier into browser autofill concentrates risk in one place, on one device class, that we already know is a prime target.&lt;/p&gt;
+&lt;h2 id=&quot;autofill-attacks-are-not-hypothetical&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/chromes-new-drivers-license-autofill-is-a-terrible-idea/#autofill-attacks-are-not-hypothetical&quot; class=&quot;heading-anchor&quot;&gt;Autofill attacks are not hypothetical&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Chrome’s team will point out (correctly) that enhanced autofill requires confirmation clicks and is more constrained than classic address autofill. That is helpful, but it does not remove structural issues.&lt;/p&gt;
+&lt;p&gt;We already know several &lt;strong&gt;abuse patterns&lt;/strong&gt; for browser autofill:&lt;/p&gt;
+&lt;h3 id=&quot;hidden-and-off-screen-fields&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/chromes-new-drivers-license-autofill-is-a-terrible-idea/#hidden-and-off-screen-fields&quot; class=&quot;heading-anchor&quot;&gt;Hidden and off-screen fields&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Researchers and security practitioners have shown for years that &lt;strong&gt;autofill will happily fill fields a user cannot see&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A &lt;a href=&quot;https://thehackernews.com/2017/01/browser-autofill-phishing.html&quot; rel=&quot;noopener&quot;&gt;famous demo from 2017&lt;/a&gt; showed a form with only “Name” and “Email” visible, but hidden fields for address, phone, and credit card details. Browser autofill filled everything into the hidden fields, and the user never saw it happen.&lt;/li&gt;
+&lt;li&gt;Academic work on browser form autofill has shown that Chrome triggers its autofill logic based on form structure, and that forms with hidden fields can still trigger autofill flows.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Enhanced autofill adds a higher friction step (you must confirm), but that is still inside a hostile environment:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A phishing site can design the page so the visible field looks harmless while the real ID field is off-screen or styled to look less sensitive.&lt;/li&gt;
+&lt;li&gt;CSS tricks and overlays can hide or reframe what you are actually agreeing to fill.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If it is possible to trick users into filling hidden password fields, it is absolutely possible to nudge them into filling an ID field they should have questioned.&lt;/p&gt;
+&lt;h3 id=&quot;clickjacking-and-ui-tricks&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/chromes-new-drivers-license-autofill-is-a-terrible-idea/#clickjacking-and-ui-tricks&quot; class=&quot;heading-anchor&quot;&gt;Clickjacking and UI tricks&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;At DEF CON 33, researchers showed new &lt;strong&gt;clickjacking attacks against major password managers’ browser extensions&lt;/strong&gt;, where invisible overlays and pointer-event manipulation tricked users into triggering autofill in ways they did not intend.&lt;/p&gt;
+&lt;p&gt;Different implementation, same class of problem: when your sensitive data is one UI interaction away from a hostile web page, UI deception becomes a powerful attack surface.&lt;/p&gt;
+&lt;p&gt;Enhanced autofill sits in that same blast radius.&lt;/p&gt;
+&lt;h2 id=&quot;but-it-is-encrypted-and-off-by-default-is-not-enough&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/chromes-new-drivers-license-autofill-is-a-terrible-idea/#but-it-is-encrypted-and-off-by-default-is-not-enough&quot; class=&quot;heading-anchor&quot;&gt;“But it is encrypted and off by default” is not enough&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Google’s story:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sensitive data is encrypted&lt;/li&gt;
+&lt;li&gt;Only saved with your permission&lt;/li&gt;
+&lt;li&gt;Only filled after you confirm&lt;/li&gt;
+&lt;li&gt;Feature is off by default and must be explicitly enabled&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All true. All good. Still not sufficient.&lt;/p&gt;
+&lt;p&gt;Here is the ugly reality from a defender’s point of view:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;If malware is running in your user context, it can do what Chrome can do.&lt;/strong&gt;&lt;br&gt;
+Stealer malware already decrypts Chrome’s password and autofill databases using your local OS keys. Encryption at rest helps against offline DB theft; it does not help against active malware on a logged-in session.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Off by default is a speed bump, not a boundary.&lt;/strong&gt;&lt;br&gt;
+Users turn on convenience features. A blog post, a browser prompt, or a “Pro tip” article is all it takes. Malwarebytes is already having to tell people “do not flip this toggle on.”&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;“Share page URL and content to improve autofill” widens the privacy surface.&lt;/strong&gt;&lt;br&gt;
+Chrome’s own &lt;a href=&quot;https://support.google.com/chrome/answer/142893&quot; rel=&quot;noopener&quot;&gt;help docs&lt;/a&gt;say that with enhanced autofill, &lt;strong&gt;the site URL and form content may be sent to Google&lt;/strong&gt; to improve suggestions.&lt;br&gt;
+Google says it does not send your actual ID number, but this still deepens their visibility into where you are using identity attributes.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Browsers are already a single point of failure.&lt;/strong&gt;&lt;br&gt;
+We are fighting stealer logs where one compromised browser session gives attackers:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;All your passwords&lt;/li&gt;
+&lt;li&gt;All your cookies&lt;/li&gt;
+&lt;li&gt;All your saved credit cards and addresses&lt;/li&gt;
+&lt;li&gt;Sometimes MFA tokens and crypto wallets&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Handing that same pipeline your government ID numbers is not a smart extension of scope.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;From a risk management view, Chrome has bolted some thoughtful controls onto a fundamentally unsafe idea.&lt;/p&gt;
+&lt;h2 id=&quot;why-a-security-practitioner-would-say-no-by-default&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/chromes-new-drivers-license-autofill-is-a-terrible-idea/#why-a-security-practitioner-would-say-no-by-default&quot; class=&quot;heading-anchor&quot;&gt;Why a security practitioner would say “no” by default&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Speaking as an MSP and security person, here is how I weigh it.&lt;/p&gt;
+&lt;h3 id=&quot;1-the-upside-you-save-a-few-minutes-a-year&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/chromes-new-drivers-license-autofill-is-a-terrible-idea/#1-the-upside-you-save-a-few-minutes-a-year&quot; class=&quot;heading-anchor&quot;&gt;1. The upside: you save a few minutes a year&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Realistically, how often do you type your driver’s license or passport number into a website?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DMV or state portal&lt;/li&gt;
+&lt;li&gt;Insurance or vehicle registration portals&lt;/li&gt;
+&lt;li&gt;Occasional rental or travel forms&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For most people, that is a handful of times a year. The time savings is small, and the friction of pulling a wallet out of your pocket is minor.&lt;/p&gt;
+&lt;h3 id=&quot;2-the-downside-you-add-a-persistent-high-value-target&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/chromes-new-drivers-license-autofill-is-a-terrible-idea/#2-the-downside-you-add-a-persistent-high-value-target&quot; class=&quot;heading-anchor&quot;&gt;2. The downside: you add a persistent, high-value target&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;By enabling enhanced autofill and saving your IDs, you are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Putting those numbers into a high-theft storage location&lt;/li&gt;
+&lt;li&gt;Allowing them to sync across devices if you have Chrome sync on&lt;/li&gt;
+&lt;li&gt;Trusting that no future bug, extension, or UI dark pattern will mishandle them&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The loss scenario is not “I get more spam.” It is identity theft, fraudulent accounts, and years of cleanup.&lt;/p&gt;
+&lt;p&gt;That is a terrible trade.&lt;/p&gt;
+&lt;h2 id=&quot;better-patterns-for-storing-id-numbers&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/chromes-new-drivers-license-autofill-is-a-terrible-idea/#better-patterns-for-storing-id-numbers&quot; class=&quot;heading-anchor&quot;&gt;Better patterns for storing ID numbers&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If you absolutely must store your driver’s license or passport number digitally, there are safer patterns than “inside Chrome autofill.”&lt;/p&gt;
+&lt;h3 id=&quot;use-a-dedicated-password-manager-or-secure-vault&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/chromes-new-drivers-license-autofill-is-a-terrible-idea/#use-a-dedicated-password-manager-or-secure-vault&quot; class=&quot;heading-anchor&quot;&gt;Use a dedicated password manager or secure vault&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;A &lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/&quot;&gt;dedicated password manager&lt;/a&gt; or secure vault:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Is designed primarily as a &lt;strong&gt;secrets storage system&lt;/strong&gt;, not a browser convenience feature&lt;/li&gt;
+&lt;li&gt;Is often independently audited and hardened against stealer malware and web attacks&lt;/li&gt;
+&lt;li&gt;Can let you store ID numbers as secure notes or identity entries and &lt;strong&gt;copy-paste manually&lt;/strong&gt;, rather than autofilling them into any field that happens to match a pattern.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Nothing is magic, and password managers have had autofill issues too. But architecturally, “separate vault with strict UX around sensitive data” is a healthier model than “put it into the general browser data pile next to everything else.”&lt;/p&gt;
+&lt;h3 id=&quot;use-friction-intentionally&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/chromes-new-drivers-license-autofill-is-a-terrible-idea/#use-friction-intentionally&quot; class=&quot;heading-anchor&quot;&gt;Use friction intentionally&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;For high-risk data, friction is a feature, not a bug.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Storing ID numbers in an encrypted vault that requires an explicit unlock&lt;/li&gt;
+&lt;li&gt;Manually copying them into forms when truly required&lt;/li&gt;
+&lt;li&gt;Pausing to ask “why does this site need my license number at all”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Those extra steps are security controls. Chrome’s pitch is about shaving them off.&lt;/p&gt;
+&lt;h2 id=&quot;what-i-recommend-for-normal-users&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/chromes-new-drivers-license-autofill-is-a-terrible-idea/#what-i-recommend-for-normal-users&quot; class=&quot;heading-anchor&quot;&gt;What I recommend for normal users&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If you are not in enterprise IT and you just want a practical answer:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Do not enable enhanced autofill in Chrome.&lt;/strong&gt;&lt;br&gt;
+Leave that toggle off. If you already flipped it on, go to &lt;em&gt;Settings → Autofill and passwords → Enhanced autofill&lt;/em&gt; and disable it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Do not store driver’s license, passport, or vehicle IDs in any browser autofill.&lt;/strong&gt;&lt;br&gt;
+This includes addresses or notes fields where you might be tempted to paste them for later.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;If you need digital storage, use a reputable password manager or secure notes app.&lt;/strong&gt;&lt;br&gt;
+Treat these numbers like you treat bank account routing details or SSNs.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Stay paranoid about stealer malware.&lt;/strong&gt;&lt;br&gt;
+Keep your OS and browser patched, run reputable endpoint protection, and be cautious with downloads and “cracked” software. Infostealers are routinely delivered through phishing, fake installers, and shady downloads.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The inconvenience of opening your wallet or pulling a card out of a drawer is nothing compared to dealing with a long-term identity fraud mess.&lt;/p&gt;
+&lt;h2 id=&quot;what-i-recommend-for-orgs-and-msps&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/chromes-new-drivers-license-autofill-is-a-terrible-idea/#what-i-recommend-for-orgs-and-msps&quot; class=&quot;heading-anchor&quot;&gt;What I recommend for orgs and MSPs&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If you manage fleets of Chrome devices, this feature should land straight on your risk register.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Block or discourage autofill for sensitive data by policy.&lt;/strong&gt;&lt;br&gt;
+Chrome already has enterprise policies like &lt;code&gt;AutofillAddressEnabled&lt;/code&gt; and &lt;code&gt;AutofillCreditCardEnabled&lt;/code&gt; that let you disable address and card autofill at scale.&lt;br&gt;
+Treat government ID storage the same way if and when policy hooks arrive. In the meantime, set clear standards: “No storing government ID numbers in browsers.”&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Harden against infostealers.&lt;/strong&gt;&lt;br&gt;
+Make sure your EDR actually detects common info-stealers and that you are monitoring for stealer logs on dark markets that contain your domains.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Educate users on “convenience creep.”&lt;/strong&gt;&lt;br&gt;
+Train staff that new convenience features which store PII should always be evaluated against your data classification and regulatory posture before adoption.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Prefer dedicated identity proofing flows and secure vaults.&lt;/strong&gt;&lt;br&gt;
+For internal apps that require government IDs, build flows that use dedicated storage, strong logging, and access controls, not browser-side autofill.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;chrome-is-solving-the-wrong-problem&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/chromes-new-drivers-license-autofill-is-a-terrible-idea/#chrome-is-solving-the-wrong-problem&quot; class=&quot;heading-anchor&quot;&gt;Chrome is solving the wrong problem&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I get why this feature exists. Government and travel forms are awful. Autofill can be a real usability win.&lt;/p&gt;
+&lt;p&gt;But from a security perspective, Chrome is solving the least important part of the pain.&lt;/p&gt;
+&lt;p&gt;The real problems are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Websites that ask for too much data&lt;/li&gt;
+&lt;li&gt;Poor design of government and insurance portals&lt;/li&gt;
+&lt;li&gt;The rising value of static identity numbers in a world full of data breaches&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;None of those get better when the browser becomes a bigger vault for more sensitive data.&lt;/p&gt;
+&lt;p&gt;So my position is simple:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Your browser should know as little as possible about your government IDs.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Chrome’s new driver’s license autofill does the opposite. It takes one of the highest value pieces of PII you have and drops it into the middle of an already over-targeted system.&lt;/p&gt;
+&lt;p&gt;That might be convenient for a minute. It is very convenient for attackers forever after.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;sources-and-further-reading&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/chromes-new-drivers-license-autofill-is-a-terrible-idea/#sources-and-further-reading&quot; class=&quot;heading-anchor&quot;&gt;Sources &amp;amp; further reading&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Malwarebytes – &lt;a href=&quot;https://www.malwarebytes.com/blog/news/2025/11/should-you-let-chrome-store-your-drivers-license-and-passport&quot; rel=&quot;noopener&quot;&gt;Should you let Chrome store your driver’s license and passport?&lt;/a&gt; (excellent breakdown of Chrome’s enhanced autofill and the risks)&lt;/li&gt;
+&lt;li&gt;Google Chrome Blog – &lt;a href=&quot;https://blog.google/products/chrome/enhanced-autofill/&quot; rel=&quot;noopener&quot;&gt;Save time with new Chrome autofill enhancements&lt;/a&gt; (Google’s official announcement of the feature)&lt;/li&gt;
+&lt;li&gt;Chrome Help – &lt;a href=&quot;https://support.google.com/chrome/answer/142893&quot; rel=&quot;noopener&quot;&gt;Fill out forms automatically in Chrome (Computer)&lt;/a&gt; (docs explaining how autofill and “enhanced autofill” behave)&lt;/li&gt;
+&lt;li&gt;TechCrunch – &lt;a href=&quot;https://techcrunch.com/2025/11/03/chrome-can-now-autofill-your-passport-drivers-license-and-vehicle-registration-info/&quot; rel=&quot;noopener&quot;&gt;Chrome can now autofill your passport, driver’s license, and vehicle registration info&lt;/a&gt; (news coverage of the rollout)&lt;/li&gt;
+&lt;li&gt;Android Gadget Hacks – &lt;a href=&quot;https://android.gadgethacks.com/how-to/chrome-enhanced-autofill-now-stores-passport-license-data-0388943/&quot; rel=&quot;noopener&quot;&gt;Chrome enhanced autofill now stores passport &amp;amp; license data&lt;/a&gt; (walkthrough of where settings live and what they do)&lt;/li&gt;
+&lt;li&gt;Android Central – &lt;a href=&quot;https://www.androidcentral.com/apps-software/chrome-now-remembers-your-drivers-license-passport-and-vehicle-info-so-you-dont-have-to&quot; rel=&quot;noopener&quot;&gt;Chrome now remembers your driver’s license, passport, and vehicle info so you don’t have to&lt;/a&gt; (consumer-focused view of the feature)&lt;/li&gt;
+&lt;li&gt;Flare – &lt;a href=&quot;https://flare.io/learn/resources/blog/redline-stealer-malware/&quot; rel=&quot;noopener&quot;&gt;RedLine Stealer malware: The complete guide&lt;/a&gt; (deep dive into RedLine and how infostealers loot browser data)&lt;/li&gt;
+&lt;li&gt;Proofpoint – &lt;a href=&quot;https://www.proofpoint.com/us/blog/threat-insight/new-redline-stealer-distributed-using-coronavirus-themed-email-campaign&quot; rel=&quot;noopener&quot;&gt;New RedLine password stealer malware&lt;/a&gt; (background on RedLine distribution and capabilities)&lt;/li&gt;
+&lt;li&gt;MITRE ATT&amp;amp;CK – &lt;a href=&quot;https://attack.mitre.org/software/S1240/&quot; rel=&quot;noopener&quot;&gt;RedLine Stealer (S1240)&lt;/a&gt; (technical behaviors of RedLine and similar info-stealer families)&lt;/li&gt;
+&lt;li&gt;The Hacker News – &lt;a href=&quot;https://thehackernews.com/2017/01/browser-autofill-phishing.html&quot; rel=&quot;noopener&quot;&gt;Browser autofill feature can leak your personal details to hackers&lt;/a&gt; (classic demo of hidden-field autofill abuse)&lt;/li&gt;
+&lt;li&gt;Lin, Karami &amp;amp; Nikiforakis – &lt;a href=&quot;https://www.cs.uic.edu/~polakis/classes/CS568/fall-2020/autofill-ccs20.pdf&quot; rel=&quot;noopener&quot;&gt;Empirical analysis of the privacy threats of browser form autofill&lt;/a&gt; (research paper on how autofill can be abused)&lt;/li&gt;
+&lt;li&gt;The Hacker News – &lt;a href=&quot;https://thehackernews.com/2025/08/dom-based-extension-clickjacking.html&quot; rel=&quot;noopener&quot;&gt;DOM-based extension clickjacking exposes popular password managers&lt;/a&gt; (shows how browser UI tricks can misuse autofill-like features)&lt;/li&gt;
+&lt;li&gt;Field Effect – &lt;a href=&quot;https://fieldeffect.com/blog/new-attack-method-weaponizes-privileged-browser-extensions&quot; rel=&quot;noopener&quot;&gt;New attack method weaponizes privileged browser extensions&lt;/a&gt; (more detail on the clickjacking / extension attack surface)&lt;/li&gt;
+&lt;li&gt;heylogin – &lt;a href=&quot;https://www.heylogin.com/en/post/dom-based-extension-clickjacking&quot; rel=&quot;noopener&quot;&gt;Analysis of DOM-based extension clickjacking&lt;/a&gt; (nice practitioner write-up of the same issue)&lt;/li&gt;
+&lt;li&gt;OneStart – &lt;a href=&quot;https://onestart.ai/blog/browser-autofill-growing-security-threat/&quot; rel=&quot;noopener&quot;&gt;Autofill may be convenient, but it’s also a growing threat&lt;/a&gt; (good general discussion of autofill as an attack surface)&lt;/li&gt;
+&lt;/ul&gt;
+
+ 			</content>
+    </entry><entry>
       <title>Proton Black Friday 2025 — Why I run on Proton and the best deals to grab</title>
       <link href="https://www.kylereddoch.me/blog/proton-black-friday-2025-%E2%80%94-why-i-run-on-proton-and-the-best-deals-to-grab/" />
       <updated>2025-11-12T16:30:00Z</updated>
