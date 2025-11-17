@@ -4,12 +4,38 @@
   <subtitle>My life and journey through this world of technology. A blog about tech, cybersecurity, and everything in between.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-11-17T20:45:20Z</updated>
+  <updated>2025-11-17T22:08:41Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>Weekly Notes: Week 46, 2025</title>
+      <link href="https://www.kylereddoch.me/blog/weekly-notes-week-46-2025/" />
+      <updated>2025-11-17T19:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/weekly-notes-week-46-2025/</id>
+      <content type="html">
+				&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.webp 1200w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.jpeg&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;This past week wasn’t too bad. Work was steady and not too hectic, which is always a nice thing. This keeps my stress and anxiety at a manageable level. Personally, things were pretty good too. I choose to relax and focus on me and my family. I took a break from the couple of personal projects I have going on to just clear my head.&lt;/p&gt;
+&lt;h3 id=&quot;💻-catching-up-on-alerts&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-46-2025/#%F0%9F%92%BB-catching-up-on-alerts&quot; class=&quot;heading-anchor&quot;&gt;💻 Catching up on alerts&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;I have been a little behind on our EDR alerts and log reviews for the past couple of weeks. This past week I started getting caught up on those. It is going to take a couple more weeks to get fully caught up, but I am making good progress. I also did some research on a few new security tools that we might want to try out in our environment. Overall, work was productive and I feel like I made good progress on my tasks.&lt;/p&gt;
+&lt;h3 id=&quot;😎-focusing-on-family&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-46-2025/#%F0%9F%98%8E-focusing-on-family&quot; class=&quot;heading-anchor&quot;&gt;😎 Focusing on family&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;As I mentioned, I took a break from my personal projects this week, just needing some time to clear my head. Instead, I focused on spending time with my family and relaxing. We did have a tennis tournament that my duaghter participated in, which was fun to watch. This was her first UTR ranked tournament, and while she didn’t win any of her matches, she learned a lot. She ended up getting drawn against higher ranked players (two high schoolers on their JV team), so it was a tough draw for her first time out. Still, she had a great time and is looking forward to playing in more tournaments in the future.&lt;/p&gt;
+&lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weekly_note_46-2025-650w.webp 650w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
+&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weekly_note_46-2025-650w.jpeg 650w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weekly_note_46-2025-650w.jpeg&quot; width=&quot;650&quot; height=&quot;488&quot; alt=&quot;Daughter play tennis match&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;That was a long day to say the least so I was glad to just relax the rest of the weekend.&lt;/p&gt;
+&lt;h3 id=&quot;📝-articles&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-46-2025/#%F0%9F%93%9D-articles&quot; class=&quot;heading-anchor&quot;&gt;📝 Articles&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Catching you up on articles I published this past week:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/responding-to-nists-2025-password-standard-update-sp-800-63b-4/&quot;&gt;Responding to NIST’s 2025 Password Standard Update (SP 800-63B-4)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/why-you-should-be-wary-of-texas-sb-2420s-age-verification-push/&quot;&gt;Why You Should Be Wary of Texas SB 2420’s Age-Verification Push&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/proton-black-friday-2025-%E2%80%94-why-i-run-on-proton-and-the-best-deals-to-grab/&quot;&gt;Proton Black Friday 2025 — Why I run on Proton and the best deals to grab&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
+
+ 			</content>
+    </entry><entry>
       <title>Chrome’s New Driver’s License Autofill Is a Terrible Idea</title>
       <link href="https://www.kylereddoch.me/blog/chromes-new-drivers-license-autofill-is-a-terrible-idea/" />
       <updated>2025-11-17T17:00:00Z</updated>
