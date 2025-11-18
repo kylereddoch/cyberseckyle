@@ -5,11 +5,9 @@ description: 'This is the slashes page. It documents all my slash pages, feel fr
 layout: page
 ---
 
-This is my [/slashes](https://slashpages.net/){:target="_blank"} page. It's dedicated to documenting all my /slashes pages. Feel free to take a look at all of them below!
+This is the landing slash page for all my /slash pages. Feel free to take a look at all of them below to get to know me better!
 
-<blockquote><p>Slash pages are common pages you can add to your website, usually with a standard, root-level slug-like <code>/now</code>, <code>/about</code>, or <code>/uses</code>. They tend to describe the individual behind the site and are distinguishing characteristics of the IndieWeb.</p>
-
-<p>— Slash Pages</p></blockquote>
+>[Slash pages](https://slashpages.net/) are common pages you can add to your website, usually with a standard, root-level slug-like `/now`, `/about`, or `/uses`. They tend to describe the individual behind the site and are distinguishing characteristics of the IndieWeb.
 
 **[/about](/about)** - This is pretty self-explanatory. It's the about me, who I am, obligatory page. There might be some interesting stuff in there. Who knows?
 
