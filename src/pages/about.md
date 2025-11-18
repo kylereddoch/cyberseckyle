@@ -44,7 +44,7 @@ The goal is simple:
 - Talk honestly about MSP and security work  
 - Help people level up without needing a giant budget or a big city job title  
 
-It is a work in progress, and that is the point. Communities grow by shipping small improvements, listening a lot, and keeping things grounded in what people actually need. You can [join here](https://purl.kylereddoch.me/cyberseckyle_community).
+It is a work in progress, and that is the point. Communities grow by shipping small improvements, listening a lot, and keeping things grounded in what people actually need. You can [join here](https://purl.kylereddoch.me/cybertechguild).
 
 ## How I got here
 
@@ -74,13 +74,13 @@ Here are multiple versions of my bio, each with **Plaintext**, **HTML**, and **M
 #### Plaintext
 
 ```text
-Kyle Reddoch is a cybersecurity and managed services practitioner who writes as CybersecKyle at https://www.kylereddoch.me and hosts the CyberTech Guild community at https://purl.kylereddoch.me/cyberseckyle_community. He shares day-to-day security and MSP work on Mastodon at https://infosec.exchange/@cyberseckyle and publishes tools and experiments on GitHub at https://github.com/kylereddoch.
+Kyle Reddoch is a cybersecurity and managed services practitioner who writes as CybersecKyle at https://www.kylereddoch.me and hosts the CyberTech Guild community at https://purl.kylereddoch.me/cybertechguild. He shares day-to-day security and MSP work on Mastodon at https://infosec.exchange/@cyberseckyle and publishes tools and experiments on GitHub at https://github.com/kylereddoch.
 ```
 
 #### Markdown
 
 ```md  
-Kyle Reddoch is a cybersecurity and managed services practitioner who writes as **CybersecKyle** at [kylereddoch.me](https://www.kylereddoch.me) and hosts the **CyberTech Guild** community at [CyberTech Guild](https://purl.kylereddoch.me/cyberseckyle_community). He shares day-to-day security and MSP work on Mastodon at [@cyberseckyle@infosec.exchange](https://infosec.exchange/@cyberseckyle) and publishes tools and experiments on GitHub at [github.com/kylereddoch](https://github.com/kylereddoch).
+Kyle Reddoch is a cybersecurity and managed services practitioner who writes as **CybersecKyle** at [kylereddoch.me](https://www.kylereddoch.me) and hosts the **CyberTech Guild** community at [CyberTech Guild][(https://purl.kylereddoch.me/cyberseckyle_community](https://purl.kylereddoch.me/cybertechguild)). He shares day-to-day security and MSP work on Mastodon at [@cyberseckyle@infosec.exchange](https://infosec.exchange/@cyberseckyle) and publishes tools and experiments on GitHub at [github.com/kylereddoch](https://github.com/kylereddoch).
 ```
 
 #### HTML
@@ -91,7 +91,7 @@ Kyle Reddoch is a cybersecurity and managed services practitioner who writes as 
   <strong>CybersecKyle</strong> at
   <a href="https://www.kylereddoch.me">kylereddoch.me</a> and hosts the
   <strong>CyberTech Guild</strong> community at
-  <a href="https://purl.kylereddoch.me/cyberseckyle_community">CyberTech Guild</a>.
+  <a href="https://purl.kylereddoch.me/cybertechguild">CyberTech Guild</a>.
   He shares day-to-day security and MSP work on Mastodon at
   <a href="https://infosec.exchange/@cyberseckyle">@cyberseckyle@infosec.exchange</a>
   and publishes tools and experiments on GitHub at
@@ -115,7 +115,7 @@ If you want to see what I am working on or yelling about today:
   - [https://github.com/kylereddoch](https://github.com/kylereddoch)
 
 - **CyberTech Guild community**
-  - [https://purl.kylereddoch.me/cyberseckyle_community](https://purl.kylereddoch.me/cyberseckyle_community)
+  - [hhttps://purl.kylereddoch.me/cybertechguild](https://purl.kylereddoch.me/cybertechguild)
 
 - **LinkedIn**
   - [https://www.linkedin.com/in/kylereddoch](https://www.linkedin.com/in/kylereddoch)
