@@ -58,7 +58,7 @@ Here is a collection of the hardware, software, and services that I use day to d
 - [Burp Suite](https://portswigger.net/burp) - web vulnerability scanner
 - [Metasploit](https://www.metasploit.com/) - penetration testing framework
 - [Kali Linux](https://www.kali.org/) - penetration testing and security auditing OS
-- [HoneyBot](https://sourceforge.net/projects/honeybot/) - honeypot software for Windows
+- [HoneyBot](https://github.com/xerberox/HoneyBOT) - honeypot software for Windows
 - [Snort](https://www.snort.org/) - network intrusion detection system
 
 ## Development
