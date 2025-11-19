@@ -4,12 +4,124 @@
   <subtitle>My life and journey through this world of technology. A blog about tech, cybersecurity, and everything in between.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-11-19T15:19:15Z</updated>
+  <updated>2025-11-19T17:30:20Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>CybersecKyle Security How-To Series: Everyday Defense, Part 2: 2FA Rescue and Recovery</title>
+      <link href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/" />
+      <updated>2025-11-19T15:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/</id>
+      <content type="html">
+				&lt;blockquote&gt;
+&lt;p&gt;This article is the second in a multiple part series of the CybersecKyle Security How-To Series, a step-by-step collection that starts with everyday safety and ramps up to blue team skills. New to the series? &lt;a href=&quot;https://www.kylereddoch.me/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/&quot;&gt;Start here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/WPDTq55Ef9-1536.webp 1536w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/WPDTq55Ef9-1536.jpeg&quot; alt=&quot;Part 2 of CybersecKyle Security How-to Series&quot; width=&quot;1536&quot; height=&quot;1024&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;h3 id=&quot;why-this-matters&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#why-this-matters&quot; class=&quot;heading-anchor&quot;&gt;Why this matters&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;MFA stops a lot of bad days. Losing the device that generates your codes can be just as painful as a breach. A small, tested recovery kit prevents panic and long support tickets. This post keeps the benefits of MFA and removes the biggest failure point: lockout risk.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#fn1&quot; id=&quot;fnref1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt;&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#fn2&quot; id=&quot;fnref2&quot;&gt;[2]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h3 id=&quot;what-you-will-build&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#what-you-will-build&quot; class=&quot;heading-anchor&quot;&gt;What you will build&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Backup codes for your top ten accounts, captured and stored safely&lt;/li&gt;
+&lt;li&gt;A second authenticator or a spare hardware security key that actually works&lt;/li&gt;
+&lt;li&gt;A short “lost phone” drill you can follow when the pressure is on&lt;/li&gt;
+&lt;li&gt;Optional passkeys added on the accounts that support them&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#fn3&quot; id=&quot;fnref3&quot;&gt;[3]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;prerequisites&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#prerequisites&quot; class=&quot;heading-anchor&quot;&gt;Prerequisites&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/&quot;&gt;Part 1&lt;/a&gt; in progress or complete&lt;/li&gt;
+&lt;li&gt;Your Top Ten list and the worksheet from Part 1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;step-1-—-collect-backup-codes-for-the-top-ten&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#step-1-%E2%80%94-collect-backup-codes-for-the-top-ten&quot; class=&quot;heading-anchor&quot;&gt;Step 1 — Collect backup codes for the Top Ten&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Open each account’s security page and generate &lt;strong&gt;backup codes&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Store the codes inside that item’s &lt;strong&gt;secure notes&lt;/strong&gt; in your password manager.&lt;/li&gt;
+&lt;li&gt;Print one sealed copy and put it with your recovery kit.&lt;/li&gt;
+&lt;li&gt;Mark &lt;strong&gt;Backup Codes Stored = Y&lt;/strong&gt; in the worksheet.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;Why this works:&lt;/em&gt; backup codes are a one-time bypass when your second factor is unavailable. They should live with the password, NOT on sticky notes.&lt;/p&gt;
+&lt;h2 id=&quot;step-2-—-add-a-second-factor-per-account&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#step-2-%E2%80%94-add-a-second-factor-per-account&quot; class=&quot;heading-anchor&quot;&gt;Step 2 — Add a second factor per account&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Pick one of these patterns and apply it to the Top Ten.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Two authenticators on two devices&lt;/strong&gt;&lt;br&gt;
+Example: primary TOTP app on your phone and a second TOTP app on a tablet.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Two hardware keys&lt;/strong&gt;&lt;br&gt;
+Example: one YubiKey you carry and one spare in a safe location.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Label keys in the item record, for example &lt;strong&gt;YK5C-Blue&lt;/strong&gt;. Update &lt;strong&gt;MFA Enabled&lt;/strong&gt; and &lt;strong&gt;Second Factor Device / Key ID&lt;/strong&gt; in the worksheet.&lt;/p&gt;
+&lt;h2 id=&quot;step-3-—-protect-the-master-accounts-first&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#step-3-%E2%80%94-protect-the-master-accounts-first&quot; class=&quot;heading-anchor&quot;&gt;Step 3 — Protect the master accounts first&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Give extra love to your &lt;strong&gt;password manager&lt;/strong&gt; and &lt;strong&gt;primary email&lt;/strong&gt;. Enroll two factors on each. Keep the spare hardware key &lt;strong&gt;off-site&lt;/strong&gt; so a single theft does not take out both factors.&lt;/p&gt;
+&lt;h2 id=&quot;step-4-—-add-passkeys-where-available&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#step-4-%E2%80%94-add-passkeys-where-available&quot; class=&quot;heading-anchor&quot;&gt;Step 4 — Add passkeys where available&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Passkeys resist phishing and remove the code-entry dance. Add a passkey alongside existing MFA on services that support it. Note whether it is &lt;strong&gt;device-bound&lt;/strong&gt; or &lt;strong&gt;synced&lt;/strong&gt; through Apple, Google, or your password manager.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#fn4&quot; id=&quot;fnref4&quot;&gt;[4]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2 id=&quot;step-5-—-write-your-lost-phone-drill&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#step-5-%E2%80%94-write-your-lost-phone-drill&quot; class=&quot;heading-anchor&quot;&gt;Step 5 — Write your lost-phone drill&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Keep it to three lines you can follow under stress:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Sign in using a &lt;strong&gt;backup code&lt;/strong&gt; or &lt;strong&gt;spare key&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Revoke&lt;/strong&gt; the lost factor on the account security page.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Enroll&lt;/strong&gt; the new factor and store the new backup codes.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Print the drill card (available as a PDF below) and put it with your kit.&lt;/p&gt;
+&lt;h3 id=&quot;validate-your-work&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#validate-your-work&quot; class=&quot;heading-anchor&quot;&gt;Validate your work&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Pick three checks you can finish today.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use one backup code on a low-risk account, then restore normal MFA.&lt;/li&gt;
+&lt;li&gt;Use your &lt;strong&gt;spare hardware key&lt;/strong&gt; to sign in to a different account.&lt;/li&gt;
+&lt;li&gt;Sign in once with a &lt;strong&gt;passkey&lt;/strong&gt; only.&lt;/li&gt;
+&lt;li&gt;Open the worksheet and set &lt;strong&gt;Last Reviewed&lt;/strong&gt; for updated items. The &lt;strong&gt;Review Due&lt;/strong&gt; column will flip to &lt;strong&gt;OK&lt;/strong&gt; for fresh items.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;troubleshooting&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#troubleshooting&quot; class=&quot;heading-anchor&quot;&gt;Troubleshooting&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;No TOTP option, only SMS.&lt;/strong&gt; Keep SMS for now, but add a second phone number or a hardware key if the site allows it.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Site only allows one hardware key.&lt;/strong&gt; Use one key plus a TOTP app, and keep backup codes ready.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Lost both phone and spare key.&lt;/strong&gt; Use printed backup codes to sign in, rotate factors, then rebuild your kit.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Authenticator migration anxiety.&lt;/strong&gt; Before switching apps, enroll the new authenticator as a &lt;strong&gt;second&lt;/strong&gt; factor, confirm it works, then remove the old one.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;faq&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#faq&quot; class=&quot;heading-anchor&quot;&gt;FAQ&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Where should the printed kit live?&lt;/strong&gt;&lt;br&gt;
+Anywhere safer than your desk. A small fire safe at home or a safe deposit box is reasonable.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Should TOTP codes live in the same password manager?&lt;/strong&gt;&lt;br&gt;
+Convenient and fine for most people. If your threat model is higher, keep TOTP in a separate app or use hardware keys for the big accounts.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#fn1&quot; id=&quot;fnref1:1&quot;&gt;[1:1]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&quot;downloadables&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#downloadables&quot; class=&quot;heading-anchor&quot;&gt;Downloadables&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;All files are branded and licensed &lt;strong&gt;CC BY-NC-SA 4.0&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;2FA Rescue &amp;amp; Recovery Checklist (PDF)&lt;/strong&gt;&lt;br&gt;
+A one-sitting plan that mirrors this post.&lt;br&gt;
+&lt;a href=&quot;https://www.kylereddoch.me/assets/downloads/how-to-series/CybersecKyle_2FA_Recovery_Checklist.pdf&quot;&gt;Download&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Lost-Phone Drill Card (PDF)&lt;/strong&gt;&lt;br&gt;
+Wallet-size, four on the page. Use to briefly review your recovery steps.&lt;br&gt;
+&lt;a href=&quot;https://www.kylereddoch.me/assets/downloads/how-to-series/CybersecKyle_Lost_Phone_Drill_Card.pdf&quot;&gt;Download&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;2FA Recovery Kit Workbook (XLSX)&lt;/strong&gt;&lt;br&gt;
+Three sheets: Factors, Hardware Keys, Recovery Contacts.&lt;br&gt;
+&lt;a href=&quot;https://www.kylereddoch.me/assets/downloads/how-to-series/2FA_Recovery_Kit_Workbook.xlsx&quot;&gt;Download&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;keep-going&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#keep-going&quot; class=&quot;heading-anchor&quot;&gt;Keep going&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Next in the track: &lt;strong&gt;Browser hygiene that sticks&lt;/strong&gt;. Profiles, extensions, safe downloads, and a monthly reset that does not fight your workflow.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&quot;references&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#references&quot; class=&quot;heading-anchor&quot;&gt;References&lt;/a&gt;&lt;/h4&gt;
+&lt;hr class=&quot;footnotes-sep&quot;&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn1&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;NIST. &lt;em&gt;Digital Identity Guidelines: Authentication and Lifecycle Management (SP 800-63B).&lt;/em&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#fnref1&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#fnref1:1&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&quot;fn2&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;CISA. &lt;em&gt;Implementing Strong Multifactor Authentication.&lt;/em&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#fnref2&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&quot;fn3&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;W3C + FIDO Alliance. &lt;em&gt;Web Authentication: An API for accessing Public Key Credentials (WebAuthn).&lt;/em&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#fnref3&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&quot;fn4&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;FIDO Alliance. &lt;em&gt;Passkeys: what they are and how they work.&lt;/em&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#fnref4&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+
+ 			</content>
+    </entry><entry>
       <title>Weekly Notes: Week 46, 2025</title>
       <link href="https://www.kylereddoch.me/blog/weekly-notes-week-46-2025/" />
       <updated>2025-11-17T19:00:00Z</updated>
