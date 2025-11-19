@@ -3,7 +3,7 @@ date: 2025-11-19T10:00:00-05:00
 title: 'CybersecKyle Security How-To Series: Everyday Defense, Part 2: 2FA Rescue and Recovery'
 description: "Build a recovery kit for your accounts, add a spare authenticator or hardware key, and practice the lost-phone drill so lockouts do not stick."
 tags: [cyberseckyle-howto-series, security, everyday-defense, tutorials, IT, mfa, password-managers, passkeys]
-#mastodon_url: https://infosec.exchange/@cyberseckyle/115492434294338788
+mastodon_url: https://infosec.exchange/@cyberseckyle/115577589262200810
 ---
 
 >This article is the second in a multiple part series of the CybersecKyle Security How-To Series, a step-by-step collection that starts with everyday safety and ramps up to blue team skills. New to the series? [Start here](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/).
