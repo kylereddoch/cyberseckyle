@@ -3,7 +3,7 @@ date: 2025-11-23T11:00:00-05:00
 title: 'Cybersecurity Weekly Roundup for November 16-23, 2025'
 description: "Cybersecurity news for November 16–23, 2025: Chrome zero day, Oracle Identity Manager RCE (KEV), FortiWeb exploited, SonicWall SSLVPN bug, Cloudflare outage, WhatsApp enumeration, Logitech breach—with actionable steps"
 tags: [cybersecurity weekly roundup, cybersecurity, infosecurity, news]
-mastodon_url: https://infosec.exchange/@cyberseckyle/115391528679512830
+mastodon_url: https://infosec.exchange/@cyberseckyle/115600291058792583
 ---
 
 >The Cybersecurity Weekly Roundup is back! I have been on a brief hiatus from writing these weekily summaries, but I am resuming them. I summarize the most important cybersecurity news stories, focusing on practical takeaways for security practitioners. No fluff, just the signal.
