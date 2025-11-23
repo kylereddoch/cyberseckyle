@@ -4,12 +4,77 @@
   <subtitle>My life and journey through this world of technology. A blog about tech, cybersecurity, and everything in between.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-11-19T18:03:16Z</updated>
+  <updated>2025-11-23T17:52:11Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>Cybersecurity Weekly Roundup for November 16-23, 2025</title>
+      <link href="https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-november-16-23-2025/" />
+      <updated>2025-11-23T16:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-november-16-23-2025/</id>
+      <content type="html">
+				&lt;blockquote&gt;
+&lt;p&gt;The Cybersecurity Weekly Roundup is back! I have been on a brief hiatus from writing these weekily summaries, but I am resuming them. I summarize the most important cybersecurity news stories, focusing on practical takeaways for security practitioners. No fluff, just the signal.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;🧭-overview&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-november-16-23-2025/#%F0%9F%A7%AD-overview&quot; class=&quot;heading-anchor&quot;&gt;🧭 Overview&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The last seven days were busy: Google rushed a Chrome zero-day fix, CISA added a pre-auth RCE in Oracle Identity Manager to KEV, Fortinet confirmed FortiWeb exploitation, and SonicWall patched an SSLVPN crash bug. A Cloudflare outage reminded everyone how brittle single-vendor edges can be, while WhatsApp enumeration research, a Logitech third-party breach, a 7-Zip PoC, and Salesforce/Gainsight fallout kept identity and edge in the crosshairs. Here’s the signal, minus the noise.&lt;/p&gt;
+&lt;h3 id=&quot;1️⃣-chrome-zero-day-under-active-exploitation-patch-now&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-november-16-23-2025/#1%EF%B8%8F%E2%83%A3-chrome-zero-day-under-active-exploitation-patch-now&quot; class=&quot;heading-anchor&quot;&gt;1️⃣ Chrome zero-day under active exploitation, patch now&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Google shipped an emergency update for a V8 type-confusion bug (CVE-2025-13223). Exploitation is confirmed. Update to 142.0.7444.175/.176 and force browser auto-updates via MDM. Re-authenticate high-value sessions post-patch to invalidate stolen tokens.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Practitioner take:&lt;/strong&gt; Push Chrome updates as a change-without-CAB. Lock extension install to allow-lists for admin and finance users.&lt;/p&gt;
+&lt;h3 id=&quot;2️⃣-oracle-identity-manager-pre-auth-rce-added-to-cisa-kev&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-november-16-23-2025/#2%EF%B8%8F%E2%83%A3-oracle-identity-manager-pre-auth-rce-added-to-cisa-kev&quot; class=&quot;heading-anchor&quot;&gt;2️⃣ Oracle Identity Manager pre-auth RCE added to CISA KEV&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;CISA added CVE-2025-61757 to KEV after evidence of in-the-wild abuse. Pre-authentication RCE on OIM REST services. If internet-exposed and unpatched during the October CPU window, treat as a probable compromise.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Practitioner take:&lt;/strong&gt; Patch OIM, rotate service and integration keys, and review reverse proxy logs for odd HTTP verbs to OIM endpoints.&lt;/p&gt;
+&lt;h3 id=&quot;3️⃣-fortinet-fortiweb-path-traversal-exploited-in-the-wild&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-november-16-23-2025/#3%EF%B8%8F%E2%83%A3-fortinet-fortiweb-path-traversal-exploited-in-the-wild&quot; class=&quot;heading-anchor&quot;&gt;3️⃣ Fortinet FortiWeb path traversal exploited in the wild&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;CVE-2025-64446 lets unauthenticated attackers create admin users on FortiWeb WAF appliances. Fortinet and multiple vendors confirmed exploitation and fixes are available.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Practitioner take:&lt;/strong&gt; Patch FortiWeb. Audit for rogue admin accounts and unexpected policy changes. If exploitation is suspected, rebuild images rather than tweak in place.&lt;/p&gt;
+&lt;h3 id=&quot;4️⃣-sonicwall-sonicos-sslvpn-bug-can-crash-firewalls-remotely&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-november-16-23-2025/#4%EF%B8%8F%E2%83%A3-sonicwall-sonicos-sslvpn-bug-can-crash-firewalls-remotely&quot; class=&quot;heading-anchor&quot;&gt;4️⃣ SonicWall SonicOS SSLVPN bug can crash firewalls remotely&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;CVE-2025-40601 is a pre-auth stack overflow in SSLVPN that can force a reboot or DoS on Gen7 and Gen8 devices. SonicWall released fixes and guidance.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Practitioner take:&lt;/strong&gt; Patch now. If you cannot patch, restrict SSLVPN to trusted IPs and watch for repeated service restarts or crash loops.&lt;/p&gt;
+&lt;h3 id=&quot;5️⃣-cloudflare-outage-shows-single-vendor-edge-fragility&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-november-16-23-2025/#5%EF%B8%8F%E2%83%A3-cloudflare-outage-shows-single-vendor-edge-fragility&quot; class=&quot;heading-anchor&quot;&gt;5️⃣ Cloudflare outage shows single-vendor edge fragility&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;A November 18 Cloudflare outage tied to a Bot Management file generation bug caused widespread HTTP 5xx errors. Not an attack, but a blueprint for resilience planning.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Practitioner take:&lt;/strong&gt; Tabletop provider failover. Use multi-vendor DNS, pre-approved bypass routes, and after-action log sweeps for the reduced control window.&lt;/p&gt;
+&lt;h3 id=&quot;6️⃣-whatsapp-enumeration-research-exposes-large-scale-metadata-risk&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-november-16-23-2025/#6%EF%B8%8F%E2%83%A3-whatsapp-enumeration-research-exposes-large-scale-metadata-risk&quot; class=&quot;heading-anchor&quot;&gt;6️⃣ WhatsApp enumeration research exposes large-scale metadata risk&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;University of Vienna researchers demonstrated phone number enumeration at massive scale, with profile data pullable at high rates before Meta tightened limits.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Practitioner take:&lt;/strong&gt; For execs and admins, reduce phone number exposure, move MFA off SMS, and monitor for look-alike registrations.&lt;/p&gt;
+&lt;h3 id=&quot;7️⃣-logitech-confirms-data-theft-after-third-party-zero-day&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-november-16-23-2025/#7%EF%B8%8F%E2%83%A3-logitech-confirms-data-theft-after-third-party-zero-day&quot; class=&quot;heading-anchor&quot;&gt;7️⃣ Logitech confirms data theft after third-party zero-day&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Logitech disclosed data exfiltration linked to a third-party platform zero-day, with extortion chatter pointing to Clop and prior Oracle E-Business Suite targeting.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Practitioner take:&lt;/strong&gt; Trigger a supplier access review. Re-issue OAuth tokens, rotate API keys, and inspect SSO logs for unusual app scopes.&lt;/p&gt;
+&lt;h3 id=&quot;8️⃣-7-zip-rce-risk-rises-as-public-poc-lands&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-november-16-23-2025/#8%EF%B8%8F%E2%83%A3-7-zip-rce-risk-rises-as-public-poc-lands&quot; class=&quot;heading-anchor&quot;&gt;8️⃣ 7-Zip RCE risk rises as public PoC lands&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;CVE-2025-11001 has a public PoC. NHS England notes likely exploitation scenarios via archive extraction path tricks.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Practitioner take:&lt;/strong&gt; Standardize on 7-Zip 25.00 or newer. Block risky archive types at mail gateways and add EDR rules for suspicious &lt;code&gt;7z&lt;/code&gt; child processes.&lt;/p&gt;
+&lt;h3 id=&quot;9️⃣-salesforce-gainsight-incident-ripples-to-customer-orgs&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-november-16-23-2025/#9%EF%B8%8F%E2%83%A3-salesforce-gainsight-incident-ripples-to-customer-orgs&quot; class=&quot;heading-anchor&quot;&gt;9️⃣ Salesforce Gainsight incident ripples to customer orgs&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Salesforce confirmed some customer data access via Gainsight-published apps. Investigation is ongoing and access has been revoked.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Practitioner take:&lt;/strong&gt; Rotate connected-app secrets, re-issue OAuth tokens, and review Connected Apps scopes and audit logs in Salesforce.&lt;/p&gt;
+&lt;h3 id=&quot;🔟-dutch-police-seize-250-servers-from-bulletproof-host&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-november-16-23-2025/#%F0%9F%94%9F-dutch-police-seize-250-servers-from-bulletproof-host&quot; class=&quot;heading-anchor&quot;&gt;🔟 Dutch police seize 250 servers from bulletproof host&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Netherlands authorities dismantled infrastructure used by ransomware crews and fraud operators, seizing around 250 servers. Short-term churn expected as actors re-host.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Practitioner take:&lt;/strong&gt; Refresh threat intel feeds and blocklists. Expect infrastructure pivots and new domains over the next 1 to 2 weeks.&lt;/p&gt;
+&lt;h3 id=&quot;🧠-key-takeaway&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-november-16-23-2025/#%F0%9F%A7%A0-key-takeaway&quot; class=&quot;heading-anchor&quot;&gt;🧠 Key Takeaway&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Identity and the edge remain the soft underbelly. Shrink public attack surface, practice provider failover like you patch, and treat vendor incidents as your incident until proven otherwise.&lt;/p&gt;
+&lt;h4 id=&quot;🔗-references&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-for-november-16-23-2025/#%F0%9F%94%97-references&quot; class=&quot;heading-anchor&quot;&gt;🔗 References&lt;/a&gt;&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Google fixes actively exploited Chrome zero-day (CVE-2025-13223): Help Net Security — &lt;a href=&quot;https://www.helpnetsecurity.com/2025/11/18/chrome-cve-2025-13223-exploited/&quot; rel=&quot;noopener&quot;&gt;https://www.helpnetsecurity.com/2025/11/18/chrome-cve-2025-13223-exploited/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Additional coverage of Chrome update: The Hacker News — &lt;a href=&quot;https://thehackernews.com/2025/11/google-issues-security-fix-for-actively.html&quot; rel=&quot;noopener&quot;&gt;https://thehackernews.com/2025/11/google-issues-security-fix-for-actively.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;CISA adds Oracle Identity Manager CVE-2025-61757 to KEV — &lt;a href=&quot;https://www.cisa.gov/news-events/alerts/2025/11/21/cisa-adds-one-known-exploited-vulnerability-catalog&quot; rel=&quot;noopener&quot;&gt;https://www.cisa.gov/news-events/alerts/2025/11/21/cisa-adds-one-known-exploited-vulnerability-catalog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;KEV catalog entry listing CVE-2025-61757 — &lt;a href=&quot;https://www.cisa.gov/known-exploited-vulnerabilities-catalog&quot; rel=&quot;noopener&quot;&gt;https://www.cisa.gov/known-exploited-vulnerabilities-catalog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fortinet PSIRT advisory FG-IR-25-910 (CVE-2025-64446) — &lt;a href=&quot;https://fortiguard.fortinet.com/psirt/FG-IR-25-910&quot; rel=&quot;noopener&quot;&gt;https://fortiguard.fortinet.com/psirt/FG-IR-25-910&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Rapid7 analysis of FortiWeb exploitation — &lt;a href=&quot;https://www.rapid7.com/blog/post/etr-critical-vulnerability-in-fortinet-fortiweb-exploited-in-the-wild/&quot; rel=&quot;noopener&quot;&gt;https://www.rapid7.com/blog/post/etr-critical-vulnerability-in-fortinet-fortiweb-exploited-in-the-wild/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;SonicWall PSIRT for CVE-2025-40601 — &lt;a href=&quot;https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2025-0016&quot; rel=&quot;noopener&quot;&gt;https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2025-0016&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;NVD entry for CVE-2025-40601 — &lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2025-40601&quot; rel=&quot;noopener&quot;&gt;https://nvd.nist.gov/vuln/detail/CVE-2025-40601&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Cloudflare postmortem for Nov 18 outage — &lt;a href=&quot;https://blog.cloudflare.com/18-november-2025-outage/&quot; rel=&quot;noopener&quot;&gt;https://blog.cloudflare.com/18-november-2025-outage/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;University of Vienna press release on WhatsApp enumeration — &lt;a href=&quot;https://www.univie.ac.at/en/news/detail/forscherinnen-entdecken-grosse-sicherheitsluecke-in-whatsapp&quot; rel=&quot;noopener&quot;&gt;https://www.univie.ac.at/en/news/detail/forscherinnen-entdecken-grosse-sicherheitsluecke-in-whatsapp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Wired recap of WhatsApp enumeration research — &lt;a href=&quot;https://www.wired.com/story/a-simple-whatsapp-security-flaw-exposed-billions-phone-numbers/&quot; rel=&quot;noopener&quot;&gt;https://www.wired.com/story/a-simple-whatsapp-security-flaw-exposed-billions-phone-numbers/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Logitech breach coverage: SecurityWeek — &lt;a href=&quot;https://www.securityweek.com/logitech-confirms-data-breach-following-designation-as-oracle-hack-victim/&quot; rel=&quot;noopener&quot;&gt;https://www.securityweek.com/logitech-confirms-data-breach-following-designation-as-oracle-hack-victim/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The Record on Logitech disclosure — &lt;a href=&quot;https://therecord.media/logitech-discloses-data-breach-clop&quot; rel=&quot;noopener&quot;&gt;https://therecord.media/logitech-discloses-data-breach-clop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;NHS England cyber alert on 7-Zip CVE-2025-11001 PoC — &lt;a href=&quot;https://digital.nhs.uk/cyber-alerts/2025/cc-4719&quot; rel=&quot;noopener&quot;&gt;https://digital.nhs.uk/cyber-alerts/2025/cc-4719&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Salesforce status on Gainsight-connected app incident — &lt;a href=&quot;https://status.salesforce.com/generalmessages/20000233&quot; rel=&quot;noopener&quot;&gt;https://status.salesforce.com/generalmessages/20000233&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;TechCrunch on Salesforce and Gainsight — &lt;a href=&quot;https://techcrunch.com/2025/11/20/salesforce-says-some-of-its-customers-data-was-accessed-after-gainsight-breach/&quot; rel=&quot;noopener&quot;&gt;https://techcrunch.com/2025/11/20/salesforce-says-some-of-its-customers-data-was-accessed-after-gainsight-breach/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;BleepingComputer on Dutch police seizing bulletproof hosting servers — &lt;a href=&quot;https://www.bleepingcomputer.com/news/security/dutch-police-seizes-250-servers-used-by-bulletproof-hosting-service/&quot; rel=&quot;noopener&quot;&gt;https://www.bleepingcomputer.com/news/security/dutch-police-seizes-250-servers-used-by-bulletproof-hosting-service/&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+ 			</content>
+    </entry><entry>
       <title>CybersecKyle Security How-To Series: Everyday Defense, Part 2: 2FA Rescue and Recovery</title>
       <link href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/" />
       <updated>2025-11-19T15:00:00Z</updated>
