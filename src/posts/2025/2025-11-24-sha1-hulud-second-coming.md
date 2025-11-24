@@ -3,7 +3,7 @@ date: 2025-11-24T11:30:00-05:00
 title: 'Sha1-Hulud: The Second Coming Of The Shai-Hulud NPM Worm'
 description: "A practical breakdown of the new “Sha1-Hulud: The Second Coming” supply chain campaign, how it builds on the original Shai-Hulud npm worm, what is actually happening under the hood, and what dev teams, MSPs, and orgs should do right now."
 tags: [security, npm, javascript, incident-response, malware, devsecops, news]
-#mastodon_url: ""
+mastodon_url: https://infosec.exchange/@cyberseckyle/115606020346420806
 ---
 
 {% image "/assets/images/sha1_hulud_second_hero.png", "Chrome DL Autofill Hero", null, "eager", "text-center", "!important", auto, "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
