@@ -3,7 +3,7 @@ date: 2025-11-25T14:00:00-05:00
 title: 'The Genesis Mission Puts AI in Charge of Our Science. As a Security Pro, I’m Not Sold.'
 description: "An editorial from a cybersecurity practitioner on Trump’s Genesis Mission executive order, and why centralizing federal science data into a single AI mega-platform raises serious security, privacy, and power-imbalance concerns."
 tags: [editorials, ai, security, privacy]
-mastodon_url: 
+mastodon_url: https://infosec.exchange/@cyberseckyle/115612204346493980
 ---
 
 {% image "/assets/images/ai_robot_hero.jpg", "AI Robot with glowing brain", null, "eager", "text-center", "!important", [1024], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
