@@ -4,12 +4,40 @@
   <subtitle>My life and journey through this world of technology. A blog about tech, cybersecurity, and everything in between.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-11-24T18:15:37Z</updated>
+  <updated>2025-11-25T16:54:01Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>Weekly Notes: Week 47, 2025</title>
+      <link href="https://www.kylereddoch.me/blog/weekly-notes-week-47-2025/" />
+      <updated>2025-11-25T15:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/weekly-notes-week-47-2025/</id>
+      <content type="html">
+				&lt;blockquote&gt;
+&lt;p&gt;I almost forgot to publish these weekly notes! I got busy yesterday with actually working. 😃&lt;br&gt;
+Better late than never, I suppose.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.webp 1200w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.jpeg&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;Last week was pretty manageable again. Work stayed steady, which gave me a good window to keep catching up on things that had been sitting on my to-do list for way too long.&lt;/p&gt;
+&lt;h3 id=&quot;💻-good-ol-work&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-47-2025/#%F0%9F%92%BB-good-ol-work&quot; class=&quot;heading-anchor&quot;&gt;💻 Good ’ol Work&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Most of my week was spent grinding through alerts I’d fallen behind on. I’m finally almost caught up, and that alone takes a lot of mental weight off. I also started sketching out some ideas I’ve been wanting to bring to my boss (who’s also the owner). I’ve got a few thoughts on how we can tighten our security posture and strengthen our overall technical foundation. I’m hoping to sit down with him soon and talk through what those changes might look like in practice.&lt;/p&gt;
+&lt;h3 id=&quot;🙂-personal-life&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-47-2025/#%F0%9F%99%82-personal-life&quot; class=&quot;heading-anchor&quot;&gt;🙂 Personal Life&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;On the personal side, I wrapped up another class last week. That puts me at just 4 classes left before I finish my degree, which feels huge. I also received my Advanced Cybersecurity certificate from school recently. It’s not on the wall yet, but it probably will be soon.&lt;/p&gt;
+&lt;p&gt;On Thursday, we drove to Lubbock to take my dad to a doctor’s appointment and visit my daughter. It was really nice getting to see her and spend some time together. We grabbed sandwiches at a local shop and then hung out at her place for a bit before heading back home.&lt;/p&gt;
+&lt;p&gt;Visits are always a little extra fun because she works at Starbucks, which means I get free coffee beans. This time I walked away with a bag of their new holiday blend, and it’s honestly pretty good.&lt;/p&gt;
+&lt;h3 id=&quot;📝-articles&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-47-2025/#%F0%9F%93%9D-articles&quot; class=&quot;heading-anchor&quot;&gt;📝 Articles&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Catching you up on articles I published this past week:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/&quot;&gt;CybersecKyle Security How-To Series: Everyday Defense, Part 2: 2FA Rescue and Recovery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/chromes-new-drivers-license-autofill-is-a-terrible-idea/&quot;&gt;Chrome’s New Driver’s License Autofill Is a Terrible Idea&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
+
+ 			</content>
+    </entry><entry>
       <title>Sha1-Hulud: The Second Coming Of The Shai-Hulud NPM Worm</title>
       <link href="https://www.kylereddoch.me/blog/sha1-hulud-the-second-coming-of-the-shai-hulud-npm-worm/" />
       <updated>2025-11-24T16:30:00Z</updated>
