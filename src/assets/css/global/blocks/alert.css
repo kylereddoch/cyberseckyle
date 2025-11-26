@@ -4,7 +4,7 @@
     font-size: var(--size-step-min-1) !important;
     font-family: var(--font-base);
     margin: 2em auto 0;
-    width: 75% !important;
+    width: 100% !important;
     padding: 2em;
     background-color: var(--color-gray-700);
 
