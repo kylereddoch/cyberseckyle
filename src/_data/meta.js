@@ -1,8 +1,8 @@
 export const url = process.env.URL || 'https://www.kylereddoch.me';
 // Extract domain from `url`
 export const domain = new URL(url).hostname;
-export const siteName = 'Kyles Tech Korner';
-export const siteDescription = 'My life and journey through this world of technology. A blog about tech, cybersecurity, and everything in between.';
+export const siteName = 'CybersecKyle';
+export const siteDescription = 'CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.';
 export const siteType = 'Person'; // schema
 export const locale = 'en_EN';
 export const lang = 'en';
@@ -25,11 +25,11 @@ export const themeColor = '#cba6f7'; // used in manifest, for example primary co
 export const themeDark = '#1e1e2e'; // used for meta tag theme-color, if dark colors are prefered. best use value set for dark bg
 export const opengraph_default = '/assets/images/template/opengraph-default.jpg'; // fallback/default meta image
 export const opengraph_default_alt =
-  "Kyle's Tech Korner - My life and journey through this world of technology. A blog about tech, cybersecurity, and everything in between."; // alt text for default meta image"
+  "CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more."; // alt text for default meta image"
 export const blog = {
   // RSS feed
-  name: 'Kyles Tech Korner',
-  description: 'My life and journey through this world of technology. A blog about tech, cybersecurity, and everything in between.',
+  name: 'CybersecKyle',
+  description: 'CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.',
   // feed links are looped over in the head. You may add more to the array.
   feedLinks: [
     {

@@ -1,7 +1,7 @@
 ---
 title: You are Reading About Me
 permalink: /about/index.html
-description: 'I am what they call a millennial. A self-taught tech nerd. I love all things tech and also do development projects on the side in my free time that either contribute to the open-source community or just help others out.'
+description: 'I am Kyle “CybersecKyle” Reddoch, a cybersecurity expert, MSP professional, and all around tech nerd. This site is my home base for sharing practical guides, incident lessons, and everyday defense tips.'
 layout: page
 ---
 
@@ -74,20 +74,20 @@ Here are multiple versions of my bio, each with **Plaintext**, **HTML**, and **M
 #### Plaintext
 
 ```text
-Kyle Reddoch is a cybersecurity and managed services practitioner who writes as CybersecKyle at https://www.kylereddoch.me and hosts the CyberTech Guild community at https://purl.kylereddoch.me/cybertechguild. He shares day-to-day security and MSP work on Mastodon at https://infosec.exchange/@cyberseckyle and publishes tools and experiments on GitHub at https://github.com/kylereddoch.
+Kyle Reddoch is a cybersecurity expert and IT professional who writes as CybersecKyle at https://www.kylereddoch.me and hosts the CyberTech Guild community at https://purl.kylereddoch.me/cybertechguild. He shares day-to-day security and MSP work on Mastodon at https://infosec.exchange/@cyberseckyle and publishes tools and experiments on GitHub at https://github.com/kylereddoch.
 ```
 
 #### Markdown
 
 ```md  
-Kyle Reddoch is a cybersecurity and managed services practitioner who writes as **CybersecKyle** at [kylereddoch.me](https://www.kylereddoch.me) and hosts the **CyberTech Guild** community at [CyberTech Guild][(https://purl.kylereddoch.me/cyberseckyle_community](https://purl.kylereddoch.me/cybertechguild)). He shares day-to-day security and MSP work on Mastodon at [@cyberseckyle@infosec.exchange](https://infosec.exchange/@cyberseckyle) and publishes tools and experiments on GitHub at [github.com/kylereddoch](https://github.com/kylereddoch).
+Kyle Reddoch is a cybersecurity expert and IT professional who writes as **CybersecKyle** at [kylereddoch.me](https://www.kylereddoch.me) and hosts the **CyberTech Guild** community at [CyberTech Guild][(https://purl.kylereddoch.me/cyberseckyle_community](https://purl.kylereddoch.me/cybertechguild)). He shares day-to-day security and MSP work on Mastodon at [@cyberseckyle@infosec.exchange](https://infosec.exchange/@cyberseckyle) and publishes tools and experiments on GitHub at [github.com/kylereddoch](https://github.com/kylereddoch).
 ```
 
 #### HTML
 
 ```html
 <p>
-  Kyle Reddoch is a cybersecurity and managed services practitioner who writes as
+  Kyle Reddoch is a cybersecurity expert and IT professional who writes as
   <strong>CybersecKyle</strong> at
   <a href="https://www.kylereddoch.me">kylereddoch.me</a> and hosts the
   <strong>CyberTech Guild</strong> community at
