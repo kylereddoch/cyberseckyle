@@ -1,8 +1,7 @@
-User-agent: *
-Disallow: /404.html
 
 Sitemap: https://www.kylereddoch.me/sitemap.xml
 
+# Block AI / unwanted scrapers
 User-agent: AI2Bot
 User-agent: Ai2Bot-Dolma
 User-agent: aiHitBot
@@ -78,3 +77,12 @@ User-agent: YandexAdditional
 User-agent: YandexAdditionalBot
 User-agent: YouBot
 Disallow: /
+
+# Explicitly allow Facebook crawlers
+User-agent: facebookexternalhit
+User-agent: Facebot
+Disallow: /404.html
+
+# Default rules for everyone else
+User-agent: *
+Disallow: /404.html
