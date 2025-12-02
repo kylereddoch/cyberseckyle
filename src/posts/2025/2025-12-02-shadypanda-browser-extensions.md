@@ -3,7 +3,7 @@ date: 2025-12-02T15:00:00-06:00
 title: '"Sleeper" Browser Extensions: How a 7-Year Campaign Turned Chrome and Edge into Spyware'
 description: "A practical breakdown of the ShadyPanda browser extension campaign that quietly hijacked 4.3M Chrome and Edge users, and how to audit and lock down your own extensions."
 tags: [cybersecurity, extensions, malware, privacy, how-to, MSP]
-#mastodon_url: 
+mastodon_url: https://infosec.exchange/@cyberseckyle/115652275422658692
 ---
 
 {% image "/assets/images/shadypanda_browser_hero.png", "Flat cyber-style illustration of a hooded figure lurking behind a laptop with a red browser-style screen, surrounded by circuit lines, binary code, gears, and warning triangles, symbolizing malicious browser extensions and spyware.", null, "eager", "text-center", "!important", [auto], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
