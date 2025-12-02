@@ -3,7 +3,7 @@ date: 2025-12-02T08:00:00-05:00
 title: 'Your Android TV Box Might Be a Botnet Farm without You Knowing: A Deep Dive'
 description: "A deep dive into how Android TV streaming devices can conscript your home network into botnets and residential proxy networks without your knowledge."
 tags: [iot, botnets, streaming, cybersecurity, privacy]
-mastodon_url: 
+mastodon_url: https://infosec.exchange/@cyberseckyle/115650618832781500
 ---
 
 {% image "/assets/images/android-tv-hero.jpg", "Android TV sitting on a wooden table", null, "eager", "text-center", "!important", [auto], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
