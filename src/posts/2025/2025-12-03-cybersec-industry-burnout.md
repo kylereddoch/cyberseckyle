@@ -3,7 +3,7 @@ date: 2025-12-03T09:00:00-06:00
 title: "The Breaking Point: Why Cybersecurity and SOC Professionals Are Burning Out, and What Actually Works"
 description: "An in-depth analysis of burnout drivers affecting cybersecurity and SOC professionals and practical strategies to build resilience and prevent the next generation of security experts from burning out."
 tags: [editorials, cybersecurity, mental-health, soc, incident-response, threat-detection, security-operations]
-#mastodon_url: https://infosec.exchange/@cyberseckyle/115652275422658692
+mastodon_url: https://infosec.exchange/@cyberseckyle/115656620558456633
 ---
 
 {% image "/assets/images/exhausted_SOC_analyst_at_workstation_during_late_night_shift_monitoring_security_alerts.png", "Exhausted SOC analyst at workstation during late night shift", null, "eager", "text-center", "!important", [auto], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
