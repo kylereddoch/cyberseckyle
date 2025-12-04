@@ -3,7 +3,7 @@ date: 2025-12-04T09:00:00-06:00
 title: '15 Essential Cyberattacks You Should Understand: Your Guide to Digital Safety'
 description: "A beginner-friendly breakdown of 15 common cyberattack types, how they work, and practical steps to protect yourself and your organization."
 tags: [cybersecurity, how-to, digital-safety]
-#mastodon_url: https://infosec.exchange/@cyberseckyle/[your-post-url]
+mastodon_url: https://infosec.exchange/@cyberseckyle/115662122824562423
 ---
 
 {% image "/assets/images/cyberattack_types_hero_image.png", "Professional cybersecurity illustration featuring a glowing shield and padlock symbols with digital network visualization in dark blue and neon red", null, "eager", "text-center", "!important", [auto], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
