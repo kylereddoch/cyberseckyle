@@ -2,7 +2,6 @@
 date: 2025-12-04T10:00:00-06:00
 title: '15 Essential Cyberattacks You Should Understand: Your Guide to Digital Safety'
 description: "A beginner-friendly breakdown of 15 common cyberattack types, how they work, and practical steps to protect yourself and your organization."
-draft: true
 tags: [cybersecurity, attacks, education, how-to, defense, beginner-friendly]
 #mastodon_url: https://infosec.exchange/@cyberseckyle/[your-post-url]
 ---
