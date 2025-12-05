@@ -1,0 +1,93 @@
+---
+layout: base
+title: /Now
+permalink: "now/index.html"
+schema: BlogPosting
+eleventyComputed:
+  description: >
+    {% set latestNow = collections.nowEntries | first %}{% if latestNow and latestNow.data.description %}{{ latestNow.data.description }}{% else %}"What Kyle Reddoch is focused on right now."{% endif %}
+---
+
+{% set latestNow = collections.nowEntries | first %}
+
+<div class="wrapper flow">
+  <header class="full | section" style="--spot-color: var(--color-secondary)">
+    <div class="section__inner flow region">
+      <h1 class="text-center" style="color: var(--color-bg); font-size: var(--size-step-6) !important;">
+        {{ title }}
+      </h1>
+      <p class="text-center" style="color: var(--color-bg); font-size: var(--size-step-0) !important;">What am I focused on right now?</p>
+    </div>
+    {% svg "divider/edgy", null, "divider" %}
+  </header>
+
+  <div class="region flow">
+
+    
+    {% if latestNow %}
+
+      <p style="font-size: var(--size-step-min-1);">
+        Last updated:
+        {# feed the partial the same variables post.njk uses #}
+        {% set definedDate = latestNow.date %}
+        {% set content = latestNow.templateContent %}
+        {% include "partials/date-read.njk" %}
+      </p>
+
+      {% if latestNow.data.tags %}
+        <p class="meta | cluster gutter-xs-s">
+          {% for tag in latestNow.data.tags %}
+            {% if tag != "posts" %}
+              <span class="button" data-small-button>#{{ tag }}</span>
+            {% endif %}
+          {% endfor %}
+        </p>
+      {% endif %}
+
+      <article class="flow">
+        <div class="prose flow">
+          {{ latestNow.templateContent | safe }}
+        </div>
+      </article>
+
+    {% else %}
+      <p>
+        No <code>now</code> updates yet. Once you publish a file in
+        <code>src/now/</code> with the <code>now</code> tag, it will appear here.
+      </p>
+    {% endif %}
+  </div>
+<hr>
+  {# Previous /now entries – show only the next 2 #}
+  {% if collections.nowEntries | length > 1 %}
+      <h3>Previous now updates</h3>
+      <p>
+        Here are the two most recent past updates. For older updates, check out my <a href="/tags/now/">#now</a> archive.</a>.
+      </p>
+
+<div class="region region-space-l">
+  <div class="region region-space-l">
+      <custom-masonry layout="50-50">
+      {# loop.index0: 0 = latest, 1 & 2 = the next two #}
+      {% for item in collections.nowEntries %}
+        {% if loop.index0 >= 1 and loop.index0 <= 2 %}
+          {% include "partials/card-now.njk" %}
+        {% endif %}
+      {% endfor %}
+    </custom-masonry>
+  </div>
+    </div>
+  {% endif %}
+
+    <!--  h-card infos: https://indieweb.org/authorship -->
+  <div hidden class="h-entry">
+    <a class="u-url" href="{{ page.url | url | absoluteUrl(meta.url) }}">{{ title }}</a>
+    <a class="p-name u-url" rel="author" href="{{ meta.url }}">{{ meta.author.name }}</a>
+    <img
+      eleventy:ignore
+      class="u-author h-card"
+      src="{{ meta.author.avatar | url | absoluteUrl(meta.url) }}"
+      alt="{{ meta.author.name }}"
+    />
+  </div>
+</div>

@@ -17,3 +17,10 @@ export const tagList = collection => {
   });
   return Array.from(tagsSet).sort();
 };
+
+/** All /now updates, newest first */
+export const getNowPosts = collection => {
+  return collection
+    .getFilteredByGlob('./src/now/**/*.md')
+    .sort((a, b) => b.date - a.date); // newest first
+};
