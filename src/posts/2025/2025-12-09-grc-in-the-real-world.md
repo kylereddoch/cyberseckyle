@@ -3,7 +3,7 @@ date: 2025-12-09T11:30:00-06:00
 title: 'GRC In The Real World: Making HIPAA, PCI, NIST CSF, FTC Safeguards, and NIS2 Work Together'
 description: "A practical guide to building one risk-based GRC program that satisfies HIPAA, PCI DSS, NIST CSF, FTC Safeguards, and NIS2 without drowning in duplicate work."
 tags: [grc, compliance, hipaa, pci-dss, nist, ftc, nis2, MSP]
-#mastodon_url:
+mastodon_url: https://infosec.exchange/@cyberseckyle/115691171838074920
 ---
 
 {% image "/assets/images/grc.png", "Illustration of the letters “GRC” overlaid on gears, charts, documents, and magnifying glasses on a blue background, symbolizing governance, risk, and compliance processes.", null, "eager", "text-center", "!important", [auto], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
