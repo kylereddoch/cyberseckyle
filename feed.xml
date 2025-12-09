@@ -4,12 +4,221 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-12-09T17:35:57Z</updated>
+  <updated>2025-12-09T19:02:37Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>GRC In The Real World: Making HIPAA, PCI, NIST CSF, FTC Safeguards, and NIS2 Work Together</title>
+      <link href="https://www.kylereddoch.me/blog/grc-in-the-real-world-making-hipaa-pci-nist-csf-ftc-safeguards-and-nis2-work-together/" />
+      <updated>2025-12-09T17:30:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/grc-in-the-real-world-making-hipaa-pci-nist-csf-ftc-safeguards-and-nis2-work-together/</id>
+      <content type="html">
+				&lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/grc-1920w.webp 1920w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
+&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/grc-1920w.jpeg 1920w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/grc-1920w.jpeg&quot; width=&quot;1920&quot; height=&quot;1080&quot; alt=&quot;Illustration of the letters “GRC” overlaid on gears, charts, documents, and magnifying glasses on a blue background, symbolizing governance, risk, and compliance processes.&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;Most days, GRC feels less like “governance, risk, and compliance” and more like alphabet soup with lawyers attached. &lt;a href=&quot;https://www.hhs.gov/hipaa/index.html&quot; rel=&quot;noopener&quot;&gt;HIPAA&lt;/a&gt; for one client, &lt;a href=&quot;https://www.pcisecuritystandards.org/document_library/&quot; rel=&quot;noopener&quot;&gt;PCI DSS&lt;/a&gt; for another, &lt;a href=&quot;https://www.nist.gov/cyberframework&quot; rel=&quot;noopener&quot;&gt;NIST CSF&lt;/a&gt; for your program, &lt;a href=&quot;https://www.ftc.gov/legal-library/browse/rules/safeguards-rule&quot; rel=&quot;noopener&quot;&gt;FTC Safeguards&lt;/a&gt; for the finance folks, &lt;a href=&quot;https://digital-strategy.ec.europa.eu/en/policies/nis2-directive&quot; rel=&quot;noopener&quot;&gt;NIS2&lt;/a&gt; for the EU footprint. Everyone wants “compliance” and nobody wants to triple the security budget.&lt;/p&gt;
+&lt;p&gt;As an Associate CCISO working in the MSP and SMB space, I do not have the luxury of building a fresh program for each regulation. The only approach that scales is to design one risk based security program, then map each rule and framework into that program in a way auditors and regulators recognize.&lt;/p&gt;
+&lt;p&gt;This post is my working playbook for doing exactly that.&lt;/p&gt;
+&lt;h2 id=&quot;grc-in-one-page&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/grc-in-the-real-world-making-hipaa-pci-nist-csf-ftc-safeguards-and-nis2-work-together/#grc-in-one-page&quot; class=&quot;heading-anchor&quot;&gt;GRC in one page&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Let us level set.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Governance&lt;/strong&gt; is how leadership sets direction and accountability for security.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Risk&lt;/strong&gt; is how you decide what matters most, in what order, and with what tolerance.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Compliance&lt;/strong&gt; is how you prove, on paper, that what you are doing meets specific rules.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you treat compliance as the driver and risk as an afterthought, you end up with a binder full of policies that nobody reads and a network full of unmanaged local admins. If you treat risk as the driver and ignore compliance, you end up arguing with auditors every year.&lt;/p&gt;
+&lt;p&gt;The trick is to let &lt;strong&gt;risk management and NIST CSF 2.0&lt;/strong&gt; define your control set, then map HIPAA, PCI, FTC, NIS2, and everything else into that backbone.&lt;/p&gt;
+&lt;h2 id=&quot;where-the-major-regimes-actually-fit&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/grc-in-the-real-world-making-hipaa-pci-nist-csf-ftc-safeguards-and-nis2-work-together/#where-the-major-regimes-actually-fit&quot; class=&quot;heading-anchor&quot;&gt;Where the major regimes actually fit&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;hipaa-protecting-ephi-without-turning-into-paperwork-zombies&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/grc-in-the-real-world-making-hipaa-pci-nist-csf-ftc-safeguards-and-nis2-work-together/#hipaa-protecting-ephi-without-turning-into-paperwork-zombies&quot; class=&quot;heading-anchor&quot;&gt;HIPAA – protecting ePHI without turning into paperwork zombies&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;HIPAA really gives you two big pillars: the &lt;strong&gt;&lt;a href=&quot;https://www.hhs.gov/hipaa/for-professionals/privacy/index.html&quot; rel=&quot;noopener&quot;&gt;Privacy Rule&lt;/a&gt;&lt;/strong&gt; and the &lt;strong&gt;&lt;a href=&quot;https://www.hhs.gov/hipaa/for-professionals/security/index.html&quot; rel=&quot;noopener&quot;&gt;Security Rule&lt;/a&gt;&lt;/strong&gt;. Privacy handles when and how protected health information can be used or disclosed. Security focuses on how you protect electronic PHI with administrative, physical, and technical safeguards.&lt;/p&gt;
+&lt;p&gt;At a practical level, the Security Rule wants you to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ensure confidentiality, integrity, and availability of ePHI.&lt;/li&gt;
+&lt;li&gt;Protect against reasonably anticipated threats.&lt;/li&gt;
+&lt;li&gt;Protect against improper uses or disclosures.&lt;/li&gt;
+&lt;li&gt;Make sure your workforce actually follows the safeguards.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;HIPAA does not prescribe exact tools. It expects a &lt;strong&gt;risk analysis and risk management process&lt;/strong&gt; that is reasonable for the size and complexity of the covered entity or business associate. That “reasonableness” language is your opening to align HIPAA with your broader GRC program instead of creating a separate HIPAA universe.&lt;/p&gt;
+&lt;h3 id=&quot;pci-dss-40-cardholder-data-is-lava&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/grc-in-the-real-world-making-hipaa-pci-nist-csf-ftc-safeguards-and-nis2-work-together/#pci-dss-40-cardholder-data-is-lava&quot; class=&quot;heading-anchor&quot;&gt;PCI DSS 4.0 – cardholder data is lava&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.pcisecuritystandards.org/document_library/&quot; rel=&quot;noopener&quot;&gt;PCI DSS&lt;/a&gt; is different. It is not a law, it is a &lt;strong&gt;contractual requirement&lt;/strong&gt; from the card brands. Ignore it and you get fines, higher fees, and the joy of being labeled a high risk merchant.&lt;/p&gt;
+&lt;p&gt;PCI DSS 4.0 sets out &lt;strong&gt;12 core requirements&lt;/strong&gt; organized under six broad objectives covering secure networks, protection of account data, vulnerability management, access control, monitoring and testing, and information security policies.&lt;/p&gt;
+&lt;p&gt;The 4.0 update leans harder into:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Flexible, customized approaches for some controls.&lt;/li&gt;
+&lt;li&gt;Stronger authentication and password expectations.&lt;/li&gt;
+&lt;li&gt;More continuous monitoring instead of once a year checkbox assessments.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;From a GRC point of view, PCI is narrow but deep. It only cares about &lt;strong&gt;payment card data&lt;/strong&gt;, but inside that scope it wants detailed, evidence backed controls and documentation. The core activities, though, are the same ones you should be doing anyway: segmentation, hardening, patching, logging, encryption, and access control.&lt;/p&gt;
+&lt;h3 id=&quot;nist-csf-20-the-backbone&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/grc-in-the-real-world-making-hipaa-pci-nist-csf-ftc-safeguards-and-nis2-work-together/#nist-csf-20-the-backbone&quot; class=&quot;heading-anchor&quot;&gt;NIST CSF 2.0 – the backbone&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.nist.gov/cyberframework&quot; rel=&quot;noopener&quot;&gt;NIST CSF 2.0&lt;/a&gt; is not a regulation. It is a &lt;strong&gt;framework&lt;/strong&gt; that gives you a common language for cybersecurity risk management that regulators, auditors, and normal humans can all understand.&lt;/p&gt;
+&lt;p&gt;Version 2.0 adds a sixth function, &lt;strong&gt;Govern&lt;/strong&gt;, alongside Identify, Protect, Detect, Respond, and Recover.&lt;/p&gt;
+&lt;p&gt;Why do I use CSF as the backbone?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It is risk based, not check box based.&lt;/li&gt;
+&lt;li&gt;It maps cleanly to other frameworks and regulations.&lt;/li&gt;
+&lt;li&gt;It scales for a 30 person clinic and a multi site enterprise.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Most of my GRC work starts by designing controls around CSF functions and categories, then mapping HIPAA, PCI, FTC, NIS2, and internal policies into those controls.&lt;/p&gt;
+&lt;h3 id=&quot;ftc-safeguards-rule-glba-with-sharper-teeth&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/grc-in-the-real-world-making-hipaa-pci-nist-csf-ftc-safeguards-and-nis2-work-together/#ftc-safeguards-rule-glba-with-sharper-teeth&quot; class=&quot;heading-anchor&quot;&gt;FTC Safeguards Rule – GLBA with sharper teeth&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The &lt;strong&gt;&lt;a href=&quot;https://www.ftc.gov/business-guidance/resources/ftc-safeguards-rule-what-your-business-needs-know&quot; rel=&quot;noopener&quot;&gt;FTC Safeguards Rule&lt;/a&gt;&lt;/strong&gt; applies to a wide set of non bank financial institutions under the Gramm Leach Bliley Act. Think mortgage brokers, finance companies, tax preparers, and similar businesses that handle non public personal information.&lt;/p&gt;
+&lt;p&gt;The rule requires a written information security program with administrative, technical, and physical safeguards that protect customer information. Recent amendments added a requirement to report certain security incidents to the FTC when they meet defined thresholds.&lt;/p&gt;
+&lt;p&gt;The interesting part for GRC is that Safeguards is very explicit about:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Governance and oversight.&lt;/li&gt;
+&lt;li&gt;Vendor and service provider management.&lt;/li&gt;
+&lt;li&gt;Periodic risk assessments and control tuning.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In other words, it cares about the &lt;strong&gt;G&lt;/strong&gt; and the &lt;strong&gt;R&lt;/strong&gt; at least as much as the &lt;strong&gt;C&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;nis2-europes-way-of-saying-no-really-take-this-seriously&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/grc-in-the-real-world-making-hipaa-pci-nist-csf-ftc-safeguards-and-nis2-work-together/#nis2-europes-way-of-saying-no-really-take-this-seriously&quot; class=&quot;heading-anchor&quot;&gt;NIS2 – Europe’s way of saying “no, really, take this seriously”&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://digital-strategy.ec.europa.eu/en/policies/nis2-directive&quot; rel=&quot;noopener&quot;&gt;NIS2&lt;/a&gt; is the European Union’s updated directive on security of network and information systems. It expands the sectors in scope, tightens requirements, and raises penalties for non compliance, especially for “essential” and “important” entities.&lt;/p&gt;
+&lt;p&gt;NIS2 pushes four big themes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Risk management and technical controls.&lt;/li&gt;
+&lt;li&gt;Corporate accountability, including personal liability for management in some cases.&lt;/li&gt;
+&lt;li&gt;Incident reporting and regulatory oversight.&lt;/li&gt;
+&lt;li&gt;Business continuity and resilience.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you support EU entities, NIS2 forces your GRC program to get serious about &lt;strong&gt;board level ownership&lt;/strong&gt;, &lt;strong&gt;supply chain security&lt;/strong&gt;, and the speed and quality of incident reporting.&lt;/p&gt;
+&lt;h2 id=&quot;the-good-news-the-control-themes-are-almost-the-same&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/grc-in-the-real-world-making-hipaa-pci-nist-csf-ftc-safeguards-and-nis2-work-together/#the-good-news-the-control-themes-are-almost-the-same&quot; class=&quot;heading-anchor&quot;&gt;The good news: the control themes are almost the same&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Here is the part nobody tells you in a compliance training video.&lt;/p&gt;
+&lt;p&gt;HIPAA, PCI DSS, NIST CSF, FTC Safeguards, and NIS2 are different in scope and enforcement, but the &lt;strong&gt;core control themes&lt;/strong&gt; repeat:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Asset and data inventory&lt;/strong&gt;&lt;br&gt;
+You cannot protect what you do not know exists. Every framework expects some flavor of system, application, and data inventory.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Access control and identity&lt;/strong&gt;&lt;br&gt;
+Least privilege, strong authentication, joiner mover leaver processes, and periodic access reviews show up everywhere.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Encryption and data protection&lt;/strong&gt;&lt;br&gt;
+Protect sensitive data in transit and at rest using strong, modern cryptography where appropriate.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Secure configuration and patching&lt;/strong&gt;&lt;br&gt;
+Baselines, hardening, vulnerability management, and timely patching are table stakes, whether you are talking about cardholder data, ePHI, or EU critical infrastructure.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Logging, monitoring, and detection&lt;/strong&gt;&lt;br&gt;
+“We did not know what happened” is not an acceptable incident report. All of these regimes assume some logging and monitoring capability, even if they do not spell out your SIEM vendor.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Incident response and reporting&lt;/strong&gt;&lt;br&gt;
+You need an incident response plan, playbooks, evidence handling, and clear criteria for notifications to regulators, partners, and customers.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Third party risk management&lt;/strong&gt;&lt;br&gt;
+Business associates under HIPAA, service providers under PCI, vendors under NIS2 and Safeguards rule – they are all pointing at the same reality: your risk is not limited to servers you directly own.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Security awareness and training&lt;/strong&gt;&lt;br&gt;
+Humans click things. Every framework wants training and sometimes role specific training.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Governance, policies, and metrics&lt;/strong&gt;&lt;br&gt;
+Formal policies, documented roles and responsibilities, management review, and some proof that you measure whether controls are actually working.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you build these themes once, with reasonable depth, you will cover large chunks of every framework. The work then becomes &lt;strong&gt;gap analysis and tailoring&lt;/strong&gt;, not greenfield implementation each time.&lt;/p&gt;
+&lt;h2 id=&quot;using-nist-csf-20-as-your-grc-backbone&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/grc-in-the-real-world-making-hipaa-pci-nist-csf-ftc-safeguards-and-nis2-work-together/#using-nist-csf-20-as-your-grc-backbone&quot; class=&quot;heading-anchor&quot;&gt;Using NIST CSF 2.0 as your GRC backbone&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Here is how I like to structure things as an Associate CCISO.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Stand up a CSF 2.0 profile for the organization&lt;/strong&gt;&lt;br&gt;
+Use the six functions and their categories as your master list. Define your current profile, target profile, and document the gaps.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Create a single control catalog&lt;/strong&gt;&lt;br&gt;
+Each control in your catalog should map to one or more CSF outcomes. For example, your “MFA everywhere that matters” control maps into multiple CSF Protect and Govern outcomes.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Map each regulation into the catalog&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For HIPAA, link Security Rule implementation specifications to your controls.&lt;/li&gt;
+&lt;li&gt;For PCI DSS, link the 12 requirement areas to relevant controls.&lt;/li&gt;
+&lt;li&gt;For FTC Safeguards, map the rule’s required safeguards and risk assessment elements.&lt;/li&gt;
+&lt;li&gt;For NIS2, map the core obligation areas and minimum measures.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Tag controls by regulatory driver&lt;/strong&gt;&lt;br&gt;
+In whatever GRC or documentation tool you use, tag each control with HIPAA, PCI, NIS2, Safeguards, internal policy, or “good practice” so you can slice reports by requirement.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Drive projects from risk, not from clauses&lt;/strong&gt;&lt;br&gt;
+When you propose a project like “centralized logging with retention and correlation,” you should be able to point to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The risk scenario it reduces.&lt;/li&gt;
+&lt;li&gt;The CSF outcomes it supports.&lt;/li&gt;
+&lt;li&gt;The HIPAA, PCI, Safeguards, or NIS2 clauses it helps satisfy.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Now compliance conversations change. Instead of “do we need to buy another tool for NIS2,” you are asking “what delta controls does NIS2 introduce that our current CSF profile and catalog do not already handle?”&lt;/p&gt;
+&lt;h2 id=&quot;what-auditors-care-about-vs-what-attackers-care-about&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/grc-in-the-real-world-making-hipaa-pci-nist-csf-ftc-safeguards-and-nis2-work-together/#what-auditors-care-about-vs-what-attackers-care-about&quot; class=&quot;heading-anchor&quot;&gt;What auditors care about vs what attackers care about&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Here is the tension you live in as a security leader.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Auditors care about &lt;strong&gt;evidence&lt;/strong&gt;. Policies, procedures, tickets, configs, logs, training records.&lt;/li&gt;
+&lt;li&gt;Attackers care about &lt;strong&gt;gaps&lt;/strong&gt;. Unpatched internet systems, flat networks, weak IAM, insecure vendors.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Your GRC program has to keep both in view:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;When you design a control, ask “what attack path does this actually reduce?”&lt;/li&gt;
+&lt;li&gt;When you satisfy a clause, ask “where is the evidence, and can I pull it without a two week archaeology dig through email and SharePoint?”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A mature program delivers &lt;strong&gt;operational reality first, paper proof second&lt;/strong&gt;, on the same control set.&lt;/p&gt;
+&lt;h2 id=&quot;a-practical-starting-plan&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/grc-in-the-real-world-making-hipaa-pci-nist-csf-ftc-safeguards-and-nis2-work-together/#a-practical-starting-plan&quot; class=&quot;heading-anchor&quot;&gt;A practical starting plan&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If you are staring at a client or internal environment that needs to “be HIPAA compliant” or “get ready for NIS2” or “pass a PCI assessment” and it all feels like too much, here is a pragmatic starting point.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Identify your drivers&lt;/strong&gt;&lt;br&gt;
+List which of these actually apply: HIPAA, PCI DSS, NIST CSF, FTC Safeguards, NIS2, state laws, contracts. Be honest about where you really fall in scope.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Do a lightweight CSF based assessment&lt;/strong&gt;&lt;br&gt;
+You do not need a six month consulting engagement to get started. Even a basic mapping of what you do today into CSF 2.0 functions will highlight gaps.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Build a top five control list that hits every regime&lt;/strong&gt;&lt;br&gt;
+For most organizations, the top five early wins look like:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Strong identity and access management with MFA.&lt;/li&gt;
+&lt;li&gt;Asset and data inventory with some basic classification.&lt;/li&gt;
+&lt;li&gt;Patch and vulnerability management with real ownership.&lt;/li&gt;
+&lt;li&gt;Centralized logging with alerting on the obvious bad stuff.&lt;/li&gt;
+&lt;li&gt;Documented incident response with a rehearsal on the calendar.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Layer in regulation specific requirements&lt;/strong&gt;&lt;br&gt;
+Once the core is moving, then you tune for specifics:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;HIPAA documentation and BAAs.&lt;/li&gt;
+&lt;li&gt;PCI scope reduction and segmentation.&lt;/li&gt;
+&lt;li&gt;Safeguards written risk assessments and board reporting.&lt;/li&gt;
+&lt;li&gt;NIS2 specific incident reporting timelines and board training.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Lock in governance rhythms&lt;/strong&gt;&lt;br&gt;
+Put security and compliance on a regular cadence: monthly operational reviews, quarterly risk reviews, and at least annual program reviews with leadership and the board.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;closing-thoughts&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/grc-in-the-real-world-making-hipaa-pci-nist-csf-ftc-safeguards-and-nis2-work-together/#closing-thoughts&quot; class=&quot;heading-anchor&quot;&gt;Closing thoughts&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;GRC often gets framed as the boring side of security. In reality, it is the layer that lets you do security at scale without burning out your team or surprising your executives with fines.&lt;/p&gt;
+&lt;p&gt;Whether you are wrangling HIPAA in a small clinic, PCI in a retail environment, Safeguards for a finance shop, or NIS2 for an EU operation, the secret is the same:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Build one honest, risk based security program.&lt;/li&gt;
+&lt;li&gt;Use NIST CSF 2.0 as your common language.&lt;/li&gt;
+&lt;li&gt;Map the various rules into that backbone instead of building five separate empires.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You will still have to deal with auditors, questionnaires, and the occasional regulatory curveball. The difference is that you will be doing it from a coherent, governed, risk informed foundation rather than a pile of disconnected checklists.&lt;/p&gt;
+&lt;p&gt;That is where GRC stops being red tape and starts being an actual force multiplier for the rest of your security work.&lt;/p&gt;
+
+ 			</content>
+    </entry><entry>
       <title>Weekly Notes: Week 49, 2025</title>
       <link href="https://www.kylereddoch.me/blog/weekly-notes-week-49-2025/" />
       <updated>2025-12-09T15:00:00Z</updated>
