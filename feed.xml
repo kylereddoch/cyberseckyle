@@ -4,12 +4,45 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-12-05T22:28:55Z</updated>
+  <updated>2025-12-09T17:21:14Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>Weekly Notes: Week 49, 2025</title>
+      <link href="https://www.kylereddoch.me/blog/weekly-notes-week-49-2025/" />
+      <updated>2025-12-09T15:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/weekly-notes-week-49-2025/</id>
+      <content type="html">
+				&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.webp 1200w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.jpeg&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;Last week was a blend of the usual work hustle, which was the normal working the latest alert tickets, and the personal side of life that kept me grounded at times. Here’s a quick rundown of what went down last week.&lt;/p&gt;
+&lt;h3 id=&quot;the-💻-work-grind&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-49-2025/#the-%F0%9F%92%BB-work-grind&quot; class=&quot;heading-anchor&quot;&gt;The 💻 Work Grind&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Nothing different happened at work this past week. It was a pretty standard week of handling tickets, monitoring systems, and keeping things running smoothly for our clients. The usual grind of an MSP tech. The constant alerts to monitor and respond to are something to keep an eye on. With what is called, &lt;a href=&quot;https://www.kylereddoch.me/blog/the-breaking-point-why-cybersecurity-and-soc-professionals-are-burning-out-and-what-actually-works/&quot;&gt;“alert fatigue”&lt;/a&gt;, it can be easy to miss something important if you are not careful. So staying focused and organized is key. I have setup automations to help with some of the alert noise, but there still seems to be a lot to handle at times.&lt;/p&gt;
+&lt;h3 id=&quot;the-personal-things-🙂&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-49-2025/#the-personal-things-%F0%9F%99%82&quot; class=&quot;heading-anchor&quot;&gt;The Personal Things 🙂&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;This past week, my wife and I finally caught up on Criminal Minds. It has been a wild ride watching all the seasons back to back. I have to say, it has been one of the best shows I have watched ever. Now we need to figure out what to watch next since most of our regular shows are on break. Any suggestions are welcome!&lt;/p&gt;
+&lt;p&gt;We have been trying to eat healthier so my wife has been finding new recipes to try out. This week we had a few new instant pot and crock pot meals. They turned out pretty dang good! It has been nice to have some easy meals that don’t take a lot of time to prepare.&lt;/p&gt;
+&lt;p&gt;This past weekend was the last F1 race of the season. It was a thrilling end to the season. Lando Norris took home the championship. Max Verstappen finished strong as well, bringing excitement to the final race which he one and bringing the points race down to just 2 points. It has been a fun season to watch with all the ups and downs. Now we wait for the off-season news and rumors to start flying. Next season starts a new era with the new regulations so it will be interesting to see how the teams adapt.&lt;/p&gt;
+&lt;h3 id=&quot;my-articles-from-last-week-📝&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-49-2025/#my-articles-from-last-week-%F0%9F%93%9D&quot; class=&quot;heading-anchor&quot;&gt;My Articles from Last Week 📝&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Catching you up on articles I published this past week:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/your-android-tv-box-might-be-a-botnet-farm-without-you-knowing-a-deep-dive/&quot;&gt;Your Android TV Box Might Be a Botnet Farm without You Knowing: A Deep Dive&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/sleeper-browser-extensions-how-a-7-year-campaign-turned-chrome-and-edge-into-spyware/&quot;&gt;“Sleeper” Browser Extensions: How a 7-Year Campaign Turned Chrome and Edge into Spyware&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-breaking-point-why-cybersecurity-and-soc-professionals-are-burning-out-and-what-actually-works/&quot;&gt;The Breaking Point: Why Cybersecurity and SOC Professionals Are Burning Out, and What Actually Works&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/15-essential-cyberattacks-you-should-understand-your-guide-to-digital-safety/&quot;&gt;15 Essential Cyberattacks You Should Understand: Your Guide to Digital Safety&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;links-i-found-interesting-last-week&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-49-2025/#links-i-found-interesting-last-week&quot; class=&quot;heading-anchor&quot;&gt;Links I found interesting last week&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;I am trying something new this week by sharing some links I found interesting over the past week:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://cyberscoop.com/ai-coding-tools-can-be-turned-against-you-aikido-github-prompt-injection/&quot; rel=&quot;noopener&quot;&gt;More evidence your AI agents can be turned against you&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://youtu.be/XCQH-KF6Sys?si=fwJw9nEo2IF6a35x&quot; rel=&quot;noopener&quot;&gt;Apple Intelligence Shortcuts for Real Life&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.omgubuntu.co.uk/2025/12/raspberry-pi-5-1gb-announced&quot; rel=&quot;noopener&quot;&gt;Raspberry Pi 5 1GB Launched at $45, Other Models See Price Hikes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.microsoft.com/en-us/security/blog/2025/12/02/how-to-build-forward-thinking-cybersecurity-teams-for-tomorrow/&quot; rel=&quot;noopener&quot;&gt;How to build forward-thinking cybersecurity teams for tomorrow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
+
+ 			</content>
+    </entry><entry>
       <title>15 Essential Cyberattacks You Should Understand: Your Guide to Digital Safety</title>
       <link href="https://www.kylereddoch.me/blog/15-essential-cyberattacks-you-should-understand-your-guide-to-digital-safety/" />
       <updated>2025-12-04T15:00:00Z</updated>
