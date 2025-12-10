@@ -111,11 +111,14 @@ Full-bleed across the viewport, capped at 720:
 
 Here is how the embed would look on your page:
 
-Regular width:
+Regular width: (Infosec.exchange)
 {% mastodon "https://infosec.exchange/@cyberseckyle/115452568772511610" %}
 
 Full-bleed:
 {% mastodon "https://infosec.exchange/@cyberseckyle/115452568772511610", 720, "bleed" %}
+
+Test with another instance: (Vivaldi Social)
+{% mastodon "https://social.vivaldi.net/@Vivaldi/115695383549998076", 720, "bleed" %}
 
 ## Troubleshooting quick hits
 
