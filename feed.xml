@@ -4,7 +4,7 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-12-09T19:10:28Z</updated>
+  <updated>2025-12-10T15:59:58Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
@@ -2715,7 +2715,7 @@ eleventyConfig&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;
 &lt;pre class=&quot;language-plaintext&quot;&gt;&lt;code class=&quot;language-plaintext&quot;&gt;{% mastodon &quot;https://mastodon.social/@deejayy/115454110249651937&quot;, 720, &quot;bleed&quot; %}&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&quot;result&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/embedding-mastodon-posts-in-eleventy-my-journey/#result&quot; class=&quot;heading-anchor&quot;&gt;Result&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Here is how the embed would look on your page:&lt;/p&gt;
-&lt;p&gt;Regular width:&lt;/p&gt;
+&lt;p&gt;Regular width: (Infosec.exchange)&lt;/p&gt;
 &lt;script&gt;
   (function(id, src){
     if (!document.getElementById(id)) {
@@ -2740,6 +2740,19 @@ eleventyConfig&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;
 &lt;/script&gt;
 &lt;div style=&quot;width:100vw; position:relative; left:50%; right:50%; margin-left:-50vw; margin-right:-50vw; display:grid; place-items:center&quot; class=&quot;mastodon-embed-wrapper&quot;&gt;
   &lt;iframe src=&quot;https://infosec.exchange/@cyberseckyle/115452568772511610/embed&quot; sandbox=&quot;allow-scripts allow-same-origin allow-popups&quot; allow=&quot;fullscreen&quot; loading=&quot;lazy&quot; style=&quot;width:min(100vw, 720px); border:0; display:block; overflow:hidden; min-height:300px&quot; class=&quot;mastodon-embed&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;p&gt;Test with another instance: (Vivaldi Social)&lt;/p&gt;
+&lt;script&gt;
+  (function(id, src){
+    if (!document.getElementById(id)) {
+      var s = document.createElement(&#39;script&#39;);
+      s.id = id; s.src = &#39;https://social.vivaldi.net/embed.js&#39;;
+      document.head.appendChild(s);
+    }
+  })(&#39;masto-embed-loader-httpssocialvivaldinet&#39;, &#39;https://social.vivaldi.net/embed.js&#39;);
+&lt;/script&gt;
+&lt;div style=&quot;width:100vw; position:relative; left:50%; right:50%; margin-left:-50vw; margin-right:-50vw; display:grid; place-items:center&quot; class=&quot;mastodon-embed-wrapper&quot;&gt;
+  &lt;iframe src=&quot;https://social.vivaldi.net/@Vivaldi/115695383549998076/embed&quot; sandbox=&quot;allow-scripts allow-same-origin allow-popups&quot; allow=&quot;fullscreen&quot; loading=&quot;lazy&quot; style=&quot;width:min(100vw, 720px); border:0; display:block; overflow:hidden; min-height:300px&quot; class=&quot;mastodon-embed&quot;&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 &lt;h2 id=&quot;troubleshooting-quick-hits&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/embedding-mastodon-posts-in-eleventy-my-journey/#troubleshooting-quick-hits&quot; class=&quot;heading-anchor&quot;&gt;Troubleshooting quick hits&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
