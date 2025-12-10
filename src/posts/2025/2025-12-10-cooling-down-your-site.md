@@ -6,6 +6,8 @@ tags: [eleventy, web-components, javascript, site-tweaks, fun]
 mastodon_url: ""
 ---
 
+{% image "/assets/images/snow-fall-component.png", "Snowy digital illustration of a server stack with snow piling on and around it under falling flakes on a warm Catppuccin-Mocha background, representing adding a snow-fall effect to an Eleventy site.", null, "eager", "text-center", "!important", [750], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
+
 Sometimes the servers are running hot, the tickets are piling up, and you just want your site to chill out a little. So I did the obvious thing and added snow.
 
 Zach Leatherman’s [snow-fall web component](https://www.zachleat.com/web/snow-fall/) is a tiny script that lets you drop a subtle snow effect on your site with one HTML tag. It is zero-dependency and installable from npm as @zachleat/snow-fall.
