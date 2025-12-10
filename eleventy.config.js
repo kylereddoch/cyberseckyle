@@ -234,6 +234,11 @@ export default async function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy({ "src/assets/svg": "assets/svg" });
 
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/@zachleat/snow-fall/snow-fall.js":
+      "assets/scripts/components/snow-fall.js",
+  });
+
 
   // --------------------- general config
   return {

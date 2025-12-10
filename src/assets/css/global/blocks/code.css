@@ -235,3 +235,19 @@ pre[class*='language-'] {
   grid-area: container;
   width: 100%;
 }
+
+/* Let heading <code> use the heading's font size, but keep the code styling */
+h1 code,
+h2 code,
+h3 code,
+h4 code {
+  font-size: inherit;
+  /* use h1/h2/h3/h4 size */
+}
+
+h1 pre,
+h2 pre,
+h3 pre,
+h4 pre {
+  font-size: inherit;
+}
