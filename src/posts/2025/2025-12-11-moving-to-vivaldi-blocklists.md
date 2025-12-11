@@ -3,7 +3,7 @@ date: 2025-12-11T09:00:00-05:00
 title: 'Moving From Chrome, Edge, or Firefox To Vivaldi’s Built-In Blocklists'
 description: "A practical, privacy-focused walkthrough of setting up Vivaldi’s built-in tracker and ad blocking sources when you are coming from Chrome, Edge, or Firefox with uBlock and friends."
 tags: [vivaldi, browser-privacy, ad-blocking, how-to]
-#mastodon_url: ""
+mastodon_url: https://infosec.exchange/@cyberseckyle/115701740817249649
 ---
 
 {% image "/assets/images/vivaldi-adtrackers.png", "Stylized Vivaldi logo on a red rounded rectangle with block and network icons, symbolizing built-in ad and tracker blocking.", null, "eager", "text-center", "!important", [auto], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
