@@ -1,9 +1,9 @@
 ---
 date: 2025-12-10T12:00:00-05:00
-title: "Cooling Down the Servers by Adding a Little Snow"
+title: 'Cooling Down the Servers by Adding a Little Snow'
 description: "Cool your servers off with some CSS snow as we wire up the snow-fall web component in a self hosted Eleventy setup, complete with color, count, and reduced motion tweaks."
 tags: [eleventy, web-components, javascript, site-tweaks, fun]
-mastodon_url: ""
+mastodon_url: "https://infosec.exchange/@cyberseckyle/115697115782901181"
 ---
 
 {% image "/assets/images/snow-fall-component.png", "Snowy digital illustration of a server stack with snow piling on and around it under falling flakes on a warm Catppuccin-Mocha background, representing adding a snow-fall effect to an Eleventy site.", null, "eager", "text-center", "!important", [750], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
