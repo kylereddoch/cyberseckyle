@@ -11,6 +11,18 @@ schema: BlogPosting
       {% image image, alt or "", credit, "eager", "feature"  %}
     {% endif %}
 
+    <!--  h-card infos: https://indieweb.org/authorship -->
+  <div hidden class="h-entry">
+    <a class="u-url" href="{{ page.url | url | absoluteUrl(meta.url) }}">{{ title }}</a>
+    <a class="p-name u-url" rel="author" href="{{ meta.url }}">{{ meta.author.name }}</a>
+    <img
+      eleventy:ignore
+      class="u-author h-card"
+      src="{{ meta.author.avatar | url | absoluteUrl(meta.url) }}"
+      alt="{{ meta.author.name }}"
+    />
+  </div>
+
     <p class="meta">
       <!-- draft status -->
       {%- if draft -%}
@@ -42,7 +54,7 @@ schema: BlogPosting
 
 <div class="flow" style="margin-top: var(--space-xl);">
   <h4>Enjoyed this post?</h4>
-  <p class="text-step-min-1">If you found this post helpful, consider sharing it on Mastodon! Or you can start a discussion below.</p>
+  <p class="text-step-min-1">Consider sharing it on Mastodon, joining in on the discussion below, or giving it some kudos.</p>
   <!-- Share on Mastodon -->
 {# Build the final share text exactly as before #}
 {% set fullUrl  = page.url | url | absoluteUrl(meta.url) %}
@@ -60,19 +72,6 @@ schema: BlogPosting
 </div>
   </div>
 
-  <!--  h-card infos: https://indieweb.org/authorship -->
-  <div hidden class="h-entry">
-    <a class="u-url" href="{{ page.url | url | absoluteUrl(meta.url) }}">{{ title }}</a>
-    <a class="p-name u-url" rel="author" href="{{ meta.url }}">{{ meta.author.name }}</a>
-    <img
-      eleventy:ignore
-      class="u-author h-card"
-      src="{{ meta.author.avatar | url | absoluteUrl(meta.url) }}"
-      alt="{{ meta.author.name }}"
-    />
-  </div>
-
-
 {% if mastodon_url %}
 <div class="wrapper flow prose">
   <!-- Discuss on Mastodon -->
@@ -87,6 +86,16 @@ schema: BlogPosting
   </div>
 </div>
 {% endif %}
+
+<div class="wrapper flow prose">
+  <div class="flow" style="margin-top: var(--space-xl);">
+  <p class="text-step-min-1">Give this post some kudos.</p>
+<button
+  class="tinylytics_kudos"
+  data-path="{{ item.url | url }}"
+></button>
+</div>
+</div>
 </div>
 
 {%- css "local" -%}

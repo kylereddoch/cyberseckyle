@@ -178,3 +178,21 @@ a:not([class]):hover {
     display: none;
   }
 }
+
+.tinylytics_kudos {
+  font: inherit;
+  border-radius: var(--border-radius-medium);
+  border: 1px solid var(--color-bg-accent-2);
+  background-color: var(--color-bg-accent);
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.tinylytics_kudos.did_select {
+  opacity: 0.7;
+  cursor: default;
+  background-color: var(--color-bg-green);
+}
