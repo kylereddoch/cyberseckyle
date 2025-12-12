@@ -4,7 +4,7 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-12-12T16:14:31Z</updated>
+  <updated>2025-12-12T16:29:48Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
@@ -3381,6 +3381,74 @@ No. Pick one channel per device to avoid conflicts.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
+
+ 			</content>
+    </entry><entry>
+      <title>The CybersecKyle Community is live: security and tech, together</title>
+      <link href="https://www.kylereddoch.me/blog/the-cyberseckyle-community-is-live-security-and-tech-together/" />
+      <updated>2025-10-20T20:15:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/the-cyberseckyle-community-is-live-security-and-tech-together/</id>
+      <content type="html">
+				&lt;blockquote&gt;
+&lt;p&gt;Update December 12, 2025: The CyberTech Guild Community has been suset. I want to thank everyone who joined, contributed, and helped build a welcoming space over the past two years. If you are looking for similar communities, I recommend checking out &lt;a href=&quot;https://discord.gg/CagvqnGdyH&quot; rel=&quot;noopener&quot;&gt;AllThingsTech&lt;/a&gt; if you’re looking for a great technology focused server. Or  &lt;a href=&quot;https://owlsec.ai/&quot; rel=&quot;noopener&quot;&gt;Owlsec&lt;/a&gt; for those more Cybersecursity minded.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/cTmAtJo7v0-1536.webp 1536w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/cTmAtJo7v0-1536.jpeg&quot; alt=&quot;CybersecKyle Community hero&quot; width=&quot;1536&quot; height=&quot;1024&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;After weeks of planning, testing, and building, I am excited to open the doors to the &lt;strong&gt;CybersecKyle Community&lt;/strong&gt;, a Discord space for people who care about &lt;strong&gt;security&lt;/strong&gt; and &lt;strong&gt;technology&lt;/strong&gt; in equal measure. It is for beginners learning the ropes, students and career changers building momentum, and experienced folks who enjoy trading notes and sharpening their craft.&lt;/p&gt;
+&lt;h2 id=&quot;why-both-security-and-tech&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-cyberseckyle-community-is-live-security-and-tech-together/#why-both-security-and-tech&quot; class=&quot;heading-anchor&quot;&gt;Why both security and tech?&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Security does not live in a vacuum. The best defenses grow out of sound engineering, good automation, clear documentation, and a healthy respect for how people really use systems. Likewise, great tech work benefits from a security mindset that thinks about failure modes, data privacy, resilience, and recovery. This community blends the two so you do not have to learn them apart.&lt;/p&gt;
+&lt;h2 id=&quot;what-you-will-find-inside&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-cyberseckyle-community-is-live-security-and-tech-together/#what-you-will-find-inside&quot; class=&quot;heading-anchor&quot;&gt;What you will find inside&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;security-and-infosec-tracks&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-cyberseckyle-community-is-live-security-and-tech-together/#security-and-infosec-tracks&quot; class=&quot;heading-anchor&quot;&gt;Security and infosec tracks&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;News and threat analysis:&lt;/strong&gt; Daily headlines, notable CVEs, and practical ways to reduce risk&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Blue team practice:&lt;/strong&gt; Logging that pays off, detection ideas, tabletop prompts, incident response drills&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Red and purple topics:&lt;/strong&gt; Legal and ethical methodology, emulation ideas that help defenders learn&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Privacy and governance:&lt;/strong&gt; Consent, data minimization, policy that people can follow&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;tech-and-engineering-tracks&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-cyberseckyle-community-is-live-security-and-tech-together/#tech-and-engineering-tracks&quot; class=&quot;heading-anchor&quot;&gt;Tech and engineering tracks&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Systems and cloud:&lt;/strong&gt; Linux tips, Windows hardening without the headache, AWS and Azure basics to advanced IAM&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Automation:&lt;/strong&gt; Scripting with Bash or PowerShell, GitHub Actions, useful one-liners that save real time&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dev and tooling:&lt;/strong&gt; Editors and IDEs, CLI tricks, containers, local lab setups, performance tuning&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Productivity and setups:&lt;/strong&gt; Hardware talk, dotfiles, shortcuts, clean workflows that reduce friction&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;crossover-spaces&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-cyberseckyle-community-is-live-security-and-tech-together/#crossover-spaces&quot; class=&quot;heading-anchor&quot;&gt;Crossover spaces&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Secure architecture reviews:&lt;/strong&gt; Tradeoffs in the open&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Build-and-break labs:&lt;/strong&gt; Try something, measure the result, write it up&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Career and certifications:&lt;/strong&gt; Study groups, resume feedback, mock interview questions&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tech talk and chill:&lt;/strong&gt; Coffee chats, music, memes, and general hangouts&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You will also see &lt;strong&gt;blog updates&lt;/strong&gt; from me so we can discuss new posts in context. Cyber News and Tech News from various sources will be shared regularly to keep everyone informed.&lt;/p&gt;
+&lt;h2 id=&quot;who-this-is-for&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-cyberseckyle-community-is-live-security-and-tech-together/#who-this-is-for&quot; class=&quot;heading-anchor&quot;&gt;Who this is for&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Beginners:&lt;/strong&gt; Safe questions and patient explanations with links to labs that actually work&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Intermediate members:&lt;/strong&gt; Space to compare tools, share configs, and practice tradeoffs&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Advanced practitioners:&lt;/strong&gt; Room for nuance, architecture discussions, and deep dives&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The simply curious:&lt;/strong&gt; Digital hygiene tips, app safety, and news summaries in plain language&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;what-cyber-means-here&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-cyberseckyle-community-is-live-security-and-tech-together/#what-cyber-means-here&quot; class=&quot;heading-anchor&quot;&gt;What “cyber” means here&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Defense first:&lt;/strong&gt; Patch with intent, back up with purpose, monitor what matters, practice recovery&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Privacy by default:&lt;/strong&gt; Smaller data footprints and clear permission boundaries&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Evidence over hype:&lt;/strong&gt; Reproduce results, measure impact, share what you learned&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Teach as you go:&lt;/strong&gt; If you fix a problem, leave a note someone else can use tomorrow&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;culture-and-conduct&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-cyberseckyle-community-is-live-security-and-tech-together/#culture-and-conduct&quot; class=&quot;heading-anchor&quot;&gt;Culture and conduct&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Kind, direct, and helpful:&lt;/strong&gt; Ask in good faith, answer with patience, cite when useful&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ethical boundaries:&lt;/strong&gt; Research and testing only on systems you own or have permission to use&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Zero gatekeeping:&lt;/strong&gt; Everyone starts somewhere, everyone teaches something&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Signal over noise:&lt;/strong&gt; Share tools and tactics you have actually touched&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;how-to-jump-in&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-cyberseckyle-community-is-live-security-and-tech-together/#how-to-jump-in&quot; class=&quot;heading-anchor&quot;&gt;How to jump in&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Join the server:&lt;/li&gt;
+&lt;li&gt;Read the welcome, skim the rules, say hello&lt;/li&gt;
+&lt;li&gt;Pick a couple of channels that match your interests&lt;/li&gt;
+&lt;li&gt;Post one small thing you learned this week or one thing you want to learn next&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;a-final-word&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-cyberseckyle-community-is-live-security-and-tech-together/#a-final-word&quot; class=&quot;heading-anchor&quot;&gt;A final word&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Security is stronger when it grows beside good engineering. Tech is better when it carries a security mindset from the start. If you want a place where people build, learn, and look out for each other, you will feel at home here. Bring curiosity, bring questions, bring small improvements. We will make steady progress together. &lt;strong&gt;A community is only as strong as its members, and I can’t wait to see what we build.&lt;/strong&gt; You can also help shape this community by inviting others you know who would benefit. Let’s grow together!&lt;/p&gt;
 
  			</content>
     </entry><entry>
