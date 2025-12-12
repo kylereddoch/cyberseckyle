@@ -3,7 +3,7 @@
     border-radius: 8px;
     font-size: var(--size-step-min-2) !important;
     font-family: var(--font-base);
-    margin: var(--space-2xl) auto 0 auto;
+    margin: var(--space-xl) auto 0 auto;
     width: 100% !important;
 }
 
