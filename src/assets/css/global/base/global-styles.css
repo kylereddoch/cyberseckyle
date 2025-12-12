@@ -180,7 +180,7 @@ a:not([class]):hover {
 }
 
 .tinylytics_kudos {
-  font: inherit;
+  font: var(--text-step-min-1);
   border-radius: var(--border-radius-medium);
   border: 1px solid var(--color-bg-accent-2);
   background-color: var(--color-bg-accent);
