@@ -6,11 +6,11 @@ tags: [discord, cyberseckyle, cybersecurity, community, tech]
 mastodon_url: https://infosec.exchange/@cyberseckyle/115412966791788789
 ---
 
+> Update December 12, 2025: The CyberTech Guild Community has been suset. I want to thank everyone who joined, contributed, and helped build a welcoming space over the past two years. If you are looking for similar communities, I recommend checking out [AllThingsTech](https://discord.gg/CagvqnGdyH) if you're looking for a great technology focused server. Or  [Owlsec](https://owlsec.ai/) for those more Cybersecursity minded.
+
 ![CybersecKyle Community hero](/assets/images/discord_cyberseckyle_join.png){loading="eager" eleventy:widths="auto"}
 
 After weeks of planning, testing, and building, I am excited to open the doors to the **CybersecKyle Community**, a Discord space for people who care about **security** and **technology** in equal measure. It is for beginners learning the ropes, students and career changers building momentum, and experienced folks who enjoy trading notes and sharpening their craft.
-
-**[Join here](https://purl.kylereddoch.me/cyberseckyle_community "Join the CybersecKyle Discord Community")**
 
 ## Why both security and tech?
 
@@ -64,7 +64,7 @@ You will also see **blog updates** from me so we can discuss new posts in contex
 
 ## How to jump in
 
-1. [Join the server](https://purl.kylereddoch.me/cyberseckyle_community "Join the CybersecKyle Discord Community"):
+1. Join the server:
 2. Read the welcome, skim the rules, say hello  
 3. Pick a couple of channels that match your interests  
 4. Post one small thing you learned this week or one thing you want to learn next
@@ -72,5 +72,3 @@ You will also see **blog updates** from me so we can discuss new posts in contex
 ## A final word
 
 Security is stronger when it grows beside good engineering. Tech is better when it carries a security mindset from the start. If you want a place where people build, learn, and look out for each other, you will feel at home here. Bring curiosity, bring questions, bring small improvements. We will make steady progress together. **A community is only as strong as its members, and I can’t wait to see what we build.** You can also help shape this community by inviting others you know who would benefit. Let's grow together!
-
-**[Join the CybersecKyle Community today!](https://purl.kylereddoch.me/cyberseckyle_community "Join the CybersecKyle Discord Community")**
