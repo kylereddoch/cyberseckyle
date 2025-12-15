@@ -21,7 +21,7 @@ This is the landing slash page for all my /slash pages. Feel free to take a look
 
 **/interests** - These are the things that I am interested in or excite me.
 
-**[/now](https://now.kylereddoch.me/){:target="_blank"}** - What I am up to now. I am trying to keep this updated regularly.
+**[/now](/now)** - What I am up to now. I am trying to keep this updated regularly.
 
 **[/podroll](/podroll)** - List of podcasts that I listen to and enjoy.
 
