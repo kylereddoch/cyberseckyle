@@ -4,12 +4,52 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-12-12T19:24:50Z</updated>
+  <updated>2025-12-15T19:50:12Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>Weekly Notes: Week 50, 2025</title>
+      <link href="https://www.kylereddoch.me/blog/weekly-notes-week-50-2025/" />
+      <updated>2025-12-15T15:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/weekly-notes-week-50-2025/</id>
+      <content type="html">
+				&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.webp 1200w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.jpeg&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;Last week was a mixed bag, leaning heavier on the rough stuff than the wins. But that’s how it goes sometimes. You take the hits, appreciate the bright spots where you can, and keep moving forward.&lt;/p&gt;
+&lt;p&gt;So I’m going to knock out the bad first, then end on the good.&lt;/p&gt;
+&lt;h3 id=&quot;the-bad-😞&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-50-2025/#the-bad-%F0%9F%98%9E&quot; class=&quot;heading-anchor&quot;&gt;The Bad 😞&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Early in the week, my right ear started hurting. It felt like I had a scab or something stuck inside my ear canal. Then it got worse. The swelling kicked in, and the pain started radiating into my jaw. And let me tell you, that pain was no joke.&lt;/p&gt;
+&lt;p&gt;I ended up at the doctor, but the swelling was so bad she couldn’t even get a good look inside my ear. She could tell there was some kind of infection, just not exactly what it was or how severe. I left with Cipro drops and an oral antibiotic.&lt;/p&gt;
+&lt;p&gt;The swelling and pain have started to ease up, but I spent most of the weekend feeling pretty miserable. One night, I got this horrible stabbing pain in my eardrum and barely slept. Now the main issue is pressure. It feels like I’m underwater, and it’s driving me nuts. I checked and there’s still fluid in there, so I’m really hoping it clears out soon.&lt;/p&gt;
+&lt;h3 id=&quot;the-good-😄&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-50-2025/#the-good-%F0%9F%98%84&quot; class=&quot;heading-anchor&quot;&gt;The Good 😄&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Now for the good stuff.&lt;/p&gt;
+&lt;p&gt;On the work front, we onboarded a new client. New clients are always exciting, even when they come with a few “surprises.” This one is an email security client, not a full MSP client, and they were on GoDaddy’s Microsoft 365 setup. We had to migrate them into a new tenant so we could manage everything properly.&lt;/p&gt;
+&lt;p&gt;And if you’ve ever dealt with GoDaddy, you already know the vibe. I’m not a fan. Their support is rough, and they make simple things harder than they need to be. But we pushed through it, got the migration completed, and the client is back up and running. Now we can actually manage their email security the right way.&lt;/p&gt;
+&lt;p&gt;On the personal side, a few good things happened too. First, I started watching &lt;em&gt;Stargate SG-1&lt;/em&gt;. Total classic, and somehow I never watched it when it originally aired. My wife isn’t really into sci-fi, so it’s probably going to be a solo watch, but I’m enjoying it so far. Yeah, it’s a little cheesy at times (hello, 90s), but it’s a fun ride. I even watched the &lt;em&gt;Stargate&lt;/em&gt; movie first to get the backstory.&lt;/p&gt;
+&lt;p&gt;Second, I added a seasonal “cooling” feature to my site. I tossed some &lt;a href=&quot;https://www.kylereddoch.me/blog/cooling-down-the-servers-by-adding-a-little-snow/&quot;&gt;snowflakes&lt;/a&gt; into the mix for winter, which still makes me smile. If it’s not your thing, no worries, turning off motion in your browser takes care of it. I also finally got my &lt;a href=&quot;https://www.kylereddoch.me/now/&quot;&gt;/now&lt;/a&gt; section back online. It existed before, but when I migrated to Eleventy it got pushed to the back burner. Now it’s alive again.&lt;/p&gt;
+&lt;p&gt;And lastly, I got some more work done in the office. I’d been putting it off with everything else going on, but my wife and I finally carved out the time. I hung up a few of my LEGO F1 cars using some small mounts I bought a while back, and they look awesome on the wall. We also cleaned up the shelf behind my desk, added some Apple device boxes, and set up my Star Wars LEGO sets. The office is finally starting to feel like it’s coming together.&lt;/p&gt;
+&lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/office_shelves-650w.webp 650w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
+&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/office_shelves-650w.jpeg 650w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/office_shelves-650w.jpeg&quot; width=&quot;650&quot; height=&quot;487&quot; alt=&quot;Home office display with Apple product boxes and LEGO Star Wars sets on a shelf, and eight LEGO F1 cars mounted on the wall; Grogu plush and a helmet sit below.&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;h3 id=&quot;my-articles-from-last-week-📝&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-50-2025/#my-articles-from-last-week-%F0%9F%93%9D&quot; class=&quot;heading-anchor&quot;&gt;My Articles from Last Week 📝&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Catching you up on articles I published this past week:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/grc-in-the-real-world-making-hipaa-pci-nist-csf-ftc-safeguards-and-nis2-work-together/&quot;&gt;GRC In The Real World: Making HIPAA, PCI, NIST CSF, FTC Safeguards, and NIS2 Work Together&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cooling-down-the-servers-by-adding-a-little-snow/&quot;&gt;Cooling Down the Servers by Adding a Little Snow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/moving-from-chrome-edge-or-firefox-to-vivaldis-built-in-blocklists/&quot;&gt;Moving From Chrome, Edge, or Firefox To Vivaldi’s Built-In Blocklists&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;links-i-found-interesting-last-week&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-week-50-2025/#links-i-found-interesting-last-week&quot; class=&quot;heading-anchor&quot;&gt;Links I found interesting last week&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Here are some links I found interesting over the past week:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=f2m3YaBw4oQ&quot; rel=&quot;noopener&quot;&gt;Hacker Shows the Most Insane Gadgets in His EDC&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.mcafee.com/blogs/tips-tricks/how-to-stay-safe-on-your-new-ai-browser/&quot; rel=&quot;noopener&quot;&gt;How to Stay Safe on Your New AI Browser&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.bleepingcomputer.com/news/security/microsoft-windows-powershell-now-warns-when-running-invoke-webrequest-scripts/&quot; rel=&quot;noopener&quot;&gt;Windows PowerShell now warns when running Invoke-WebRequest scripts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/exelban/stats&quot; rel=&quot;noopener&quot;&gt;Stats - Monitor your Mac with ease.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
+
+ 			</content>
+    </entry><entry>
       <title>Moving From Chrome, Edge, or Firefox To Vivaldi’s Built-In Blocklists</title>
       <link href="https://www.kylereddoch.me/blog/moving-from-chrome-edge-or-firefox-to-vivaldis-built-in-blocklists/" />
       <updated>2025-12-11T14:00:00Z</updated>
