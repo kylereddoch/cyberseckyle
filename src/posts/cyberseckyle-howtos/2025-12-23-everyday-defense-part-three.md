@@ -3,7 +3,7 @@ date: 2025-12-23T13:00:00-05:00
 title: "CybersecKyle Security How-To Series: Everyday Defense, Part 3 — Browser Hygiene That Actually Sticks"
 description: "A practical browser hardening guide: use profiles on purpose, keep extensions on a leash, tighten anti-tracking settings, and handle downloads safely without breaking your daily workflow."
 tags: [cyberseckyle-howto-series, everyday-defense, security, privacy, extensions, browsers, how-to]
-mastodon_url: 
+mastodon_url: https://infosec.exchange/@cyberseckyle/115771427255912515
 ---
 
 >This is **Part 3** of the **Everyday Defense** track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/). The goal here is simple: make your browser boring to attackers without making your browsing miserable.
