@@ -4,12 +4,59 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-12-15T20:04:33Z</updated>
+  <updated>2025-12-23T21:36:31Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>Weekly Notes: Less chaotic, more grounded (Week 51, 2025)</title>
+      <link href="https://www.kylereddoch.me/blog/weekly-notes-less-chaotic-more-grounded-week-51-2025/" />
+      <updated>2025-12-23T15:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/weekly-notes-less-chaotic-more-grounded-week-51-2025/</id>
+      <content type="html">
+				&lt;blockquote&gt;
+&lt;p&gt;I am trying out a new format for these posts. Let me know what you think!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.webp 1200w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.jpeg&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;Yesterday was a busy day, I got a call before I was even to work. The day didn’t stop after that. I wasn’t able to write this post yesterday so here is to posting it with a delay. Hopefully, it doesn’t become a pattern but no promises.&lt;/p&gt;
+&lt;h2 id=&quot;the-vibe&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-less-chaotic-more-grounded-week-51-2025/#the-vibe&quot; class=&quot;heading-anchor&quot;&gt;The vibe&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Last week slowed down a bit, which was nice. It gave me some time to relax and recharge. Overall vibe was less chaotic and more grounded.&lt;/p&gt;
+&lt;h2 id=&quot;highlights&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-less-chaotic-more-grounded-week-51-2025/#highlights&quot; class=&quot;heading-anchor&quot;&gt;Highlights&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;I found out that Stargate SG1 is leaving Prime Video on December 31st. I just started watching it. I am not sure if another streaming service will pick it up, but I’m hoping it will be available on another platform soon.&lt;/li&gt;
+&lt;li&gt;The ruptured ear drum started to heal. There were days that I couldn’t hear and then some that the feeling was back and I could hear a bit more. I am so ready for this to be healed and back to normal.&lt;/li&gt;
+&lt;li&gt;My oldest daughter’s phone finally pooped the bed. I guess it couldn’t take her dropping it anymore. I helped her with getting a new iPhone 17 Pro.&lt;/li&gt;
+&lt;li&gt;Energy dipped midweek, so I leaned on checklists instead of willpower.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;build&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-less-chaotic-more-grounded-week-51-2025/#build&quot; class=&quot;heading-anchor&quot;&gt;Build&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Shipped:&lt;/strong&gt; We added SaaS Alerts to our platform at work. We now can notify our users when something is wrong or iffy with their SaaS integrtations. I am still getting all of this set up and will probably be after the new year.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Learned:&lt;/strong&gt; SaaS monitoring only helps if the alert routing is sane, noise is the enemy.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stuck:&lt;/strong&gt; Still getting side tracked on some of the tasks that I need to get done. I am trying to find a way to stay focused and get them done.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;life&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-less-chaotic-more-grounded-week-51-2025/#life&quot; class=&quot;heading-anchor&quot;&gt;Life&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;🍿 I started working on moving my Plex server to a linux box. I am using an old Dell Optiplex 780 that we had lying around at work and couldn’t be updated to Windows 11. I’ve been using Plex on a Windows box for years, but I’ve wanted to switch it to linux for awhile now.&lt;/li&gt;
+&lt;li&gt;🏎️ I can’t wait for January 1st. Lego is releasing the APXGP Speed Champion Car from F1 the Movie. This will be a great one to add to my collection.&lt;/li&gt;
+&lt;li&gt;📱 I started playing a new mobile game called &lt;a href=&quot;https://www.foundation.game/en&quot; rel=&quot;noopener&quot;&gt;Foundation: Galactic Frontier&lt;/a&gt;. I have gotten quite addicted to it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;security-corner&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-less-chaotic-more-grounded-week-51-2025/#security-corner&quot; class=&quot;heading-anchor&quot;&gt;Security corner&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Hardened:&lt;/strong&gt; did a quick SaaS hygiene pass: removed stale access, verified the “who gets alerted” path, and cut noise so real issues stand out.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Watched:&lt;/strong&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/sleeper-browser-extensions-how-a-7-year-campaign-turned-chrome-and-edge-into-spyware/&quot;&gt;browser-extension risk and supply-chain incidents&lt;/a&gt;, especially how quickly “helpful” add-ons turn into a foothold.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Thinking about:&lt;/strong&gt; how to make “secure by default” feel effortless for normal users, not like homework. &lt;em&gt;Maybe even a post will come of it.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;worth-sharing&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-less-chaotic-more-grounded-week-51-2025/#worth-sharing&quot; class=&quot;heading-anchor&quot;&gt;Worth sharing&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;🎶 Found this &lt;a href=&quot;https://wrapped.devmatei.com/&quot; rel=&quot;noopener&quot;&gt;neat tool&lt;/a&gt; to generate a graphic similar to Spotify Wrapped but with data gathered from your scrobbler of choice, Listenbrainz, LastFM, and even Navidrome.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.mcafee.com/blogs/tips-tricks/how-to-stay-safe-on-your-new-ai-browser/&quot; rel=&quot;noopener&quot;&gt;How to Stay Safe on Your New AI Browser&lt;/a&gt; — If you use AI browser like Comet or Atlas, understanding how to keep yourself safe is very important.&lt;/li&gt;
+&lt;li&gt;Make sure to check out the &lt;a href=&quot;https://twit.tv/shows/security-now&quot; rel=&quot;noopener&quot;&gt;Security Now Podcast&lt;/a&gt; for some great content.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
+
+ 			</content>
+    </entry><entry>
       <title>Weekly Notes: Week 50, 2025</title>
       <link href="https://www.kylereddoch.me/blog/weekly-notes-week-50-2025/" />
       <updated>2025-12-15T15:00:00Z</updated>
