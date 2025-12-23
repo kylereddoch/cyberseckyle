@@ -4,7 +4,7 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-12-23T23:12:25Z</updated>
+  <updated>2025-12-23T23:18:55Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
@@ -3222,8 +3222,8 @@ Store you master password somewhere safe and secure (I keep mine in Apple Note a
 &lt;p&gt;Planned parts:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Password Managers + MFA [&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/&quot;&gt;Live now&lt;/a&gt;]&lt;/li&gt;
-&lt;li&gt;2FA Rescue and Recovery&lt;/li&gt;
-&lt;li&gt;Browser hygiene that sticks&lt;/li&gt;
+&lt;li&gt;2FA Rescue and Recovery [&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/&quot;&gt;Live now&lt;/a&gt;]&lt;/li&gt;
+&lt;li&gt;Browser hygiene that sticks [&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/&quot;&gt;Live now&lt;/a&gt;]&lt;/li&gt;
 &lt;li&gt;Phone hardening you can live with&lt;/li&gt;
 &lt;li&gt;Scam spotting with a 60 second pause protocol&lt;/li&gt;
 &lt;li&gt;Backups that actually restore&lt;/li&gt;
