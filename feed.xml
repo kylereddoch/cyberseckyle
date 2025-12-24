@@ -4,7 +4,7 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-12-24T21:39:37Z</updated>
+  <updated>2025-12-24T22:11:22Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
@@ -27,7 +27,7 @@
 &lt;li&gt;learning, tweaking, breaking things, fixing them, then writing down what I wish I’d known two weeks earlier&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;the-big-move-switching-to-eleventy&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/my-2025-year-in-review/#the-big-move-switching-to-eleventy&quot; class=&quot;heading-anchor&quot;&gt;The Big Move: Switching to Eleventy&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;The most significant change this year was &lt;a href=&quot;https://www.kylereddoch.me/blog/my-2025-year-in-review/blog/from-start-to-finish-moving-my-blog-to-eleventy-github-pages/&quot;&gt;moving my website to Eleventy&lt;/a&gt;. It was one of those changes that seems “just technical” until you feel the difference in day-to-day writing and maintenance.&lt;/p&gt;
+&lt;p&gt;The most significant change this year was &lt;a href=&quot;https://www.kylereddoch.me/blog/from-start-to-finish-moving-my-blog-to-eleventy-github-pages/&quot;&gt;moving my website to Eleventy&lt;/a&gt;. It was one of those changes that seems “just technical” until you feel the difference in day-to-day writing and maintenance.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Content became easier to structure and reuse&lt;/li&gt;
 &lt;li&gt;Layouts and partials stopped being copy-paste chaos&lt;/li&gt;
