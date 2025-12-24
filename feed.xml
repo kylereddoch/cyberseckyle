@@ -4,12 +4,93 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-12-23T23:22:45Z</updated>
+  <updated>2025-12-24T21:34:08Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>My 2025 Year in Review</title>
+      <link href="https://www.kylereddoch.me/blog/my-2025-year-in-review/" />
+      <updated>2025-12-24T14:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/my-2025-year-in-review/</id>
+      <content type="html">
+				&lt;p&gt;Can you believe another year is almost over? It’s been a whirlwind of learning, growth, and new beginnings. As I look back on 2025, I am filled with gratitude for the incredible journey that has brought me here. With all these services doing their “Wrapped” featured, I thought it would be fun to share my own year in review. I hope you find it as interesting as I did!&lt;/p&gt;
+&lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/2025_year_review_hero-1024w.webp 1024w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
+&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/2025_year_review_hero-1024w.jpeg 1024w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/2025_year_review_hero-1024w.jpeg&quot; width=&quot;1024&quot; height=&quot;768&quot; alt=&quot;Selfie of two smiling fans in red Texas Tech hats and gear at a packed football stadium, with the field, stands, and a large video scoreboard behind them under a bright blue sky.&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;h2 id=&quot;the-vibe-this-year&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/my-2025-year-in-review/#the-vibe-this-year&quot; class=&quot;heading-anchor&quot;&gt;The vibe this year&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This year was equal parts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;shipping practical security writing (for real humans, not just auditors)&lt;/li&gt;
+&lt;li&gt;building my personal site like it is a living lab&lt;/li&gt;
+&lt;li&gt;grinding through school work while keeping one foot in the real world of MSP and security ops&lt;/li&gt;
+&lt;li&gt;learning, tweaking, breaking things, fixing them, then writing down what I wish I’d known two weeks earlier&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;the-big-move-switching-to-eleventy&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/my-2025-year-in-review/#the-big-move-switching-to-eleventy&quot; class=&quot;heading-anchor&quot;&gt;The Big Move: Switching to Eleventy&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The most significant change this year was &lt;a href=&quot;https://www.kylereddoch.me/blog/my-2025-year-in-review/blog/from-start-to-finish-moving-my-blog-to-eleventy-github-pages/&quot;&gt;moving my website to Eleventy&lt;/a&gt;. It was one of those changes that seems “just technical” until you feel the difference in day-to-day writing and maintenance.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Content became easier to structure and reuse&lt;/li&gt;
+&lt;li&gt;Layouts and partials stopped being copy-paste chaos&lt;/li&gt;
+&lt;li&gt;Collections and tags made the site feel like a real system&lt;/li&gt;
+&lt;li&gt;I could iterate faster without breaking the whole house&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That move also quietly pushed me toward better habits, especially internal linking and organizing posts so future-me does not hate present-me.&lt;/p&gt;
+&lt;h2 id=&quot;a-new-mastodon-home&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/my-2025-year-in-review/#a-new-mastodon-home&quot; class=&quot;heading-anchor&quot;&gt;A New Mastodon Home&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;As some of you may know, &lt;a href=&quot;https://infosec.exchange/@cliffwade&quot; rel=&quot;noopener&quot;&gt;Cliff&lt;/a&gt; and I use to run our own Mastodon instance. &lt;em&gt;AllThingsTech&lt;/em&gt; was a great place and we enjoyed having a space where we could have like minded people talk about all things tech with the added bonus of what the fediverse is all about. Unfortunately, it was a lot of work to maintain and we had to let it go.&lt;/p&gt;
+&lt;p&gt;In comes &lt;a href=&quot;https://infosec.exchange&quot; rel=&quot;noopener&quot;&gt;Infosec.exchange&lt;/a&gt;, a Cybersecurity and Infosec focus instance ran by &lt;a href=&quot;https://infosec.exchange/@jerry&quot; rel=&quot;noopener&quot;&gt;Jerry&lt;/a&gt;. It’s a wonderful community and one that is right up my alley. I’ve been enjoying all the wonderful converstations and new people I have met. It’s been a great place to share my thoughts and learn from others.&lt;/p&gt;
+&lt;h2 id=&quot;school-the-grind-that-paid-off&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/my-2025-year-in-review/#school-the-grind-that-paid-off&quot; class=&quot;heading-anchor&quot;&gt;School: the grind that paid off&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;School work was the steady drumbeat in the background this year. A lot of it revolved around project management fundamentals that sound boring until you realize they are basically incident response for humans:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;defining scope so the project does not mutate into a monster&lt;/li&gt;
+&lt;li&gt;setting evaluation c  riteria so success is measurable, not vibes&lt;/li&gt;
+&lt;li&gt;risk identification and risk response planning&lt;/li&gt;
+&lt;li&gt;stakeholder management (translation: getting people aligned without starting a small war)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The best part is that I got to constantly tie coursework back to what I already do in IT and security. That made it feel less like homework and more like sharpening tools I actually use.&lt;/p&gt;
+&lt;p&gt;I only have 3 class left, 15 weeks, and I will be done with school! 🎉&lt;/p&gt;
+&lt;h2 id=&quot;community-moments-that-stuck-with-me&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/my-2025-year-in-review/#community-moments-that-stuck-with-me&quot; class=&quot;heading-anchor&quot;&gt;Community moments that stuck with me&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A bunch of my best ideas came from conversations, especially the ones where someone challenged me with a genuine question like:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://social.vivaldi.net/@djbiker/115702185904707472&quot; rel=&quot;noopener&quot;&gt;“Cool, but what about fingerprinting?”&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://gamepad.club/@FibroJedi/115701956966535823&quot; rel=&quot;noopener&quot;&gt;“Does this cover what uBlock and uMatrix do?”&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://social.vivaldi.net/@djbiker/115702185904707472&quot; rel=&quot;noopener&quot;&gt;“Why do cookie banners still pop up here but not there?”&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Those questions pushed me to write more clearly, test more assumptions, and stop treating “privacy” like a single feature you toggle on.&lt;/p&gt;
+&lt;h2 id=&quot;what-i-published-the-posts-that-defined-my-year&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/my-2025-year-in-review/#what-i-published-the-posts-that-defined-my-year&quot; class=&quot;heading-anchor&quot;&gt;What I published (the posts that defined my year)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If I had to summarize my writing in one sentence: &lt;em&gt;2025 was the year I turned “security vibes” into “security mechanics.”&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&quot;topics-that-defined-the-year&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/my-2025-year-in-review/#topics-that-defined-the-year&quot; class=&quot;heading-anchor&quot;&gt;Topics that defined the year&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/sleeper-browser-extensions-how-a-7-year-campaign-turned-chrome-and-edge-into-spyware/&quot;&gt;&lt;strong&gt;Browser security and extension risk&lt;/strong&gt;&lt;/a&gt;&lt;br&gt;
+I kept coming back to this because it is one of the easiest ways to compromise a person without “hacking” them in the movie sense.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/grc-in-the-real-world-making-hipaa-pci-nist-csf-ftc-safeguards-and-nis2-work-together/&quot;&gt;&lt;strong&gt;GRC that engineers can tolerate&lt;/strong&gt;&lt;/a&gt;&lt;br&gt;
+Mapping frameworks, making compliance actionable, and keeping everyone speaking the same language.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/&quot;&gt;&lt;strong&gt;Cybersecurity fundamentals&lt;/strong&gt;&lt;/a&gt;&lt;br&gt;
+A series that aims to make security approachable for anyone who wants to learn more.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;personal-wins-the-quiet-kind&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/my-2025-year-in-review/#personal-wins-the-quiet-kind&quot; class=&quot;heading-anchor&quot;&gt;Personal wins (the quiet kind)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Not everything worth celebrating shows up in a GitHub graph.&lt;/p&gt;
+&lt;p&gt;This year had plenty of those smaller “life maintenance” wins:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;showing up even when motivation was missing&lt;/li&gt;
+&lt;li&gt;keeping curiosity alive when everything felt noisy&lt;/li&gt;
+&lt;li&gt;building routines that support my brain instead of fighting it&lt;/li&gt;
+&lt;li&gt;making time for fun, even if it was just tinkering with the site or disappearing into a game for a bit&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The older I get, the more I respect the boring wins. Those are the ones that keep you upright.&lt;/p&gt;
+&lt;h2 id=&quot;projects-the-things-i-made&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/my-2025-year-in-review/#projects-the-things-i-made&quot; class=&quot;heading-anchor&quot;&gt;Projects: the things I made&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I love working on open-source projects. Whether it is creating something for myself and sharing it with the world or contributing to something that already exists, I find it incredibly rewarding.&lt;/p&gt;
+&lt;p&gt;Here are the projects I worked on this year:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/introducing-brewventy-your-coffee-themed-eleventy-starter-kit/&quot;&gt;&lt;strong&gt;Brewventy&lt;/strong&gt;&lt;/a&gt;: a beautiful Eleventy starter theme featuring Catppuccin Mocha and Latte flavors. Demo site is &lt;a href=&quot;https://brewventy.vercel.app&quot; rel=&quot;noopener&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mastodon Share Plugin for Eleventy&lt;/strong&gt;: This is something I am still working on, but it will make sharing posts to Mastodon as easy as clicking a button.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;thanks&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/my-2025-year-in-review/#thanks&quot; class=&quot;heading-anchor&quot;&gt;Thanks&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If you read my posts, shared one, replied with a question, or even just lurked quietly, thank you. The indie web is powered by people who still believe writing and building are worth doing even when there is no algorithm handing out gold stars. That’s how a blog turns into a knowledge base, one breadcrumb at a time.&lt;/p&gt;
+&lt;p&gt;This was my 2025, wrapped by hand.&lt;/p&gt;
+&lt;p&gt;See you in 2026.&lt;/p&gt;
+
+ 			</content>
+    </entry><entry>
       <title>CybersecKyle Security How-To Series: Everyday Defense, Part 3 — Browser Hygiene That Actually Sticks</title>
       <link href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/" />
       <updated>2025-12-23T18:00:00Z</updated>
