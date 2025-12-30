@@ -1,0 +1,71 @@
+/*
+  table.css (plain CSS, no custom @media syntax)
+
+  - Works with Markdown tables (no data-label required)
+  - Small screens: horizontal scroll instead of breaking layout
+  - Clear row dividers + readable padding
+  - No centered headings
+*/
+
+:where(main, article, .content, .prose) table {
+  inline-size: 100%;
+  border: var(--color-gray-700, 1px solid);
+  border-radius: var(--border-radius-medium, 0.75rem);
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+}
+
+/* Markdown sometimes injects <br> in tables */
+:where(main, article, .content, .prose) table br {
+  display: none;
+}
+
+/* Make tables usable on small screens without needing data-labels */
+:where(main, article, .content, .prose) table {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+:where(main, article, .content, .prose) caption {
+  padding: var(--space-s, 1rem);
+  text-align: start;
+}
+
+:where(main, article, .content, .prose) :is(th, td) {
+  padding: var(--space-s, 1rem) var(--space-m, 1.25rem);
+  text-align: start;
+  vertical-align: top;
+  line-height: var(--leading-standard, 1.5);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Header divider */
+:where(main, article, .content, .prose) thead th {
+  font-weight: var(--font-bold, 700);
+  border-block-end: var(--table-stroke);
+}
+
+/* Row dividers (between TRs) */
+:where(main, article, .content, .prose) tbody tr+tr td {
+  border-block-start: var(--table-stroke);
+}
+
+/* Optional: a little extra breathing room between lines inside cells */
+:where(main, article, .content, .prose) td {
+  padding-block: calc(var(--space-s, 1rem) * 0.9);
+}
+
+/* Tailwind “sm” breakpoint is 640px = 40rem */
+@media (min-width: 40rem) {
+  :where(main, article, .content, .prose) table {
+    display: table;
+    overflow: visible;
+  }
+
+  :where(main, article, .content, .prose) table br {
+    display: block;
+  }
+}
