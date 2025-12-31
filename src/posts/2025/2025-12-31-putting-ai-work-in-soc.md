@@ -3,7 +3,7 @@ date: 2025-12-31T09:00:00-05:00
 title: 'Putting AI to Work in the SOC'
 description: "Practical ways to integrate AI into SOC workflows for faster triage, better investigations, and safer automation, with the guardrails that keep humans in control."
 tags: [soc, ai, security-operations, incident-response, threat-detection]
-mastodon_url:
+mastodon_url: https://infosec.exchange/@cyberseckyle/115815987323650202
 ---
 
 {% image "/assets/images/soc.png", "Analysts work at desks in a dimly lit security operations center, facing a wall of large monitors displaying maps, alerts, and network activity dashboards.", null, "eager", "text-center", "!important", [auto], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
