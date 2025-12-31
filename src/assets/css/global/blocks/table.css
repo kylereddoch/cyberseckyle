@@ -1,19 +1,52 @@
 /*
-  table.css (plain CSS, no custom @media syntax)
-
-  - Works with Markdown tables (no data-label required)
-  - Small screens: horizontal scroll instead of breaking layout
-  - Clear row dividers + readable padding
-  - No centered headings
+  table.css
+  - Rounded outer border
+  - Clean grid dividers
+  - Mobile default: scale down (no horizontal scroll)
+  - Mobile optional: break down into stacked rows if td[data-label] exists
 */
 
 :where(main, article, .content, .prose) table {
+  --table-border-color: var(--color-text-accent, currentColor);
+  --table-border: 1px solid var(--table-border-color);
+  --table-radius: var(--border-radius-medium, 1rem);
+
   inline-size: 100%;
-  border: var(--color-gray-700, 1px solid);
-  border-radius: var(--border-radius-medium, 0.75rem);
+  border: var(--table-border);
+  border-radius: var(--table-radius);
+
+  /* Required for radius + internal borders to look right */
   border-collapse: separate;
   border-spacing: 0;
   overflow: hidden;
+}
+
+/* Cells */
+:where(main, article, .content, .prose) table :is(th, td) {
+  padding: var(--space-s, 1rem) var(--space-m, 1.25rem);
+  text-align: start !important;
+  vertical-align: top;
+  line-height: var(--leading-standard, 1.5);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+
+  /* Internal grid lines (avoid double-thick borders) */
+  border-inline-end: var(--table-border);
+  border-block-end: var(--table-border);
+}
+
+/* Remove right border on last column */
+:where(main, article, .content, .prose) table tr> :last-child {
+  border-inline-end: 0;
+}
+
+/* Remove bottom border on last body row */
+:where(main, article, .content, .prose) table tbody tr:last-child>* {
+  border-block-end: 0;
+}
+
+:where(main, article, .content, .prose) table thead th {
+  font-weight: var(--font-bold, 700);
 }
 
 /* Markdown sometimes injects <br> in tables */
@@ -21,51 +54,55 @@
   display: none;
 }
 
-/* Make tables usable on small screens without needing data-labels */
-:where(main, article, .content, .prose) table {
-  display: block;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-:where(main, article, .content, .prose) caption {
-  padding: var(--space-s, 1rem);
-  text-align: start;
-}
-
-:where(main, article, .content, .prose) :is(th, td) {
-  padding: var(--space-s, 1rem) var(--space-m, 1.25rem);
-  text-align: start;
-  vertical-align: top;
-  line-height: var(--leading-standard, 1.5);
-  overflow-wrap: anywhere;
-  word-break: break-word;
-}
-
-/* Header divider */
-:where(main, article, .content, .prose) thead th {
-  font-weight: var(--font-bold, 700);
-  border-block-end: var(--table-stroke);
-}
-
-/* Row dividers (between TRs) */
-:where(main, article, .content, .prose) tbody tr+tr td {
-  border-block-start: var(--table-stroke);
-}
-
-/* Optional: a little extra breathing room between lines inside cells */
-:where(main, article, .content, .prose) td {
-  padding-block: calc(var(--space-s, 1rem) * 0.9);
-}
-
-/* Tailwind “sm” breakpoint is 640px = 40rem */
-@media (min-width: 40rem) {
+/* -----------------------------
+   Mobile default: scale down
+   ----------------------------- */
+@media (max-width: 40rem) {
   :where(main, article, .content, .prose) table {
-    display: table;
-    overflow: visible;
+    table-layout: fixed;
+    /* helps prevent overflow */
   }
 
-  :where(main, article, .content, .prose) table br {
+  :where(main, article, .content, .prose) table :is(th, td) {
+    padding: var(--space-xs, 0.75rem) var(--space-s, 1rem);
+    font-size: 0.95em;
+    hyphens: auto;
+    min-inline-size: 0;
+  }
+}
+
+/* -----------------------------
+   Mobile option: break down
+   Only activates if your cells have data-label attributes
+   ----------------------------- */
+@media (max-width: 40rem) {
+  :where(main, article, .content, .prose) table:has(td[data-label]) thead {
+    border: 0;
+    clip: rect(0 0 0 0);
+    block-size: 1px;
+    inline-size: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+  }
+
+  :where(main, article, .content, .prose) table:has(td[data-label]) tbody tr {
     display: block;
+  }
+
+  :where(main, article, .content, .prose) table:has(td[data-label]) tbody td {
+    display: grid;
+    grid-template-columns: minmax(10ch, 40%) 1fr;
+    gap: var(--space-xs, 0.5rem);
+    align-items: start;
+
+    /* Replace grid borders with simple dividers */
+    border-inline-end: 0;
+  }
+
+  :where(main, article, .content, .prose) table:has(td[data-label]) tbody td::before {
+    content: attr(data-label);
+    font-weight: var(--font-bold, 700);
   }
 }
