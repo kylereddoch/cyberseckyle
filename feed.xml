@@ -4,12 +4,62 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2025-12-31T20:12:54Z</updated>
+  <updated>2026-01-02T21:34:39Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>Stepping into 2026</title>
+      <link href="https://www.kylereddoch.me/blog/stepping-into-2026/" />
+      <updated>2026-01-02T14:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/stepping-into-2026/</id>
+      <content type="html">
+				&lt;figure slot=&quot;image&quot; class=&quot;text-center&quot;&gt;&lt;picture&gt;   &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/2026-unsplash-1920w.webp 1920w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;
+  &lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/2026-unsplash-1920w.jpeg 1920w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/2026-unsplash-1920w.jpeg&quot; width=&quot;1920&quot; height=&quot;1200&quot; alt=&quot;Shiny 3D numbers spelling out 2026&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;figcaption&gt;Photo by BoliviaInteligente on Unsplash&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;p&gt;I can’t believe it’s already 2026. Looking back, 2025 was a real mix of highs and lows, wins and frustrations, and the usual chaos that comes with juggling work, school, and trying to build things on the internet that don’t disappear the moment a platform decides to change the rules. &lt;a href=&quot;https://www.kylereddoch.me/blog/my-2025-year-in-review/&quot;&gt;But that’s in the rearview now&lt;/a&gt;, so I’m focused on what’s next.&lt;/p&gt;
+&lt;h2 id=&quot;what-i-want-from-2026&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/stepping-into-2026/#what-i-want-from-2026&quot; class=&quot;heading-anchor&quot;&gt;What I want from 2026&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This year, instead of starting a bunch of new stuff, I want to keep building on what I’ve already started. I’ve got to get my focus in check and stop getting sidetracked by new things so easily (honestly, that’s a whole separate post).&lt;/p&gt;
+&lt;h3 id=&quot;continuing-the-slow-exit-from-big-tech&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/stepping-into-2026/#continuing-the-slow-exit-from-big-tech&quot; class=&quot;heading-anchor&quot;&gt;Continuing the slow exit from big tech&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.rebeltechalliance.org/the-big-tech-walkout-2025/&quot; rel=&quot;noopener&quot;&gt;Continuing the move away from big tech&lt;/a&gt; is still on my list, and honestly, it’s messy. Even setting privacy aside for a second, these companies have been part of our lives for so long that they feel normal. They’re convenient. Our families are on Facebook and Instagram, group chats live there, events get posted there, and it’s easy to fall back into it.&lt;/p&gt;
+&lt;p&gt;But the older I get, the more I have to ask: is the convenience really worth the constant tracking? Is the “big brother” feeling worth the risk of the next data breach?&lt;/p&gt;
+&lt;p&gt;Some services are easy to cut loose. Others are stubborn because everyone else is there. And yeah, I’ll admit it, I’ve left a few and ended up coming back. But I still think stepping away is the right move, and not just from a cybersecurity perspective.&lt;/p&gt;
+&lt;h3 id=&quot;keep-writing-about-cybersecurity-but-stay-human-about-it&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/stepping-into-2026/#keep-writing-about-cybersecurity-but-stay-human-about-it&quot; class=&quot;heading-anchor&quot;&gt;Keep writing about cybersecurity, but stay human about it&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;I want to keep writing about &lt;a href=&quot;https://www.kylereddoch.me/tags/cybersecurity/&quot;&gt;cybersecurity&lt;/a&gt; in a way that helps people learn without feeling dumb or overwhelmed.&lt;/p&gt;
+&lt;p&gt;Security content tends to drift into two bad modes:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;fear-based marketing, or&lt;/li&gt;
+&lt;li&gt;jargon soup for insiders&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I’m not interested in either.&lt;/p&gt;
+&lt;p&gt;In 2026, I want to publish more posts that are practical, testable, and written for real life. The kind of posts you can send to a friend, a client, or your past self.&lt;/p&gt;
+&lt;h3 id=&quot;graduation-in-april&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/stepping-into-2026/#graduation-in-april&quot; class=&quot;heading-anchor&quot;&gt;Graduation in April&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;April is the finish line for my degree, and I’m excited to be able to say that out loud.&lt;/p&gt;
+&lt;p&gt;School has been worth it, but it has also been a constant background process running at 80% CPU. Getting that bandwidth back is going to feel like stepping outside after being indoors too long.&lt;/p&gt;
+&lt;h3 id=&quot;after-graduation-ciso-track-and-more-cyber-certs&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/stepping-into-2026/#after-graduation-ciso-track-and-more-cyber-certs&quot; class=&quot;heading-anchor&quot;&gt;After graduation: CISO track and more cyber certs&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Once graduation is done, I want to shift that same consistency into professional development.&lt;/p&gt;
+&lt;p&gt;My current plan is to start working toward a CISO-focused certification path, plus a couple of targeted cybersecurity certifications that match where I want to go next. I’m not trying to collect badges. I’m trying to sharpen tools.&lt;/p&gt;
+&lt;p&gt;I’ll share what I pick and why once I lock it in, mainly so future me can’t quietly “forget” the plan.&lt;/p&gt;
+&lt;h3 id=&quot;the-book-project-hello-world&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/stepping-into-2026/#the-book-project-hello-world&quot; class=&quot;heading-anchor&quot;&gt;The book project (hello, world)&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;This is the first time I’m really saying this publicly: I’m working on a cyber-thriller book series. I’ve never done anything like this, so this should be interesting.&lt;/p&gt;
+&lt;p&gt;Working series title: &lt;strong&gt;The FIOS Files&lt;/strong&gt;&lt;br&gt;
+Book 1: &lt;strong&gt;The Cipher Fellows&lt;/strong&gt;&lt;br&gt;
+Book 2: &lt;strong&gt;The Orchard Protocol&lt;/strong&gt; (future)&lt;/p&gt;
+&lt;p&gt;It’s fiction, but it is the kind of fiction where the tech stays believable. No “press F to hack the mainframe” nonsense. The goal is to tell a story that feels tense and fun, while still respecting how the real world works.&lt;/p&gt;
+&lt;p&gt;I’m not ready to share dates yet, but I &lt;em&gt;am&lt;/em&gt; ready to share intent: I want to finish drafts and start treating this like a real creative project, not a someday idea.&lt;/p&gt;
+&lt;p&gt;I’ve chosen to self-publish so I have control over the entire process. If you know of anyone who’s done this before, or any resources worth reading, I won’t turn them away. 😁&lt;/p&gt;
+&lt;h2 id=&quot;the-vibe-for-the-year&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/stepping-into-2026/#the-vibe-for-the-year&quot; class=&quot;heading-anchor&quot;&gt;The vibe for the year&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;2026 is not about reinventing myself. It’s about doubling down on what is already working:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;own my stuff&lt;/li&gt;
+&lt;li&gt;teach what I learn&lt;/li&gt;
+&lt;li&gt;build in public&lt;/li&gt;
+&lt;li&gt;ship more than I start&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you’ve been reading along, thanks for being here. The indie web is small, strange, and stubborn in the best way, and I plan to keep contributing to it.&lt;/p&gt;
+
+ 			</content>
+    </entry><entry>
       <title>Putting AI to Work in the SOC</title>
       <link href="https://www.kylereddoch.me/blog/putting-ai-to-work-in-the-soc/" />
       <updated>2025-12-31T14:00:00Z</updated>
@@ -314,7 +364,7 @@ Mark which steps are reversible and which require human approval.&lt;/p&gt;
 &lt;p&gt;School work was the steady drumbeat in the background this year. A lot of it revolved around project management fundamentals that sound boring until you realize they are basically incident response for humans:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;defining scope so the project does not mutate into a monster&lt;/li&gt;
-&lt;li&gt;setting evaluation c  riteria so success is measurable, not vibes&lt;/li&gt;
+&lt;li&gt;setting evaluation criteria so success is measurable, not vibes&lt;/li&gt;
 &lt;li&gt;risk identification and risk response planning&lt;/li&gt;
 &lt;li&gt;stakeholder management (translation: getting people aligned without starting a small war)&lt;/li&gt;
 &lt;/ul&gt;
