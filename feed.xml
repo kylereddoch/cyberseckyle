@@ -4,12 +4,54 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-01-05T23:11:41Z</updated>
+  <updated>2026-01-06T19:01:30Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>Weekly Notes: Easing Into 2026 (Week 1, 2026)</title>
+      <link href="https://www.kylereddoch.me/blog/weekly-notes-easing-into-2026-week-1-2026/" />
+      <updated>2026-01-06T15:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/weekly-notes-easing-into-2026-week-1-2026/</id>
+      <content type="html">
+				&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.webp 1200w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.jpeg&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;This week’s notes cover the tail end of 2025 and the first few days of 2026. It was another short week with New Year’s Day off on Thursday, then right back to work on Friday.&lt;/p&gt;
+&lt;h2 id=&quot;the-vibe&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-easing-into-2026-week-1-2026/#the-vibe&quot; class=&quot;heading-anchor&quot;&gt;The vibe&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Late 2025 stayed about as quiet as it gets. Mostly calm and steady, with a few quick spikes of anxiety mixed in.&lt;/p&gt;
+&lt;h2 id=&quot;highlights&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-easing-into-2026-week-1-2026/#highlights&quot; class=&quot;heading-anchor&quot;&gt;Highlights&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The older I get, the less I care about New Year’s Eve, and staying up until midnight keeps getting harder. &lt;strong&gt;I did pull it off this year though.&lt;/strong&gt; Also, does anyone else miss when those countdown concert specials were actually good?&lt;/li&gt;
+&lt;li&gt;I’m still inching along on the new Plex server. The Linux box is in my office, but I haven’t had much time to really dig into it yet.&lt;/li&gt;
+&lt;li&gt;Had some mild anxiety pop up around weight gain I haven’t been able to pinpoint.&lt;/li&gt;
+&lt;li&gt;Started watching &lt;em&gt;The Cophenhagen Test&lt;/em&gt; on Peacock.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;life&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-easing-into-2026-week-1-2026/#life&quot; class=&quot;heading-anchor&quot;&gt;Life&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The cybersecurity thriller is moving along well. I’ve got a solid outline, I’ve started drafting a few chapters, and I even have a working title: &lt;strong&gt;The FOIS Files: The Cipher Fellows&lt;/strong&gt;. I’ll share more as it comes together. I’ve also got a cover design finished.&lt;/li&gt;
+&lt;li&gt;I rejoined &lt;a href=&quot;https://pixel.infosec.exchange/@cyberseckyle&quot; rel=&quot;noopener&quot;&gt;Pixelfed&lt;/a&gt;! The short version: I left because I was frustrated with the developer, but after some time away, I decided to come back.&lt;/li&gt;
+&lt;li&gt;Watched the finale of &lt;em&gt;Stranger Things&lt;/em&gt;. What a ride that show has been. The last episode was intense and emotional. I’m sad it’s over, but it felt like a strong ending.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure slot=&quot;image&quot; class=&quot;text-center&quot;&gt;&lt;picture&gt;   &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/Cipher_Fellows_cover-550w.webp 550w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;
+  &lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/Cipher_Fellows_cover-550w.jpeg 550w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/Cipher_Fellows_cover-550w.jpeg&quot; width=&quot;550&quot; height=&quot;877&quot; alt=&quot;Image of The FOIS Files: The Cipher Fellows Cover Design, an upcoming cybersecurity thriller by Kyle Reddoch&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;figcaption&gt;The FOIS Files: The Cipher Fellows Cover Design&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;security-corner&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-easing-into-2026-week-1-2026/#security-corner&quot; class=&quot;heading-anchor&quot;&gt;Security corner&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Back at work, I spent a good chunk of time grinding through tickets after the New Year’s Day break.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I almost had a panic attack when I opened our EDR console and saw 34 alerts. Then I remembered our AV does end-of-month full scans for clients.&lt;/li&gt;
+&lt;li&gt;I spent most of Friday working through the tickets tied to those alerts.&lt;/li&gt;
+&lt;li&gt;A few were legit threats, but the majority were false positives or low-risk noise.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;worth-sharing&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-easing-into-2026-week-1-2026/#worth-sharing&quot; class=&quot;heading-anchor&quot;&gt;Worth sharing&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;I wrote an article on using AI in the SOC. A lot of people have a bad taste about AI (and sometimes for good reason), but it can be genuinely useful when it’s applied the right way. Here it is: &lt;a href=&quot;https://www.kylereddoch.me/blog/putting-ai-to-work-in-the-soc/&quot;&gt;Putting AI to Work in the SOC&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Now that we’re officially in 2026, here’s what I’m aiming for this year: &lt;a href=&quot;https://www.kylereddoch.me/blog/stepping-into-2026/&quot;&gt;Stepping into 2026&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;I came across a &lt;a href=&quot;https://mastodonapp.uk/@goodbinary/115809719301721129&quot; rel=&quot;noopener&quot;&gt;post from Gary Ismay&lt;/a&gt; on Mastodon about a new app he created for helping who are self-employed bill their clients. I’m liking it so far.&lt;/li&gt;
+&lt;li&gt;This &lt;a href=&quot;https://mastodon.me.uk/@Floppy/115813676158403879&quot; rel=&quot;noopener&quot;&gt;floppy disk coaster&lt;/a&gt; brought back memories.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
+
+ 			</content>
+    </entry><entry>
       <title>Parked Domains Have Turned into a Malware Vending Machine</title>
       <link href="https://www.kylereddoch.me/blog/parked-domains-have-turned-into-a-malware-vending-machine/" />
       <updated>2026-01-05T20:00:00Z</updated>
