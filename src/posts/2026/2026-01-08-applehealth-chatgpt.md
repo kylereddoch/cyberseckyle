@@ -1,5 +1,5 @@
 ---
-date: 2026-01-08T015:00:00-05:00
+date: 2026-01-08T15:00:00-05:00
 title: 'Apple Health + ChatGPT: The Privacy Tradeoff'
 description: "OpenAI’s new ChatGPT Health feature can connect to Apple Health and medical records for more personalized answers. The upside is real convenience. The downside is a bigger privacy and security blast radius, at a time when healthcare breaches keep hitting “millions affected.”"
 tags: [privacy, cybersecurity, security, apple, ai]
