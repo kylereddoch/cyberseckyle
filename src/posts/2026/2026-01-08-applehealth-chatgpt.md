@@ -3,7 +3,7 @@ date: 2026-01-08T15:00:00-05:00
 title: 'Apple Health + ChatGPT: The Privacy Tradeoff'
 description: "OpenAI’s new ChatGPT Health feature can connect to Apple Health and medical records for more personalized answers. The upside is real convenience. The downside is a bigger privacy and security blast radius, at a time when healthcare breaches keep hitting “millions affected.”"
 tags: [privacy, cybersecurity, security, apple, ai]
-mastodon_url: ""
+mastodon_url: https://infosec.exchange/@cyberseckyle/115861775802636845
 ---
 
 {% image "/assets/images/applehealth_chatgpt.png", "Split-screen graphic showing the Apple Health icon on a blue medical-themed background and the ChatGPT icon on a red, cybersecurity-themed background, separated by a glowing crack, with a warning lock and skull imagery suggesting privacy and breach risk.", "Split between Apple Health and ChatGPT, showing convenience versus privacy risk. (Image generated with ChatGPT)", "eager", "text-center", "!important", [auto], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
