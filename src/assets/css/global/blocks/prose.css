@@ -30,12 +30,12 @@
   }
 }
 
-.prose :is(h1, h2, h3, h4) + *:not([class]):not(figure) {
+.prose :is(h1, h2, h3, h4)+*:not([class]):not(figure) {
   --flow-space: var(--space-l);
 }
 
 .prose :is(p, li, dl, blockquote) {
-  max-inline-size: 70ch;
+  max-inline-size: 60ch;
   text-wrap: pretty;
 }
 
@@ -53,8 +53,8 @@
 }
 
 /* block space only for "regular lists" and sublists */
-.prose :is(ul, ol):not([class]) li + li,
-.prose :is(ul, ol):not([class]) li > :is(ol, ul) {
+.prose :is(ul, ol):not([class]) li+li,
+.prose :is(ul, ol):not([class]) li> :is(ol, ul) {
   padding-block-start: var(--space-s);
 }
 
@@ -81,7 +81,8 @@
 }
 
 @media screen(ltsm) {
-  .prose > *,
+
+  .prose>*,
   .prose a {
     overflow-wrap: break-word;
     word-wrap: break-word;

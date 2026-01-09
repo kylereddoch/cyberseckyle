@@ -16,6 +16,14 @@
   grid-column: content;
 }
 
+.prose-wrapper {
+  --wrapper-width: 64rem;
+}
+
+.popout {
+  grid-column: popout;
+}
+
 .feature {
   grid-column: feature;
 }
