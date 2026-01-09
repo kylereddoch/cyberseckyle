@@ -3,7 +3,7 @@ date: 2026-01-09T14:00:00-05:00
 title: "Cybersecurity Weekly Roundup: January 2-9, 2026"
 description: "Fifteen stories worth your time this week: KEV updates, high-impact patches, browser ecosystem abuse, and a few reminders that old gear never dies, it just becomes a botnet."
 tags: [cybersecurity, cybersecurity weekly roundup, vulnerabilities, incident-response, news]
-mastodon_url: ""
+mastodon_url: https://infosec.exchange/@cyberseckyle/115867206467129515
 ---
 
 > New year, same attackers. I’m kicking the Weekly Roundup back into gear for 2026 so we can track what actually matters: the patches worth prioritizing, the campaigns worth watching, and the patterns worth learning from. No doom-scrolling. Just signal.
