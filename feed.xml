@@ -4,12 +4,159 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-01-08T22:18:33Z</updated>
+  <updated>2026-01-09T21:12:52Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>Cybersecurity Weekly Roundup: January 2-9, 2026</title>
+      <link href="https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-2-9-2026/" />
+      <updated>2026-01-09T19:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-2-9-2026/</id>
+      <content type="html">
+				&lt;blockquote&gt;
+&lt;p&gt;New year, same attackers. I’m kicking the Weekly Roundup back into gear for 2026 so we can track what actually matters: the patches worth prioritizing, the campaigns worth watching, and the patterns worth learning from. No doom-scrolling. Just signal.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure slot=&quot;image&quot; class=&quot;text-center&quot;&gt;&lt;picture&gt;   &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/cybersec_weekly_roundup-800w.webp 800w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;
+  &lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/cybersec_weekly_roundup-800w.jpeg 800w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/cybersec_weekly_roundup-800w.jpeg&quot; width=&quot;800&quot; height=&quot;533&quot; alt=&quot;“Cybersecurity Weekly Roundup” showing a glowing shield with a keyhole over a world map, surrounded by digital interface icons and data streams.&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;figcaption&gt;Cybersecurity Weekly Roundup — the week’s biggest security news, distilled into signal and next steps. (Image generated with ChatGPT)&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;🧭-overview&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-2-9-2026/#%F0%9F%A7%AD-overview&quot; class=&quot;heading-anchor&quot;&gt;🧭 Overview&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The last seven days were patch-heavy and attacker-friendly. CISA formally retired a stack of Emergency Directives, but KEV kept moving with newly confirmed exploitation across both modern enterprise tooling and some very old Microsoft Office baggage. Meanwhile, edge and automation platforms (Veeam, Trend Micro Apex Central, n8n, Cisco ISE, legacy D-Link gateways) were the main characters again. On the “humans are the attack surface” front, internal-domain phishing and malicious Chrome extensions both got louder. Here’s the signal, minus the noise.&lt;/p&gt;
+&lt;h3 id=&quot;🔥-patches-and-kev-moves&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-2-9-2026/#%F0%9F%94%A5-patches-and-kev-moves&quot; class=&quot;heading-anchor&quot;&gt;🔥 Patches and KEV moves&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;1-cisa-retired-ten-emergency-directives-2019-2024&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-2-9-2026/#1-cisa-retired-ten-emergency-directives-2019-2024&quot; class=&quot;heading-anchor&quot;&gt;1) CISA retired ten Emergency Directives (2019-2024)&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Brief:&lt;/strong&gt; &lt;a href=&quot;https://www.cisa.gov/news-events/news/cisa-retires-ten-emergency-directives-marking-era-federal-cybersecurity&quot; rel=&quot;noopener&quot;&gt;CISA retired ten Emergency Directives&lt;/a&gt;, effectively closing the book on a specific era of “drop everything and patch this now” federal coordination.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; This is good housekeeping, but it is also a reminder: emergency patch governance only works when you convert “emergency behavior” into “normal behavior.” If your org only responds fast when the sirens are on, you do not have a program, you have adrenaline.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Treat this as a prompt to review your own “directive-like” playbooks for critical patching.&lt;/li&gt;
+&lt;li&gt;Confirm you can identify internet-facing assets and owners fast, without a spreadsheet scavenger hunt.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;2-kev-added-a-fresh-hpe-oneview-rce-and-a-very-old-powerpoint-rce&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-2-9-2026/#2-kev-added-a-fresh-hpe-oneview-rce-and-a-very-old-powerpoint-rce&quot; class=&quot;heading-anchor&quot;&gt;2) KEV added a fresh HPE OneView RCE and a very old PowerPoint RCE&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Brief:&lt;/strong&gt; &lt;a href=&quot;https://www.cisa.gov/news-events/alerts/2026/01/07/cisa-adds-two-known-exploited-vulnerabilities-catalog&quot; rel=&quot;noopener&quot;&gt;CISA added two vulnerabilities to the KEV Catalog&lt;/a&gt;, including a critical &lt;a href=&quot;https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbgn04985en_us&amp;amp;docLocale=en_US&quot; rel=&quot;noopener&quot;&gt;HPE OneView RCE (CVE-2025-37164)&lt;/a&gt; and the ancient but now relevant again &lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2009-0556&quot; rel=&quot;noopener&quot;&gt;PowerPoint RCE (CVE-2009-0556)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; Attackers love “weird old stuff” because defenders forget it exists. KEV adding a 2009 Office bug is the cybersecurity version of finding a live grenade in a junk drawer. Also, OneView is high-leverage infrastructure management. If you run it, you do not get to be casual.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Check the &lt;a href=&quot;https://www.cisa.gov/known-exploited-vulnerabilities-catalog&quot; rel=&quot;noopener&quot;&gt;KEV Catalog&lt;/a&gt; for your environment, not just for headlines.&lt;/li&gt;
+&lt;li&gt;If you still have legacy Office installs around, validate what is actually installed and supported.&lt;/li&gt;
+&lt;li&gt;If you run OneView, prioritize HPE’s fix path immediately.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;3-legacy-d-link-dsl-gateways-are-being-actively-exploited-for-unauthenticated-rce&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-2-9-2026/#3-legacy-d-link-dsl-gateways-are-being-actively-exploited-for-unauthenticated-rce&quot; class=&quot;heading-anchor&quot;&gt;3) Legacy D-Link DSL gateways are being actively exploited for unauthenticated RCE&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Brief:&lt;/strong&gt; D-Link published &lt;a href=&quot;https://supportannouncement.us.dlink.com/security/publication.aspx?name=SAP10488&quot; rel=&quot;noopener&quot;&gt;SAP10488&lt;/a&gt; for &lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2026-0625&quot; rel=&quot;noopener&quot;&gt;CVE-2026-0625&lt;/a&gt;, and multiple reports indicate active exploitation against end-of-life gear.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; “End of life” is not a label, it is a risk decision. Legacy gateways are perfect botnet fodder because they sit at the edge, rarely get monitored, and often stay deployed until lightning strikes.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Replace EOL gateways. Hard opinion: stop trying to “secure” abandoned hardware with hope and firewall rules.&lt;/li&gt;
+&lt;li&gt;If you cannot replace immediately, isolate management interfaces and restrict inbound exposure aggressively.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;4-cisco-ise-patched-a-vulnerability-with-public-poc&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-2-9-2026/#4-cisco-ise-patched-a-vulnerability-with-public-poc&quot; class=&quot;heading-anchor&quot;&gt;4) Cisco ISE patched a vulnerability with public PoC&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Brief:&lt;/strong&gt; Cisco issued fixes after a public proof-of-concept for &lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2026-20029&quot; rel=&quot;noopener&quot;&gt;CVE-2026-20029&lt;/a&gt; in Identity Services Engine (ISE) and ISE-PIC gained attention (&lt;a href=&quot;https://thehackernews.com/2026/01/cisco-patches-ise-security.html&quot; rel=&quot;noopener&quot;&gt;coverage here&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; Even “medium” bugs can be operationally nasty when they sit inside identity and access control plumbing. Also, PoC availability changes risk rapidly, because opportunistic attackers love copying homework.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Patch ISE per Cisco’s guidance as soon as practical, especially if admin interfaces are broadly reachable.&lt;/li&gt;
+&lt;li&gt;Review who has admin credentials and how those creds are protected (MFA, device compliance, admin tiering).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;5-trend-micro-apex-central-shipped-critical-fixes-multiple-cves&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-2-9-2026/#5-trend-micro-apex-central-shipped-critical-fixes-multiple-cves&quot; class=&quot;heading-anchor&quot;&gt;5) Trend Micro Apex Central shipped critical fixes (multiple CVEs)&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Brief:&lt;/strong&gt; Trend Micro released a patch for Apex Central addressing multiple issues, including &lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2025-69258&quot; rel=&quot;noopener&quot;&gt;CVE-2025-69258&lt;/a&gt;. Trend’s advisory is &lt;a href=&quot;https://success.trendmicro.com/en-US/solution/KA-0022071&quot; rel=&quot;noopener&quot;&gt;here&lt;/a&gt;, with supporting research from &lt;a href=&quot;https://www.tenable.com/security/research/tra-2026-01&quot; rel=&quot;noopener&quot;&gt;Tenable&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; Central management consoles are “one-to-many” compromise multipliers. If an attacker gets code execution on a central console, you are often one bad afternoon away from fleet-wide pain.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Patch Apex Central first, then validate console hardening (network location, admin access constraints).&lt;/li&gt;
+&lt;li&gt;Confirm logs from the console flow into your SIEM with alerts for unusual process execution.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;6-veeam-patched-a-high-impact-rce-path-involving-operator-roles&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-2-9-2026/#6-veeam-patched-a-high-impact-rce-path-involving-operator-roles&quot; class=&quot;heading-anchor&quot;&gt;6) Veeam patched a high-impact RCE path involving operator roles&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Brief:&lt;/strong&gt; Veeam published &lt;a href=&quot;https://www.veeam.com/kb4792&quot; rel=&quot;noopener&quot;&gt;KB4792&lt;/a&gt; covering &lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2025-59470&quot; rel=&quot;noopener&quot;&gt;CVE-2025-59470&lt;/a&gt;, describing how a Backup or Tape Operator role could be abused for remote code execution as &lt;code&gt;postgres&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; Backup infrastructure is the crown-jewel target in ransomware playbooks. Any bug that turns “operator-level access” into “code execution” should be treated as urgent because attackers routinely aim for backup systems early.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Patch Veeam and then review role assignments (especially operator roles).&lt;/li&gt;
+&lt;li&gt;Restrict admin and operator access to dedicated management networks or jump hosts.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;7-n8n-had-a-rough-week-critical-authless-exposure-plus-a-serious-sandbox-escape&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-2-9-2026/#7-n8n-had-a-rough-week-critical-authless-exposure-plus-a-serious-sandbox-escape&quot; class=&quot;heading-anchor&quot;&gt;7) n8n had a rough week: critical authless exposure plus a serious sandbox escape&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Brief:&lt;/strong&gt; n8n disclosed a vulnerability affecting certain form-based workflows (&lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2026-21858&quot; rel=&quot;noopener&quot;&gt;CVE-2026-21858&lt;/a&gt;), with the vendor advisory &lt;a href=&quot;https://community.n8n.io/t/security-advisory-security-vulnerability-in-n8n-versions-1-65-1-120-4/247305&quot; rel=&quot;noopener&quot;&gt;here&lt;/a&gt;. Separately, reporting also highlighted a high-severity sandbox bypass in the Python Code Node (&lt;a href=&quot;https://www.techradar.com/pro/security/a-critical-n8n-flaw-has-been-discovered-heres-how-to-stay-safe&quot; rel=&quot;noopener&quot;&gt;coverage&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; Automation tools sit in the middle of everything: APIs, credentials, internal systems, and workflows that quietly run the business. That makes them incredible targets. If you self-host automation, you are effectively running a mini integration platform. Treat it like infrastructure, not a toy.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Update n8n to the fixed versions and validate exposed forms and endpoints.&lt;/li&gt;
+&lt;li&gt;Audit stored credentials and secrets used by workflows, rotate anything high-value if exposure is suspected.&lt;/li&gt;
+&lt;li&gt;Limit who can create or edit workflows, and monitor workflow changes like code changes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;🧨-active-campaigns-and-attacker-tradecraft&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-2-9-2026/#%F0%9F%A7%A8-active-campaigns-and-attacker-tradecraft&quot; class=&quot;heading-anchor&quot;&gt;🧨 Active campaigns and attacker tradecraft&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;8-internal-looking-phishing-is-surging-because-of-routing-and-spoofing-misconfigurations&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-2-9-2026/#8-internal-looking-phishing-is-surging-because-of-routing-and-spoofing-misconfigurations&quot; class=&quot;heading-anchor&quot;&gt;8) “Internal-looking” phishing is surging because of routing and spoofing misconfigurations&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Brief:&lt;/strong&gt; Microsoft published a strong write-up on how attackers exploit complex routing and weak spoof protections to make phishing emails look internal: &lt;a href=&quot;https://www.microsoft.com/en-us/security/blog/2026/01/06/phishing-actors-exploit-complex-routing-and-misconfigurations-to-spoof-domains/&quot; rel=&quot;noopener&quot;&gt;Microsoft Security Blog&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; This is one of those “not a product vulnerability, but you are still owned” situations. When mail flow gets complicated, organizations accidentally create trust gaps. Attackers go shopping in those gaps.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Enforce SPF, DKIM, and DMARC correctly (and actually move toward DMARC reject where feasible).&lt;/li&gt;
+&lt;li&gt;Review connectors, relays, and hybrid routing rules for paths that bypass spoof protections.&lt;/li&gt;
+&lt;li&gt;Add user-facing indicators and training around “looks internal” social engineering.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;9-malicious-chrome-extensions-are-harvesting-llm-chats-and-browsing-data-at-scale&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-2-9-2026/#9-malicious-chrome-extensions-are-harvesting-llm-chats-and-browsing-data-at-scale&quot; class=&quot;heading-anchor&quot;&gt;9) Malicious Chrome extensions are harvesting LLM chats and browsing data at scale&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Brief:&lt;/strong&gt; Multiple reports describe malicious extensions posing as AI helpers, siphoning conversations and browsing data (&lt;a href=&quot;https://www.darkreading.com/cloud-security/fake-ai-chrome-extensions-steal-900k-users-data&quot; rel=&quot;noopener&quot;&gt;Dark Reading&lt;/a&gt;, &lt;a href=&quot;https://thehackernews.com/2026/01/two-chrome-extensions-caught-stealing.html&quot; rel=&quot;noopener&quot;&gt;The Hacker News&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; Browser extensions have quietly become one of the most under-governed enterprise attack surfaces. Add in AI tool hype and you get a perfect storm: users install “productivity” add-ons that can see everything.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lock down extension installs via browser enterprise policies where possible.&lt;/li&gt;
+&lt;li&gt;Maintain an allowlist for extensions, and treat AI-related extensions as high-risk by default.&lt;/li&gt;
+&lt;li&gt;Remind teams that sensitive data typed into web apps is still data leaving the org.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;10-kimwolf-botnet-millions-of-android-devices-exposed-via-adb&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-2-9-2026/#10-kimwolf-botnet-millions-of-android-devices-exposed-via-adb&quot; class=&quot;heading-anchor&quot;&gt;10) Kimwolf botnet: millions of Android devices exposed via ADB&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Brief:&lt;/strong&gt; Research points to widespread exposure of Android Debug Bridge leading to large-scale compromise and botnet growth (&lt;a href=&quot;https://synthient.com/blog/a-broken-system-fueling-botnets&quot; rel=&quot;noopener&quot;&gt;Synthient analysis&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; The internet never forgets a misconfiguration. Anything that turns “debug access” into “remote access” at scale becomes instant botnet infrastructure. The scary part is how boring the root cause is.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you manage Android fleets, ensure ADB is disabled and device management policies enforce it.&lt;/li&gt;
+&lt;li&gt;For networks, watch for unusual outbound traffic patterns consistent with botnet C2 behavior.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;11-clickfix-social-engineering-fake-bsods-leading-to-rat-deployment&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-2-9-2026/#11-clickfix-social-engineering-fake-bsods-leading-to-rat-deployment&quot; class=&quot;heading-anchor&quot;&gt;11) ClickFix social engineering: fake BSODs leading to RAT deployment&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Brief:&lt;/strong&gt; Securonix detailed a campaign using fake system error prompts (including fake BSOD style lures) to trick users into running attacker-provided commands and ultimately deploying malware: &lt;a href=&quot;https://www.securonix.com/blog/analyzing-phaltblyx-how-fake-bsods-and-trusted-build-tools-are-used-to-construct-a-malware-infection/&quot; rel=&quot;noopener&quot;&gt;Securonix write-up&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; Social engineering is evolving into “guided compromise.” Instead of a simple attachment, attackers walk users through the steps, often using very believable UI theatre. This is exactly why least privilege and application control matter.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Consider application control for high-risk user groups and environments.&lt;/li&gt;
+&lt;li&gt;Train helpdesk teams on recognizing “fake crash” playbooks and how to respond fast.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;12-vmware-esxi-exploit-toolkit-appears-to-pre-date-public-disclosure-by-a-year&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-2-9-2026/#12-vmware-esxi-exploit-toolkit-appears-to-pre-date-public-disclosure-by-a-year&quot; class=&quot;heading-anchor&quot;&gt;12) VMware ESXi exploit toolkit appears to pre-date public disclosure by a year&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Brief:&lt;/strong&gt; Reporting indicates attackers used a compromised SonicWall VPN foothold to deploy an ESXi exploit toolkit that likely existed long before the relevant ESXi bugs were publicly disclosed (&lt;a href=&quot;https://www.bleepingcomputer.com/news/security/vmware-esxi-zero-days-likely-exploited-a-year-before-disclosure/&quot; rel=&quot;noopener&quot;&gt;BleepingComputer&lt;/a&gt;, plus &lt;a href=&quot;https://exchange.xforce.ibmcloud.com/osint/guid%3A45c7ce985f9944a499f2949cd76e8b88&quot; rel=&quot;noopener&quot;&gt;IBM X-Force OSINT&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; This is the nightmare scenario for defenders: “unknown exploitation window” plus virtualization infrastructure. If a threat actor can break out of guest VMs to the host layer, containment assumptions get weird fast.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Patch ESXi aggressively and inventory exposed management surfaces.&lt;/li&gt;
+&lt;li&gt;Review VPN and remote access logs for unusual pivot activity and privileged account abuse.&lt;/li&gt;
+&lt;li&gt;Validate backup integrity and segmentation around hypervisor management.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;🧩-supply-chain-and-ecosystem-risk&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-2-9-2026/#%F0%9F%A7%A9-supply-chain-and-ecosystem-risk&quot; class=&quot;heading-anchor&quot;&gt;🧩 Supply chain and ecosystem risk&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;13-nodecordrat-malicious-npm-packages-targeting-crypto-workflows-and-secrets&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-2-9-2026/#13-nodecordrat-malicious-npm-packages-targeting-crypto-workflows-and-secrets&quot; class=&quot;heading-anchor&quot;&gt;13) NodeCordRAT: malicious npm packages targeting crypto workflows and secrets&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Brief:&lt;/strong&gt; Zscaler ThreatLabz documented malicious npm packages delivering NodeCordRAT and stealing credentials and secrets: &lt;a href=&quot;https://www.zscaler.com/blogs/security-research/malicious-npm-packages-deliver-nodecordrat&quot; rel=&quot;noopener&quot;&gt;Zscaler report&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; This is supply chain risk at its purest: developers install a thing, the thing installs another thing, and suddenly your environment is bleeding tokens. If you build software, dependency hygiene is not optional.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use package allowlisting and lockfiles, and scan dependencies in CI.&lt;/li&gt;
+&lt;li&gt;Watch for post-install scripts and unusual outbound connections during builds.&lt;/li&gt;
+&lt;li&gt;Rotate exposed secrets and enforce short-lived tokens wherever possible.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;14-ledger-customer-order-data-exposed-via-third-party-global-e-incident&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-2-9-2026/#14-ledger-customer-order-data-exposed-via-third-party-global-e-incident&quot; class=&quot;heading-anchor&quot;&gt;14) Ledger customer order data exposed via third-party Global-e incident&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Brief:&lt;/strong&gt; Ledger posted a notice about a third-party incident impacting order-related data: &lt;a href=&quot;https://support.ledger.com/article/Global-e-Incident-to-Order-Data---January-2026&quot; rel=&quot;noopener&quot;&gt;Ledger support article&lt;/a&gt;. Additional coverage appeared in mainstream outlets (&lt;a href=&quot;https://finance.yahoo.com/news/protocol-ledger-customer-data-breached-162038171.html&quot; rel=&quot;noopener&quot;&gt;Yahoo Finance&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; Third-party incidents are inevitable. The difference between “annoying” and “catastrophic” is what data you share, how you segment vendors, and how quickly you detect and notify. For customers, this kind of exposure also supercharges phishing.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Expect follow-on phishing if you are in the affected cohort. Verify messages out-of-band.&lt;/li&gt;
+&lt;li&gt;For orgs: re-check vendor data minimization and incident notification clauses.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;🧱-browser-and-platform-hardening&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-2-9-2026/#%F0%9F%A7%B1-browser-and-platform-hardening&quot; class=&quot;heading-anchor&quot;&gt;🧱 Browser and platform hardening&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;15-chrome-shipped-its-first-2026-stable-update-with-security-fixes&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-2-9-2026/#15-chrome-shipped-its-first-2026-stable-update-with-security-fixes&quot; class=&quot;heading-anchor&quot;&gt;15) Chrome shipped its first 2026 Stable update with security fixes&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Brief:&lt;/strong&gt; Google pushed a Stable update for desktop on January 6 (&lt;a href=&quot;https://chromereleases.googleblog.com/2026/01/stable-channel-update-for-desktop.html&quot; rel=&quot;noopener&quot;&gt;Chrome Releases&lt;/a&gt;), and reporting notes the fixed issue was not confirmed exploited at the time (&lt;a href=&quot;https://www.pcworld.com/article/3025747/chrome-fixes-a-problematic-security-flaw-in-first-update-of-2026.html&quot; rel=&quot;noopener&quot;&gt;PCWorld coverage&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; Browser patch cadence is still one of the best ROI security moves you get for free. The trick is consistency: fast rollout, staged testing, and forcing updates in managed environments.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Confirm Chrome auto-update is working across endpoints, especially for remote staff devices.&lt;/li&gt;
+&lt;li&gt;Pair browser updates with extension governance, otherwise you are patching the door while leaving the window open.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;🧠-what-im-watching-next-week&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-2-9-2026/#%F0%9F%A7%A0-what-im-watching-next-week&quot; class=&quot;heading-anchor&quot;&gt;🧠 What I’m watching next week&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Identity-adjacent tooling and “management plane” apps keep getting hammered because attackers love central choke points. If you run admin consoles, automation platforms, backup infrastructure, or edge gateways, assume you are on the list and patch accordingly.&lt;/p&gt;
+
+ 			</content>
+    </entry><entry>
       <title>Apple Health + ChatGPT: The Privacy Tradeoff</title>
       <link href="https://www.kylereddoch.me/blog/apple-health-chatgpt-the-privacy-tradeoff/" />
       <updated>2026-01-08T20:00:00Z</updated>
