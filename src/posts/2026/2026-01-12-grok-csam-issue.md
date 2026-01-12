@@ -3,7 +3,7 @@ date: 2026-01-12T10:00:00-05:00
 title: "The Unacceptable Failure: Grok, CSAM, and AI Safety"
 description: "When an AI tool can be pushed toward CSAM, it’s not drama or edge-case misuse. It’s a catastrophic safety failure with real victims and real consequences."
 tags: [ai, cybersecurity, digital-safety, privacy]
-mastodon_url: ""
+mastodon_url: https://infosec.exchange/@cyberseckyle/115883161606486126
 ---
 
 > Content note: This post discusses child sexual abuse material (CSAM) and AI-facilitated sexual exploitation at a high level (no graphic details).
