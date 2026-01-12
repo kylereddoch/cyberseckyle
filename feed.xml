@@ -4,12 +4,138 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-01-09T21:18:34Z</updated>
+  <updated>2026-01-12T16:25:46Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>The Unacceptable Failure: Grok, CSAM, and AI Safety</title>
+      <link href="https://www.kylereddoch.me/blog/the-unacceptable-failure-grok-csam-and-ai-safety/" />
+      <updated>2026-01-12T15:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/the-unacceptable-failure-grok-csam-and-ai-safety/</id>
+      <content type="html">
+				&lt;blockquote&gt;
+&lt;p&gt;Content note: This post discusses child sexual abuse material (CSAM) and AI-facilitated sexual exploitation at a high level (no graphic details).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure slot=&quot;image&quot; class=&quot;text-center&quot;&gt;&lt;picture&gt;   &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/grok-ai-1920w.webp 1920w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;
+  &lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/grok-ai-1920w.jpeg 1920w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/grok-ai-1920w.jpeg&quot; width=&quot;1920&quot; height=&quot;1280&quot; alt=&quot;Grok logo above a blurred chat interface on a bright screen.&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;figcaption&gt;Grok’s chat UI on screen, shown in soft focus. Photo: Salvador Rios on Unsplash&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;p&gt;This is not “spicy content.” This is sexual violence, and when minors are involved it is criminal material. If an AI product can be steered into producing it, that is not a quirky bug. That is a full-blown safety and security failure.&lt;/p&gt;
+&lt;h2 id=&quot;what-happened-with-grok-and-why-people-are-alarmed&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-unacceptable-failure-grok-csam-and-ai-safety/#what-happened-with-grok-and-why-people-are-alarmed&quot; class=&quot;heading-anchor&quot;&gt;What happened with Grok and why people are alarmed&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;In early January 2026, multiple reports and investigations converged on the same ugly reality: Grok’s image generation features were being used to create non-consensual sexualized imagery, including imagery that watchdogs and regulators say crosses into &lt;strong&gt;child sexual abuse material (CSAM)&lt;/strong&gt; territory.&lt;/p&gt;
+&lt;p&gt;In the UK, the &lt;strong&gt;Internet Watch Foundation (IWF)&lt;/strong&gt; warned that content generated using Grok would be considered CSAM under UK law, and that criminal communities were openly discussing using Grok to produce sexual imagery of children (as reported by multiple outlets, including &lt;a href=&quot;https://www.theguardian.com/technology/2026/jan/08/ai-chatbot-grok-used-to-create-child-sexual-abuse-imagery-watchdog-says&quot; rel=&quot;noopener&quot;&gt;The Guardian’s coverage of the IWF warning&lt;/a&gt; and follow-up reporting on how the trend spread).&lt;/p&gt;
+&lt;p&gt;On January 12, 2026, UK regulator &lt;strong&gt;Ofcom&lt;/strong&gt; opened a formal investigation into X (where Grok is integrated) under the Online Safety Act. Read the regulator’s announcement here: &lt;a href=&quot;https://www.ofcom.org.uk/online-safety/illegal-and-harmful-content/ofcom-launches-investigation-into-x-over-grok-sexualised-imagery&quot; rel=&quot;noopener&quot;&gt;Ofcom launches investigation into X over Grok sexualised imagery&lt;/a&gt;. Independent reporting also summarized the scope and potential penalties (for example, &lt;a href=&quot;https://www.reuters.com/business/media-telecom/uk-regulator-launches-investigation-into-x-over-grok-sexualised-imagery-2026-01-12/&quot; rel=&quot;noopener&quot;&gt;Reuters’ coverage&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Governments also started yanking the emergency brake. &lt;strong&gt;Indonesia&lt;/strong&gt; temporarily blocked Grok over concerns tied to AI-generated pornographic and deepfake content, including sexualized depictions involving minors (see &lt;a href=&quot;https://www.reuters.com/legal/litigation/indonesia-temporarily-blocks-access-grok-over-sexualised-images-2026-01-10/&quot; rel=&quot;noopener&quot;&gt;Reuters’ report on the Indonesia block&lt;/a&gt; and a separate summary from &lt;a href=&quot;https://www.aljazeera.com/news/2026/1/10/indonesia-blocks-access-to-musks-ai-chatbot-grok-over-deepfake-images&quot; rel=&quot;noopener&quot;&gt;Al Jazeera&lt;/a&gt;). &lt;strong&gt;Malaysia&lt;/strong&gt; followed with its own restriction, criticizing inadequate safeguards and overreliance on user reporting (see &lt;a href=&quot;https://www.reuters.com/business/media-telecom/malaysia-restricts-access-grok-ai-backlash-over-sexualised-images-widens-2026-01-12/&quot; rel=&quot;noopener&quot;&gt;Reuters on Malaysia’s restriction&lt;/a&gt; and a broader overview via &lt;a href=&quot;https://apnews.com/article/c7cb320327f259c4da35908e1269c225&quot; rel=&quot;noopener&quot;&gt;AP News&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;And in the background, researchers and journalists documented how the “bikini / undressing” behavior metastasized, and how quickly it became a harassment machine (see &lt;a href=&quot;https://www.theguardian.com/news/ng-interactive/2026/jan/11/how-grok-nudification-tool-went-viral-x-elon-musk&quot; rel=&quot;noopener&quot;&gt;The Guardian’s investigation-style reporting&lt;/a&gt; and analysis from &lt;a href=&quot;https://techpolicy.press/the-policy-implications-of-groks-mass-digital-undressing-spree&quot; rel=&quot;noopener&quot;&gt;Tech Policy Press&lt;/a&gt;).&lt;/p&gt;
+&lt;h2 id=&quot;the-part-people-keep-trying-to-soften-and-should-not&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-unacceptable-failure-grok-csam-and-ai-safety/#the-part-people-keep-trying-to-soften-and-should-not&quot; class=&quot;heading-anchor&quot;&gt;The part people keep trying to soften (and should not)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A lot of tech discourse tries to turn everything into “content moderation drama.” That framing fails here.&lt;/p&gt;
+&lt;p&gt;CSAM is not “controversial speech.” It is evidence of abuse and exploitation. Even when it is synthetic, it can still be illegal depending on jurisdiction, and it absolutely fuels real-world harm by normalizing and accelerating sexual exploitation.&lt;/p&gt;
+&lt;p&gt;RAINN put it plainly in its response to the Grok reporting: &lt;a href=&quot;https://rainn.org/rainn-statement-on-use-of-xais-grok-to-produce-child-sexual-abuse-material/&quot; rel=&quot;noopener&quot;&gt;RAINN’s statement on use of Grok to produce CSAM&lt;/a&gt;. More generally, RAINN is also clear that tech-enabled sexual abuse is not pornography, it is violence: &lt;a href=&quot;https://rainn.org/what-counts-as-sexual-violence/get-the-facts-about-tech-enabled-sexual-abuse/&quot; rel=&quot;noopener&quot;&gt;Get the facts about tech-enabled sexual abuse&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;So yes, it’s abhorrent. It is also a governance failure. And it is a security problem.&lt;/p&gt;
+&lt;h2 id=&quot;trust-and-safety-is-security-even-if-your-soc-tooling-pretends-otherwise&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-unacceptable-failure-grok-csam-and-ai-safety/#trust-and-safety-is-security-even-if-your-soc-tooling-pretends-otherwise&quot; class=&quot;heading-anchor&quot;&gt;Trust and safety is security (even if your SOC tooling pretends otherwise)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;From a security lens, this situation maps cleanly to familiar patterns:&lt;/p&gt;
+&lt;h4 id=&quot;1-abuse-is-an-adversarial-workflow&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-unacceptable-failure-grok-csam-and-ai-safety/#1-abuse-is-an-adversarial-workflow&quot; class=&quot;heading-anchor&quot;&gt;1) Abuse is an adversarial workflow&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Attackers (and abusers) iterate. They probe guardrails. They share prompts. They scale. If your product team treats safety like a static checklist, adversaries will treat it like a living system to be stress-tested.&lt;/p&gt;
+&lt;p&gt;A particularly grim example is how Grok appeared to “assume good intent” around requests that should never be handled casually (see &lt;a href=&quot;https://arstechnica.com/tech-policy/2026/01/grok-assumes-users-seeking-images-of-underage-girls-have-good-intent/&quot; rel=&quot;noopener&quot;&gt;Ars Technica’s reporting&lt;/a&gt;).&lt;/p&gt;
+&lt;h4 id=&quot;2-paywall-=-safety-is-magical-thinking&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-unacceptable-failure-grok-csam-and-ai-safety/#2-paywall-=-safety-is-magical-thinking&quot; class=&quot;heading-anchor&quot;&gt;2) “Paywall = safety” is magical thinking&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Limiting powerful features to “verified, paying users” can reduce drive-by misuse, but it does not solve determined abuse. In some cases it creates a cleaner abuse lane because the user is more committed, and the platform may be more reluctant to ban paying accounts quickly.&lt;/p&gt;
+&lt;p&gt;Regulators clearly were not impressed by “it’s only for paying users” as a safety argument (see the reasoning captured in reporting like &lt;a href=&quot;https://apnews.com/article/c7cb320327f259c4da35908e1269c225&quot; rel=&quot;noopener&quot;&gt;AP News&lt;/a&gt; and &lt;a href=&quot;https://www.reuters.com/business/media-telecom/malaysia-restricts-access-grok-ai-backlash-over-sexualised-images-widens-2026-01-12/&quot; rel=&quot;noopener&quot;&gt;Reuters&lt;/a&gt;).&lt;/p&gt;
+&lt;h4 id=&quot;3-this-is-a-platform-integrity-problem&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-unacceptable-failure-grok-csam-and-ai-safety/#3-this-is-a-platform-integrity-problem&quot; class=&quot;heading-anchor&quot;&gt;3) This is a platform integrity problem&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;If Grok can generate illegal or exploitative imagery on-platform, you now have:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;potential criminal liability and regulatory exposure&lt;/li&gt;
+&lt;li&gt;reputational damage that erodes user trust&lt;/li&gt;
+&lt;li&gt;increased burden on moderation and reporting systems&lt;/li&gt;
+&lt;li&gt;downstream harms as images spread, get remixed, and get reuploaded&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;the-hypocrisy-problem-policies-say-no-the-product-still-says-yes&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-unacceptable-failure-grok-csam-and-ai-safety/#the-hypocrisy-problem-policies-say-no-the-product-still-says-yes&quot; class=&quot;heading-anchor&quot;&gt;The hypocrisy problem: policies say “no,” the product still says “yes”&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;xAI’s own policy language is explicit. Its &lt;a href=&quot;https://x.ai/legal/acceptable-use-policy&quot; rel=&quot;noopener&quot;&gt;Acceptable Use Policy&lt;/a&gt; states it reports suspected CSAM to the National Center for Missing and Exploited Children.&lt;/p&gt;
+&lt;p&gt;Good. That is table stakes.&lt;/p&gt;
+&lt;p&gt;But a policy is not a control. A policy is a sign on a door. What matters is whether the lock works.&lt;/p&gt;
+&lt;p&gt;If a system’s guardrails can be bypassed at scale, the gap between “we prohibit this” and “we prevented this” becomes the entire story.&lt;/p&gt;
+&lt;h2 id=&quot;what-likely-failed-and-what-good-should-look-like&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-unacceptable-failure-grok-csam-and-ai-safety/#what-likely-failed-and-what-good-should-look-like&quot; class=&quot;heading-anchor&quot;&gt;What likely failed (and what “good” should look like)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Here’s the difference between a product that is “hoping” and a product that is engineered.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Problem area&lt;/th&gt;
+&lt;th&gt;What failure looks like&lt;/th&gt;
+&lt;th&gt;What mature controls look like&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Prompt-level safety&lt;/td&gt;
+&lt;td&gt;Guardrails can be coaxed, reframed, or role-played around&lt;/td&gt;
+&lt;td&gt;Multi-layer filters, adversarial prompt testing, and continuous tuning based on abuse telemetry&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Output-level safety&lt;/td&gt;
+&lt;td&gt;Harmful images are generated and posted before detection&lt;/td&gt;
+&lt;td&gt;Automated detection before publish, confidence-based blocks, and immediate quarantine workflows&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Account controls&lt;/td&gt;
+&lt;td&gt;Abusers can create, pay, and iterate freely&lt;/td&gt;
+&lt;td&gt;Rate limits, friction for high-risk requests, device signals, and strong enforcement even for paying users&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Reporting and response&lt;/td&gt;
+&lt;td&gt;“Report it if you see it” becomes the primary control&lt;/td&gt;
+&lt;td&gt;Proactive detection, mandatory review queues, fast takedown SLAs, and transparency reports&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Governance&lt;/td&gt;
+&lt;td&gt;Safety is a PR layer&lt;/td&gt;
+&lt;td&gt;Safety is a launch gate with measurable requirements, audits, and named ownership&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;That table is the difference between “content moderation” and “product security.”&lt;/p&gt;
+&lt;h2 id=&quot;why-this-matters-beyond-grok&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-unacceptable-failure-grok-csam-and-ai-safety/#why-this-matters-beyond-grok&quot; class=&quot;heading-anchor&quot;&gt;Why this matters beyond Grok&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If you build or deploy AI systems, this is the take-home:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Generative tools collapse the cost of harm.&lt;br&gt;
+A single abuser can generate at volume, test at volume, and distribute at volume. That asymmetry is the core threat.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The abuse is multi-domain.&lt;br&gt;
+This is not only “AI safety.” It is identity, fraud, harassment, extortion, and child protection, all braided together.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Regulators are done waiting.&lt;br&gt;
+Ofcom’s investigation is a clear signal: risk assessments and child safety duties are not optional paperwork. Start with the regulator’s own framing: &lt;a href=&quot;https://www.ofcom.org.uk/online-safety/illegal-and-harmful-content/ofcom-launches-investigation-into-x-over-grok-sexualised-imagery&quot; rel=&quot;noopener&quot;&gt;Ofcom’s investigation notice&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Security teams will inherit this whether they want to or not.&lt;br&gt;
+Once abuse becomes a crisis, it becomes incident response: logs, timelines, containment, comms, remediation, and external coordination.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;what-platforms-should-do-my-strong-opinion-no-sugar-coating&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-unacceptable-failure-grok-csam-and-ai-safety/#what-platforms-should-do-my-strong-opinion-no-sugar-coating&quot; class=&quot;heading-anchor&quot;&gt;What platforms should do (my strong opinion, no sugar coating)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If your product can generate imagery, you need layered controls that assume adversaries exist.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pre-publication scanning and blocking for high-risk categories, not “after the fact” cleanup.&lt;/li&gt;
+&lt;li&gt;Real friction for risky transformations, including rate limiting, escalating verification, and dynamic restrictions when abuse patterns spike.&lt;/li&gt;
+&lt;li&gt;Hard launch gates: no “ship now, patch later” for features that can produce sexual content or manipulate real-person images.&lt;/li&gt;
+&lt;li&gt;Independent red teaming and published summaries of findings. If you are confident, show your work.&lt;/li&gt;
+&lt;li&gt;Meaningful transparency: how many requests blocked, how many accounts banned, how fast content removed, what categories are spiking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And yes, if a tool repeatedly enables CSAM generation, it should be pulled back until the controls are demonstrably effective. This is not a feature you A/B test on the public.&lt;/p&gt;
+&lt;h2 id=&quot;what-you-can-do-as-a-reader-practical-not-performative&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-unacceptable-failure-grok-csam-and-ai-safety/#what-you-can-do-as-a-reader-practical-not-performative&quot; class=&quot;heading-anchor&quot;&gt;What you can do as a reader (practical, not performative)&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;If you encounter suspected child sexual exploitation content (including AI-generated material), report it through official channels. In the US, that typically means NCMEC’s &lt;a href=&quot;https://www.missingkids.org/gethelpnow/cybertipline&quot; rel=&quot;noopener&quot;&gt;CyberTipline&lt;/a&gt; (or the public reporting portal at &lt;a href=&quot;https://report.cybertip.org/&quot; rel=&quot;noopener&quot;&gt;report.cybertip.org&lt;/a&gt;). NCMEC also explains why generative AI increases risk here: &lt;a href=&quot;https://www.missingkids.org/blog/2024/the-growing-concerns-of-generative-ai-and-child-sexual-exploitation&quot; rel=&quot;noopener&quot;&gt;The growing concerns of generative AI and child sexual exploitation&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;If you run an org, update acceptable use policies for AI tools and include escalation paths for trust-and-safety incidents. Treat it like a security incident class.&lt;/li&gt;
+&lt;li&gt;If you build AI products, test safeguards like you test auth: assume a hostile user, measure bypass rates, and iterate continuously. For background on the scale of the problem, the IWF maintains research on how AI is abused to generate CSAM: &lt;a href=&quot;https://www.iwf.org.uk/about-us/why-we-exist/our-research/how-ai-is-being-abused-to-create-child-sexual-abuse-imagery/&quot; rel=&quot;noopener&quot;&gt;IWF research on AI-generated child sexual abuse imagery&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;bottom-line&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-unacceptable-failure-grok-csam-and-ai-safety/#bottom-line&quot; class=&quot;heading-anchor&quot;&gt;Bottom line&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The scandal is not that people are awful. People have always been awful.&lt;/p&gt;
+&lt;p&gt;The scandal is shipping a machine that can industrialize that awfulness, then acting surprised when it happens.&lt;/p&gt;
+&lt;p&gt;Grok is just the headline this week. The real issue is whether we decide, collectively, that child safety is a non-negotiable engineering requirement rather than a regrettable externality.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Because the line is simple:&lt;/strong&gt; If your AI can be used to create CSAM, you don’t have a product problem. You have an emergency.&lt;/p&gt;
+
+ 			</content>
+    </entry><entry>
       <title>Cybersecurity Weekly Roundup: January 2-9, 2026</title>
       <link href="https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-2-9-2026/" />
       <updated>2026-01-09T19:00:00Z</updated>
