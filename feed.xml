@@ -4,12 +4,44 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-01-12T16:56:00Z</updated>
+  <updated>2026-01-12T20:57:42Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>Weekly Notes: Back to Routines (Week 2, 2026)</title>
+      <link href="https://www.kylereddoch.me/blog/weekly-notes-back-to-routines-week-2-2026/" />
+      <updated>2026-01-12T19:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/weekly-notes-back-to-routines-week-2-2026/</id>
+      <content type="html">
+				&lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.webp 1200w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
+&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.jpeg 1200w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.jpeg&quot; width=&quot;1200&quot; height=&quot;800&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Recap:&lt;/strong&gt; A mostly quiet back-to-routine week: school kicked off again, early tennis mornings returned, I binged some solid TV, and work was the usual security grind with one real troubleshooting headache.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;the-vibe&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-back-to-routines-week-2-2026/#the-vibe&quot; class=&quot;heading-anchor&quot;&gt;The vibe&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Back-to-routine whiplash. The week was mostly steady and low-drama, but the early mornings hit hard, and everything had that “okay, we’re doing schedules again” energy.&lt;/p&gt;
+&lt;h2 id=&quot;highlights&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-back-to-routines-week-2-2026/#highlights&quot; class=&quot;heading-anchor&quot;&gt;Highlights&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;School started back up for me. This class is about Cloud Technologies, which I don’t work in every single day, but enough that it should be pretty smooth. Only 3 classes left.&lt;/li&gt;
+&lt;li&gt;My youngest started back after winter break too, which means we’re back to 7am tennis practices. Waking up that early again was brutal.&lt;/li&gt;
+&lt;li&gt;I finished &lt;em&gt;The Copenhagen Test&lt;/em&gt; in two days. Great show. I’m already impatient for season 2.&lt;/li&gt;
+&lt;li&gt;The wife and I started (and caught up on) &lt;em&gt;The Pitt&lt;/em&gt;. This show is ridiculously good. Also, Noah Wyle in a medical drama again just feels right.&lt;/li&gt;
+&lt;li&gt;The book is coming along nicely. I didn’t get as much time on it as I wanted, but progress is progress.&lt;/li&gt;
+&lt;li&gt;Work was just another &lt;s&gt;usual week&lt;/s&gt;. Actually, last Thursday a client’s card terminals stopped reaching the internet, so payments were dead in the water. That was a pain to troubleshoot, but we tracked it down and got everything back online.&lt;/li&gt;
+&lt;li&gt;The rest of the week was squashing alerts, killing malware, and generally keeping clients safe.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;worth-sharing&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-back-to-routines-week-2-2026/#worth-sharing&quot; class=&quot;heading-anchor&quot;&gt;Worth sharing&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;I came across a GitHub repo that generates a random “no” reason: &lt;a href=&quot;https://github.com/hotheadhacker/no-as-a-service&quot; rel=&quot;noopener&quot;&gt;No-as-a-Service&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.bleepingcomputer.com/news/security/cloud-file-sharing-sites-targeted-for-corporate-data-theft-attacks/&quot; rel=&quot;noopener&quot;&gt;Cloud file sharing sites&lt;/a&gt; are becoming prime targets for corporate data theft.&lt;/li&gt;
+&lt;li&gt;ChatGPT is going to connect with Apple Health data soon. &lt;a href=&quot;https://www.kylereddoch.me/blog/apple-health-chatgpt-the-privacy-tradeoff/&quot;&gt;Think privacy&lt;/a&gt; before connecting it!&lt;/li&gt;
+&lt;li&gt;My good friend &lt;a href=&quot;https://www.seerofsouls.com/alternatives-for-logitech-options-for-macos/&quot; rel=&quot;noopener&quot;&gt;Cliff Wade&lt;/a&gt; wrote up a great article about alternatives to Logitech Options for Mac users.&lt;/li&gt;
+&lt;/ul&gt;
+
+ 			</content>
+    </entry><entry>
       <title>The Unacceptable Failure: Grok, CSAM, and AI Safety</title>
       <link href="https://www.kylereddoch.me/blog/the-unacceptable-failure-grok-csam-and-ai-safety/" />
       <updated>2026-01-12T15:00:00Z</updated>
