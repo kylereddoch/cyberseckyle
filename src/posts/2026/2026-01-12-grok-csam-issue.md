@@ -8,7 +8,6 @@ mastodon_url: https://infosec.exchange/@cyberseckyle/115883161606486126
 
 > Content note: This post discusses child sexual abuse material (CSAM) and AI-facilitated sexual exploitation at a high level (no graphic details).
 
-
 {% image "/assets/images/grok-ai.jpg", "Grok logo above a blurred chat interface on a bright screen.", "Grok’s chat UI on screen, shown in soft focus. Photo: Salvador Rios on Unsplash", "eager", "text-center", "!important", [auto], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
 
 This is not “spicy content.” This is sexual violence, and when minors are involved it is criminal material. If an AI product can be steered into producing it, that is not a quirky bug. That is a full-blown safety and security failure.
