@@ -3,7 +3,7 @@ date: 2026-01-19T17:00:00-05:00
 title: 'Apple Creator Studio Hit My Nerd Buttons and Yes, I’m Genuinely Excited'
 description: "As an IT and cybersecurity guy who also ships content, Apple’s new Creator Studio bundle looks like the rare subscription that reduces chaos instead of adding to it."
 tags: [apple, IT, MSP, tech, ios, macos, ipados]
-mastodon_url:
+mastodon_url: https://infosec.exchange/@cyberseckyle/115924302545259006
 ---
 
 {% image "/assets/images/apple-creator-studio-hero.jpg", "Apple Creator Studio promotional graphic with the Apple logo and the words “Creator Studio” above a row of overlapping app icons on a dark background.", "Apple’s Creator Studio bundle, shown with a lineup of the included creative app icons. Source: Apple Newsroom", "eager", "text-center", "!important", [auto], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
