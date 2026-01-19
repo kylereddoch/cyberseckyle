@@ -4,12 +4,40 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-01-12T21:07:21Z</updated>
+  <updated>2026-01-19T22:17:35Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>Weekly Notes: Down for the Count (Week 3, 2026)</title>
+      <link href="https://www.kylereddoch.me/blog/weekly-notes-down-for-the-count-week-3-2026/" />
+      <updated>2026-01-19T21:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/weekly-notes-down-for-the-count-week-3-2026/</id>
+      <content type="html">
+				&lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.webp 1200w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
+&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.jpeg 1200w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.jpeg&quot; width=&quot;1200&quot; height=&quot;800&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Recap:&lt;/strong&gt; This past week wasn’t what I hoped for. I got sick right after Monday and ended up staying home the rest of the week. I didn’t get anything productive done. I mostly just slept.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;the-vibe&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-down-for-the-count-week-3-2026/#the-vibe&quot; class=&quot;heading-anchor&quot;&gt;The vibe&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Sick-all-week energy. Low battery. Blah. That’s the vibe.&lt;/p&gt;
+&lt;h2 id=&quot;highlights&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-down-for-the-count-week-3-2026/#highlights&quot; class=&quot;heading-anchor&quot;&gt;Highlights&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;I’m not totally sure what triggered it, but I started getting this stomach pain, and I still have it. I went to the doctor on Thursday since it wasn’t improving. After what felt like 24 questions, a quick ultrasound, and a whole lot of pressing on my stomach, they still couldn’t give me a clear answer. The ultrasound did show &lt;em&gt;something&lt;/em&gt; (possibly a hernia, but I’m not sure), so now I’m waiting on a referral for a more in-depth ultrasound.&lt;/li&gt;
+&lt;li&gt;Because I was sick, I did very little this week. Mostly resting, and honestly struggling to get comfortable.&lt;/li&gt;
+&lt;li&gt;I started a TV show called &lt;em&gt;The Lazarus Project&lt;/em&gt;. I heard about it from Steve Gibson on the &lt;a href=&quot;https://www.grc.com/securitynow.htm&quot; rel=&quot;noopener&quot;&gt;Security Now&lt;/a&gt; podcast. It’s a time-travel thriller with some genuinely solid twists. Definitely worth watching. &lt;strong&gt;It leaves Netflix on January 27th though, so don’t wait too long.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;The best highlight of the week was the Seahawks winning the divisional round against the 49ers on Saturday. We went over to a friend’s house (who is a 49ers fan), and it was a great time watching the game. I can’t wait for the NFC Championship game this week against the Rams.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;worth-sharing&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-down-for-the-count-week-3-2026/#worth-sharing&quot; class=&quot;heading-anchor&quot;&gt;Worth sharing&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;AI’s ongoing rise, both as a threat and as a defensive tool, is reshaping security leaders’ priorities. That list is also leaning harder into resiliency, third-party risk management, and geopolitical threats. &lt;a href=&quot;https://www.csoonline.com/article/4114020/cisos-top-10-cybersecurity-priorities-for-2026.html&quot; rel=&quot;noopener&quot;&gt;CISOs’ top 10 cybersecurity priorities for 2026&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The CSAM issue in GrokAI is unacceptable. &lt;a href=&quot;https://www.kylereddoch.me/blog/the-unacceptable-failure-grok-csam-and-ai-safety/&quot;&gt;The Unacceptable Failure: Grok, CSAM, and AI Safety&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;I’d still be keeping an eye on your Instagram account for anything suspicious. &lt;a href=&quot;https://www.bleepingcomputer.com/news/security/instagram-denies-breach-amid-claims-of-17-million-account-data-leak/?ref=metacurity.com&quot; rel=&quot;noopener&quot;&gt;Instagram denies breach amid claims of 17 million account data leak&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+ 			</content>
+    </entry><entry>
       <title>Weekly Notes: Back to Routines (Week 2, 2026)</title>
       <link href="https://www.kylereddoch.me/blog/weekly-notes-back-to-routines-week-2-2026/" />
       <updated>2026-01-12T19:00:00Z</updated>
