@@ -106,3 +106,21 @@
     font-weight: var(--font-bold, 700);
   }
 }
+
+/* Equal-width columns for 4-column tables (desktop/table layout) */
+@media (min-width: 40rem) {
+  :where(main, article, .content, .prose) table:has(thead th:nth-child(4)):not(:has(thead th:nth-child(5))) {
+    table-layout: fixed;
+  }
+
+  :where(main, article, .content, .prose) table:has(thead th:nth-child(4)):not(:has(thead th:nth-child(5))) thead th {
+    width: 25%;
+  }
+
+  /* Keep the “Model” column readable (no per-character wrapping) */
+  :where(main, article, .content, .prose) table:has(thead th:nth-child(4)):not(:has(thead th:nth-child(5))) :is(th, td):first-child {
+    white-space: nowrap;
+    word-break: normal;
+    overflow-wrap: normal;
+  }
+}
