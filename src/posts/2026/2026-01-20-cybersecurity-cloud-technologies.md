@@ -3,7 +3,7 @@ date: 2026-01-20T11:00:00-05:00
 title: 'Cybersecurity Implications of Cloud Service Models (IaaS, PaaS, CaaS, and SaaS)'
 description: "Cloud changes your attack surface and your responsibilities. Here’s what security really looks like across IaaS, PaaS, CaaS, and SaaS."
 tags: [cloud-security, cybersecurity, tech]
-mastodon_url: ""
+mastodon_url: https://infosec.exchange/@cyberseckyle/115928704860615091
 ---
 
 {% image "/assets/images/cloud-tech-cybersec.jpg", "Glowing 3D cloud made of circuitry and neon lights floating above a soft cloud on a dark gradient background", null, "eager", "text-center", "!important", [auto], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
