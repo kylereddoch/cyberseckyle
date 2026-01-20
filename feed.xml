@@ -4,12 +4,152 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-01-19T23:18:47Z</updated>
+  <updated>2026-01-20T17:47:06Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 	<entry>
+      <title>Cybersecurity Implications of Cloud Service Models (IaaS, PaaS, CaaS, and SaaS)</title>
+      <link href="https://www.kylereddoch.me/blog/cybersecurity-implications-of-cloud-service-models-iaas-paas-caas-and-saas/" />
+      <updated>2026-01-20T16:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/cybersecurity-implications-of-cloud-service-models-iaas-paas-caas-and-saas/</id>
+      <content type="html">
+				&lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/cloud-tech-cybersec-1000w.webp 1000w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
+&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/cloud-tech-cybersec-1000w.jpeg 1000w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/cloud-tech-cybersec-1000w.jpeg&quot; width=&quot;1000&quot; height=&quot;667&quot; alt=&quot;Glowing 3D cloud made of circuitry and neon lights floating above a soft cloud on a dark gradient background&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;Cloud is funny like that. It will happily remove a ton of operational pain, then quietly replace it with a new flavor of risk you did not budget for.&lt;/p&gt;
+&lt;p&gt;In &lt;strong&gt;NTC300 - Cloud Technologies&lt;/strong&gt; (the class I’m in right now), we spend a lot of time on the big service models: &lt;strong&gt;IaaS, PaaS, CaaS, SaaS&lt;/strong&gt;. Most “explainer” content focuses on scalability and cost, like this solid overview from the &lt;a href=&quot;https://www.cm-alliance.com/cybersecurity-blog/iaas-paas-and-saas-explained-best-cloud-models-for-scalable-projects&quot; rel=&quot;noopener&quot;&gt;Cyber Management Alliance&lt;/a&gt;. That part matters, but if you work in cybersecurity (or you support orgs that do), the &lt;em&gt;real&lt;/em&gt; question is:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;What exactly am I responsible for securing now, and what new ways can this go sideways?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The cleanest way to answer that is the &lt;strong&gt;shared responsibility model&lt;/strong&gt;. All major cloud providers explain it, but the gist is the same: the provider secures &lt;em&gt;the cloud&lt;/em&gt;, you secure what you build &lt;em&gt;in the cloud&lt;/em&gt; (&lt;a href=&quot;https://aws.amazon.com/compliance/shared-responsibility-model/&quot; rel=&quot;noopener&quot;&gt;AWS&lt;/a&gt;, &lt;a href=&quot;https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility&quot; rel=&quot;noopener&quot;&gt;Microsoft Azure&lt;/a&gt;, &lt;a href=&quot;https://docs.cloud.google.com/architecture/framework/security/shared-responsibility-shared-fate&quot; rel=&quot;noopener&quot;&gt;Google Cloud&lt;/a&gt;).&lt;/p&gt;
+&lt;h2 id=&quot;a-quick-primer-what-the-models-actually-mean-security-wise&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-implications-of-cloud-service-models-iaas-paas-caas-and-saas/#a-quick-primer-what-the-models-actually-mean-security-wise&quot; class=&quot;heading-anchor&quot;&gt;A quick primer: what the models actually mean (security-wise)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A simple way to think about cloud service models is: &lt;strong&gt;as you move from IaaS to SaaS, you manage fewer layers, but you also lose visibility and direct control.&lt;/strong&gt; Google includes a straightforward definition set that also calls out &lt;strong&gt;CaaS&lt;/strong&gt; alongside the “big three” (&lt;a href=&quot;https://cloud.google.com/learn/paas-vs-iaas-vs-saas&quot; rel=&quot;noopener&quot;&gt;Google Cloud overview&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Here’s the practical security translation:&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Model&lt;/th&gt;
+      &lt;th&gt;You manage&lt;/th&gt;
+      &lt;th&gt;Provider manages&lt;/th&gt;
+      &lt;th&gt;The cybersecurity gotcha&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td data-label=&quot;Model&quot;&gt;IaaS&lt;/td&gt;
+      &lt;td data-label=&quot;You manage&quot;&gt;OS, apps, identity access, network configuration, data&lt;/td&gt;
+      &lt;td data-label=&quot;Provider manages&quot;&gt;Physical infrastructure, hypervisor, core platform services&lt;/td&gt;
+      &lt;td data-label=&quot;The cybersecurity gotcha&quot;&gt;You can still misconfigure everything, and now it is internet-adjacent by default&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td data-label=&quot;Model&quot;&gt;PaaS&lt;/td&gt;
+      &lt;td data-label=&quot;You manage&quot;&gt;Application code, identity access, data, some configuration&lt;/td&gt;
+      &lt;td data-label=&quot;Provider manages&quot;&gt;OS/runtime, patching of platform components&lt;/td&gt;
+      &lt;td data-label=&quot;The cybersecurity gotcha&quot;&gt;Developers can ship risk faster than security can review it&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td data-label=&quot;Model&quot;&gt;CaaS&lt;/td&gt;
+      &lt;td data-label=&quot;You manage&quot;&gt;Container images, workload configuration, policies, workload identity, secrets (and sometimes cluster configuration)&lt;/td&gt;
+      &lt;td data-label=&quot;Provider manages&quot;&gt;Infrastructure plus some orchestration layer (varies by provider)&lt;/td&gt;
+      &lt;td data-label=&quot;The cybersecurity gotcha&quot;&gt;Kubernetes is powerful, and power is just ways to be wrong at scale&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td data-label=&quot;Model&quot;&gt;SaaS&lt;/td&gt;
+      &lt;td data-label=&quot;You manage&quot;&gt;Identity access, configuration, integrations, data governance&lt;/td&gt;
+      &lt;td data-label=&quot;Provider manages&quot;&gt;The entire application stack and underlying platform&lt;/td&gt;
+      &lt;td data-label=&quot;The cybersecurity gotcha&quot;&gt;Your biggest threat becomes account takeover, misconfiguration, and vendor or integration sprawl&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;iaas-maximum-control-maximum-ways-to-mess-it-up&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-implications-of-cloud-service-models-iaas-paas-caas-and-saas/#iaas-maximum-control-maximum-ways-to-mess-it-up&quot; class=&quot;heading-anchor&quot;&gt;IaaS: maximum control, maximum ways to mess it up&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;IaaS feels familiar because it resembles traditional infrastructure, just rented and programmable. That familiarity is a trap.&lt;/p&gt;
+&lt;h3 id=&quot;common-security-failure-modes-i-see-and-fix&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-implications-of-cloud-service-models-iaas-paas-caas-and-saas/#common-security-failure-modes-i-see-and-fix&quot; class=&quot;heading-anchor&quot;&gt;Common security failure modes I see (and fix)&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Identity over-permissioning&lt;/strong&gt;: broad roles, long-lived keys, shared admin accounts. Cloud IAM mistakes scale instantly.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Network exposure by accident&lt;/strong&gt;: “temporary” open security groups, overly permissive firewall rules, public management ports.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Unpatched workloads&lt;/strong&gt;: “we moved servers to the cloud” is not the same as “we modernized patching.”&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Logging blind spots&lt;/strong&gt;: logs not enabled, not centralized, or not retained long enough to investigate.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;what-to-do-about-it&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-implications-of-cloud-service-models-iaas-paas-caas-and-saas/#what-to-do-about-it&quot; class=&quot;heading-anchor&quot;&gt;What to do about it&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Treat IAM as your new perimeter. Enforce MFA and least privilege aligned to shared responsibility guidance (&lt;a href=&quot;https://aws.amazon.com/compliance/shared-responsibility-model/&quot; rel=&quot;noopener&quot;&gt;AWS&lt;/a&gt;, &lt;a href=&quot;https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility&quot; rel=&quot;noopener&quot;&gt;Azure&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Baseline and continuously scan configuration drift with a CSPM-style mindset (the Cloud Security Alliance’s &lt;a href=&quot;https://cloudsecurityalliance.org/research/cloud-controls-matrix&quot; rel=&quot;noopener&quot;&gt;Cloud Controls Matrix&lt;/a&gt; is a good control map for this).&lt;/li&gt;
+&lt;li&gt;Turn on the audit logs early and ship them to your SIEM before you need them. “We’ll do logging later” is how incident response becomes creative writing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;paas-fewer-patches-more-pressure-on-app-security&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-implications-of-cloud-service-models-iaas-paas-caas-and-saas/#paas-fewer-patches-more-pressure-on-app-security&quot; class=&quot;heading-anchor&quot;&gt;PaaS: fewer patches, more pressure on app security&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;PaaS removes a lot of OS and runtime maintenance, which is great. It also concentrates risk into the two areas orgs routinely under-invest in: &lt;strong&gt;application security&lt;/strong&gt; and &lt;strong&gt;identity&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;the-big-risks&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-implications-of-cloud-service-models-iaas-paas-caas-and-saas/#the-big-risks&quot; class=&quot;heading-anchor&quot;&gt;The big risks&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Insecure code and insecure defaults&lt;/strong&gt;: injection, auth flaws, weak secrets handling, unsafe storage rules.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CI/CD supply chain risk&lt;/strong&gt;: build pipelines, artifact repos, and deploy keys become high-value targets.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Config sprawl&lt;/strong&gt;: environment variables, service connections, managed identities, and API keys multiply fast.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;what-to-do-about-it-1&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-implications-of-cloud-service-models-iaas-paas-caas-and-saas/#what-to-do-about-it-1&quot; class=&quot;heading-anchor&quot;&gt;What to do about it&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Shift left, but for real: SAST/DAST, dependency scanning, secret scanning, and basic threat modeling in the pipeline.&lt;/li&gt;
+&lt;li&gt;Make “secure-by-default templates” the path of least resistance for dev teams.&lt;/li&gt;
+&lt;li&gt;Use control frameworks to keep your governance sane as you scale (CSA’s &lt;a href=&quot;https://cloudsecurityalliance.org/research/cloud-controls-matrix&quot; rel=&quot;noopener&quot;&gt;CCM&lt;/a&gt; is built specifically for cloud control coverage).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;caas-containers-move-fast-and-so-do-breaches&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-implications-of-cloud-service-models-iaas-paas-caas-and-saas/#caas-containers-move-fast-and-so-do-breaches&quot; class=&quot;heading-anchor&quot;&gt;CaaS: containers move fast, and so do breaches&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;CaaS (often Kubernetes-based) sits in an awkward middle ground. You usually get managed infrastructure, but you still have to secure images, workloads, policies, and sometimes cluster configuration.&lt;/p&gt;
+&lt;p&gt;If you do only one piece of homework for container security, make it &lt;strong&gt;NIST SP 800-190&lt;/strong&gt;. It lays out core container risks and mitigations in plain terms (&lt;a href=&quot;https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-190.pdf&quot; rel=&quot;noopener&quot;&gt;NIST SP 800-190 PDF&lt;/a&gt;, also summarized at &lt;a href=&quot;https://csrc.nist.gov/pubs/sp/800/190/final&quot; rel=&quot;noopener&quot;&gt;NIST CSRC&lt;/a&gt;).&lt;/p&gt;
+&lt;h3 id=&quot;container-specific-risks-that-bite-people&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-implications-of-cloud-service-models-iaas-paas-caas-and-saas/#container-specific-risks-that-bite-people&quot; class=&quot;heading-anchor&quot;&gt;Container-specific risks that bite people&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Image supply chain&lt;/strong&gt;: pulling untrusted images, bloated base layers, vulnerable dependencies.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Secrets leakage&lt;/strong&gt;: secrets in env vars, baked into images, or stored in Git by accident.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cluster misconfiguration&lt;/strong&gt;: overly permissive RBAC, exposed dashboards, weak network policy.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Runtime escape and lateral movement&lt;/strong&gt;: one compromised pod can become “now we own the namespace.”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;what-to-do-about-it-2&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-implications-of-cloud-service-models-iaas-paas-caas-and-saas/#what-to-do-about-it-2&quot; class=&quot;heading-anchor&quot;&gt;What to do about it&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Build and deploy from trusted images, scan continuously, and sign artifacts where possible (NIST frames the core practices clearly in &lt;a href=&quot;https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-190.pdf&quot; rel=&quot;noopener&quot;&gt;SP 800-190&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Benchmark your cluster hardening against consensus guidance like the &lt;a href=&quot;https://www.cisecurity.org/benchmark/kubernetes&quot; rel=&quot;noopener&quot;&gt;CIS Kubernetes Benchmark&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Enforce network policy, workload identity, and least privilege RBAC. Kubernetes with flat networking and “cluster-admin because it’s easier” is basically speedrunning regret.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;saas-you-dont-patch-it-but-you-can-definitely-misconfigure-it&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-implications-of-cloud-service-models-iaas-paas-caas-and-saas/#saas-you-dont-patch-it-but-you-can-definitely-misconfigure-it&quot; class=&quot;heading-anchor&quot;&gt;SaaS: you don’t patch it, but you can definitely misconfigure it&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;SaaS is where a lot of orgs end up, even if they did not plan to. Email, identity, HR, ticketing, accounting, documentation. The operational lift is low, and the blast radius can be enormous.&lt;/p&gt;
+&lt;p&gt;The cloud provider runs the platform, but you still own identity, data, and configuration under shared responsibility (&lt;a href=&quot;https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility&quot; rel=&quot;noopener&quot;&gt;Azure&lt;/a&gt;, &lt;a href=&quot;https://aws.amazon.com/compliance/shared-responsibility-model/&quot; rel=&quot;noopener&quot;&gt;AWS&lt;/a&gt;, &lt;a href=&quot;https://docs.cloud.google.com/architecture/framework/security/shared-responsibility-shared-fate&quot; rel=&quot;noopener&quot;&gt;Google Cloud&lt;/a&gt;).&lt;/p&gt;
+&lt;h3 id=&quot;the-big-saas-risks&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-implications-of-cloud-service-models-iaas-paas-caas-and-saas/#the-big-saas-risks&quot; class=&quot;heading-anchor&quot;&gt;The big SaaS risks&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Account takeover&lt;/strong&gt;: password reuse, MFA gaps, token theft, weak session policies.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Misconfiguration&lt;/strong&gt;: sharing controls, external collaboration settings, default public links, unsafe tenant controls.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Overpowered integrations&lt;/strong&gt;: OAuth apps and third-party connectors that get too much access for too long.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data governance drift&lt;/strong&gt;: nobody knows what “sensitive” means, so everything gets treated like it’s fine.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;what-to-do-about-it-3&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-implications-of-cloud-service-models-iaas-paas-caas-and-saas/#what-to-do-about-it-3&quot; class=&quot;heading-anchor&quot;&gt;What to do about it&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Centralize identity: SSO, strong MFA, conditional access, and tight lifecycle management.&lt;/li&gt;
+&lt;li&gt;Monitor and restrict third-party app consent and OAuth scopes.&lt;/li&gt;
+&lt;li&gt;Backups still matter. “It’s in the cloud” is not a synonym for “it’s recoverable.”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;the-thread-that-ties-all-models-together-cloud-changes-the-shape-of-risk&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-implications-of-cloud-service-models-iaas-paas-caas-and-saas/#the-thread-that-ties-all-models-together-cloud-changes-the-shape-of-risk&quot; class=&quot;heading-anchor&quot;&gt;The thread that ties all models together: cloud changes the shape of risk&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Cloud does not magically make security better or worse. It makes it &lt;strong&gt;different&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;NIST has been saying this for a while: cloud abstracts complexity, but that abstraction introduces its own security and privacy challenges (&lt;a href=&quot;https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-144.pdf&quot; rel=&quot;noopener&quot;&gt;NIST SP 800-144&lt;/a&gt;). In practice, that shows up as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Identity becomes the control plane&lt;/strong&gt; (and therefore the primary target).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Misconfiguration becomes the #1 “bug class”&lt;/strong&gt; because everything is configurable.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Visibility shifts&lt;/strong&gt; from packets and endpoints to logs, APIs, and control-plane events.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Supply chain risk increases&lt;/strong&gt; because your environment is built from services, dependencies, and integrations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;a-practical-do-this-first-security-checklist-works-across-iaas-paas-caas-saas&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-implications-of-cloud-service-models-iaas-paas-caas-and-saas/#a-practical-do-this-first-security-checklist-works-across-iaas-paas-caas-saas&quot; class=&quot;heading-anchor&quot;&gt;A practical “do this first” security checklist (works across IaaS, PaaS, CaaS, SaaS)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This is the stuff that actually reduces incidents in the real world, especially in MSP environments where you need repeatable wins:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Enforce strong identity controls everywhere&lt;/strong&gt; (MFA, SSO, conditional access) aligned to shared responsibility guidance (&lt;a href=&quot;https://aws.amazon.com/compliance/shared-responsibility-model/&quot; rel=&quot;noopener&quot;&gt;AWS&lt;/a&gt;, &lt;a href=&quot;https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility&quot; rel=&quot;noopener&quot;&gt;Azure&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Least privilege by default&lt;/strong&gt; with regular access reviews.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Centralize logs early&lt;/strong&gt; and retain them long enough to investigate.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Continuously assess configuration&lt;/strong&gt; using a control framework baseline like the &lt;a href=&quot;https://cloudsecurityalliance.org/research/cloud-controls-matrix&quot; rel=&quot;noopener&quot;&gt;CSA Cloud Controls Matrix&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Encrypt sensitive data&lt;/strong&gt; and control key management policies.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Harden container environments&lt;/strong&gt; using NIST container guidance (&lt;a href=&quot;https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-190.pdf&quot; rel=&quot;noopener&quot;&gt;SP 800-190&lt;/a&gt;) and cluster benchmarks like &lt;a href=&quot;https://www.cisecurity.org/benchmark/kubernetes&quot; rel=&quot;noopener&quot;&gt;CIS Kubernetes&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Secure the pipeline&lt;/strong&gt;: secrets scanning, dependency scanning, and protected deploy credentials.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Backup and recovery testing&lt;/strong&gt; even for SaaS data.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Vendor and integration governance&lt;/strong&gt;: minimize OAuth scope, review third-party apps, remove what you don’t need.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Practice incident response in cloud terms&lt;/strong&gt;: know what logs exist, where they live, and how to pull them fast.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;closing-thought&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-implications-of-cloud-service-models-iaas-paas-caas-and-saas/#closing-thought&quot; class=&quot;heading-anchor&quot;&gt;Closing thought&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If you remember only one thing: &lt;strong&gt;cloud service models are not just pricing models, they are responsibility models.&lt;/strong&gt; The security work does not go away as you move from IaaS to SaaS. It migrates into identity, configuration, data governance, and how well you can see what is happening through cloud-native logging and controls.&lt;/p&gt;
+&lt;p&gt;Scalability is the headline. Security is the fine print. And the fine print is where the breaches live.&lt;/p&gt;
+
+ 			</content>
+    </entry><entry>
       <title>Apple Creator Studio Hit My Nerd Buttons and Yes, I’m Genuinely Excited</title>
       <link href="https://www.kylereddoch.me/blog/apple-creator-studio-hit-my-nerd-buttons-and-yes-im-genuinely-excited/" />
       <updated>2026-01-19T22:00:00Z</updated>
