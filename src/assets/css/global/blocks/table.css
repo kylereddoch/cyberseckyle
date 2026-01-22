@@ -1,9 +1,10 @@
 /*
   table.css
   - Rounded outer border
-  - Clean grid dividers
-  - Mobile default: scale down (no horizontal scroll)
-  - Mobile optional: break down into stacked rows if td[data-label] exists
+  - Clean grid dividers (no double-thick lines)
+  - Columns fit content (desktop/table-layout: auto)
+  - Mobile: scales down (no horizontal scroll)
+  - Optional mobile “break down” into stacked rows if td[data-label] exists
 */
 
 :where(main, article, .content, .prose) table {
@@ -19,6 +20,9 @@
   border-collapse: separate;
   border-spacing: 0;
   overflow: hidden;
+
+  /* Let columns size to their content by default */
+  table-layout: auto;
 }
 
 /* Cells */
@@ -27,6 +31,8 @@
   text-align: start !important;
   vertical-align: top;
   line-height: var(--leading-standard, 1.5);
+
+  /* Keep long tokens/URLs from wrecking layout */
   overflow-wrap: anywhere;
   word-break: break-word;
 
@@ -54,20 +60,39 @@
   display: none;
 }
 
+/* ------------------------------------
+   Desktop: protect first column sizing
+   ------------------------------------ */
+@media (min-width: 40rem) {
+
+  /* First column should size to its content (e.g., “Model”, “IaaS”, “PaaS”) */
+  :where(main, article, .content, .prose) table :is(th, td):first-child {
+    width: 1%;
+    /* shrink-to-fit hint */
+    white-space: nowrap;
+    /* prevents M / od / el */
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+}
+
 /* -----------------------------
    Mobile default: scale down
+   (no horizontal scroll)
    ----------------------------- */
 @media (max-width: 40rem) {
-  :where(main, article, .content, .prose) table {
-    table-layout: fixed;
-    /* helps prevent overflow */
-  }
-
   :where(main, article, .content, .prose) table :is(th, td) {
     padding: var(--space-xs, 0.75rem) var(--space-s, 1rem);
     font-size: 0.95em;
     hyphens: auto;
     min-inline-size: 0;
+  }
+
+  /* On small screens allow wrapping, but never letter-by-letter */
+  :where(main, article, .content, .prose) table :is(th, td):first-child {
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: normal;
   }
 }
 
@@ -104,23 +129,5 @@
   :where(main, article, .content, .prose) table:has(td[data-label]) tbody td::before {
     content: attr(data-label);
     font-weight: var(--font-bold, 700);
-  }
-}
-
-/* Equal-width columns for 4-column tables (desktop/table layout) */
-@media (min-width: 40rem) {
-  :where(main, article, .content, .prose) table:has(thead th:nth-child(4)):not(:has(thead th:nth-child(5))) {
-    table-layout: fixed;
-  }
-
-  :where(main, article, .content, .prose) table:has(thead th:nth-child(4)):not(:has(thead th:nth-child(5))) thead th {
-    width: 25%;
-  }
-
-  /* Keep the “Model” column readable (no per-character wrapping) */
-  :where(main, article, .content, .prose) table:has(thead th:nth-child(4)):not(:has(thead th:nth-child(5))) :is(th, td):first-child {
-    white-space: nowrap;
-    word-break: normal;
-    overflow-wrap: normal;
   }
 }
