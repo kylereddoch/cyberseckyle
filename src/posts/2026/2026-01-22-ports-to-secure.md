@@ -1,9 +1,9 @@
 ---
 date: 2026-01-22T14:00:00-05:00
-title: 20 Common Network Ports You Must Know (and Secure)
-description: A practical, security-first cheat sheet for the 20 ports you see everywhere, what they do, why they get abused, and how to lock them down without breaking the business.
+title: '20 Common Network Ports You Must Know (and Secure)'
+description: "A practical, security-first cheat sheet for the 20 ports you see everywhere, what they do, why they get abused, and how to lock them down without breaking the business."
 tags: [networking, cybersecurity, IT, tech]
-mastodon_url:
+mastodon_url: https://infosec.exchange/@cyberseckyle/115940630752567216
 ---
 
 {% image "/assets/images/network-ports.jpg", "Close-up of a network switch with dozens of blue Ethernet cables plugged in, LED link lights glowing across the ports.", "A busy switch full of connections, every lit port is a service path you should inventory, control, and monitor. (Photo by Scott Rodgerson on Unsplash)", "eager", "text-center", "!important", [850], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
