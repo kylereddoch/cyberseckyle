@@ -9,6 +9,10 @@ export default {
       url: '/blog/'
     },
     {
+      text: 'Cybersecurity',
+      url: '/tags/cybersecurity/'
+    },
+    {
       text: 'Slashes',
       url: '/slashes/'
     },
