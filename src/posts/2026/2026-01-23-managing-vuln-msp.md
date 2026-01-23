@@ -3,7 +3,7 @@ date: 2026-01-23T10:00:00-05:00
 title: Managing Vulnerabilities in an MSP Environment
 description: A practical, MSP-ready vulnerability management program that scales across clients, handles zero-days sanely, and proves risk reduction with reporting that actually matters.
 tags: [MSP, cybersecurity, vulnerability-management, risk-management, security-operations]
-mastodon_url: ""
+mastodon_url: https://infosec.exchange/@cyberseckyle/115945421540619528
 ---
 
 {% image "/assets/images/vuln-hero-image.png", "Three-panel photo collage showing MSP-style vulnerability work: a warm-lit desk with a laptop and “Patch” sticky notes, hands holding a tablet in front of server racks with a vulnerability dashboard, and a notebook labeled “Critical / High / Medium” beside a laptop and phone.", "A snapshot of vulnerability management in an MSP world, patching, monitoring, and prioritizing risk across environments. (Image generated with ChatGPT.)", "eager", "text-center", "!important", [auto], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
