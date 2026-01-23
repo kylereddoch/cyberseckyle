@@ -86,7 +86,7 @@
   --color-secondary: var(--color-sapphire);
   --color-tertiary: var(--color-peach);
 
-  --color-text-accent: var(--color-gray-300);
+  : var(--color-gray-300);
   --color-bg-accent: var(--color-gray-700);
   --color-bg-accent-2: var(--color-gray-600);
 }

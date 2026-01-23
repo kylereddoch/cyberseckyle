@@ -100,6 +100,27 @@ export default async function (eleventyConfig) {
   eleventyConfig.addLayoutAlias('post', 'post.njk');
   eleventyConfig.addLayoutAlias('tags', 'tags.njk');
 
+  // ---------------------
+  // Tag pagination helpers (NEW)
+  // ---------------------
+  const chunk = (arr, size) => {
+    const out = [];
+    for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
+    return out;
+  };
+
+  // Use your existing slugify filter if available, but we can’t call Nunjucks filters here.
+  // So we use a safe internal slugify that matches typical Eleventy behavior.
+  const slugifyLocal = (str) =>
+    String(str)
+      .normalize("NFKD")
+      .toLowerCase()
+      .trim()
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9\s-]/g, "")
+      .replace(/\s+/g, "-")
+      .replace(/-+/g, "-");
+
   //	---------------------  Collections
   eleventyConfig.addCollection('allPosts', getAllPosts);
   eleventyConfig.addCollection('showInSitemap', showInSitemap);
@@ -107,6 +128,80 @@ export default async function (eleventyConfig) {
 
   // ✅ new now collection
   eleventyConfig.addCollection('nowEntries', getNowPosts);
+
+  // ✅ NEW: paginated “virtual pages” for each tag
+  // This powers /tags/<tag>/, /tags/<tag>/1/, /tags/<tag>/2/ ... etc
+  eleventyConfig.addCollection('tagPages', function (collectionApi) {
+    const postsPerPage = 8; // <- change this to your preferred page size
+
+    // Best effort to align with your existing tagList exclusions
+    const excluded = new Set(["all", "nav", "post", "posts", "tagList", "tags"]);
+
+    // Build tag list from all content
+    const tagSet = new Set();
+    for (const item of collectionApi.getAll()) {
+      const tags = item?.data?.tags;
+      if (!tags) continue;
+      for (const t of tags) {
+        if (!t || excluded.has(t)) continue;
+        tagSet.add(t);
+      }
+    }
+
+    const tags = [...tagSet].sort((a, b) =>
+      a.localeCompare(b, "en", { sensitivity: "base" })
+    );
+
+    const pages = [];
+
+    for (const tag of tags) {
+      const slug = slugifyLocal(tag);
+
+      // Pull posts for this tag, newest first
+      const allItems = collectionApi.getFilteredByTag(tag).reverse();
+
+      const totalItems = allItems.length;
+      const chunks = chunk(allItems, postsPerPage);
+      const pageCount = chunks.length;
+
+      // URL scheme:
+      // page 1: /tags/<slug>/
+      // page 2: /tags/<slug>/1/
+      // page 3: /tags/<slug>/2/
+      const hrefs = chunks.map((_, i) =>
+        i === 0 ? `/tags/${slug}/` : `/tags/${slug}/${i}/`
+      );
+
+      const pageNums = hrefs.map((_, i) => i);
+
+      chunks.forEach((items, i) => {
+        pages.push({
+          tag,
+          slug,
+          items,        // posts for THIS page
+          allItems,     // all posts for the tag
+          totalItems,
+          size: postsPerPage,
+          pageNumber: i,
+          pageCount,
+          permalink: hrefs[i],
+
+          // This is shaped like Eleventy’s pagination object
+          pager: {
+            size: postsPerPage,
+            pages: pageNums,
+            hrefs,
+            href: {
+              previous: i > 0 ? hrefs[i - 1] : null,
+              next: i < hrefs.length - 1 ? hrefs[i + 1] : null,
+            },
+          },
+        });
+      });
+    }
+
+    return pages;
+  });
 
 
   // ---------------------  Plugins
@@ -238,7 +333,6 @@ export default async function (eleventyConfig) {
     "node_modules/@zachleat/snow-fall/snow-fall.js":
       "assets/scripts/components/snow-fall.js",
   });
-
 
   // --------------------- general config
   return {

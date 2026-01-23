@@ -4,15 +4,18 @@
 .site-footer {
   background-color: var(--color-gray-700) !important;
   color: var(--color-gray-100);
-  padding-block: var(--space-2xl);
   width: 100%;
   display: block;
   border-top: 1px solid color-mix(in oklab, var(--color-gray-100) 8%, transparent);
+
+  /* IMPORTANT: padding belongs to the main inner wrapper now */
+  padding-block: 0;
 }
 
-/* keep wrapper transparent inside footer band */
-.site-footer>.wrapper {
+/* Keep wrapper transparent, and restore the main footer padding */
+.site-footer>.wrapper.site-footer__inner {
   background: transparent;
+  padding-block: var(--space-2xl);
 }
 
 /* ===== Footer grid (independent of site .wrapper grid) */
@@ -127,11 +130,8 @@
 }
 
 .site-footer a[href*="11ty.dev/speedlify/kylereddoch-me"]:hover {
-  /* color: var(--color-green);
-   same hover color as other footer links */
   text-decoration: none;
 }
-
 
 /* ===== Webrings (flex “cluster”) — left-aligned by design */
 .webrings {
@@ -187,4 +187,72 @@
 .webrings-note {
   margin: var(--space-s) 0 0;
   text-align: left;
+}
+
+/* =========================
+   Indie buttons footer band
+   - lighter bg
+   - no divider line
+   - maintains spacing between main footer and band
+   ========================= */
+
+.site-footer .indie-buttons-band {
+  width: 100%;
+  padding-block: var(--space-l);
+
+  /* NO line */
+  border: 0;
+
+  /* Lighter than the main footer */
+  background: color-mix(in oklab, var(--color-gray-700) 85%, white);
+}
+
+/* make sure wrapper stays transparent */
+.site-footer .indie-buttons-band>.wrapper {
+  background: transparent;
+}
+
+/* override the generic footer <a> padding specifically for buttons */
+.site-footer .indie-buttons-band a {
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* responsive grid across wrapper width */
+.site-footer .indie-buttons {
+  --button-min: 5.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: grid;
+  gap: var(--space-s);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--button-min)), 1fr));
+  align-items: center;
+}
+
+.site-footer .indie-buttons>li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* normalize visuals even if images differ */
+.site-footer .indie-buttons img {
+  display: block;
+  height: 31px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+
+  image-rendering: pixelated;
+  /* optional */
+  border-radius: 0.2rem;
+}
+
+/* hover */
+.site-footer .indie-buttons-band a:hover img {
+  filter: brightness(1.1);
 }
