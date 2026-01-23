@@ -3,7 +3,7 @@ date: 2026-01-23T14:00:00-05:00
 title: "Bondi Blue in My Pocket"
 description: "A phone case that accidentally time traveled me back to the iMac G3 computer lab days."
 tags: [personal, apple, tech]
-mastodon_url: ""
+mastodon_url: https://infosec.exchange/@cyberseckyle/115946644395569564
 #draft: true
 ---
 
