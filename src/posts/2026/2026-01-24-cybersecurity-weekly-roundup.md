@@ -3,7 +3,7 @@ date: 2026-01-24T19:30:00-05:00
 title: 'Cybersecurity Weekly Roundup: January 17-24, 2026'
 description: "Cisco Unified CM zero-day exploitation, Fortinet SSO abuse, Zoom and GitLab patches, telnetd auth-bypass attacks, plus breach and platform weirdness you should not ignore."
 tags: [cybersecurity weekly roundup, cybersecurity, vulnerability-management, incident-response, news]
-mastodon_url:
+mastodon_url: https://infosec.exchange/@cyberseckyle/115953313875468143
 ---
 
 {% image "/assets/images/cybersec_weekly_roundup.png", "“Cybersecurity Weekly Roundup” showing a glowing shield with a keyhole over a world map, surrounded by digital interface icons and data streams.", "Cybersecurity Weekly Roundup — the week’s biggest security news, distilled into signal and next steps. (Image generated with ChatGPT)", "eager", "text-center", "!important", [auto], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
