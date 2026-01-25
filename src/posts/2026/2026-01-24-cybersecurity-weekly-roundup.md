@@ -1,8 +1,8 @@
 ---
-date: 2026-01-24T019:30:00-05:00
+date: 2026-01-24T19:30:00-05:00
 title: 'Cybersecurity Weekly Roundup: January 17-24, 2026'
 description: "Cisco Unified CM zero-day exploitation, Fortinet SSO abuse, Zoom and GitLab patches, telnetd auth-bypass attacks, plus breach and platform weirdness you should not ignore."
-tags: [cybersecurity, infosec, vulnerability-management, incident-response, ransomware, phishing, zero-days]
+tags: [cybersecurity weekly roundup, cybersecurity, vulnerability-management, incident-response, news]
 mastodon_url:
 ---
 
