@@ -4,6 +4,7 @@ title: "January 2026"
 date: 2026-01-26T12:30:00-05:00
 tags: [now, life, work, school]
 description: Cybersecurity, school, and indie web projects in motion. January’s now update covers MSP life, Cloud Technologies labs, site tweaks, weekly roundups, playlists, what I’m watching, and progress on my cyber-thriller The Cipher Fellows.
+mastodon_url: https://infosec.exchange/@cyberseckyle/115962961291682207
 ---
 
 This is what I’m focused on right now, in the real world, not the aspirational multiverse where I have unlimited time.
