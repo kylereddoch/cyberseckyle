@@ -58,6 +58,7 @@ h4 {
 
 h1 {
   font-size: var(--size-step-4);
+  color: var(--color-maroon);
 }
 
 h2 {
