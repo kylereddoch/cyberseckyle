@@ -10,21 +10,24 @@ eleventyComputed:
 
 {% set latestNow = collections.nowEntries | first %}
 
-<div class="wrapper flow">
+<div class="wrapper flow prose">
   <header class="full | section" style="--spot-color: var(--color-secondary)">
     <div class="section__inner flow region">
       <h1 class="text-center" style="color: var(--color-bg); font-size: var(--size-step-6) !important;">
         {{ title }}
       </h1>
-      <p class="text-center" style="color: var(--color-bg); font-size: var(--size-step-0) !important;">What am I focused on right now?</p>
     </div>
     {% svg "divider/edgy", null, "divider" %}
   </header>
 
   <div class="region flow">
 
+    <p style="font-size: var(--size-step-min-1);" class="text-center">This is a <strong>now</strong> page, inspired by the <i>`/now`</i> page movement: a simple snapshot of what I’m focused on lately. <a href="https://nownownow.com/about">nownownow.com</a> <a href="https://indieweb.org/now">indieweb.org</a></p>
+
     
     {% if latestNow %}
+
+    <h1 class="gradient-text" style="font-size: var(--size-step-4) !important;">{{ latestNow.data.title }}</h1>
 
       <p style="font-size: var(--size-step-min-1);">
         Last updated:
@@ -38,7 +41,7 @@ eleventyComputed:
         <p class="meta | cluster gutter-xs-s">
           {% for tag in latestNow.data.tags %}
             {% if tag != "posts" %}
-              <span class="button" data-small-button>#{{ tag }}</span>
+              <a class="button" href="/tags/{{ tag | slugify }}/" data-small-button>#{{ tag }}</a>
             {% endif %}
           {% endfor %}
         </p>
