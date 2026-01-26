@@ -129,6 +129,24 @@ export default async function (eleventyConfig) {
   // ✅ new now collection
   eleventyConfig.addCollection('nowEntries', getNowPosts);
 
+  // ✅ NEW: feed collection (posts + now)
+  eleventyConfig.addCollection('feedEntries', (collectionApi) => {
+    const posts = getAllPosts(collectionApi) || [];
+    const now = getNowPosts(collectionApi) || [];
+
+    // Merge + dedupe (by URL) + allow opt-out via front matter
+    const byUrl = new Map();
+    for (const item of [...posts, ...now]) {
+      if (!item) continue;
+      if (item.data?.excludeFromFeed) continue;
+      if (item.data?.eleventyExcludeFromCollections) continue;
+      byUrl.set(item.url, item);
+    }
+
+    return [...byUrl.values()].sort((a, b) => b.date - a.date);
+  });
+
+
   // ✅ NEW: paginated “virtual pages” for each tag
   // This powers /tags/<tag>/, /tags/<tag>/1/, /tags/<tag>/2/ ... etc
   eleventyConfig.addCollection('tagPages', function (collectionApi) {

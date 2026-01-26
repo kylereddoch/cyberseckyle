@@ -14,17 +14,18 @@ excludeFromSitemap: true
   <author>
     <name>{{ meta.author.name }}</name>
   </author>
-	{% set postslist = collections.posts %}
-  {%- for post in postslist | reverse -%}
-  {%- set absolutePostUrl = post.url | absoluteUrl(meta.url) -%}
+{% set postslist = collections.feedEntries %}
+  {%- for post in postslist -%}
+    {%- set absolutePostUrl = post.url | absoluteUrl(meta.url) -%}
     <entry>
       <title>{{ post.data.title }}</title>
       <link href="{{ absolutePostUrl }}" />
       <updated>{{ post.date | dateToRfc3339 }}</updated>
       <id>{{ absolutePostUrl }}</id>
       <content type="html">
-				{{ post.content | renderTransforms(post.data.page, meta.url) }}
- 			</content>
+        {{ post.content | renderTransforms(post.data.page, meta.url) }}
+      </content>
     </entry>
   {%- endfor -%}
 </feed>
+
