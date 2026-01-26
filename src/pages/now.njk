@@ -6,6 +6,8 @@ schema: BlogPosting
 eleventyComputed:
   description: >
     {% set latestNow = collections.nowEntries | first %}{% if latestNow and latestNow.data.description %}{{ latestNow.data.description }}{% else %}"What Kyle Reddoch is focused on right now."{% endif %}
+  mastodon_url: >
+    {% set latestNow = collections.nowEntries | first %}{% if latestNow and latestNow.data.mastodon_url %}{{ latestNow.data.mastodon_url }}{% else %}null{% endif %}
 ---
 
 {% set latestNow = collections.nowEntries | first %}
@@ -60,6 +62,48 @@ eleventyComputed:
       </p>
     {% endif %}
   </div>
+
+  <div class="flow" style="margin-top: var(--space-xl);">
+  <h4>Enjoyed this post?</h4>
+  <p class="text-step-min-1">Consider sharing it on Mastodon, joining in on the discussion below, or giving it some kudos.</p>
+  <!-- Share on Mastodon -->
+{# Build the final share text exactly as before #}
+{% set fullUrl  = page.url | url | absoluteUrl(meta.url) %}
+{% set hashtags = mastodon_hashtags | default([]) %}
+
+{% set tagsInline = "" %}
+{% if (hashtags | length) > 0 %}
+  {% set tagsInline = "\n\n#" ~ (hashtags | join(' #')) %}
+{% endif %}
+
+{% set text = (title ~ " — " ~ (description or "")) ~ "\n\n" ~ fullUrl ~ tagsInline %}
+{% set label = "Share on Mastodon" %}
+
+{% include "partials/masto-share.njk" %}
+</div>
+
+{% if mastodon_url %}
+  <!-- Discuss on Mastodon -->
+<template id="mastodon-post-template">
+{% include 'partials/mastodon-temp.njk' %}
+</template>
+
+<div class="discuss-mastodon">
+<section class="full">
+    <mastodon-post><i class="fa-brands fa-mastodon" style="color: #bd93f9;"></i> <a href="{{ mastodon_url }}" rel="me" style="font-size: var(--size-step-min-1) !important; color: #bd93f9; padding: 1em 0 0 0 !important; display: inline-block;" class="no-indicator">Discuss on Mastodon</a></mastodon-post>
+    </section>
+  </div>
+{% endif %}
+
+  <div class="flow" style="margin-top: var(--space-l);">
+  <p class="text-step-min-1">Give this post some kudos.</p>
+<button
+  class="tinylytics_kudos"
+  data-path="{{ page.url | url }}"
+></button>
+</div>
+
+<div class="flow" style="margin-top: var(--space-xl);">
   {# Previous /now entries – show only the next 2 #}
   {% if collections.nowEntries | length > 1 %}
   <hr>
@@ -81,6 +125,7 @@ eleventyComputed:
   </div>
     </div>
   {% endif %}
+</div>
 
     <!--  h-card infos: https://indieweb.org/authorship -->
   <div hidden class="h-entry">
