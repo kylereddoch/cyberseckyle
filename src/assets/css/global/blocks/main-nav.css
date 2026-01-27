@@ -144,8 +144,8 @@ body:has([data-drawer-toggle][aria-expanded='true']) {
 /* HOVER — tertiary + underline */
 .mainnav :is(a, [data-submenu-toggle]):hover {
   --nav-item-background: transparent;
-  --nav-item-text-color: var(--color-tertiary);
-  --nav-item-decoration-color: var(--color-tertiary);
+  --nav-item-text-color: var(--color-secondary);
+  --nav-item-decoration-color: var(--color-secondary);
   color: var(--nav-item-text-color);
   text-decoration: underline;
 }
@@ -154,8 +154,8 @@ body:has([data-drawer-toggle][aria-expanded='true']) {
 .mainnav [aria-current='page'],
 .mainnav [data-state='active'] {
   --nav-item-background: var(--color-bg);
-  --nav-item-text-color: var(--color-tertiary);
-  --nav-item-decoration-color: var(--color-tertiary);
+  --nav-item-text-color: var(--color-secondary);
+  --nav-item-decoration-color: var(--color-secondary);
   color: var(--nav-item-text-color);
   text-decoration: underline;
 }
@@ -163,8 +163,8 @@ body:has([data-drawer-toggle][aria-expanded='true']) {
 /* current parent (if submenu) */
 li:has(ul a[aria-current='page'])>[data-submenu-toggle] {
   --nav-item-background: var(--color-bg);
-  --nav-item-text-color: var(--color-tertiary);
-  --nav-item-decoration-color: var(--color-tertiary);
+  --nav-item-text-color: var(--color-secondary);
+  --nav-item-decoration-color: var(--color-secondary);
   color: var(--nav-item-text-color);
   text-decoration: underline;
 }
@@ -224,8 +224,8 @@ li:has(ul a[aria-current='page'])>[data-submenu-toggle] {
   .mainnav [data-state='active'],
   li:has(ul a[aria-current='page'])>[data-submenu-toggle] {
     --nav-item-background: transparent;
-    --nav-item-text-color: var(--color-tertiary);
-    --nav-item-decoration-color: var(--color-tertiary);
+    --nav-item-text-color: var(--color-secondary);
+    --nav-item-decoration-color: var(--color-secondary);
     color: var(--nav-item-text-color);
     text-decoration: underline;
   }
@@ -268,8 +268,8 @@ li:has(ul a[aria-current='page'])>[data-submenu-toggle] {
 .mainnav ul:first-child [aria-current='page'],
 .mainnav ul:first-child [data-state='active'] {
   --nav-item-background: transparent;
-  --nav-item-text-color: var(--color-tertiary);
-  --nav-item-decoration-color: var(--color-tertiary);
+  --nav-item-text-color: var(--color-secondary);
+  --nav-item-decoration-color: var(--color-secondary);
   color: var(--nav-item-text-color);
   text-decoration: underline;
 }

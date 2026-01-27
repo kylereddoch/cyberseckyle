@@ -37,11 +37,11 @@
   display: block;
   padding: var(--space-xs) var(--space-s-m);
   text-decoration: none;
-  color: var(--color-tertiary);
+  color: var(--color-secondary);
   /* orange by default */
   text-underline-offset: 0.18em;
   text-decoration-thickness: 0.12em;
-  text-decoration-color: color-mix(in oklab, var(--color-tertiary) 50%, transparent);
+  text-decoration-color: color-mix(in oklab, var(--color-secondary) 50%, transparent);
 }
 
 /* Hover/focus: blue link + highlight chip */
