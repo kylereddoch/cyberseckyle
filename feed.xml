@@ -4,12 +4,45 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-01-26T20:09:44Z</updated>
+  <updated>2026-01-27T21:00:01Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>Weekly Notes: Snowmageddon Bust, Frozen Pipes, Draft Done (Week 4, 2026)</title>
+      <link href="https://www.kylereddoch.me/blog/weekly-notes-snowmageddon-bust-frozen-pipes-draft-done-week-4-2026/" />
+      <updated>2026-01-27T19:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/weekly-notes-snowmageddon-bust-frozen-pipes-draft-done-week-4-2026/</id>
+      <content type="html">
+        &lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.webp 1200w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
+&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.jpeg 1200w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.jpeg&quot; width=&quot;1200&quot; height=&quot;800&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;h2 id=&quot;the-vibe&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-snowmageddon-bust-frozen-pipes-draft-done-week-4-2026/#the-vibe&quot; class=&quot;heading-anchor&quot;&gt;The vibe&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A fake-apocalypse snow week that still managed to bite, held together with space heaters, nostalgia dopamine, and the sheer satisfaction of typing “draft complete.”&lt;/p&gt;
+&lt;h2 id=&quot;highlights&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-snowmageddon-bust-frozen-pipes-draft-done-week-4-2026/#highlights&quot; class=&quot;heading-anchor&quot;&gt;Highlights&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;I survived &lt;strong&gt;SNOWMAGEDDON 2026&lt;/strong&gt;! Most of the weather forecasts predicted upwards of 10&quot; of snow for my area. People went crazy stocking up on groceries. You know the usual drill. We ended up getting not even 2&quot; of snow. Total bust!&lt;/li&gt;
+&lt;li&gt;This snowstorm did bring hella cold weather, though. Like “feel like” temps in the negatives. Brrr.&lt;/li&gt;
+&lt;li&gt;Of course our kitchen pipes frozen, they always do this when it gets this cold. Even had them dripping! I hate this house we rent. It had NO insulation in the walls. We had to run space heaters all night to thaw them out.&lt;/li&gt;
+&lt;li&gt;I ordered a &lt;a href=&quot;https://www.kylereddoch.me/blog/bondi-blue-in-my-pocket/&quot;&gt;new phone case&lt;/a&gt; for my 17 Pro Max. &lt;strong&gt;&lt;em&gt;Total nostalgia trip&lt;/em&gt;&lt;/strong&gt;. I am loving it so much, it’s probably on of the best cases I have had.&lt;/li&gt;
+&lt;li&gt;I finished the draft of my book, &lt;strong&gt;The FOIS Files: The CIPHER Fellows&lt;/strong&gt;. I am so relieved to have it done. Now I just need to edit it and get it ready for publishing. I am looking into self-publishing options.&lt;/li&gt;
+&lt;li&gt;Added some changes to my website. &lt;strong&gt;Can you spot them?&lt;/strong&gt; 😉 I also updated the /now section to be included in the blog listings and RSS feed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;work&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-snowmageddon-bust-frozen-pipes-draft-done-week-4-2026/#work&quot; class=&quot;heading-anchor&quot;&gt;Work&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Lately I’ve been having a hard time staying focused at work. It’s like my brain is in a fog. I just sit there staring at my screen, unable to concentrate. It’s frustrating.&lt;/li&gt;
+&lt;li&gt;I have been trying to work on getting our SaaS Alerts system setup at work. Trying to get the IOCs, rules, and filters configured.&lt;/li&gt;
+&lt;li&gt;Last week was fun with the Microsoft O365 outage. We had a few clients reach out about email issues, &lt;em&gt;but luckily it was a global problem and not something on our end&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;worth-sharing&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-snowmageddon-bust-frozen-pipes-draft-done-week-4-2026/#worth-sharing&quot; class=&quot;heading-anchor&quot;&gt;Worth sharing&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;It’s Firefox’s turn to have spyware extensions. &lt;a href=&quot;https://www.malwarebytes.com/blog/news/2026/01/firefox-joins-chrome-and-edge-as-sleeper-extensions-spy-on-users&quot; rel=&quot;noopener&quot;&gt;Firefox joins Chrome and Edge as sleeper extensions spy on users&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://jamesg.blog/2026/01/20/indieauth-email-login-design&quot; rel=&quot;noopener&quot;&gt;Designing a service with IndieAuth and email-based login&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Great article about understanding your failure. &lt;a href=&quot;https://tracydurnell.com/2026/01/21/decoding-failure/&quot; rel=&quot;noopener&quot;&gt;Decoding failure&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </content>
+    </entry><entry>
       <title>January 2026</title>
       <link href="https://www.kylereddoch.me/now/now-january-2026/" />
       <updated>2026-01-26T17:30:00Z</updated>
