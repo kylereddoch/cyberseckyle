@@ -34,17 +34,16 @@ main {
 }
 
 /* BODY CONTENT LINKS (unclassed) — tertiary + underlined, hover removes underline */
-main a:not([class]):not([h2]):not([h3]):not([h4]) {
+/* Global link color (low specificity so components can override) */
+:where(main) a:not([class]):not(:where(h2 a, h3 a, h4 a)) {
   color: var(--color-secondary);
-  text-decoration-line: underline;
-  text-decoration-thickness: 0.15ex;
-  text-underline-offset: 0.2ch;
 }
 
-main a:not([class]):not([h2]):not([h3]):not([h4]):hover {
+:where(main) a:not([class]):not(:where(h2 a, h3 a, h4 a)):hover {
   color: var(--color-secondary);
   text-decoration: none;
 }
+
 
 h1,
 h2,

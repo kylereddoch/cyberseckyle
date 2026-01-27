@@ -38,40 +38,44 @@
   padding: var(--space-xs) var(--space-s-m);
   text-decoration: none;
   color: var(--color-secondary);
-  /* orange by default */
   text-underline-offset: 0.18em;
   text-decoration-thickness: 0.12em;
   text-decoration-color: color-mix(in oklab, var(--color-secondary) 50%, transparent);
 }
 
-/* Hover/focus: blue link + highlight chip */
-.pagination a:hover,
-.pagination a:focus-visible {
+/* Hover/focus: keep link readable */
+.pagination li:hover,
+.pagination li:focus-within {
+  background-color: color-mix(in oklab, var(--color-secondary) 18%, var(--color-bg));
+  border-color: var(--color-secondary);
+}
+
+/* Keep text BLUE on the tinted background */
+.pagination li:hover a,
+.pagination li:focus-within a {
   color: var(--color-secondary);
-  /* blue on interaction */
   text-decoration: none;
+}
+
+/* Focus ring stays on the link itself */
+.pagination a:focus-visible {
   outline: 3px solid var(--color-secondary);
   outline-offset: 2px;
   border-radius: var(--border-radius-medium);
 }
 
-/* also tint the chip on hover */
-.pagination li:has(a:hover) {
-  --pagination-bg: var(--color-bg-accent);
-  --pagination-border: var(--color-bg-accent);
-}
-
-/* Current page chip (orange) */
+/* Current page chip */
 .pagination li:has(a[aria-current="page"]) {
-  --pagination-bg: var(--color-secondary);
-  --pagination-border: var(--color-secondary);
-  --pagination-text: var(--color-bg);
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
 }
 
-/* ensure the current link text is readable on the orange chip */
-.pagination [aria-current="page"] {
+.pagination li:has(a[aria-current="page"]) a {
   color: var(--color-bg);
+  text-decoration: none;
 }
+
+
 
 /* Base text color for any non-link text near pagination (optional scope) */
 nav[aria-labelledby="pagination_label"] .pagination {
