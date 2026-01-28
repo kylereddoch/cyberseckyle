@@ -3,7 +3,7 @@ date: 2026-01-28T15:30:00-05:00
 title: 'Protecting Your Enterprise From “Employee Actions” on Network Devices'
 description: "Insider mistakes are inevitable, insider malice is rare, and employee spoofing is everywhere. Here’s a practical, layered playbook to keep your business safe either way."
 tags: [cybersecurity, security, vulnerability-management]
-mastodon_url:
+mastodon_url: https://infosec.exchange/@cyberseckyle/115975083410693641
 ---
 
 {% image "/assets/images/workspace-laptop.jpg", "Overhead view of a person working at a bright white desk with a laptop showing charts and a spreadsheet, a calculator, receipts, a notebook, and a cup of coffee.", "(Photo by Microsoft 365 on Unsplash)", "eager", "text-center", "!important", [auto], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
