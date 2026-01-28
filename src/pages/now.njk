@@ -3,6 +3,11 @@ layout: base
 title: /Now
 permalink: "now/index.html"
 schema: BlogPosting
+# Prevent /now index from being treated like a content entry
+eleventyExcludeFromCollections: true
+# Tell Eleventy it must build the nowEntries collection first
+eleventyImport:
+  collections: ["nowEntries"]
 eleventyComputed:
   description: >
     {% set latestNow = collections.nowEntries | first %}{% if latestNow and latestNow.data.description %}{{ latestNow.data.description }}{% else %}"What Kyle Reddoch is focused on right now."{% endif %}
