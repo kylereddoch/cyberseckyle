@@ -4,12 +4,218 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-01-27T22:51:39Z</updated>
+  <updated>2026-01-28T22:25:16Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>Protecting Your Enterprise From “Employee Actions” on Network Devices</title>
+      <link href="https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/" />
+      <updated>2026-01-28T20:30:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/</id>
+      <content type="html">
+        &lt;figure slot=&quot;image&quot; class=&quot;text-center&quot;&gt;&lt;picture&gt;   &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/workspace-laptop-1920w.webp 1920w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;
+  &lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/workspace-laptop-1920w.jpeg 1920w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/workspace-laptop-1920w.jpeg&quot; width=&quot;1920&quot; height=&quot;1280&quot; alt=&quot;Overhead view of a person working at a bright white desk with a laptop showing charts and a spreadsheet, a calculator, receipts, a notebook, and a cup of coffee.&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;figcaption&gt;(Photo by Microsoft 365 on Unsplash)&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;p&gt;Somebody, somewhere, is always one click away from chaos.&lt;/p&gt;
+&lt;p&gt;Sometimes it’s deliberate. Most of the time it’s accidental. Either way, the goal is the same: &lt;strong&gt;design the environment so one human can’t accidentally (or intentionally) torch the place.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;And you’re right to call it out: &lt;strong&gt;spoofing employees is one of the biggest threat vectors&lt;/strong&gt; because it turns “trust” into a weapon. The FBI’s Internet Crime Complaint Center has repeatedly &lt;a href=&quot;https://www.fbi.gov/news/press-releases/fbi-releases-annual-internet-crime-report&quot; rel=&quot;noopener&quot;&gt;highlighted phishing and spoofing as a top-reported cybercrime category&lt;/a&gt;, which is exactly why this vector deserves its own spotlight.&lt;/p&gt;
+&lt;p&gt;This post is a practical blueprint for protecting enterprises and SMBs from harmful actions on endpoints (desktops, laptops, VDIs) and the networks they touch.&lt;/p&gt;
+&lt;h2 id=&quot;the-mental-model-assume-users-are-good-and-reality-is-messy&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/#the-mental-model-assume-users-are-good-and-reality-is-messy&quot; class=&quot;heading-anchor&quot;&gt;The mental model: assume users are good and reality is messy&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Treat this like seatbelts and airbags, not like a morality test.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Inadvertent risk:&lt;/strong&gt; clicking a fake login, installing “that one PDF tool,” using personal email, plugging in a random USB, mis-sending a file, weak passwords, reusing MFA prompts.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Deliberate risk:&lt;/strong&gt; data theft before resignation, sabotage, policy bypass, unauthorized remote access tools, disabling security agents.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Spoofing risk (the star of the show):&lt;/strong&gt; phishing, vishing, “helpdesk” impersonation, MFA fatigue attacks, business email compromise (BEC), fake vendor invoices, fake internal Teams/Slack messages.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you like clean threat taxonomy, &lt;a href=&quot;https://attack.mitre.org/techniques/T1566/&quot; rel=&quot;noopener&quot;&gt;MITRE ATT&amp;amp;CK tracks phishing as a core technique&lt;/a&gt; because it is a repeatable, scalable way for adversaries to gain access through humans.&lt;/p&gt;
+&lt;p&gt;The defense is layered constraints: identity security, device controls, network segmentation, and rapid detection.&lt;/p&gt;
+&lt;h2 id=&quot;layer-1-identity-is-the-control-plane-lock-this-down-first&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/#layer-1-identity-is-the-control-plane-lock-this-down-first&quot; class=&quot;heading-anchor&quot;&gt;Layer 1: Identity is the control plane (lock this down first)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If identity is weak, everything else becomes expensive theater.&lt;/p&gt;
+&lt;p&gt;This aligns neatly with Zero Trust thinking: &lt;a href=&quot;https://csrc.nist.gov/pubs/sp/800/207/final&quot; rel=&quot;noopener&quot;&gt;NIST describes Zero Trust as shifting defenses away from static perimeters&lt;/a&gt; and focusing on users, assets, and resources instead. That is why identity ends up acting like the control plane.&lt;/p&gt;
+&lt;h3 id=&quot;go-phishing-resistant-where-it-matters&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/#go-phishing-resistant-where-it-matters&quot; class=&quot;heading-anchor&quot;&gt;Go phishing-resistant where it matters&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Use &lt;strong&gt;FIDO2/WebAuthn security keys&lt;/strong&gt; or &lt;strong&gt;passkeys&lt;/strong&gt; for admins and high-risk roles (finance, HR, IT, execs). &lt;a href=&quot;https://www.cisa.gov/sites/default/files/publications/fact-sheet-implementing-phishing-resistant-mfa-508c.pdf&quot; rel=&quot;noopener&quot;&gt;CISA explicitly calls phishing-resistant MFA a key step&lt;/a&gt; in reducing account takeover risk.&lt;/li&gt;
+&lt;li&gt;Prefer &lt;strong&gt;conditional access&lt;/strong&gt; that checks device compliance, location, risk signals, and app sensitivity.&lt;/li&gt;
+&lt;li&gt;Kill &lt;strong&gt;legacy authentication&lt;/strong&gt; (older protocols that bypass modern controls) wherever possible.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you want a clean “do this first” hierarchy to cite, &lt;a href=&quot;https://www.cisa.gov/cybersecurity-performance-goals-2-0-cpg-2-0&quot; rel=&quot;noopener&quot;&gt;CISA’s Cross-Sector Cybersecurity Performance Goals 2.0 ranks MFA options by strength&lt;/a&gt;, with phishing-resistant MFA at the top.&lt;/p&gt;
+&lt;h3 id=&quot;make-privilege-boring-again-least-privilege-just-in-time&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/#make-privilege-boring-again-least-privilege-just-in-time&quot; class=&quot;heading-anchor&quot;&gt;Make privilege boring again (least privilege + just-in-time)&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Separate accounts: &lt;strong&gt;daily user account&lt;/strong&gt; vs &lt;strong&gt;admin account&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Use &lt;strong&gt;Privileged Access Management (PAM)&lt;/strong&gt; with just-in-time elevation and approvals for sensitive actions.&lt;/li&gt;
+&lt;li&gt;Enforce &lt;strong&gt;role-based access control&lt;/strong&gt; so “needs access” means “needs access to this one thing.”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;stop-credential-reuse-and-password-spray-pain&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/#stop-credential-reuse-and-password-spray-pain&quot; class=&quot;heading-anchor&quot;&gt;Stop credential reuse and password spray pain&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Block known breached passwords.&lt;/li&gt;
+&lt;li&gt;Require long passphrases or passkeys.&lt;/li&gt;
+&lt;li&gt;Add risk-based detection: impossible travel, new device, new country, odd login time.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For identity assurance language that plays well in enterprise policy, &lt;a href=&quot;https://csrc.nist.gov/pubs/sp/800/63/4/final&quot; rel=&quot;noopener&quot;&gt;NIST’s current digital identity suite (SP 800-63 Rev. 4)&lt;/a&gt; covers identity proofing, authentication, and federation requirements.&lt;/p&gt;
+&lt;h2 id=&quot;layer-2-email-and-messaging-is-where-spoofing-feeds-harden-the-social-layer&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/#layer-2-email-and-messaging-is-where-spoofing-feeds-harden-the-social-layer&quot; class=&quot;heading-anchor&quot;&gt;Layer 2: Email and messaging is where spoofing feeds (harden the social layer)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Spoofing is rarely “hacking.” It’s impersonation plus urgency.&lt;/p&gt;
+&lt;h3 id=&quot;put-authentication-on-your-domains-reputation&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/#put-authentication-on-your-domains-reputation&quot; class=&quot;heading-anchor&quot;&gt;Put authentication on your domain’s reputation&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Configure and enforce the “three-headed dog” of email authentication:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SPF (&lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc7208&quot; rel=&quot;noopener&quot;&gt;RFC 7208&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;DKIM (&lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc6376&quot; rel=&quot;noopener&quot;&gt;RFC 6376&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;DMARC (&lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc7489&quot; rel=&quot;noopener&quot;&gt;RFC 7489&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Move DMARC toward &lt;strong&gt;quarantine/reject&lt;/strong&gt; (with monitoring) so your domain is harder to impersonate.&lt;/p&gt;
+&lt;h3 id=&quot;add-human-proofing-for-high-risk-workflows&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/#add-human-proofing-for-high-risk-workflows&quot; class=&quot;heading-anchor&quot;&gt;Add human-proofing for high-risk workflows&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;For finance, payroll, and vendor changes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Require &lt;strong&gt;out-of-band verification&lt;/strong&gt; for bank detail changes, gift card requests, payment approvals, and payroll updates.&lt;/li&gt;
+&lt;li&gt;Use call-back procedures from a known directory number, not the number in the email.&lt;/li&gt;
+&lt;li&gt;Require &lt;strong&gt;two-person approval&lt;/strong&gt; above a threshold.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;BEC is not theoretical. &lt;a href=&quot;https://www.ic3.gov/PSA/2024/PSA240911&quot; rel=&quot;noopener&quot;&gt;IC3 has called it out as a major, long-running fraud category&lt;/a&gt;, including a widely cited estimate of global losses over time.&lt;/p&gt;
+&lt;h3 id=&quot;kill-the-helpdesk-voice-attack-path&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/#kill-the-helpdesk-voice-attack-path&quot; class=&quot;heading-anchor&quot;&gt;Kill the “helpdesk voice” attack path&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;For IT and support desks:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Require verified identity before password resets (device possession checks, verification workflows, manager approval for high-risk resets).&lt;/li&gt;
+&lt;li&gt;Reduce MFA fatigue risk with number matching where push-based MFA is used. &lt;a href=&quot;https://www.cisa.gov/sites/default/files/publications/fact-sheet-implement-number-matching-in-mfa-applications-508c.pdf&quot; rel=&quot;noopener&quot;&gt;CISA specifically recommends number matching&lt;/a&gt; as a mitigation for push fatigue-style attacks.&lt;/li&gt;
+&lt;li&gt;If you are in Microsoft land, &lt;a href=&quot;https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-mfa-number-match&quot; rel=&quot;noopener&quot;&gt;Microsoft documents number matching behavior and rollout considerations for Entra ID&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;layer-3-endpoint-controls-that-assume-employees-can-install-chaos&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/#layer-3-endpoint-controls-that-assume-employees-can-install-chaos&quot; class=&quot;heading-anchor&quot;&gt;Layer 3: Endpoint controls that assume employees can install chaos&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Endpoints are where accidents become infections.&lt;/p&gt;
+&lt;h3 id=&quot;standardize-and-enforce-device-posture&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/#standardize-and-enforce-device-posture&quot; class=&quot;heading-anchor&quot;&gt;Standardize and enforce device posture&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Managed devices only for sensitive apps (MDM, Intune, Jamf).&lt;/li&gt;
+&lt;li&gt;Require disk encryption, secure boot, host firewall on, EDR running with tamper protection, and automatic patching.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;application-control-beats-wishful-thinking&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/#application-control-beats-wishful-thinking&quot; class=&quot;heading-anchor&quot;&gt;Application control beats wishful thinking&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Allow-list where feasible (especially for servers and kiosk-like systems).&lt;/li&gt;
+&lt;li&gt;Remove local admin from standard users.&lt;/li&gt;
+&lt;li&gt;Restrict risky script paths and macro execution from the internet.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you want a widely recognized framework to map your endpoint posture to, &lt;a href=&quot;https://www.cisecurity.org/controls/v8-1&quot; rel=&quot;noopener&quot;&gt;the CIS Critical Security Controls v8.1&lt;/a&gt; are a prioritized set of safeguards designed to reduce common attack paths.&lt;/p&gt;
+&lt;h3 id=&quot;browser-and-credential-protections&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/#browser-and-credential-protections&quot; class=&quot;heading-anchor&quot;&gt;Browser and credential protections&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Enforce enterprise password managers or policy-controlled browser storage.&lt;/li&gt;
+&lt;li&gt;Use safe browsing, DNS filtering, and block risky categories.&lt;/li&gt;
+&lt;li&gt;Consider browser isolation for high-risk teams.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;layer-4-network-design-that-limits-blast-radius&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/#layer-4-network-design-that-limits-blast-radius&quot; class=&quot;heading-anchor&quot;&gt;Layer 4: Network design that limits blast radius&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Assume an endpoint will get compromised eventually. Design so it can’t take the whole company with it.&lt;/p&gt;
+&lt;h3 id=&quot;segment-based-on-function-not-hope&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/#segment-based-on-function-not-hope&quot; class=&quot;heading-anchor&quot;&gt;Segment based on function, not hope&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Separate networks for user devices, servers, VoIP, printers/IoT, and guests.&lt;/li&gt;
+&lt;li&gt;Restrict east-west traffic. Users do not need to talk to everything.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;control-who-can-connect&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/#control-who-can-connect&quot; class=&quot;heading-anchor&quot;&gt;Control who can connect&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Use 802.1X/NAC where possible.&lt;/li&gt;
+&lt;li&gt;Require VPN with device compliance for remote access.&lt;/li&gt;
+&lt;li&gt;Disable unused services and restrict management planes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;protect-admin-paths&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/#protect-admin-paths&quot; class=&quot;heading-anchor&quot;&gt;Protect admin paths&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Dedicated admin workstations (or hardened admin profiles).&lt;/li&gt;
+&lt;li&gt;Restrict RDP/SSH to jump hosts and admin subnets.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;layer-5-detection-that-catches-both-mistakes-and-malice&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/#layer-5-detection-that-catches-both-mistakes-and-malice&quot; class=&quot;heading-anchor&quot;&gt;Layer 5: Detection that catches both mistakes and malice&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Prevention reduces risk. Detection saves you when prevention fails.&lt;/p&gt;
+&lt;h3 id=&quot;log-the-things-that-matter&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/#log-the-things-that-matter&quot; class=&quot;heading-anchor&quot;&gt;Log the things that matter&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Centralize:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;identity provider logs (logins, MFA events, risky sign-ins)&lt;/li&gt;
+&lt;li&gt;endpoint events (EDR detections, tamper alerts)&lt;/li&gt;
+&lt;li&gt;email security events (phish detections, clicks, detonations)&lt;/li&gt;
+&lt;li&gt;DNS queries (new domains, suspicious patterns)&lt;/li&gt;
+&lt;li&gt;admin actions (privilege changes, group membership updates)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you need “control language” that cleanly supports logging, access control, least privilege, and monitoring expectations, &lt;a href=&quot;https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final&quot; rel=&quot;noopener&quot;&gt;NIST SP 800-53 Rev. 5 is the go-to control catalog&lt;/a&gt; many organizations map against.&lt;/p&gt;
+&lt;h3 id=&quot;watch-for-spoofing-outcomes-not-just-attempts&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/#watch-for-spoofing-outcomes-not-just-attempts&quot; class=&quot;heading-anchor&quot;&gt;Watch for spoofing outcomes, not just attempts&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Spoofing succeeds when it results in:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;new MFA method added&lt;/li&gt;
+&lt;li&gt;mailbox rules created (classic BEC move)&lt;/li&gt;
+&lt;li&gt;OAuth consent granted to shady apps&lt;/li&gt;
+&lt;li&gt;password reset from unusual context&lt;/li&gt;
+&lt;li&gt;impossible travel plus successful login&lt;/li&gt;
+&lt;li&gt;multiple users hit with the same “urgent” message&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A practical Microsoft 365 control that blocks a lot of BEC persistence is restricting automatic external forwarding, which attackers often use for silent monitoring and data leakage. &lt;a href=&quot;https://learn.microsoft.com/en-us/defender-office-365/outbound-spam-policies-external-email-forwarding&quot; rel=&quot;noopener&quot;&gt;Microsoft documents how to control external email forwarding&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;add-lightweight-insider-risk-signals-without-being-creepy&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/#add-lightweight-insider-risk-signals-without-being-creepy&quot; class=&quot;heading-anchor&quot;&gt;Add lightweight insider-risk signals (without being creepy)&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Focus on behavior in systems, not personal surveillance:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;mass file access or mass downloads&lt;/li&gt;
+&lt;li&gt;unusual access to finance/HR folders&lt;/li&gt;
+&lt;li&gt;data moving to personal cloud storage&lt;/li&gt;
+&lt;li&gt;repeated policy bypass attempts&lt;/li&gt;
+&lt;li&gt;EDR agent disable attempts&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;a-simple-control-map-you-can-actually-operationalize&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/#a-simple-control-map-you-can-actually-operationalize&quot; class=&quot;heading-anchor&quot;&gt;A simple control map you can actually operationalize&lt;/a&gt;&lt;/h2&gt;
+&lt;section aria-label=&quot;Enterprise controls to reduce employee-driven risk&quot; data-layout=&quot;50-50&quot; class=&quot;grid&quot;&gt;
+  &lt;div class=&quot;custom-card&quot;&gt;
+    &lt;h4&gt;Employee spoofing (phishing/vishing/BEC)&lt;/h4&gt;
+    &lt;p&gt;&lt;strong&gt;Primary goal:&lt;/strong&gt; Stop impersonation from turning into account takeover or fraud&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Prevent with:&lt;/strong&gt; Phishing-resistant MFA (FIDO2/passkeys), conditional access, DMARC/SPF/DKIM, out-of-band verification for finance&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Detect with:&lt;/strong&gt; New MFA enrollments, mailbox rule creation, suspicious forwarding, OAuth consent spikes, risky sign-ins&lt;/p&gt;
+    &lt;footer&gt;&lt;strong&gt;Key references:&lt;/strong&gt; &lt;a href=&quot;https://www.cisa.gov/sites/default/files/publications/fact-sheet-implementing-phishing-resistant-mfa-508c.pdf&quot;&gt;CISA PR-MFA&lt;/a&gt;, &lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc7489&quot;&gt;RFC 7489 (DMARC)&lt;/a&gt;, &lt;a href=&quot;https://www.ic3.gov/PSA/2024/PSA240911&quot;&gt;IC3 BEC PSA&lt;/a&gt;&lt;/footer&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;custom-card&quot;&gt;
+    &lt;h4&gt;Identity hardening (Zero Trust control plane)&lt;/h4&gt;
+    &lt;p&gt;&lt;strong&gt;Primary goal:&lt;/strong&gt; Make identity compromise harder and less useful&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Prevent with:&lt;/strong&gt; Least privilege, separate admin accounts, just-in-time elevation, disable legacy auth, strong recovery/reset workflows&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Detect with:&lt;/strong&gt; Impossible travel, anomalous admin actions, group membership changes, risky sign-in alerts&lt;/p&gt;
+    &lt;footer&gt;&lt;strong&gt;Key references:&lt;/strong&gt; &lt;a href=&quot;https://csrc.nist.gov/pubs/sp/800/207/final&quot;&gt;NIST SP 800-207&lt;/a&gt;, &lt;a href=&quot;https://csrc.nist.gov/pubs/sp/800/63/4/final&quot;&gt;NIST SP 800-63&lt;/a&gt;, &lt;a href=&quot;https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final&quot;&gt;NIST SP 800-53&lt;/a&gt;&lt;/footer&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;custom-card&quot;&gt;
+    &lt;h4&gt;Endpoint control (reduce accidental installs + malware)&lt;/h4&gt;
+    &lt;p&gt;&lt;strong&gt;Primary goal:&lt;/strong&gt; Keep devices from becoming the easiest execution platform&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Prevent with:&lt;/strong&gt; Remove local admin, patching, EDR tamper protection, app control/allow-listing, macro/script restrictions&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Detect with:&lt;/strong&gt; Unsigned binaries, new persistence paths, EDR tamper attempts, abnormal process trees&lt;/p&gt;
+    &lt;footer&gt;&lt;strong&gt;Key references:&lt;/strong&gt; &lt;a href=&quot;https://www.cisecurity.org/controls/v8-1&quot;&gt;CIS Controls v8.1&lt;/a&gt;, &lt;a href=&quot;https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/appcontrol&quot;&gt;Microsoft App Control&lt;/a&gt;&lt;/footer&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;custom-card&quot;&gt;
+    &lt;h4&gt;Network containment (limit blast radius)&lt;/h4&gt;
+    &lt;p&gt;&lt;strong&gt;Primary goal:&lt;/strong&gt; Assume compromise and stop lateral movement&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Prevent with:&lt;/strong&gt; Segmentation by function (users/servers/IoT), restrict east-west traffic, protected admin paths, NAC/802.1X where possible&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Detect with:&lt;/strong&gt; Lateral movement attempts, unusual internal scans, new SMB/RDP flows, spikes in DNS to new domains&lt;/p&gt;
+    &lt;footer&gt;&lt;strong&gt;Key references:&lt;/strong&gt; &lt;a href=&quot;https://csrc.nist.gov/pubs/sp/800/207/final&quot;&gt;NIST SP 800-207&lt;/a&gt;, &lt;a href=&quot;https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final&quot;&gt;NIST SP 800-53&lt;/a&gt;&lt;/footer&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;custom-card&quot;&gt;
+    &lt;h4&gt;Mailbox + collaboration abuse (rules, forwarding, OAuth apps)&lt;/h4&gt;
+    &lt;p&gt;&lt;strong&gt;Primary goal:&lt;/strong&gt; Prevent “silent persistence” after a successful spoof&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Prevent with:&lt;/strong&gt; Block external auto-forwarding, restrict OAuth consent, require admin approval for risky apps&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Detect with:&lt;/strong&gt; New inbox rules, forwarding changes, suspicious consent grants, unusual mail access patterns&lt;/p&gt;
+    &lt;footer&gt;&lt;strong&gt;Key references:&lt;/strong&gt; &lt;a href=&quot;https://learn.microsoft.com/en-us/defender-office-365/outbound-spam-policies-external-email-forwarding&quot;&gt;Microsoft: External forwarding control&lt;/a&gt;&lt;/footer&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;custom-card&quot;&gt;
+    &lt;h4&gt;Insider-risk signals (mistakes + malicious)&lt;/h4&gt;
+    &lt;p&gt;&lt;strong&gt;Primary goal:&lt;/strong&gt; Catch abnormal behavior early without creepy surveillance&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Prevent with:&lt;/strong&gt; Access reviews, least privilege, DLP for sensitive data, strong offboarding&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Detect with:&lt;/strong&gt; Mass downloads, unusual access to finance/HR, abnormal sharing to personal cloud, repeated policy bypass&lt;/p&gt;
+    &lt;footer&gt;&lt;strong&gt;Key references:&lt;/strong&gt; &lt;a href=&quot;https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final&quot;&gt;NIST SP 800-53&lt;/a&gt;, &lt;a href=&quot;https://www.cisecurity.org/controls/v8-1&quot;&gt;CIS Controls v8.1&lt;/a&gt;&lt;/footer&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+&lt;h2 id=&quot;the-strong-opinion-part-stop-treating-security-awareness-like-the-main-control&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/#the-strong-opinion-part-stop-treating-security-awareness-like-the-main-control&quot; class=&quot;heading-anchor&quot;&gt;The strong opinion part: stop treating security awareness like the main control&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Training helps, but training is not a safety system. A well-crafted spoof will beat even smart people on a bad day.&lt;/p&gt;
+&lt;p&gt;Use awareness training as supporting tissue, not as the skeleton:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;teach reporting habits (make reporting easy)&lt;/li&gt;
+&lt;li&gt;run short, frequent simulations&lt;/li&gt;
+&lt;li&gt;reward reporting, don’t shame clicks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;practical-rollout-plan-works-for-smb-and-enterprise&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/#practical-rollout-plan-works-for-smb-and-enterprise&quot; class=&quot;heading-anchor&quot;&gt;Practical rollout plan (works for SMB and enterprise)&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Phishing-resistant MFA for admins + finance + execs&lt;/strong&gt; (use CISA’s strength hierarchy to justify the priority): &lt;a href=&quot;https://www.cisa.gov/cybersecurity-performance-goals-2-0-cpg-2-0&quot; rel=&quot;noopener&quot;&gt;CISA’s Cross-Sector Cybersecurity Performance Goals 2.0 ranks MFA options by strength&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Conditional access&lt;/strong&gt; with device compliance requirements&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Disable legacy auth&lt;/strong&gt; and tighten password reset workflows&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;EDR + patching + remove local admin&lt;/strong&gt; across endpoints (map the work to &lt;a href=&quot;https://www.cisecurity.org/controls/v8-1&quot; rel=&quot;noopener&quot;&gt;CIS Controls v8.1&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DMARC&lt;/strong&gt; monitoring then enforcement (&lt;a href=&quot;https://datatracker.ietf.org/doc/html/rfc7489&quot; rel=&quot;noopener&quot;&gt;RFC 7489&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Network segmentation&lt;/strong&gt; for users vs servers vs IoT&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Centralized logging&lt;/strong&gt; with alerts for spoofing outcomes (new MFA, mailbox rules, OAuth consent)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tabletop exercise:&lt;/strong&gt; “fake IT password reset” and “fake invoice change” drills&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The weird truth of enterprise security: you do not win by trusting people less. You win by designing systems that stay safe even when people have a very human day.&lt;/p&gt;
+
+      </content>
+    </entry><entry>
       <title>Weekly Notes: Snowmageddon Bust, Frozen Pipes, Draft Done (Week 4, 2026)</title>
       <link href="https://www.kylereddoch.me/blog/weekly-notes-snowmageddon-bust-frozen-pipes-draft-done-week-4-2026/" />
       <updated>2026-01-27T19:00:00Z</updated>
