@@ -1,7 +1,7 @@
 ---
 date: 2026-01-28T15:30:00-05:00
-title: Protecting Your Enterprise From “Employee Actions” on Network Devices
-description: Insider mistakes are inevitable, insider malice is rare, and employee spoofing is everywhere. Here’s a practical, layered playbook to keep your business safe either way.
+title: 'Protecting Your Enterprise From “Employee Actions” on Network Devices'
+description: "Insider mistakes are inevitable, insider malice is rare, and employee spoofing is everywhere. Here’s a practical, layered playbook to keep your business safe either way."
 tags: [cybersecurity, security, vulnerability-management]
 mastodon_url:
 ---
