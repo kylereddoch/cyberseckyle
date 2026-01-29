@@ -3,7 +3,7 @@ date: 2026-01-29T13:30:00-05:00
 title: 'CybersecKyle Security How-To Series: Everyday Defense Part 4 - Phone hardening you can live with'
 description: "A sane phone security baseline you can keep turned on: lock screen, anti-theft, app permissions, account protection, SIM-swap defenses, and a quick validation to prove it worked."
 tags: [cyberseckyle-howto-series, everyday-defense, cybersecurity, tutorials, mobile-security, infosecurity, how-to]
-mastodon_url: null
+mastodon_url: https://infosec.exchange/@cyberseckyle/115980101967831540
 ---
 
 > I am back with **Part 4** of the **Everyday Defense** track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/). The goal here is simple: make your browser boring to attackers without making your browsing miserable.
