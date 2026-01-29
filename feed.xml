@@ -4,12 +4,190 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-01-28T22:35:01Z</updated>
+  <updated>2026-01-29T19:36:22Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>CybersecKyle Security How-To Series: Everyday Defense Part 4 - Phone hardening you can live with</title>
+      <link href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/" />
+      <updated>2026-01-29T18:30:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/</id>
+      <content type="html">
+        &lt;blockquote&gt;
+&lt;p&gt;I am back with &lt;strong&gt;Part 4&lt;/strong&gt; of the &lt;strong&gt;Everyday Defense&lt;/strong&gt; track in my &lt;a href=&quot;https://www.kylereddoch.me/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/&quot;&gt;CybersecKyle Security How-To Series&lt;/a&gt;. The goal here is simple: make your browser boring to attackers without making your browsing miserable.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure slot=&quot;image&quot; class=&quot;text-center&quot;&gt;&lt;picture&gt;   &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/iphone-passcode-hero-875w.webp 875w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;
+  &lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/iphone-passcode-hero-875w.jpeg 875w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/iphone-passcode-hero-875w.jpeg&quot; width=&quot;875&quot; height=&quot;575&quot; alt=&quot;Hand holding an iPhone showing the passcode keypad on the lock screen, lit by sunlight against a teal surface.&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;figcaption&gt;Your lock screen is your first line of defense. Use a strong passcode (6 digits or longer) and keep notification previews hidden while locked. (Photo by Kenny Eliason on Unsplash)&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;p&gt;Phones are not just phones anymore. They are your password reset machine, your banking device, your camera roll, your email, your work chat, and your “approve sign-in” button.&lt;/p&gt;
+&lt;p&gt;In MSP and security work, I see the same pattern over and over: most mobile incidents are not exotic zero-days. They are regular human problems like stolen devices, weak lock screens, SIM swaps, notification leaks, and apps with way too much access.&lt;/p&gt;
+&lt;p&gt;This guide is for hardening your phone in a way you can actually tolerate long-term. The goal is not perfect security. The goal is fewer bad days.&lt;/p&gt;
+&lt;h2 id=&quot;what-you-are-defending-against&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#what-you-are-defending-against&quot; class=&quot;heading-anchor&quot;&gt;What you are defending against&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This matters because the right settings depend on the threat.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Most common risk events:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Your phone gets stolen, snatched, or left behind.&lt;/li&gt;
+&lt;li&gt;Someone shoulder-surfs your passcode in public.&lt;/li&gt;
+&lt;li&gt;A scammer tries to take over your phone number (SIM swap or port-out).&lt;/li&gt;
+&lt;li&gt;A sketchy app gets installed and starts vacuuming up permissions.&lt;/li&gt;
+&lt;li&gt;You get phished and the attacker uses your phone to reset everything.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you want a quick sanity anchor, even &lt;a href=&quot;https://apnews.com/article/c4d0ab7ee40fca01bc46d7db03d590dd&quot; rel=&quot;noopener&quot;&gt;mainstream incident advice&lt;/a&gt; emphasizes basics like strong device auth, find-my features, and disabling sensitive notification previews before a device goes missing.&lt;/p&gt;
+&lt;h2 id=&quot;the-baseline-in-20-minutes&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#the-baseline-in-20-minutes&quot; class=&quot;heading-anchor&quot;&gt;The baseline in 20 minutes&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If you do nothing else, do these seven and stop. This is the “high impact, low annoyance” set.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Turn on automatic OS updates.&lt;/li&gt;
+&lt;li&gt;Use a strong screen lock (6+ digit PIN or long passcode).&lt;/li&gt;
+&lt;li&gt;Hide notification previews on the lock screen.&lt;/li&gt;
+&lt;li&gt;Turn on Find My (iPhone) or Find Hub (Android), and test it once.&lt;/li&gt;
+&lt;li&gt;Turn on stolen-device protections (iPhone: Stolen Device Protection, Android: Theft Protection).&lt;/li&gt;
+&lt;li&gt;Review your top 10 apps for permissions and delete what you do not use.&lt;/li&gt;
+&lt;li&gt;Add a carrier port-out lock or PIN to reduce SIM swap and number hijack risk.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;step-1-updates-because-old-bugs-do-not-get-nicer&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#step-1-updates-because-old-bugs-do-not-get-nicer&quot; class=&quot;heading-anchor&quot;&gt;Step 1: Updates, because old bugs do not get nicer&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Modern phones are already hardened compared to most computers, but only if they are current. Updates fix real vulnerabilities and also patch security bypasses that criminals re-use for months.&lt;/p&gt;
+&lt;h4 id=&quot;iphone&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#iphone&quot; class=&quot;heading-anchor&quot;&gt;iPhone&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Settings -&amp;gt; General -&amp;gt; Software Update -&amp;gt; Automatic Updates&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;android&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#android&quot; class=&quot;heading-anchor&quot;&gt;Android&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Settings -&amp;gt; System -&amp;gt; System update (varies by vendor)&lt;/li&gt;
+&lt;li&gt;Also check Google Play system update if your phone exposes it under Security and privacy&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I treat this like oil changes. If you skip them long enough, something expensive happens.&lt;/p&gt;
+&lt;h2 id=&quot;step-2-lock-screen-hardening-that-does-not-make-you-miserable&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#step-2-lock-screen-hardening-that-does-not-make-you-miserable&quot; class=&quot;heading-anchor&quot;&gt;Step 2: Lock screen hardening that does not make you miserable&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This is the center of gravity. If your lock screen is weak, everything behind it is a bonus prize.&lt;/p&gt;
+&lt;h3 id=&quot;use-a-passcode-that-cannot-be-guessed-in-five-tries&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#use-a-passcode-that-cannot-be-guessed-in-five-tries&quot; class=&quot;heading-anchor&quot;&gt;Use a passcode that cannot be guessed in five tries&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;A 4-digit PIN is 10,000 possibilities. That sounds big until you remember attackers can watch you type it. A 6-digit PIN is 1,000,000 possibilities and buys you a lot more safety for almost no extra effort.&lt;/p&gt;
+&lt;p&gt;My recommendation:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Minimum: 6-digit PIN&lt;/li&gt;
+&lt;li&gt;Better: long numeric passcode&lt;/li&gt;
+&lt;li&gt;Best: alphanumeric passcode if you can tolerate it&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;keep-biometrics-but-do-not-rely-on-them-alone&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#keep-biometrics-but-do-not-rely-on-them-alone&quot; class=&quot;heading-anchor&quot;&gt;Keep biometrics, but do not rely on them alone&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Face ID and fingerprints are great for daily convenience, but the passcode is still the root key for many security actions. You want the passcode to be strong because it is what matters when you are stressed, tired, or being rushed.&lt;/p&gt;
+&lt;h3 id=&quot;set-a-reasonable-auto-lock-timeout&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#set-a-reasonable-auto-lock-timeout&quot; class=&quot;heading-anchor&quot;&gt;Set a reasonable auto-lock timeout&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Too short becomes annoying. Too long becomes dangerous. I usually recommend 30 seconds to 2 minutes depending on your lifestyle.&lt;/p&gt;
+&lt;h3 id=&quot;stop-notification-leaks&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#stop-notification-leaks&quot; class=&quot;heading-anchor&quot;&gt;Stop notification leaks&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Lock screen notifications can leak one-time codes, email subjects, calendar details, and even message previews. &lt;a href=&quot;https://support.apple.com/guide/iphone/change-notification-settings-iph7c3d96bab/ios&quot; rel=&quot;noopener&quot;&gt;Apple explicitly supports&lt;/a&gt; controlling notification previews and when they appear.&lt;/p&gt;
+&lt;p&gt;My recommendation:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Show previews: When Unlocked (or Never if you want maximum privacy)&lt;/li&gt;
+&lt;li&gt;Also consider disabling lock screen notifications for banking and authentication apps entirely&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This single change prevents a surprising number of “they grabbed my phone and immediately took over my accounts” stories.&lt;/p&gt;
+&lt;h2 id=&quot;step-3-anti-theft-features-you-should-enable-before-you-need-them&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#step-3-anti-theft-features-you-should-enable-before-you-need-them&quot; class=&quot;heading-anchor&quot;&gt;Step 3: Anti-theft features you should enable before you need them&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Most people turn these on after something bad happens. That is like buying a fire extinguisher after the kitchen catches fire.&lt;/p&gt;
+&lt;h3 id=&quot;iphone-find-my-and-activation-lock&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#iphone-find-my-and-activation-lock&quot; class=&quot;heading-anchor&quot;&gt;iPhone: Find My and Activation Lock&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;When Find My is enabled, &lt;a href=&quot;https://support.apple.com/en-us/108794&quot; rel=&quot;noopener&quot;&gt;Activation Lock&lt;/a&gt; helps prevent someone else from using your device if it is lost or stolen.&lt;/p&gt;
+&lt;p&gt;Also bookmark &lt;a href=&quot;https://support.apple.com/en-us/120837&quot; rel=&quot;noopener&quot;&gt;Apple’s stolen device steps&lt;/a&gt;. If you ever need it, you will not want to hunt for it while panicking.&lt;/p&gt;
+&lt;h3 id=&quot;iphone-stolen-device-protection&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#iphone-stolen-device-protection&quot; class=&quot;heading-anchor&quot;&gt;iPhone: Stolen Device Protection&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://support.apple.com/en-us/120340&quot; rel=&quot;noopener&quot;&gt;Stolen Device Protection&lt;/a&gt; adds extra safeguards around sensitive actions and is designed specifically for the “phone stolen plus passcode compromised” scenario.&lt;/p&gt;
+&lt;p&gt;My recommendation:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Turn it on.&lt;/li&gt;
+&lt;li&gt;If you travel a lot or use your phone in crowded places often, consider the stricter option when available.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;android-find-hub-and-theft-protection&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#android-find-hub-and-theft-protection&quot; class=&quot;heading-anchor&quot;&gt;Android: Find Hub and Theft Protection&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Google’s current &lt;a href=&quot;https://support.google.com/android/answer/15146908?hl=en&quot; rel=&quot;noopener&quot;&gt;Theft Protection guidance&lt;/a&gt; includes features like Offline Device Lock and Failed Authentication Lock, plus Remote Lock options. Separately, Google also &lt;a href=&quot;https://support.google.com/accounts/answer/6160491?hl=en&quot; rel=&quot;noopener&quot;&gt;documents how to find, secure, or erase&lt;/a&gt; a lost Android device.&lt;/p&gt;
+&lt;p&gt;My recommendation:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Enable Theft Protection features that your device offers.&lt;/li&gt;
+&lt;li&gt;Confirm that remote locate and remote lock are working at least once.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;step-4-sim-swap-and-port-out-defense-boring-effective-underrated&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#step-4-sim-swap-and-port-out-defense-boring-effective-underrated&quot; class=&quot;heading-anchor&quot;&gt;Step 4: SIM swap and port-out defense (boring, effective, underrated)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This one is not sexy. It is also one of the most brutal takeovers because it breaks SMS-based recovery and can let an attacker reset accounts rapidly.&lt;/p&gt;
+&lt;p&gt;The FCC has been actively tightening rules around &lt;a href=&quot;https://www.fcc.gov/consumer-governmental-affairs/fcc-announces-effective-compliance-date-sim-swapping-item&quot; rel=&quot;noopener&quot;&gt;SIM swap&lt;/a&gt; and &lt;a href=&quot;https://www.fcc.gov/consumers/scam-alert/port-out-fraud-targets-your-private-accounts&quot; rel=&quot;noopener&quot;&gt;port-out fraud&lt;/a&gt;, and they also provide consumer guidance about port-out scams.&lt;/p&gt;
+&lt;p&gt;Do these:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ask your carrier to set a &lt;strong&gt;port-out PIN&lt;/strong&gt; or &lt;strong&gt;number lock&lt;/strong&gt; on your account.&lt;/li&gt;
+&lt;li&gt;Ensure your carrier account has a strong password and updated recovery email.&lt;/li&gt;
+&lt;li&gt;Consider a &lt;strong&gt;SIM PIN&lt;/strong&gt; if you travel or if physical SIM theft is realistic for you.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Practical note: this is worth doing even if you use app-based MFA, because attackers often aim for the recovery path and not the login.&lt;/p&gt;
+&lt;h2 id=&quot;step-5-app-permissions-and-quiet-spyware-reduction&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#step-5-app-permissions-and-quiet-spyware-reduction&quot; class=&quot;heading-anchor&quot;&gt;Step 5: App permissions and “quiet spyware” reduction&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;You do not need to be paranoid to benefit from least privilege. If an app does not need your microphone, it does not get your microphone. Simple.&lt;/p&gt;
+&lt;h3 id=&quot;delete-apps-you-do-not-use&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#delete-apps-you-do-not-use&quot; class=&quot;heading-anchor&quot;&gt;Delete apps you do not use&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Every installed app is potential risk. Fewer apps means fewer problems.&lt;/p&gt;
+&lt;h3 id=&quot;review-permissions-in-a-focused-way&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#review-permissions-in-a-focused-way&quot; class=&quot;heading-anchor&quot;&gt;Review permissions in a focused way&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Instead of trying to audit everything, do it like a professional: high-risk permissions first.&lt;/p&gt;
+&lt;p&gt;Start with:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Location&lt;/li&gt;
+&lt;li&gt;Camera&lt;/li&gt;
+&lt;li&gt;Microphone&lt;/li&gt;
+&lt;li&gt;Photos&lt;/li&gt;
+&lt;li&gt;Contacts&lt;/li&gt;
+&lt;li&gt;Bluetooth and local network access&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If the permission does not match the job of the app, remove it. If the app nags or breaks, decide whether you trust it enough to keep the permission. That decision is the entire game.&lt;/p&gt;
+&lt;h3 id=&quot;android-keep-play-protect-on&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#android-keep-play-protect-on&quot; class=&quot;heading-anchor&quot;&gt;Android: keep Play Protect on&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://support.google.com/googleplay/answer/2812853?hl=en&quot; rel=&quot;noopener&quot;&gt;Play Protect&lt;/a&gt; scans apps and warns about harmful behavior. It is not magic, but it is a solid baseline control and costs almost nothing in convenience.&lt;/p&gt;
+&lt;h2 id=&quot;step-6-account-hardening-that-survives-a-lost-phone&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#step-6-account-hardening-that-survives-a-lost-phone&quot; class=&quot;heading-anchor&quot;&gt;Step 6: Account hardening that survives a lost phone&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Hardening the device is only half of it. The other half is making sure you can recover accounts safely if the phone is gone.&lt;/p&gt;
+&lt;h3 id=&quot;prefer-passkeys-where-available&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#prefer-passkeys-where-available&quot; class=&quot;heading-anchor&quot;&gt;Prefer passkeys where available&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Passkeys are designed to reduce phishing risk and remove password reuse pain. &lt;a href=&quot;https://support.google.com/accounts/answer/13548313?hl=en_&quot; rel=&quot;noopener&quot;&gt;Google explains passkeys&lt;/a&gt; as a more secure alternative to passwords because they rely on device unlock instead of a shared secret you can accidentally give away.&lt;/p&gt;
+&lt;p&gt;My recommendation:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use passkeys for your primary accounts when offered.&lt;/li&gt;
+&lt;li&gt;Still keep recovery methods updated.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;reduce-reliance-on-sms-for-critical-accounts&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#reduce-reliance-on-sms-for-critical-accounts&quot; class=&quot;heading-anchor&quot;&gt;Reduce reliance on SMS for critical accounts&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;SMS is better than nothing, but it is fragile during number takeovers. For critical accounts, prefer:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Passkeys&lt;/li&gt;
+&lt;li&gt;Authenticator apps&lt;/li&gt;
+&lt;li&gt;Hardware keys (if you already own them)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;step-7-personal-safety-features-the-someone-had-access-to-my-phone-scenario&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#step-7-personal-safety-features-the-someone-had-access-to-my-phone-scenario&quot; class=&quot;heading-anchor&quot;&gt;Step 7: Personal safety features (the “someone had access to my phone” scenario)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Sometimes the issue is not “a hacker.” Sometimes it is a person who had access, or still has access.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://support.apple.com/guide/personal-safety/safety-check-iphone-ios-16-ips2aad835e1/web&quot; rel=&quot;noopener&quot;&gt;Apple’s Safety Check&lt;/a&gt; is specifically designed to review and revoke sharing and access quickly.&lt;/p&gt;
+&lt;p&gt;This is especially useful if:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You shared location with someone and forgot.&lt;/li&gt;
+&lt;li&gt;You are unsure what devices are signed into your account.&lt;/li&gt;
+&lt;li&gt;You need a clean reset of who has access to what.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;validation-drills-prove-it-worked&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#validation-drills-prove-it-worked&quot; class=&quot;heading-anchor&quot;&gt;Validation drills: prove it worked&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;These take five minutes and remove the “I think I did it right” uncertainty.&lt;/p&gt;
+&lt;h3 id=&quot;drill-1-the-lock-screen-leak-test&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#drill-1-the-lock-screen-leak-test&quot; class=&quot;heading-anchor&quot;&gt;Drill 1: The lock screen leak test&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Lock your phone.&lt;/li&gt;
+&lt;li&gt;Send yourself a text from another device with something you would not want visible.&lt;/li&gt;
+&lt;li&gt;Confirm the lock screen does not reveal the contents.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;If it leaks, fix notification previews and consider disabling lock screen notifications for your most sensitive apps. &lt;a href=&quot;https://support.apple.com/guide/iphone/change-notification-settings-iph7c3d96bab/ios&quot; rel=&quot;noopener&quot;&gt;Apple documents&lt;/a&gt; how previews behave and how to change them.&lt;/p&gt;
+&lt;h3 id=&quot;drill-2-the-find-my-reality-test&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#drill-2-the-find-my-reality-test&quot; class=&quot;heading-anchor&quot;&gt;Drill 2: The find-my reality test&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;From a laptop or another phone:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;iPhone: confirm Find My can locate the device, and that &lt;a href=&quot;https://support.apple.com/en-us/108794&quot; rel=&quot;noopener&quot;&gt;Activation Lock&lt;/a&gt; is active.&lt;/li&gt;
+&lt;li&gt;Android: confirm you can locate, secure, or erase the device remotely. (&lt;a href=&quot;https://support.google.com/accounts/answer/6160491?hl=en&quot; rel=&quot;noopener&quot;&gt;Find, secure, or erase a lost Android device&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Do this once now so you know the path before you need it.&lt;/p&gt;
+&lt;h3 id=&quot;drill-3-the-sim-swap-friction-test&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#drill-3-the-sim-swap-friction-test&quot; class=&quot;heading-anchor&quot;&gt;Drill 3: The SIM swap friction test&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Log into your carrier account and confirm:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;There is a port-out PIN or number lock enabled.&lt;/li&gt;
+&lt;li&gt;Your account recovery email is correct.&lt;/li&gt;
+&lt;li&gt;Alerts are enabled when changes happen, if offered.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This aligns with the direction regulators have pushed carriers toward, because this fraud path has been so common. (&lt;a href=&quot;https://www.fcc.gov/consumers/scam-alert/port-out-fraud-targets-your-private-accounts&quot; rel=&quot;noopener&quot;&gt;FCC port-out fraud alert&lt;/a&gt;)&lt;/p&gt;
+&lt;h2 id=&quot;optional-hard-mode-for-higher-risk-people&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#optional-hard-mode-for-higher-risk-people&quot; class=&quot;heading-anchor&quot;&gt;Optional hard mode: for higher-risk people&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If you have a credible reason to worry about sophisticated targeting (journalists, activists, high-profile roles, hostile ex situations), &lt;a href=&quot;https://support.apple.com/en-us/105120&quot; rel=&quot;noopener&quot;&gt;Lockdown Mode&lt;/a&gt; is a deliberately restrictive option Apple provides to reduce attack surface.&lt;/p&gt;
+&lt;p&gt;It is intentionally annoying. Only use it if you need it.&lt;/p&gt;
+&lt;h2 id=&quot;maintenance-schedule-that-keeps-this-from-decaying&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/#maintenance-schedule-that-keeps-this-from-decaying&quot; class=&quot;heading-anchor&quot;&gt;Maintenance schedule that keeps this from decaying&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Weekly&lt;/strong&gt;: install updates when prompted&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Monthly&lt;/strong&gt;: review your installed apps and delete two you do not use&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Quarterly&lt;/strong&gt;: permissions review for the top 10 apps, and confirm find-my still works&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Yearly&lt;/strong&gt;: check carrier account protections and update recovery options&lt;/li&gt;
+&lt;/ul&gt;
+
+      </content>
+    </entry><entry>
       <title>Protecting Your Enterprise From “Employee Actions” on Network Devices</title>
       <link href="https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/" />
       <updated>2026-01-28T20:30:00Z</updated>
@@ -2135,10 +2313,10 @@ A series that aims to make security approachable for anyone who wants to learn m
 
       </content>
     </entry><entry>
-      <title>CybersecKyle Security How-To Series: Everyday Defense, Part 3 — Browser Hygiene That Actually Sticks</title>
-      <link href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/" />
+      <title>CybersecKyle Security How-To Series: Everyday Defense, Part 3 - Browser Hygiene That Actually Sticks</title>
+      <link href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/" />
       <updated>2025-12-23T18:00:00Z</updated>
-      <id>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/</id>
+      <id>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/</id>
       <content type="html">
         &lt;blockquote&gt;
 &lt;p&gt;This is &lt;strong&gt;Part 3&lt;/strong&gt; of the &lt;strong&gt;Everyday Defense&lt;/strong&gt; track in my &lt;a href=&quot;https://www.kylereddoch.me/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/&quot;&gt;CybersecKyle Security How-To Series&lt;/a&gt;. The goal here is simple: make your browser boring to attackers without making your browsing miserable.&lt;/p&gt;
@@ -2154,7 +2332,7 @@ A series that aims to make security approachable for anyone who wants to learn m
 &lt;li&gt;easy to maintain&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Let’s build that.&lt;/p&gt;
-&lt;h2 id=&quot;the-baseline-rule&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/#the-baseline-rule&quot; class=&quot;heading-anchor&quot;&gt;The baseline rule&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;the-baseline-rule&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/#the-baseline-rule&quot; class=&quot;heading-anchor&quot;&gt;The baseline rule&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Your browser hygiene should work even on your worst day.&lt;/p&gt;
 &lt;p&gt;If a setup requires constant discipline, it will eventually fail. Instead, we build guardrails:&lt;/p&gt;
 &lt;ul&gt;
@@ -2163,9 +2341,9 @@ A series that aims to make security approachable for anyone who wants to learn m
 &lt;li&gt;turn on the security rails already built into the browser&lt;/li&gt;
 &lt;li&gt;treat downloads as hostile until proven otherwise&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;step-1-use-profiles-like-compartments-not-decorations&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/#step-1-use-profiles-like-compartments-not-decorations&quot; class=&quot;heading-anchor&quot;&gt;Step 1: Use profiles like compartments, not decorations&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;step-1-use-profiles-like-compartments-not-decorations&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/#step-1-use-profiles-like-compartments-not-decorations&quot; class=&quot;heading-anchor&quot;&gt;Step 1: Use profiles like compartments, not decorations&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;A browser “profile” is a separate bubble of cookies, history, extensions, and saved sessions. This matters because most real-world account takeovers are not “Hollywood hacking.” They are stolen sessions, bad extensions, or you logging into the wrong thing in the wrong context.&lt;/p&gt;
-&lt;h3 id=&quot;my-recommended-profile-layout&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/#my-recommended-profile-layout&quot; class=&quot;heading-anchor&quot;&gt;My recommended profile layout&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;my-recommended-profile-layout&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/#my-recommended-profile-layout&quot; class=&quot;heading-anchor&quot;&gt;My recommended profile layout&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Keep it simple. Three profiles covers most people:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -2185,14 +2363,14 @@ Password manager web vault (if you use it), email admin panels, domain registrar
 Company email, Teams/Slack, ticketing/PSA, documentation, M365/Google tenant user portals, RMM dashboards, client portals, and anything that uses SSO. Treat this as “business sessions only.” No personal browsing, no random downloads, and keep extensions minimal.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h4 id=&quot;quick-rules-for-the-work-profile&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/#quick-rules-for-the-work-profile&quot; class=&quot;heading-anchor&quot;&gt;Quick rules for the Work profile&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;quick-rules-for-the-work-profile&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/#quick-rules-for-the-work-profile&quot; class=&quot;heading-anchor&quot;&gt;Quick rules for the Work profile&lt;/a&gt;&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;Only install extensions you’d be comfortable running on a client endpoint (password manager + blocker, maybe one workflow tool).&lt;/li&gt;
 &lt;li&gt;Block notifications by default.&lt;/li&gt;
 &lt;li&gt;Downloads go to a dedicated Work folder, and anything executable gets treated as suspicious until verified.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Why this works: tracking cookies, malicious scripts, and sketchy sites that live in Daily have a much harder time reaching sessions in Money or Admin.&lt;/p&gt;
-&lt;h3 id=&quot;how-to-set-up-profiles-quickly&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/#how-to-set-up-profiles-quickly&quot; class=&quot;heading-anchor&quot;&gt;How to set up profiles quickly&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;how-to-set-up-profiles-quickly&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/#how-to-set-up-profiles-quickly&quot; class=&quot;heading-anchor&quot;&gt;How to set up profiles quickly&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Chrome / Edge / Brave (Chromium): Use the built-in profile switcher and pin each profile to the taskbar/dock with a different icon. Start with Chrome’s official &lt;a href=&quot;https://support.google.com/chrome/answer/2364824&quot; rel=&quot;noopener&quot;&gt;profile help page&lt;/a&gt; and mirror the same concept in your browser of choice:&lt;/li&gt;
 &lt;li&gt;Vivaldi: Profiles are managed from the &lt;strong&gt;Profile button on the right side of the Address Bar&lt;/strong&gt;. Click it, choose &lt;strong&gt;Manage People&lt;/strong&gt;, then &lt;strong&gt;Add Person&lt;/strong&gt; to create a new profile. You can set a name and avatar, and on Windows/macOS you can also choose to create a &lt;strong&gt;desktop shortcut&lt;/strong&gt; for that profile. &lt;a href=&quot;https://help.vivaldi.com/desktop/tools/user-profiles/&quot; rel=&quot;noopener&quot;&gt;Official steps&lt;/a&gt;:
@@ -2205,19 +2383,19 @@ Company email, Teams/Slack, ticketing/PSA, documentation, M365/Google tenant use
 &lt;/li&gt;
 &lt;li&gt;Firefox: You can use separate profiles (about:profiles) and optionally pair that with &lt;a href=&quot;https://support.mozilla.org/en-US/kb/containers&quot; rel=&quot;noopener&quot;&gt;Firefox Multi-Account Containers&lt;/a&gt; (containers give you isolation inside one profile)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;hard-rule-for-the-money-profile&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/#hard-rule-for-the-money-profile&quot; class=&quot;heading-anchor&quot;&gt;Hard rule for the Money profile&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;hard-rule-for-the-money-profile&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/#hard-rule-for-the-money-profile&quot; class=&quot;heading-anchor&quot;&gt;Hard rule for the Money profile&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;No random browsing&lt;/li&gt;
 &lt;li&gt;No new extensions unless you would bet your paycheck the extension is clean&lt;/li&gt;
 &lt;li&gt;No “remember me” on shared/public machines&lt;/li&gt;
 &lt;li&gt;Consider making Money a different browser entirely if you want maximum separation (example: Vivaldi for Daily, Firefox for Money)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;step-2-extensions-are-software-and-software-is-risk&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/#step-2-extensions-are-software-and-software-is-risk&quot; class=&quot;heading-anchor&quot;&gt;Step 2: Extensions are software, and software is risk&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;step-2-extensions-are-software-and-software-is-risk&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/#step-2-extensions-are-software-and-software-is-risk&quot; class=&quot;heading-anchor&quot;&gt;Step 2: Extensions are software, and software is risk&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Extensions can read pages, inject scripts, and see what you type depending on permissions. Some are great. Some are sketchy. Some are great until they get sold, compromised, or “updated” into spyware.&lt;/p&gt;
 &lt;p&gt;If you remember one thing from this section, remember this:&lt;br&gt;
 &lt;strong&gt;every extension is a supply chain decision.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;A good general read on why MFA and secure habits matter is CISA’s guidance, and it pairs nicely with this &lt;a href=&quot;https://www.cisa.gov/secure-our-world&quot; rel=&quot;noopener&quot;&gt;“attack surface reduction” mindset&lt;/a&gt;.&lt;/p&gt;
-&lt;h3 id=&quot;extension-hygiene-rules&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/#extension-hygiene-rules&quot; class=&quot;heading-anchor&quot;&gt;Extension hygiene rules&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;extension-hygiene-rules&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/#extension-hygiene-rules&quot; class=&quot;heading-anchor&quot;&gt;Extension hygiene rules&lt;/a&gt;&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Fewer is safer.&lt;/strong&gt;&lt;br&gt;
@@ -2237,7 +2415,7 @@ Chrome/Edge/Vivaldi: &lt;code&gt;chrome://extensions&lt;/code&gt;&lt;br&gt;
 Firefox: Add-ons and themes&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&quot;what-i-consider-green-flags&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/#what-i-consider-green-flags&quot; class=&quot;heading-anchor&quot;&gt;What I consider “green flags”&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;what-i-consider-green-flags&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/#what-i-consider-green-flags&quot; class=&quot;heading-anchor&quot;&gt;What I consider “green flags”&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Known vendor, long-lived reputation, clear privacy policy&lt;/li&gt;
 &lt;li&gt;Open-source code with active maintenance (not abandoned)&lt;/li&gt;
@@ -2245,7 +2423,7 @@ Firefox: Add-ons and themes&lt;/p&gt;
 &lt;li&gt;No weird monetization tricks&lt;/li&gt;
 &lt;li&gt;Update history that looks normal, not “suddenly everything changed last week”&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;what-i-consider-red-flags&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/#what-i-consider-red-flags&quot; class=&quot;heading-anchor&quot;&gt;What I consider “red flags”&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;what-i-consider-red-flags&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/#what-i-consider-red-flags&quot; class=&quot;heading-anchor&quot;&gt;What I consider “red flags”&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;“Free VPN” extensions that are not from a legitimate company&lt;/li&gt;
 &lt;li&gt;Extensions that do coupons, shopping injection, “price comparisons,” or “AI assistant for every website”&lt;/li&gt;
@@ -2253,7 +2431,7 @@ Firefox: Add-ons and themes&lt;/p&gt;
 &lt;li&gt;Anything that demands broad permissions and gives vague reasons&lt;/li&gt;
 &lt;li&gt;Low install count plus lots of reviews that feel fake&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;my-baseline-extension-set&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/#my-baseline-extension-set&quot; class=&quot;heading-anchor&quot;&gt;My baseline extension set&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;my-baseline-extension-set&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/#my-baseline-extension-set&quot; class=&quot;heading-anchor&quot;&gt;My baseline extension set&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;I’m not married to one stack, but here is a practical baseline:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;A reputable content blocker (ad and tracker blocking).&lt;br&gt;
@@ -2262,7 +2440,7 @@ Firefox still supports full uBlock Origin. Chrome-based browsers have moved to M
 Use the official one only. No third-party wrappers.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;That’s usually it.&lt;/p&gt;
-&lt;h2 id=&quot;step-3-anti-tracking-settings-that-improve-privacy-without-breaking-everything&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/#step-3-anti-tracking-settings-that-improve-privacy-without-breaking-everything&quot; class=&quot;heading-anchor&quot;&gt;Step 3: Anti-tracking settings that improve privacy without breaking everything&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;step-3-anti-tracking-settings-that-improve-privacy-without-breaking-everything&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/#step-3-anti-tracking-settings-that-improve-privacy-without-breaking-everything&quot; class=&quot;heading-anchor&quot;&gt;Step 3: Anti-tracking settings that improve privacy without breaking everything&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Anti-tracking is a mix of:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;blocking third-party cookies&lt;/li&gt;
@@ -2270,7 +2448,7 @@ Use the official one only. No third-party wrappers.&lt;/li&gt;
 &lt;li&gt;limiting fingerprinting&lt;/li&gt;
 &lt;li&gt;controlling permissions like notifications and location&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;settings-you-should-turn-on-today&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/#settings-you-should-turn-on-today&quot; class=&quot;heading-anchor&quot;&gt;Settings you should turn on today&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;settings-you-should-turn-on-today&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/#settings-you-should-turn-on-today&quot; class=&quot;heading-anchor&quot;&gt;Settings you should turn on today&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;These are available in most modern browsers:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -2300,7 +2478,7 @@ Many Chromium browsers have similar “always use secure connections” settings
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&quot;fingerprinting-reality-check&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/#fingerprinting-reality-check&quot; class=&quot;heading-anchor&quot;&gt;Fingerprinting reality check&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;fingerprinting-reality-check&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/#fingerprinting-reality-check&quot; class=&quot;heading-anchor&quot;&gt;Fingerprinting reality check&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;You cannot “fully stop fingerprinting” in a typical consumer browser. You can reduce it, but the best you can do without breaking sites is:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;minimize extensions&lt;/li&gt;
@@ -2309,7 +2487,7 @@ Many Chromium browsers have similar “always use secure connections” settings
 &lt;li&gt;avoid exotic settings that make you uniquely identifiable&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;If you want the deep rabbit hole, Firefox’s “Resist Fingerprinting” exists but is not enabled by default because it breaks things. For most people, the practical play is “reduce the biggest tracking channels” and keep your browser updated.&lt;/p&gt;
-&lt;h2 id=&quot;step-4-safe-downloads-without-paranoia&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/#step-4-safe-downloads-without-paranoia&quot; class=&quot;heading-anchor&quot;&gt;Step 4: Safe downloads without paranoia&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;step-4-safe-downloads-without-paranoia&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/#step-4-safe-downloads-without-paranoia&quot; class=&quot;heading-anchor&quot;&gt;Step 4: Safe downloads without paranoia&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Downloads are where attackers love to hide because users are trained to click “Open” fast.&lt;/p&gt;
 &lt;p&gt;A solid “download safety” routine is:&lt;/p&gt;
 &lt;ol&gt;
@@ -2317,14 +2495,14 @@ Many Chromium browsers have similar “always use secure connections” settings
 &lt;li&gt;verify the file&lt;/li&gt;
 &lt;li&gt;isolate the execution&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&quot;source-rules&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/#source-rules&quot; class=&quot;heading-anchor&quot;&gt;Source rules&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;source-rules&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/#source-rules&quot; class=&quot;heading-anchor&quot;&gt;Source rules&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Prefer official vendor sites or official app stores.&lt;/li&gt;
 &lt;li&gt;Avoid random “driver download” sites.&lt;/li&gt;
 &lt;li&gt;Avoid “cracked” software. It is basically malware-as-a-service.&lt;/li&gt;
 &lt;li&gt;If you find a tool via a blog post, confirm it on the vendor’s official domain.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;file-rules-quick-triage&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/#file-rules-quick-triage&quot; class=&quot;heading-anchor&quot;&gt;File rules (quick triage)&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;file-rules-quick-triage&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/#file-rules-quick-triage&quot; class=&quot;heading-anchor&quot;&gt;File rules (quick triage)&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Before you open something you downloaded:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Look at the file type. Make sure Windows is &lt;a href=&quot;https://support.microsoft.com/en-us/windows/common-file-name-extensions-in-windows-da4a4430-8e76-89c5-59f7-1cdbbc75cb01&quot; rel=&quot;noopener&quot;&gt;showing file extensions&lt;/a&gt;.&lt;/li&gt;
@@ -2332,14 +2510,14 @@ Many Chromium browsers have similar “always use secure connections” settings
 &lt;li&gt;If it is an installer, check if it is signed (Windows will show publisher info). If it is unsigned and unexpected, stop.&lt;/li&gt;
 &lt;li&gt;Use a reputation scan for questionable files. &lt;a href=&quot;https://www.virustotal.com&quot; rel=&quot;noopener&quot;&gt;VirusTotal&lt;/a&gt; is a common option.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;isolation-rules&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/#isolation-rules&quot; class=&quot;heading-anchor&quot;&gt;Isolation rules&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;isolation-rules&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/#isolation-rules&quot; class=&quot;heading-anchor&quot;&gt;Isolation rules&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;If you are not sure about a file, do not run it on your main system.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Windows: use &lt;a href=&quot;https://learn.microsoft.com/en-us/windows/security/application-security/application-isolation/windows-sandbox/windows-sandbox-overview&quot; rel=&quot;noopener&quot;&gt;Windows Sandbox when available&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;macOS: &lt;a href=&quot;https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac&quot; rel=&quot;noopener&quot;&gt;Gatekeeper is your friend&lt;/a&gt;. Do not bypass it casually.&lt;/li&gt;
 &lt;li&gt;Linux: use a VM or container for untrusted files.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;my-60-second-download-pause-protocol&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/#my-60-second-download-pause-protocol&quot; class=&quot;heading-anchor&quot;&gt;My “60 second download pause protocol”&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;my-60-second-download-pause-protocol&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/#my-60-second-download-pause-protocol&quot; class=&quot;heading-anchor&quot;&gt;My “60 second download pause protocol”&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;When your mouse is hovering over Open:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Do I trust the source domain?&lt;/li&gt;
@@ -2348,9 +2526,9 @@ Many Chromium browsers have similar “always use secure connections” settings
 &lt;li&gt;If not, can I isolate it first?&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;That small pause prevents a shocking number of incidents.&lt;/p&gt;
-&lt;h2 id=&quot;step-5-maintenance-routine-that-takes-10-minutes-a-month&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/#step-5-maintenance-routine-that-takes-10-minutes-a-month&quot; class=&quot;heading-anchor&quot;&gt;Step 5: Maintenance routine that takes 10 minutes a month&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;step-5-maintenance-routine-that-takes-10-minutes-a-month&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/#step-5-maintenance-routine-that-takes-10-minutes-a-month&quot; class=&quot;heading-anchor&quot;&gt;Step 5: Maintenance routine that takes 10 minutes a month&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Browser hygiene fails when it is not maintained. Here is the low-friction schedule that works for real adults with jobs:&lt;/p&gt;
-&lt;h3 id=&quot;monthly-checklist&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/#monthly-checklist&quot; class=&quot;heading-anchor&quot;&gt;Monthly checklist&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;monthly-checklist&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/#monthly-checklist&quot; class=&quot;heading-anchor&quot;&gt;Monthly checklist&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Update browser (and restart it)&lt;/li&gt;
 &lt;li&gt;Update extensions&lt;/li&gt;
@@ -2359,7 +2537,7 @@ Many Chromium browsers have similar “always use secure connections” settings
 &lt;li&gt;Clear the Downloads folder&lt;/li&gt;
 &lt;li&gt;Check that Money and Admin profiles are still clean&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;quarterly-checklist&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/#quarterly-checklist&quot; class=&quot;heading-anchor&quot;&gt;Quarterly checklist&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;quarterly-checklist&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/#quarterly-checklist&quot; class=&quot;heading-anchor&quot;&gt;Quarterly checklist&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Rotate your “top ten” session posture
 &lt;ul&gt;
@@ -2370,7 +2548,7 @@ Many Chromium browsers have similar “always use secure connections” settings
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;If you want a dedicated day, call it “Browser Reset Day” and put it on your calendar.&lt;/p&gt;
-&lt;h2 id=&quot;quick-start-setup-for-most-readers&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/#quick-start-setup-for-most-readers&quot; class=&quot;heading-anchor&quot;&gt;Quick start setup for most readers&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;quick-start-setup-for-most-readers&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/#quick-start-setup-for-most-readers&quot; class=&quot;heading-anchor&quot;&gt;Quick start setup for most readers&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;If you want the fastest win, do this today:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Create the browser profiles: Daily, Money, Admin, and Work (if you need it).&lt;/li&gt;
@@ -2380,7 +2558,7 @@ Many Chromium browsers have similar “always use secure connections” settings
 &lt;li&gt;&lt;strong&gt;Stop downloading installers from random sites&lt;/strong&gt;. Use official sources.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;That gets you 80 percent of the benefit with 20 percent of the effort.&lt;/p&gt;
-&lt;h2 id=&quot;up-next&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-%E2%80%94-browser-hygiene-that-actually-sticks/#up-next&quot; class=&quot;heading-anchor&quot;&gt;Up next&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;up-next&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/#up-next&quot; class=&quot;heading-anchor&quot;&gt;Up next&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Part 4 is phone hardening basics for iOS and Android.&lt;/strong&gt; We will cover the settings that matter, what to turn off, and what to leave alone so your phone stays usable.&lt;/p&gt;
 &lt;p&gt;If you followed Part 1 and Part 2, Part 3 is where everything starts feeling calm. That is the point.&lt;/p&gt;
 
@@ -4518,30 +4696,30 @@ Better late than never, I suppose.&lt;/p&gt;
 
       </content>
     </entry><entry>
-      <title>CybersecKyle Security How-To Series: Everyday Defense, Part 2 — 2FA Rescue and Recovery</title>
-      <link href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/" />
+      <title>CybersecKyle Security How-To Series: Everyday Defense, Part 2 - 2FA Rescue and Recovery</title>
+      <link href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/" />
       <updated>2025-11-19T15:00:00Z</updated>
-      <id>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/</id>
+      <id>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/</id>
       <content type="html">
         &lt;blockquote&gt;
 &lt;p&gt;This article is the second in a multiple part series of the CybersecKyle Security How-To Series, a step-by-step collection that starts with everyday safety and ramps up to blue team skills. New to the series? &lt;a href=&quot;https://www.kylereddoch.me/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/&quot;&gt;Start here&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/WPDTq55Ef9-1536.webp 1536w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/WPDTq55Ef9-1536.jpeg&quot; alt=&quot;Part 2 of CybersecKyle Security How-to Series&quot; width=&quot;1536&quot; height=&quot;1024&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
-&lt;h3 id=&quot;why-this-matters&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/#why-this-matters&quot; class=&quot;heading-anchor&quot;&gt;Why this matters&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;MFA stops a lot of bad days. Losing the device that generates your codes can be just as painful as a breach. A small, tested recovery kit prevents panic and long support tickets. This post keeps the benefits of MFA and removes the biggest failure point: lockout risk.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/#fn1&quot; id=&quot;fnref1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt;&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/#fn2&quot; id=&quot;fnref2&quot;&gt;[2]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;h3 id=&quot;what-you-will-build&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/#what-you-will-build&quot; class=&quot;heading-anchor&quot;&gt;What you will build&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;why-this-matters&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#why-this-matters&quot; class=&quot;heading-anchor&quot;&gt;Why this matters&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;MFA stops a lot of bad days. Losing the device that generates your codes can be just as painful as a breach. A small, tested recovery kit prevents panic and long support tickets. This post keeps the benefits of MFA and removes the biggest failure point: lockout risk.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#fn1&quot; id=&quot;fnref1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt;&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#fn2&quot; id=&quot;fnref2&quot;&gt;[2]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h3 id=&quot;what-you-will-build&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#what-you-will-build&quot; class=&quot;heading-anchor&quot;&gt;What you will build&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Backup codes for your top ten accounts, captured and stored safely&lt;/li&gt;
 &lt;li&gt;A second authenticator or a spare hardware security key that actually works&lt;/li&gt;
 &lt;li&gt;A short “lost phone” drill you can follow when the pressure is on&lt;/li&gt;
-&lt;li&gt;Optional passkeys added on the accounts that support them&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/#fn3&quot; id=&quot;fnref3&quot;&gt;[3]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;Optional passkeys added on the accounts that support them&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#fn3&quot; id=&quot;fnref3&quot;&gt;[3]&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;prerequisites&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/#prerequisites&quot; class=&quot;heading-anchor&quot;&gt;Prerequisites&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;prerequisites&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#prerequisites&quot; class=&quot;heading-anchor&quot;&gt;Prerequisites&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/&quot;&gt;Part 1&lt;/a&gt; in progress or complete&lt;/li&gt;
 &lt;li&gt;Your Top Ten list and the worksheet from Part 1&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;step-1-—-collect-backup-codes-for-the-top-ten&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/#step-1-%E2%80%94-collect-backup-codes-for-the-top-ten&quot; class=&quot;heading-anchor&quot;&gt;Step 1 — Collect backup codes for the Top Ten&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;step-1-—-collect-backup-codes-for-the-top-ten&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#step-1-%E2%80%94-collect-backup-codes-for-the-top-ten&quot; class=&quot;heading-anchor&quot;&gt;Step 1 — Collect backup codes for the Top Ten&lt;/a&gt;&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Open each account’s security page and generate &lt;strong&gt;backup codes&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;Store the codes inside that item’s &lt;strong&gt;secure notes&lt;/strong&gt; in your password manager.&lt;/li&gt;
@@ -4549,7 +4727,7 @@ Better late than never, I suppose.&lt;/p&gt;
 &lt;li&gt;Mark &lt;strong&gt;Backup Codes Stored = Y&lt;/strong&gt; in the worksheet.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;em&gt;Why this works:&lt;/em&gt; backup codes are a one-time bypass when your second factor is unavailable. They should live with the password, NOT on sticky notes.&lt;/p&gt;
-&lt;h2 id=&quot;step-2-—-add-a-second-factor-per-account&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/#step-2-%E2%80%94-add-a-second-factor-per-account&quot; class=&quot;heading-anchor&quot;&gt;Step 2 — Add a second factor per account&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;step-2-—-add-a-second-factor-per-account&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#step-2-%E2%80%94-add-a-second-factor-per-account&quot; class=&quot;heading-anchor&quot;&gt;Step 2 — Add a second factor per account&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Pick one of these patterns and apply it to the Top Ten.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Two authenticators on two devices&lt;/strong&gt;&lt;br&gt;
@@ -4558,11 +4736,11 @@ Example: primary TOTP app on your phone and a second TOTP app on a tablet.&lt;/l
 Example: one YubiKey you carry and one spare in a safe location.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Label keys in the item record, for example &lt;strong&gt;YK5C-Blue&lt;/strong&gt;. Update &lt;strong&gt;MFA Enabled&lt;/strong&gt; and &lt;strong&gt;Second Factor Device / Key ID&lt;/strong&gt; in the worksheet.&lt;/p&gt;
-&lt;h2 id=&quot;step-3-—-protect-the-master-accounts-first&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/#step-3-%E2%80%94-protect-the-master-accounts-first&quot; class=&quot;heading-anchor&quot;&gt;Step 3 — Protect the master accounts first&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;step-3-—-protect-the-master-accounts-first&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#step-3-%E2%80%94-protect-the-master-accounts-first&quot; class=&quot;heading-anchor&quot;&gt;Step 3 — Protect the master accounts first&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Give extra love to your &lt;strong&gt;password manager&lt;/strong&gt; and &lt;strong&gt;primary email&lt;/strong&gt;. Enroll two factors on each. Keep the spare hardware key &lt;strong&gt;off-site&lt;/strong&gt; so a single theft does not take out both factors.&lt;/p&gt;
-&lt;h2 id=&quot;step-4-—-add-passkeys-where-available&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/#step-4-%E2%80%94-add-passkeys-where-available&quot; class=&quot;heading-anchor&quot;&gt;Step 4 — Add passkeys where available&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Passkeys resist phishing and remove the code-entry dance. Add a passkey alongside existing MFA on services that support it. Note whether it is &lt;strong&gt;device-bound&lt;/strong&gt; or &lt;strong&gt;synced&lt;/strong&gt; through Apple, Google, or your password manager.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/#fn4&quot; id=&quot;fnref4&quot;&gt;[4]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;h2 id=&quot;step-5-—-write-your-lost-phone-drill&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/#step-5-%E2%80%94-write-your-lost-phone-drill&quot; class=&quot;heading-anchor&quot;&gt;Step 5 — Write your lost-phone drill&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;step-4-—-add-passkeys-where-available&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#step-4-%E2%80%94-add-passkeys-where-available&quot; class=&quot;heading-anchor&quot;&gt;Step 4 — Add passkeys where available&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Passkeys resist phishing and remove the code-entry dance. Add a passkey alongside existing MFA on services that support it. Note whether it is &lt;strong&gt;device-bound&lt;/strong&gt; or &lt;strong&gt;synced&lt;/strong&gt; through Apple, Google, or your password manager.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#fn4&quot; id=&quot;fnref4&quot;&gt;[4]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2 id=&quot;step-5-—-write-your-lost-phone-drill&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#step-5-%E2%80%94-write-your-lost-phone-drill&quot; class=&quot;heading-anchor&quot;&gt;Step 5 — Write your lost-phone drill&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Keep it to three lines you can follow under stress:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Sign in using a &lt;strong&gt;backup code&lt;/strong&gt; or &lt;strong&gt;spare key&lt;/strong&gt;.&lt;/li&gt;
@@ -4570,7 +4748,7 @@ Example: one YubiKey you carry and one spare in a safe location.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Enroll&lt;/strong&gt; the new factor and store the new backup codes.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Print the drill card (available as a PDF below) and put it with your kit.&lt;/p&gt;
-&lt;h3 id=&quot;validate-your-work&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/#validate-your-work&quot; class=&quot;heading-anchor&quot;&gt;Validate your work&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;validate-your-work&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#validate-your-work&quot; class=&quot;heading-anchor&quot;&gt;Validate your work&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Pick three checks you can finish today.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Use one backup code on a low-risk account, then restore normal MFA.&lt;/li&gt;
@@ -4578,20 +4756,20 @@ Example: one YubiKey you carry and one spare in a safe location.&lt;/li&gt;
 &lt;li&gt;Sign in once with a &lt;strong&gt;passkey&lt;/strong&gt; only.&lt;/li&gt;
 &lt;li&gt;Open the worksheet and set &lt;strong&gt;Last Reviewed&lt;/strong&gt; for updated items. The &lt;strong&gt;Review Due&lt;/strong&gt; column will flip to &lt;strong&gt;OK&lt;/strong&gt; for fresh items.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;troubleshooting&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/#troubleshooting&quot; class=&quot;heading-anchor&quot;&gt;Troubleshooting&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;troubleshooting&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#troubleshooting&quot; class=&quot;heading-anchor&quot;&gt;Troubleshooting&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;No TOTP option, only SMS.&lt;/strong&gt; Keep SMS for now, but add a second phone number or a hardware key if the site allows it.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Site only allows one hardware key.&lt;/strong&gt; Use one key plus a TOTP app, and keep backup codes ready.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Lost both phone and spare key.&lt;/strong&gt; Use printed backup codes to sign in, rotate factors, then rebuild your kit.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Authenticator migration anxiety.&lt;/strong&gt; Before switching apps, enroll the new authenticator as a &lt;strong&gt;second&lt;/strong&gt; factor, confirm it works, then remove the old one.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;faq&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/#faq&quot; class=&quot;heading-anchor&quot;&gt;FAQ&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;faq&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#faq&quot; class=&quot;heading-anchor&quot;&gt;FAQ&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Where should the printed kit live?&lt;/strong&gt;&lt;br&gt;
 Anywhere safer than your desk. A small fire safe at home or a safe deposit box is reasonable.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Should TOTP codes live in the same password manager?&lt;/strong&gt;&lt;br&gt;
-Convenient and fine for most people. If your threat model is higher, keep TOTP in a separate app or use hardware keys for the big accounts.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/#fn1&quot; id=&quot;fnref1:1&quot;&gt;[1:1]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+Convenient and fine for most people. If your threat model is higher, keep TOTP in a separate app or use hardware keys for the big accounts.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#fn1&quot; id=&quot;fnref1:1&quot;&gt;[1:1]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h4 id=&quot;downloadables&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/#downloadables&quot; class=&quot;heading-anchor&quot;&gt;Downloadables&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;downloadables&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#downloadables&quot; class=&quot;heading-anchor&quot;&gt;Downloadables&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;All files are branded and licensed &lt;strong&gt;CC BY-NC-SA 4.0&lt;/strong&gt;.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -4610,20 +4788,20 @@ Three sheets: Factors, Hardware Keys, Recovery Contacts.&lt;br&gt;
 &lt;a href=&quot;https://www.kylereddoch.me/assets/downloads/how-to-series/2FA_Recovery_Kit_Workbook.xlsx&quot;&gt;Download&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&quot;keep-going&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/#keep-going&quot; class=&quot;heading-anchor&quot;&gt;Keep going&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;keep-going&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#keep-going&quot; class=&quot;heading-anchor&quot;&gt;Keep going&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Next in the track: &lt;strong&gt;Browser hygiene that sticks&lt;/strong&gt;. Profiles, extensions, safe downloads, and a monthly reset that does not fight your workflow.&lt;/p&gt;
 &lt;hr&gt;
-&lt;h4 id=&quot;references&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/#references&quot; class=&quot;heading-anchor&quot;&gt;References&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;references&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#references&quot; class=&quot;heading-anchor&quot;&gt;References&lt;/a&gt;&lt;/h4&gt;
 &lt;hr class=&quot;footnotes-sep&quot;&gt;
 &lt;section class=&quot;footnotes&quot;&gt;
 &lt;ol class=&quot;footnotes-list&quot;&gt;
-&lt;li id=&quot;fn1&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;NIST. &lt;em&gt;Digital Identity Guidelines: Authentication and Lifecycle Management (SP 800-63B).&lt;/em&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/#fnref1&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/#fnref1:1&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;li id=&quot;fn1&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;NIST. &lt;em&gt;Digital Identity Guidelines: Authentication and Lifecycle Management (SP 800-63B).&lt;/em&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#fnref1&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#fnref1:1&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li id=&quot;fn2&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;CISA. &lt;em&gt;Implementing Strong Multifactor Authentication.&lt;/em&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/#fnref2&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;li id=&quot;fn2&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;CISA. &lt;em&gt;Implementing Strong Multifactor Authentication.&lt;/em&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#fnref2&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li id=&quot;fn3&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;W3C + FIDO Alliance. &lt;em&gt;Web Authentication: An API for accessing Public Key Credentials (WebAuthn).&lt;/em&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/#fnref3&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;li id=&quot;fn3&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;W3C + FIDO Alliance. &lt;em&gt;Web Authentication: An API for accessing Public Key Credentials (WebAuthn).&lt;/em&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#fnref3&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li id=&quot;fn4&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;FIDO Alliance. &lt;em&gt;Passkeys: what they are and how they work.&lt;/em&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-%E2%80%94-2fa-rescue-and-recovery/#fnref4&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;li id=&quot;fn4&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;FIDO Alliance. &lt;em&gt;Passkeys: what they are and how they work.&lt;/em&gt; &lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/#fnref4&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
@@ -5260,45 +5438,45 @@ They reduce risk when done right, but they are not phishing-resistant. Use phish
 
       </content>
     </entry><entry>
-      <title>CybersecKyle Security How-To Series: Everyday Defense, Part 1 — Password Managers + MFA</title>
-      <link href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-%E2%80%94-password-managers-mfa/" />
+      <title>CybersecKyle Security How-To Series: Everyday Defense, Part 1 - Password Managers + MFA</title>
+      <link href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/" />
       <updated>2025-11-04T15:00:00Z</updated>
-      <id>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-%E2%80%94-password-managers-mfa/</id>
+      <id>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/</id>
       <content type="html">
         &lt;blockquote&gt;
-&lt;p&gt;This article is part of the CybersecKyle Security How-To Series, a step-by-step collection that starts with everyday safety and ramps up to blue team skills. New to the series? Start here.&lt;/p&gt;
+&lt;p&gt;This article is part of the CybersecKyle Security How-To Series, a step-by-step collection that starts with everyday safety and ramps up to blue team skills. New to the series? &lt;a href=&quot;https://www.kylereddoch.me/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/&quot;&gt;Start here&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/svcegamc7F-1536.webp 1536w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/svcegamc7F-1536.jpeg&quot; alt=&quot;Part 1 of CybersecKyle Security How-to Series&quot; width=&quot;1536&quot; height=&quot;1024&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
-&lt;h3 id=&quot;why-this-matters&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-%E2%80%94-password-managers-mfa/#why-this-matters&quot; class=&quot;heading-anchor&quot;&gt;Why this matters&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;why-this-matters&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/#why-this-matters&quot; class=&quot;heading-anchor&quot;&gt;Why this matters&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Most breaches start with weak or reused passwords. A password manager creates one strong vault to generate and store unique logins. Multi factor authentication (MFA) adds a second check so a stolen password alone is not enough. The goal is fewer logins in your head, stronger logins on every site, and a plan that prevents lockouts.&lt;/p&gt;
-&lt;h2 id=&quot;what-you-will-build&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-%E2%80%94-password-managers-mfa/#what-you-will-build&quot; class=&quot;heading-anchor&quot;&gt;What you will build&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;what-you-will-build&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/#what-you-will-build&quot; class=&quot;heading-anchor&quot;&gt;What you will build&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;A password manager that holds your logins and generates new ones&lt;/li&gt;
 &lt;li&gt;MFA on your most important accounts&lt;/li&gt;
 &lt;li&gt;A small recovery kit that you can store safely&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;key-terms-in-plain-language&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-%E2%80%94-password-managers-mfa/#key-terms-in-plain-language&quot; class=&quot;heading-anchor&quot;&gt;Key terms in plain language&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;key-terms-in-plain-language&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/#key-terms-in-plain-language&quot; class=&quot;heading-anchor&quot;&gt;Key terms in plain language&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Password manager:&lt;/strong&gt; An app that stores and fills logins. Good ones encrypt on your device before sync.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;TOTP:&lt;/strong&gt; A six digit code that refreshes every 30 seconds. Works offline.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Hardware key:&lt;/strong&gt; A small USB or NFC device that proves you are you. Phishing resistant.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Backup codes:&lt;/strong&gt; One time codes that let you in if your phone or key is missing.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;what-to-choose&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-%E2%80%94-password-managers-mfa/#what-to-choose&quot; class=&quot;heading-anchor&quot;&gt;What to choose&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;what-to-choose&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/#what-to-choose&quot; class=&quot;heading-anchor&quot;&gt;What to choose&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Pick one manager you will use daily. I suggest &lt;a href=&quot;https://go.getproton.me/SH24R&quot; rel=&quot;noopener&quot;&gt;Proton Pass&lt;/a&gt;(you can get 60% off right now for their Black Friday deal) as a strong, privacy-focused option. I use Proton’s apps myself, and absolutely recommend them for personal and family use.&lt;/p&gt;
 &lt;p&gt;Other Password Managers like Bitwarden, 1Password, or iCloud Keychain are all solid as well. The best choice is the one you will open every day on every device. Decide once and commit.&lt;/p&gt;
-&lt;h2 id=&quot;risks-and-how-we-reduce-them&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-%E2%80%94-password-managers-mfa/#risks-and-how-we-reduce-them&quot; class=&quot;heading-anchor&quot;&gt;Risks and how we reduce them&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;risks-and-how-we-reduce-them&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/#risks-and-how-we-reduce-them&quot; class=&quot;heading-anchor&quot;&gt;Risks and how we reduce them&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Lockout risk:&lt;/strong&gt; We set at least two factors and store backup codes in the vault item.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Phishing risk:&lt;/strong&gt; We prefer TOTP or a hardware key over SMS.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Data loss risk:&lt;/strong&gt; We keep a written master passphrase in a sealed envelope.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;prerequisites&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-%E2%80%94-password-managers-mfa/#prerequisites&quot; class=&quot;heading-anchor&quot;&gt;Prerequisites&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;prerequisites&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/#prerequisites&quot; class=&quot;heading-anchor&quot;&gt;Prerequisites&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Your computer and your phone&lt;/li&gt;
 &lt;li&gt;About 60 to 90 minutes the first time&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;steps&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-%E2%80%94-password-managers-mfa/#steps&quot; class=&quot;heading-anchor&quot;&gt;Steps&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;steps&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/#steps&quot; class=&quot;heading-anchor&quot;&gt;Steps&lt;/a&gt;&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Install and secure the manager&lt;/strong&gt;&lt;br&gt;
@@ -5325,26 +5503,26 @@ Email, bank, cloud storage, social, phone carrier, domain registrar, your passwo
 Store you master password somewhere safe and secure (I keep mine in Apple Note and lock it). Add a second factor on a different device or a second hardware key. Store the spare key away from home. Document a trusted contact if you want that safety net.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&quot;validate-your-work&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-%E2%80%94-password-managers-mfa/#validate-your-work&quot; class=&quot;heading-anchor&quot;&gt;Validate your work&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;validate-your-work&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/#validate-your-work&quot; class=&quot;heading-anchor&quot;&gt;Validate your work&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Sign out of the manager on your desktop and sign back in with MFA.&lt;/li&gt;
 &lt;li&gt;On your phone, autofill three different sites.&lt;/li&gt;
 &lt;li&gt;For one critical account, sign out everywhere and sign back in with MFA.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;common-pitfalls&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-%E2%80%94-password-managers-mfa/#common-pitfalls&quot; class=&quot;heading-anchor&quot;&gt;Common pitfalls&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;common-pitfalls&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/#common-pitfalls&quot; class=&quot;heading-anchor&quot;&gt;Common pitfalls&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Browser keeps saving new passwords. Turn the browser’s password saving off to avoid new duplicates.&lt;/li&gt;
 &lt;li&gt;Only one hardware key enrolled. Add two and label them.&lt;/li&gt;
 &lt;li&gt;Backup codes get lost. Store codes inside each item’s secure notes.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;privacy-notes&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-%E2%80%94-password-managers-mfa/#privacy-notes&quot; class=&quot;heading-anchor&quot;&gt;Privacy notes&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;privacy-notes&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/#privacy-notes&quot; class=&quot;heading-anchor&quot;&gt;Privacy notes&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Good managers encrypt on your device before sync. That means the provider cannot read your vault.&lt;/li&gt;
 &lt;li&gt;TOTP codes stored in the same manager are convenient. Storing TOTP on a separate authenticator or hardware key is stronger but less convenient. Choose based on risk.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;keep-going&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-%E2%80%94-password-managers-mfa/#keep-going&quot; class=&quot;heading-anchor&quot;&gt;Keep going&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;keep-going&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/#keep-going&quot; class=&quot;heading-anchor&quot;&gt;Keep going&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Next in the series: Browser hygiene that sticks without breaking your favorite sites.&lt;/p&gt;
-&lt;h4 id=&quot;downloadables&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-%E2%80%94-password-managers-mfa/#downloadables&quot; class=&quot;heading-anchor&quot;&gt;Downloadables&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;downloadables&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/#downloadables&quot; class=&quot;heading-anchor&quot;&gt;Downloadables&lt;/a&gt;&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;Password Migration Checklist (PDF): &lt;a href=&quot;https://www.kylereddoch.me/assets/downloads/how-to-series/CybersecKyle_Password_Migration_Checklist.pdf&quot;&gt;Download&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Top Ten Account Security Worksheet (CSV): &lt;a href=&quot;https://www.kylereddoch.me/assets/downloads/how-to-series/Top_Ten_Account_Security_Worksheet.csv&quot;&gt;Download&lt;/a&gt;&lt;/li&gt;

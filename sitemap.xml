@@ -775,7 +775,7 @@
       
 
       <url>
-        <loc>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-—-password-managers-mfa/</loc>
+        <loc>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/</loc>
         <lastmod>2025-11-04T15:00:00.000Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
@@ -866,7 +866,7 @@
       
 
       <url>
-        <loc>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-—-2fa-rescue-and-recovery/</loc>
+        <loc>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/</loc>
         <lastmod>2025-11-19T15:00:00.000Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
@@ -1087,7 +1087,7 @@
       
 
       <url>
-        <loc>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-—-browser-hygiene-that-actually-sticks/</loc>
+        <loc>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/</loc>
         <lastmod>2025-12-23T18:00:00.000Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
@@ -1360,8 +1360,21 @@
       
 
       <url>
+        <loc>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/</loc>
+        <lastmod>2026-01-29T18:30:00.000Z</lastmod>
+        <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+
+      
+        
+      
+
+      <url>
         <loc>https://www.kylereddoch.me/tags/365in25/</loc>
-        <lastmod>2026-01-28T22:31:39.097Z</lastmod>
+        <lastmod>2026-01-29T19:33:12.690Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     
@@ -1374,7 +1387,7 @@
 
       <url>
         <loc>https://www.kylereddoch.me/tags/</loc>
-        <lastmod>2026-01-28T22:31:39.097Z</lastmod>
+        <lastmod>2026-01-29T19:33:12.690Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     
@@ -1387,7 +1400,7 @@
 
       <url>
         <loc>https://www.kylereddoch.me/about/</loc>
-        <lastmod>2026-01-28T22:31:39.097Z</lastmod>
+        <lastmod>2026-01-29T19:33:12.690Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     
@@ -1400,7 +1413,7 @@
 
       <url>
         <loc>https://www.kylereddoch.me/blog/</loc>
-        <lastmod>2026-01-28T22:31:39.097Z</lastmod>
+        <lastmod>2026-01-29T19:33:12.690Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     
@@ -1413,7 +1426,7 @@
 
       <url>
         <loc>https://www.kylereddoch.me/carry/</loc>
-        <lastmod>2026-01-28T22:31:39.097Z</lastmod>
+        <lastmod>2026-01-29T19:33:12.690Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     
@@ -1426,7 +1439,7 @@
 
       <url>
         <loc>https://www.kylereddoch.me/coffee/</loc>
-        <lastmod>2026-01-28T22:31:39.097Z</lastmod>
+        <lastmod>2026-01-29T19:33:12.690Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     
@@ -1439,7 +1452,7 @@
 
       <url>
         <loc>https://www.kylereddoch.me/contact/</loc>
-        <lastmod>2026-01-28T22:31:39.097Z</lastmod>
+        <lastmod>2026-01-29T19:33:12.690Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     
@@ -1452,7 +1465,7 @@
 
       <url>
         <loc>https://www.kylereddoch.me/guestbook/</loc>
-        <lastmod>2026-01-28T22:31:39.097Z</lastmod>
+        <lastmod>2026-01-29T19:33:12.690Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     
@@ -1465,7 +1478,7 @@
 
       <url>
         <loc>https://www.kylereddoch.me/</loc>
-        <lastmod>2026-01-28T22:31:39.097Z</lastmod>
+        <lastmod>2026-01-29T19:33:12.690Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     
@@ -1480,7 +1493,7 @@
 
       <url>
         <loc>https://www.kylereddoch.me/media-kit/</loc>
-        <lastmod>2026-01-28T22:31:39.097Z</lastmod>
+        <lastmod>2026-01-29T19:33:12.690Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     
@@ -1493,7 +1506,7 @@
 
       <url>
         <loc>https://www.kylereddoch.me/podroll/</loc>
-        <lastmod>2026-01-28T22:31:39.098Z</lastmod>
+        <lastmod>2026-01-29T19:33:12.690Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     
@@ -1506,7 +1519,7 @@
 
       <url>
         <loc>https://www.kylereddoch.me/slashes/</loc>
-        <lastmod>2026-01-28T22:31:39.098Z</lastmod>
+        <lastmod>2026-01-29T19:33:12.690Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     
@@ -1519,7 +1532,7 @@
 
       <url>
         <loc>https://www.kylereddoch.me/uses/</loc>
-        <lastmod>2026-01-28T22:31:39.098Z</lastmod>
+        <lastmod>2026-01-29T19:33:12.690Z</lastmod>
         <changefreq>monthly</changefreq>
     </url>
     
