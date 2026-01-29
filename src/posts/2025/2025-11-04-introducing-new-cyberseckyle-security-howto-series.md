@@ -32,7 +32,7 @@ Planned parts:
 1. Password Managers + MFA [[Live now](/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/)]
 2. 2FA Rescue and Recovery [[Live now](/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/)]
 3. Browser hygiene that sticks [[Live now](/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-—-browser-hygiene-that-actually-sticks/)]
-4. Phone hardening you can live with
+4. Phone hardening you can live with [[Live now](/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/)]
 5. Scam spotting with a 60 second pause protocol
 6. Backups that actually restore
 
