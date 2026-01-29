@@ -1,6 +1,6 @@
 ---
 date: 2025-12-23T13:00:00-05:00
-title: "CybersecKyle Security How-To Series: Everyday Defense, Part 3 — Browser Hygiene That Actually Sticks"
+title: "CybersecKyle Security How-To Series: Everyday Defense, Part 3 - Browser Hygiene That Actually Sticks"
 description: "A practical browser hardening guide: use profiles on purpose, keep extensions on a leash, tighten anti-tracking settings, and handle downloads safely without breaking your daily workflow."
 tags: [cyberseckyle-howto-series, everyday-defense, security, privacy, extensions, browsers, how-to]
 mastodon_url: https://infosec.exchange/@cyberseckyle/115771427255912515
@@ -65,7 +65,7 @@ Why this works: tracking cookies, malicious scripts, and sketchy sites that live
 - Chrome / Edge / Brave (Chromium): Use the built-in profile switcher and pin each profile to the taskbar/dock with a different icon. Start with Chrome’s official [profile help page](https://support.google.com/chrome/answer/2364824) and mirror the same concept in your browser of choice:
 - Vivaldi: Profiles are managed from the **Profile button on the right side of the Address Bar**. Click it, choose **Manage People**, then **Add Person** to create a new profile. You can set a name and avatar, and on Windows/macOS you can also choose to create a **desktop shortcut** for that profile. [Official steps](https://help.vivaldi.com/desktop/tools/user-profiles/):  
   - Alternate path: **Settings → General → Profile Management → Manage Profiles**, or type **“Manage Profiles”** in **Quick Commands**.
-  - Switching is just: Profile button → click the profile you want. 
+  - Switching is just: Profile button → click the profile you want.
   - *Windows note*: [each profile gets its own taskbar icon](https://help.vivaldi.com/mail/mail-advanced/use-mail-calendar-and-feeds-in-a-separate-user-profile/) when open, and you can pin a profile window to the taskbar and even assign a custom icon if you want.
   - [Guest mode](https://help.vivaldi.com/desktop/tabs/guest-view/) is also in that same Profile menu if you need a temporary “clean” window.
 - Firefox: You can use separate profiles (about:profiles) and optionally pair that with [Firefox Multi-Account Containers](https://support.mozilla.org/en-US/kb/containers) (containers give you isolation inside one profile)
@@ -131,6 +131,7 @@ That’s usually it.
 ## Step 3: Anti-tracking settings that improve privacy without breaking everything
 
 Anti-tracking is a mix of:
+
 - blocking third-party cookies
 - reducing cross-site identifiers
 - limiting fingerprinting
@@ -174,6 +175,7 @@ If you want the deep rabbit hole, Firefox’s “Resist Fingerprinting” exists
 Downloads are where attackers love to hide because users are trained to click “Open” fast.
 
 A solid “download safety” routine is:
+
 1) verify the source  
 2) verify the file  
 3) isolate the execution
@@ -188,6 +190,7 @@ A solid “download safety” routine is:
 ### File rules (quick triage)
 
 Before you open something you downloaded:
+
 - Look at the file type. Make sure Windows is [showing file extensions](https://support.microsoft.com/en-us/windows/common-file-name-extensions-in-windows-da4a4430-8e76-89c5-59f7-1cdbbc75cb01).
 - If it is an Office document from the internet, treat it as dangerous. [Microsoft blocks macros from the internet by default now for a reason](https://learn.microsoft.com/en-us/deployoffice/security/internet-macros-blocked).
 - If it is an installer, check if it is signed (Windows will show publisher info). If it is unsigned and unexpected, stop.
@@ -196,6 +199,7 @@ Before you open something you downloaded:
 ### Isolation rules
 
 If you are not sure about a file, do not run it on your main system.
+
 - Windows: use [Windows Sandbox when available](https://learn.microsoft.com/en-us/windows/security/application-security/application-isolation/windows-sandbox/windows-sandbox-overview).
 - macOS: [Gatekeeper is your friend](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac). Do not bypass it casually.
 - Linux: use a VM or container for untrusted files.
@@ -203,6 +207,7 @@ If you are not sure about a file, do not run it on your main system.
 ### My “60 second download pause protocol”
 
 When your mouse is hovering over Open:
+
 1. Do I trust the source domain?  
 2. Do I expect this file type?  
 3. Is it signed or reputable?  
@@ -235,6 +240,7 @@ If you want a dedicated day, call it “Browser Reset Day” and put it on your 
 ## Quick start setup for most readers
 
 If you want the fastest win, do this today:
+
 1. Create the browser profiles: Daily, Money, Admin, and Work (if you need it).
 2. In Money and Admin, install only your password manager and one content blocker.
 3. Block third-party cookies and disable notification prompts.
