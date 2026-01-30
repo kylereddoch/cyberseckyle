@@ -3,7 +3,7 @@ date: 2026-01-30T16:00:00-05:00
 title: 'Cybersecurity Weekly Roundup: January 24–30, 2026'
 description: "Fortinet and Microsoft shipped urgent fixes, Ivanti EPMM and SolarWinds WHD landed in the “drop everything” bucket, supply chain risk showed up in AV and JavaScript tooling, and even physical access systems caught heat."
 tags: [cybersecurity weekly roundup, cybersecurity, infosec, weekly-roundup, vulnerability-management, incident-response, news]
-mastodon_url: null
+mastodon_url: https://infosec.exchange/@cyberseckyle/115986431854851625
 ---
 
 {% image "/assets/images/cybersec_weekly_roundup.png", "“Cybersecurity Weekly Roundup” showing a glowing shield with a keyhole over a world map, surrounded by digital interface icons and data streams.", "Cybersecurity Weekly Roundup — the week’s biggest security news, distilled into signal and next steps. (Image generated with ChatGPT)", "eager", "text-center", "!important", [auto], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
