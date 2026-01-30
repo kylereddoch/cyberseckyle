@@ -4,12 +4,111 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-01-29T19:49:28Z</updated>
+  <updated>2026-01-30T18:22:01Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>I Didn’t Know You Could Do This: The NVRAM Trick That Saved a Mac</title>
+      <link href="https://www.kylereddoch.me/blog/i-didnt-know-you-could-do-this-the-nvram-trick-that-saved-a-mac/" />
+      <updated>2026-01-30T15:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/i-didnt-know-you-could-do-this-the-nvram-trick-that-saved-a-mac/</id>
+      <content type="html">
+        &lt;figure slot=&quot;image&quot; class=&quot;text-center&quot;&gt;&lt;picture&gt;   &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/imac-highsierra-error-875w.webp 875w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;
+  &lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/imac-highsierra-error-875w.jpeg 875w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/imac-highsierra-error-875w.jpeg&quot; width=&quot;875&quot; height=&quot;656&quot; alt=&quot;macOS High Sierra installer in Recovery showing an alert: “The recovery server could not be contacted.”&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;figcaption&gt;The exact roadblock: High Sierra Recovery failing with “The recovery server could not be contacted,” even though the Mac was online.&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;p&gt;A client called me with that special kind of panic you can hear through the phone. They had tried to restore their &lt;strong&gt;2018 iMac&lt;/strong&gt; to factory settings, something went sideways mid-process, and now the machine would only boot to the &lt;strong&gt;flashing folder with a question mark&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;If you have ever seen that icon, you know the vibe. It is not “slightly inconvenient.” It is “your Mac cannot find a startup disk with a working OS.” &lt;a href=&quot;https://support.apple.com/en-us/102601&quot; rel=&quot;noopener&quot;&gt;Apple’s own wording&lt;/a&gt; is basically that exact sentence.&lt;/p&gt;
+&lt;p&gt;This is the story of how we got it back up and running, and the weird little workaround I learned along the way that I genuinely did not know was possible.&lt;/p&gt;
+&lt;h2 id=&quot;the-symptoms&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/i-didnt-know-you-could-do-this-the-nvram-trick-that-saved-a-mac/#the-symptoms&quot; class=&quot;heading-anchor&quot;&gt;The symptoms&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Flashing folder icon on boot (no macOS found)&lt;/li&gt;
+&lt;li&gt;Booting into Recovery worked&lt;/li&gt;
+&lt;li&gt;Reinstalling macOS offered &lt;strong&gt;High Sierra&lt;/strong&gt;, but failed with:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“The Recovery Server Could Not Be Contacted”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;That error is extra annoying because it &lt;em&gt;sounds&lt;/em&gt; like “Wi‑Fi issue,” but it is often not Wi‑Fi. It is more like “this particular installer pipeline is broken in a very specific way.”&lt;/p&gt;
+&lt;h2 id=&quot;step-1-get-into-the-right-recovery-mode&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/i-didnt-know-you-could-do-this-the-nvram-trick-that-saved-a-mac/#step-1-get-into-the-right-recovery-mode&quot; class=&quot;heading-anchor&quot;&gt;Step 1: Get into the right Recovery mode&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;On Intel Macs like a 2018 iMac, the key combo matters. Apple documents the differences like this:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Command (⌘) + R&lt;/strong&gt;: built-in Recovery (usually reinstalls the current installed version, if available)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Option (⌥) + Command (⌘) + R&lt;/strong&gt;: Internet Recovery for the latest compatible macOS&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Shift (⇧) + Option (⌥) + Command (⌘) + R&lt;/strong&gt;: Internet Recovery for the version that originally shipped (or closest still available)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&quot;https://support.apple.com/en-us/102603&quot; rel=&quot;noopener&quot;&gt;Apple’s list is worth bookmarking&lt;/a&gt; because you will forget it right when you need it.&lt;/p&gt;
+&lt;p&gt;In this case, Recovery kept steering us into &lt;strong&gt;High Sierra&lt;/strong&gt;, which makes sense for a 2018 iMac that originally shipped around that era.&lt;/p&gt;
+&lt;h2 id=&quot;step-2-the-normal-stuff-disk-utility-erase-format-sanity-checks&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/i-didnt-know-you-could-do-this-the-nvram-trick-that-saved-a-mac/#step-2-the-normal-stuff-disk-utility-erase-format-sanity-checks&quot; class=&quot;heading-anchor&quot;&gt;Step 2: The normal stuff (Disk Utility, erase, format, sanity checks)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Once in Recovery:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Open &lt;strong&gt;Disk Utility&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Use &lt;strong&gt;View → Show All Devices&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Select the internal drive (top-level device, not just a volume)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Erase&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Scheme: &lt;strong&gt;GUID Partition Map&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Format: &lt;strong&gt;APFS&lt;/strong&gt; (or Mac OS Extended Journaled for older workflows, but APFS is typical here)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Then I did the quick “is the internet actually working?” check:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;That globe booted fine&lt;/li&gt;
+&lt;li&gt;Wi‑Fi connected&lt;/li&gt;
+&lt;li&gt;DNS resolved (at least enough to get into Recovery)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Everything smelled normal.&lt;/p&gt;
+&lt;h2 id=&quot;step-3-the-reinstall-fails-so-i-go-hunting-in-the-logs&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/i-didnt-know-you-could-do-this-the-nvram-trick-that-saved-a-mac/#step-3-the-reinstall-fails-so-i-go-hunting-in-the-logs&quot; class=&quot;heading-anchor&quot;&gt;Step 3: The reinstall fails, so I go hunting in the logs&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;When the installer throws “Recovery Server Could Not Be Contacted,” do not just accept your fate. Open the installer logs.&lt;/p&gt;
+&lt;p&gt;In the macOS installer window, you can pull up &lt;strong&gt;Installer Log&lt;/strong&gt; and look for anything that screams “this is the real reason.” In a bunch of these cases, you will see something along the lines of failing to load an Apple Software Update catalog.&lt;/p&gt;
+&lt;p&gt;That was my breadcrumb.&lt;/p&gt;
+&lt;p&gt;At this point my brain switched into MSP mode: treat it like a weird production outage. Gather evidence, identify the dependency that is failing, then decide whether you can route around it.&lt;/p&gt;
+&lt;h2 id=&quot;step-4-the-fix-that-surprised-me-mr-macintosh-fix-3&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/i-didnt-know-you-could-do-this-the-nvram-trick-that-saved-a-mac/#step-4-the-fix-that-surprised-me-mr-macintosh-fix-3&quot; class=&quot;heading-anchor&quot;&gt;Step 4: The fix that surprised me (Mr. Macintosh Fix #3)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;While searching, I landed on this write-up from &lt;a href=&quot;https://mrmacintosh.com/how-to-fix-the-recovery-server-could-not-be-contacted-error-high-sierra-recovery-is-still-online-but-broken/&quot; rel=&quot;noopener&quot;&gt;Mr. Macintosh&lt;/a&gt;, and the solution that worked for me was &lt;strong&gt;Fix #3: Change the NVRAM Software Update URL&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The short version: High Sierra Recovery is trying to hit the software update catalog over &lt;strong&gt;HTTPS&lt;/strong&gt;, and in some environments that connection fails due to SSL/TLS weirdness. The workaround is to set an NVRAM variable so Recovery uses an &lt;strong&gt;HTTP&lt;/strong&gt; catalog URL instead (so it stops tripping over the secure handshake).&lt;/p&gt;
+&lt;p&gt;Yes, it feels a little cursed.&lt;br&gt;
+Yes, it works.&lt;/p&gt;
+&lt;h3 id=&quot;the-exact-command-i-used&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/i-didnt-know-you-could-do-this-the-nvram-trick-that-saved-a-mac/#the-exact-command-i-used&quot; class=&quot;heading-anchor&quot;&gt;The exact command I used&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;From macOS Recovery, open &lt;strong&gt;Utilities → Terminal&lt;/strong&gt;, then run:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;nvram &lt;span class=&quot;token assign-left variable&quot;&gt;IASUCatalogURL&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;http://swscan.apple.com/content/catalogs/others/index-10.13-10.12-10.11-10.10-10.9-mountainlion-lion-snowleopard-leopard.merged-1.sucatalog&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That command (and that exact catalog URL) is widely echoed in &lt;a href=&quot;https://discussions.apple.com/thread/255607212&quot; rel=&quot;noopener&quot;&gt;community fixes&lt;/a&gt; for the High Sierra Recovery failure.&lt;/p&gt;
+&lt;p&gt;After running it:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Quit Terminal&lt;/li&gt;
+&lt;li&gt;Go back to &lt;strong&gt;Reinstall macOS&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Try again&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This time, the installer stopped acting like a drama queen and actually proceeded.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Side note&lt;/em&gt;: I had to run this a few times before it actually took. So if it does not work the first time, try again.&lt;/p&gt;
+&lt;h2 id=&quot;a-quick-security-note-because-yeah&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/i-didnt-know-you-could-do-this-the-nvram-trick-that-saved-a-mac/#a-quick-security-note-because-yeah&quot; class=&quot;heading-anchor&quot;&gt;A quick security note (because… yeah)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Switching from HTTPS to HTTP is &lt;strong&gt;not&lt;/strong&gt; something I love recommending casually. HTTP removes transport encryption, which increases the risk of a man-in-the-middle attack on a hostile network. That said, in a controlled environment (trusted network, you are doing a one-time recovery, you clear the setting afterward), it is a practical workaround.&lt;/p&gt;
+&lt;p&gt;If this is a client machine in the wild, I treat it like any other “temporary bypass”:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;do the minimum to restore service&lt;/li&gt;
+&lt;li&gt;then remove the bypass immediately after&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;step-5-clean-up-afterward-remove-the-override&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/i-didnt-know-you-could-do-this-the-nvram-trick-that-saved-a-mac/#step-5-clean-up-afterward-remove-the-override&quot; class=&quot;heading-anchor&quot;&gt;Step 5: Clean up afterward (remove the override)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Once macOS is installed and you are booted normally, you have a couple options:&lt;/p&gt;
+&lt;h3 id=&quot;option-a-delete-the-nvram-variable&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/i-didnt-know-you-could-do-this-the-nvram-trick-that-saved-a-mac/#option-a-delete-the-nvram-variable&quot; class=&quot;heading-anchor&quot;&gt;Option A: Delete the NVRAM variable&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Open Terminal in macOS and run:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; nvram &lt;span class=&quot;token parameter variable&quot;&gt;-d&lt;/span&gt; IASUCatalogURL&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;option-b-reset-nvram/pram&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/i-didnt-know-you-could-do-this-the-nvram-trick-that-saved-a-mac/#option-b-reset-nvram/pram&quot; class=&quot;heading-anchor&quot;&gt;Option B: Reset NVRAM/PRAM&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Apple’s key combo list includes the &lt;a href=&quot;https://support.apple.com/en-us/102603&quot; rel=&quot;noopener&quot;&gt;NVRAM reset shortcut&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I prefer deleting the specific variable because it is precise and does not nuke other settings, but either approach can work.&lt;/p&gt;
+&lt;h2 id=&quot;why-im-sharing-this&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/i-didnt-know-you-could-do-this-the-nvram-trick-that-saved-a-mac/#why-im-sharing-this&quot; class=&quot;heading-anchor&quot;&gt;Why I’m sharing this&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Because I have been doing IT long enough to respect two truths:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Computers are complicated.&lt;/li&gt;
+&lt;li&gt;Computers are also petty.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This issue is a perfect example. The hardware was fine. The client did not “destroy the iMac.” They just fell into a gap where an older recovery workflow depends on an online catalog behaving nicely, and sometimes it does not.&lt;/p&gt;
+&lt;p&gt;Also, that NVRAM trick was new to me. I knew NVRAM mattered for boot behavior and settings, but using it as a lever to redirect a recovery update catalog felt like discovering a hidden door in a hallway I have walked for years.&lt;/p&gt;
+&lt;p&gt;So if you are staring at a flashing folder icon and a High Sierra reinstall that refuses to talk to the recovery server, hopefully this saves you the same headache.&lt;/p&gt;
+&lt;p&gt;And if you are doing this for a client: get consent, confirm whether data recovery is needed before erasing anything, and document what you changed. Future-you deserves nice things.&lt;/p&gt;
+
+      </content>
+    </entry><entry>
       <title>CybersecKyle Security How-To Series: Everyday Defense Part 4 - Phone hardening you can live with</title>
       <link href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/" />
       <updated>2026-01-29T18:30:00Z</updated>
