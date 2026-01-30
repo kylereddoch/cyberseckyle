@@ -4,12 +4,168 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-01-30T18:28:17Z</updated>
+  <updated>2026-01-30T22:30:01Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>Cybersecurity Weekly Roundup: January 24–30, 2026</title>
+      <link href="https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/" />
+      <updated>2026-01-30T21:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/</id>
+      <content type="html">
+        &lt;figure slot=&quot;image&quot; class=&quot;text-center&quot;&gt;&lt;picture&gt;   &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/cybersec_weekly_roundup-800w.webp 800w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;
+  &lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/cybersec_weekly_roundup-800w.jpeg 800w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/cybersec_weekly_roundup-800w.jpeg&quot; width=&quot;800&quot; height=&quot;533&quot; alt=&quot;“Cybersecurity Weekly Roundup” showing a glowing shield with a keyhole over a world map, surrounded by digital interface icons and data streams.&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;figcaption&gt;Cybersecurity Weekly Roundup — the week’s biggest security news, distilled into signal and next steps. (Image generated with ChatGPT)&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;🧭-overview&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/#%F0%9F%A7%AD-overview&quot; class=&quot;heading-anchor&quot;&gt;🧭 Overview&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The last seven days came in hot. &lt;a href=&quot;https://www.fortiguard.com/psirt/FG-IR-26-060&quot; rel=&quot;noopener&quot;&gt;Fortinet&lt;/a&gt; pushed fixes for an actively exploited FortiCloud SSO auth bypass, &lt;a href=&quot;https://www.scworld.com/brief/actively-exploited-microsoft-office-zero-day-fixed&quot; rel=&quot;noopener&quot;&gt;Microsoft shipped an emergency Office patch&lt;/a&gt;, and &lt;a href=&quot;https://forums.ivanti.com/s/article/Security-Advisory-Ivanti-Endpoint-Manager-Mobile-EPMM-CVE-2026-1281-CVE-2026-1340&quot; rel=&quot;noopener&quot;&gt;Ivanti EPMM&lt;/a&gt; landed more pre-auth RCE fun that nobody asked for. &lt;a href=&quot;https://documentation.solarwinds.com/en/success_center/whd/content/release_notes/whd_2026-1_release_notes.htm&quot; rel=&quot;noopener&quot;&gt;SolarWinds Web Help Desk&lt;/a&gt; dropped multiple critical bugs, while supply chain risk popped up in an antivirus vendor and JavaScript package managers. Even physical access systems got dragged into the spotlight with dormakaba door-control issues. Here’s the week, minus the fluff.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Reality check:&lt;/strong&gt; If it authenticates users or touches the edge, assume it is being probed right now. “We’ll patch next maintenance window” is how weekends get deleted.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;🔥-patch-and-exploit-watch&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/#%F0%9F%94%A5-patch-and-exploit-watch&quot; class=&quot;heading-anchor&quot;&gt;🔥 Patch and Exploit Watch&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;1-fortinet-forticloud-sso-auth-bypass-exploited-in-the-wild-cve-2026-24858&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/#1-fortinet-forticloud-sso-auth-bypass-exploited-in-the-wild-cve-2026-24858&quot; class=&quot;heading-anchor&quot;&gt;1) Fortinet FortiCloud SSO auth bypass exploited in the wild (CVE-2026-24858)&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;What happened:&lt;/strong&gt; Fortinet released updates and guidance for an authentication bypass involving FortiCloud SSO admin login, tracked as &lt;a href=&quot;https://www.fortiguard.com/psirt/FG-IR-26-060&quot; rel=&quot;noopener&quot;&gt;CVE-2026-24858&lt;/a&gt;. &lt;a href=&quot;https://www.cisa.gov/news-events/alerts/2026/01/28/fortinet-releases-guidance-address-ongoing-exploitation-authentication-bypass-vulnerability-cve-2026&quot; rel=&quot;noopener&quot;&gt;CISA also published an alert&lt;/a&gt; emphasizing risk when FortiCloud SSO is enabled.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; This is exactly why “convenience auth” features make me twitch. The blast radius is not just one device, it is the trust relationship around cloud-linked admin login. If your org standardizes on a vendor, a single auth edge like this becomes a target multiplier.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Patch affected Fortinet products immediately and validate versions against the advisory.&lt;/li&gt;
+&lt;li&gt;If you do not absolutely need FortiCloud SSO for admin login, disable it and document why.&lt;/li&gt;
+&lt;li&gt;Audit admin access paths: local admin, SSO, VPN, and any “helpful” cloud connectors.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;2-microsoft-office-zero-day-fixed-out-of-band-cve-2026-21509&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/#2-microsoft-office-zero-day-fixed-out-of-band-cve-2026-21509&quot; class=&quot;heading-anchor&quot;&gt;2) Microsoft Office zero-day fixed out-of-band (CVE-2026-21509)&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;What happened:&lt;/strong&gt; Microsoft issued emergency updates for an actively exploited Office security feature bypass tracked as &lt;a href=&quot;https://www.scworld.com/brief/actively-exploited-microsoft-office-zero-day-fixed&quot; rel=&quot;noopener&quot;&gt;CVE-2026-21509&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; Office exploitation is still the classic “initial access tax” because it is everywhere. When Microsoft goes out-of-band, treat it like a fire alarm, not a calendar invite.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Prioritize patching endpoints used by finance, HR, executives, and anyone who handles attachments daily.&lt;/li&gt;
+&lt;li&gt;Verify update deployment, do not assume “it pushed.” Spot-check a sample of machines.&lt;/li&gt;
+&lt;li&gt;Tighten attachment handling: disable macros where you can, and enforce protected view policies.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;3-ivanti-epmm-pre-auth-rce-vulnerabilities-exploited-cve-2026-1281-cve-2026-1340&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/#3-ivanti-epmm-pre-auth-rce-vulnerabilities-exploited-cve-2026-1281-cve-2026-1340&quot; class=&quot;heading-anchor&quot;&gt;3) Ivanti EPMM pre-auth RCE vulnerabilities exploited (CVE-2026-1281, CVE-2026-1340)&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;What happened:&lt;/strong&gt; Ivanti disclosed two critical EPMM bugs, including pre-auth remote code execution, tracked as &lt;a href=&quot;https://forums.ivanti.com/s/article/Security-Advisory-Ivanti-Endpoint-Manager-Mobile-EPMM-CVE-2026-1281-CVE-2026-1340&quot; rel=&quot;noopener&quot;&gt;CVE-2026-1281 and CVE-2026-1340&lt;/a&gt;. Researchers also published deeper technical analysis and exploitation context, including &lt;a href=&quot;https://labs.watchtowr.com/someone-knows-bash-far-too-well-and-we-love-it-ivanti-epmm-pre-auth-rces-cve-2026-1281-cve-2026-1340/&quot; rel=&quot;noopener&quot;&gt;watchTowr’s breakdown&lt;/a&gt; and Rapid7’s &lt;a href=&quot;https://www.rapid7.com/blog/post/etr-critical-ivanti-endpoint-manager-mobile-epmm-zero-day-exploited-in-the-wild-eitw-cve-2026-1281-1340/&quot; rel=&quot;noopener&quot;&gt;threat report and remediation notes&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; MDM is a crown-jewel control plane. If an attacker gets your mobile management server, they can pivot into identity, tokens, profiles, and device posture. This is not “just another CVE.” This is “who owns the fleet?”&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Patch EPMM immediately and follow vendor guidance for detection and log review.&lt;/li&gt;
+&lt;li&gt;Restrict management interfaces and APIs to trusted networks only. No open internet exposure.&lt;/li&gt;
+&lt;li&gt;Rotate credentials and API keys that your MDM touches, especially if you see suspicious access.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;4-solarwinds-web-help-desk-hit-with-multiple-critical-bugs-unauth-rce-auth-bypass&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/#4-solarwinds-web-help-desk-hit-with-multiple-critical-bugs-unauth-rce-auth-bypass&quot; class=&quot;heading-anchor&quot;&gt;4) SolarWinds Web Help Desk hit with multiple critical bugs (unauth RCE + auth bypass)&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;What happened:&lt;/strong&gt; SolarWinds released WHD 2026.1 to address several critical issues including deserialization-driven unauthenticated RCE and authentication bypass. See the vendor’s &lt;a href=&quot;https://documentation.solarwinds.com/en/success_center/whd/content/release_notes/whd_2026-1_release_notes.htm&quot; rel=&quot;noopener&quot;&gt;WHD 2026.1 release notes&lt;/a&gt; and Rapid7’s &lt;a href=&quot;https://www.rapid7.com/blog/post/etr-multiple-critical-solarwinds-web-help-desk-vulnerabilities-cve-2025-40551-40552-40553-40554/&quot; rel=&quot;noopener&quot;&gt;analysis and mitigation guidance&lt;/a&gt;. SecurityWeek also summarizes impact and urgency in their &lt;a href=&quot;https://www.securityweek.com/solarwinds-patches-critical-web-help-desk-vulnerabilities/&quot; rel=&quot;noopener&quot;&gt;coverage&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; Help desk tooling is “soft center” infrastructure: it holds credentials, tickets with sensitive detail, integrations, and often runs longer than anyone admits. Deserialization RCE without auth is the kind of bug attackers love because it turns into instant shells.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Upgrade to WHD 2026.1 fast. If you cannot, isolate the server and lock down access hard.&lt;/li&gt;
+&lt;li&gt;Review exposed services and confirm the application is not reachable from the public internet.&lt;/li&gt;
+&lt;li&gt;Rotate credentials used in WHD integrations (mail, LDAP, API tokens) after patching.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;5-smartermail-auth-bypass-exploitation-and-6000-exposed-servers&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/#5-smartermail-auth-bypass-exploitation-and-6000-exposed-servers&quot; class=&quot;heading-anchor&quot;&gt;5) SmarterMail auth bypass exploitation and 6,000+ exposed servers&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;What happened:&lt;/strong&gt; Shadowserver reported over 6,000 internet-exposed SmarterMail servers likely vulnerable to automated hijacking attempts exploiting a critical authentication bypass. See &lt;a href=&quot;https://www.bleepingcomputer.com/news/security/over-6-000-smartermail-servers-exposed-to-automated-hijacking-attacks/&quot; rel=&quot;noopener&quot;&gt;BleepingComputer’s write-up&lt;/a&gt; and the underlying CVE record for &lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2026-23760&quot; rel=&quot;noopener&quot;&gt;CVE-2026-23760&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; Email infrastructure is a persistence playground. If someone can reset an admin password without proper verification, the story ends with mailbox rules, credential harvesting, and long-term access. Also, 6,000 exposed servers is not a “niche product” problem. That is a “we keep putting admin surfaces on the internet” problem.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Patch to a fixed SmarterMail build immediately.&lt;/li&gt;
+&lt;li&gt;Remove direct internet exposure where possible. Put it behind VPN, ZTNA, or at least strict allowlists.&lt;/li&gt;
+&lt;li&gt;Audit for suspicious admin resets, new accounts, and mailbox rule tampering.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;6-cisa-continues-to-wave-the-exploited-in-the-wild-flag&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/#6-cisa-continues-to-wave-the-exploited-in-the-wild-flag&quot; class=&quot;heading-anchor&quot;&gt;6) CISA continues to wave the “exploited in the wild” flag&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;What happened:&lt;/strong&gt; CISA published multiple alerts this week tied to active exploitation, including their &lt;a href=&quot;https://www.cisa.gov/news-events/alerts/2026/01/28/fortinet-releases-guidance-address-ongoing-exploitation-authentication-bypass-vulnerability-cve-2026&quot; rel=&quot;noopener&quot;&gt;Fortinet exploitation alert&lt;/a&gt;, and vendor disclosures echoed exploitation for other high-impact products.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; CISA alerts are a prioritization gift. You do not have to guess what attackers are actively using today. This is as close as you get to a real-world “patch this first” list without paying for threat intel.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Build a habit: check CISA alerts weekly and map them to your asset inventory.&lt;/li&gt;
+&lt;li&gt;If your org cannot patch fast, invest in compensating controls that actually matter: exposure reduction, segmentation, and monitoring.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;🧬-supply-chain-and-developer-ecosystem&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/#%F0%9F%A7%AC-supply-chain-and-developer-ecosystem&quot; class=&quot;heading-anchor&quot;&gt;🧬 Supply Chain and Developer Ecosystem&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;7-google-disrupts-ipidea-a-large-residential-proxy-network-used-by-threat-actors&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/#7-google-disrupts-ipidea-a-large-residential-proxy-network-used-by-threat-actors&quot; class=&quot;heading-anchor&quot;&gt;7) Google disrupts IPIDEA, a large residential proxy network used by threat actors&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;What happened:&lt;/strong&gt; Google detailed disruption efforts against IPIDEA, described as a large residential proxy network used by cybercrime groups. Start with &lt;a href=&quot;https://cloud.google.com/blog/topics/threat-intelligence/disrupting-largest-residential-proxy-network&quot; rel=&quot;noopener&quot;&gt;Google’s threat intelligence write-up&lt;/a&gt;, and for broader context see &lt;a href=&quot;https://www.reuters.com/world/google-disrupts-ipidea-largest-residential-proxy-network-used-by-550-threat-groups-2026-01-30/&quot; rel=&quot;noopener&quot;&gt;Reuters’ reporting&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; Residential proxies are how attackers blend in. When you see logins from “random US cable ISP IPs,” it might not be a traveling employee. Proxy services keep making “impossible travel” less obvious. Detection has to move beyond IP reputation alone.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Enforce phishing-resistant MFA where possible, and use conditional access that considers device posture and session risk.&lt;/li&gt;
+&lt;li&gt;Monitor for “normal-looking” logins that have abnormal behavior: new device fingerprints, odd API usage, weird geo patterns.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;8-escan-antivirus-supply-chain-compromise-pushed-signed-malicious-updates&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/#8-escan-antivirus-supply-chain-compromise-pushed-signed-malicious-updates&quot; class=&quot;heading-anchor&quot;&gt;8) eScan antivirus supply chain compromise pushed signed malicious updates&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;What happened:&lt;/strong&gt; Multiple reports indicate a supply chain compromise involving eScan updates, including &lt;a href=&quot;https://securelist.com/escan-supply-chain-compromise/115590/&quot; rel=&quot;noopener&quot;&gt;Kaspersky’s analysis&lt;/a&gt; and coverage from &lt;a href=&quot;https://www.helpnetsecurity.com/2026/01/28/escan-supply-chain-compromise/&quot; rel=&quot;noopener&quot;&gt;Help Net Security&lt;/a&gt; and &lt;a href=&quot;https://www.morphisec.com/blog/escan-antivirus-supply-chain-attack/&quot; rel=&quot;noopener&quot;&gt;Morphisec&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; The nightmare scenario is not “AV missed malware.” It is “AV delivered malware.” Signed updates are a trust shortcut, and attackers know it. This is also a reminder that “security vendor” does not mean “immune.”&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Confirm whether you run eScan in any environment. If yes, follow vendor and third-party guidance immediately.&lt;/li&gt;
+&lt;li&gt;Expand supply chain monitoring: watch update processes, certificate changes, and unusual outbound from security agents.&lt;/li&gt;
+&lt;li&gt;Have a playbook for “trusted tool turns hostile,” including rapid isolation and replacement.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;9-packagegate-multiple-javascript-package-managers-hit-with-bypass-flaws&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/#9-packagegate-multiple-javascript-package-managers-hit-with-bypass-flaws&quot; class=&quot;heading-anchor&quot;&gt;9) PackageGate: multiple JavaScript package managers hit with bypass flaws&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;What happened:&lt;/strong&gt; Researchers disclosed “PackageGate” issues affecting JavaScript package managers, enabling attackers to bypass protections and run malicious code in lifecycle hooks and related flows. See &lt;a href=&quot;https://www.securityweek.com/packagengate-bugs-let-attackers-bypass-protections-in-npm-pnpm-vlt-and-bun/&quot; rel=&quot;noopener&quot;&gt;SecurityWeek’s coverage&lt;/a&gt; and a technical angle via &lt;a href=&quot;https://www.koi.security/blog/packagegate-supply-chain-attack-vulnerabilities&quot; rel=&quot;noopener&quot;&gt;Koi Security’s post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; The modern software supply chain is basically a trust pyramid made of toothpicks. Attackers do not have to compromise your company if they can compromise your dependencies or tooling. The scary part is how quietly these attacks land, and how “normal” they look in CI logs.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pin dependencies, use lockfiles, and treat lifecycle scripts as high-risk.&lt;/li&gt;
+&lt;li&gt;Add provenance checks where possible (SBOM, signed artifacts, trusted registries).&lt;/li&gt;
+&lt;li&gt;Monitor CI runners like production systems, because attackers absolutely do.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;10-malicious-vs-code-ai-helper-extensions-racked-up-massive-installs&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/#10-malicious-vs-code-ai-helper-extensions-racked-up-massive-installs&quot; class=&quot;heading-anchor&quot;&gt;10) Malicious VS Code “AI helper” extensions racked up massive installs&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;What happened:&lt;/strong&gt; Reports flagged malicious Visual Studio Code extensions using AI branding and other lures, with significant install counts. See &lt;a href=&quot;https://thehackernews.com/2026/01/malicious-vs-code-ai-extensions.html&quot; rel=&quot;noopener&quot;&gt;The Hacker News coverage&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; Developer workstations are attack accelerators. Compromise one developer environment and you can get tokens, source code, build credentials, and a path into production. “Just an extension” is never just an extension.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Restrict extension installs in managed environments and audit what is already installed.&lt;/li&gt;
+&lt;li&gt;Rotate exposed tokens if you suspect dev tooling compromise.&lt;/li&gt;
+&lt;li&gt;Treat dev endpoints as privileged assets, not “regular laptops.”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;🔐-libraries-automation-and-the-stuff-everyone-depends-on&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/#%F0%9F%94%90-libraries-automation-and-the-stuff-everyone-depends-on&quot; class=&quot;heading-anchor&quot;&gt;🔐 Libraries, Automation, and the Stuff Everyone Depends On&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;11-openssl-patched-12-vulnerabilities-including-a-high-severity-rce&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/#11-openssl-patched-12-vulnerabilities-including-a-high-severity-rce&quot; class=&quot;heading-anchor&quot;&gt;11) OpenSSL patched 12 vulnerabilities, including a high-severity RCE&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;What happened:&lt;/strong&gt; OpenSSL released fixes for a dozen vulnerabilities, including a high-severity bug described as potentially leading to RCE in certain conditions. See &lt;a href=&quot;https://www.securityweek.com/high-severity-remote-code-execution-vulnerability-patched-in-openssl/&quot; rel=&quot;noopener&quot;&gt;SecurityWeek’s summary&lt;/a&gt; and deeper technical context from &lt;a href=&quot;https://securitylabs.datadoghq.com/articles/opensslaid/&quot; rel=&quot;noopener&quot;&gt;Datadog Security Labs&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; Crypto libraries are boring until they are not, and when they break, everything breaks. The real risk is not only direct exploitation, it is the long tail of systems that never get rebuilt or redeployed with updated base images.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Patch OpenSSL across servers, containers, appliances, and base images.&lt;/li&gt;
+&lt;li&gt;Rebuild images instead of patching a single host and calling it done.&lt;/li&gt;
+&lt;li&gt;Confirm which apps are statically linked, because those often get missed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;12-n8n-sandbox-escape-flaws-enable-remote-code-execution-cve-2026-1470-cve-2026-0863&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/#12-n8n-sandbox-escape-flaws-enable-remote-code-execution-cve-2026-1470-cve-2026-0863&quot; class=&quot;heading-anchor&quot;&gt;12) n8n sandbox escape flaws enable remote code execution (CVE-2026-1470, CVE-2026-0863)&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;What happened:&lt;/strong&gt; JFrog disclosed two flaws in n8n’s sandboxing that can lead to RCE, including &lt;a href=&quot;https://research.jfrog.com/post/achieving-remote-code-execution-on-n8n-via-sandbox-escape/&quot; rel=&quot;noopener&quot;&gt;CVE-2026-1470 and CVE-2026-0863&lt;/a&gt;. BleepingComputer also summarizes impact and exploitation paths in their &lt;a href=&quot;https://www.bleepingcomputer.com/news/security/new-sandbox-escape-flaw-exposes-n8n-instances-to-rce-attacks/&quot; rel=&quot;noopener&quot;&gt;report&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; Workflow automation platforms are identity and secrets brokers. They hold API keys, OAuth tokens, and automation logic that touches everything. If you run n8n, you are effectively running a mini control plane. Sandboxes failing is a predictable failure mode, and it keeps happening.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Patch n8n immediately and restrict access to trusted users only.&lt;/li&gt;
+&lt;li&gt;Audit stored credentials inside n8n and rotate high-value tokens post-patch.&lt;/li&gt;
+&lt;li&gt;Reduce exposure: do not leave automation panels open to the internet.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;🏢-physical-meets-digital&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/#%F0%9F%8F%A2-physical-meets-digital&quot; class=&quot;heading-anchor&quot;&gt;🏢 Physical Meets Digital&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;13-dormakaba-access-control-vulnerabilities-could-enable-remote-door-unlocking&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/#13-dormakaba-access-control-vulnerabilities-could-enable-remote-door-unlocking&quot; class=&quot;heading-anchor&quot;&gt;13) dormakaba access control vulnerabilities could enable remote door unlocking&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;What happened:&lt;/strong&gt; SEC Consult published advisories on multiple critical dormakaba flaws that could allow attackers to unlock doors and compromise physical access infrastructure. Start with &lt;a href=&quot;https://sec-consult.com/vulnerability-lab/advisory/multiple-critical-vulnerabilities-in-dormakaba-access-manager/&quot; rel=&quot;noopener&quot;&gt;SEC Consult’s advisory&lt;/a&gt; and SecurityWeek’s summary of real-world exposure and impact in &lt;a href=&quot;https://www.securityweek.com/access-system-flaws-enabled-hackers-to-unlock-doors-at-major-european-firms/&quot; rel=&quot;noopener&quot;&gt;their coverage&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; Physical security systems are computers with consequences. They get deployed, then ignored, then forgotten, then owned. If a badge system is on the network, it needs the same vulnerability management maturity as anything else.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Patch per vendor guidance and confirm you are not exposing management interfaces to the internet.&lt;/li&gt;
+&lt;li&gt;Segment physical access infrastructure from user networks.&lt;/li&gt;
+&lt;li&gt;Audit credentials and remove default or weak passwords aggressively.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;🧨-breach-and-extortion-watch&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/#%F0%9F%A7%A8-breach-and-extortion-watch&quot; class=&quot;heading-anchor&quot;&gt;🧨 Breach and Extortion Watch&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;14-nike-investigates-extortion-claim-tied-to-a-large-alleged-data-theft&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/#14-nike-investigates-extortion-claim-tied-to-a-large-alleged-data-theft&quot; class=&quot;heading-anchor&quot;&gt;14) Nike investigates extortion claim tied to a large alleged data theft&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;What happened:&lt;/strong&gt; Reports say Nike is investigating after the WorldLeaks group claimed to have stolen and leaked a large dataset. See &lt;a href=&quot;https://www.darkreading.com/cyberattacks-data-breaches/worldeaks-extortion-group-stole-1.4tb-nike-data&quot; rel=&quot;noopener&quot;&gt;Dark Reading’s report&lt;/a&gt; and &lt;a href=&quot;https://www.bleepingcomputer.com/news/security/nike-investigates-data-breach-after-extortion-gang-leaks-files/&quot; rel=&quot;noopener&quot;&gt;BleepingComputer’s coverage&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; Even when customer PII is not the headline, corporate internal data can still be high-value: design, manufacturing workflows, contracts, and internal process documentation are gold for competitors and criminals. Extortion groups will keep monetizing “non-PII” because it still hurts.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Treat internal docs as sensitive. DLP and access governance matter beyond “PII.”&lt;/li&gt;
+&lt;li&gt;Assume credential reuse and lateral movement happened if a large dataset walked out.&lt;/li&gt;
+&lt;li&gt;Prepare comms early. The timeline moves fast when leak sites are involved.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;🕵️-threat-intel-and-campaigns&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/#%F0%9F%95%B5%EF%B8%8F-threat-intel-and-campaigns&quot; class=&quot;heading-anchor&quot;&gt;🕵️ Threat Intel and Campaigns&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;15-china-linked-uat-8099-targets-iis-servers-with-badiis-seo-malware&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/#15-china-linked-uat-8099-targets-iis-servers-with-badiis-seo-malware&quot; class=&quot;heading-anchor&quot;&gt;15) China-linked UAT-8099 targets IIS servers with BadIIS SEO malware&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;What happened:&lt;/strong&gt; Cisco Talos detailed ongoing activity by UAT-8099 targeting vulnerable IIS servers, including new persistence mechanisms and region-focused variants. Read &lt;a href=&quot;https://blog.talosintelligence.com/uat-8099-new-persistence-mechanisms-and-regional-focus/&quot; rel=&quot;noopener&quot;&gt;Talos’ analysis&lt;/a&gt; and Broadcom’s &lt;a href=&quot;https://www.broadcom.com/support/security-center/protection-bulletin/uat-8099-targets-vulnerable-iis-servers-in-southeast-asia&quot; rel=&quot;noopener&quot;&gt;protection bulletin&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My take:&lt;/strong&gt; IIS compromise is often treated like “just a web server problem,” but it becomes an identity and trust problem the moment a legitimate site starts redirecting users or serving injected content. SEO fraud campaigns can be a stepping stone to malware delivery and credential theft.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Action:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Patch IIS hosts, remove weak upload paths, and lock down web shells with monitoring.&lt;/li&gt;
+&lt;li&gt;Hunt for suspicious local users (Talos mentions patterns like hidden accounts) and unexpected scheduled tasks.&lt;/li&gt;
+&lt;li&gt;Add detection for odd outbound from web servers. A web server that talks like a workstation is usually lying.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;closing-notes&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/#closing-notes&quot; class=&quot;heading-anchor&quot;&gt;Closing Notes&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If you only have time for one thing: patch the actively exploited stuff first and reduce exposure second. That combo saves more weekends than any shiny tool ever will.&lt;/p&gt;
+
+      </content>
+    </entry><entry>
       <title>I Didn’t Know You Could Do This: The NVRAM Trick That Saved a Mac</title>
       <link href="https://www.kylereddoch.me/blog/i-didnt-know-you-could-do-this-the-nvram-trick-that-saved-a-mac/" />
       <updated>2026-01-30T15:00:00Z</updated>
