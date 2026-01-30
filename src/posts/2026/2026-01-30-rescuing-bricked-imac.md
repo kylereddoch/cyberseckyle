@@ -3,7 +3,7 @@ date: 2026-01-30T10:00:00-05:00
 title: "I Didn’t Know You Could Do This: The NVRAM Trick That Saved a Mac"
 description: "A client tried to factory reset a 2018 iMac and ended up at the flashing folder icon. Here’s how I got it back from the dead using macOS Recovery, installer logs, and a surprisingly slick NVRAM workaround."
 tags: [apple, macos, tutorials, how-to]
-mastodon_url: null
+mastodon_url: https://infosec.exchange/@cyberseckyle/115985445207180376
 ---
 
 {% image "/assets/images/imac-highsierra-error.jpg", "macOS High Sierra installer in Recovery showing an alert: “The recovery server could not be contacted.”", "The exact roadblock: High Sierra Recovery failing with “The recovery server could not be contacted,” even though the Mac was online.", "eager", "text-center", "!important", [875], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
