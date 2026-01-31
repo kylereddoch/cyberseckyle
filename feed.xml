@@ -4,12 +4,83 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-01-30T22:38:59Z</updated>
+  <updated>2026-01-31T16:30:16Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>How a Blog Post Gets Built in My Corner of the Web</title>
+      <link href="https://www.kylereddoch.me/blog/how-a-blog-post-gets-built-in-my-corner-of-the-web/" />
+      <updated>2026-01-31T15:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/how-a-blog-post-gets-built-in-my-corner-of-the-web/</id>
+      <content type="html">
+        &lt;p&gt;Some nights I open my blog folder the way you open the fridge. Not because I’m starving, but because I need to see what’s in there.&lt;/p&gt;
+&lt;p&gt;A half-finished draft. A headline that felt clever yesterday. A note to myself that just says “add screenshot here” like that’s a complete thought. The usual.&lt;/p&gt;
+&lt;p&gt;I’ve always liked reading posts about other people’s blogging workflows, not because there’s one “right” way, but because it proves the internet is still made of humans doing little human systems to keep themselves creating. Robert Birming has a solid roundup of these, and it was the nudge I needed to finally write mine down: &lt;a href=&quot;https://robertbirming.com/our-blogging-workflow/&quot; rel=&quot;noopener&quot;&gt;Our Blogging Workflow&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;My setup is simple and a little nerdy: &lt;strong&gt;Ulysses → VS Code → Eleventy → GitHub Pages&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;It’s not glamorous. It’s reliable. It’s the exact kind of workflow I’d build for a client if the client was… me.&lt;/p&gt;
+&lt;h2 id=&quot;ulysses-is-where-i-talk-to-myself&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/how-a-blog-post-gets-built-in-my-corner-of-the-web/#ulysses-is-where-i-talk-to-myself&quot; class=&quot;heading-anchor&quot;&gt;Ulysses is where I talk to myself&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If I’m being honest, the hardest part of blogging is not writing. It’s starting.&lt;/p&gt;
+&lt;p&gt;Starting means you have to commit to an idea. You have to pick a direction. You have to stop “thinking about writing” and actually put words somewhere they can’t hide.&lt;/p&gt;
+&lt;p&gt;That’s why I start in &lt;a href=&quot;https://ulysses.app/&quot; rel=&quot;noopener&quot;&gt;Ulysses&lt;/a&gt;. It feels like a clean desk. No tabs screaming for attention. No layout decisions. No temptation to tweak the site instead of finishing the sentence.&lt;/p&gt;
+&lt;figure slot=&quot;image&quot; class=&quot;text-center&quot;&gt;&lt;picture&gt;   &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/ulysses-screenshot-975w.webp 975w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;
+  &lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/ulysses-screenshot-975w.jpeg 975w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/ulysses-screenshot-975w.jpeg&quot; width=&quot;975&quot; height=&quot;548&quot; alt=&quot;Ulysses writing app showing a blog post draft titled “The Little Assembly Line Behind My Blog Posts,” with the library on the left and the formatted draft preview on the right.&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;figcaption&gt;Where the ideas get their first heartbeat: the draft starts in Ulysses before it ever touches code, templates, or deploys.&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;p&gt;This is the messy stage. The permission-to-be-bad stage.&lt;/p&gt;
+&lt;p&gt;I’ll drop a rough outline and then I write straight through, even when it’s clunky. Especially when it’s clunky. I leave myself blunt notes like:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;“this needs an example”&lt;/li&gt;
+&lt;li&gt;“tie this back to real life”&lt;/li&gt;
+&lt;li&gt;“future Kyle will know what I meant”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sometimes the draft reads like a ransom note made of cybersecurity opinions and caffeine. That’s fine. Ulysses is where the post becomes true before it becomes publishable.&lt;/p&gt;
+&lt;h2 id=&quot;vs-code-is-where-i-stop-writing-and-start-building&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/how-a-blog-post-gets-built-in-my-corner-of-the-web/#vs-code-is-where-i-stop-writing-and-start-building&quot; class=&quot;heading-anchor&quot;&gt;VS Code is where I stop writing and start building&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;At some point the draft stops feeling like a thought dump and starts feeling like a post. That’s the moment I move it into &lt;a href=&quot;https://code.visualstudio.com/&quot; rel=&quot;noopener&quot;&gt;Visual Studio Code&lt;/a&gt;.&lt;/p&gt;
+&lt;figure slot=&quot;image&quot; class=&quot;text-center&quot;&gt;&lt;picture&gt;   &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/vs-code-screenshot-975w.webp 975w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;
+  &lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/vs-code-screenshot-975w.jpeg 975w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/vs-code-screenshot-975w.jpeg&quot; width=&quot;975&quot; height=&quot;548&quot; alt=&quot;Visual Studio Code with an Eleventy blog project open, editing a Markdown post titled “The Little Assembly Line Behind My Blog Posts,” with front matter and headings visible.&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;figcaption&gt;Draft-to-deploy in motion: polishing the post in Visual Studio Code inside my Eleventy site before committing and pushing to GitHub Pages.&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;p&gt;This is the gear shift.&lt;/p&gt;
+&lt;p&gt;In Ulysses, I’m chasing the idea.&lt;br&gt;
+In VS Code, I’m shaping it into something that belongs on my site.&lt;/p&gt;
+&lt;p&gt;I add the front matter. I tighten the headings. I make sure the flow makes sense when you’re skimming, because people skim. I also skim. We’re all skimmers with dreams.&lt;/p&gt;
+&lt;p&gt;This is also where my brain flips into “tech mode,” which is dangerous because tech mode loves infinite tinkering. I’ve learned I need a boundary here: editing is allowed, redesigning my whole site because a paragraph feels awkward is not allowed.&lt;/p&gt;
+&lt;p&gt;VS Code is where the post gets dressed and told to stand up straight.&lt;/p&gt;
+&lt;h2 id=&quot;eleventy-is-the-quiet-machine-in-the-back-room&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/how-a-blog-post-gets-built-in-my-corner-of-the-web/#eleventy-is-the-quiet-machine-in-the-back-room&quot; class=&quot;heading-anchor&quot;&gt;Eleventy is the quiet machine in the back room&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;My site runs on &lt;a href=&quot;https://www.11ty.dev/&quot; rel=&quot;noopener&quot;&gt;Eleventy&lt;/a&gt;, and I like it for the same reason I like reliable infrastructure: it does what it says it does, and it doesn’t ask for a ceremony about it.&lt;/p&gt;
+&lt;p&gt;When I’m working on a post, I usually have the local build running so I can preview it as a real page. This is where things become obvious:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;That heading is too long.&lt;/li&gt;
+&lt;li&gt;That section needs breathing room.&lt;/li&gt;
+&lt;li&gt;That sentence sounded smart in markdown but looks like a brick wall on the page.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Previewing the post in Eleventy is like checking your work in production before you actually make it production. Which, yes, is the most “me” sentence possible.&lt;/p&gt;
+&lt;h2 id=&quot;github-pages-is-the-moment-it-stops-being-mine-and-starts-being-the-internets&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/how-a-blog-post-gets-built-in-my-corner-of-the-web/#github-pages-is-the-moment-it-stops-being-mine-and-starts-being-the-internets&quot; class=&quot;heading-anchor&quot;&gt;GitHub Pages is the moment it stops being mine and starts being the internet’s&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The last step is my favorite because it feels final in a satisfying way.&lt;/p&gt;
+&lt;p&gt;Commit. Push. Done.&lt;/p&gt;
+&lt;p&gt;I host on &lt;a href=&quot;https://pages.github.com/&quot; rel=&quot;noopener&quot;&gt;GitHub Pages&lt;/a&gt;, which keeps everything boring in the best possible way. No complex hosting dashboard. No fragile setup that only makes sense on Tuesdays. Just a workflow I understand: changes tracked, history preserved, deployment predictable.&lt;/p&gt;
+&lt;p&gt;It scratches the same itch as good IT work. You don’t just &lt;em&gt;finish&lt;/em&gt; something, you ship it.&lt;/p&gt;
+&lt;h2 id=&quot;the-small-security-habits-i-cant-turn-off&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/how-a-blog-post-gets-built-in-my-corner-of-the-web/#the-small-security-habits-i-cant-turn-off&quot; class=&quot;heading-anchor&quot;&gt;The small security habits I can’t turn off&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Working in cybersecurity does weird things to your brain. You start noticing the attack surface of everything, including your own hobby tools.&lt;/p&gt;
+&lt;p&gt;So my blogging workflow has a few quiet rules:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I keep my VS Code extensions minimal. If I don’t trust it, I don’t install it.&lt;/li&gt;
+&lt;li&gt;I pay attention when a repo or tool asks me to “trust” something. Trust prompts exist because bad things happen.&lt;/li&gt;
+&lt;li&gt;I try to keep the publishing pipeline simple. Fewer moving parts means fewer surprises.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It’s not paranoia. It’s the same kind of basic discipline I’d want any client to have. I just happen to be both the client and the tech.&lt;/p&gt;
+&lt;h2 id=&quot;the-workflow-in-plain-english&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/how-a-blog-post-gets-built-in-my-corner-of-the-web/#the-workflow-in-plain-english&quot; class=&quot;heading-anchor&quot;&gt;The workflow, in plain English&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;When I’m doing it right, it looks like this:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Draft in Ulysses because it makes starting easy.&lt;/li&gt;
+&lt;li&gt;Move to VS Code when it’s time to turn it into a real post.&lt;/li&gt;
+&lt;li&gt;Preview with Eleventy so I can see it the way readers will.&lt;/li&gt;
+&lt;li&gt;Commit and push so it becomes a real URL on GitHub Pages.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That’s the whole assembly line.&lt;/p&gt;
+&lt;p&gt;And the reason I’m writing this down is simple: the workflow is part of the creativity. If the process feels heavy, you avoid it. If it feels friendly, you come back.&lt;/p&gt;
+&lt;p&gt;I want to keep coming back.&lt;/p&gt;
+
+      </content>
+    </entry><entry>
       <title>Cybersecurity Weekly Roundup: January 24–30, 2026</title>
       <link href="https://www.kylereddoch.me/blog/cybersecurity-weekly-roundup-january-24-30-2026/" />
       <updated>2026-01-30T21:00:00Z</updated>
