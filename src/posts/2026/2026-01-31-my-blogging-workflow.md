@@ -3,7 +3,7 @@ date: 2026-01-31T10:00:00-05:00
 title: 'How a Blog Post Gets Built in My Corner of the Web'
 description: "My personal draft-to-deploy rhythm: Ulysses for thinking, VS Code for shaping, Eleventy for building, and GitHub Pages for shipping."
 tags: [blogging, personal, indie-web, eleventy]
-mastodon_url: null
+mastodon_url: https://infosec.exchange/@cyberseckyle/115990667890534598
 ---
 
 Some nights I open my blog folder the way you open the fridge. Not because I’m starving, but because I need to see what’s in there.
