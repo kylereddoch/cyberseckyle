@@ -3,7 +3,7 @@ date: 2026-02-03T11:15:00-05:00
 title: "Digital Forensics for a Compromised Container: What to Collect and How to Snapshot It"
 description: "A practical, incident-response-first checklist for container forensics across Docker and Kubernetes, including the logs and artifacts that actually matter and the safest ways to preserve them."
 tags: [cybersecurity, incident-response, digital-forensics, docker, kubernetes, devsecops]
-mastodon_url: null
+mastodon_url: https://infosec.exchange/@cyberseckyle/116007909693230422
 ---
 
 A buddy in infosec recently asked a question that hits the painful truth about containers: they feel disposable right up until you need evidence.
