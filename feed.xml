@@ -4,12 +4,345 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-02-03T16:03:18Z</updated>
+  <updated>2026-02-03T17:25:53Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>Digital Forensics for a Compromised Container: What to Collect and How to Snapshot It</title>
+      <link href="https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/" />
+      <updated>2026-02-03T16:15:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/</id>
+      <content type="html">
+        &lt;p&gt;A buddy in infosec recently asked a question that hits the painful truth about containers: they feel disposable right up until you need evidence.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“What logs need to be collected and what’s the best way to snapshot for further digging?”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The trick is thinking in &lt;strong&gt;layers&lt;/strong&gt;. A container is rarely “the whole crime scene.” Most of the evidence lives in one of four places:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;The container (process + filesystem)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The node/host (runtime, kernel, auth, networking)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The orchestrator (Kubernetes control plane, audit, events)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Your cloud and edge (load balancers, WAF, IAM, flow logs)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Below is a field-tested approach that prioritizes &lt;strong&gt;preservation first&lt;/strong&gt;, then analysis.&lt;/p&gt;
+&lt;h2 id=&quot;guiding-principles-for-container-forensics&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#guiding-principles-for-container-forensics&quot; class=&quot;heading-anchor&quot;&gt;Guiding principles for container forensics&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;preserve-first-analyze-second&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#preserve-first-analyze-second&quot; class=&quot;heading-anchor&quot;&gt;Preserve first, analyze second&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;In incident response, “just one quick command” turns into “why is the timestamp different now?” Real forensics means you preserve what you can with minimal changes, and you log every action you take. NIST frames incident response as a risk management activity where documentation and repeatability matter for both recovery and learning in &lt;a href=&quot;https://csrc.nist.gov/pubs/sp/800/61/r3/final&quot; rel=&quot;noopener&quot;&gt;NIST SP 800-61r3&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;containers-lie-by-omission&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#containers-lie-by-omission&quot; class=&quot;heading-anchor&quot;&gt;Containers lie by omission&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Containers typically do not contain the logs you want. Many logs are on the host or shipped to a logging backend. Kubernetes and Docker logging designs make this explicit in the &lt;a href=&quot;https://kubernetes.io/docs/concepts/cluster-administration/logging/&quot; rel=&quot;noopener&quot;&gt;Kubernetes logging architecture&lt;/a&gt; and the &lt;a href=&quot;https://docs.docker.com/engine/logging/drivers/json-file/&quot; rel=&quot;noopener&quot;&gt;Docker json-file logging driver&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;assume-attacker-goals-include-escaping-the-container&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#assume-attacker-goals-include-escaping-the-container&quot; class=&quot;heading-anchor&quot;&gt;Assume attacker goals include escaping the container&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;If the attacker got root in a container, the next move is often: steal secrets, pivot laterally, or attempt host escape. MITRE tracks “Escape to Host” as a specific technique in &lt;a href=&quot;https://attack.mitre.org/techniques/T1611/&quot; rel=&quot;noopener&quot;&gt;ATT&amp;amp;CK T1611&lt;/a&gt;, which is a nice reminder to collect host evidence even when the “problem” looks container-scoped.&lt;/p&gt;
+&lt;h2 id=&quot;the-clock-is-ticking-triage-order&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#the-clock-is-ticking-triage-order&quot; class=&quot;heading-anchor&quot;&gt;The “clock is ticking” triage order&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If you only have 10 minutes before someone deletes the pod, the node autoscaling replaces it, or the attacker wipes tracks:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Record &lt;strong&gt;time&lt;/strong&gt;, &lt;strong&gt;cluster/node&lt;/strong&gt;, &lt;strong&gt;namespace&lt;/strong&gt;, &lt;strong&gt;pod&lt;/strong&gt;, &lt;strong&gt;container ID&lt;/strong&gt;, &lt;strong&gt;image digest&lt;/strong&gt;, and &lt;strong&gt;node name&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Pull &lt;strong&gt;Kubernetes events&lt;/strong&gt; and object specs (pod/deploy/rs)&lt;/li&gt;
+&lt;li&gt;Pull &lt;strong&gt;container stdout/stderr logs&lt;/strong&gt; (including previous instance)&lt;/li&gt;
+&lt;li&gt;Pull &lt;strong&gt;Kubernetes API audit logs&lt;/strong&gt; (or managed control plane logs)&lt;/li&gt;
+&lt;li&gt;Snapshot &lt;strong&gt;persistent volumes&lt;/strong&gt; attached to the workload&lt;/li&gt;
+&lt;li&gt;Preserve &lt;strong&gt;node logs&lt;/strong&gt; (kubelet, runtime, auth, kernel, audit)&lt;/li&gt;
+&lt;li&gt;Preserve &lt;strong&gt;network telemetry&lt;/strong&gt; (ingress/load balancer/WAF, flow logs)&lt;/li&gt;
+&lt;li&gt;Preserve &lt;strong&gt;registry evidence&lt;/strong&gt; (image, tags, SBOM if you have it)&lt;/li&gt;
+&lt;li&gt;Hash everything you export&lt;/li&gt;
+&lt;li&gt;Start analysis on copies, not originals&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Kubernetes even calls out &lt;code&gt;--previous&lt;/code&gt; for grabbing logs from a prior crashed container instance in the &lt;a href=&quot;https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/&quot; rel=&quot;noopener&quot;&gt;kubectl logs reference&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Kubernetes documents where system and container logs end up (journald vs &lt;code&gt;/var/log&lt;/code&gt;, and pod logs under &lt;code&gt;/var/log/pods&lt;/code&gt;) in the &lt;a href=&quot;https://kubernetes.io/docs/concepts/cluster-administration/system-logs/&quot; rel=&quot;noopener&quot;&gt;Kubernetes system logs&lt;/a&gt; and &lt;a href=&quot;https://kubernetes.io/docs/concepts/cluster-administration/logging/&quot; rel=&quot;noopener&quot;&gt;logging architecture&lt;/a&gt; docs.&lt;/p&gt;
+&lt;h3 id=&quot;evidence-capture-checklist-copy/paste-runbook&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#evidence-capture-checklist-copy/paste-runbook&quot; class=&quot;heading-anchor&quot;&gt;Evidence capture checklist (copy/paste runbook)&lt;/a&gt;&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Goal: collect &lt;strong&gt;high-value, high-volatility&lt;/strong&gt; artifacts first, store them in a case folder, hash everything, then investigate from copies. Avoid dumping secrets unless you have explicit approval and a safe handling plan.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h5 id=&quot;0-create-a-case-folder-and-record-identifiers&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#0-create-a-case-folder-and-record-identifiers&quot; class=&quot;heading-anchor&quot;&gt;0) Create a case folder and record identifiers&lt;/a&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] Create case folder&lt;/li&gt;
+&lt;li&gt;[ ] Record: time window, cluster, namespace, pod, node, container IDs, image digest, PV names, service account&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token assign-left variable&quot;&gt;CASE&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;case-INC123-2026-02-02&quot;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;&quot;&lt;/span&gt;/&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;notes,k8s,logs,node,runtime,storage,network,hashes&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;date&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-u&lt;/span&gt; +&lt;span class=&quot;token string&quot;&gt;&quot;%Y-%m-%dT%H:%M:%SZ&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;tee&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/notes/collected_at_utc.txt&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;kubernetes-workload-logs-events&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#kubernetes-workload-logs-events&quot; class=&quot;heading-anchor&quot;&gt;Kubernetes (workload + logs + events)&lt;/a&gt;&lt;/h4&gt;
+&lt;h5 id=&quot;1-capture-pod-spec-describe-output-and-related-objects&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#1-capture-pod-spec-describe-output-and-related-objects&quot; class=&quot;heading-anchor&quot;&gt;1) Capture pod spec, describe output, and related objects&lt;/a&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] Pod YAML (source of truth for what ran)&lt;/li&gt;
+&lt;li&gt;[ ] Describe (why it restarted, probe failures, node, image pull, etc.)&lt;/li&gt;
+&lt;li&gt;[ ] Deployment/ReplicaSet YAML (how it was supposed to run)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token assign-left variable&quot;&gt;NS&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&amp;lt;namespace&amp;gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;POD&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&amp;lt;pod-name&amp;gt;&quot;&lt;/span&gt;
+
+kubectl get pod &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$POD&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$NS&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-o&lt;/span&gt; yaml &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/k8s/pod.yaml&quot;&lt;/span&gt;
+kubectl describe pod &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$POD&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$NS&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/k8s/pod.describe.txt&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Optional: grab owning controller (deployment/rs) if known&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;DEPLOY&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&amp;lt;deployment-name&amp;gt;&quot;&lt;/span&gt;
+kubectl get deploy &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$DEPLOY&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$NS&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-o&lt;/span&gt; yaml &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/k8s/deploy.yaml&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&lt;span class=&quot;token file-descriptor important&quot;&gt;2&lt;/span&gt;&amp;gt;&lt;/span&gt;/dev/null &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+
+kubectl get rs &lt;span class=&quot;token parameter variable&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$NS&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-o&lt;/span&gt; yaml &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/k8s/replicasets.yaml&quot;&lt;/span&gt;
+kubectl get svc &lt;span class=&quot;token parameter variable&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$NS&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-o&lt;/span&gt; yaml &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/k8s/services.yaml&quot;&lt;/span&gt;
+kubectl get cm &lt;span class=&quot;token parameter variable&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$NS&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-o&lt;/span&gt; yaml &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/k8s/configmaps.yaml&quot;&lt;/span&gt;
+kubectl get sa &lt;span class=&quot;token parameter variable&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$NS&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-o&lt;/span&gt; yaml &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/k8s/serviceaccounts.yaml&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: be careful exporting Secrets. If you must, document approval and store them encrypted.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h5 id=&quot;2-capture-events-often-the-fastest-breadcrumb-trail&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#2-capture-events-often-the-fastest-breadcrumb-trail&quot; class=&quot;heading-anchor&quot;&gt;2) Capture events (often the fastest breadcrumb trail)&lt;/a&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] Namespace events sorted by time&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;kubectl get events &lt;span class=&quot;token parameter variable&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$NS&lt;/span&gt;&quot;&lt;/span&gt; --sort-by&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;.lastTimestamp &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/k8s/events.txt&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&quot;3-capture-container-logs-including-previous-instance&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#3-capture-container-logs-including-previous-instance&quot; class=&quot;heading-anchor&quot;&gt;3) Capture container logs (including previous instance)&lt;/a&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] Current logs, all containers, timestamps&lt;/li&gt;
+&lt;li&gt;[ ] Previous logs if the container restarted&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;kubectl logs &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$POD&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$NS&lt;/span&gt;&quot;&lt;/span&gt; --all-containers &lt;span class=&quot;token parameter variable&quot;&gt;--timestamps&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/logs/pod.logs.txt&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# If restartCount &amp;gt; 0 for any container, grab previous logs too&lt;/span&gt;
+kubectl logs &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$POD&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$NS&lt;/span&gt;&quot;&lt;/span&gt; --all-containers &lt;span class=&quot;token parameter variable&quot;&gt;--previous&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;--timestamps&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/logs/pod.logs.previous.txt&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&lt;span class=&quot;token file-descriptor important&quot;&gt;2&lt;/span&gt;&amp;gt;&lt;/span&gt;/dev/null &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&quot;4-capture-what-the-cluster-thinks-is-running-quick-inventory&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#4-capture-what-the-cluster-thinks-is-running-quick-inventory&quot; class=&quot;heading-anchor&quot;&gt;4) Capture what the cluster thinks is running (quick inventory)&lt;/a&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] Wide output (node, IPs)&lt;/li&gt;
+&lt;li&gt;[ ] Container image digests&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;kubectl get pod &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$POD&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$NS&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-o&lt;/span&gt; wide &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/k8s/pod.wide.txt&quot;&lt;/span&gt;
+kubectl get pod &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$POD&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$NS&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;jsonpath&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;{range .status.containerStatuses[*]}{.name}{&quot; &quot;}{.image}{&quot; &quot;}{.imageID}{&quot;
+&quot;}{end}&#39;&lt;/span&gt;   &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/k8s/container.imageids.txt&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;kubernetes-control-plane-audit-and-authz-evidence&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#kubernetes-control-plane-audit-and-authz-evidence&quot; class=&quot;heading-anchor&quot;&gt;Kubernetes control plane (audit and authz evidence)&lt;/a&gt;&lt;/h4&gt;
+&lt;h5 id=&quot;5-audit-logs-if-enabled-/-available&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#5-audit-logs-if-enabled-/-available&quot; class=&quot;heading-anchor&quot;&gt;5) Audit logs (if enabled / available)&lt;/a&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] Export Kubernetes API audit logs from your control plane logging destination&lt;/li&gt;
+&lt;li&gt;[ ] Export identity logs for the same time window (cloud IAM / SSO / IdP)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This step is environment-specific, so the “command” is usually: export from your logging platform/SIEM using a time window and filters for the namespace, resource name, and suspicious identities.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Store exports here:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;code&gt;&quot;$CASE/k8s/audit/&quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;[ ] &lt;code&gt;&quot;$CASE/network/identity/&quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;storage-persistent-volumes&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#storage-persistent-volumes&quot; class=&quot;heading-anchor&quot;&gt;Storage (persistent volumes)&lt;/a&gt;&lt;/h4&gt;
+&lt;h5 id=&quot;6-identify-pv/pvc-attached-to-the-pod&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#6-identify-pv/pvc-attached-to-the-pod&quot; class=&quot;heading-anchor&quot;&gt;6) Identify PV/PVC attached to the pod&lt;/a&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] Pod volume mapping&lt;/li&gt;
+&lt;li&gt;[ ] PVC and PV YAML&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;kubectl get pod &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$POD&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$NS&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;jsonpath&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;{.spec.volumes[*].name}{&quot;
+&quot;}&#39;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/storage/pod.volumes.txt&quot;&lt;/span&gt;
+kubectl get pvc &lt;span class=&quot;token parameter variable&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$NS&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-o&lt;/span&gt; yaml &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/storage/pvcs.yaml&quot;&lt;/span&gt;
+kubectl get &lt;span class=&quot;token function&quot;&gt;pv&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-o&lt;/span&gt; yaml &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/storage/pvs.yaml&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&quot;7-snapshot-pv-data-csi-volumesnapshot-workflow&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#7-snapshot-pv-data-csi-volumesnapshot-workflow&quot; class=&quot;heading-anchor&quot;&gt;7) Snapshot PV data (CSI VolumeSnapshot workflow)&lt;/a&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] Create a &lt;code&gt;VolumeSnapshot&lt;/code&gt; for each relevant PVC&lt;/li&gt;
+&lt;li&gt;[ ] Restore into a new PVC and mount it read-only in a dedicated investigation workload&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Example &lt;code&gt;VolumeSnapshot&lt;/code&gt; (edit placeholders):&lt;/p&gt;
+&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;apiVersion&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; snapshot.storage.k8s.io/v1
+&lt;span class=&quot;token key atrule&quot;&gt;kind&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; VolumeSnapshot
+&lt;span class=&quot;token key atrule&quot;&gt;metadata&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &amp;lt;pvc&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;snap&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;20260202&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;namespace&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &amp;lt;namespace&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;token key atrule&quot;&gt;spec&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;volumeSnapshotClassName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &amp;lt;your&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;snapshot&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;class&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;persistentVolumeClaimName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &amp;lt;pvc&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Save the YAML you applied:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;code&gt;&quot;$CASE/storage/volumesnapshots.yaml&quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;[ ] &lt;code&gt;&quot;$CASE/storage/snapshot-ids.txt&quot;&lt;/code&gt; (whatever IDs your storage backend returns)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;node-runtime-where-escapes-and-tampering-show-up&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#node-runtime-where-escapes-and-tampering-show-up&quot; class=&quot;heading-anchor&quot;&gt;Node + runtime (where escapes and tampering show up)&lt;/a&gt;&lt;/h4&gt;
+&lt;h5 id=&quot;8-capture-node-name-and-then-collect-node-logs&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#8-capture-node-name-and-then-collect-node-logs&quot; class=&quot;heading-anchor&quot;&gt;8) Capture node name and then collect node logs&lt;/a&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] Node name from pod&lt;/li&gt;
+&lt;li&gt;[ ] journald/system logs, auth logs, audit logs, kubelet logs, runtime logs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token assign-left variable&quot;&gt;NODE&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;kubectl get pod &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$POD&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$NS&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;jsonpath&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;{.spec.nodeName}&#39;&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$NODE&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;tee&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/node/node.txt&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;On the node (or via your node access method), collect logs into an archive:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# Run on the node if you have access&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-p&lt;/span&gt; /tmp/ir-collect
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; journalctl &lt;span class=&quot;token parameter variable&quot;&gt;--since&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;2026-02-01&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;--until&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;2026-02-03&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; /tmp/ir-collect/journal.txt
+
+&lt;span class=&quot;token comment&quot;&gt;# Common log locations (adjust for your distro)&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-czf&lt;/span&gt; /tmp/ir-collect/var-log.tgz /var/log &lt;span class=&quot;token operator&quot;&gt;&lt;span class=&quot;token file-descriptor important&quot;&gt;2&lt;/span&gt;&amp;gt;&lt;/span&gt;/dev/null &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Copy off the node to your case folder by your preferred secure method (scp, s3, artifact store)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&quot;9-runtime-metadata-containerd/cri-o-via-crictl&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#9-runtime-metadata-containerd/cri-o-via-crictl&quot; class=&quot;heading-anchor&quot;&gt;9) Runtime metadata (containerd/CRI-O via crictl)&lt;/a&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] Running containers list&lt;/li&gt;
+&lt;li&gt;[ ] Inspect the suspicious container&lt;/li&gt;
+&lt;li&gt;[ ] Pod sandbox info if needed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# Run on the node&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; crictl &lt;span class=&quot;token function&quot;&gt;ps&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; /tmp/ir-collect/crictl-ps.txt
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; crictl pods &lt;span class=&quot;token parameter variable&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; /tmp/ir-collect/crictl-pods.txt
+
+&lt;span class=&quot;token assign-left variable&quot;&gt;CID&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&amp;lt;container-id&amp;gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; crictl inspect &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CID&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; /tmp/ir-collect/crictl-inspect.json&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Copy &lt;code&gt;/tmp/ir-collect/*&lt;/code&gt; into:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;code&gt;&quot;$CASE/runtime/&quot;&lt;/code&gt; and &lt;code&gt;&quot;$CASE/node/&quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;docker-only-if-this-was-a-docker-host-not-kubernetes&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#docker-only-if-this-was-a-docker-host-not-kubernetes&quot; class=&quot;heading-anchor&quot;&gt;Docker-only (if this was a Docker host, not Kubernetes)&lt;/a&gt;&lt;/h4&gt;
+&lt;h5 id=&quot;10-capture-docker-evidence-container-image-filesystem&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#10-capture-docker-evidence-container-image-filesystem&quot; class=&quot;heading-anchor&quot;&gt;10) Capture Docker evidence (container + image + filesystem)&lt;/a&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;code&gt;docker inspect&lt;/code&gt; (metadata)&lt;/li&gt;
+&lt;li&gt;[ ] &lt;code&gt;docker logs&lt;/code&gt; with timestamps&lt;/li&gt;
+&lt;li&gt;[ ] &lt;code&gt;docker export&lt;/code&gt; (filesystem state)&lt;/li&gt;
+&lt;li&gt;[ ] &lt;code&gt;docker image save&lt;/code&gt; (original image artifact)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token assign-left variable&quot;&gt;CID&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&amp;lt;container-id&amp;gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;IMG&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&amp;lt;image:tag-or-digest&amp;gt;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; inspect &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CID&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/runtime/docker.inspect.json&quot;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; logs &lt;span class=&quot;token parameter variable&quot;&gt;--timestamps&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CID&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/logs/docker.container.log&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; container &lt;span class=&quot;token builtin class-name&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CID&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/runtime/container_fs.tar&quot;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; image save &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$IMG&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/runtime/image.tar&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&quot;11-read-only-browse-of-the-captured-filesystem-on-analysis-workstation&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#11-read-only-browse-of-the-captured-filesystem-on-analysis-workstation&quot; class=&quot;heading-anchor&quot;&gt;11) Read-only browse of the captured filesystem (on analysis workstation)&lt;/a&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] Extract the exported filesystem copy&lt;/li&gt;
+&lt;li&gt;[ ] Bind-mount the extracted directory read-only&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/runtime/containerfs&quot;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/runtime/roview&quot;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-xf&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/runtime/container_fs.tar&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-C&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/runtime/containerfs&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mount&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;--bind&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/runtime/containerfs&quot;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/runtime/roview&quot;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mount&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-o&lt;/span&gt; remount,ro,bind &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/runtime/roview&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;network-and-edge-telemetry-confirm-exfil-c2-lateral-movement&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#network-and-edge-telemetry-confirm-exfil-c2-lateral-movement&quot; class=&quot;heading-anchor&quot;&gt;Network and edge telemetry (confirm exfil, C2, lateral movement)&lt;/a&gt;&lt;/h4&gt;
+&lt;h5 id=&quot;12-export-edge-logs-for-the-time-window&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#12-export-edge-logs-for-the-time-window&quot; class=&quot;heading-anchor&quot;&gt;12) Export edge logs for the time window&lt;/a&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] Ingress controller logs&lt;/li&gt;
+&lt;li&gt;[ ] Load balancer / WAF logs&lt;/li&gt;
+&lt;li&gt;[ ] Flow logs (VPC/VNet)&lt;/li&gt;
+&lt;li&gt;[ ] DNS logs (internal and external resolver)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Save exports into:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[ ] &lt;code&gt;&quot;$CASE/network/&quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;hash-everything-you-collected&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#hash-everything-you-collected&quot; class=&quot;heading-anchor&quot;&gt;Hash everything you collected&lt;/a&gt;&lt;/h4&gt;
+&lt;h5 id=&quot;13-generate-hashes-for-integrity-and-chain-of-custody&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#13-generate-hashes-for-integrity-and-chain-of-custody&quot; class=&quot;heading-anchor&quot;&gt;13) Generate hashes for integrity and chain-of-custody&lt;/a&gt;&lt;/h5&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-type&lt;/span&gt; f &lt;span class=&quot;token parameter variable&quot;&gt;-print0&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sort&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-z&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;xargs&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-0&lt;/span&gt; sha256sum &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CASE&lt;/span&gt;/hashes/SHA256SUMS.txt&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;what-logs-should-you-collect&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#what-logs-should-you-collect&quot; class=&quot;heading-anchor&quot;&gt;What logs should you collect?&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;1-kubernetes-logs-that-are-almost-always-worth-it&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#1-kubernetes-logs-that-are-almost-always-worth-it&quot; class=&quot;heading-anchor&quot;&gt;1) Kubernetes logs that are almost always worth it&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pod logs&lt;/strong&gt;: &lt;code&gt;kubectl logs …&lt;/code&gt; and &lt;code&gt;--previous&lt;/code&gt; when restarts happened (&lt;a href=&quot;https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/&quot; rel=&quot;noopener&quot;&gt;kubectl logs&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Events&lt;/strong&gt;: scheduling changes, OOMKills, image pulls, probes failing&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Audit logs&lt;/strong&gt;: this is the big one for “who changed what.” Kubernetes provides native audit logging design and configuration in the &lt;a href=&quot;https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/&quot; rel=&quot;noopener&quot;&gt;Kubernetes audit docs&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you run managed Kubernetes, also grab the provider’s control plane logs. For example, Amazon EKS can export audit and control plane components directly to CloudWatch as documented in &lt;a href=&quot;https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html&quot; rel=&quot;noopener&quot;&gt;EKS control plane logs&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;2-node-logs-you-should-not-ignore&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#2-node-logs-you-should-not-ignore&quot; class=&quot;heading-anchor&quot;&gt;2) Node logs you should not ignore&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;kubelet logs&lt;/li&gt;
+&lt;li&gt;container runtime logs (containerd, CRI-O, or Docker depending on the cluster)&lt;/li&gt;
+&lt;li&gt;auth logs (SSH, sudo), audit logs (auditd), kernel logs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Kubernetes explicitly notes kubelet/runtime logging via journald on systemd hosts, otherwise &lt;code&gt;.log&lt;/code&gt; files in &lt;code&gt;/var/log&lt;/code&gt; in the &lt;a href=&quot;https://kubernetes.io/docs/concepts/cluster-administration/system-logs/&quot; rel=&quot;noopener&quot;&gt;Kubernetes system logs&lt;/a&gt; documentation.&lt;/p&gt;
+&lt;h3 id=&quot;3-docker-specific-if-you-are-investigating-a-docker-host&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#3-docker-specific-if-you-are-investigating-a-docker-host&quot; class=&quot;heading-anchor&quot;&gt;3) Docker specific (if you are investigating a Docker host)&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;If the host uses Docker with the default &lt;code&gt;json-file&lt;/code&gt; driver, container stdout/stderr are written as JSON log files on the host as described in the &lt;a href=&quot;https://docs.docker.com/engine/logging/drivers/json-file/&quot; rel=&quot;noopener&quot;&gt;Docker json-file driver&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Also capture:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;docker events&lt;/code&gt; output around the time window&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker inspect&lt;/code&gt; for the container and image metadata (&lt;a href=&quot;https://docs.docker.com/reference/cli/docker/inspect/&quot; rel=&quot;noopener&quot;&gt;docker inspect&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;snapshotting-the-safest-ways-to-preserve-evidence&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#snapshotting-the-safest-ways-to-preserve-evidence&quot; class=&quot;heading-anchor&quot;&gt;Snapshotting: the safest ways to preserve evidence&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;There is no single “snapshot the container” button that preserves everything without side effects. The best snapshot method depends on what you need to preserve.&lt;/p&gt;
+&lt;h3 id=&quot;snapshot-goal-a-preserve-the-container-filesystem-state&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#snapshot-goal-a-preserve-the-container-filesystem-state&quot; class=&quot;heading-anchor&quot;&gt;Snapshot goal A: Preserve the container filesystem state&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Docker:&lt;/strong&gt; export the container filesystem as a tar archive. Docker supports this directly via &lt;a href=&quot;https://docs.docker.com/reference/cli/docker/container/export/&quot; rel=&quot;noopener&quot;&gt;docker container export&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# Metadata first&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; inspect &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;container_id&lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; inspect.json
+&lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; logs &lt;span class=&quot;token parameter variable&quot;&gt;--timestamps&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;container_id&lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; container.log
+
+&lt;span class=&quot;token comment&quot;&gt;# Export filesystem state (no history/metadata like a full image)&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; container &lt;span class=&quot;token builtin class-name&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;container_id&lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-o&lt;/span&gt; container_fs.tar
+sha256sum container_fs.tar inspect.json container.log &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; SHA256SUMS.txt&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Notes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;docker export&lt;/code&gt; captures the filesystem as it exists. It does not preserve full image layer history.&lt;/li&gt;
+&lt;li&gt;If you also need the original image exactly as deployed, export the image too:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; image save &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;image:tag&lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-o&lt;/span&gt; image.tar
+sha256sum image.tar &lt;span class=&quot;token operator&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; SHA256SUMS.txt&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;(&lt;a href=&quot;https://docs.docker.com/reference/cli/docker/image/save/&quot; rel=&quot;noopener&quot;&gt;docker image save&lt;/a&gt;)&lt;/p&gt;
+&lt;h4 id=&quot;read-only-browsing-tip-mount-the-captured-filesystem-on-a-separate-box&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#read-only-browsing-tip-mount-the-captured-filesystem-on-a-separate-box&quot; class=&quot;heading-anchor&quot;&gt;Read-only browsing tip: mount the captured filesystem on a separate box&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Operations teams often want to “mount the container filesystem read-only” so they can browse it like a disk image. The safest way to do that is to mount a &lt;strong&gt;copy&lt;/strong&gt; read-only, not the live container.&lt;/p&gt;
+&lt;p&gt;If you used &lt;code&gt;docker container export&lt;/code&gt;, you can browse the extracted copy on your analysis workstation and enforce a read-only view with a bind mount:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# On the analysis workstation&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-p&lt;/span&gt; /cases/case123/containerfs
+&lt;span class=&quot;token function&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-xf&lt;/span&gt; container_fs.tar &lt;span class=&quot;token parameter variable&quot;&gt;-C&lt;/span&gt; /cases/case123/containerfs
+
+&lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-p&lt;/span&gt; /cases/case123/roview
+&lt;span class=&quot;token function&quot;&gt;mount&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;--bind&lt;/span&gt; /cases/case123/containerfs /cases/case123/roview
+&lt;span class=&quot;token function&quot;&gt;mount&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-o&lt;/span&gt; remount,ro,bind /cases/case123/roview&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This approach keeps the original evidence artifact intact, keeps the browsing environment controlled, and reduces the chance you accidentally change timestamps or delete something while poking around.&lt;/p&gt;
+&lt;p&gt;For Kubernetes clusters using containerd or CRI-O, there usually is not a clean “export root filesystem” button at the API layer, because the container root filesystem is managed as runtime snapshots on the node. In those cases, a practical preservation-first approach is to snapshot the &lt;strong&gt;node disk/VM&lt;/strong&gt; and perform offline inspection, or use runtime tooling like &lt;code&gt;crictl&lt;/code&gt; for inspection in a controlled manner (see the &lt;a href=&quot;https://kubernetes.io/docs/tasks/debug/debug-cluster/crictl/&quot; rel=&quot;noopener&quot;&gt;Kubernetes crictl task&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Kubernetes:&lt;/strong&gt; you usually do not “export a container filesystem” cleanly from the API. If you can &lt;code&gt;kubectl exec&lt;/code&gt; safely, you can copy key paths out (config, app dirs, temp dirs) but be honest: this is invasive and incomplete. When you need a real artifact, your better bet is snapshotting the &lt;strong&gt;node disk&lt;/strong&gt; (VM snapshot or volume snapshot) so you preserve runtime and overlay filesystem state.&lt;/p&gt;
+&lt;h3 id=&quot;snapshot-goal-b-preserve-the-data-the-container-touched-persistent-volumes&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#snapshot-goal-b-preserve-the-data-the-container-touched-persistent-volumes&quot; class=&quot;heading-anchor&quot;&gt;Snapshot goal B: Preserve the data the container touched (persistent volumes)&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;If the workload uses PersistentVolumes, snapshot the volumes at the storage layer.&lt;/p&gt;
+&lt;p&gt;Kubernetes supports CSI-based VolumeSnapshots via &lt;code&gt;VolumeSnapshot&lt;/code&gt; and &lt;code&gt;VolumeSnapshotContent&lt;/code&gt; as documented in &lt;a href=&quot;https://kubernetes.io/docs/concepts/storage/volume-snapshots/&quot; rel=&quot;noopener&quot;&gt;Kubernetes volume snapshots&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This is often the single most valuable evidence source because attackers love to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;modify app content&lt;/li&gt;
+&lt;li&gt;drop web shells into mounted volumes&lt;/li&gt;
+&lt;li&gt;tamper with databases&lt;/li&gt;
+&lt;li&gt;stage exfil data&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If your goal is a read-only browse experience for the ops team, restoring the snapshot to a separate PVC and mounting it as &lt;code&gt;readOnly: true&lt;/code&gt; in a dedicated investigation workload is usually the cleanest workflow. The important part is that you browse a copy, not the original PV.&lt;/p&gt;
+&lt;h3 id=&quot;snapshot-goal-c-preserve-who-did-what-in-the-cluster&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#snapshot-goal-c-preserve-who-did-what-in-the-cluster&quot; class=&quot;heading-anchor&quot;&gt;Snapshot goal C: Preserve “who did what” in the cluster&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;This is where audit logs shine. Kubernetes audit logging is built for reconstructing API activity, and managed services can export those logs for you (&lt;a href=&quot;https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/&quot; rel=&quot;noopener&quot;&gt;Kubernetes audit&lt;/a&gt;, &lt;a href=&quot;https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html&quot; rel=&quot;noopener&quot;&gt;EKS control plane logs&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;For self-managed clusters, also consider preserving etcd state. Kubernetes documents built-in etcd snapshots with &lt;code&gt;etcdctl snapshot save&lt;/code&gt; in the &lt;a href=&quot;https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/&quot; rel=&quot;noopener&quot;&gt;Kubernetes etcd snapshot docs&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;snapshot-goal-d-preserve-runtime-evidence-on-the-node&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#snapshot-goal-d-preserve-runtime-evidence-on-the-node&quot; class=&quot;heading-anchor&quot;&gt;Snapshot goal D: Preserve runtime evidence on the node&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;If you suspect credential theft, container escape attempts, or host tampering, the node is the crime scene.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Collect system logs as-is (journald exports or &lt;code&gt;/var/log&lt;/code&gt; archives)&lt;/li&gt;
+&lt;li&gt;Capture runtime metadata with &lt;code&gt;crictl&lt;/code&gt; if the node uses CRI runtimes&lt;/li&gt;
+&lt;li&gt;Snapshot the node VM/disk where possible (cloud snapshot, hypervisor snapshot, or storage snapshot)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Kubernetes maintains guidance for using &lt;code&gt;crictl&lt;/code&gt; to inspect and debug container runtimes on a node in the &lt;a href=&quot;https://kubernetes.io/docs/tasks/debug/debug-cluster/crictl/&quot; rel=&quot;noopener&quot;&gt;Kubernetes crictl task&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;a-practical-evidence-bundle-layout&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#a-practical-evidence-bundle-layout&quot; class=&quot;heading-anchor&quot;&gt;A practical “evidence bundle” layout&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This is how I like to package a case so future-me does not hate present-me:&lt;/p&gt;
+&lt;pre class=&quot;language-txt&quot;&gt;&lt;code class=&quot;language-txt&quot;&gt;case-&amp;lt;ticket&amp;gt;-&amp;lt;date&amp;gt;/
+  notes/
+    timeline.md
+    actions-taken.md
+  k8s/
+    namespace.txt
+    pod.yaml
+    deploy.yaml
+    events.txt
+    describe.txt
+    container-logs.txt
+    audit/...
+  node/
+    journald-export.txt
+    var-log.tgz
+    runtime/
+      crictl-ps.txt
+      crictl-inspect.json
+  storage/
+    volumesnapshot.yaml
+    snapshot-ids.txt
+  hashes/
+    SHA256SUMS.txt&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Chain-of-custody does not need to be dramatic, but it does need to exist. CISA’s guidance on building forensics plans emphasizes having a repeatable process for collecting and handling incident data in &lt;a href=&quot;https://www.cisa.gov/sites/default/files/recommended_practices/Forensics_RP.pdf&quot; rel=&quot;noopener&quot;&gt;CISA Forensics Recommended Practice&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;a-few-blunt-lessons-from-the-trenches&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#a-few-blunt-lessons-from-the-trenches&quot; class=&quot;heading-anchor&quot;&gt;A few blunt lessons from the trenches&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;If you do not already have audit logs enabled, your “forensics” becomes archaeology. Fix that before the next incident.&lt;/li&gt;
+&lt;li&gt;If the workload uses &lt;strong&gt;ephemeral storage only&lt;/strong&gt;, you may lose evidence when the pod dies. Volume snapshots and centralized logging are your safety net.&lt;/li&gt;
+&lt;li&gt;“Just attach a debug container” is great for troubleshooting, but it can also alter the environment. Kubernetes describes ephemeral containers as a troubleshooting tool in the &lt;a href=&quot;https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/&quot; rel=&quot;noopener&quot;&gt;Kubernetes ephemeral containers&lt;/a&gt; documentation, which is exactly why you should treat them as a last resort for evidence preservation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;the-short-answer-to-your-friends-question&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/#the-short-answer-to-your-friends-question&quot; class=&quot;heading-anchor&quot;&gt;The short answer to your friend’s question&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;What logs should be collected?&lt;/strong&gt;&lt;br&gt;
+Container stdout/stderr, Kubernetes events, Kubernetes audit logs, node kubelet/runtime logs, and edge/cloud logs around ingress and identity. Use audit logs to anchor your timeline and prove who changed what (see &lt;a href=&quot;https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/&quot; rel=&quot;noopener&quot;&gt;Kubernetes audit&lt;/a&gt; and the &lt;a href=&quot;https://kubernetes.io/docs/concepts/cluster-administration/logging/&quot; rel=&quot;noopener&quot;&gt;Kubernetes logging architecture&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Best way to snapshot for digging?&lt;/strong&gt;&lt;br&gt;
+Snapshot &lt;strong&gt;persistent volumes&lt;/strong&gt; (CSI VolumeSnapshots) and snapshot the &lt;strong&gt;node disk/VM&lt;/strong&gt; when you need runtime and overlay filesystem evidence. If it’s Docker, use &lt;a href=&quot;https://docs.docker.com/reference/cli/docker/container/export/&quot; rel=&quot;noopener&quot;&gt;docker container export&lt;/a&gt; and &lt;a href=&quot;https://docs.docker.com/reference/cli/docker/image/save/&quot; rel=&quot;noopener&quot;&gt;docker image save&lt;/a&gt; to preserve filesystem state and image artifacts.&lt;/p&gt;
+&lt;p&gt;If you keep doing container IR, it’s worth turning this into a runbook and automating the “collect and bundle” part. The universe is chaotic, but your evidence collection does not have to be.&lt;/p&gt;
+
+      </content>
+    </entry><entry>
       <title>Weekly Notes: Small Upgrades, Big Progress (Week 5, 2026)</title>
       <link href="https://www.kylereddoch.me/blog/weekly-notes-small-upgrades-big-progress-week-5-2026/" />
       <updated>2026-02-03T14:00:00Z</updated>
