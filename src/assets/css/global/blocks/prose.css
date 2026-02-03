@@ -17,20 +17,20 @@
   border: var(--stroke);
 }
 
-.prose :is(h2, h3, h4) {
+.prose :is(h2, h3, h4, h5) {
   --flow-space: 1.5em;
   overflow-wrap: anywhere;
   hyphens: auto;
 }
 
 @media screen(md) {
-  .prose :is(h1, h2, h3) {
+  .prose :is(h1, h2, h3, h4, h5) {
     overflow-wrap: unset;
     hyphens: unset;
   }
 }
 
-.prose :is(h1, h2, h3, h4)+*:not([class]):not(figure) {
+.prose :is(h1, h2, h3, h4, h5)+*:not([class]):not(figure) {
   --flow-space: var(--space-l);
 }
 

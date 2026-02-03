@@ -240,7 +240,8 @@ pre[class*='language-'] {
 h1 code,
 h2 code,
 h3 code,
-h4 code {
+h4,
+h5 code {
   font-size: inherit;
   /* use h1/h2/h3/h4 size */
 }
@@ -248,6 +249,7 @@ h4 code {
 h1 pre,
 h2 pre,
 h3 pre,
-h4 pre {
+h4,
+h5 pre {
   font-size: inherit;
 }

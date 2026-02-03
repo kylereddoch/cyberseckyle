@@ -35,11 +35,11 @@ main {
 
 /* BODY CONTENT LINKS (unclassed) — tertiary + underlined, hover removes underline */
 /* Global link color (low specificity so components can override) */
-:where(main) a:not([class]):not(:where(h2 a, h3 a, h4 a)) {
+:where(main) a:not([class]):not(:where(h2 a, h3 a, h4 a, h5 a)) {
   color: var(--color-secondary);
 }
 
-:where(main) a:not([class]):not(:where(h2 a, h3 a, h4 a)):hover {
+:where(main) a:not([class]):not(:where(h2 a, h3 a, h4 a, h5 a)):hover {
   color: var(--color-secondary);
   text-decoration: none;
 }
@@ -48,7 +48,8 @@ main {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5 {
   font-family: var(--font-display);
   font-weight: var(--font-extra-bold);
   line-height: var(--leading-fine);
@@ -73,6 +74,11 @@ h3 {
 h4 {
   font-size: var(--size-step-1);
   color: var(--color-sapphire);
+}
+
+h5 {
+  font-size: var(--size-step-0);
+  color: var(--color-text);
 }
 
 blockquote {
