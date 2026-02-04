@@ -91,7 +91,7 @@ Kyle Reddoch is a cybersecurity expert and IT professional who writes as **Cyber
 If you want to see what I am working on or yelling about today:
 
 - **Socials page**
-  - [https://socials.kylereddoch.me](https://socials.kylereddoch.me)
+  - [https://profile.kylereddoch.me](https://profile.kylereddoch.me)
 
 - **Mastodon**
   - [@cyberseckyle@infosec.exchange](https://infosec.exchange/@cyberseckyle)
