@@ -3,7 +3,7 @@ date: 2026-02-05T13:00:00-05:00
 title: "Making SIEM Useful: How It Works, What It Does, and Why You Should Care"
 description: "A plain-English walkthrough of SIEM’s pipeline, the pieces that matter, and how to keep it from becoming a noisy log warehouse."
 tags: [cybersecurity, soc, incident-respose]
-mastodon_url: null
+mastodon_url: https://infosec.exchange/@cyberseckyle/116019674130403580
 ---
 
 A SIEM is supposed to help you see an attack while it’s still unfolding, not three weeks later during a postmortem. In practice, a lot of SIEMs end up as expensive log warehouses that nobody wants to touch unless something is already on fire.
