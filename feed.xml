@@ -4,12 +4,107 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-02-05T20:35:03Z</updated>
+  <updated>2026-02-09T15:55:41Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>Don’t Do This: How I Accidentally Simulated Attacker Cleanup</title>
+      <link href="https://www.kylereddoch.me/blog/dont-do-this-how-i-accidentally-simulated-attacker-cleanup/" />
+      <updated>2026-02-09T14:30:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/dont-do-this-how-i-accidentally-simulated-attacker-cleanup/</id>
+      <content type="html">
+        &lt;figure slot=&quot;image&quot; class=&quot;text-center&quot;&gt;&lt;picture&gt;   &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/soc-windows-logs-1536w.webp 1536w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;
+  &lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/soc-windows-logs-1536w.jpeg 1536w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/soc-windows-logs-1536w.jpeg&quot; width=&quot;1536&quot; height=&quot;1024&quot; alt=&quot;Laptop on a dark desk showing a log viewer, with blurred security dashboards and a red warning icon glowing on monitors in the background.&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;figcaption&gt;(Image generated with ChatGPT)&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;p&gt;At &lt;strong&gt;1:15 a.m. on 2/8&lt;/strong&gt;, my phone lit up like it was auditioning for a disaster movie.&lt;/p&gt;
+&lt;p&gt;Our SOC was calling in full panic mode: “Something is clearing activity on endpoints. We’re seeing logs getting wiped.”&lt;/p&gt;
+&lt;p&gt;My brain did the normal triage routine: compromise? lateral movement? attacker cleanup?&lt;/p&gt;
+&lt;p&gt;Then the other half of my brain remembered what I did the Thursday before.&lt;/p&gt;
+&lt;p&gt;I had built a weekly “endpoint maintenance” automation in our RMM. Basic hygiene stuff: temp file cleanup, time drift checks, general maintenance. I scheduled it to run at &lt;strong&gt;1:00 a.m. on 2/8&lt;/strong&gt; so nobody would notice.&lt;/p&gt;
+&lt;p&gt;Except I had also included a script step that clears Windows Event Logs. 😖&lt;/p&gt;
+&lt;p&gt;So yeah. Everybody noticed.&lt;/p&gt;
+&lt;h2 id=&quot;why-clearing-event-logs-instantly-looks-like-an-attack&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/dont-do-this-how-i-accidentally-simulated-attacker-cleanup/#why-clearing-event-logs-instantly-looks-like-an-attack&quot; class=&quot;heading-anchor&quot;&gt;Why clearing event logs instantly looks like an attack&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Security teams freak out about log clearing because attackers love it too. In fact, “Clear Windows Event Logs” is literally a named technique in the attacker playbook: &lt;a href=&quot;https://attack.mitre.org/techniques/T1070/001/&quot; rel=&quot;noopener&quot;&gt;MITRE ATT&amp;amp;CK T1070.001&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Windows even helpfully records “the audit log was cleared” as &lt;strong&gt;Security Event ID 1102&lt;/strong&gt;, which exists specifically because this is suspicious behavior (&lt;a href=&quot;https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-1102&quot; rel=&quot;noopener&quot;&gt;Microsoft’s Event 1102 documentation&lt;/a&gt;). For other channels, clearing often shows up as Event ID &lt;strong&gt;104&lt;/strong&gt; (Microsoft calls out both IDs in their write-up on clear events in Windows logging: &lt;a href=&quot;https://techcommunity.microsoft.com/blog/windows-itpro-blog/new-security-capabilities-in-event-tracing-for-windows/3949941&quot; rel=&quot;noopener&quot;&gt;104 and 1102 overview&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;So from the SOC’s point of view, the story was simple:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Many endpoints&lt;/li&gt;
+&lt;li&gt;Around the same time&lt;/li&gt;
+&lt;li&gt;“Logs cleared” signals lighting up everywhere&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That pattern looks a lot like coordinated attacker cleanup. Which is why my “maintenance task” got treated like a live incident. Fair.&lt;/p&gt;
+&lt;h2 id=&quot;the-real-damage-is-not-the-alert-its-the-missing-history&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/dont-do-this-how-i-accidentally-simulated-attacker-cleanup/#the-real-damage-is-not-the-alert-its-the-missing-history&quot; class=&quot;heading-anchor&quot;&gt;The real damage is not the alert, it’s the missing history&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The “log cleared” event is basically the security equivalent of a sticky note that says:&lt;br&gt;
+“Someone cleaned the whiteboard.”&lt;/p&gt;
+&lt;p&gt;Cool. But what was on the whiteboard?&lt;/p&gt;
+&lt;p&gt;Clearing logs destroys the easiest timeline you have during an incident: what happened, when it happened, and what else was happening on that system around that time. NIST’s log management guidance is blunt about why logs matter for investigations, detection, and accountability (&lt;a href=&quot;https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-92.pdf&quot; rel=&quot;noopener&quot;&gt;NIST SP 800-92: Guide to Computer Security Log Management&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;When you clear logs at scale, you create gaps that hurt in a few very practical ways:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;You break incident timelines.&lt;/strong&gt; No timeline means longer investigations and more guessing.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;You reduce detection quality.&lt;/strong&gt; Detections often depend on “what happened before this alert.”&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;You lose context for containment.&lt;/strong&gt; If you can’t see how something started, you can’t be confident it won’t restart.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;You make “normal vs weird” harder.&lt;/strong&gt; Baselines rely on history.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If your org centralizes logs into a SIEM, you might still have a copy. If you do not, clearing local logs can be the difference between “we can prove what happened” and “we have vibes and a hunch.”&lt;/p&gt;
+&lt;h2 id=&quot;compliance-gets-cranky-because-logs-are-not-just-for-security&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/dont-do-this-how-i-accidentally-simulated-attacker-cleanup/#compliance-gets-cranky-because-logs-are-not-just-for-security&quot; class=&quot;heading-anchor&quot;&gt;Compliance gets cranky because logs are not just for security&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Even if you ignore the security angle, a lot of compliance frameworks treat audit logging as a non-negotiable control.&lt;/p&gt;
+&lt;p&gt;Two examples that show up constantly in the real world:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;HIPAA&lt;/strong&gt; expects mechanisms that “record and examine activity” in systems handling ePHI (&lt;a href=&quot;https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.312&quot; rel=&quot;noopener&quot;&gt;45 CFR 164.312(b) Audit Controls&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PCI DSS 4.0&lt;/strong&gt; is explicit about retention: keep audit log history &lt;strong&gt;at least 12 months&lt;/strong&gt;, with &lt;strong&gt;three months immediately available&lt;/strong&gt; (&lt;a href=&quot;https://listings.pcisecuritystandards.org/documents/PCI-DSS-v4-0-SAQ-D-Merchant.pdf&quot; rel=&quot;noopener&quot;&gt;PCI DSS v4.0 SAQ D Merchant, Requirement 10.5.1&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Even when a standard does not say “thou shalt keep Windows Event Logs forever,” it usually requires you to maintain audit trails long enough for investigations, legal needs, and audits. That general principle is baked into audit record retention controls like &lt;a href=&quot;https://csf.tools/reference/nist-sp-800-53/r5/au/au-11/&quot; rel=&quot;noopener&quot;&gt;NIST 800-53 AU-11&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;So if you wipe logs without a retention strategy, you are not “doing maintenance.” You are quietly deleting evidence your auditors assume exists.&lt;/p&gt;
+&lt;h2 id=&quot;what-i-should-have-done-instead&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/dont-do-this-how-i-accidentally-simulated-attacker-cleanup/#what-i-should-have-done-instead&quot; class=&quot;heading-anchor&quot;&gt;What I should have done instead&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If your goal is “endpoints should not run out of log space,” clearing is the bluntest instrument possible.&lt;/p&gt;
+&lt;p&gt;Better options look like boring operational maturity, which is exactly what you want here.&lt;/p&gt;
+&lt;h3 id=&quot;1-keep-logs-manage-retention&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/dont-do-this-how-i-accidentally-simulated-attacker-cleanup/#1-keep-logs-manage-retention&quot; class=&quot;heading-anchor&quot;&gt;1) Keep logs, manage retention&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Tune log sizes and retention so you do not hit tiny defaults and lose data at the worst time. Central guidance on logging emphasizes retention decisions should be intentional, risk-based, and tested (see &lt;a href=&quot;https://www.cisa.gov/resources-tools/resources/best-practices-event-logging-and-threat-detection&quot; rel=&quot;noopener&quot;&gt;CISA’s pointer to event logging best practices&lt;/a&gt; and the underlying baseline guide PDF from ASD/ACSC partners: &lt;a href=&quot;https://www.cyber.gov.au/sites/default/files/2024-08/best-practices-for-event-logging-and-threat-detection.pdf&quot; rel=&quot;noopener&quot;&gt;Best practices for event logging and threat detection&lt;/a&gt;).&lt;/p&gt;
+&lt;h3 id=&quot;2-archive-or-export-dont-wipe&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/dont-do-this-how-i-accidentally-simulated-attacker-cleanup/#2-archive-or-export-dont-wipe&quot; class=&quot;heading-anchor&quot;&gt;2) Archive or export, don’t wipe&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Windows literally ships tools for exporting and archiving logs. If you must “clean up,” export first.&lt;/p&gt;
+&lt;p&gt;The built-in &lt;code&gt;wevtutil&lt;/code&gt; utility supports exporting logs, archiving, and yes, clearing (&lt;a href=&quot;https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/wevtutil&quot; rel=&quot;noopener&quot;&gt;Microsoft documentation for wevtutil&lt;/a&gt;). The key is: use the export capability, not the clear button, unless you have a very specific, documented reason.&lt;/p&gt;
+&lt;h3 id=&quot;3-centralize-logs-so-endpoints-arent-the-single-source-of-truth&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/dont-do-this-how-i-accidentally-simulated-attacker-cleanup/#3-centralize-logs-so-endpoints-arent-the-single-source-of-truth&quot; class=&quot;heading-anchor&quot;&gt;3) Centralize logs so endpoints aren’t the single source of truth&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;If the endpoint is the only place logs exist, you are one script mistake away from losing your entire investigative record. Central collection (SIEM, log management, Windows Event Forwarding, etc.) removes that single point of failure.&lt;/p&gt;
+&lt;p&gt;If you want a Windows-native option, Windows Event Collector and Event Forwarding exist for exactly this kind of pipeline (&lt;a href=&quot;https://learn.microsoft.com/en-us/windows/win32/wec/windows-event-collector&quot; rel=&quot;noopener&quot;&gt;Windows Event Collector overview&lt;/a&gt;).&lt;/p&gt;
+&lt;h3 id=&quot;4-treat-log-clear-as-a-controlled-audited-action&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/dont-do-this-how-i-accidentally-simulated-attacker-cleanup/#4-treat-log-clear-as-a-controlled-audited-action&quot; class=&quot;heading-anchor&quot;&gt;4) Treat “log clear” as a controlled, audited action&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;If a system truly needs logs cleared (rare, but it happens), it should be:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;documented,&lt;/li&gt;
+&lt;li&gt;approved,&lt;/li&gt;
+&lt;li&gt;scoped,&lt;/li&gt;
+&lt;li&gt;and communicated to the SOC ahead of time.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Because otherwise your SOC will do their job and assume it is hostile. Which is what they did at 1:15 a.m.&lt;/p&gt;
+&lt;h2 id=&quot;what-i-changed-after-the-incident&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/dont-do-this-how-i-accidentally-simulated-attacker-cleanup/#what-i-changed-after-the-incident&quot; class=&quot;heading-anchor&quot;&gt;What I changed after the incident&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The fix was immediate and slightly humiliating:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I disabled the task, removed log clearing entirely, and pushed an update.&lt;/li&gt;
+&lt;li&gt;I messaged the SOC with the root cause and the time window so they could close the loop cleanly.&lt;/li&gt;
+&lt;li&gt;I started rebuilding the maintenance workflow into two buckets:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;safe hygiene&lt;/strong&gt; (temp cleanup, disk checks, time drift verification, etc.)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;security-sensitive actions&lt;/strong&gt; (anything involving logs, auditing, security tools), which now requires review&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It also kicked off a bigger internal conversation: are we retaining logs long enough, in the right places, in a way that supports investigations and whatever compliance obligations our clients have?&lt;/p&gt;
+&lt;p&gt;That conversation is worth having before the next 1:15 a.m. call.&lt;/p&gt;
+&lt;h2 id=&quot;the-checklist-i-wish-i-had-followed&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/dont-do-this-how-i-accidentally-simulated-attacker-cleanup/#the-checklist-i-wish-i-had-followed&quot; class=&quot;heading-anchor&quot;&gt;The checklist I wish I had followed&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Never clear Windows logs as “routine maintenance.” Assume it will be treated like attacker behavior (&lt;a href=&quot;https://attack.mitre.org/techniques/T1070/001/&quot; rel=&quot;noopener&quot;&gt;MITRE T1070.001&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;If retention is the concern, tune retention and storage, and test it.&lt;/li&gt;
+&lt;li&gt;Export or archive logs if you must reduce local footprint (&lt;a href=&quot;https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/wevtutil&quot; rel=&quot;noopener&quot;&gt;wevtutil supports export and archive&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Centralize log collection so endpoints are not the only copy (&lt;a href=&quot;https://learn.microsoft.com/en-us/windows/win32/wec/windows-event-collector&quot; rel=&quot;noopener&quot;&gt;Windows Event Collector&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Communicate with the SOC before any action that will generate “log cleared” events (&lt;a href=&quot;https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-1102&quot; rel=&quot;noopener&quot;&gt;Event 1102 behavior&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Sanity-check automation with a pilot group first, especially anything that touches evidence.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Clearing logs felt like harmless housekeeping when I added it to the script. In practice, it is closer to showing up at a crime scene with a mop.&lt;/p&gt;
+&lt;p&gt;My SOC was right to panic.&lt;/p&gt;
+&lt;p&gt;I just wish they hadn’t been right at 1:15 a.m.&lt;/p&gt;
+
+      </content>
+    </entry><entry>
       <title>Making SIEM Useful: How It Works, What It Does, and Why You Should Care</title>
       <link href="https://www.kylereddoch.me/blog/making-siem-useful-how-it-works-what-it-does-and-why-you-should-care/" />
       <updated>2026-02-05T18:00:00Z</updated>
