@@ -3,7 +3,7 @@ date: 2026-02-09T09:30:00-05:00
 title: "Don’t Do This: How I Accidentally Simulated Attacker Cleanup"
 description: "I accidentally triggered the classic “attacker covering tracks” signal across our fleet. Here’s why that matters, what you lose, and the safer alternatives."
 tags: [cybersecurity, windows, soc, MSP, incident-response]
-mastodon_url: null
+mastodon_url: https://infosec.exchange/@cyberseckyle/116041504001426836
 ---
 
 {% image "/assets/images/soc-windows-logs.png", "Laptop on a dark desk showing a log viewer, with blurred security dashboards and a red warning icon glowing on monitors in the background.", "(Image generated with ChatGPT)", "eager", "text-center", "!important", [auto], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
