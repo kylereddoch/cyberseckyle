@@ -4,12 +4,49 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-02-09T16:04:39Z</updated>
+  <updated>2026-02-09T18:01:52Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>Weekly Notes: Small Upgrades, Loud Lessons (Week 6, 2026)</title>
+      <link href="https://www.kylereddoch.me/blog/weekly-notes-small-upgrades-loud-lessons-week-6-2026/" />
+      <updated>2026-02-09T16:30:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/weekly-notes-small-upgrades-loud-lessons-week-6-2026/</id>
+      <content type="html">
+        &lt;blockquote&gt;
+&lt;p&gt;Let me preface this by saying… Let’s GO SUPER BOWL CHAMPS! 🏆🏈 My Seahawks did it! We got the revenge we’ve been waiting for. Okay now for the weekly notes. LOL&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.webp 1200w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
+&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.jpeg 1200w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.jpeg&quot; width=&quot;1200&quot; height=&quot;800&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;h2 id=&quot;the-vibe&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-small-upgrades-loud-lessons-week-6-2026/#the-vibe&quot; class=&quot;heading-anchor&quot;&gt;The vibe&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;A mostly steady, practical week with a lot going right, right up until one “helpful” automation reminded me that logs are sacred and the SOC has zero sense of humor about surprise cleanup.&lt;/p&gt;
+&lt;h2 id=&quot;highlights&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-small-upgrades-loud-lessons-week-6-2026/#highlights&quot; class=&quot;heading-anchor&quot;&gt;Highlights&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Started playing a new puzzle game called &lt;a href=&quot;https://www.puzzlitapp.com&quot; rel=&quot;noopener&quot;&gt;PuzzlIt&lt;/a&gt;. It’s a fun mix of logic puzzles. I came across it on &lt;a href=&quot;https://www.tiktok.com/@tyresenope&quot; rel=&quot;noopener&quot;&gt;TikTok watching Tyrese Pope’s videos&lt;/a&gt;. I have been playing it on my phone and it’s a nice way to unwind while still keeping the brain engaged.&lt;/li&gt;
+&lt;li&gt;Last week of my 3rd to the last class of my BSIT degree. I am so ready to be done. This Cloud Technologies class has been a bit of a easy one. I have been able to breeze through the material and assignments. It’s a nice break from the more challenging classes I’ve had.&lt;/li&gt;
+&lt;li&gt;The new keyboard I got review has been a nice upgrade. I have switched to using it for my main keyboard at home. The previous one my wife is now using and is loving it. It’s a win-win for both of us.&lt;/li&gt;
+&lt;li&gt;As some of you already know, my mom had her heart surgery on Friday. Her aortic valve needed replaced. The surgery went well and she is now recovering at home.&lt;/li&gt;
+&lt;li&gt;Friday evening though, I started getting sick and ended up being sick the entire weekend. I ended up taking two breating treatments as a precauting. As of today, I am still not 100% but I am starting to feel better.&lt;/li&gt;
+&lt;li&gt;The Winter Olympics started and we watched the opening ceremony. I was really impressed with it. Man, Andrea Bocelli singing Nessun Dorma brought me to tears!&lt;/li&gt;
+&lt;li&gt;We watched some of the events over the weekend. It was sad to see Lindsey Vonn crash in her downhill event.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;work&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-small-upgrades-loud-lessons-week-6-2026/#work&quot; class=&quot;heading-anchor&quot;&gt;Work&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;It was the beginning of a new month, so we had our monthly AV deep scan that ran. Therefore, I spent time reviewing the results/tickets that came in from that. Those are always fun to review because you get to see all the weird things that are happening on endpoints across the fleet. It’s like a little window into the chaos of the digital world.&lt;/li&gt;
+&lt;li&gt;I also worked on a &lt;a href=&quot;https://www.kylereddoch.me/blog/dont-do-this-how-i-accidentally-simulated-attacker-clea&quot;&gt;maintenance task on our RMM&lt;/a&gt; that runs a series of scripts to clear various things on our managed endpoints; like caches, temp files, check system time, etc. I scheduled it to run at 1am on Sundays, but I forgot that I also included a script to clean Windows Log files. This would trigger the “logs cleared” alert in our SOC. So, I accidentally simulated an attacker cleanup across our fleet. Oops! It was a good reminder of how important logs are for security and incident response.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;worth-sharing&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-small-upgrades-loud-lessons-week-6-2026/#worth-sharing&quot; class=&quot;heading-anchor&quot;&gt;Worth sharing&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Came across this cool article on &lt;a href=&quot;https://blog.jmhill.me/deploying-an-opencti-osint-stack-for-cybersecurity-research/&quot; rel=&quot;noopener&quot;&gt;Deploying an OpenCTI OSINT Stack for Cybersecurity Research&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Check out how you can &lt;a href=&quot;https://arne.me/blog/buildlog-nas&quot; rel=&quot;noopener&quot;&gt;build your own NAS&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;I broke down what a SIEM is and how it works in this post: &lt;a href=&quot;https://www.kylereddoch.me/blog/making-siem-useful-how-it-works-what-it-does-and-why-you-should-care/&quot;&gt;Making SIEM Useful: How It Works, What It Does, and Why You Should Care&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;A &lt;a href=&quot;https://infosec.exchange/@skryking&quot; rel=&quot;noopener&quot;&gt;friend of mine&lt;/a&gt; had a question about doing digital forensics on comprised containers. It got me thinking so I wrote up a post about it: &lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/&quot;&gt;How to Do Forensics on Compromised Containers&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </content>
+    </entry><entry>
       <title>Don’t Do This: How I Accidentally Simulated Attacker Cleanup</title>
       <link href="https://www.kylereddoch.me/blog/dont-do-this-how-i-accidentally-simulated-attacker-cleanup/" />
       <updated>2026-02-09T14:30:00Z</updated>
