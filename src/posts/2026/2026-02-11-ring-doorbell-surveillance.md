@@ -3,7 +3,7 @@ date: 2026-02-11T14:00:00-05:00
 title: "Goodbye, Ring. I'm Not Buying Into Your Mass Surveillance."
 description: "Ring’s Super Bowl ad tried to sell a heartwarming story. I saw default opt-in surveillance getting normalized, and I’m done."
 tags: [privacy, smart-home, cybersecurity]
-mastodon_url: null
+mastodon_url: https://infosec.exchange/@cyberseckyle/116053927399598364
 ---
 
 {% image "/assets/images/no-ring-doorbell.png", "Red “no” symbol over a video doorbell, representing rejecting Ring-style mass surveillance", "(Image generated using ChatGPT)", "eager", "text-center", "!important", [875], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
