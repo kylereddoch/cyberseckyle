@@ -3,7 +3,7 @@ date: 2026-02-20T16:00:00-05:00
 title: "Fighting the PUP Wave: A Practical PowerShell Cleanup Workflow for MSPs"
 description: "When unwanted apps keep sneaking onto client endpoints and allowlisting is not in the budget, a repeatable uninstall script plus RMM automation can still move the needle."
 tags: [MSP, powershell, vulnerability-management, endpoint-security]
-mastodon_url: 
+mastodon_url: https://infosec.exchange/@cyberseckyle/116105286009952512
 ---
 
 I have been seeing a noticeable increase in unwanted applications showing up on client endpoints lately. Not full-on ransomware. Not always an obvious infection. Just the annoying middle layer: adware, PUPs, and browser junk that eats time, breaks trust, and quietly expands the attack surface. WaveBrowser, PDFSkills, Lavasoft-style “helpers,” random toolbars. The usual suspects.
