@@ -2,7 +2,7 @@
 date: 2026-02-05T13:00:00-05:00
 title: "Making SIEM Useful: How It Works, What It Does, and Why You Should Care"
 description: "A plain-English walkthrough of SIEM’s pipeline, the pieces that matter, and how to keep it from becoming a noisy log warehouse."
-tags: [cybersecurity, soc, incident-respose]
+tags: [cybersecurity, soc, incident-response, endpoint-security]
 mastodon_url: https://infosec.exchange/@cyberseckyle/116019674130403580
 ---
 
