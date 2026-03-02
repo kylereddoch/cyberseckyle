@@ -4,12 +4,44 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-02-25T16:20:00Z</updated>
+  <updated>2026-03-02T22:54:33Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>Weekly Notes: Tennis Starts, Migraine Friday, Fraud Flag Sunday (Week 9, 2026)</title>
+      <link href="https://www.kylereddoch.me/blog/weekly-notes-tennis-starts-migraine-friday-fraud-flag-sunday-week-9-2026/" />
+      <updated>2026-03-02T21:30:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/weekly-notes-tennis-starts-migraine-friday-fraud-flag-sunday-week-9-2026/</id>
+      <content type="html">
+        &lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-1536w.webp 1536w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
+&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-1536w.jpeg 1536w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-1536w.jpeg&quot; width=&quot;1536&quot; height=&quot;1024&quot; alt=&quot;Cozy desk scene with an open handwritten notebook, a fountain pen, and a warm cup of coffee beside a lit candle on a rustic wooden table.&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;These past few weeks have been pretty rough for me, as you might have seen. &lt;a href=&quot;https://infosec.exchange/@cyberseckyle/116131496602643142&quot; rel=&quot;noopener&quot;&gt;I recently just haven’t felt like myself.&lt;/a&gt; Haven’t felt like getting on the internet much at all. As a result of that, I haven’t been writing much articles/posts on the blog. I have been trying to get back into the groove of things, but it has been a struggle.&lt;/p&gt;
+&lt;p&gt;Now onto what last week was like.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;the-vibe&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-tennis-starts-migraine-friday-fraud-flag-sunday-week-9-2026/#the-vibe&quot; class=&quot;heading-anchor&quot;&gt;The vibe&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Low-battery week, but still moving forward: a few family moments, a migraine day, a Sunday phone-store nightmare, and one solid phishing-campaign win at work.&lt;/p&gt;
+&lt;h2 id=&quot;highlights&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-tennis-starts-migraine-friday-fraud-flag-sunday-week-9-2026/#highlights&quot; class=&quot;heading-anchor&quot;&gt;Highlights&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Monday we had my daughter’s first tennis tournament/match of the year. It was a doubles and singles match. The doubles match went well, it was slow at the start but her and her partner started cooking near the end. They ended up losing 6-3 though. We had to wait for her singles match until there was a court open and an opponent. Unfortunately, do to the cold and my neck and back, we had to leave before she got to play the singles match.&lt;/li&gt;
+&lt;li&gt;Daughter had an orchestra concert Tuesday but I ended up missing it because I wasn’t feeling well after work. UGH!&lt;/li&gt;
+&lt;li&gt;I ended up staying home Friday due to a migraine I woke up to. My neck was so tight it ended up kicking off a migraine.&lt;/li&gt;
+&lt;li&gt;Weekend was too bad, just relaxed. Sunday though ended up being a crap shoot! We planned on taking my middle daughter off our cell plan and getting her own along with her boyfriend and they were getting new phones. We went to the store, she got her account set up and everything but when they went to check out the phones and setup her boyfriend’s new phone number (he was moving over from Verizon), for some reason, they flagged it as fraud and was having a hard time getting it resolved and his new phone activated. After being there for 4 hours, we ended up having to put the boyfriend on our account for now. We will try to get him moved over to his own account after the waiting period. It was a nightmare and wasted my whole Sunday afternoon/evening!.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;work&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-tennis-starts-migraine-friday-fraud-flag-sunday-week-9-2026/#work&quot; class=&quot;heading-anchor&quot;&gt;Work&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;This week work was as usual. Just ran through ticket queues that our EDR/AV, and other monitor systems threw at us.&lt;/li&gt;
+&lt;li&gt;I did create and run a Phishing campaign for one of our client’s that ran the end of the week. It went well, we had a good click rate and a few people even entered their credentials. I have some training campaigns scheduled for them coming up.&lt;/li&gt;
+&lt;li&gt;We are nearing the end of the month again, that means another round of full AV scans are coming up. Come next week, I will be going through any alerts that come up from those scans and then working on any tickets that come out of them.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;worth-sharing&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/weekly-notes-tennis-starts-migraine-friday-fraud-flag-sunday-week-9-2026/#worth-sharing&quot; class=&quot;heading-anchor&quot;&gt;Worth sharing&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Unfortunately, I don’t have anything to share this week. Sorry!&lt;/p&gt;
+&lt;p&gt;✌️ That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
+
+      </content>
+    </entry><entry>
       <title>Weekly Notes: Big Comfort Upgrades and a Useful Little Script (Week 8, 2026)</title>
       <link href="https://www.kylereddoch.me/blog/weekly-notes-big-comfort-upgrades-and-a-useful-little-script-week-8-2026/" />
       <updated>2026-02-25T14:30:00Z</updated>
