@@ -1,4 +1,74 @@
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <svg
   width="1200"
   height="630"
@@ -7,13 +77,13 @@
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
 >
-  
-  
-  
-    
-    
-
-  <rect id="bg" width="100%" height="100%" opacity="1" fill="#cba6f7" />
+  <rect
+    id="bg"
+    width="100%"
+    height="100%"
+    opacity="1"
+    fill="#cba6f7"
+  />
 
   <!-- date -->
   <text
@@ -23,7 +93,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="90">
+    <tspan x="160" y="179.66666666666669">
       10 / 07 / 2025
     </tspan>
   </text>
@@ -31,20 +101,28 @@
   <!-- title -->
   <text
     id="text"
-    font-family="&#39;Red Hat Display&#39;, Ubuntu, sans-serif"
-    font-size="80"
-    font-weight="900"
+    font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
+    font-size="66.66666666666667"
+    font-weight="750"
     fill="#1e1e2e"
-    letter-spacing="-3"
+    letter-spacing="-2.5"
   >
     
-      <tspan x="160" y="190"> What To Do If You Were </tspan>
+      <tspan x="160" y="271.6666666666667">
+        What To Do If You Were
+      </tspan>
     
-      <tspan x="160" y="275"> Affected By The </tspan>
+      <tspan x="160" y="343">
+        Affected By The
+      </tspan>
     
-      <tspan x="160" y="360"> Discord September 20th </tspan>
+      <tspan x="160" y="414.33333333333337">
+        Discord September 20th
+      </tspan>
     
-      <tspan x="160" y="445"> Security Incident </tspan>
+      <tspan x="160" y="485.66666666666674">
+        Security Incident
+      </tspan>
     
   </text>
 
@@ -59,16 +137,14 @@
     <tspan x="160" y="580">kylereddoch.me</tspan>
   </text>
 
-
   <!-- sitename -->
   <text
-    font-family="&#39;Red Hat Display&#39;, Ubuntu, sans-serif"
-    font-size="18"
-    font-weight="950"
+    font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
+    font-size="20"
+    font-weight="600"
     fill="#1e1e2e"
     letter-spacing="-0.5"
   >
     <tspan x="950" y="580">CYBERSECKYLE</tspan>
   </text>
-
 </svg>

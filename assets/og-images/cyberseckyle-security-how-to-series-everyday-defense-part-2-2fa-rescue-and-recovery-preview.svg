@@ -1,4 +1,79 @@
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <svg
   width="1200"
   height="630"
@@ -7,13 +82,13 @@
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
 >
-  
-  
-  
-    
-  
-
-  <rect id="bg" width="100%" height="100%" opacity="1" fill="#cba6f7" />
+  <rect
+    id="bg"
+    width="100%"
+    height="100%"
+    opacity="1"
+    fill="#cba6f7"
+  />
 
   <!-- date -->
   <text
@@ -23,7 +98,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="50">
+    <tspan x="160" y="145">
       11 / 19 / 2025
     </tspan>
   </text>
@@ -31,22 +106,32 @@
   <!-- title -->
   <text
     id="text"
-    font-family="&#39;Red Hat Display&#39;, Ubuntu, sans-serif"
-    font-size="80"
-    font-weight="900"
+    font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
+    font-size="66.28787878787878"
+    font-weight="750"
     fill="#1e1e2e"
-    letter-spacing="-3"
+    letter-spacing="-2.49"
   >
     
-      <tspan x="160" y="150"> CybersecKyle Security </tspan>
+      <tspan x="160" y="236.70454545454544">
+        CybersecKyle Security
+      </tspan>
     
-      <tspan x="160" y="235"> How-To Series: </tspan>
+      <tspan x="160" y="307.63257575757575">
+        How-To Series:
+      </tspan>
     
-      <tspan x="160" y="320"> Everyday Defense, Part </tspan>
+      <tspan x="160" y="378.560606060606">
+        Everyday Defense, Part
+      </tspan>
     
-      <tspan x="160" y="405"> 2 - 2FA Rescue and </tspan>
+      <tspan x="160" y="449.4886363636363">
+        2 - 2FA Rescue and
+      </tspan>
     
-      <tspan x="160" y="490"> Recovery </tspan>
+      <tspan x="160" y="520.4166666666666">
+        Recovery
+      </tspan>
     
   </text>
 
@@ -61,16 +146,14 @@
     <tspan x="160" y="580">kylereddoch.me</tspan>
   </text>
 
-
   <!-- sitename -->
   <text
-    font-family="&#39;Red Hat Display&#39;, Ubuntu, sans-serif"
-    font-size="18"
-    font-weight="950"
+    font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
+    font-size="20"
+    font-weight="600"
     fill="#1e1e2e"
     letter-spacing="-0.5"
   >
     <tspan x="950" y="580">CYBERSECKYLE</tspan>
   </text>
-
 </svg>

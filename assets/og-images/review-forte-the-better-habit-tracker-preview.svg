@@ -1,4 +1,70 @@
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <svg
   width="1200"
   height="630"
@@ -7,13 +73,13 @@
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
 >
-  
-  
-  
-    
-    
-
-  <rect id="bg" width="100%" height="100%" opacity="1" fill="#cba6f7" />
+  <rect
+    id="bg"
+    width="100%"
+    height="100%"
+    opacity="1"
+    fill="#cba6f7"
+  />
 
   <!-- date -->
   <text
@@ -23,7 +89,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="170">
+    <tspan x="160" y="244.10000000000002">
       01 / 22 / 2022
     </tspan>
   </text>
@@ -31,16 +97,20 @@
   <!-- title -->
   <text
     id="text"
-    font-family="&#39;Red Hat Display&#39;, Ubuntu, sans-serif"
-    font-size="80"
-    font-weight="900"
+    font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
+    font-size="73.33333333333333"
+    font-weight="750"
     fill="#1e1e2e"
-    letter-spacing="-3"
+    letter-spacing="-2.75"
   >
     
-      <tspan x="160" y="270"> Review: Forte - The </tspan>
+      <tspan x="160" y="341.3">
+        Review: Forte - The
+      </tspan>
     
-      <tspan x="160" y="355"> Better Habit Tracker </tspan>
+      <tspan x="160" y="419.76666666666665">
+        Better Habit Tracker
+      </tspan>
     
   </text>
 
@@ -55,16 +125,14 @@
     <tspan x="160" y="580">kylereddoch.me</tspan>
   </text>
 
-
   <!-- sitename -->
   <text
-    font-family="&#39;Red Hat Display&#39;, Ubuntu, sans-serif"
-    font-size="18"
-    font-weight="950"
+    font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
+    font-size="20"
+    font-weight="600"
     fill="#1e1e2e"
     letter-spacing="-0.5"
   >
     <tspan x="950" y="580">CYBERSECKYLE</tspan>
   </text>
-
 </svg>

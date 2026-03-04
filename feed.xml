@@ -4,12 +4,148 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-03-02T23:01:09Z</updated>
+  <updated>2026-03-04T21:31:06Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>CybersecKyle Security How-To Series: Everyday Defense Part 5 - Scam Spotting, The 60-Second Pause Protocol</title>
+      <link href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-5-scam-spotting-the-60-second-pause-protocol/" />
+      <updated>2026-03-04T20:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-5-scam-spotting-the-60-second-pause-protocol/</id>
+      <content type="html">
+        &lt;blockquote&gt;
+&lt;p&gt;I’m back with &lt;strong&gt;Part 5&lt;/strong&gt; of the &lt;strong&gt;Everyday Defense&lt;/strong&gt; track in my &lt;a href=&quot;https://www.kylereddoch.me/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/&quot;&gt;CybersecKyle Security How-To Series&lt;/a&gt;. Here’s what we’re going to cover: the pressure patterns scammers lean on, the exact one-minute routine to follow, and the safest ways to verify messages without using an attacker’s links or phone numbers.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/hero-series-everyday-defense-60s-pause-1536w.webp 1536w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
+&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/hero-series-everyday-defense-60s-pause-1536w.jpeg 1536w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/hero-series-everyday-defense-60s-pause-1536w.jpeg&quot; width=&quot;1536&quot; height=&quot;1024&quot; alt=&quot;A warm desk scene with a phone showing an urgent warning, a one-minute timer, and a notebook labeled “Pause Protocol” beside a coffee mug in soft lamplight, landscape.&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;Most &lt;a href=&quot;https://consumer.ftc.gov/scams&quot; rel=&quot;noopener&quot;&gt;scams&lt;/a&gt; do not win because they are clever. They win because they are fast.&lt;/p&gt;
+&lt;p&gt;In my MSP and security work, the &lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/&quot;&gt;painful pattern is always the same&lt;/a&gt;: the moment someone feels rushed, they stop verifying. The scammer is not trying to outsmart you. They are trying to outpace you.&lt;/p&gt;
+&lt;p&gt;So here’s the simplest countermeasure I know: a deliberate 60-second pause. One minute is long enough to break the spell, short enough that you will actually do it, and irritating enough that scammers hate it.&lt;/p&gt;
+&lt;p&gt;If you want a solid baseline on how phishing actually works (and why the “urgent” wording is such a giveaway), the FTC’s overview is worth a skim: &lt;a href=&quot;https://consumer.ftc.gov/articles/how-recognize-avoid-phishing-scams&quot; rel=&quot;noopener&quot;&gt;How to Recognize and Avoid Phishing Scams&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;what-scams-are-really-selling&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-5-scam-spotting-the-60-second-pause-protocol/#what-scams-are-really-selling&quot; class=&quot;heading-anchor&quot;&gt;What scams are really selling&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Scams usually push one (or more) of these buttons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Urgency:&lt;/strong&gt; “Right now or else.”&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Authority:&lt;/strong&gt; “IT, your bank, your boss, the IRS.”&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fear:&lt;/strong&gt; “Suspicious login, account locked, lawsuit.”&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Opportunity:&lt;/strong&gt; “Refund, prize, job offer, limited deal.”&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Secrecy:&lt;/strong&gt; “Do not tell anyone, handle this quietly.”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Your goal is not to memorize every scam flavor of the week. Your goal is to recognize the pressure pattern and slow the situation down.&lt;/p&gt;
+&lt;h2 id=&quot;the-60-second-pause-protocol&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-5-scam-spotting-the-60-second-pause-protocol/#the-60-second-pause-protocol&quot; class=&quot;heading-anchor&quot;&gt;The 60-Second Pause Protocol&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Set a literal timer. Seriously. Your brain treats a timer like a tiny contract.&lt;/p&gt;
+&lt;h3 id=&quot;0-to-10-seconds-stop-the-momentum&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-5-scam-spotting-the-60-second-pause-protocol/#0-to-10-seconds-stop-the-momentum&quot; class=&quot;heading-anchor&quot;&gt;0 to 10 seconds: Stop the momentum&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Hands off keyboard. No clicking. No replying. No “quick question” back to the sender.&lt;/p&gt;
+&lt;p&gt;Take one breath and say (out loud if you can): &lt;strong&gt;“I do not act while rushed.”&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;10-to-20-seconds-name-the-request&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-5-scam-spotting-the-60-second-pause-protocol/#10-to-20-seconds-name-the-request&quot; class=&quot;heading-anchor&quot;&gt;10 to 20 seconds: Name the request&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Write the request in plain language:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;“They want me to reset my password.”&lt;/li&gt;
+&lt;li&gt;“They want me to pay an invoice.”&lt;/li&gt;
+&lt;li&gt;“They want me to install remote support.”&lt;/li&gt;
+&lt;li&gt;“They want a code from my authenticator.”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you cannot describe it simply, that is a red flag by itself.&lt;/p&gt;
+&lt;h3 id=&quot;20-to-35-seconds-check-for-pressure-tells&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-5-scam-spotting-the-60-second-pause-protocol/#20-to-35-seconds-check-for-pressure-tells&quot; class=&quot;heading-anchor&quot;&gt;20 to 35 seconds: Check for pressure tells&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Scan for: urgency, threats, secrecy, weird stakes, gift cards, crypto, odd formatting, or an emotional hook.&lt;/p&gt;
+&lt;p&gt;Also scan the channel mismatch:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A bank texting you from a random number&lt;/li&gt;
+&lt;li&gt;A “boss” asking for gift cards over SMS&lt;/li&gt;
+&lt;li&gt;“IT support” contacting you from a personal email address&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;35-to-50-seconds-verify-on-a-clean-path&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-5-scam-spotting-the-60-second-pause-protocol/#35-to-50-seconds-verify-on-a-clean-path&quot; class=&quot;heading-anchor&quot;&gt;35 to 50 seconds: Verify on a clean path&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;This is the whole game.&lt;/p&gt;
+&lt;p&gt;Do not use the link or phone number they provided. Use a known-good source:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/&quot;&gt;Type the real website yourself&lt;/a&gt; (or use a bookmark you already trust)&lt;/li&gt;
+&lt;li&gt;Call the number on the back of the card&lt;/li&gt;
+&lt;li&gt;Use your company directory, ticketing portal, or an internal Teams/Slack message&lt;/li&gt;
+&lt;li&gt;If it is a coworker, call them back using a saved contact, not the message thread&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you need a rule: &lt;strong&gt;&lt;a href=&quot;https://www.ncsc.gov.uk/guidance/phishing&quot; rel=&quot;noopener&quot;&gt;verify using a different channel than the one that contacted you&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;If you want a short, practical checklist you can hand to someone who is currently stressed and mid-click, CISA’s guidance is excellent: &lt;a href=&quot;https://www.cisa.gov/ncas/tips/st04-014&quot; rel=&quot;noopener&quot;&gt;Avoiding Social Engineering and Phishing Attacks&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;50-to-60-seconds-decide-and-document&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-5-scam-spotting-the-60-second-pause-protocol/#50-to-60-seconds-decide-and-document&quot; class=&quot;heading-anchor&quot;&gt;50 to 60 seconds: Decide and document&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Pick one:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Proceed&lt;/strong&gt; (verified)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Delay&lt;/strong&gt; (“I will handle this after I verify”)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Delete/report&lt;/strong&gt; (unverified or suspicious)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If this is work-related, drop a quick note in the ticket or in your team channel: what happened, what you verified, what you did. That tiny paper trail saves you later.&lt;/p&gt;
+&lt;h2 id=&quot;common-scam-patterns-and-the-safest-move&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-5-scam-spotting-the-60-second-pause-protocol/#common-scam-patterns-and-the-safest-move&quot; class=&quot;heading-anchor&quot;&gt;Common scam patterns and the safest move&lt;/a&gt;&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Pattern&lt;/th&gt;
+      &lt;th&gt;What it looks like&lt;/th&gt;
+      &lt;th&gt;Safest response&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td data-label=&quot;Pattern&quot;&gt;Account panic&lt;/td&gt;
+      &lt;td data-label=&quot;What it looks like&quot;&gt;“Unusual login. Reset now.”&lt;/td&gt;
+      &lt;td data-label=&quot;Safest response&quot;&gt;Open the real site/app yourself, check security alerts, and only change credentials from the official settings. For Gmail users, follow: &lt;a href=&quot;https://support.google.com/mail/answer/8253?hl=en&quot;&gt;Avoid and report phishing emails (Google Account Help)&lt;/a&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td data-label=&quot;Pattern&quot;&gt;Payment pressure&lt;/td&gt;
+      &lt;td data-label=&quot;What it looks like&quot;&gt;“Wire this today” or “new banking details”&lt;/td&gt;
+      &lt;td data-label=&quot;Safest response&quot;&gt;Out-of-band callback to a known number, require a second approver for bank detail changes, and never “confirm” payment details from the same thread.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td data-label=&quot;Pattern&quot;&gt;Tech support trap&lt;/td&gt;
+      &lt;td data-label=&quot;What it looks like&quot;&gt;“We found a virus, install this tool”&lt;/td&gt;
+      &lt;td data-label=&quot;Safest response&quot;&gt;Hang up or close it. Contact official support or internal IT using known contacts. If you need a quick refresher on the signs, use the FTC overview: &lt;a href=&quot;https://consumer.ftc.gov/articles/how-recognize-avoid-phishing-scams&quot;&gt;How to Recognize and Avoid Phishing Scams (FTC)&lt;/a&gt;. For call and pop-up style scams, Apple’s guidance is also solid: &lt;a href=&quot;https://support.apple.com/en-us/102568&quot;&gt;Recognize and avoid phishing messages, calls, and other scams (Apple Support)&lt;/a&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td data-label=&quot;Pattern&quot;&gt;MFA fatigue&lt;/td&gt;
+      &lt;td data-label=&quot;What it looks like&quot;&gt;Repeated push prompts, then a “support” call&lt;/td&gt;
+      &lt;td data-label=&quot;Safest response&quot;&gt;Deny prompts, change the password, review recent sign-ins, and report it. If you can, enable number matching to reduce blind approvals: &lt;a href=&quot;https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-mfa-number-match&quot;&gt;Microsoft Entra multifactor authentication number matching&lt;/a&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td data-label=&quot;Pattern&quot;&gt;“Just need a code”&lt;/td&gt;
+      &lt;td data-label=&quot;What it looks like&quot;&gt;Someone asks for OTP, MFA code, or password reset code&lt;/td&gt;
+      &lt;td data-label=&quot;Safest response&quot;&gt;Never share it. Treat codes like toothbrushes: not transferable, not discussable.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;tiny-scripts-you-can-actually-use&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-5-scam-spotting-the-60-second-pause-protocol/#tiny-scripts-you-can-actually-use&quot; class=&quot;heading-anchor&quot;&gt;Tiny scripts you can actually use&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;These work because they are calm, boring, and final.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;For a “boss” text that feels off:&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“I can help, but I’m going to verify first. I’ll call you back in a minute.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;For a bank or vendor message:&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“I don’t take action from links in messages. I’m contacting support using verified contact info.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;For “IT support” that came out of nowhere:&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“I’m not installing anything from an unsolicited request. Please open a ticket and I’ll respond through the portal.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Scammers want you flustered. These lines keep you annoyingly stable.&lt;/p&gt;
+&lt;h2 id=&quot;how-teams-can-bake-this-in-so-it-is-not-just-willpower&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-5-scam-spotting-the-60-second-pause-protocol/#how-teams-can-bake-this-in-so-it-is-not-just-willpower&quot; class=&quot;heading-anchor&quot;&gt;How teams can bake this in (so it is not just willpower)&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;If you manage people or process (even informally), a few defaults reduce risk fast:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Two-person approval&lt;/strong&gt; for wire transfers and vendor bank-detail changes&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Callback rule&lt;/strong&gt;: verify payment changes using a saved number, not the email thread&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;No “quick favors” over SMS&lt;/strong&gt; for money, access, credentials, or gift cards&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ticket-only IT work&lt;/strong&gt;: if it is real, it can live in the system&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Phishing-resistant sign-in options&lt;/strong&gt; where it matters most (admins, finance, execs), because SMS codes are a soft target&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you want a single takeaway: &lt;strong&gt;build friction for high-impact actions.&lt;/strong&gt; Friction is not the enemy. Surprise friction is.&lt;/p&gt;
+&lt;h2 id=&quot;quick-reality-check&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-5-scam-spotting-the-60-second-pause-protocol/#quick-reality-check&quot; class=&quot;heading-anchor&quot;&gt;Quick reality check&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The 60-second pause does not make you paranoid. It makes you consistent.&lt;/p&gt;
+&lt;p&gt;Real organizations can handle verification. Real coworkers can wait one minute. Real support teams do not need your password, your MFA code, or your panic.&lt;/p&gt;
+&lt;p&gt;If you spot a scam or you think you got burned, &lt;strong&gt;&lt;a href=&quot;https://www.ic3.gov/&quot; rel=&quot;noopener&quot;&gt;report it&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Scams thrive in the gap between “I should verify” and “I already clicked.” This protocol closes that gap with a timer and a habit.&lt;/p&gt;
+&lt;p&gt;Season 1 is &lt;a href=&quot;https://www.kylereddoch.me/tags/everyday-defense/&quot;&gt;Everyday Defense&lt;/a&gt; for a reason: boring, repeatable, and effective beats flashy every time.&lt;/p&gt;
+
+      </content>
+    </entry><entry>
       <title>Weekly Notes: Tennis Starts, Migraine Friday, Fraud Flag Sunday (Week 9, 2026)</title>
       <link href="https://www.kylereddoch.me/blog/weekly-notes-tennis-starts-migraine-friday-fraud-flag-sunday-week-9-2026/" />
       <updated>2026-03-02T21:30:00Z</updated>

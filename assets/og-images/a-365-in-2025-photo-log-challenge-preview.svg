@@ -1,4 +1,68 @@
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <svg
   width="1200"
   height="630"
@@ -7,13 +71,13 @@
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
 >
-  
-  
-  
-    
-    
-
-  <rect id="bg" width="100%" height="100%" opacity="1" fill="#cba6f7" />
+  <rect
+    id="bg"
+    width="100%"
+    height="100%"
+    opacity="1"
+    fill="#cba6f7"
+  />
 
   <!-- date -->
   <text
@@ -23,7 +87,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="170">
+    <tspan x="160" y="240.10526315789474">
       12 / 31 / 2024
     </tspan>
   </text>
@@ -31,16 +95,20 @@
   <!-- title -->
   <text
     id="text"
-    font-family="&#39;Red Hat Display&#39;, Ubuntu, sans-serif"
-    font-size="80"
-    font-weight="900"
+    font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
+    font-size="77.19298245614034"
+    font-weight="750"
     fill="#1e1e2e"
-    letter-spacing="-3"
+    letter-spacing="-2.89"
   >
     
-      <tspan x="160" y="270"> A 365 in 2025 Photo </tspan>
+      <tspan x="160" y="340.3157894736842">
+        A 365 in 2025 Photo
+      </tspan>
     
-      <tspan x="160" y="355"> Log Challenge </tspan>
+      <tspan x="160" y="422.9122807017544">
+        Log Challenge
+      </tspan>
     
   </text>
 
@@ -55,16 +123,14 @@
     <tspan x="160" y="580">kylereddoch.me</tspan>
   </text>
 
-
   <!-- sitename -->
   <text
-    font-family="&#39;Red Hat Display&#39;, Ubuntu, sans-serif"
-    font-size="18"
-    font-weight="950"
+    font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
+    font-size="20"
+    font-weight="600"
     fill="#1e1e2e"
     letter-spacing="-0.5"
   >
     <tspan x="950" y="580">CYBERSECKYLE</tspan>
   </text>
-
 </svg>
