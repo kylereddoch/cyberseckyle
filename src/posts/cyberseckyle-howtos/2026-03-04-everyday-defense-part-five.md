@@ -3,7 +3,7 @@ date: 2026-03-04T15:00:00-05:00
 title: "CybersecKyle Security How-To Series: Everyday Defense Part 5 - Scam Spotting, The 60-Second Pause Protocol"
 description: "A one-minute routine that breaks urgency scams, forces verification, and keeps your accounts, money, and time where they belong."
 tags: [cyberseckyle-howto-series, everyday-defense, cybersecurity, tutorials, security, scams, phishing]
-mastodon_url:
+mastodon_url: https://infosec.exchange/@cyberseckyle/116173055158394497
 ---
 
 > I’m back with **Part 5** of the **Everyday Defense** track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/). Here’s what we’re going to cover: the pressure patterns scammers lean on, the exact one-minute routine to follow, and the safest ways to verify messages without using an attacker’s links or phone numbers.
