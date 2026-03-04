@@ -1,16 +1,92 @@
 ---
-fontDisplay: "'Red Hat Display', Ubuntu" # needed created in local development, font must be installed on your system.
+fontDisplay: "'Atkinson Hyperlegible', Ubuntu" # needed created in local development, font must be installed on your system.
 fontBody: "'Atkinson Hyperlegible', Ubuntu" # needed created in local development, font must be installed on your system.
-background: '#cba6f7'
-text: '#1e1e2e'
-siteUrl: 'kylereddoch.me'
+background: "#cba6f7"
+text: "#1e1e2e"
+siteUrl: "kylereddoch.me"
 pagination:
   data: collections.allPosts
   size: 1
   alias: post
-permalink: '/assets/og-images/{{ post.data.title | slugify }}-preview.svg'
+permalink: "/assets/og-images/{{ post.data.title | slugify }}-preview.svg"
 eleventyExcludeFromCollections: true
+
 ---
+
+{# -------------------------------
+   Auto-fit title sizing (heuristic)
+   ------------------------------- #}
+
+{% set svgWidth = 1200 %}
+{% set paddingX = 160 %}
+{% set maxTextWidth = svgWidth - (paddingX * 2) %}
+
+{# Title layout box (tweak these two numbers to change the title area height) #}
+{% set titleBoxTop = 185 %}
+{% set titleBoxBottom = 535 %}
+{% set titleBoxHeight = titleBoxBottom - titleBoxTop %}
+
+{# Typography tuning knobs #}
+{% set maxFontSize = 80 %}
+{% set minFontSize = 44 %}
+{% set lineHeightFactor = 1.07 %}
+{# 80 -> ~85px like your original #}
+{% set ascentFactor = 0.78 %}
+{# baseline offset estimate #}
+{% set approxCharWidth = 0.60 %}
+{# avg char width ~= fontSize * this #}
+
+{# Wrap the title #}
+{% set titleInLines = post.data.title | splitlines(22) %}
+{% set numberOfLines = titleInLines.length %}
+
+{# Find longest line (character count) #}
+{% set maxLineLen = 0 %}
+{% for line in titleInLines %}
+  {% set lineLen = line | length %}
+  {% if lineLen > maxLineLen %}
+    {% set maxLineLen = lineLen %}
+  {% endif %}
+{% endfor %}
+
+{# Compute font size constraints #}
+{% set safeMaxLineLen = maxLineLen or 1 %}
+{% set safeNumberOfLines = numberOfLines or 1 %}
+
+{% set sizeByWidth = maxTextWidth / (safeMaxLineLen * approxCharWidth) %}
+{% set heightDenom = 1 + ((safeNumberOfLines - 1) * lineHeightFactor) %}
+{% set sizeByHeight = titleBoxHeight / heightDenom %}
+
+{# Pick the smallest constraint, then clamp #}
+{% set titleFontSize = maxFontSize %}
+{% if sizeByWidth < titleFontSize %}{% set titleFontSize = sizeByWidth %}{%
+  endif
+%}
+{% if sizeByHeight < titleFontSize %}{% set titleFontSize = sizeByHeight %}{%
+  endif
+%}
+{% if titleFontSize < minFontSize %}{% set titleFontSize = minFontSize %}{%
+  endif
+%}
+{% if titleFontSize > maxFontSize %}{% set titleFontSize = maxFontSize %}{%
+  endif
+%}
+
+{% set titleLineHeight = titleFontSize * lineHeightFactor %}
+{%
+  set titleBlockHeight = ((safeNumberOfLines - 1) * titleLineHeight) + titleFontSize
+%}
+
+{# Center the title block within the title box #}
+{%
+  set titleStartY = titleBoxTop + ((titleBoxHeight - titleBlockHeight) / 2) + (titleFontSize * ascentFactor)
+%}
+
+{# Place the date above the title with a consistent gap #}
+{% set dateY = titleStartY - (titleFontSize * ascentFactor) - 40 %}
+
+{# Scale letter spacing so small fonts don’t look over-crunched #}
+{% set titleLetterSpacing = (-3 * (titleFontSize / maxFontSize)) %}
 
 <svg
   width="1200"
@@ -20,21 +96,13 @@ eleventyExcludeFromCollections: true
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
 >
-  {% set titleInLines = post.data.title | splitlines(22) %}
-  {% set numberOfLines = titleInLines.length %}
-  {% if numberOfLines == 1 %}
-    {% set verticalStartingPoint = 340 %}
-    {% elseif numberOfLines == 2 %}
-    {% set verticalStartingPoint = 290 %}
-    {% elseif numberOfLines == 3 %}
-    {% set verticalStartingPoint = 250 %}
-    {% elseif numberOfLines == 4 %}
-    {% set verticalStartingPoint = 210 %}
-    {% elseif numberOfLines == 5 %}
-    {% set verticalStartingPoint = 170 %}
-  {% endif %}
-
-  <rect id="bg" width="100%" height="100%" opacity="1" fill="{{ background }}" />
+  <rect
+    id="bg"
+    width="100%"
+    height="100%"
+    opacity="1"
+    fill="{{ background }}"
+  />
 
   <!-- date -->
   <text
@@ -44,7 +112,7 @@ eleventyExcludeFromCollections: true
     fill="{{ text }}"
     letter-spacing="-1"
   >
-    <tspan x="160" y="{{ verticalStartingPoint - 120 }}">
+    <tspan x="160" y="{{ dateY }}">
       {{ post.date | formatDate('MM / DD / YYYY') }}
     </tspan>
   </text>
@@ -53,13 +121,15 @@ eleventyExcludeFromCollections: true
   <text
     id="text"
     font-family="{{ fontDisplay }}, sans-serif"
-    font-size="80"
-    font-weight="900"
+    font-size="{{ titleFontSize }}"
+    font-weight="750"
     fill="{{ text }}"
-    letter-spacing="-3"
+    letter-spacing="{{ titleLetterSpacing | round(2) }}"
   >
     {% for line in titleInLines %}
-      <tspan x="160" y="{{ verticalStartingPoint - 20 + loop.index0 * 85 }}"> {{ line }} </tspan>
+      <tspan x="160" y="{{ titleStartY + (loop.index0 * titleLineHeight) }}">
+        {{ line }}
+      </tspan>
     {% endfor %}
   </text>
 
@@ -74,16 +144,14 @@ eleventyExcludeFromCollections: true
     <tspan x="160" y="580">{{ siteUrl }}</tspan>
   </text>
 
-
   <!-- sitename -->
   <text
     font-family="{{ fontDisplay }}, sans-serif"
-    font-size="18"
-    font-weight="950"
+    font-size="20"
+    font-weight="600"
     fill="{{ text }}"
     letter-spacing="-0.5"
   >
     <tspan x="950" y="580">{{ meta.siteName | upper }}</tspan>
   </text>
-
 </svg>

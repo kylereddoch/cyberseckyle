@@ -14,6 +14,10 @@ dotenv.config();
 // add yaml support
 import yaml from 'js-yaml';
 
+// ✅ NEW: node fs/path for base64 font embedding in SVGs
+import fs from 'node:fs';
+import path from 'node:path';
+
 //  config import
 import { getAllPosts, showInSitemap, tagList, getNowPosts } from './src/_config/collections.js';
 import events from './src/_config/events.js';
@@ -279,6 +283,20 @@ export default async function (eleventyConfig) {
   eleventyConfig.addDataExtension('yaml', contents => yaml.load(contents));
 
   // --------------------- Filters
+
+  // ✅ NEW: base64 font embedding helper for SVG templates
+  // Usage in Nunjucks:
+  // {{ 'src/assets/fonts/AtkinsonHyperlegible-Regular.woff2' | fontBase64 }}
+  eleventyConfig.addFilter('fontBase64', (relativePath) => {
+    try {
+      const absPath = path.join(process.cwd(), String(relativePath));
+      return fs.readFileSync(absPath).toString('base64');
+    } catch (err) {
+      console.warn(`[fontBase64] Could not read font file: ${relativePath}`);
+      return '';
+    }
+  });
+
   eleventyConfig.addFilter('toIsoString', filters.toISOString);
   eleventyConfig.addFilter('formatDate', filters.formatDate);
   eleventyConfig.addFilter('markdownFormat', filters.markdownFormat);
