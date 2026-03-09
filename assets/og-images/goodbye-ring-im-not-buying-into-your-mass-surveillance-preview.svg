@@ -27,6 +27,7 @@
 
 
 
+
   
   
     
@@ -38,11 +39,48 @@
   
   
 
+  
+  
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
 
 
 
@@ -90,7 +128,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="215.33333333333331">
+    <tspan x="160" y="204.86666666666667">
       02 / 11 / 2026
     </tspan>
   </text>
@@ -99,22 +137,22 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="66.66666666666667"
-    font-weight="750"
+    font-size="73.33333333333333"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.5"
+    letter-spacing="-2.75"
   >
     
-      <tspan x="160" y="307.3333333333333">
-        Goodbye, Ring. I&#39;m Not
+      <tspan x="160" y="302.06666666666666">
+        Goodbye, Ring. I&#39;m
       </tspan>
     
-      <tspan x="160" y="378.66666666666663">
-        Buying Into Your Mass
+      <tspan x="160" y="380.5333333333333">
+        Not Buying Into Your
       </tspan>
     
-      <tspan x="160" y="450">
-        Surveillance.
+      <tspan x="160" y="459">
+        Mass Surveillance.
       </tspan>
     
   </text>

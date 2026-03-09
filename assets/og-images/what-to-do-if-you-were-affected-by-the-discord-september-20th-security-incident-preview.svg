@@ -27,6 +27,7 @@
 
 
 
+
   
   
     
@@ -41,11 +42,51 @@
   
   
 
+  
+  
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
 
 
 
@@ -93,7 +134,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="179.66666666666669">
+    <tspan x="160" y="185.76811594202894">
       10 / 07 / 2025
     </tspan>
   </text>
@@ -102,26 +143,26 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="66.66666666666667"
-    font-weight="750"
+    font-size="63.76811594202899"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.5"
+    letter-spacing="-2.39"
   >
     
-      <tspan x="160" y="271.6666666666667">
+      <tspan x="160" y="275.50724637681157">
         What To Do If You Were
       </tspan>
     
-      <tspan x="160" y="343">
-        Affected By The
+      <tspan x="160" y="343.7391304347826">
+        Affected By The Discord
       </tspan>
     
-      <tspan x="160" y="414.33333333333337">
-        Discord September 20th
+      <tspan x="160" y="411.9710144927536">
+        September 20th Security
       </tspan>
     
-      <tspan x="160" y="485.66666666666674">
-        Security Incident
+      <tspan x="160" y="480.2028985507246">
+        Incident
       </tspan>
     
   </text>

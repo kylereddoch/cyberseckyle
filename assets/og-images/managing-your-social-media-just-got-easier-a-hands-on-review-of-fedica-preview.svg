@@ -27,10 +27,6 @@
 
 
 
-  
-  
-    
-  
 
   
   
@@ -45,11 +41,56 @@
   
   
 
+  
+  
+    
+  
+
+  
+  
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
 
 
 
@@ -97,7 +138,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="179.66666666666669">
+    <tspan x="160" y="185.76811594202894">
       02 / 06 / 2025
     </tspan>
   </text>
@@ -106,25 +147,25 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="66.66666666666667"
-    font-weight="750"
+    font-size="63.76811594202899"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.5"
+    letter-spacing="-2.39"
   >
     
-      <tspan x="160" y="271.6666666666667">
+      <tspan x="160" y="275.50724637681157">
         Managing Your Social
       </tspan>
     
-      <tspan x="160" y="343">
-        Media Just Got Easier
+      <tspan x="160" y="343.7391304347826">
+        Media Just Got Easier –
       </tspan>
     
-      <tspan x="160" y="414.33333333333337">
-        – A Hands-On Review of
+      <tspan x="160" y="411.9710144927536">
+        A Hands-On Review of
       </tspan>
     
-      <tspan x="160" y="485.66666666666674">
+      <tspan x="160" y="480.2028985507246">
         Fedica
       </tspan>
     

@@ -27,6 +27,57 @@
 
 
 
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   
     
@@ -41,15 +92,6 @@
   
     
   
-
-  
-  
-
-
-
-
-
-
 
 
 
@@ -97,7 +139,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="172.98412698412693">
+    <tspan x="160" y="224.05555555555554">
       10 / 28 / 2025
     </tspan>
   </text>
@@ -106,26 +148,22 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="69.84126984126985"
-    font-weight="750"
+    font-size="61.111111111111114"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.62"
+    letter-spacing="-2.29"
   >
     
-      <tspan x="160" y="267.4603174603174">
+      <tspan x="160" y="311.72222222222223">
         Remove Preinstalled
       </tspan>
     
-      <tspan x="160" y="342.19047619047615">
-        Microsoft Store Apps
+      <tspan x="160" y="377.11111111111114">
+        Microsoft Store Apps in
       </tspan>
     
-      <tspan x="160" y="416.92063492063494">
-        in Windows 11 (24H2 &amp;
-      </tspan>
-    
-      <tspan x="160" y="491.6507936507937">
-        25H2)
+      <tspan x="160" y="442.5">
+        Windows 11 (24H2 &amp; 25H2)
       </tspan>
     
   </text>

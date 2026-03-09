@@ -27,10 +27,6 @@
 
 
 
-  
-  
-    
-  
 
   
   
@@ -43,11 +39,49 @@
   
   
 
+  
+  
+
+  
+  
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
 
 
 
@@ -95,7 +129,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="179.66666666666669">
+    <tspan x="160" y="219.8840579710145">
       02 / 17 / 2026
     </tspan>
   </text>
@@ -104,26 +138,22 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="66.66666666666667"
-    font-weight="750"
+    font-size="63.76811594202899"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.5"
+    letter-spacing="-2.39"
   >
     
-      <tspan x="160" y="271.6666666666667">
-        Weekly Notes: WFH
+      <tspan x="160" y="309.6231884057971">
+        Weekly Notes: WFH Mode,
       </tspan>
     
-      <tspan x="160" y="343">
-        Mode, Olympics Nights,
+      <tspan x="160" y="377.8550724637681">
+        Olympics Nights, and F1
       </tspan>
     
-      <tspan x="160" y="414.33333333333337">
-        and F1 Is Back (Week
-      </tspan>
-    
-      <tspan x="160" y="485.66666666666674">
-        7, 2026)
+      <tspan x="160" y="446.0869565217392">
+        Is Back (Week 7, 2026)
       </tspan>
     
   </text>

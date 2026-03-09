@@ -27,10 +27,6 @@
 
 
 
-  
-  
-    
-  
 
   
   
@@ -43,11 +39,52 @@
   
   
 
+  
+  
+
+  
+  
+
+  
+  
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
 
 
 
@@ -95,7 +132,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="179.66666666666669">
+    <tspan x="160" y="237.76190476190476">
       12 / 02 / 2025
     </tspan>
   </text>
@@ -104,26 +141,22 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="66.66666666666667"
-    font-weight="750"
+    font-size="52.38095238095238"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.5"
+    letter-spacing="-1.96"
   >
     
-      <tspan x="160" y="271.6666666666667">
-        Your Android TV Box
+      <tspan x="160" y="318.6190476190476">
+        Your Android TV Box Might Be
       </tspan>
     
-      <tspan x="160" y="343">
-        Might Be a Botnet Farm
+      <tspan x="160" y="374.66666666666663">
+        a Botnet Farm without You
       </tspan>
     
-      <tspan x="160" y="414.33333333333337">
-        without You Knowing: A
-      </tspan>
-    
-      <tspan x="160" y="485.66666666666674">
-        Deep Dive
+      <tspan x="160" y="430.71428571428567">
+        Knowing: A Deep Dive
       </tspan>
     
   </text>

@@ -27,6 +27,22 @@
 
 
 
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
   
   
     
@@ -37,6 +53,44 @@
 
   
   
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
     
   
 
@@ -45,12 +99,6 @@
 
   
   
-
-
-
-
-
-
 
 
 
@@ -98,7 +146,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="145">
+    <tspan x="160" y="223.52083333333331">
       12 / 23 / 2025
     </tspan>
   </text>
@@ -107,30 +155,26 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="66.28787878787878"
-    font-weight="750"
+    font-size="45.833333333333336"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.49"
+    letter-spacing="-1.72"
   >
     
-      <tspan x="160" y="236.70454545454544">
-        CybersecKyle Security
+      <tspan x="160" y="299.2708333333333">
+        CybersecKyle Security How-To
       </tspan>
     
-      <tspan x="160" y="307.63257575757575">
-        How-To Series:
+      <tspan x="160" y="348.3125">
+        Series: Everyday Defense, Part 3
       </tspan>
     
-      <tspan x="160" y="378.560606060606">
-        Everyday Defense, Part
+      <tspan x="160" y="397.35416666666663">
+        - Browser Hygiene That Actually
       </tspan>
     
-      <tspan x="160" y="449.4886363636363">
-        3 - Browser Hygiene
-      </tspan>
-    
-      <tspan x="160" y="520.4166666666666">
-        That Actually Sticks
+      <tspan x="160" y="446.3958333333333">
+        Sticks
       </tspan>
     
   </text>

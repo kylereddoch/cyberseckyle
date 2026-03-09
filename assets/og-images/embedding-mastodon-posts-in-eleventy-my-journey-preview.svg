@@ -27,10 +27,6 @@
 
 
 
-  
-  
-    
-  
 
   
   
@@ -40,11 +36,46 @@
   
   
 
+  
+  
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
 
 
 
@@ -92,7 +123,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="210.34920634920633">
+    <tspan x="160" y="194.39999999999995">
       10 / 30 / 2025
     </tspan>
   </text>
@@ -101,22 +132,22 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="69.84126984126985"
-    font-weight="750"
+    font-size="80"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.62"
+    letter-spacing="-3"
   >
     
-      <tspan x="160" y="304.8253968253968">
+      <tspan x="160" y="296.79999999999995">
         Embedding Mastodon
       </tspan>
     
-      <tspan x="160" y="379.55555555555554">
-        Posts in Eleventy: My
+      <tspan x="160" y="382.4">
+        Posts in Eleventy:
       </tspan>
     
-      <tspan x="160" y="454.28571428571433">
-        Journey
+      <tspan x="160" y="468">
+        My Journey
       </tspan>
     
   </text>

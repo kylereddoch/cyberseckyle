@@ -27,6 +27,17 @@
 
 
 
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
   
   
     
@@ -35,17 +46,50 @@
   
   
 
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
   
+    
+  
 
+  
+  
+    
+  
 
+  
+  
+    
+  
 
-
-
-
+  
+  
 
 
 
@@ -93,7 +137,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="179.66666666666669">
+    <tspan x="160" y="151.6">
       02 / 20 / 2026
     </tspan>
   </text>
@@ -102,26 +146,26 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="66.66666666666667"
-    font-weight="750"
+    font-size="80"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.5"
+    letter-spacing="-3"
   >
     
-      <tspan x="160" y="271.6666666666667">
-        Fighting the PUP Wave:
+      <tspan x="160" y="254">
+        Fighting the PUP
       </tspan>
     
-      <tspan x="160" y="343">
-        A Practical PowerShell
+      <tspan x="160" y="339.6">
+        Wave: A Practical
       </tspan>
     
-      <tspan x="160" y="414.33333333333337">
-        Cleanup Workflow for
+      <tspan x="160" y="425.20000000000005">
+        PowerShell Cleanup
       </tspan>
     
-      <tspan x="160" y="485.66666666666674">
-        MSPs
+      <tspan x="160" y="510.8">
+        Workflow for MSPs
       </tspan>
     
   </text>

@@ -27,6 +27,12 @@
 
 
 
+
+  
+  
+    
+  
+
   
   
     
@@ -39,6 +45,8 @@
 
   
   
+    
+  
 
   
   
@@ -48,6 +56,42 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
 
 
 
@@ -95,7 +139,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="179.66666666666669">
+    <tspan x="160" y="219.8840579710145">
       11 / 17 / 2021
     </tspan>
   </text>
@@ -104,26 +148,22 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="66.66666666666667"
-    font-weight="750"
+    font-size="63.76811594202899"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.5"
+    letter-spacing="-2.39"
   >
     
-      <tspan x="160" y="271.6666666666667">
+      <tspan x="160" y="309.6231884057971">
         Review: Grid Studio
       </tspan>
     
-      <tspan x="160" y="343">
+      <tspan x="160" y="377.8550724637681">
         frames beautiful Apple
       </tspan>
     
-      <tspan x="160" y="414.33333333333337">
-        Devices for you to
-      </tspan>
-    
-      <tspan x="160" y="485.66666666666674">
-        hang
+      <tspan x="160" y="446.0869565217392">
+        Devices for you to hang
       </tspan>
     
   </text>

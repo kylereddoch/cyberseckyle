@@ -27,6 +27,7 @@
 
 
 
+
   
   
     
@@ -40,6 +41,35 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
 
 
 
@@ -87,7 +117,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="247.71428571428567">
+    <tspan x="160" y="237.20000000000005">
       12 / 31 / 2025
     </tspan>
   </text>
@@ -96,18 +126,18 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="69.84126984126985"
-    font-weight="750"
+    font-size="80"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.62"
+    letter-spacing="-3"
   >
     
-      <tspan x="160" y="342.19047619047615">
-        Putting AI to Work in
+      <tspan x="160" y="339.6">
+        Putting AI to Work
       </tspan>
     
-      <tspan x="160" y="416.9206349206349">
-        the SOC
+      <tspan x="160" y="425.20000000000005">
+        in the SOC
       </tspan>
     
   </text>

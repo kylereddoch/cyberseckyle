@@ -27,6 +27,12 @@
 
 
 
+
+  
+  
+    
+  
+
   
   
     
@@ -43,6 +49,43 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
 
 
 
@@ -90,7 +133,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="210.34920634920633">
+    <tspan x="160" y="151.6">
       11 / 17 / 2025
     </tspan>
   </text>
@@ -99,21 +142,25 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="69.84126984126985"
-    font-weight="750"
+    font-size="80"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.62"
+    letter-spacing="-3"
   >
     
-      <tspan x="160" y="304.8253968253968">
-        Chrome’s New Driver’s
+      <tspan x="160" y="254">
+        Chrome’s New
       </tspan>
     
-      <tspan x="160" y="379.55555555555554">
-        License Autofill Is a
+      <tspan x="160" y="339.6">
+        Driver’s License
       </tspan>
     
-      <tspan x="160" y="454.28571428571433">
+      <tspan x="160" y="425.20000000000005">
+        Autofill Is a
+      </tspan>
+    
+      <tspan x="160" y="510.8">
         Terrible Idea
       </tspan>
     

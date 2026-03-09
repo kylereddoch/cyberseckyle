@@ -27,6 +27,12 @@
 
 
 
+
+  
+  
+    
+  
+
   
   
     
@@ -37,17 +43,47 @@
 
   
   
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
     
   
 
   
   
 
-
-
-
-
-
+  
+  
 
 
 
@@ -95,7 +131,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="179.66666666666669">
+    <tspan x="160" y="224.05555555555554">
       01 / 19 / 2026
     </tspan>
   </text>
@@ -104,26 +140,22 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="66.66666666666667"
-    font-weight="750"
+    font-size="61.111111111111114"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.5"
+    letter-spacing="-2.29"
   >
     
-      <tspan x="160" y="271.6666666666667">
-        Apple Creator Studio
+      <tspan x="160" y="311.72222222222223">
+        Apple Creator Studio Hit
       </tspan>
     
-      <tspan x="160" y="343">
-        Hit My Nerd Buttons
+      <tspan x="160" y="377.11111111111114">
+        My Nerd Buttons and Yes,
       </tspan>
     
-      <tspan x="160" y="414.33333333333337">
-        and Yes, I’m Genuinely
-      </tspan>
-    
-      <tspan x="160" y="485.66666666666674">
-        Excited
+      <tspan x="160" y="442.5">
+        I’m Genuinely Excited
       </tspan>
     
   </text>

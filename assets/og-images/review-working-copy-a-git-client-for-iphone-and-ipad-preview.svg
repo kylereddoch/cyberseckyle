@@ -27,6 +27,12 @@
 
 
 
+
+  
+  
+    
+  
+
   
   
     
@@ -43,6 +49,42 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
 
 
 
@@ -90,7 +132,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="210.34920634920633">
+    <tspan x="160" y="198.80701754385967">
       12 / 21 / 2021
     </tspan>
   </text>
@@ -99,22 +141,22 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="69.84126984126985"
-    font-weight="750"
+    font-size="77.19298245614034"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.62"
+    letter-spacing="-2.89"
   >
     
-      <tspan x="160" y="304.8253968253968">
-        Review: Working Copy,
+      <tspan x="160" y="299.01754385964915">
+        Review: Working
       </tspan>
     
-      <tspan x="160" y="379.55555555555554">
-        A Git Client for
+      <tspan x="160" y="381.61403508771934">
+        Copy, A Git Client
       </tspan>
     
-      <tspan x="160" y="454.28571428571433">
-        iPhone and iPad
+      <tspan x="160" y="464.2105263157895">
+        for iPhone and iPad
       </tspan>
     
   </text>

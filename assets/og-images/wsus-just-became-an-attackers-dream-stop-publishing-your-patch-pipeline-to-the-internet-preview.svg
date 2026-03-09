@@ -27,10 +27,6 @@
 
 
 
-  
-  
-    
-  
 
   
   
@@ -46,11 +42,58 @@
   
   
 
+  
+  
+    
+  
+
+  
+  
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+    
+  
 
 
 
@@ -98,7 +141,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="145">
+    <tspan x="160" y="196.50666666666666">
       10 / 30 / 2025
     </tspan>
   </text>
@@ -107,30 +150,26 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="66.28787878787878"
-    font-weight="750"
+    font-size="58.666666666666664"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.49"
+    letter-spacing="-2.2"
   >
     
-      <tspan x="160" y="236.70454545454544">
+      <tspan x="160" y="282.26666666666665">
         WSUS just became an
       </tspan>
     
-      <tspan x="160" y="307.63257575757575">
+      <tspan x="160" y="345.03999999999996">
         attacker’s dream. Stop
       </tspan>
     
-      <tspan x="160" y="378.560606060606">
+      <tspan x="160" y="407.81333333333333">
         publishing your patch
       </tspan>
     
-      <tspan x="160" y="449.4886363636363">
-        pipeline to the
-      </tspan>
-    
-      <tspan x="160" y="520.4166666666666">
-        internet.
+      <tspan x="160" y="470.58666666666664">
+        pipeline to the internet.
       </tspan>
     
   </text>

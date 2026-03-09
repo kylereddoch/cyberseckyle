@@ -27,6 +27,25 @@
 
 
 
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
   
   
     
@@ -38,6 +57,38 @@
   
   
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
   
   
     
@@ -48,12 +99,6 @@
 
   
   
-
-
-
-
-
-
 
 
 
@@ -101,7 +146,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="145.00000000000003">
+    <tspan x="160" y="226.44444444444446">
       03 / 04 / 2026
     </tspan>
   </text>
@@ -110,34 +155,26 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="55.11811023622047"
-    font-weight="750"
+    font-size="44.44444444444444"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.07"
+    letter-spacing="-1.67"
   >
     
-      <tspan x="160" y="227.992125984252">
-        CybersecKyle Security
+      <tspan x="160" y="301.11111111111114">
+        CybersecKyle Security How-To
       </tspan>
     
-      <tspan x="160" y="286.9685039370079">
-        How-To Series:
+      <tspan x="160" y="348.6666666666667">
+        Series: Everyday Defense Part 5 -
       </tspan>
     
-      <tspan x="160" y="345.9448818897638">
-        Everyday Defense Part
+      <tspan x="160" y="396.2222222222223">
+        Scam Spotting, The 60-Second
       </tspan>
     
-      <tspan x="160" y="404.9212598425197">
-        5 - Scam Spotting, The
-      </tspan>
-    
-      <tspan x="160" y="463.8976377952756">
-        60-Second Pause
-      </tspan>
-    
-      <tspan x="160" y="522.8740157480315">
-        Protocol
+      <tspan x="160" y="443.7777777777778">
+        Pause Protocol
       </tspan>
     
   </text>

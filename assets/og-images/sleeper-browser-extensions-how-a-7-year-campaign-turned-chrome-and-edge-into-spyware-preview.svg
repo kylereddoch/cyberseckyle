@@ -27,13 +27,6 @@
 
 
 
-  
-  
-    
-  
-
-  
-  
 
   
   
@@ -46,11 +39,54 @@
   
   
 
+  
+  
+
+  
+  
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
 
 
 
@@ -98,7 +134,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="145">
+    <tspan x="160" y="191.3611111111111">
       12 / 02 / 2025
     </tspan>
   </text>
@@ -107,30 +143,26 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="66.28787878787878"
-    font-weight="750"
+    font-size="61.111111111111114"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.49"
+    letter-spacing="-2.29"
   >
     
-      <tspan x="160" y="236.70454545454544">
+      <tspan x="160" y="279.02777777777777">
         &quot;Sleeper&quot; Browser
       </tspan>
     
-      <tspan x="160" y="307.63257575757575">
-        Extensions: How a
+      <tspan x="160" y="344.4166666666667">
+        Extensions: How a 7-Year
       </tspan>
     
-      <tspan x="160" y="378.560606060606">
-        7-Year Campaign Turned
+      <tspan x="160" y="409.80555555555554">
+        Campaign Turned Chrome
       </tspan>
     
-      <tspan x="160" y="449.4886363636363">
-        Chrome and Edge into
-      </tspan>
-    
-      <tspan x="160" y="520.4166666666666">
-        Spyware
+      <tspan x="160" y="475.19444444444446">
+        and Edge into Spyware
       </tspan>
     
   </text>

@@ -27,10 +27,6 @@
 
 
 
-  
-  
-    
-  
 
   
   
@@ -39,18 +35,65 @@
 
   
   
+    
+  
 
   
   
 
   
   
+    
+  
+
+  
+  
+
+  
+  
+    
+  
+
+  
+  
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
 
 
 
@@ -98,7 +141,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="145">
+    <tspan x="160" y="250.22222222222223">
       10 / 06 / 2025
     </tspan>
   </text>
@@ -107,30 +150,22 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="66.28787878787878"
-    font-weight="750"
+    font-size="44.44444444444444"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.49"
+    letter-spacing="-1.67"
   >
     
-      <tspan x="160" y="236.70454545454544">
-        The npm ‘Shai-Hulud’
+      <tspan x="160" y="324.8888888888889">
+        The npm ‘Shai-Hulud’ Supply-Chain
       </tspan>
     
-      <tspan x="160" y="307.63257575757575">
-        Supply-Chain Meltdown:
+      <tspan x="160" y="372.44444444444446">
+        Meltdown: What It Broke, What It
       </tspan>
     
-      <tspan x="160" y="378.560606060606">
-        What It Broke, What It
-      </tspan>
-    
-      <tspan x="160" y="449.4886363636363">
-        Means, and What We Fix
-      </tspan>
-    
-      <tspan x="160" y="520.4166666666666">
-        Next
+      <tspan x="160" y="420">
+        Means, and What We Fix Next
       </tspan>
     
   </text>

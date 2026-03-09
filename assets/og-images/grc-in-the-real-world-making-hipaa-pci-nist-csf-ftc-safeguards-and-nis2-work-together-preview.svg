@@ -27,6 +27,15 @@
 
 
 
+
+  
+  
+    
+  
+
+  
+  
+
   
   
     
@@ -40,15 +49,51 @@
 
   
   
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
 
   
   
 
-
-
-
-
-
+  
+  
 
 
 
@@ -96,7 +141,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="145">
+    <tspan x="160" y="209.7380952380952">
       12 / 09 / 2025
     </tspan>
   </text>
@@ -105,29 +150,25 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="66.28787878787878"
-    font-weight="750"
+    font-size="52.38095238095238"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.49"
+    letter-spacing="-1.96"
   >
     
-      <tspan x="160" y="236.70454545454544">
+      <tspan x="160" y="290.5952380952381">
         GRC In The Real World:
       </tspan>
     
-      <tspan x="160" y="307.63257575757575">
-        Making HIPAA, PCI,
+      <tspan x="160" y="346.6428571428571">
+        Making HIPAA, PCI, NIST CSF,
       </tspan>
     
-      <tspan x="160" y="378.560606060606">
-        NIST CSF, FTC
+      <tspan x="160" y="402.69047619047615">
+        FTC Safeguards, and NIS2
       </tspan>
     
-      <tspan x="160" y="449.4886363636363">
-        Safeguards, and NIS2
-      </tspan>
-    
-      <tspan x="160" y="520.4166666666666">
+      <tspan x="160" y="458.73809523809524">
         Work Together
       </tspan>
     

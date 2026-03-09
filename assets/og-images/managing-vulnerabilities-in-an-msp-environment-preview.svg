@@ -27,6 +27,47 @@
 
 
 
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   
     
@@ -39,12 +80,6 @@
 
   
   
-
-
-
-
-
-
 
 
 
@@ -92,7 +127,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="210.34920634920633">
+    <tspan x="160" y="194.39999999999995">
       01 / 23 / 2026
     </tspan>
   </text>
@@ -101,22 +136,22 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="69.84126984126985"
-    font-weight="750"
+    font-size="80"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.62"
+    letter-spacing="-3"
   >
     
-      <tspan x="160" y="304.8253968253968">
+      <tspan x="160" y="296.79999999999995">
         Managing
       </tspan>
     
-      <tspan x="160" y="379.55555555555554">
-        Vulnerabilities in an
+      <tspan x="160" y="382.4">
+        Vulnerabilities in
       </tspan>
     
-      <tspan x="160" y="454.28571428571433">
-        MSP Environment
+      <tspan x="160" y="468">
+        an MSP Environment
       </tspan>
     
   </text>

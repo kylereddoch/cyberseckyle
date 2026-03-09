@@ -27,10 +27,6 @@
 
 
 
-  
-  
-    
-  
 
   
   
@@ -39,6 +35,17 @@
 
   
   
+    
+  
+
+  
+  
+
+  
+  
+
+  
+  
 
   
   
@@ -48,6 +55,40 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+    
+  
 
 
 
@@ -95,7 +136,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="172.98412698412693">
+    <tspan x="160" y="237.76190476190476">
       01 / 20 / 2026
     </tspan>
   </text>
@@ -104,26 +145,22 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="69.84126984126985"
-    font-weight="750"
+    font-size="52.38095238095238"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.62"
+    letter-spacing="-1.96"
   >
     
-      <tspan x="160" y="267.4603174603174">
-        Cybersecurity
+      <tspan x="160" y="318.6190476190476">
+        Cybersecurity Implications
       </tspan>
     
-      <tspan x="160" y="342.19047619047615">
-        Implications of Cloud
+      <tspan x="160" y="374.66666666666663">
+        of Cloud Service Models
       </tspan>
     
-      <tspan x="160" y="416.92063492063494">
-        Service Models (IaaS,
-      </tspan>
-    
-      <tspan x="160" y="491.6507936507937">
-        PaaS, CaaS, and SaaS)
+      <tspan x="160" y="430.71428571428567">
+        (IaaS, PaaS, CaaS, and SaaS)
       </tspan>
     
   </text>

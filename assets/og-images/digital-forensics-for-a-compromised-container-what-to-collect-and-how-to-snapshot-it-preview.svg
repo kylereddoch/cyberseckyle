@@ -27,6 +27,53 @@
 
 
 
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   
     
@@ -40,15 +87,6 @@
 
   
   
-
-  
-  
-
-
-
-
-
-
 
 
 
@@ -96,7 +134,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="145">
+    <tspan x="160" y="185.76811594202894">
       02 / 03 / 2026
     </tspan>
   </text>
@@ -105,30 +143,26 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="66.28787878787878"
-    font-weight="750"
+    font-size="63.76811594202899"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.49"
+    letter-spacing="-2.39"
   >
     
-      <tspan x="160" y="236.70454545454544">
-        Digital Forensics for
+      <tspan x="160" y="275.50724637681157">
+        Digital Forensics for a
       </tspan>
     
-      <tspan x="160" y="307.63257575757575">
-        a Compromised
+      <tspan x="160" y="343.7391304347826">
+        Compromised Container:
       </tspan>
     
-      <tspan x="160" y="378.560606060606">
-        Container: What to
+      <tspan x="160" y="411.9710144927536">
+        What to Collect and How
       </tspan>
     
-      <tspan x="160" y="449.4886363636363">
-        Collect and How to
-      </tspan>
-    
-      <tspan x="160" y="520.4166666666666">
-        Snapshot It
+      <tspan x="160" y="480.2028985507246">
+        to Snapshot It
       </tspan>
     
   </text>

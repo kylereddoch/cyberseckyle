@@ -27,10 +27,6 @@
 
 
 
-  
-  
-    
-  
 
   
   
@@ -42,6 +38,17 @@
 
   
   
+    
+  
+
+  
+  
+
+  
+  
+
+  
+  
 
   
   
@@ -51,6 +58,43 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+    
+  
+
+  
+  
 
 
 
@@ -98,7 +142,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="145">
+    <tspan x="160" y="217.0888888888889">
       12 / 03 / 2025
     </tspan>
   </text>
@@ -107,30 +151,26 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="66.28787878787878"
-    font-weight="750"
+    font-size="48.888888888888886"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.49"
+    letter-spacing="-1.83"
   >
     
-      <tspan x="160" y="236.70454545454544">
-        The Breaking Point:
+      <tspan x="160" y="295.22222222222223">
+        The Breaking Point: Why
       </tspan>
     
-      <tspan x="160" y="307.63257575757575">
-        Why Cybersecurity and
+      <tspan x="160" y="347.53333333333336">
+        Cybersecurity and SOC
       </tspan>
     
-      <tspan x="160" y="378.560606060606">
-        SOC Professionals Are
+      <tspan x="160" y="399.84444444444443">
+        Professionals Are Burning Out,
       </tspan>
     
-      <tspan x="160" y="449.4886363636363">
-        Burning Out, and What
-      </tspan>
-    
-      <tspan x="160" y="520.4166666666666">
-        Actually Works
+      <tspan x="160" y="452.15555555555557">
+        and What Actually Works
       </tspan>
     
   </text>

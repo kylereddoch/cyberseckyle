@@ -27,10 +27,6 @@
 
 
 
-  
-  
-    
-  
 
   
   
@@ -43,11 +39,56 @@
   
   
 
+  
+  
+
+  
+  
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
 
 
 
@@ -95,7 +136,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="172.98412698412693">
+    <tspan x="160" y="185.76811594202894">
       11 / 04 / 2025
     </tspan>
   </text>
@@ -104,26 +145,26 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="69.84126984126985"
-    font-weight="750"
+    font-size="63.76811594202899"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.62"
+    letter-spacing="-2.39"
   >
     
-      <tspan x="160" y="267.4603174603174">
+      <tspan x="160" y="275.50724637681157">
         Introducing my new
       </tspan>
     
-      <tspan x="160" y="342.19047619047615">
+      <tspan x="160" y="343.7391304347826">
         CybersecKyle Security
       </tspan>
     
-      <tspan x="160" y="416.92063492063494">
-        How-To Series: the
+      <tspan x="160" y="411.9710144927536">
+        How-To Series: the full
       </tspan>
     
-      <tspan x="160" y="491.6507936507937">
-        full roadmap
+      <tspan x="160" y="480.2028985507246">
+        roadmap
       </tspan>
     
   </text>

@@ -27,6 +27,62 @@
 
 
 
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
   
   
     
@@ -37,17 +93,6 @@
 
   
   
-
-  
-  
-    
-  
-
-
-
-
-
-
 
 
 
@@ -95,7 +140,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="172.98412698412693">
+    <tspan x="160" y="191.3611111111111">
       03 / 02 / 2026
     </tspan>
   </text>
@@ -104,26 +149,26 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="69.84126984126985"
-    font-weight="750"
+    font-size="61.111111111111114"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.62"
+    letter-spacing="-2.29"
   >
     
-      <tspan x="160" y="267.4603174603174">
+      <tspan x="160" y="279.02777777777777">
         Weekly Notes: Tennis
       </tspan>
     
-      <tspan x="160" y="342.19047619047615">
-        Starts, Migraine
+      <tspan x="160" y="344.4166666666667">
+        Starts, Migraine Friday,
       </tspan>
     
-      <tspan x="160" y="416.92063492063494">
-        Friday, Fraud Flag
+      <tspan x="160" y="409.80555555555554">
+        Fraud Flag Sunday (Week
       </tspan>
     
-      <tspan x="160" y="491.6507936507937">
-        Sunday (Week 9, 2026)
+      <tspan x="160" y="475.19444444444446">
+        9, 2026)
       </tspan>
     
   </text>

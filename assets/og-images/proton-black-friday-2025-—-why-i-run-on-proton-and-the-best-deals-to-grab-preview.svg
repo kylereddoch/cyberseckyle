@@ -27,6 +27,55 @@
 
 
 
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+    
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   
     
@@ -40,12 +89,6 @@
 
   
   
-
-
-
-
-
-
 
 
 
@@ -93,7 +136,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="157.50877192982455">
+    <tspan x="160" y="191.3611111111111">
       11 / 12 / 2025
     </tspan>
   </text>
@@ -102,26 +145,26 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="77.19298245614034"
-    font-weight="750"
+    font-size="61.111111111111114"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.89"
+    letter-spacing="-2.29"
   >
     
-      <tspan x="160" y="257.719298245614">
-        Proton Black Friday
+      <tspan x="160" y="279.02777777777777">
+        Proton Black Friday 2025
       </tspan>
     
-      <tspan x="160" y="340.31578947368416">
-        2025 — Why I run on
+      <tspan x="160" y="344.4166666666667">
+        — Why I run on Proton
       </tspan>
     
-      <tspan x="160" y="422.91228070175436">
-        Proton and the best
+      <tspan x="160" y="409.80555555555554">
+        and the best deals to
       </tspan>
     
-      <tspan x="160" y="505.50877192982455">
-        deals to grab
+      <tspan x="160" y="475.19444444444446">
+        grab
       </tspan>
     
   </text>

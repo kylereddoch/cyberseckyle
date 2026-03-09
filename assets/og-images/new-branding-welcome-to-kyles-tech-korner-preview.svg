@@ -27,6 +27,47 @@
 
 
 
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   
     
@@ -37,11 +78,8 @@
     
   
 
-
-
-
-
-
+  
+  
 
 
 
@@ -89,7 +127,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="251">
+    <tspan x="160" y="194.39999999999995">
       01 / 14 / 2024
     </tspan>
   </text>
@@ -98,18 +136,22 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="66.66666666666667"
-    font-weight="750"
+    font-size="80"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.5"
+    letter-spacing="-3"
   >
     
-      <tspan x="160" y="343">
-        New Branding: Welcome
+      <tspan x="160" y="296.79999999999995">
+        New Branding:
       </tspan>
     
-      <tspan x="160" y="414.33333333333337">
-        to Kyle&#39;s Tech Korner!
+      <tspan x="160" y="382.4">
+        Welcome to Kyle&#39;s
+      </tspan>
+    
+      <tspan x="160" y="468">
+        Tech Korner!
       </tspan>
     
   </text>

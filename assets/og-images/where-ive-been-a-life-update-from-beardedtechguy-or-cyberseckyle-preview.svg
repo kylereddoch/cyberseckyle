@@ -27,6 +27,51 @@
 
 
 
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   
     
@@ -37,17 +82,9 @@
 
   
   
-    
-  
 
   
   
-
-
-
-
-
-
 
 
 
@@ -95,7 +132,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="157.50877192982455">
+    <tspan x="160" y="185.76811594202894">
       07 / 14 / 2025
     </tspan>
   </text>
@@ -104,25 +141,25 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="77.19298245614034"
-    font-weight="750"
+    font-size="63.76811594202899"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.89"
+    letter-spacing="-2.39"
   >
     
-      <tspan x="160" y="257.719298245614">
-        Where I&#39;ve Been: A
+      <tspan x="160" y="275.50724637681157">
+        Where I&#39;ve Been: A Life
       </tspan>
     
-      <tspan x="160" y="340.31578947368416">
-        Life Update from
+      <tspan x="160" y="343.7391304347826">
+        Update from
       </tspan>
     
-      <tspan x="160" y="422.91228070175436">
+      <tspan x="160" y="411.9710144927536">
         BeardedTechGuy (or…
       </tspan>
     
-      <tspan x="160" y="505.50877192982455">
+      <tspan x="160" y="480.2028985507246">
         CybersecKyle?)
       </tspan>
     

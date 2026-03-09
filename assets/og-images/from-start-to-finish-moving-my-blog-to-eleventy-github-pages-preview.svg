@@ -27,6 +27,17 @@
 
 
 
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
   
   
     
@@ -35,17 +46,50 @@
   
   
 
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
   
+    
+  
 
+  
+  
+    
+  
 
+  
+  
+    
+  
 
-
-
-
+  
+  
 
 
 
@@ -93,7 +137,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="172.98412698412693">
+    <tspan x="160" y="151.6">
       09 / 04 / 2025
     </tspan>
   </text>
@@ -102,26 +146,26 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="69.84126984126985"
-    font-weight="750"
+    font-size="80"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.62"
+    letter-spacing="-3"
   >
     
-      <tspan x="160" y="267.4603174603174">
-        From Start to Finish:
+      <tspan x="160" y="254">
+        From Start to
       </tspan>
     
-      <tspan x="160" y="342.19047619047615">
-        Moving My Blog to
+      <tspan x="160" y="339.6">
+        Finish: Moving My
       </tspan>
     
-      <tspan x="160" y="416.92063492063494">
-        Eleventy + GitHub
+      <tspan x="160" y="425.20000000000005">
+        Blog to Eleventy +
       </tspan>
     
-      <tspan x="160" y="491.6507936507937">
-        Pages
+      <tspan x="160" y="510.8">
+        GitHub Pages
       </tspan>
     
   </text>

@@ -27,13 +27,6 @@
 
 
 
-  
-  
-    
-  
-
-  
-  
 
   
   
@@ -46,11 +39,55 @@
   
   
 
+  
+  
+
+  
+  
+
+  
+  
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+
+  
+  
 
 
 
@@ -98,7 +135,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="145">
+    <tspan x="160" y="209.7380952380952">
       09 / 11 / 2025
     </tspan>
   </text>
@@ -107,30 +144,26 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="66.28787878787878"
-    font-weight="750"
+    font-size="52.38095238095238"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.49"
+    letter-spacing="-1.96"
   >
     
-      <tspan x="160" y="236.70454545454544">
-        Review: Redragon
+      <tspan x="160" y="290.5952380952381">
+        Review: Redragon WYVERN K689
       </tspan>
     
-      <tspan x="160" y="307.63257575757575">
-        WYVERN K689 PRO
+      <tspan x="160" y="346.6428571428571">
+        PRO Mechanical Keyboard:
       </tspan>
     
-      <tspan x="160" y="378.560606060606">
-        Mechanical Keyboard:
+      <tspan x="160" y="402.69047619047615">
+        Budget Beast with a Pro
       </tspan>
     
-      <tspan x="160" y="449.4886363636363">
-        Budget Beast with a
-      </tspan>
-    
-      <tspan x="160" y="520.4166666666666">
-        Pro Attitude
+      <tspan x="160" y="458.73809523809524">
+        Attitude
       </tspan>
     
   </text>

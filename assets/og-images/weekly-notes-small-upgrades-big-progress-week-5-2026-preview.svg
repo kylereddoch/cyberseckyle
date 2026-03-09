@@ -27,6 +27,12 @@
 
 
 
+
+  
+  
+    
+  
+
   
   
     
@@ -45,6 +51,41 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+
+  
+  
 
 
 
@@ -92,7 +133,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="215.33333333333331">
+    <tspan x="160" y="157.50877192982455">
       02 / 03 / 2026
     </tspan>
   </text>
@@ -101,22 +142,26 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="66.66666666666667"
-    font-weight="750"
+    font-size="77.19298245614034"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.5"
+    letter-spacing="-2.89"
   >
     
-      <tspan x="160" y="307.3333333333333">
+      <tspan x="160" y="257.719298245614">
         Weekly Notes: Small
       </tspan>
     
-      <tspan x="160" y="378.66666666666663">
-        Upgrades, Big Progress
+      <tspan x="160" y="340.31578947368416">
+        Upgrades, Big
       </tspan>
     
-      <tspan x="160" y="450">
-        (Week 5, 2026)
+      <tspan x="160" y="422.91228070175436">
+        Progress (Week 5,
+      </tspan>
+    
+      <tspan x="160" y="505.50877192982455">
+        2026)
       </tspan>
     
   </text>

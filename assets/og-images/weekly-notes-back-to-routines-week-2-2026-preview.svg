@@ -27,6 +27,7 @@
 
 
 
+
   
   
     
@@ -43,6 +44,40 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
 
 
 
@@ -90,7 +125,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="210.34920634920633">
+    <tspan x="160" y="204.86666666666667">
       01 / 12 / 2026
     </tspan>
   </text>
@@ -99,21 +134,21 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="69.84126984126985"
-    font-weight="750"
+    font-size="73.33333333333333"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.62"
+    letter-spacing="-2.75"
   >
     
-      <tspan x="160" y="304.8253968253968">
-        Weekly Notes: Back to
+      <tspan x="160" y="302.06666666666666">
+        Weekly Notes: Back
       </tspan>
     
-      <tspan x="160" y="379.55555555555554">
-        Routines (Week 2,
+      <tspan x="160" y="380.5333333333333">
+        to Routines (Week 2,
       </tspan>
     
-      <tspan x="160" y="454.28571428571433">
+      <tspan x="160" y="459">
         2026)
       </tspan>
     

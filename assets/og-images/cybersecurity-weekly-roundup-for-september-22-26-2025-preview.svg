@@ -27,10 +27,6 @@
 
 
 
-  
-  
-    
-  
 
   
   
@@ -39,12 +35,55 @@
 
   
   
+    
+  
+
+  
+  
+
+  
+  
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+
+  
+  
 
 
 
@@ -92,7 +131,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="210.34920634920633">
+    <tspan x="160" y="165.63333333333333">
       09 / 26 / 2025
     </tspan>
   </text>
@@ -101,22 +140,26 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="69.84126984126985"
-    font-weight="750"
+    font-size="73.33333333333333"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.62"
+    letter-spacing="-2.75"
   >
     
-      <tspan x="160" y="304.8253968253968">
+      <tspan x="160" y="262.8333333333333">
         Cybersecurity Weekly
       </tspan>
     
-      <tspan x="160" y="379.55555555555554">
-        Roundup for September
+      <tspan x="160" y="341.29999999999995">
+        Roundup for
       </tspan>
     
-      <tspan x="160" y="454.28571428571433">
-        22–26, 2025
+      <tspan x="160" y="419.76666666666665">
+        September 22–26,
+      </tspan>
+    
+      <tspan x="160" y="498.23333333333335">
+        2025
       </tspan>
     
   </text>

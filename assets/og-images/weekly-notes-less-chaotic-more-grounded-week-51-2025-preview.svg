@@ -27,10 +27,6 @@
 
 
 
-  
-  
-    
-  
 
   
   
@@ -40,11 +36,52 @@
   
   
 
+  
+  
+
+  
+  
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+
+  
+  
 
 
 
@@ -92,7 +129,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="215.33333333333331">
+    <tspan x="160" y="151.6">
       12 / 23 / 2025
     </tspan>
   </text>
@@ -101,22 +138,26 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="66.66666666666667"
-    font-weight="750"
+    font-size="80"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.5"
+    letter-spacing="-3"
   >
     
-      <tspan x="160" y="307.3333333333333">
+      <tspan x="160" y="254">
         Weekly Notes: Less
       </tspan>
     
-      <tspan x="160" y="378.66666666666663">
-        chaotic, more grounded
+      <tspan x="160" y="339.6">
+        chaotic, more
       </tspan>
     
-      <tspan x="160" y="450">
-        (Week 51, 2025)
+      <tspan x="160" y="425.20000000000005">
+        grounded (Week 51,
+      </tspan>
+    
+      <tspan x="160" y="510.8">
+        2025)
       </tspan>
     
   </text>

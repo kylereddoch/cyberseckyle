@@ -27,6 +27,12 @@
 
 
 
+
+  
+  
+    
+  
+
   
   
     
@@ -37,14 +43,43 @@
     
   
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
   
   
 
-
-
-
-
-
+  
+  
 
 
 
@@ -92,7 +127,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="210.34920634920633">
+    <tspan x="160" y="204.86666666666667">
       01 / 09 / 2026
     </tspan>
   </text>
@@ -101,22 +136,22 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="69.84126984126985"
-    font-weight="750"
+    font-size="73.33333333333333"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.62"
+    letter-spacing="-2.75"
   >
     
-      <tspan x="160" y="304.8253968253968">
+      <tspan x="160" y="302.06666666666666">
         Cybersecurity Weekly
       </tspan>
     
-      <tspan x="160" y="379.55555555555554">
-        Roundup: January 2-9,
+      <tspan x="160" y="380.5333333333333">
+        Roundup: January
       </tspan>
     
-      <tspan x="160" y="454.28571428571433">
-        2026
+      <tspan x="160" y="459">
+        2-9, 2026
       </tspan>
     
   </text>

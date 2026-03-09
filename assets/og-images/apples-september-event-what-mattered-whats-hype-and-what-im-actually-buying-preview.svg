@@ -27,10 +27,6 @@
 
 
 
-  
-  
-    
-  
 
   
   
@@ -43,11 +39,54 @@
   
   
 
+  
+  
+    
+  
+
+  
+  
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+
+  
+  
 
 
 
@@ -95,7 +134,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="172.98412698412693">
+    <tspan x="160" y="191.3611111111111">
       09 / 13 / 2025
     </tspan>
   </text>
@@ -104,26 +143,26 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="69.84126984126985"
-    font-weight="750"
+    font-size="61.111111111111114"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.62"
+    letter-spacing="-2.29"
   >
     
-      <tspan x="160" y="267.4603174603174">
-        Apple’s September
+      <tspan x="160" y="279.02777777777777">
+        Apple’s September Event:
       </tspan>
     
-      <tspan x="160" y="342.19047619047615">
-        Event: What Mattered,
+      <tspan x="160" y="344.4166666666667">
+        What Mattered, What’s
       </tspan>
     
-      <tspan x="160" y="416.92063492063494">
-        What’s Hype, and What
+      <tspan x="160" y="409.80555555555554">
+        Hype, and What I’m
       </tspan>
     
-      <tspan x="160" y="491.6507936507937">
-        I’m Actually Buying
+      <tspan x="160" y="475.19444444444446">
+        Actually Buying
       </tspan>
     
   </text>

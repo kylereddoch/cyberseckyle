@@ -27,10 +27,6 @@
 
 
 
-  
-  
-    
-  
 
   
   
@@ -50,11 +46,51 @@
   
   
 
+  
+  
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
 
 
 
@@ -102,7 +138,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="145">
+    <tspan x="160" y="185.76811594202894">
       12 / 04 / 2025
     </tspan>
   </text>
@@ -111,30 +147,26 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="66.28787878787878"
-    font-weight="750"
+    font-size="63.76811594202899"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.49"
+    letter-spacing="-2.39"
   >
     
-      <tspan x="160" y="236.70454545454544">
+      <tspan x="160" y="275.50724637681157">
         15 Essential
       </tspan>
     
-      <tspan x="160" y="307.63257575757575">
-        Cyberattacks You
+      <tspan x="160" y="343.7391304347826">
+        Cyberattacks You Should
       </tspan>
     
-      <tspan x="160" y="378.560606060606">
-        Should Understand:
+      <tspan x="160" y="411.9710144927536">
+        Understand: Your Guide
       </tspan>
     
-      <tspan x="160" y="449.4886363636363">
-        Your Guide to Digital
-      </tspan>
-    
-      <tspan x="160" y="520.4166666666666">
-        Safety
+      <tspan x="160" y="480.2028985507246">
+        to Digital Safety
       </tspan>
     
   </text>

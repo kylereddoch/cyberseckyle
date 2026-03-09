@@ -27,15 +27,6 @@
 
 
 
-  
-  
-    
-  
-
-  
-  
-    
-  
 
   
   
@@ -45,11 +36,52 @@
   
   
 
+  
+  
+
+  
+  
+
+  
+  
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
 
 
 
@@ -97,7 +129,7 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="179.66666666666669">
+    <tspan x="160" y="219.8840579710145">
       02 / 14 / 2023
     </tspan>
   </text>
@@ -106,26 +138,22 @@
   <text
     id="text"
     font-family="&#39;Atkinson Hyperlegible&#39;, Ubuntu, sans-serif"
-    font-size="66.66666666666667"
-    font-weight="750"
+    font-size="63.76811594202899"
+    font-weight="700"
     fill="#1e1e2e"
-    letter-spacing="-2.5"
+    letter-spacing="-2.39"
   >
     
-      <tspan x="160" y="271.6666666666667">
-        Using an Alias for
+      <tspan x="160" y="309.6231884057971">
+        Using an Alias for Your
       </tspan>
     
-      <tspan x="160" y="343">
-        Your Mastodon Account
+      <tspan x="160" y="377.8550724637681">
+        Mastodon Account with
       </tspan>
     
-      <tspan x="160" y="414.33333333333337">
-        with Jekyll and GitHub
-      </tspan>
-    
-      <tspan x="160" y="485.66666666666674">
-        Pages
+      <tspan x="160" y="446.0869565217392">
+        Jekyll and GitHub Pages
       </tspan>
     
   </text>
