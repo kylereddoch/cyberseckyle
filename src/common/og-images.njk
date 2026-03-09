@@ -15,13 +15,15 @@ eleventyExcludeFromCollections: true
 
 {# -------------------------------
    Auto-fit title sizing (heuristic)
+   - Dynamic wrapping so the title uses the full width
+   - Font size scales to fit, not the "area"
    ------------------------------- #}
 
 {% set svgWidth = 1200 %}
 {% set paddingX = 160 %}
 {% set maxTextWidth = svgWidth - (paddingX * 2) %}
 
-{# Title layout box (tweak these two numbers to change the title area height) #}
+{# Title layout box (controls vertical space only) #}
 {% set titleBoxTop = 185 %}
 {% set titleBoxBottom = 535 %}
 {% set titleBoxHeight = titleBoxBottom - titleBoxTop %}
@@ -30,17 +32,22 @@ eleventyExcludeFromCollections: true
 {% set maxFontSize = 80 %}
 {% set minFontSize = 44 %}
 {% set lineHeightFactor = 1.07 %}
-{# 80 -> ~85px like your original #}
 {% set ascentFactor = 0.78 %}
-{# baseline offset estimate #}
 {% set approxCharWidth = 0.60 %}
-{# avg char width ~= fontSize * this #}
 
-{# Wrap the title #}
-{% set titleInLines = post.data.title | splitlines(22) %}
+{# -------------------------------
+   Pass 1: wrap using maxFontSize estimate
+   ------------------------------- #}
+
+{%
+  set charsPerLine = (maxTextWidth / (maxFontSize * approxCharWidth)) | round(0, 'floor')
+%}
+{% if charsPerLine < 18 %}{% set charsPerLine = 18 %}{% endif %}
+{% if charsPerLine > 60 %}{% set charsPerLine = 60 %}{% endif %}
+
+{% set titleInLines = post.data.title | splitlines(charsPerLine) %}
 {% set numberOfLines = titleInLines.length %}
 
-{# Find longest line (character count) #}
 {% set maxLineLen = 0 %}
 {% for line in titleInLines %}
   {% set lineLen = line | length %}
@@ -49,7 +56,6 @@ eleventyExcludeFromCollections: true
   {% endif %}
 {% endfor %}
 
-{# Compute font size constraints #}
 {% set safeMaxLineLen = maxLineLen or 1 %}
 {% set safeNumberOfLines = numberOfLines or 1 %}
 
@@ -57,7 +63,51 @@ eleventyExcludeFromCollections: true
 {% set heightDenom = 1 + ((safeNumberOfLines - 1) * lineHeightFactor) %}
 {% set sizeByHeight = titleBoxHeight / heightDenom %}
 
-{# Pick the smallest constraint, then clamp #}
+{% set titleFontSize = maxFontSize %}
+{% if sizeByWidth < titleFontSize %}{% set titleFontSize = sizeByWidth %}{%
+  endif
+%}
+{% if sizeByHeight < titleFontSize %}{% set titleFontSize = sizeByHeight %}{%
+  endif
+%}
+{% if titleFontSize < minFontSize %}{% set titleFontSize = minFontSize %}{%
+  endif
+%}
+{% if titleFontSize > maxFontSize %}{% set titleFontSize = maxFontSize %}{%
+  endif
+%}
+
+{# -------------------------------
+   Pass 2: wrap again using the computed font size
+   This is the key change that stops “half-width” lines.
+   ------------------------------- #}
+
+{%
+  set charsPerLine2 = (maxTextWidth / (titleFontSize * approxCharWidth)) | round(0, 'floor')
+%}
+{# add a little slack so lines run longer before wrapping #}
+{% set charsPerLine2 = charsPerLine2 + 2 %}
+{% if charsPerLine2 < 18 %}{% set charsPerLine2 = 18 %}{% endif %}
+{% if charsPerLine2 > 60 %}{% set charsPerLine2 = 60 %}{% endif %}
+
+{% set titleInLines = post.data.title | splitlines(charsPerLine2) %}
+{% set numberOfLines = titleInLines.length %}
+
+{% set maxLineLen = 0 %}
+{% for line in titleInLines %}
+  {% set lineLen = line | length %}
+  {% if lineLen > maxLineLen %}
+    {% set maxLineLen = lineLen %}
+  {% endif %}
+{% endfor %}
+
+{% set safeMaxLineLen = maxLineLen or 1 %}
+{% set safeNumberOfLines = numberOfLines or 1 %}
+
+{% set sizeByWidth = maxTextWidth / (safeMaxLineLen * approxCharWidth) %}
+{% set heightDenom = 1 + ((safeNumberOfLines - 1) * lineHeightFactor) %}
+{% set sizeByHeight = titleBoxHeight / heightDenom %}
+
 {% set titleFontSize = maxFontSize %}
 {% if sizeByWidth < titleFontSize %}{% set titleFontSize = sizeByWidth %}{%
   endif
@@ -77,15 +127,11 @@ eleventyExcludeFromCollections: true
   set titleBlockHeight = ((safeNumberOfLines - 1) * titleLineHeight) + titleFontSize
 %}
 
-{# Center the title block within the title box #}
 {%
   set titleStartY = titleBoxTop + ((titleBoxHeight - titleBlockHeight) / 2) + (titleFontSize * ascentFactor)
 %}
-
-{# Place the date above the title with a consistent gap #}
 {% set dateY = titleStartY - (titleFontSize * ascentFactor) - 40 %}
 
-{# Scale letter spacing so small fonts don’t look over-crunched #}
 {% set titleLetterSpacing = (-3 * (titleFontSize / maxFontSize)) %}
 
 <svg
@@ -122,7 +168,7 @@ eleventyExcludeFromCollections: true
     id="text"
     font-family="{{ fontDisplay }}, sans-serif"
     font-size="{{ titleFontSize }}"
-    font-weight="750"
+    font-weight="700"
     fill="{{ text }}"
     letter-spacing="{{ titleLetterSpacing | round(2) }}"
   >
