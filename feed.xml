@@ -4,12 +4,104 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-03-10T13:34:50Z</updated>
+  <updated>2026-03-12T17:18:40Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>Your Help Desk Is Now Part of the Attack Surface</title>
+      <link href="https://www.kylereddoch.me/blog/your-help-desk-is-now-part-of-the-attack-surface/" />
+      <updated>2026-03-12T17:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/your-help-desk-is-now-part-of-the-attack-surface/</id>
+      <content type="html">
+        &lt;figure slot=&quot;image&quot; class=&quot;text-center&quot;&gt;&lt;picture&gt;   &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/help-desk-attack-875w.webp 875w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;
+  &lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/help-desk-attack-875w.jpeg 875w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/help-desk-attack-875w.jpeg&quot; width=&quot;875&quot; height=&quot;583&quot; alt=&quot;Laptop displaying a remote support request beside a ringing smartphone on a desk with a notebook, pen, coffee mug, and mouse, illustrating help desk impersonation and social engineering risk&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;figcaption&gt;(Image generated using ChatGPT)&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;p&gt;A lot of security awareness advice still acts like phishing begins and ends in the inbox.&lt;/p&gt;
+&lt;p&gt;That is not the world we are working in anymore.&lt;/p&gt;
+&lt;p&gt;Lately, the attack path has looked a lot more like this: flood a user’s inbox with junk, call them while they are frustrated, message them in Microsoft Teams as “Help Desk,” walk them into a remote support session, steal credentials, and then use that foothold to move deeper into the environment. &lt;a href=&quot;https://www.microsoft.com/en-us/security/blog/2024/05/15/threat-actors-misusing-quick-assist-in-social-engineering-attacks-leading-to-ransomware/&quot; rel=&quot;noopener&quot;&gt;Microsoft documented this playbook with Storm-1811&lt;/a&gt;, and &lt;a href=&quot;https://www.sophos.com/en-us/blog/sophos-mdr-tracks-two-ransomware-campaigns-using-email-bombing-microsoft-teams-vishing&quot; rel=&quot;noopener&quot;&gt;Sophos later tracked similar campaigns using email bombing and Teams-based vishing&lt;/a&gt;. More recently, &lt;a href=&quot;https://www.okta.com/blog/threat-intelligence/phishing-kits-adapt-to-the-script-of-callers/&quot; rel=&quot;noopener&quot;&gt;Okta described phishing kits that are now being adapted specifically for live callers&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;That should get every MSP’s attention.&lt;/p&gt;
+&lt;h2 id=&quot;this-hits-msps-differently&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/your-help-desk-is-now-part-of-the-attack-surface/#this-hits-msps-differently&quot; class=&quot;heading-anchor&quot;&gt;This hits MSPs differently&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;In a normal internal IT environment, users already have some baseline sense of who “the help desk” is. In an MSP environment, that trust line gets fuzzier. Clients may talk to multiple technicians. They may get support over email, over the phone, through remote tools, through a vendor portal, or through Microsoft 365 itself. The workflow is legitimate, but it also creates exactly the kind of ambiguity an attacker loves.&lt;/p&gt;
+&lt;p&gt;That is the uncomfortable truth here: a lot of the behavior we train users to accept from legitimate support looks an awful lot like attacker tradecraft when viewed from the outside.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A popup.&lt;br&gt;
+A phone call.&lt;br&gt;
+A Teams message.&lt;br&gt;
+A request to join a remote session.&lt;br&gt;
+A prompt to approve MFA.&lt;br&gt;
+A link that looks like a sign-in page.&lt;br&gt;
+A technician asking the user to “help fix the issue quickly.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;That is not just a phishing problem. It is a trust-design problem.&lt;/p&gt;
+&lt;h2 id=&quot;the-industry-data-is-pointing-in-the-same-direction&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/your-help-desk-is-now-part-of-the-attack-surface/#the-industry-data-is-pointing-in-the-same-direction&quot; class=&quot;heading-anchor&quot;&gt;The industry data is pointing in the same direction&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The bigger trend underneath all of this is identity compromise.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.sophos.com/en-us/press/press-releases/sophos-active-adversary-report-2026-identity-attacks-dominate-as-threat-groups-proliferate&quot; rel=&quot;noopener&quot;&gt;Sophos’ 2026 Active Adversary Report&lt;/a&gt; says identity-rooted attacks continue to rise and that MFA was absent in 59% of the cases they analyzed. &lt;a href=&quot;https://www.verizon.com/about/news/2025-data-breach-investigations-report&quot; rel=&quot;noopener&quot;&gt;Verizon’s 2025 DBIR&lt;/a&gt; found that credential abuse and vulnerability exploitation remain leading initial access vectors, with third-party involvement doubling to 30%.&lt;/p&gt;
+&lt;p&gt;That third-party piece matters for MSPs. Clients do not just inherit our technical capability. They also inherit our operational risk. If our support process is messy, inconsistent, or overly trusting, we become part of the attack path.&lt;/p&gt;
+&lt;h2 id=&quot;why-i-think-this-matters-right-now&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/your-help-desk-is-now-part-of-the-attack-surface/#why-i-think-this-matters-right-now&quot; class=&quot;heading-anchor&quot;&gt;Why I think this matters right now&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I work in the MSP world, and one thing that stands out to me is how easy it is for teams to focus on the wrong layer of the problem.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We talk about spam filtering.&lt;br&gt;
+We talk about phishing emails.&lt;br&gt;
+We talk about endpoint alerts.&lt;br&gt;
+We talk about patching.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;All of that matters. None of it is optional. But the newer social engineering chains are built to move around those controls by exploiting people’s trust in support, urgency, and routine IT processes.&lt;/p&gt;
+&lt;p&gt;That is why this is not just a “train users better” conversation. This is a policy, process, and platform conversation.&lt;/p&gt;
+&lt;h2 id=&quot;what-msps-should-tighten-up-now&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/your-help-desk-is-now-part-of-the-attack-surface/#what-msps-should-tighten-up-now&quot; class=&quot;heading-anchor&quot;&gt;What MSPs should tighten up now&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;1-define-one-approved-remote-support-path&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/your-help-desk-is-now-part-of-the-attack-surface/#1-define-one-approved-remote-support-path&quot; class=&quot;heading-anchor&quot;&gt;1. Define one approved remote support path&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Clients should know exactly how your company initiates support.&lt;/p&gt;
+&lt;p&gt;If your process is “sometimes phone, sometimes email, sometimes Teams, sometimes text, sometimes a pop-up from a tool,” that is chaos with a logo on it.&lt;/p&gt;
+&lt;p&gt;Make it painfully clear:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;what tools you officially use&lt;/li&gt;
+&lt;li&gt;how a technician will identify themselves&lt;/li&gt;
+&lt;li&gt;whether you will ever ask a user to launch Quick Assist or another remote support tool&lt;/li&gt;
+&lt;li&gt;whether you will ever send sign-in links during a live support interaction&lt;/li&gt;
+&lt;li&gt;how a user can verify a request before proceeding&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Security gets stronger when legitimate behavior is boring and predictable.&lt;/p&gt;
+&lt;h3 id=&quot;2-treat-collaboration-tools-like-part-of-the-phishing-surface&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/your-help-desk-is-now-part-of-the-attack-surface/#2-treat-collaboration-tools-like-part-of-the-phishing-surface&quot; class=&quot;heading-anchor&quot;&gt;2. Treat collaboration tools like part of the phishing surface&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Too many organizations still think “phishing awareness” means email awareness.&lt;/p&gt;
+&lt;p&gt;It does not.&lt;/p&gt;
+&lt;p&gt;If you use Microsoft 365, Teams is part of your attack surface. &lt;a href=&quot;https://www.microsoft.com/en-us/security/blog/2024/05/15/threat-actors-misusing-quick-assist-in-social-engineering-attacks-leading-to-ransomware/&quot; rel=&quot;noopener&quot;&gt;Microsoft observed attackers using Teams to impersonate help desk staff&lt;/a&gt;, and &lt;a href=&quot;https://www.sophos.com/en-us/blog/sophos-mdr-tracks-two-ransomware-campaigns-using-email-bombing-microsoft-teams-vishing&quot; rel=&quot;noopener&quot;&gt;Sophos highlighted abuse of default configurations that allow external users to initiate chats or meetings&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Review your external access settings. Review who can initiate contact. Review what users are conditioned to trust.&lt;/p&gt;
+&lt;p&gt;Because attackers already are.&lt;/p&gt;
+&lt;h3 id=&quot;3-reevaluate-quick-assist-and-every-legit-rmm-tool&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/your-help-desk-is-now-part-of-the-attack-surface/#3-reevaluate-quick-assist-and-every-legit-rmm-tool&quot; class=&quot;heading-anchor&quot;&gt;3. Reevaluate Quick Assist and every “legit” RMM tool&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Attackers love legitimate tools because legitimate tools blend in.&lt;/p&gt;
+&lt;p&gt;That is why Quick Assist, remote monitoring utilities, admin tools, tunneling tools, and even common scripting behavior keep showing up in real intrusions. &lt;a href=&quot;https://www.microsoft.com/en-us/security/blog/2024/05/15/threat-actors-misusing-quick-assist-in-social-engineering-attacks-leading-to-ransomware/&quot; rel=&quot;noopener&quot;&gt;Microsoft explicitly recommended blocking or uninstalling Quick Assist if it is not needed&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;That does not mean every organization must rip it out tomorrow. It does mean you should stop treating default availability as a harmless convenience.&lt;/p&gt;
+&lt;p&gt;For each remote support tool in your stack, ask:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Is this approved?&lt;/li&gt;
+&lt;li&gt;Is it monitored?&lt;/li&gt;
+&lt;li&gt;Is it restricted?&lt;/li&gt;
+&lt;li&gt;Is there a documented use case?&lt;/li&gt;
+&lt;li&gt;Would a junior user know the difference between a legitimate session and a malicious one?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If the answer to the last question is “probably not,” you have work to do.&lt;/p&gt;
+&lt;h3 id=&quot;4-stop-pretending-basic-mfa-is-the-finish-line&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/your-help-desk-is-now-part-of-the-attack-surface/#4-stop-pretending-basic-mfa-is-the-finish-line&quot; class=&quot;heading-anchor&quot;&gt;4. Stop pretending basic MFA is the finish line&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;MFA is necessary. It is not magical.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mandatory-multifactor-authentication&quot; rel=&quot;noopener&quot;&gt;Microsoft has been pushing harder toward mandatory MFA for admin surfaces&lt;/a&gt;, and it has also recommended &lt;a href=&quot;https://www.microsoft.com/en-us/security/blog/2026/01/06/phishing-actors-exploit-complex-routing-and-misconfigurations-to-spoof-domains/&quot; rel=&quot;noopener&quot;&gt;phishing-resistant methods such as FIDO2 security keys, Windows Hello for Business, and passkeys&lt;/a&gt;. &lt;a href=&quot;https://www.cisa.gov/MFA&quot; rel=&quot;noopener&quot;&gt;CISA also notes that if phishing-resistant MFA is not available yet, number matching is a better fallback than weaker options&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The real question for MSPs is not “Do we have MFA?”&lt;br&gt;
+It is “Can our current MFA model be socially engineered in real time?”&lt;/p&gt;
+&lt;p&gt;That is a much more honest question, and it leads to better decisions.&lt;/p&gt;
+&lt;h3 id=&quot;5-train-users-to-verify-support-not-just-suspicious-email&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/your-help-desk-is-now-part-of-the-attack-surface/#5-train-users-to-verify-support-not-just-suspicious-email&quot; class=&quot;heading-anchor&quot;&gt;5. Train users to verify support, not just suspicious email&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;A mature security culture does not just teach users what to fear. It teaches them what to verify.&lt;/p&gt;
+&lt;p&gt;Users should know that it is acceptable, and expected, to challenge support requests. They should be allowed to hang up, call back using a known number, open a ticket through the approved portal, or escalate to a manager before granting access.&lt;/p&gt;
+&lt;p&gt;That should never be treated as inconvenience. That is exactly what good process looks like.&lt;/p&gt;
+&lt;h3 id=&quot;6-preserve-the-logs-that-tell-the-story&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/your-help-desk-is-now-part-of-the-attack-surface/#6-preserve-the-logs-that-tell-the-story&quot; class=&quot;heading-anchor&quot;&gt;6. Preserve the logs that tell the story&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;There is one more lesson hiding in all of this: if attackers are using legitimate channels and legitimate tools, your visibility matters even more.&lt;/p&gt;
+&lt;p&gt;When remote support tools, identity events, Teams interactions, endpoint behavior, and admin changes all start to blur together, logs are how you separate a rough Monday from an actual intrusion. If your environment does not retain the right telemetry, or if your logging strategy is inconsistent across clients, you make incident response much harder than it needs to be.&lt;/p&gt;
+&lt;p&gt;For MSPs, that is not an abstract best practice. That is the difference between quickly answering “what happened?” and spending a day guessing.&lt;/p&gt;
+&lt;h2 id=&quot;final-thought&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/your-help-desk-is-now-part-of-the-attack-surface/#final-thought&quot; class=&quot;heading-anchor&quot;&gt;Final thought&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I do not think the biggest lesson here is that attackers are getting clever. They always do. The bigger lesson is that support itself has become part of the threat model.&lt;/p&gt;
+&lt;p&gt;That means MSP security cannot just live in the firewall, the EDR console, or the spam filter. It has to live in the script your technician follows, the remote support tool you allow, the MFA method you enforce, the Teams policy you leave enabled, and the confidence a user has to question a request that feels wrong.&lt;/p&gt;
+&lt;p&gt;The weird little goblin truth of modern defense is this: sometimes the safest thing a user can do is be a little rude to “IT.”&lt;/p&gt;
+&lt;p&gt;In 2026, that might be one of the healthiest security habits we can teach.&lt;/p&gt;
+
+      </content>
+    </entry><entry>
       <title>F1 Returns, Lego Additions, and a Rough Reflux Week (Week 10, 2026)</title>
       <link href="https://www.kylereddoch.me/blog/f1-returns-lego-additions-and-a-rough-reflux-week-week-10-2026/" />
       <updated>2026-03-10T21:30:00Z</updated>
