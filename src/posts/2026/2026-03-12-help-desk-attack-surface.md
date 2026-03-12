@@ -3,7 +3,7 @@ date: 2026-03-12T12:00:00-05:00
 title: 'Your Help Desk Is Now Part of the Attack Surface'
 description: "Why MSPs need to treat help desk trust, remote support tools, and identity controls as one security problem."
 tags: [cybersecurity, MSP, social-engineering, identity-security]
-mastodon_url: 
+mastodon_url: https://infosec.exchange/@cyberseckyle/116217379988106467
 ---
 
 {% image "/assets/images/help-desk-attack.png", "Laptop displaying a remote support request beside a ringing smartphone on a desk with a notebook, pen, coffee mug, and mouse, illustrating help desk impersonation and social engineering risk", "(Image generated using ChatGPT)", "eager", "text-center", "!important", [875], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
