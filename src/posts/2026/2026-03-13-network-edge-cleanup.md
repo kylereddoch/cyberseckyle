@@ -3,7 +3,7 @@ date: 2026-03-13T11:30:00-05:00
 title: The Network Edge Cleanup Most Teams Cannot Keep Putting Off
 description: Unsupported firewalls, routers, VPN appliances, and SD-WAN systems are becoming an avoidable risk. Here is a practical edge security cleanup plan for IT teams, MSPs, and small organizations in 2026.
 tags: [cybersecurity, networking, network-security, MSP, patch-management]
-mastodon_url: 
+mastodon_url: https://infosec.exchange/@cyberseckyle/116222996121076861
 ---
 
 {% image "/assets/images/network_edge_devices_dusty.png", "Close-up of aging network edge equipment in a dim server room, showing dusty firewall and router appliances with connected Ethernet cables and warning lights", "Old network edge devices often stay in place far longer than they should, creating technical debt and unnecessary security risk", "eager", "text-center", "!important", [875], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
