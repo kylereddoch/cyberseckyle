@@ -1,7 +1,7 @@
 export default {
   top: [
     {
-      text: 'About',
+      text: 'About Me',
       url: '/about/'
     },
     {
@@ -13,10 +13,6 @@ export default {
       url: '/tags/cybersecurity/'
     },
     {
-      text: 'Slashes',
-      url: '/slashes/'
-    },
-    {
       text: '/Now',
       url: '/now/'
     },
@@ -26,6 +22,10 @@ export default {
     }
   ],
   bottom: [
+    {
+      text: 'Slashes',
+      url: '/slashes/'
+    },
     {
       text: 'Guestbook',
       url: '/guestbook/'
