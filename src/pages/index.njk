@@ -1,16 +1,22 @@
 ---
 layout: index
 permalink: /index.html
-title: 'Beep...Boop...'
+title: "Beep...Boop..."
 blog:
-  title: 'Blog'
+  title: "Blog"
   intro: "Here are the 6 most recent posts. There's probably more though..."
+
 ---
 
 <div class="wrapper">
-  <header class="full | section" style="--spot-color: var(--color-lavender)">
+  <header class="full | section" style="--spot-color: var(--color-primary)">
     <div class="section__inner flow region">
-      <h1 class="text-center" style="color: var(--color-bg);  font-size: var(--size-step-6) !important;">{{ title }}</h1>
+      <h1
+        class="text-center"
+        style="color: var(--color-bg);  font-size: var(--size-step-6) !important;"
+      >
+        {{ title }}
+      </h1>
     </div>
     {% svg "divider/pixels", null, "divider" %}
   </header>
@@ -18,28 +24,28 @@ blog:
   <article class="full | region">
     <div class="wrapper flow">
       <h2 id="an-eleventy-starter">I'm Kyle! (aka CybersecKyle)</h2>
-      <p>I'm an IT professional working in the MSP/Cybersecurity industry. I love everything tech. You can check out more about me <a href="https://profile.kylereddoch.me">here</a> or read my blog posts below. I blog about cybersecurity, technology trends, and best practices in IT. I even share the occasional tech review every now and then.</p>
-{% highlight "bash" %}
-$ hostname
-cyberseckyle.local
-
-$ cat about-$(hostname).config
-description = "Cybersecurity analyst and MSP operator focused on securing modern infrastructure. Lover of all things tech and coffee."
-focus_areas = ["Endpoint Hardening", "Network Security", "Threat Intelligence", "Cloud Security"]
-tech_stack = ["PowerShell", "Python", "Linux", "SonicWall", "Kaseya", "EDR/XDR", "SIEM"]
-
-$ diagnostics --run full
-> Scanning system configs... ✅
-> Verifying patch compliance... ✅
-> Reviewing firewall rules... ⚠️  minor gaps found
-> Checking audit logs... ✅
-> Correlating threat intel... ✅
-
-Report saved to /opt/kyle/intel/summary-{{ helpers.buildTimeFile() }}.log
-
-$ buildtime
-{{ helpers.buildTimeHuman() }}
-{% endhighlight %}
+      <p>
+        I'm an IT professional working in the MSP/Cybersecurity industry. I love
+        everything tech. You can check out more about me <a
+          href="https://profile.kylereddoch.me"
+        >here</a> or read my blog posts below. I blog about cybersecurity,
+        technology trends, and best practices in IT. I even share the occasional
+        tech review every now and then.
+      </p>
+      {% highlight "bash" %}
+      $ hostname cyberseckyle.local $ cat about-$(hostname).config description =
+      "Cybersecurity analyst and MSP operator focused on securing modern
+      infrastructure. Lover of all things tech and coffee." focus_areas =
+      ["Endpoint Hardening", "Network Security", "Threat Intelligence", "Cloud
+      Security"] tech_stack = ["PowerShell", "Python", "Linux", "SonicWall",
+      "Kaseya", "EDR/XDR", "SIEM"] $ diagnostics --run full > Scanning system
+      configs... ✅ > Verifying patch compliance... ✅ > Reviewing firewall
+      rules... ⚠️ minor gaps found > Checking audit logs... ✅ > Correlating
+      threat intel... ✅ Report saved to /opt/kyle/intel/summary-{{
+        helpers.buildTimeFile()
+      }}.log $ buildtime
+      {{ helpers.buildTimeHuman() }}
+      {% endhighlight %}
     </div>
   </article>
 
@@ -49,20 +55,22 @@ $ buildtime
       {% if blog.intro %}
         <p>{{ blog.intro }}</p>
       {% endif %}
-      <div class="feature |  region region-space-l">
+      <div class="feature | region region-space-l">
         <custom-masonry layout="50-50">
           {% set itemList = collections.allPosts %}
-					{% asyncEach item in itemList.slice(0, 6) %}
-            {% set headingLevel = "h3" %}
-						{% include "partials/card-blog.njk" %}
-					{% endeach %}
+          {% asyncEach item in itemList.slice(0, 6) %}
+          {% set headingLevel = "h3" %}
+          {% include "partials/card-blog.njk" %}
+          {% endeach %}
         </custom-masonry>
       </div>
     </div>
 
     <div class="wrapper flow mt-l-xl">
-      <p style="text-align: center;"><a href="/blog/" class="button" data-button-variant="tertiary">View more posts</a></p>
-  </div>
+      <p style="text-align: center;">
+        <a href="/blog/" class="button" data-button-variant="primary"
+        >View more posts</a>
+      </p>
+    </div>
   </section>
-    
 </div>
