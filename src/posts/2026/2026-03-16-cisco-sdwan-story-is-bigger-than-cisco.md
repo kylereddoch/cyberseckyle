@@ -3,7 +3,7 @@ date: 2026-03-16T15:30:00-05:00
 title: 'The Cisco SD-WAN Story Is Bigger Than Cisco'
 description: "Why the recent exploitation of Cisco SD-WAN systems matters, what it says about trust in the management plane, and how organizations should recover and harden from here."
 tags: [cybersecurity, infosec, networking, incident-response]
-mastodon_url:
+mastodon_url: https://infosec.exchange/@cyberseckyle/116241082181270123
 ---
 
 {% image "/assets/images/server-room.png", "Clean server room aisle lined with tall network racks glowing blue and green, with a large screen at the far end displaying a subtle network topology map", null, "eager", "text-center", "!important", [875], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
