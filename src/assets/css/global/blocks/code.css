@@ -25,6 +25,16 @@ pre[class*='language-'] {
   hyphens: none;
 }
 
+/* Wrap terminal/shell blocks instead of forcing horizontal scroll */
+pre[class*='language-bash'],
+pre[class*='language-shell'],
+pre[class*='language-sh'] {
+  white-space: pre-wrap;
+  overflow-x: hidden;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 blockquote code {
   color: var(--color-code-indigo);
 }
@@ -32,9 +42,10 @@ blockquote code {
 /* Specific Styles for <pre> Elements */
 pre {
   grid-column: popout !important;
-  overflow-x: auto;
+  overflow-x: hidden;
   padding: var(--space-s) var(--space-l);
   color: var(--color-text);
+  line-height: 1.6;
 }
 
 /* Style Adjustments for <code> within different contexts */
@@ -49,8 +60,6 @@ pre[class*='language-'] {
   overflow: auto;
   position: relative;
 }
-
-
 
 [class*='language-'] .namespace {
   opacity: 0.7;
@@ -240,16 +249,16 @@ pre[class*='language-'] {
 h1 code,
 h2 code,
 h3 code,
-h4,
+h4 code,
 h5 code {
   font-size: inherit;
-  /* use h1/h2/h3/h4 size */
+  /* use h1/h2/h3/h4/h5 size */
 }
 
 h1 pre,
 h2 pre,
 h3 pre,
-h4,
+h4 pre,
 h5 pre {
   font-size: inherit;
 }
