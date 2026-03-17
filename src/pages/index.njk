@@ -32,20 +32,27 @@ blog:
         technology trends, and best practices in IT. I even share the occasional
         tech review every now and then.
       </p>
-      {% highlight "bash" %}
-      $ hostname cyberseckyle.local $ cat about-$(hostname).config description =
-      "Cybersecurity analyst and MSP operator focused on securing modern
-      infrastructure. Lover of all things tech and coffee." focus_areas =
-      ["Endpoint Hardening", "Network Security", "Threat Intelligence", "Cloud
-      Security"] tech_stack = ["PowerShell", "Python", "Linux", "SonicWall",
-      "Kaseya", "EDR/XDR", "SIEM"] $ diagnostics --run full > Scanning system
-      configs... ✅ > Verifying patch compliance... ✅ > Reviewing firewall
-      rules... ⚠️ minor gaps found > Checking audit logs... ✅ > Correlating
-      threat intel... ✅ Report saved to /opt/kyle/intel/summary-{{
-        helpers.buildTimeFile()
-      }}.log $ buildtime
-      {{ helpers.buildTimeHuman() }}
-      {% endhighlight %}
+      <!-- prettier-ignore -->
+{% highlight "bash" %}
+$ hostname
+cyberseckyle.local
+
+$ cat about-$(hostname).config
+description="Cybersecurity analyst and MSP operator focused on securing modern infrastructure. Lover of all things tech and coffee."
+focus_areas=["Endpoint Hardening", "Network Security", "Threat Intelligence", "Cloud Security"]
+tech_stack=["PowerShell", "Python", "Linux", "SonicWall", "Kaseya", "EDR/XDR", "SIEM"]
+
+$ diagnostics --run full
+> Scanning system configs... [OK]
+> Verifying patch compliance... [OK]
+> Reviewing firewall rules... [WARN] minor gaps found
+> Checking audit logs... [OK]
+> Correlating threat intel... [OK]
+> Report saved to /opt/kyle/intel/summary-{{ helpers.buildTimeFile() }}.log
+
+$ buildtime
+{{ helpers.buildTimeHuman() }}
+{% endhighlight %}
     </div>
   </article>
 
