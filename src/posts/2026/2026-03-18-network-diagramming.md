@@ -3,7 +3,7 @@ date: 2026-03-18T15:00:00-05:00
 title: Network diagrams are boring until you need one
 description: A practical, personal look at why network diagramming matters, how I build useful diagrams, and which free and paid tools are worth considering.
 tags: [networking, documentation, diagrams, sysadmin, IT, MSP]
-mastodon_url: 
+mastodon_url: https://infosec.exchange/@cyberseckyle/116252242345990175
 ---
 
 {% image "/assets/images/network-diagram-drawing.png", "A warm workspace scene with a notebook open to a hand-drawn network diagram on a wooden desk, with a pen, laptop, coffee mug, and glasses nearby", null, "eager", "text-center", "!important", [875], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
