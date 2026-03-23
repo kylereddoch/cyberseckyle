@@ -4,12 +4,39 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-03-18T21:18:12Z</updated>
+  <updated>2026-03-23T21:05:14Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>New Glasses, New Network, Final Stretch (Week 12, 2026)</title>
+      <link href="https://www.kylereddoch.me/blog/new-glasses-new-network-final-stretch-week-12-2026/" />
+      <updated>2026-03-23T21:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/new-glasses-new-network-final-stretch-week-12-2026/</id>
+      <content type="html">
+        &lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-1536w.webp 1536w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
+&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-1536w.jpeg 1536w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-1536w.jpeg&quot; width=&quot;1536&quot; height=&quot;1024&quot; alt=&quot;Cozy desk scene with an open handwritten notebook, a fountain pen, and a warm cup of coffee beside a lit candle on a rustic wooden table.&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;h2 id=&quot;the-vibe&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/new-glasses-new-network-final-stretch-week-12-2026/#the-vibe&quot; class=&quot;heading-anchor&quot;&gt;The vibe&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Life maintenance and finish-line energy.&lt;/p&gt;
+&lt;h2 id=&quot;highlights&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/new-glasses-new-network-final-stretch-week-12-2026/#highlights&quot; class=&quot;heading-anchor&quot;&gt;Highlights&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;My final class of my BSIT degree started on Tuesday. I am so glad that I am finally at the end of this journey! It has been a long road and frankly here towards the end, it has been a bit of a slog. I am looking forward to being done and moving on to the next chapter.&lt;/li&gt;
+&lt;li&gt;Last week was a bit of an anxious one. I had some days where my anxiety was pretty high and it was hard to focus.&lt;/li&gt;
+&lt;li&gt;I took Friday off of work because we had some errands we have been needing to run with my daughter and some other things to do. We were gone pretty much the entire day. I was wore out by the end of it.&lt;/li&gt;
+&lt;li&gt;I went and got new glasses. I decided to get glasses with my insurance benefits as contacts are making my eyes feel heavy. I will buy a small supply of contacts though. I am waiting for my glasses to come in though because of my prescription.&lt;/li&gt;
+&lt;li&gt;I bought some Pistachio ice cream for the first time. I have to say, it is pretty good. My good friend recommended I try it and I am glad I did. Hey, I like Pistachios and I like ice cream, why not this? I will definitely be buying it again.&lt;/li&gt;
+&lt;li&gt;I finally got around to reworking my home network. 😣 This was a chore! I got new equipment; router, extenders, etc. and also decided to change my SSID name. After that, I had to re-add all my devices; tvs, computers, phones, all lmy smarthome devices. This took a couple of days to complete.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;worth-sharing&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/new-glasses-new-network-final-stretch-week-12-2026/#worth-sharing&quot; class=&quot;heading-anchor&quot;&gt;Worth sharing&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;This &lt;a href=&quot;https://www.macrumors.com/2026/03/17/spigen-airpods-pro-3-case/&quot; rel=&quot;noopener&quot;&gt;Airpod Pro 3 case&lt;/a&gt; from Spigen is a Mac lovers dream!&lt;/li&gt;
+&lt;li&gt;A good network diagram is boring until you need one. I wrote a more personal &lt;a href=&quot;https://www.kylereddoch.me/blog/network-diagrams-are-boring-until-you-need-one/&quot;&gt;post on how I think about network diagramming&lt;/a&gt;, why it matters, and the tools I would actually recommend depending on whether you want free, collaborative, or discovery-driven.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;✌️ That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
+
+      </content>
+    </entry><entry>
       <title>Network diagrams are boring until you need one</title>
       <link href="https://www.kylereddoch.me/blog/network-diagrams-are-boring-until-you-need-one/" />
       <updated>2026-03-18T20:00:00Z</updated>
