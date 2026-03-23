@@ -13,15 +13,15 @@ export default {
       url: '/tags/cybersecurity/'
     },
     {
-      text: '/Now',
-      url: '/now/'
-    },
-    {
       text: 'Weekly Notes',
       url: '/tags/weeklynotes/'
     }
   ],
   bottom: [
+    {
+      text: '/Now',
+      url: '/now/'
+    },
     {
       text: 'Slashes',
       url: '/slashes/'
