@@ -3,7 +3,7 @@ date: 2026-03-24T09:30:00-05:00
 title: 'As a Cybersecurity Professional, I Think Proton’s Born Private Campaign is a Smart Move'
 description: "Proton’s new Born Private campaign is a strong reminder that a child’s digital life should begin with privacy, not profiling."
 tags: [privacy, proton, cybersecurity, email, digital-safety]
-mastodon_url: 
+mastodon_url: https://infosec.exchange/@cyberseckyle/116284721292585908
 ---
 
 {% image "/assets/images/proton/born_private_1.jpg", "Promotional image for Proton Mail’s Born Private campaign showing a small child seated on the floor indoors, pulling a purple scarf over their face beside the text 'Private Email for the next generation'.", null, "eager", "text-center", "!important", [875], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
