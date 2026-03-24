@@ -3,7 +3,7 @@ date: 2026-03-24T11:00:00-05:00
 title: 'The FCC’s Router Crackdown Shouldn’t Surprise Anyone in Cybersecurity'
 description: "The FCC’s latest router crackdown did not come out of nowhere. Consumer Wi-Fi routers have long been a privacy and cybersecurity risk."
 tags: [cybersecurity, privacy, networking, network-security]
-mastodon_url: 
+mastodon_url: https://infosec.exchange/@cyberseckyle/116285107638412217
 ---
 
 {% image "/assets/images/network_security.png", "Black Wi-Fi router on a wooden table with glowing security icons and network lines floating above it, symbolizing consumer router security and privacy risks.", null, "eager", "text-center", "!important", [875], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
