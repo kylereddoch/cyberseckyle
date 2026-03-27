@@ -3,7 +3,7 @@ date: 2026-03-27T10:30:00-05:00
 title: Why Trakt Is Still My Home Base for Movies and TV
 description: I have accounts on Letterboxd, Serializd, and Simkl too, but years of history, one place for movies and TV, and an ecosystem that fits how I actually watch still keep pulling me back to Trakt.
 tags: [editorials, streaming, personal, life]
-mastodon_url:
+mastodon_url: https://infosec.exchange/@cyberseckyle/116302007207725710
 ---
 
 {% image "/assets/images/streaming-unsplash.jpg", "Smartphone, tablet, and TV on a desk in a neon-lit room, with streaming apps displayed on the television and a remote in hand.", "Photo by Jakub Żerdzicki on Unsplash", "eager", "text-center", "!important", [875], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
