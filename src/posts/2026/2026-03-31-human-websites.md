@@ -3,7 +3,7 @@ date: 2026-03-31T14:00:00-05:00
 title: 'I Believe in Human Websites. I Still Care About Polish'
 description: "Reading Joel’s post on unpolished human websites made me think about the tension between keeping a site personal and still wanting it to be clear, readable, and discoverable."
 tags: [blogging, personal, indieweb]
-mastodon_url:
+mastodon_url: https://infosec.exchange/@cyberseckyle/116325479515300689
 ---
 
 ## The tension I keep coming back to
