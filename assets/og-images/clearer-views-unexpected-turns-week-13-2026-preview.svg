@@ -35,9 +35,6 @@
 
   
   
-
-  
-  
     
   
 
@@ -74,9 +71,6 @@
   
   
     
-  
-
-  
   
 
   
@@ -133,8 +127,8 @@
     fill="#1e1e2e"
     letter-spacing="-1"
   >
-    <tspan x="160" y="151.6">
-      03 / 23 / 2026
+    <tspan x="160" y="194.39999999999995">
+      03 / 31 / 2026
     </tspan>
   </text>
 
@@ -148,20 +142,16 @@
     letter-spacing="-3"
   >
     
-      <tspan x="160" y="254">
-        New Glasses, New
+      <tspan x="160" y="296.79999999999995">
+        Clearer Views,
       </tspan>
     
-      <tspan x="160" y="339.6">
-        Network, Final
+      <tspan x="160" y="382.4">
+        Unexpected Turns
       </tspan>
     
-      <tspan x="160" y="425.20000000000005">
-        Stretch (Week 12,
-      </tspan>
-    
-      <tspan x="160" y="510.8">
-        2026)
+      <tspan x="160" y="468">
+        (Week 13, 2026)
       </tspan>
     
   </text>
