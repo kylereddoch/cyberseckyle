@@ -8,7 +8,7 @@ mastodon_url:
 
 ## The tension I keep coming back to
 
-I recently read Joel Chrono’s post, [“Unpolished human websites”](https://joelchrono.xyz/blog/unpolished-human-websites/), and it hit on something I think a lot of us who care about the independent web have felt for a while now.
+I recently read Joel's post, [“Unpolished human websites”](https://joelchrono.xyz/blog/unpolished-human-websites/), and it hit on something I think a lot of us who care about the independent web have felt for a while now.
 
 **He is not wrong.**
 
