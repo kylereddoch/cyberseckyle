@@ -2,7 +2,7 @@
 date: 2025-02-03
 title: 'Blog Questions Challenge: Technology Edition'
 description: "Taking on the Blog Questions Challenge: Technology Edition—sharing my journey through tech, from past favorites to future innovations!"
-tags: [challenges, blogging, tech, personal]
+tags: [challenges, blogging, tech, personal, indieweb]
 mastodon_url: https://infosec.exchange/@beardedtechguy/113940895607526855
 ---
 
@@ -20,7 +20,7 @@ Reflecting on the technological advancements over the years, the **[Palm Treo](h
 
 Currently, I'm particularly impressed by **e-ink displays and e-readers**, like the [Kindle Scribe](https://www.amazon.com/kindle-scribe) and the [Remarkable tablet](https://remarkable.com/). The ability to mimic the feel of paper while providing digital convenience has transformed reading and note-taking. Unlike traditional screens, e-ink displays are easier on the eyes, energy-efficient, and offer an immersive reading experience without distractions. Whether it’s for reading books, annotating documents, or taking handwritten notes, this technology continues to evolve in exciting ways.
 
-### Name One New Cool Piece Of Technology We’ll Have In 25 Years!
+### Name One New Cool Piece Of Technology We’ll Have In 25 Years
 
 Looking ahead 25 years, I envision the emergence of fully immersive virtual reality (VR) environments that seamlessly integrate with our daily lives. The foundations of this transformation were laid by [Meta](https://about.fb.com/realitylabs/) with their investment in VR through the Oculus line, but now, [Apple](https://www.apple.com/apple-vision-pro/) is spearheading innovation with the **Apple Vision Pro**. This marks a shift toward mixed-reality experiences that blend digital content with the physical world. In the future, I see VR evolving beyond entertainment into virtual workspaces, immersive education, and even fully digital urban landscapes where people can interact in ways that feel as natural as in-person meetings. The fusion of VR with advancements in haptic feedback, artificial intelligence, and ultra-high-resolution displays will redefine how we engage with technology in our everyday lives.
 

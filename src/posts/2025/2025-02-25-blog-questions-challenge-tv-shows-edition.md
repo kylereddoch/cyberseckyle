@@ -2,7 +2,7 @@
 date: 2025-02-25
 title: 'Blog Questions Challenge – TV Shows Edition'
 description: "In this Blog Questions Challenge, I share which TV character I’d love as a best friend, the series I wish I could binge-watch for the first time again, and the show that taught me valuable life lessons."
-Tags: [challenges, blogging, personal]
+Tags: [challenges, blogging, personal, indieweb]
 mastodon_url: https://infosec.exchange/@beardedtechguy/114065683540823558
 ---
 
@@ -30,7 +30,7 @@ One of the best things about The Big Bang Theory is its balance of humor and cha
 
 Plus, the show is packed with so many clever jokes and pop culture references that rewatching it for the first time would allow me to rediscover all those little details that made it so great. There’s something special about watching a show that makes you laugh out loud, feel for the characters, and escape into a world of friendship and nerdy fun. If I could have that first-time experience again, I absolutely would.
 
-## 3. Name A TV Show That Changed Your Perspective On The World Or Taught You Something Valuable.
+## 3. Name A TV Show That Changed Your Perspective On The World Or Taught You Something Valuable
 
 For me, the TV show that left the biggest impact on my perspective was [This Is Us](https://www.imdb.com/title/tt5555260/). More than just a drama, this series is a deeply moving exploration of life, love, loss, and the invisible threads that connect us all.
 

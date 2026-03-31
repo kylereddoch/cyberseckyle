@@ -2,7 +2,7 @@
 date: 2025-02-06
 title: 'Blog Questions Challenge: Music Edition'
 description: "Dive into the Blog Questions Challenge: Music Edition! Discover my favorite albums, songs, and music tastes, plus how they’ve evolved over time. Join the fun!"
-tags: [challenges, personal, music]
+tags: [challenges, personal, music, indieweb]
 mastodon_url: https://infosec.exchange/@beardedtechguy/113958954114790475
 ---
 
@@ -58,7 +58,7 @@ I discover new music pretty frequently. Usually, it is from my kids, TV shows I 
 
 Okay, WOW, this is going to be a difficult one to answer. I have come across so many great songs throughout my life. Being able to narrow it down to just one favorite? That’s downright dastardly…
 
-Okay, for the sake of this post, I guess I will have to go with the following; 
+Okay, for the sake of this post, I guess I will have to go with the following;
 
 - **Zombie** - The Cranberries
 

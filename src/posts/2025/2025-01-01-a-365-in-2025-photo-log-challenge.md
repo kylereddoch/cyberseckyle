@@ -2,7 +2,7 @@
 date: 2025-01-01
 title: 'A 365 in 2025 Photo Log Challenge'
 description: "Bringing in 2025 with a photo challenge of posting a photo each day on the Fediverse."
-tags: [photography, 365in25, challenges, personal]
+tags: [photography, 365in25, challenges, personal, indieweb]
 ---
 
 As we bring in a new year and say goodbye to yet another one, I thought it would be nice to do a challenge. I haven't been good at these in the past though. A friend of The AllthingsTech.social community and on Mastodon, [Andrew Melder](https://melder.social/@andrew), created this photo challenge so I am hoping I can get some help to complete it.

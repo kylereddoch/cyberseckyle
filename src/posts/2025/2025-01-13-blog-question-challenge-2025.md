@@ -2,7 +2,7 @@
 date: 2025-01-13
 title: 'Blog Question Challenge 2025'
 description: "I've been tagged in the Blog Question Challenge 2025 so here are my answers to the questions. Enjoy!"
-tags: [personal, blogging, challenges]
+tags: [personal, blogging, challenges, indieweb]
 mastodon_url: https://infosec.exchange/@beardedtechguy/113823565321288718
 ---
 
