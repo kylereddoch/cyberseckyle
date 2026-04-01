@@ -3,7 +3,7 @@ date: 2026-04-01T10:00:00-05:00
 title: The Biggest Cybersecurity Risk for SMBs Still Isn’t the Fancy Stuff
 description: The latest Cyber Protect Report from SonicWall makes a strong case that most small business security failures still come down to weak fundamentals, false confidence, and poor execution rather than flashy advanced threats.
 tags: [cybersecurity, MSP, risk-management, security-operations]
-mastodon_url: 
+mastodon_url: https://infosec.exchange/@cyberseckyle/116330250848247432
 ---
 
 I spent some time reading the [2026 Cyber Protect Report](https://www.sonicwall.com/resources/white-papers/sonicwall-2026-cyber-protect-report), and the biggest thing that stuck with me was not AI, nation-state actors, or some brand-new attack technique.
