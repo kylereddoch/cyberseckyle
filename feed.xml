@@ -4,12 +4,82 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-03-31T19:43:47Z</updated>
+  <updated>2026-04-01T15:16:55Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>The Biggest Cybersecurity Risk for SMBs Still Isn’t the Fancy Stuff</title>
+      <link href="https://www.kylereddoch.me/blog/the-biggest-cybersecurity-risk-for-smbs-still-isnt-the-fancy-stuff/" />
+      <updated>2026-04-01T15:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/the-biggest-cybersecurity-risk-for-smbs-still-isnt-the-fancy-stuff/</id>
+      <content type="html">
+        &lt;p&gt;I spent some time reading the &lt;a href=&quot;https://www.sonicwall.com/resources/white-papers/sonicwall-2026-cyber-protect-report&quot; rel=&quot;noopener&quot;&gt;2026 Cyber Protect Report&lt;/a&gt;, and the biggest thing that stuck with me was not AI, nation-state actors, or some brand-new attack technique.&lt;/p&gt;
+&lt;p&gt;It was the reminder that most organizations are still getting burned by the same old problems.&lt;/p&gt;
+&lt;p&gt;Weak authentication. Slow patching. Overprivileged accounts. Flat access. Alerts nobody reviews. Tools nobody fully configures. That is not as flashy as talking about the latest advanced threat, but it is a lot closer to what actually causes damage in the real world.&lt;/p&gt;
+&lt;p&gt;From where I sit, that feels pretty accurate.&lt;/p&gt;
+&lt;p&gt;A lot of cybersecurity conversations drift toward the dramatic. Everyone wants to talk about the newest attack trend, the newest platform, or the newest buzzword. Meanwhile, many small and mid-sized businesses are still one bad password, one exposed VPN account, or one missed patch away from a very bad week. That is not meant to sound dismissive. It is meant to be honest.&lt;/p&gt;
+&lt;p&gt;One of the report’s strongest points is that &lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-5-scam-spotting-the-60-second-pause-protocol/&quot;&gt;attackers are getting more precise&lt;/a&gt;, not just noisier. The volume story matters less than the quality story. If the serious attacks are getting sharper, defenders have less room for error. That matters a lot for smaller organizations that do not have a full security team sitting around waiting for the next alert.&lt;/p&gt;
+&lt;p&gt;That part especially resonated with me because it matches what many of us in IT and managed services already know: a breach does not always begin with some wildly sophisticated chain of events. A lot of the time, it starts with a &lt;a href=&quot;https://www.kylereddoch.me/blog/your-help-desk-is-now-part-of-the-attack-surface/&quot;&gt;basic control that was never fully enforced&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;That is why I think the report gets it right when it centers the conversation on fundamentals.&lt;/p&gt;
+&lt;h2 id=&quot;the-basics-are-still-doing-most-of-the-heavy-lifting&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-biggest-cybersecurity-risk-for-smbs-still-isnt-the-fancy-stuff/#the-basics-are-still-doing-most-of-the-heavy-lifting&quot; class=&quot;heading-anchor&quot;&gt;The basics are still doing most of the heavy lifting&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;One of the more sobering takeaways in the report is how much of today’s real-world risk still comes back to identity, cloud, and credential issues. That should not be surprising by now, but it still feels like too many environments are built around the assumption that if the perimeter looks decent, everything behind it is probably fine.&lt;/p&gt;
+&lt;p&gt;It usually is not.&lt;/p&gt;
+&lt;p&gt;If multi-factor authentication is inconsistent, privileged accounts are too broad, stale access never gets cleaned up, and critical systems are not getting patched quickly enough, the attacker does not need a miracle. They just need one opening.&lt;/p&gt;
+&lt;p&gt;That is one reason I keep coming back to a boring but important point: good security is often repetitive. It is not glamorous work. It is &lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/&quot;&gt;enforcing MFA&lt;/a&gt; everywhere it belongs. It is auditing admin rights. It is removing accounts that no longer need to exist. It is changing default credentials. It is tightening remote access. It is testing backups instead of assuming they work.&lt;/p&gt;
+&lt;p&gt;None of that makes for exciting marketing. All of it matters.&lt;/p&gt;
+&lt;h2 id=&quot;false-confidence-is-one-of-the-most-dangerous-security-gaps&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-biggest-cybersecurity-risk-for-smbs-still-isnt-the-fancy-stuff/#false-confidence-is-one-of-the-most-dangerous-security-gaps&quot; class=&quot;heading-anchor&quot;&gt;False confidence is one of the most dangerous security gaps&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Another section of the report that stood out to me was its focus on false confidence.&lt;/p&gt;
+&lt;p&gt;That is such a real problem.&lt;/p&gt;
+&lt;p&gt;Organizations buy tools, run annual awareness training, check the compliance box, and assume that means the environment is secure. Leadership sees dashboards, reports, and subscriptions in place and naturally feels better. The trouble is that confidence and capability are not the same thing.&lt;/p&gt;
+&lt;p&gt;A security control that has never been tested under pressure is still mostly a theory.&lt;/p&gt;
+&lt;p&gt;Backups that have not been restored recently are not reassuring to me. They are a question mark. Logging that is enabled but not actively reviewed is not a strategy. It is a storage decision. An incident response plan that has never been exercised is paperwork until proven otherwise.&lt;/p&gt;
+&lt;p&gt;That may sound harsh, but I think it is one of the healthier mindsets a business can adopt. The goal should not be to feel secure. The goal should be to verify that the security controls you believe in actually work the way you think they do. IBM’s &lt;a href=&quot;https://www.ibm.com/reports/data-breach&quot; rel=&quot;noopener&quot;&gt;Cost of a Data Breach Report 2025&lt;/a&gt; is a good companion read there, especially around detection, containment, and breach impact.&lt;/p&gt;
+&lt;p&gt;That difference is huge.&lt;/p&gt;
+&lt;h2 id=&quot;smbs-are-not-too-small-to-matter&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-biggest-cybersecurity-risk-for-smbs-still-isnt-the-fancy-stuff/#smbs-are-not-too-small-to-matter&quot; class=&quot;heading-anchor&quot;&gt;SMBs are not too small to matter&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This is one of the points I wish more business owners would take seriously. The old “we’re too small to be a target” mindset has been wrong for a long time. Reports like Verizon’s &lt;a href=&quot;https://www.verizon.com/business/resources/reports/dbir/&quot; rel=&quot;noopener&quot;&gt;2025 Data Breach Investigations Report&lt;/a&gt; keep reinforcing that attackers care far more about access and opportunity than they do about how impressive your company looks from the outside.&lt;/p&gt;
+&lt;p&gt;That is part of why SMB risk feels so practical to me. Smaller organizations usually have leaner teams, more shared access, more deferred maintenance, and less time to revisit old decisions. Those are the kinds of conditions attackers love.&lt;/p&gt;
+&lt;h2 id=&quot;access-is-still-way-too-broad-in-too-many-environments&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-biggest-cybersecurity-risk-for-smbs-still-isnt-the-fancy-stuff/#access-is-still-way-too-broad-in-too-many-environments&quot; class=&quot;heading-anchor&quot;&gt;Access is still way too broad in too many environments&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The report also spends a lot of time on overexposed access and legacy access models, and I think that is another area where a lot of small businesses are still carrying more risk than they realize.&lt;/p&gt;
+&lt;p&gt;Too many environments are built on convenience first.&lt;/p&gt;
+&lt;p&gt;A VPN gets set up years ago, works well enough, and then never gets revisited. &lt;a href=&quot;https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/&quot;&gt;Users get access to more than they need&lt;/a&gt; because it is easier in the moment. Networks stay flat because segmentation sounds like an enterprise problem. Service accounts pile up. Tokens linger. Permissions expand and rarely shrink.&lt;/p&gt;
+&lt;p&gt;Then one credential gets stolen, and suddenly the conversation is no longer about access. It is about impact.&lt;/p&gt;
+&lt;p&gt;That is the real issue with broad access. It does not always look dangerous while things are calm. It looks efficient. It looks practical. It looks like business as usual. But when something goes wrong, that convenience becomes blast radius.&lt;/p&gt;
+&lt;p&gt;This is one area where I think a lot of organizations still need to shift their thinking. Authentication is not the finish line. Verifying identity is only the start. What really matters is what that identity can reach next, how long that access lasts, and what controls exist when something about the session stops looking normal.&lt;/p&gt;
+&lt;h2 id=&quot;reactive-security-is-not-enough&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-biggest-cybersecurity-risk-for-smbs-still-isnt-the-fancy-stuff/#reactive-security-is-not-enough&quot; class=&quot;heading-anchor&quot;&gt;Reactive security is not enough&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The report’s section on reactive security also hit home for me.&lt;/p&gt;
+&lt;p&gt;A lot of environments are still operating as if generating alerts equals being protected. It does not.&lt;/p&gt;
+&lt;p&gt;If nobody is consistently reviewing what matters, tuning out the junk, and building workflows around response, alerts become background noise. In a small business, that problem can get even worse because the same person handling user support, device issues, vendor calls, Microsoft 365 problems, and firewall changes is also the person expected to notice security anomalies.&lt;/p&gt;
+&lt;p&gt;That is a tough ask.&lt;/p&gt;
+&lt;p&gt;I think this is one of the least appreciated realities in SMB security. Many small organizations do not have a tooling problem nearly as much as they have a time and attention problem. The logs may exist. The detections may fire. The alerts may land exactly where they are supposed to. That still does not mean someone is looking in the moment it matters.&lt;/p&gt;
+&lt;p&gt;Attackers benefit from that lag.&lt;/p&gt;
+&lt;p&gt;That is why I tend to believe that mature monitoring, incident readiness, and clear escalation matter just as much as the actual products in the stack. Security is not just what you own. It is what you can consistently operate.&lt;/p&gt;
+&lt;h2 id=&quot;cheap-decisions-have-expensive-consequences&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-biggest-cybersecurity-risk-for-smbs-still-isnt-the-fancy-stuff/#cheap-decisions-have-expensive-consequences&quot; class=&quot;heading-anchor&quot;&gt;Cheap decisions have expensive consequences&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;There is also a part of the report that I think will feel familiar to anyone who has worked with budget-conscious clients or lean internal teams: cost-driven security decisions.&lt;/p&gt;
+&lt;p&gt;I get it. Budgets are real. Tradeoffs are real. Not every business can throw money at every problem.&lt;/p&gt;
+&lt;p&gt;But some savings are not really savings. They are just delayed costs.&lt;/p&gt;
+&lt;p&gt;Skipping training because the quarter is busy. Delaying incident response planning because nothing bad has happened yet. Buying the cheapest product without thinking through visibility, integration, or manageability. Refusing to revisit remote access because it technically still works. On paper, each of those decisions can sound reasonable. Over time, though, they stack up into an environment with less depth, less resilience, and less margin for error.&lt;/p&gt;
+&lt;p&gt;That is where I think the report makes one of its best points: cheap security is often only cheap upfront. IBM’s &lt;a href=&quot;https://www.ibm.com/reports/data-breach&quot; rel=&quot;noopener&quot;&gt;2025 breach cost data&lt;/a&gt; is a useful reality check for that discussion.&lt;/p&gt;
+&lt;p&gt;For SMBs especially, the better question is not “What is the least we can spend?” It is “What gives us the most reduction in real-world risk?” Those are not always the same thing.&lt;/p&gt;
+&lt;h2 id=&quot;ai-is-not-a-substitute-for-execution&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-biggest-cybersecurity-risk-for-smbs-still-isnt-the-fancy-stuff/#ai-is-not-a-substitute-for-execution&quot; class=&quot;heading-anchor&quot;&gt;AI is not a substitute for execution&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The report also lands in a place that I strongly agree with when it comes to AI.&lt;/p&gt;
+&lt;p&gt;Yes, AI is changing both attack and defense. Yes, AI-enabled threats are speeding things up. Yes, &lt;a href=&quot;https://www.kylereddoch.me/blog/putting-ai-to-work-in-the-soc/&quot;&gt;defensive platforms&lt;/a&gt; are evolving.&lt;/p&gt;
+&lt;p&gt;But AI is not going to rescue an organization from poor security hygiene.&lt;/p&gt;
+&lt;p&gt;If MFA is incomplete, patching is inconsistent, access is too broad, monitoring is weak, and incident response is mostly theoretical, dropping a shiny new tool into the environment is not going to fix the real problem. It just adds another layer that still has to be configured, managed, tuned, and validated.&lt;/p&gt;
+&lt;p&gt;That is why “execution over acquisition” feels like the right mindset to me. Even broader industry reporting, including Sophos’ &lt;a href=&quot;https://www.sophos.com/en-us/content/state-of-ransomware&quot; rel=&quot;noopener&quot;&gt;State of Ransomware 2025&lt;/a&gt;, keeps pointing back to the same reality: the biggest damage often comes from organizations failing to do the foundational things consistently.&lt;/p&gt;
+&lt;p&gt;Tools matter. Good tools absolutely matter. But they do not create outcomes on their own. Execution does.&lt;/p&gt;
+&lt;h2 id=&quot;my-biggest-takeaway&quot;&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-biggest-cybersecurity-risk-for-smbs-still-isnt-the-fancy-stuff/#my-biggest-takeaway&quot; class=&quot;heading-anchor&quot;&gt;My biggest takeaway&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;My biggest takeaway from the report is pretty simple: for most SMBs, the greatest cybersecurity risk still is not the flashy stuff.&lt;/p&gt;
+&lt;p&gt;It is the gap between what they think is covered and what is actually being enforced.&lt;/p&gt;
+&lt;p&gt;That gap shows up in the basics. It shows up in access. It shows up in monitoring. It shows up in readiness. It shows up in all the boring, repeatable, operational work that tends to get pushed aside while everyone focuses on whatever feels more urgent.&lt;/p&gt;
+&lt;p&gt;That is frustrating, sure. But I also think it is strangely encouraging.&lt;/p&gt;
+&lt;p&gt;Because if the biggest risks still come back to fundamentals, then a lot of the best improvements are still within reach.&lt;/p&gt;
+&lt;p&gt;Not easy. Not instant. Not glamorous.&lt;/p&gt;
+&lt;p&gt;But reachable.&lt;/p&gt;
+
+      </content>
+    </entry><entry>
       <title>I Believe in Human Websites. I Still Care About Polish</title>
       <link href="https://www.kylereddoch.me/blog/i-believe-in-human-websites-i-still-care-about-polish/" />
       <updated>2026-03-31T19:00:00Z</updated>
