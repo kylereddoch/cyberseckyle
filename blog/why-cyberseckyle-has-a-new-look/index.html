@@ -302,10 +302,6 @@
           
         
           
-            <a href="/tags/website/" style="background-color: hsl(355 65% 45%)" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#website</a>
-          
-        
-          
             <a href="/tags/indieweb/" style="background-color: #06b6d4" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#indieweb</a>
           
         
@@ -462,6 +458,36 @@
 </script>
 
 
+    
+      <template id="mastodon-post-template">
+        <figure class="mastodon-post">
+    <blockquote data-key="content" class="mastodon-post-quote"></blockquote>
+    <figcaption class="mastodon-post__caption"><!--<cite> — <a data-key="url" rel="me"><span
+                    data-key="username"></span>@<span data-key="hostname"></span></a></cite>-->
+        <dl class="mastodon-post__stats">
+            <div class="mastodon-post__stat">
+                <a href="https://infosec.exchange/@cyberseckyle/116360037201080228/reblogs/" class="no-indicator"><dt><i class="fa-solid fa-rocket"></i></dt>
+                <dd data-key="reblogs_count"></dd></a>
+            </div>
+            <div class="mastodon-post__stat">
+                <a href="https://infosec.exchange/@cyberseckyle/116360037201080228/" class="no-indicator"><dt><i class="fa-solid fa-comment"></i></dt>
+                <dd data-key="replies_count"></dd></a>
+            </div>
+            <div class="mastodon-post__stat">
+                <a href="https://infosec.exchange/@cyberseckyle/116360037201080228/favourites/" class="no-indicator"><dt><i class="fa-solid fa-heart"></i></dt>
+                <dd data-key="favourites_count"></dd></a>
+            </div>
+        </dl>
+    </figcaption>
+</figure>
+      </template>
+
+      <div class="discuss-mastodon mt-6">
+        <div class="discuss-mastodon__intro">
+          <a href="https://infosec.exchange/@cyberseckyle/116360037201080228" rel="me" class="no-indicator">Discuss on Mastodon</a>
+        </div>
+        <mastodon-post></mastodon-post>
+      </div>
     
 
     <div class="mt-6">
