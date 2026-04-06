@@ -8,7 +8,27 @@ excludeFromSearch: true
 
 <div class="mx-auto max-w-3xl">
   <h1 class="text-2xl font-bold mb-4">&#128269; Search Results</h1>
-  <p id="search-summary" class="text-gray-600 dark:text-gray-400 mb-6">Use the search box in the header to explore the site.</p>
+  <p id="search-summary" class="text-gray-600 dark:text-gray-400 mb-6">Use the search box below to explore the site.</p>
+
+  <form role="search" action="/search/" method="get" class="mb-8">
+    <label for="search-page-q" class="sr-only">Search the site</label>
+    <div class="flex flex-col gap-3 sm:flex-row">
+      <input
+        id="search-page-q"
+        name="q"
+        type="search"
+        placeholder="Search posts, notes, tags, and more..."
+        autocomplete="off"
+        class="w-full rounded border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder:text-gray-500 shadow-sm focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20"
+      />
+      <button
+        type="submit"
+        class="inline-flex items-center justify-center rounded border border-purple-600 px-4 py-2 text-purple-600 transition-colors hover:bg-purple-50 dark:hover:bg-purple-900/20"
+      >
+        Search
+      </button>
+    </div>
+  </form>
 
   <div id="search-results-container" class="hidden">
     <div id="search-results-list" class="space-y-6"></div>
@@ -22,6 +42,8 @@ excludeFromSearch: true
 
 <script>
 (function() {
+  const searchForm = document.querySelector('form[role="search"]');
+  const pageInput = document.getElementById('search-page-q');
   const summary = document.getElementById('search-summary');
   const resultsContainer = document.getElementById('search-results-container');
   const resultsList = document.getElementById('search-results-list');
@@ -38,16 +60,23 @@ excludeFromSearch: true
     return text.replace(new RegExp(`(${safeQuery})`, 'gi'), '<mark class="bg-yellow-200 dark:bg-yellow-800 px-1 rounded">$1</mark>');
   }
 
-  async function initResults() {
-    const query = getQueryParam('q');
+  async function renderResults(query) {
     const headerInput = document.getElementById('q');
 
     if (headerInput && query) {
       headerInput.value = query;
     }
 
+    if (pageInput) {
+      pageInput.value = query || '';
+    }
+
+    resultsContainer.classList.add('hidden');
+    noResults.classList.add('hidden');
+    resultsList.innerHTML = '';
+
     if (!query) {
-      summary.textContent = 'Use the search box in the header to explore the site.';
+      summary.textContent = 'Use the search box below to explore the site.';
       return;
     }
 
@@ -92,6 +121,38 @@ excludeFromSearch: true
     } catch (error) {
       console.error('Search page failed:', error);
     }
+  }
+
+  function updateSearch(query) {
+    const url = new URL(window.location.href);
+    if (query) {
+      url.searchParams.set('q', query);
+    } else {
+      url.searchParams.delete('q');
+    }
+    window.history.replaceState({}, '', url);
+    renderResults(query);
+  }
+
+  function initResults() {
+    const query = getQueryParam('q');
+
+    if (searchForm && pageInput) {
+      searchForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        updateSearch(pageInput.value.trim());
+      });
+
+      let searchTimeout;
+      pageInput.addEventListener('input', () => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+          updateSearch(pageInput.value.trim());
+        }, 250);
+      });
+    }
+
+    renderResults(query);
   }
 
   document.addEventListener('DOMContentLoaded', initResults);
