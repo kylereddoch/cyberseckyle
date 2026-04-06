@@ -1,96 +1,14 @@
 <!doctype html>
-<html lang="en"><!-- The order of elements in the head follows recommendations by Harry Roberts. learn more here: https://www.youtube.com/watch?v=MHyAOZ45vnU -->
+<html lang="en" class="scroll-smooth">
 <head>
-    <!-- 1 charset/viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- 2 title -->
     <title>
-       CybersecKyle Security How-To Series: Everyday Defense Part 4 - Phone hardening you can live with - CybersecKyle
+      
+        CybersecKyle Security How-To Series: Everyday Defense Part 4 - Phone hardening you can live with - CybersecKyle
+      
     </title>
 
-    <base href="/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/">
-
-    <!-- 3 synchronous js  -->
-    
-<script><!-- inlined for all pages -->
-(()=>{var p=Object.defineProperty;var u=(c,t,e)=>t in c?p(c,t,{enumerable:!0,configurable:!0,writable:!0,value:e}):c[t]=e;var s=(c,t,e)=>u(c,typeof t!="symbol"?t+"":t,e);var r=class r extends HTMLElement{constructor(){super(),this.ready=new Promise(t=>{this.readyResolve=t})}static getParents(t,e=!1){let a=[];for(;t;){if(t.matches&&t.matches(r.tagName)){if(e&&t===e)break;d.hasConditions(t)&&a.push(t)}t=t.parentNode}return a}static async ready(t,e){if(e||(e=r.getParents(t)),e.length===0)return;let a=await Promise.all(e.map(i=>i.wait()));if(a.length)return a[0]}forceFallback(){window.Island&&Object.assign(r.fallback,window.Island.fallback);for(let t in r.fallback){let e=Array.from(this.querySelectorAll(t)).reverse();for(let a of e){if(!a.isConnected)continue;let i=r.getParents(a);if(i.length===1){let o=r.ready(a,i);r.fallback[t](o,a,r.prefix)}}}}wait(){return this.ready}async connectedCallback(){d.hasConditions(this)&&this.forceFallback(),await this.hydrate()}getTemplates(){return this.querySelectorAll(`template[${r.attr.template}]`)}replaceTemplates(t){for(let e of t){if(r.getParents(e,this).length>0)continue;let a=e.getAttribute(r.attr.template);if(a==="replace"){let i=Array.from(this.childNodes);for(let o of i)this.removeChild(o);this.appendChild(e.content);break}else{let i=e.innerHTML;if(a==="once"&&i){if(r.onceCache.has(i)){e.remove();return}r.onceCache.set(i,!0)}e.replaceWith(e.content)}}}async hydrate(){let t=[];this.parentNode&&t.push(r.ready(this.parentNode));let e=d.getConditions(this);for(let a in e)d.map[a]&&t.push(d.map[a](e[a],this));await Promise.all(t),this.replaceTemplates(this.getTemplates());for(let a of r.onReady.values())await a.call(this,r);this.readyResolve(),this.setAttribute(r.attr.ready,""),this.querySelectorAll(`[${r.attr.defer}]`).forEach(a=>a.removeAttribute(r.attr.defer))}};s(r,"tagName","is-land"),s(r,"prefix","is-land--"),s(r,"attr",{template:"data-island",ready:"ready",defer:"defer-hydration"}),s(r,"onceCache",new Map),s(r,"onReady",new Map),s(r,"fallback",{":not(is-land,:defined,[defer-hydration])":(t,e,a)=>{let i=document.createElement(a+e.localName);for(let n of e.getAttributeNames())i.setAttribute(n,e.getAttribute(n));let o=e.shadowRoot;if(!o){let n=e.querySelector(":scope > template:is([shadowrootmode], [shadowroot])");if(n){let m=n.getAttribute("shadowrootmode")||n.getAttribute("shadowroot")||"closed";o=e.attachShadow({mode:m}),o.appendChild(n.content.cloneNode(!0))}}return o&&i.attachShadow({mode:o.mode}).append(...o.childNodes),i.append(...e.childNodes),e.replaceWith(i),t.then(()=>{i.shadowRoot&&e.shadowRoot.append(...i.shadowRoot.childNodes),e.append(...i.childNodes),i.replaceWith(e)})}});var f=r,l=class l{static hasConditions(t){return Object.keys(l.getConditions(t)).length>0}static getConditions(t){let e={};for(let a of Object.keys(l.map))t.hasAttribute(`on:${a}`)&&(e[a]=t.getAttribute(`on:${a}`));return e}static visible(t,e){if("IntersectionObserver"in window)return new Promise(a=>{let i=new IntersectionObserver(o=>{let[n]=o;n.isIntersecting&&(i.unobserve(n.target),a())});i.observe(e)})}static idle(){let t=new Promise(e=>{document.readyState!=="complete"?window.addEventListener("load",()=>e(),{once:!0}):e()});return"requestIdleCallback"in window?Promise.all([new Promise(e=>{requestIdleCallback(()=>{e()})}),t]):t}static interaction(t,e){let a=["click","touchstart"];return t&&(a=(t||"").split(",").map(i=>i.trim())),new Promise(i=>{function o(n){i();for(let m of a)e.removeEventListener(m,o)}for(let n of a)e.addEventListener(n,o,{once:!0})})}static media(t){let e={matches:!0};if(t&&"matchMedia"in window&&(e=window.matchMedia(t)),!e.matches)return new Promise(a=>{e.addListener(i=>{i.matches&&a()})})}static saveData(t){if(!(!("connection"in navigator)||navigator.connection.saveData===(t!=="false")))return new Promise(()=>{})}};s(l,"map",{visible:l.visible,idle:l.idle,interaction:l.interaction,media:l.media,"save-data":l.saveData});var d=l;"customElements"in window&&(window.customElements.define(f.tagName,f),window.Island=f);var y=f.ready;var h=class{};s(h,"attr",{autoInitType:"autoinit",import:"import"}),s(h,"types",{"petite-vue":function(t){t.createApp().mount(this)},vue:function(t){t.createApp().mount(this)},svelte:function(t){new t.default({target:this})},"svelte-ssr":function(t){new t.default({target:this,hydrate:!0})},preact:function(t){t.default(this)}});Island.onReady.set("import-autoinit",async function(c){let t,e=this.getAttribute(h.attr.import);if(e&&(t=await import(e)),t){let a=h.types[this.getAttribute(h.attr.autoInitType)||e];a&&await a.call(this,t)}});})();</script>
-
-
-    <!-- 4 schema settings -->
-    <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://www.kylereddoch.me#website",
-        "url": "https://www.kylereddoch.me",
-        "name": "CybersecKyle",
-        "description": "CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.",
-        "inLanguage": "en_EN"
-      }
-    ]
-  }
-</script>
-
-
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": {
-      "@type": "WebPage"
-    },
-    "isPartOf": {
-      "@id": "https://www.kylereddoch.me#website"
-    },
-    "@id": "",
-    "headline": "CybersecKyle Security How-To Series: Everyday Defense Part 4 - Phone hardening you can live with",
-    "description": "A sane phone security baseline you can keep turned on: lock screen, anti-theft, app permissions, account protection, SIM-swap defenses, and a quick validation to prove it worked.",
-    "image": "https://www.kylereddoch.me/assets/images/template/opengraph-default.jpg",
-    "inLanguage": "en_EN",
-    "publisher": {
-      "@type": "Person",
-      "name": "Kyle Reddoch",
-      "url": "https://www.kylereddoch.me"
-    },
-    "author": {
-      "@type": "Person",
-      "name": "Kyle Reddoch"
-    },
-    "datePublished": "2026-01-29T18:30:00.000Z"
-  }
-</script>
-
-
-
-    <!-- 5 CSS  -->
-    <!-- <link rel="stylesheet" href="/assets/css/global.css?4797-3038-1255" /> -->
-    
-		<!-- Inlined CSS (fastest site performance in production)  -->
-		<style>@layer tailwindBase{.transform{--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1}.filter{--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: }}@layer tailwindUtilities{.sr-only{height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;clip:rect(0,0,0,0);border-width:0;white-space:nowrap}.visible{visibility:visible}.invisible{visibility:hidden}.collapse{visibility:collapse}.static{position:static}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.isolate{isolation:isolate}.my-s-m{margin-bottom:clamp(.625rem,.41rem + 1.06vw,1.3125rem);margin-top:clamp(.625rem,.41rem + 1.06vw,1.3125rem)}.mt-l-xl{margin-top:clamp(1.1875rem,.48rem + 3.56vw,3.5rem)}.mt-s-m{margin-top:clamp(.625rem,.41rem + 1.06vw,1.3125rem)}.mt-xs{margin-top:clamp(.3125rem,.27rem + .19vw,.4375rem)}.block{display:block}.inline{display:inline}.flex{display:flex}.table{display:table}.grid{display:grid}.contents{display:contents}.hidden{display:none}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.resize{resize:both}.justify-center{justify-content:center}.text-center{text-align:center}.font-display{font-family:Redhat,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif}.text-step-1{font-size:clamp(1.4375rem,1.21rem + 1.15vw,2.1875rem)}.text-step-2{font-size:clamp(1.6875rem,1.36rem + 1.63vw,2.75rem)}.text-step-4{font-size:clamp(2.5rem,1.96rem + 2.69vw,4.25rem)}.text-step-min-1{font-size:clamp(1rem,.88rem + .58vw,1.375rem)}.text-step-min-2{font-size:clamp(.8125rem,.75rem + .29vw,1rem)}.capitalize{text-transform:capitalize}.outline{outline-style:solid}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.flow-space-m{--flow-space:clamp(0.875rem,0.74rem + 0.67vw,1.3125rem)}.region-space-l{--region-space:clamp(1.1875rem,1.01rem + 0.87vw,1.75rem)}.gutter-2xs{--gutter:clamp(0.1875rem,0.15rem + 0.19vw,0.3125rem)}.gutter-xs{--gutter:clamp(0.3125rem,0.27rem + 0.19vw,0.4375rem)}.gutter-s{--gutter:clamp(0.625rem,0.55rem + 0.38vw,0.875rem)}.gutter-xs-s{--gutter:clamp(0.3125rem,0.14rem + 0.87vw,0.875rem)}.ontop{position:relative;z-index:1}.region{--region-space-fallback:var(--region-space,var(--space-l-xl));padding-block-end:var(--region-space-bottom,var(--region-space-fallback));padding-block-start:var(--region-space-top,var(--region-space-fallback))}@media (prefers-reduced-motion:no-preference){@keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}}.visually-hidden{border:0;clip:rect(0 0 0 0);height:0;margin:0;overflow:hidden;padding:0;position:absolute;white-space:nowrap;width:1px}}@layer tailwindComponents{:root{--color-gray-100:#f8f8f8;--color-gray-200:#e4e4e4;--color-gray-300:#aeaeae;--color-gray-400:grey;--color-gray-500:#636363;--color-gray-600:#484848;--color-gray-700:#3a3a3a;--color-gray-800:#2e2e2e;--color-gray-900:#161616;--color-pink:#dd4462;--color-pink-subdued:#ce5769;--color-blue:#4467dd;--color-blue-subdued:#4d6cc8;--color-gold:#fbbe25;--color-gold-subdued:#f1c15b;--border-radius-small:0.1875rem;--border-radius-medium:0.3rem;--space-3xs:clamp(0.125rem,0.11rem + 0.10vw,0.1875rem);--space-2xs:clamp(0.1875rem,0.15rem + 0.19vw,0.3125rem);--space-xs:clamp(0.3125rem,0.27rem + 0.19vw,0.4375rem);--space-s:clamp(0.625rem,0.55rem + 0.38vw,0.875rem);--space-m:clamp(0.875rem,0.74rem + 0.67vw,1.3125rem);--space-l:clamp(1.1875rem,1.01rem + 0.87vw,1.75rem);--space-xl:clamp(2.375rem,2.03rem + 1.73vw,3.5rem);--space-2xl:clamp(3.5625rem,3.04rem + 2.60vw,5.25rem);--space-3xl:clamp(5.9375rem,5.07rem + 4.33vw,8.75rem);--space-xs-s:clamp(0.3125rem,0.14rem + 0.87vw,0.875rem);--space-s-m:clamp(0.625rem,0.41rem + 1.06vw,1.3125rem);--space-m-l:clamp(0.875rem,0.55rem + 1.63vw,1.9375rem);--space-l-xl:clamp(1.1875rem,0.48rem + 3.56vw,3.5rem);--space-l-2xl:clamp(2.375rem,1.49rem + 4.42vw,5.25rem);--space-xl-2xl:clamp(3.5625rem,1.97rem + 7.98vw,8.75rem);--space-2xl-3xl:clamp(5.9375rem,3.46rem + 12.40vw,14rem);--size-step-min-2:clamp(0.8125rem,0.75rem + 0.29vw,1rem);--size-step-min-1:clamp(1rem,0.88rem + 0.58vw,1.375rem);--size-step-0:clamp(1.1875rem,1.01rem + 0.87vw,1.75rem);--size-step-1:clamp(1.4375rem,1.21rem + 1.15vw,2.1875rem);--size-step-2:clamp(1.6875rem,1.36rem + 1.63vw,2.75rem);--size-step-3:clamp(2.0625rem,1.64rem + 2.12vw,3.4375rem);--size-step-4:clamp(2.5rem,1.96rem + 2.69vw,4.25rem);--size-step-5:clamp(2.9375rem,2.19rem + 3.75vw,5.375rem);--size-step-6:clamp(3.5rem,2.52rem + 4.90vw,6.6875rem);--leading-flat:1;--leading-fine:1.2;--leading-standard:1.4;--font-display:Redhat,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;--font-base:Atkinson Hyperlegible,system-ui,sans-serif;--font-mono:ui-monospace,Cascadia Code,Source Code Pro,Menlo,Consolas,DejaVu Sans Mono,monospace;--font-regular:400;--font-bold:700;--font-extra-bold:900}}@layer reset{*,:after,:before{box-sizing:border-box}*{text-wrap:pretty}html:focus-within{scroll-behavior:smooth}body{line-height:1.5;min-height:100vh;min-height:100dvh;text-rendering:optimizeSpeed}blockquote,body,dd,dl,figure,h1,h2,h3,h4,h5,p{margin:0}ol[role=list],ul[role=list]{list-style:none}[role=list]{padding:0}a{-webkit-text-decoration-skip:ink;color:currentColor;text-decoration-skip-ink:auto}canvas,img,picture,svg{background-repeat:no-repeat;background-size:cover;block-size:auto;font-style:italic;max-inline-size:100%;shape-margin:.75rem;vertical-align:middle}picture{display:block}button{all:unset}button,input,select,textarea{color:inherit;font:inherit}textarea{resize:vertical;resize:block}textarea:not([rows]){min-height:10em}[role=button],[role=option],button,label,select,summary{cursor:pointer}:target{scroll-margin-block-start:2ex}:focus{scroll-margin-block-end:8vh}dialog{max-height:unset;max-width:unset}[popover],dialog{background:none;border:none;inset:unset}[popover]{color:inherit}[popover]:not(:popover-open),dialog:not([open],[popover]){display:none!important}html:has(dialog[open]:modal){overflow:hidden}@media (prefers-reduced-motion:reduce){:focus-within{scroll-behavior:auto}*,:after,:before{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}}@layer fonts{@font-face{font-display:swap;font-family:Atkinson Hyperlegible;font-style:normal;font-weight:400;src:local(""),url(/assets/fonts/atkinson/atkinson-hyperlegible-regular.woff2) format("woff2")}@font-face{font-display:swap;font-family:Atkinson Hyperlegible;font-style:italic;font-weight:400;src:local(""),url(/assets/fonts/atkinson/atkinson-hyperlegible-italic.woff2) format("woff2")}@font-face{font-display:swap;font-family:Atkinson Hyperlegible;font-style:normal;font-weight:700;src:local(""),url(/assets/fonts/atkinson/atkinson-hyperlegible-bold.woff2) format("woff2")}@font-face{font-display:swap;font-family:Redhat;font-style:normal;font-weight:900;src:local(""),url(/assets/fonts/redhat/red-hat-display-v7-latin-900.woff2) format("woff2")}}@layer variables{:root{--gutter:var(--space-m-l);--transition-duration:250ms;--transition-timing:ease;--wrapper-width:85rem;--tracking:-0.04ch;--tracking-s:-0.075ch;--tracking-wide:0.04ch;--stroke:1px solid var(--color-gray-800);--gradient-rainbow:linear-gradient(90deg,var(--color-rosewater) 5%,var(--color-yellow) 20%,var(--color-green) 40%,var(--color-teal) 60%,var(--color-blue) 75%,var(--color-mauve) 90%);--gradient-conic:conic-gradient(var(--color-primary) 0 28%,var(--color-secondary) 0 67%,var(--color-tertiary) 0 100%);--gradient-stripes:linear-gradient(45deg,var(--color-gray-900) 0 75%,var(--color-primary) 0 85%,var(--color-secondary) 0 92%,var(--color-tertiary) 0 100%);--color-light:var(--color-gray-100);--color-dark:var(--color-gray-900);--color-mid:var(--color-gray-400);--color-gray-100:#cdd6f4;--color-gray-200:#bac2de;--color-gray-300:#a6adc8;--color-gray-400:#9399b2;--color-gray-700:#313244;--color-gray-800:#1e1e2e;--color-gray-900:#11111b;--color-pink:#f5c2e7;--color-blue:#89b4fa;--color-gold:#f9e2af;--color-pink-subdued:#cba6f7;--color-blue-subdued:#74c7ec;--color-gold-subdued:#fab387;--color-rosewater:#f5e0dc;--color-flamingo:#f2cdcd;--color-red:#f38ba8;--color-maroon:#eba0ac;--color-peach:#fab387;--color-yellow:#f9e2af;--color-green:#a6e3a1;--color-teal:#94e2d5;--color-sky:#89dceb;--color-sapphire:#74c7ec;--color-mauve:#cba6f7;--color-lavender:#b4befe}@media (prefers-color-scheme:dark){:root{--color-text:var(--color-gray-100);--color-bg:var(--color-gray-800);--color-primary:var(--color-mauve);--color-secondary:var(--color-sapphire);--color-tertiary:var(--color-peach);--color-text-accent:var(--color-gray-300);--color-bg-accent:var(--color-gray-700)}}:root,:root[data-theme=dark]{--color-text:var(--color-gray-100);--color-bg:var(--color-gray-800);--color-primary:var(--color-mauve);--color-secondary:var(--color-sapphire);--color-tertiary:var(--color-peach);--color-text-accent:var(--color-gray-300);--color-bg-accent:var(--color-gray-700);--color-bg-accent-2:var(--color-gray-600)}}@layer global{html{color-scheme:dark;-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:100%}body{accent-color:var(--color-primary);background-color:var(--color-bg);color:var(--color-text);display:flex;flex-direction:column;font-family:var(--font-base);font-size:var(--size-step-0);font-size-adjust:from-font;font-weight:var(--font-regular);letter-spacing:var(--tracking);line-height:var(--leading-standard)}main{flex:auto}:where(main) a:not([class]):not(:where(h2 a,h3 a,h4 a,h5 a)){color:var(--color-secondary)}:where(main) a:not([class]):not(:where(h2 a,h3 a,h4 a,h5 a)):hover{color:var(--color-secondary);text-decoration:none}h1,h2,h3,h4,h5{font-family:var(--font-display);font-weight:var(--font-extra-bold);letter-spacing:var(--tracking-s);line-height:var(--leading-fine)}h1{color:var(--color-maroon);font-size:var(--size-step-4)}h2{color:var(--color-mauve);font-size:var(--size-step-3)}h3{color:var(--color-peach);font-size:var(--size-step-2)}h4{color:var(--color-sapphire);font-size:var(--size-step-1)}h5{color:var(--color-text)}blockquote,h5{font-size:var(--size-step-0)}blockquote{background-color:var(--color-code-bg);border-inline-start:.5rem solid var(--color-maroon);padding:var(--space-m-l)}blockquote>*+*{margin-block-start:var(--space-m-l)}blockquote :last-child{font-family:var(--font-base);font-size:var(--size-step-0);font-style:italic}input,textarea{caret-color:var(--color-primary)}svg{block-size:.6lh;flex:none;inline-size:auto}b,strong{color:var(--color-flamingo);font-weight:var(--font-bold)}hr:not(.masto-share__divider){background-color:var(--color-bg-accent-2);border:none;height:1px;margin:var(--space-xl) auto!important;width:50%}figcaption{font-size:var(--size-step-min-1);margin-block-start:var(--space-s);padding-block-end:var(--space-xs);text-align:center}figcaption:after{content:"";display:block;inline-size:50%;margin-block:var(--space-xs);margin-inline:auto;opacity:.8}a{text-decoration-thickness:.15ex;text-underline-offset:.2ch}a:not([class]):hover{text-decoration:none}:focus{outline:none}:focus-visible{outline:3px solid var(--focus-color,currentColor);outline-offset:var(--focus-offset,.3ch)}@supports (-moz-appearance:none){:root{--focus-offset:0.08em}}::-moz-selection{background-color:var(--color-text);color:var(--color-bg)}::selection{background-color:var(--color-text);color:var(--color-bg)}.preload-transitions *{transition:none!important}@media (scripting:none){.require-js{display:none}}.tinylytics_kudos{align-items:center;background-color:var(--color-bg-accent);border:1px solid var(--color-bg-accent-2);border-radius:var(--border-radius-medium);cursor:pointer;display:inline-flex;font:inherit;font-size:var(--size-step-min-1);gap:.4rem;padding:.4rem .75rem}.tinylytics_kudos.did_select{background-color:var(--color-bg-green);cursor:default;opacity:.7}}@layer compositions{.badge-grid{--gap:var(--space-s,0.625rem);--badge-min:12ch;display:grid;gap:var(--gap);grid-template-columns:repeat(1,minmax(var(--badge-min),1fr));margin-block-start:var(--space-s);margin-inline:0;place-items:start}@media (min-width:30rem){.badge-grid.cols-2,.badge-grid.cols-3,.badge-grid.cols-4,.badge-grid.cols-5{grid-template-columns:repeat(2,minmax(var(--badge-min),1fr))}}@media (min-width:48rem){.badge-grid.cols-3,.badge-grid.cols-4,.badge-grid.cols-5{grid-template-columns:repeat(3,minmax(var(--badge-min),1fr))}}@media (min-width:64rem){.badge-grid.cols-4,.badge-grid.cols-5{grid-template-columns:repeat(4,minmax(var(--badge-min),1fr))}}@media (min-width:80rem){.badge-grid.cols-5{grid-template-columns:repeat(5,minmax(var(--badge-min),1fr))}}.badge-grid.grid-divided>:not(:last-child){border-bottom:1px solid var(--color-bg-accent,#f7f7f7)}.badge{align-items:center;display:inline-flex;gap:.6ch;line-height:1.15;max-inline-size:100%;padding:.35rem .65rem;text-decoration:none;white-space:nowrap}.badge,.badge>span{overflow:hidden;text-overflow:ellipsis}.badge>span{display:inline-block}.badge>a{flex:0 0 auto}.badge>a,a.badge,a.badge:hover{text-decoration:none}.badge--compact{font-size:.95em;gap:.4ch;padding:.25rem .5rem}.site-footer .badge-grid a{color:var(--color-gray-100);text-decoration-color:color-mix(in oklab,var(--color-gray-100) 30%,transparent);text-decoration-thickness:.12em;text-underline-offset:.18em}.site-footer .badge-grid a:hover{color:var(--color-green);text-decoration:none}.badge-grid .no-indicator{padding-inline-end:0!important;position:static!important}.badge-grid .no-indicator:after{content:none!important}@media (max-width:29.999rem){.badge-grid{place-items:center;text-align:center}}.cluster{align-items:var(--cluster-vertical-alignment,center);display:flex;flex-direction:var(--cluster-direction,row);flex-wrap:var(--cluster-wrap,wrap);gap:var(--gutter,var(--space-s-l));justify-content:var(--cluster-horizontal-alignment,flex-start)}.flow>*+*{margin-block-start:var(--flow-space,1em)}.grid{display:grid;gap:var(--gutter,var(--space-s-m));grid-template-columns:repeat(var(--grid-placement,auto-fill),minmax(var(--grid-min-item-size,16rem),1fr))}.grid[data-rows=masonry]{align-items:start;grid-template-rows:masonry}.grid[data-layout="50-50"]{--grid-placement:auto-fit;--grid-min-item-size:clamp(16rem,50vw,28rem)}.grid[data-layout=thirds]{--grid-placement:auto-fit;--grid-min-item-size:clamp(16rem,33%,20rem)}.repel{align-items:var(--repel-vertical-alignment,center);display:flex;flex-wrap:wrap;gap:var(--gutter,var(--space-s-l));justify-content:space-between}.repel[data-nowrap]{flex-wrap:nowrap}.sidebar{display:flex;flex-wrap:wrap;gap:var(--gutter,var(--space-s-l))}.sidebar:not([data-direction])>:first-child{flex-basis:var(--sidebar-target-width,20rem);flex-grow:1}.sidebar:not([data-direction])>:last-child{flex-basis:0;flex-grow:999;min-inline-size:var(--sidebar-content-min-width,50%)}.sidebar[data-direction=rtl]>:last-child{flex-basis:var(--sidebar-target-width,20rem);flex-grow:1}.sidebar[data-direction=rtl]>:first-child{flex-basis:0;flex-grow:999;min-inline-size:var(--sidebar-content-min-width,50%)}.wrapper{--gap:clamp(1rem,6vw,3rem);--full:minmax(var(--gap),1fr);--content:min(var(--wrapper-width,85rem),100% - var(--gap) * 2);--popout:minmax(0,2rem);--feature:minmax(0,5rem);display:grid;grid-template-columns:[full-start] var(--full) [feature-start] var(--feature) [popout-start] var(--popout) [content-start] var(--content) [content-end] var(--popout) [popout-end] var(--feature) [feature-end] var(--full) [full-end]}.wrapper>*{grid-column:content}.prose-wrapper{--wrapper-width:64rem}.popout{grid-column:popout}.feature{grid-column:feature}.full{grid-column:full}}@layer blocks{.alert{background-color:var(--color-gray-700);border:2px solid var(--color-red);border-radius:8px;margin:2em auto 0;padding:2em;width:100%!important}.alert,.alert p,.alert span{font-family:var(--font-base);font-size:var(--size-step-min-1)!important}.button{--button-bg:var(--color-text);--button-color:color-mix(in oklab,var(--button-bg) 10%,var(--color-bg));--button-hover-bg:color-mix(in oklab,var(--button-bg) 90%,var(--color-bg));--button-border-width:var(--border-thickness);--button-border-style:solid;--button-border-color:color-mix(in oklab,var(--button-bg) 80%,var(--color-text));--button-radius:var(--border-radius-small);--button-gap:var(--space-2xs);--button-padding:var(--space-xs) var(--space-m);--button-font-family:var(--font-body);--button-font-weight:var(--font-regular);--button-font-size:var(--size-step-0);--button-text-transform:none;--button-tracking:normal;align-items:center;background:var(--button-bg);border-color:var(--button-border-color);border-radius:var(--button-radius);border-style:var(--button-border-style);border-width:var(--button-border-width);color:var(--button-color);display:inline-flex;font-family:var(--button-font-family);font-size:var(--button-font-size);font-weight:var(--button-font-weight);gap:var(--button-gap);letter-spacing:var(--button-tracking);line-height:var(--leading-flat);padding:var(--button-padding);text-decoration:none;text-transform:var(--button-text-transform);text-box-trim:trim-both;text-box-edge:cap alphabetic}.button svg{block-size:var(--button-icon-size,1.2cap)}.button:hover,.button[aria-current=page],.button[aria-pressed=true],.button[data-state=active]{background:var(--button-hover-bg);color:var(--button-color)}.button:focus{outline-color:var(--button-outline-color,var(--button-border-color))}.button:active{transform:scale(99%)}.button[data-button-variant=primary]{--button-bg:var(--color-primary);--button-color:var(--color-light);--button-color:color-mix(in oklab,var(--color-primary) 5%,var(--color-dark))}.button[data-button-variant=secondary]{--button-bg:var(--color-secondary);--button-color:var(--color-light);--button-color:color-mix(in oklab,var(--color-secondary) 5%,var(--color-dark))}.button[data-button-variant=tertiary]{--button-bg:var(--color-tertiary);--button-color:var(--color-dark);--button-color:color-mix(in oklab,var(--color-tertiary) 10%,var(--color-dark))}.button[data-ghost-button]{--button-bg:var(--color-bg);--button-border-color:var(--color-text);--button-color:var(--color-text);--button-hover-color:var(--color-bg)}.button[data-ghost-button]:hover{--_ghost-hover-bg:var(--color-bg);--_ghost-hover-bg:color-mix(in oklab,var(--button-bg) 95%,var(--color-dark));background:var(--_ghost-hover-bg);color:var(--button-color)}.button[data-small-button]{--button-border-width:2px;--button-radius:var(--border-radius-small);--button-font-size:var(--size-step-min-2);--button-padding:var(--space-2xs) var(--space-s) var(--space-3xs) var(--space-s);--button-text-transform:uppercase;--button-tracking:var(--tracking-wide)}.button[data-button-radius=hard]{--button-radius:0}:root{--color-code-orange:#e09952;--color-code-blue:var(--color-secondary);--color-code-indigo:#7d59c5;--color-code-violet:#e052bf;--color-code-pink:#e05269;--color-code-gray:#949494;--color-code-bg:var(--color-bg-accent)}code,pre{background-color:var(--color-code-bg);border-radius:var(--border-radius-medium);font-family:var(--font-mono);font-size:var(--size-step-min-1)}code[class*=language-],pre[class*=language-]{white-space:pre;word-break:normal;word-spacing:normal;word-wrap:normal;-webkit-hyphens:none;hyphens:none}pre[class*=language-bash],pre[class*=language-sh],pre[class*=language-shell]{overflow-wrap:anywhere;overflow-x:hidden;white-space:pre-wrap;word-break:break-word}blockquote code{color:var(--color-code-indigo)}pre{color:var(--color-text);grid-column:popout!important;line-height:1.6;overflow-x:hidden;padding:var(--space-s) var(--space-l)}:where(:not(pre))>code{color:var(--color-code-indigo);padding:.1em .4em;position:relative;top:-.05em}pre[class*=language-]{overflow:auto;position:relative}[class*=language-] .namespace{opacity:.7}.token.atrule{color:var(--color-code-pink)}.token.attr-name{color:var(--color-code-orange)}.token.attr-value{color:var(--color-text-accent)}.token.attribute{color:var(--color-code-blue)}.token.boolean{color:var(--color-code-pink)}.token.builtin,.token.cdata,.token.char,.token.class,.token.class-name,.token.color{color:var(--color-code-orange)}.token.comment{color:var(--color-code-gray)}.token.constant,.token.deleted{color:var(--color-code-pink)}.token.doctype{color:var(--color-code-orange)}.token.entity,.token.function{color:var(--color-code-pink)}.token.hexcode{color:var(--color-code-orange)}.token.id,.token.important{color:var(--color-code-pink);font-weight:var(--font-bold)}.token.inserted{color:var(--color-code-orange)}.token.keyword{color:var(--color-code-pink);font-style:italic}.token.number{color:var(--color-text-accent)}.token.operator{color:var(--color-code-gray)}.token.prolog,.token.property{color:var(--color-code-orange)}.token.pseudo-class,.token.pseudo-element{color:var(--color-code-blue)}.token.punctuation{color:var(--color-code-gray)}.token.regex{color:var(--color-code-orange)}.token.selector{color:var(--color-code-pink)}.token.string{color:var(--color-text-accent)}.token.symbol,.token.tag,.token.unit{color:var(--color-code-pink)}.token.url{color:var(--color-code-violet)}.token.variable{color:var(--color-code-pink)}.codepen a{--icon-size:1.2em;align-items:center;display:flex;gap:var(--space-2xs)}.prose .cp_embed_wrapper,.prose .cp_embed_wrapper+script+:not(h2){--flow-space:var(--space-l)}.cp_embed_wrapper{display:grid;grid-column:popout;grid-template-areas:"container";overflow:auto;place-items:center;position:relative;resize:horizontal}.cp_embed_wrapper iframe{grid-area:container;width:100%}h1 code,h1 pre,h2 code,h2 pre,h3 code,h3 pre,h4 code,h4 pre,h5 code,h5 pre{font-size:inherit}.indicator,a[href^=http]:not([href*="localhost:8080"]):not(.button):not(.no-indicator){padding-inline-end:.8em}.indicator:after,a[href^=http]:not([href*="localhost:8080"]):not(.no-indicator):after{background-image:url(/assets/images/template/external.svg);background-position:50%;background-repeat:no-repeat;background-size:60% auto;block-size:1em;content:"(external link)";display:inline-block;inline-size:1em;overflow:hidden;position:absolute;text-indent:1em;white-space:nowrap}#guestbooks___guestbook-form-container{background-color:var(--color-bg-accent);border:1px solid var(--color-gray-100);border-radius:1em;box-shadow:4px 4px 0 var(--color-mauve);margin:0 auto;padding:1em;width:100%}.guestbooks___input-container{margin-bottom:15px}.guestbook-message blockquote{margin:.5em 0!important}.mainnav{--nav-list-timing-function:cubic-bezier(0.68,-0.55,0.27,1.55);inset-inline-end:0;position:var(--nav-position,absolute)}.mainnav:has([data-drawer-toggle][aria-expanded=true]){--nav-position:fixed;inset-inline-end:var(--gap)}.mainnav ul{--gutter:var(--space-xs);--cluster-vertical-alignment:normal;--cluster-wrap:wrap;--cluster-direction:column;--nav-list-background:var(--color-bg);--nav-list-shadow:-5px 0 11px 0 rgba(0,0,0,.2);--nav-list-height:100dvh;--nav-list-padding-block:var(--space-2xl);--nav-list-padding-inline:var(--space-s);--nav-list-position:fixed;--nav-list-width:min(18rem,100vw);--nav-list-visibility:hidden;--nav-list-opacity:0;background:var(--nav-list-background);block-size:var(--nav-list-height);box-shadow:var(--nav-list-shadow);inline-size:var(--nav-list-width);inset-block-start:0;inset-inline-end:0;list-style:none;margin:0;opacity:var(--nav-list-opacity);padding-block:var(--nav-list-padding-block);padding-inline:var(--nav-list-padding-inline);position:var(--nav-list-position);transition:opacity .3 var(--nav-list-timing-function),visibility .3s ease-in-out;visibility:var(--nav-list-visibility)}.mainnav ul[no-flash]{transition:none}@media (prefers-reduced-motion:no-preference){.mainnav>ul{--nav-list-transform:translateX(100%);--nav-list-opacity:1;transform:var(--nav-list-transform);transition:transform .5s var(--nav-list-timing-function),visibility .3s linear}.mainnav svg{transition:transform .4s var(--nav-list-timing-function)}}.mainnav [data-drawer-toggle]{--gutter:var(--space-2xs);--cluster-vertical-alignment:center;background:var(--color-bg);display:var(--nav-button-display,inline-flex);line-height:var(--leading-flat);padding:var(--space-2xs) 0;position:relative;z-index:2}.mainnav [data-drawer-toggle][aria-expanded=true]+ul{--cluster-wrap:nowrap;--nav-list-visibility:visible;--nav-list-transform:translateX(0);--nav-list-opacity:1;overflow-y:auto}body:has([data-drawer-toggle][aria-expanded=true]){overflow:hidden}.mainnav span{font-family:var(--font-display);font-size:var(--size-step-min-1);font-weight:var(--font-bold);text-transform:uppercase}.mainnav svg{block-size:.9em;color:var(--color-text);stroke-width:3}.mainnav [aria-expanded=true] svg{transform:rotate(45deg)}.mainnav :is(a,[data-submenu-toggle]){--nav-item-background:transparent;--nav-item-text-color:#fff;--nav-item-padding:var(--space-xs) var(--space-2xs);--nav-item-decoration-color:transparent;--nav-item-font-size:var(--size-step-0);--nav-item-font-weight:var(--font-bold);background:var(--nav-item-background);border-radius:var(--border-radius-medium);color:var(--nav-item-text-color);display:block;font-size:var(--nav-item-font-size);padding:var(--nav-item-padding);text-decoration:none;text-decoration-thickness:3px;text-underline-offset:.2em}.mainnav:has(.nav-sublist) :is(a,[data-submenu-toggle]){font-weight:var(--nav-item-font-weight)}.mainnav [data-submenu-toggle]{align-items:center;display:flex;gap:var(--space-2xs);inline-size:100%;justify-content:space-between}.mainnav [data-submenu-toggle] svg{margin-inline-end:calc(var(--gap) - var(--nav-list-padding-inline))}.mainnav :is(a,[data-submenu-toggle]):hover{--nav-item-background:transparent;--nav-item-text-color:var(--color-secondary);--nav-item-decoration-color:var(--color-secondary);color:var(--nav-item-text-color);text-decoration:underline}.mainnav [aria-current=page],.mainnav [data-state=active]{--nav-item-background:var(--color-bg);--nav-item-text-color:var(--color-secondary);--nav-item-decoration-color:var(--color-secondary);color:var(--nav-item-text-color);text-decoration:underline}li:has(ul a[aria-current=page])>[data-submenu-toggle]{--nav-item-background:var(--color-bg);--nav-item-text-color:var(--color-secondary);--nav-item-decoration-color:var(--color-secondary);color:var(--nav-item-text-color);text-decoration:underline}.mainnav [data-submenu-toggle][aria-expanded=false]+ul{display:none}.mainnav .nav-sublist{--gutter:0;--cluster-direction:column;--nav-sublist-position:relative;--nav-sublist-background:var(--color-bg);--nav-sublist-width:100%;--nav-list-visibility:visible;--nav-list-opacity:1;--nav-list-padding-block:0 var(--space-m);--nav-list-padding-inline:0;background:var(--nav-sublist-background);block-size:auto;box-shadow:none;inline-size:var(--nav-sublist-width);position:var(--nav-sublist-position);z-index:2}.mainnav .nav-sublist a{--nav-item-font-weight:var(--font-regular)}@media (min-width:662px){.mainnav{--nav-position:static;--nav-button-display:none}.mainnav :is(a,[data-submenu-toggle]){--nav-item-font-weight:var(--font-regular)}.mainnav ul{--cluster-direction:row;--nav-list-position:static;--nav-list-padding-block:0;--nav-list-padding-inline:0;--nav-list-height:auto;--nav-list-width:100%;--nav-list-shadow:none;--nav-list-visibility:visible;--nav-list-transform:translateX(0);--nav-list-opacity:1}.mainnav [aria-current=page],.mainnav [data-state=active],li:has(ul a[aria-current=page])>[data-submenu-toggle]{--nav-item-background:transparent;--nav-item-text-color:var(--color-secondary);--nav-item-decoration-color:var(--color-secondary);color:var(--nav-item-text-color);text-decoration:underline}.mainnav [data-submenu-toggle]{inline-size:auto}.mainnav [data-submenu-toggle] svg{margin-inline-end:0}.mainnav .nav-sublist{--nav-sublist-position:absolute;--nav-sublist-background:var(--color-bg);--nav-sublist-border:var(--color-text);--nav-sublist-width:max-content;--nav-list-padding-block:var(--space-xs);--nav-list-padding-inline:var(--space-xs);border:3px solid var(--nav-sublist-border);inset-block-start:var(--space-xl);inset-inline-start:var(--space-2xs)}}.mainnav ul:first-child{--cluster-direction:row;--nav-list-position:static;--nav-list-padding-block:0;--nav-list-padding-inline:0;--nav-list-height:auto;--nav-list-width:100%;--nav-list-shadow:none;--nav-list-visibility:visible;--nav-list-transform:translateX(0);--nav-list-opacity:1}.mainnav ul:first-child [aria-current=page],.mainnav ul:first-child [data-state=active]{--nav-item-background:transparent;--nav-item-text-color:var(--color-secondary);--nav-item-decoration-color:var(--color-secondary);color:var(--nav-item-text-color);text-decoration:underline}.mainnav:has(ul:first-child){--nav-position:relative}@media (scripting:none){.mainnav ul:first-child ul.nav-sublist{--cluster-direction:row;--cluster-wrap:wrap}@media (min-width:662px){.mainnav ul:first-child ul.nav-sublist{--cluster-direction:column}}}.discuss-mastodon{border:2px solid var(--color-bg-accent);border-radius:8px;font-family:var(--font-base);font-size:var(--size-step-min-2)!important;margin:var(--space-xl) auto 0 auto;width:100%!important}.discuss-mastodon i.fa-mastodon{font-size:1.5rem!important;line-height:1!important;margin-right:.5rem!important;padding:1rem 1rem 0!important}.discuss-mastodon a,.discuss-mastodon a:link,.discuss-mastodon a:visited{color:var(--color-text);display:inline-block;font-family:var(--font-base);font-size:var(--size-step-min-2)!important;overflow-wrap:anywhere!important;text-decoration:none;word-break:break-word!important}.discuss-mastodon a:hover{color:var(--color-text);text-decoration:none}.mastodon-post span.invisible{visibility:visible!important}.mastodon-post span.ellipsis{max-width:100%!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}.mastodon-post{box-shadow:none;margin:0 auto}.mastodon-post,.mastodon-post p{font-family:var(--font-base);font-size:var(--size-step-min-2)!important}.mastodon-post p{max-inline-size:100%!important}.mastodon-post span{font-family:var(--font-base);font-size:var(--size-step-min-2)!important}.mastodon-post figcaption{margin-block-start:var(--space-l)!important}a.mastodon-post,a.mastodon-post:link,a.mastodon-post:visited{font-family:var(--font-base);font-size:var(--size-step-min-2)!important;padding:0!important}blockquote.mastodon-post-quote{background-color:var(--color-gray-800)!important;border-left:none!important;max-inline-size:100%!important;padding:1.5em 1.5em 0!important}.mastodon-post__caption,blockquote.mastodon-post-quote{font-family:var(--font-base);font-size:var(--size-step-min-2)!important}.mastodon-post__caption{background:var(--color-gray-900);border-top:2px solid var(--color-bg-accent);padding:1.25em 1em .75em}.mastodon-post__stats{align-items:center;display:flex;flex-wrap:wrap;justify-content:space-evenly;max-inline-size:100%!important}.mastodon-post__stat dd,.mastodon-post__stat dt{display:inline-block;margin:0}.mastodon-post__stat i{font-size:1.25rem;line-height:1}.mastodon-post__stats a.no-indicator,.mastodon-post__stats a.no-indicator:link,.mastodon-post__stats a.no-indicator:visited{color:var(--color-text);font-size:var(--size-step-min-2)!important;text-decoration:none}.mastodon-post__stats a.no-indicator:hover{color:var(--color-green);font-size:var(--size-step-min-2)!important;text-decoration:none}.mastodon-post__stats a.no-indicator :is(dt,dd,i,span){color:inherit}.mastodon-post__stats a.no-indicator:active,.mastodon-post__stats a.no-indicator:focus{color:var(--color-green)}.masto-share{--masto-share-font:var(--size-step-min-1);align-items:center;display:flex;flex-wrap:wrap;gap:var(--space-l)}@media (max-width:30rem){.masto-share{align-items:flex-start;flex-direction:column;gap:var(--space-l)}.masto-share .button{--button-font-size:1rem;padding:.7rem .95rem}}.masto-share .button{--button-gap:var(--space-3xs);--button-font-size:var(--masto-share-font)}.masto-share__menu details{display:inline-block;position:relative}.masto-share__menu summary{list-style:none}.masto-share__menu summary::-webkit-details-marker{display:none}.masto-share__dropdown{background:var(--color-gray-900);border:1px solid var(--color-bg-accent);border-radius:var(--border-radius-small);bottom:auto;box-shadow:0 10px 28px rgba(0,0,0,.32);box-sizing:border-box;color:var(--color-text);font-size:var(--masto-share-font);inline-size:max(18rem,100%);left:0;line-height:var(--leading-flat);min-inline-size:18rem;overflow:hidden;padding:.25rem;position:absolute;right:auto;top:calc(100% + .35rem);transform:none;z-index:1000}.masto-share__menu details[data-align=end] .masto-share__dropdown{left:auto;right:0}.masto-share__section{display:grid;gap:2px;padding:.25rem}.masto-share__divider{border:0;border-top:1px solid var(--color-bg-accent);margin:.15rem .25rem!important;opacity:.85}.masto-share__dropdown a,.masto-share__dropdown button{align-items:center;background:none;border:0;border-radius:var(--border-radius-small);box-sizing:border-box;color:inherit;cursor:pointer;display:flex;font:inherit;gap:.5rem;inline-size:100%;padding:.45rem .6rem;text-align:left;text-decoration:none}.masto-share__dropdown a:hover,.masto-share__dropdown button:hover{background:color-mix(in oklab,var(--color-gray-900) 80%,var(--color-text))}.masto-share__dropdown a:focus-visible,.masto-share__dropdown button:focus-visible,.masto-share__menu summary:focus-visible{border-radius:var(--border-radius-small);outline:2px solid var(--color-secondary);outline-offset:2px}@media (prefers-reduced-motion:no-preference){.masto-share__dropdown{animation:mastoDrop .12s ease-out both}@keyframes mastoDrop{0%{opacity:0;translate:0 -4px}to{opacity:1;translate:0 0}}}.masto-share :where(.button,.masto-share__dropdown) :where(.fa-mastodon){--masto-icon-size:1.25rem;font-size:var(--masto-icon-size);line-height:1;margin-right:0;vertical-align:middle}.prose{--flow-space:var(--space-m-l);--wrapper-width:64rem}.prose :is(pre,pre+*,figure,picture){--flow-space:var(--space-m-l)}.prose :is(figure+*,picture+*){--flow-space:var(--space-xl)}.prose :is(img,video){border:var(--stroke)}.prose :is(h2,h3,h4,h5){--flow-space:1.5em;-webkit-hyphens:auto;hyphens:auto;overflow-wrap:anywhere}@media (min-width:1000px){.prose :is(h1,h2,h3,h4,h5){-webkit-hyphens:unset;hyphens:unset;overflow-wrap:unset}}.prose :is(h1,h2,h3,h4,h5)+:not([class]):not(figure){--flow-space:var(--space-l)}.prose :is(p,li,dl,blockquote){text-wrap:pretty}.prose .heading-anchor:where(:hover,:focus){text-decoration:none}.heading-anchor{text-decoration:none}.prose mark{background-color:var(--color-tertiary);color:var(--color-dark)}.prose :is(ul,ol):not([class]) li+li,.prose :is(ul,ol):not([class]) li>:is(ol,ul){padding-block-start:var(--space-s)}.prose :is(ul:not([class]):not([role=list])) li::marker{color:var(--color-primary);content:"– "}.prose ul:not([class]){padding-inline-start:1.3ch}.prose ol:not([class]){padding-inline-start:1.7ch}.prose ol li::marker{color:var(--color-primary)}.prose img{border-radius:var(--border-radius-medium)}@media (max-width:640px){.prose a,.prose>*{overflow-wrap:break-word;word-wrap:break-word;-webkit-hyphens:auto;hyphens:auto;word-break:break-word}}.section>.divider:first-child{transform:rotate(180deg) translateY(-1px)}.section__inner{background-color:var(--spot-color,var(--color-bg-accent));color:var(--color-text)}.section blockquote{font-size:var(--size-step-4);font-weight:var(--font-bold);letter-spacing:var(--tracking-s);line-height:1}.section :is(h1,h2,h3,blockquote){opacity:95%}.divider{block-size:3.5em;display:block;inline-size:100%;fill:var(--spot-color,var(--color-bg))}.divider>.divider{transform:translateY(-1px)}.site-footer{background-color:var(--color-gray-700)!important;border-top:1px solid color-mix(in oklab,var(--color-gray-100) 8%,transparent);color:var(--color-gray-100);display:block;padding-block:0;width:100%}.site-footer>.wrapper.site-footer__inner{background:transparent;padding-block:var(--space-2xl)}.site-footer .footer-grid{align-items:start;display:grid;gap:var(--space-l);grid-template-areas:"left" "right"}.site-footer .footer-grid>*{min-width:0}.left-pane{grid-area:left}.left-pane,.right-pane{text-align:left;--cluster-horizontal-alignment:start}.right-pane{display:grid;gap:var(--space-m);grid-area:right}.right-pane .cluster{justify-content:flex-start}@media (min-width:53.75rem){.site-footer .footer-grid{grid-template-areas:"left right";grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.site-footer .left-pane{text-align:left;--cluster-horizontal-alignment:start;align-items:start;justify-items:start}.site-footer .left-pane .cluster{justify-content:flex-start}.site-footer .right-pane{text-align:right;--cluster-horizontal-alignment:end;align-items:start;justify-items:end}.site-footer .right-pane .cluster{justify-content:flex-end}}.site-footer a{padding:var(--space-xs)}.site-footer .creator a{padding:0}.site-footer .footer-link,.site-footer .platforms a,.site-footer .webrings a{color:var(--color-gray-100);text-decoration-color:color-mix(in oklab,var(--color-gray-100) 30%,transparent);text-decoration-thickness:.12em;text-underline-offset:.18em}.site-footer .footer-link:hover,.site-footer .platforms a:hover,.site-footer .webrings a:hover{color:var(--color-green);text-decoration:none}.site-footer .creator a:hover{-webkit-background-clip:text;background-clip:text;background-image:var(--gradient-rainbow);background-repeat:repeat;background-size:100%;color:transparent}.site-footer .creator a:hover svg{color:var(--color-primary)}.site-footer a[href*="11ty.dev/speedlify/kylereddoch-me"],.site-footer a[href*="11ty.dev/speedlify/kylereddoch-me"]:hover{text-decoration:none}.webrings{text-align:left}.webrings>.cluster{display:flex;flex-wrap:wrap;gap:var(--space-s);list-style:none;margin:var(--space-s) 0 0;padding:0}.webring{align-items:center;background:color-mix(in oklab,var(--color-gray-100) 6%,transparent);border-radius:.25rem;display:inline-flex;gap:.6ch;line-height:1.15;max-inline-size:100%;overflow:hidden;padding:.4rem .65rem}.webring__label{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.webrings .small{font-size:.9em;opacity:.9}.webrings .no-wrap{white-space:nowrap}.webrings .no-indicator{padding-inline-end:0!important;position:static!important}.webrings .no-indicator:after{content:none!important}.webrings-note{margin:var(--space-s) 0 0;text-align:left}.site-footer .indie-buttons-band{background:color-mix(in oklab,var(--color-gray-700) 85%,#fff);border:0;padding-block:var(--space-l);width:100%}.site-footer .indie-buttons-band>.wrapper{background:transparent}.site-footer .indie-buttons-band a{align-items:center;display:inline-flex;justify-content:center;padding:0}.site-footer .indie-buttons{--button-min:5.5rem;align-items:center;display:grid;gap:var(--space-s);grid-template-columns:repeat(auto-fit,minmax(min(100%,var(--button-min)),1fr));list-style:none;margin:0;padding:0}.site-footer .indie-buttons>li{align-items:center;display:flex;justify-content:center}.site-footer .indie-buttons img{border-radius:.2rem;display:block;height:31px;image-rendering:pixelated;max-width:100%;-o-object-fit:contain;object-fit:contain;width:auto}.site-footer .indie-buttons-band a:hover img{filter:brightness(1.1)}.logo{--gutter:var(--space-xs);font-size:var(--size-step-0);padding:var(--space-s) 0;text-decoration:none}.skip-link{clip:rect(1px,1px,1px,1px);block-size:1px;display:block;inline-size:1px;left:1rem;overflow:hidden;position:absolute;top:1rem;z-index:999}.skip-link:focus{clip:auto;background-color:var(--color-text);block-size:auto;border-radius:var(--border-radius-medium);color:var(--color-bg);inline-size:auto;line-height:1;overflow:visible;padding:var(--space-xs) var(--space-s-m)}.skip-link:not(:focus){border:0;clip:rect(0 0 0 0);block-size:auto;inline-size:1px;margin:0;overflow:hidden;padding:0;position:absolute;white-space:nowrap}:where(main,article,.content,.prose) table{--table-border-color:var(--color-text-accent,currentColor);--table-border:1px solid var(--table-border-color);--table-radius:var(--border-radius-medium,1rem);border:var(--table-border);border-collapse:separate;border-radius:var(--table-radius);border-spacing:0;inline-size:100%;overflow:hidden;table-layout:auto}:where(main,article,.content,.prose) table :is(th,td){border-block-end:var(--table-border);border-inline-end:var(--table-border);line-height:var(--leading-standard,1.5);overflow-wrap:anywhere;padding:var(--space-s,1rem) var(--space-m,1.25rem);text-align:start!important;vertical-align:top;word-break:break-word}:where(main,article,.content,.prose) table tr>:last-child{border-inline-end:0}:where(main,article,.content,.prose) table tbody tr:last-child>*{border-block-end:0}:where(main,article,.content,.prose) table thead th{font-weight:var(--font-bold,700)}:where(main,article,.content,.prose) table br{display:none}@media (min-width:40rem){:where(main,article,.content,.prose) table :is(th,td):first-child{overflow-wrap:normal;white-space:nowrap;width:1%;word-break:normal}}@media (max-width:40rem){:where(main,article,.content,.prose) table :is(th,td){font-size:.95em;-webkit-hyphens:auto;hyphens:auto;min-inline-size:0;padding:var(--space-xs,.75rem) var(--space-s,1rem)}:where(main,article,.content,.prose) table :is(th,td):first-child{overflow-wrap:normal;white-space:normal;word-break:normal}}@media (max-width:40rem){:where(main,article,.content,.prose) table:has(td[data-label]) thead{border:0;clip:rect(0 0 0 0);block-size:1px;inline-size:1px;margin:-1px;overflow:hidden;padding:0;position:absolute}:where(main,article,.content,.prose) table:has(td[data-label]) tbody tr{display:block}:where(main,article,.content,.prose) table:has(td[data-label]) tbody td{align-items:start;border-inline-end:0;display:grid;gap:var(--space-xs,.5rem);grid-template-columns:minmax(10ch,40%) 1fr}:where(main,article,.content,.prose) table:has(td[data-label]) tbody td:before{content:attr(data-label);font-weight:var(--font-bold,700)}}.gradient-text{background-image:var(--gradient-conic);background-size:50%;padding:.6rem 0}.gradient-text,.gradient-text-linear{-webkit-background-clip:text;background-clip:text;color:transparent}.gradient-text-linear{background-image:var(--gradient-rainbow);background-repeat:repeat;background-size:100%}.theme-switch h2{font-family:var(--font-base);font-size:var(--size-step-min-1)}.theme-switch .button[aria-pressed=true]{--_color-contrast:var(--color-tertiary);--button-bg:var(--_color-contrast);--button-color:var(--color-dark);--button-border-color:var(--_color-contrast);outline-color:var(--_color-contrast)}is-land:not(:defined) .theme-switch{display:none}}</style>
-		<style>.post article h1{font-size:var(--size-step-6)}.post article h2{font-size:var(--size-step-3)}.post article h3{font-size:var(--size-step-2)}.post h1+:is(picture,figure) img{aspect-ratio:16/9;block-size:auto;max-inline-size:var(--max-img-width,100%);-o-object-fit:cover;object-fit:cover;-o-object-position:center;object-position:center}.post date{color:var(--color-text-light);font-size:var(--size-step-1)}.post .credit{background-color:var(--color-bg);border-radius:var(--border-radius-medium);color:var(--color-text-accent);max-inline-size:-moz-fit-content;max-inline-size:fit-content;padding:var(--space-xs) var(--space-s);transform:translateY(-4ch) translateX(-.5ch)}.post .credit,.post .meta{font-size:var(--size-step-min-1)}.footnotes{font-size:var(--size-step-min-1)}.footnote-ref{color:var(--color-text-accent);font-size:var(--size-step-min-2);margin-inline-start:.1ch;vertical-align:super}.footnote-ref a{padding:.3ch;text-decoration:none}.footnote-backref{background-color:var(--color-bg-accent);border-radius:var(--border-radius-medium);padding-inline:var(--space-xs);text-decoration:none}.footnote-backref:hover{color:var(--color-primary)}hr.footnotes-sep{border:0;display:none;height:0;margin:0;padding:0}
-@media (scripting:enabled){@media (max-width:640px){.mainnav>ul{display:none}}}</style>
-
-	
-
-
-    <!-- 6 preloads  -->
-    <link rel="preload" href="/assets/fonts/redhat/red-hat-display-v7-latin-900.woff2" as="font" type="font/woff2" crossorigin>
-
-<link rel="preload" href="/assets/fonts/atkinson/atkinson-hyperlegible-regular.woff2" as="font" type="font/woff2" crossorigin>
-
-<!-- preloads in page data -->
-
-
-    <!-- 7 defer  -->
-    <script src="/bundle/n44MjJxnwn.js" type="module"></script>
-<script src="https://kit.fontawesome.com/fb3ee9d8ef.js" crossorigin="anonymous" defer></script>
-<script src="https://tinylytics.app/embed/aK6PBymtmDm6DxSXaP2H.js?webring&amp;kudos=❤️" defer></script>
-
-    <!-- 8 meta tags, icons, open graph etc.  -->
     
 
 <meta name="description" content="A sane phone security baseline you can keep turned on: lock screen, anti-theft, app permissions, account protection, SIM-swap defenses, and a quick validation to prove it worked.">
@@ -102,7 +20,7 @@
 <meta name="generator" content="Eleventy v3.1.2">
 <!-- Disable automatic detection and formatting of possible phone numbers -->
 <meta name="format-detection" content="telephone=no">
-<meta name="color-scheme" content="dark">
+<meta name="color-scheme" content="light dark">
 <!-- activates page transitions -->
 <meta name="view-transition" content="same-origin">
 <!-- Helps prevent duplicate content issues -->
@@ -118,6 +36,11 @@
 
   <!-- fediverse creator tag -->
   <meta name="fediverse:creator" content="@cyberseckyle@infosec.exchange">
+
+
+
+  <link rel="webmention" href="https://webmention.io/www.kylereddoch.me/webmention">
+  <link rel="pingback" href="https://webmention.io/www.kylereddoch.me/xmlrpc">
 
 
 <!-- Open Graph meta  -->
@@ -144,128 +67,145 @@
 
 <!-- Favicon: https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs -->
 <link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 
 
-    <!-- <script type="module" src="/assets/scripts/components/snow-fall.js" defer></script> -->
+    <link rel="stylesheet" href="/assets/starter/build.css">
+    <link rel="stylesheet" href="/assets/starter/cyberseckyle.css">
+    <script>
+      window.Prism = window.Prism || {};
+      window.Prism.manual = true;
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup-templating.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-batch.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markdown.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-powershell.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-scss.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-twig.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js" defer></script>
+
+    <style>
+      .contrast {
+        filter: contrast(1.2) saturate(1.1);
+      }
+
+      .reduce-motion,
+      .reduce-motion * {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+      }
+    </style>
   </head>
-
-  <body class="post">
-    <is-land on:media="(prefers-reduced-motion: no-preference)"><snow-fall count="200"></snow-fall></is-land>
-    
-    <header class="wrapper">
-  <a href="#main" class="skip-link">Skip to content</a>
-
-  <div class="repel ontop gutter-s">
-    <a href="/" class="logo | cluster">
-      <picture slot="image">  <source type="image/avif" srcset="/assets/images/logo-48w.avif 48w" sizes="auto">
-  <source type="image/webp" srcset="/assets/images/logo-48w.webp 48w" sizes="auto">
-  <source type="image/jpeg" srcset="/assets/images/logo-48w.jpeg 48w" sizes="auto"><img src="/assets/images/logo-48w.jpeg" width="48" height="48" alt loading="lazy" decoding="async" eleventy:ignore></picture>
-
-      <span class="font-display">CybersecKyle</span>
+  <body class="bg-[var(--bg)] text-[var(--text)] min-h-screen flex flex-col">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-black">
+      Skip to content
     </a>
-    <!-- toggle drawer and sub menu in _data/meta.js -->
 
+    <div id="progress-bar" aria-hidden="true"></div>
 
+    
+    
+    
+    
+    
+    
+    
 
-<nav id="mainnav" aria-label="Main" class="mainnav">
-  <ul role="list" no-flash class="cluster">
-    
-      
-        <li>
-          <a href="/about/">About Me</a>
-        </li>
-      
-    
-      
-        <li>
-          <a href="/blog/" aria-current="page" data-state="active">Blog</a>
-        </li>
-      
-    
-      
-        <li>
-          <a href="/tags/cybersecurity/">Cybersecurity</a>
-        </li>
-      
-    
-      
-        <li>
-          <a href="/tags/weeklynotes/">Weekly Notes</a>
-        </li>
-      
-    
-  </ul>
+    <header class="bg-[var(--surface)] border-b border-gray-200 dark:border-gray-700">
+      <div class="container mx-auto max-w-7xl px-4 py-3 flex items-center gap-3">
+        <button id="hamburger" aria-label="Toggle menu" aria-controls="primary-nav" aria-expanded="false" class="md:hidden p-2 rounded border border-gray-300 dark:border-gray-600">
+          <span class="bar-1 block w-5 h-0.5 bg-gray-700 dark:bg-gray-200 mb-1 transition-transform"></span>
+          <span class="bar-2 block w-5 h-0.5 bg-gray-700 dark:bg-gray-200 mb-1 transition-opacity"></span>
+          <span class="bar-3 block w-5 h-0.5 bg-gray-700 dark:bg-gray-200 transition-transform"></span>
+        </button>
+
+        <a href="/" class="site-brand no-indicator">
+          <picture><source type="image/webp" srcset="/img/9TFc0M7-EG-40.webp 40w" sizes="auto"><img loading="lazy" decoding="async" src="/img/9TFc0M7-EG-40.jpeg" alt width="40" height="40" class="site-brand__logo"></picture>
+          <span class="site-title text-lg font-semibold tracking-tight">CybersecKyle</span>
+        </a>
+
+        <form role="search" aria-label="Site" action="/search/" method="get" class="ml-auto hidden sm:block">
+          <label for="q" class="sr-only">Search</label>
+          <input id="q" name="q" type="search" placeholder="Search..." autocomplete="off" class="w-64 rounded border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder:text-gray-500 shadow-sm focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 dark:bg-white dark:text-gray-900 dark:placeholder:text-gray-500">
+        </form>
+
+        <div class="flex items-center gap-2 ml-2">
+          <button id="dark-toggle" aria-pressed="false" aria-label="Toggle dark mode" class="px-2 py-1 text-sm border rounded">🌙</button>
+          <div class="relative">
+            <button id="a11y-toggle" aria-expanded="false" aria-controls="a11y-menu" class="px-2 py-1 text-sm border rounded">A11y</button>
+            <div id="a11y-menu" class="absolute right-0 mt-1 bg-[var(--surface)] border rounded p-2 text-sm space-x-2 whitespace-nowrap hidden">
+              <button id="font-dec" class="px-2 py-1 border rounded">A-</button>
+              <button id="font-inc" class="px-2 py-1 border rounded">A+</button>
+              <button id="contrast-toggle" aria-pressed="false" class="px-2 py-1 border rounded">Contrast</button>
+              <button id="motion-toggle" aria-pressed="false" class="px-2 py-1 border rounded">Reduce motion</button>
+              <button id="font-toggle" type="button" aria-pressed="false" class="px-2 py-1 border rounded hidden md:inline-block">System Fonts</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="bg-[var(--surface)] border-b border-gray-200 dark:border-gray-700">
+      <div id="primary-nav" class="container mx-auto max-w-7xl px-4 py-2 hidden md:block">
+        <ul class="flex flex-col md:flex-row text-base md:text-sm space-y-3 md:space-y-0 md:space-x-6">
+          <li><a href="/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">🏠 Home</a></li>
+          <li><a href="/blog/" aria-current="page" class="nav-item block py-2 text-purple-600 dark:text-purple-400 underline font-semibold">✍️ Blog</a></li>
+          <li><a href="/tags/cybersecurity/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">🛡️ Cybersecurity</a></li>
+          <li><a href="/notes/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">📝 Notes</a></li>
+          <li><a href="/about/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">👋 About</a></li>
+          <li><a href="/contact/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">💬 Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-6 max-w-4xl flex-1">
+      <main id="main">
+        
+<a href="/blog/" class="inline-flex items-center text-blue-600 hover:text-blue-800 mb-3">
+  ← Back to Blog
+</a>
+
+<nav aria-label="Breadcrumb" class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+  <ol class="flex flex-wrap items-center gap-2">
+    <li><a href="/" class="hover:text-blue-600">Home</a></li>
+    <li aria-hidden="true">/</li>
+    <li><a href="/blog/" class="hover:text-blue-600">Blog</a></li>
+    <li aria-hidden="true">/</li>
+    <li class="text-gray-900 dark:text-gray-100">CybersecKyle Security How-To Series: Everyday Defense Part 4 - Phone hardening you can live with</li>
+  </ol>
 </nav>
 
-
-  <!-- template element holding a button that needs to be injected when JavaScript is finally available. -->
-  <!-- based on solution by Manuel Matuzovic, https://web.dev/website-navigation/ and the Web Accessibility Cookbook -->
-  <!-- see also: https://kittygiraudel.com/2022/09/30/templating-in-html/ -->
-
-  <template id="burger-template">
-    <button data-drawer-toggle type="button" aria-expanded="false" aria-controls="mainnav" class="cluster">
-      <span>Menu</span>
-
-      <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M5 12h14"></path>
-        <path d="M12 5v14"></path>
-      </svg>
-    </button>
-  </template>
+<article class="h-entry mx-auto max-w-3xl">
 
   
 
-  
-
-
-
-
-  </div>
-</header>
-
-
-    <main id="main" class="flow">
-<div style="--region-space-top: var(--space-2xl)" class="region">
-  <div class="wrapper flow prose">
-    <h1 style="font-size: var(--size-step-4) !important" class="gradient-text">CybersecKyle Security How-To Series: Everyday Defense Part 4 - Phone hardening you can live with</h1>
+  <header class="mb-6">
+    <h1 class="p-name text-3xl font-bold tracking-tight mb-3">CybersecKyle Security How-To Series: Everyday Defense Part 4 - Phone hardening you can live with</h1>
+    
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">A sane phone security baseline you can keep turned on: lock screen, anti-theft, app permissions, account protection, SIM-swap defenses, and a quick validation to prove it worked.</p>
     
 
-    <!--  h-card infos: https://indieweb.org/authorship -->
-  <div hidden class="h-entry">
-    <a href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/" class="u-url">CybersecKyle Security How-To Series: Everyday Defense Part 4 - Phone hardening you can live with</a>
-    <a rel="author" href="https://www.kylereddoch.me" class="p-name u-url">Kyle Reddoch</a>
-    <img src="https://www.kylereddoch.me/assets/images/logo.png" alt="Kyle Reddoch" class="u-author h-card">
-  </div>
+    <div class="text-sm text-gray-600 dark:text-gray-400">
+      Published on <time datetime="2026-01-29" class="dt-published">January 29, 2026</time>
+      by <span class="p-author h-card">
+        <a href="/about/" class="u-url p-name hover:text-blue-600">Kyle Reddoch</a>
+      </span>
+      <span aria-hidden="true" class="text-gray-400 dark:text-gray-500 mx-1">•</span>
+      <span>7 min read</span>
+    </div>
 
-    <p class="meta">
-      <!-- draft status -->
-      <!-- date -->
-       <time datetime="2026-01-29T18:30:00.000Z"> January 29, 2026</time> · About a 7 min read time
-    </p>
+    <a href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/" class="u-url hidden">Permalink</a>
+  </header>
 
-    <p class="meta | cluster gutter-xs-s">
-    
-        <!-- tags -->
-        
-          <a href="/tags/cyberseckyle-howto-series/" data-small-button class="button"> #cyberseckyle-howto-series </a>
-        
-          <a href="/tags/everyday-defense/" data-small-button class="button"> #everyday-defense </a>
-        
-          <a href="/tags/cybersecurity/" data-small-button class="button"> #cybersecurity </a>
-        
-          <a href="/tags/tutorials/" data-small-button class="button"> #tutorials </a>
-        
-          <a href="/tags/mobile-security/" data-small-button class="button"> #mobile-security </a>
-        
-          <a href="/tags/infosecurity/" data-small-button class="button"> #infosecurity </a>
-        
-          <a href="/tags/how-to/" data-small-button class="button"> #how-to </a>
-        
-      
-      </p>
-
+  <div class="e-content prose max-w-none">
     <blockquote>
 <p>I am back with <strong>Part 4</strong> of the <strong>Everyday Defense</strong> track in my <a href="/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/">CybersecKyle Security How-To Series</a>. The goal here is simple: make your browser boring to attackers without making your browsing miserable.</p>
 </blockquote>
@@ -274,7 +214,7 @@
 <p>Phones are not just phones anymore. They are your password reset machine, your banking device, your camera roll, your email, your work chat, and your “approve sign-in” button.</p>
 <p>In MSP and security work, I see the same pattern over and over: most mobile incidents are not exotic zero-days. They are regular human problems like stolen devices, weak lock screens, SIM swaps, notification leaks, and apps with way too much access.</p>
 <p>This guide is for hardening your phone in a way you can actually tolerate long-term. The goal is not perfect security. The goal is fewer bad days.</p>
-<h2 id="what-you-are-defending-against"><a href="#what-you-are-defending-against" class="heading-anchor">What you are defending against</a></h2>
+<h2 id="what-you-are-defending-against">What you are defending against</h2>
 <p>This matters because the right settings depend on the threat.</p>
 <p><strong>Most common risk events:</strong></p>
 <ul>
@@ -285,7 +225,7 @@
 <li>You get phished and the attacker uses your phone to reset everything.</li>
 </ul>
 <p>If you want a quick sanity anchor, even <a href="https://apnews.com/article/c4d0ab7ee40fca01bc46d7db03d590dd" rel="noopener">mainstream incident advice</a> emphasizes basics like strong device auth, find-my features, and disabling sensitive notification previews before a device goes missing.</p>
-<h2 id="the-baseline-in-20-minutes"><a href="#the-baseline-in-20-minutes" class="heading-anchor">The baseline in 20 minutes</a></h2>
+<h2 id="the-baseline-in-20-minutes">The baseline in 20 minutes</h2>
 <p>If you do nothing else, do these seven and stop. This is the “high impact, low annoyance” set.</p>
 <ol>
 <li>Turn on automatic OS updates.</li>
@@ -296,21 +236,21 @@
 <li>Review your top 10 apps for permissions and delete what you do not use.</li>
 <li>Add a carrier port-out lock or PIN to reduce SIM swap and number hijack risk.</li>
 </ol>
-<h2 id="step-1-updates-because-old-bugs-do-not-get-nicer"><a href="#step-1-updates-because-old-bugs-do-not-get-nicer" class="heading-anchor">Step 1: Updates, because old bugs do not get nicer</a></h2>
+<h2 id="step-1-updates-because-old-bugs-do-not-get-nicer">Step 1: Updates, because old bugs do not get nicer</h2>
 <p>Modern phones are already hardened compared to most computers, but only if they are current. Updates fix real vulnerabilities and also patch security bypasses that criminals re-use for months.</p>
-<h4 id="iphone"><a href="#iphone" class="heading-anchor">iPhone</a></h4>
+<h4 id="iphone">iPhone</h4>
 <ul>
 <li>Settings -&gt; General -&gt; Software Update -&gt; Automatic Updates</li>
 </ul>
-<h4 id="android"><a href="#android" class="heading-anchor">Android</a></h4>
+<h4 id="android">Android</h4>
 <ul>
 <li>Settings -&gt; System -&gt; System update (varies by vendor)</li>
 <li>Also check Google Play system update if your phone exposes it under Security and privacy</li>
 </ul>
 <p>I treat this like oil changes. If you skip them long enough, something expensive happens.</p>
-<h2 id="step-2-lock-screen-hardening-that-does-not-make-you-miserable"><a href="#step-2-lock-screen-hardening-that-does-not-make-you-miserable" class="heading-anchor">Step 2: Lock screen hardening that does not make you miserable</a></h2>
+<h2 id="step-2-lock-screen-hardening-that-does-not-make-you-miserable">Step 2: Lock screen hardening that does not make you miserable</h2>
 <p>This is the center of gravity. If your lock screen is weak, everything behind it is a bonus prize.</p>
-<h3 id="use-a-passcode-that-cannot-be-guessed-in-five-tries"><a href="#use-a-passcode-that-cannot-be-guessed-in-five-tries" class="heading-anchor">Use a passcode that cannot be guessed in five tries</a></h3>
+<h3 id="use-a-passcode-that-cannot-be-guessed-in-five-tries">Use a passcode that cannot be guessed in five tries</h3>
 <p>A 4-digit PIN is 10,000 possibilities. That sounds big until you remember attackers can watch you type it. A 6-digit PIN is 1,000,000 possibilities and buys you a lot more safety for almost no extra effort.</p>
 <p>My recommendation:</p>
 <ul>
@@ -318,11 +258,11 @@
 <li>Better: long numeric passcode</li>
 <li>Best: alphanumeric passcode if you can tolerate it</li>
 </ul>
-<h3 id="keep-biometrics-but-do-not-rely-on-them-alone"><a href="#keep-biometrics-but-do-not-rely-on-them-alone" class="heading-anchor">Keep biometrics, but do not rely on them alone</a></h3>
+<h3 id="keep-biometrics-but-do-not-rely-on-them-alone">Keep biometrics, but do not rely on them alone</h3>
 <p>Face ID and fingerprints are great for daily convenience, but the passcode is still the root key for many security actions. You want the passcode to be strong because it is what matters when you are stressed, tired, or being rushed.</p>
-<h3 id="set-a-reasonable-auto-lock-timeout"><a href="#set-a-reasonable-auto-lock-timeout" class="heading-anchor">Set a reasonable auto-lock timeout</a></h3>
+<h3 id="set-a-reasonable-auto-lock-timeout">Set a reasonable auto-lock timeout</h3>
 <p>Too short becomes annoying. Too long becomes dangerous. I usually recommend 30 seconds to 2 minutes depending on your lifestyle.</p>
-<h3 id="stop-notification-leaks"><a href="#stop-notification-leaks" class="heading-anchor">Stop notification leaks</a></h3>
+<h3 id="stop-notification-leaks">Stop notification leaks</h3>
 <p>Lock screen notifications can leak one-time codes, email subjects, calendar details, and even message previews. <a href="https://support.apple.com/guide/iphone/change-notification-settings-iph7c3d96bab/ios" rel="noopener">Apple explicitly supports</a> controlling notification previews and when they appear.</p>
 <p>My recommendation:</p>
 <ul>
@@ -330,26 +270,26 @@
 <li>Also consider disabling lock screen notifications for banking and authentication apps entirely</li>
 </ul>
 <p>This single change prevents a surprising number of “they grabbed my phone and immediately took over my accounts” stories.</p>
-<h2 id="step-3-anti-theft-features-you-should-enable-before-you-need-them"><a href="#step-3-anti-theft-features-you-should-enable-before-you-need-them" class="heading-anchor">Step 3: Anti-theft features you should enable before you need them</a></h2>
+<h2 id="step-3-anti-theft-features-you-should-enable-before-you-need-them">Step 3: Anti-theft features you should enable before you need them</h2>
 <p>Most people turn these on after something bad happens. That is like buying a fire extinguisher after the kitchen catches fire.</p>
-<h3 id="iphone-find-my-and-activation-lock"><a href="#iphone-find-my-and-activation-lock" class="heading-anchor">iPhone: Find My and Activation Lock</a></h3>
+<h3 id="iphone-find-my-and-activation-lock">iPhone: Find My and Activation Lock</h3>
 <p>When Find My is enabled, <a href="https://support.apple.com/en-us/108794" rel="noopener">Activation Lock</a> helps prevent someone else from using your device if it is lost or stolen.</p>
 <p>Also bookmark <a href="https://support.apple.com/en-us/120837" rel="noopener">Apple’s stolen device steps</a>. If you ever need it, you will not want to hunt for it while panicking.</p>
-<h3 id="iphone-stolen-device-protection"><a href="#iphone-stolen-device-protection" class="heading-anchor">iPhone: Stolen Device Protection</a></h3>
+<h3 id="iphone-stolen-device-protection">iPhone: Stolen Device Protection</h3>
 <p><a href="https://support.apple.com/en-us/120340" rel="noopener">Stolen Device Protection</a> adds extra safeguards around sensitive actions and is designed specifically for the “phone stolen plus passcode compromised” scenario.</p>
 <p>My recommendation:</p>
 <ul>
 <li>Turn it on.</li>
 <li>If you travel a lot or use your phone in crowded places often, consider the stricter option when available.</li>
 </ul>
-<h3 id="android-find-hub-and-theft-protection"><a href="#android-find-hub-and-theft-protection" class="heading-anchor">Android: Find Hub and Theft Protection</a></h3>
+<h3 id="android-find-hub-and-theft-protection">Android: Find Hub and Theft Protection</h3>
 <p>Google’s current <a href="https://support.google.com/android/answer/15146908?hl=en" rel="noopener">Theft Protection guidance</a> includes features like Offline Device Lock and Failed Authentication Lock, plus Remote Lock options. Separately, Google also <a href="https://support.google.com/accounts/answer/6160491?hl=en" rel="noopener">documents how to find, secure, or erase</a> a lost Android device.</p>
 <p>My recommendation:</p>
 <ul>
 <li>Enable Theft Protection features that your device offers.</li>
 <li>Confirm that remote locate and remote lock are working at least once.</li>
 </ul>
-<h2 id="step-4-sim-swap-and-port-out-defense-boring-effective-underrated"><a href="#step-4-sim-swap-and-port-out-defense-boring-effective-underrated" class="heading-anchor">Step 4: SIM swap and port-out defense (boring, effective, underrated)</a></h2>
+<h2 id="step-4-sim-swap-and-port-out-defense-boring-effective-underrated">Step 4: SIM swap and port-out defense (boring, effective, underrated)</h2>
 <p>This one is not sexy. It is also one of the most brutal takeovers because it breaks SMS-based recovery and can let an attacker reset accounts rapidly.</p>
 <p>The FCC has been actively tightening rules around <a href="https://www.fcc.gov/consumer-governmental-affairs/fcc-announces-effective-compliance-date-sim-swapping-item" rel="noopener">SIM swap</a> and <a href="https://www.fcc.gov/consumers/scam-alert/port-out-fraud-targets-your-private-accounts" rel="noopener">port-out fraud</a>, and they also provide consumer guidance about port-out scams.</p>
 <p>Do these:</p>
@@ -359,11 +299,11 @@
 <li>Consider a <strong>SIM PIN</strong> if you travel or if physical SIM theft is realistic for you.</li>
 </ul>
 <p>Practical note: this is worth doing even if you use app-based MFA, because attackers often aim for the recovery path and not the login.</p>
-<h2 id="step-5-app-permissions-and-quiet-spyware-reduction"><a href="#step-5-app-permissions-and-quiet-spyware-reduction" class="heading-anchor">Step 5: App permissions and “quiet spyware” reduction</a></h2>
+<h2 id="step-5-app-permissions-and-quiet-spyware-reduction">Step 5: App permissions and “quiet spyware” reduction</h2>
 <p>You do not need to be paranoid to benefit from least privilege. If an app does not need your microphone, it does not get your microphone. Simple.</p>
-<h3 id="delete-apps-you-do-not-use"><a href="#delete-apps-you-do-not-use" class="heading-anchor">Delete apps you do not use</a></h3>
+<h3 id="delete-apps-you-do-not-use">Delete apps you do not use</h3>
 <p>Every installed app is potential risk. Fewer apps means fewer problems.</p>
-<h3 id="review-permissions-in-a-focused-way"><a href="#review-permissions-in-a-focused-way" class="heading-anchor">Review permissions in a focused way</a></h3>
+<h3 id="review-permissions-in-a-focused-way">Review permissions in a focused way</h3>
 <p>Instead of trying to audit everything, do it like a professional: high-risk permissions first.</p>
 <p>Start with:</p>
 <ul>
@@ -375,25 +315,25 @@
 <li>Bluetooth and local network access</li>
 </ul>
 <p>If the permission does not match the job of the app, remove it. If the app nags or breaks, decide whether you trust it enough to keep the permission. That decision is the entire game.</p>
-<h3 id="android-keep-play-protect-on"><a href="#android-keep-play-protect-on" class="heading-anchor">Android: keep Play Protect on</a></h3>
+<h3 id="android-keep-play-protect-on">Android: keep Play Protect on</h3>
 <p><a href="https://support.google.com/googleplay/answer/2812853?hl=en" rel="noopener">Play Protect</a> scans apps and warns about harmful behavior. It is not magic, but it is a solid baseline control and costs almost nothing in convenience.</p>
-<h2 id="step-6-account-hardening-that-survives-a-lost-phone"><a href="#step-6-account-hardening-that-survives-a-lost-phone" class="heading-anchor">Step 6: Account hardening that survives a lost phone</a></h2>
+<h2 id="step-6-account-hardening-that-survives-a-lost-phone">Step 6: Account hardening that survives a lost phone</h2>
 <p>Hardening the device is only half of it. The other half is making sure you can recover accounts safely if the phone is gone.</p>
-<h3 id="prefer-passkeys-where-available"><a href="#prefer-passkeys-where-available" class="heading-anchor">Prefer passkeys where available</a></h3>
+<h3 id="prefer-passkeys-where-available">Prefer passkeys where available</h3>
 <p>Passkeys are designed to reduce phishing risk and remove password reuse pain. <a href="https://support.google.com/accounts/answer/13548313?hl=en_" rel="noopener">Google explains passkeys</a> as a more secure alternative to passwords because they rely on device unlock instead of a shared secret you can accidentally give away.</p>
 <p>My recommendation:</p>
 <ul>
 <li>Use passkeys for your primary accounts when offered.</li>
 <li>Still keep recovery methods updated.</li>
 </ul>
-<h3 id="reduce-reliance-on-sms-for-critical-accounts"><a href="#reduce-reliance-on-sms-for-critical-accounts" class="heading-anchor">Reduce reliance on SMS for critical accounts</a></h3>
+<h3 id="reduce-reliance-on-sms-for-critical-accounts">Reduce reliance on SMS for critical accounts</h3>
 <p>SMS is better than nothing, but it is fragile during number takeovers. For critical accounts, prefer:</p>
 <ul>
 <li>Passkeys</li>
 <li>Authenticator apps</li>
 <li>Hardware keys (if you already own them)</li>
 </ul>
-<h2 id="step-7-personal-safety-features-the-someone-had-access-to-my-phone-scenario"><a href="#step-7-personal-safety-features-the-someone-had-access-to-my-phone-scenario" class="heading-anchor">Step 7: Personal safety features (the “someone had access to my phone” scenario)</a></h2>
+<h2 id="step-7-personal-safety-features-the-someone-had-access-to-my-phone-scenario">Step 7: Personal safety features (the “someone had access to my phone” scenario)</h2>
 <p>Sometimes the issue is not “a hacker.” Sometimes it is a person who had access, or still has access.</p>
 <p><a href="https://support.apple.com/guide/personal-safety/safety-check-iphone-ios-16-ips2aad835e1/web" rel="noopener">Apple’s Safety Check</a> is specifically designed to review and revoke sharing and access quickly.</p>
 <p>This is especially useful if:</p>
@@ -402,23 +342,23 @@
 <li>You are unsure what devices are signed into your account.</li>
 <li>You need a clean reset of who has access to what.</li>
 </ul>
-<h2 id="validation-drills-prove-it-worked"><a href="#validation-drills-prove-it-worked" class="heading-anchor">Validation drills: prove it worked</a></h2>
+<h2 id="validation-drills-prove-it-worked">Validation drills: prove it worked</h2>
 <p>These take five minutes and remove the “I think I did it right” uncertainty.</p>
-<h3 id="drill-1-the-lock-screen-leak-test"><a href="#drill-1-the-lock-screen-leak-test" class="heading-anchor">Drill 1: The lock screen leak test</a></h3>
+<h3 id="drill-1-the-lock-screen-leak-test">Drill 1: The lock screen leak test</h3>
 <ol>
 <li>Lock your phone.</li>
 <li>Send yourself a text from another device with something you would not want visible.</li>
 <li>Confirm the lock screen does not reveal the contents.</li>
 </ol>
 <p>If it leaks, fix notification previews and consider disabling lock screen notifications for your most sensitive apps. <a href="https://support.apple.com/guide/iphone/change-notification-settings-iph7c3d96bab/ios" rel="noopener">Apple documents</a> how previews behave and how to change them.</p>
-<h3 id="drill-2-the-find-my-reality-test"><a href="#drill-2-the-find-my-reality-test" class="heading-anchor">Drill 2: The find-my reality test</a></h3>
+<h3 id="drill-2-the-find-my-reality-test">Drill 2: The find-my reality test</h3>
 <p>From a laptop or another phone:</p>
 <ul>
 <li>iPhone: confirm Find My can locate the device, and that <a href="https://support.apple.com/en-us/108794" rel="noopener">Activation Lock</a> is active.</li>
 <li>Android: confirm you can locate, secure, or erase the device remotely. (<a href="https://support.google.com/accounts/answer/6160491?hl=en" rel="noopener">Find, secure, or erase a lost Android device</a>)</li>
 </ul>
 <p>Do this once now so you know the path before you need it.</p>
-<h3 id="drill-3-the-sim-swap-friction-test"><a href="#drill-3-the-sim-swap-friction-test" class="heading-anchor">Drill 3: The SIM swap friction test</a></h3>
+<h3 id="drill-3-the-sim-swap-friction-test">Drill 3: The SIM swap friction test</h3>
 <p>Log into your carrier account and confirm:</p>
 <ul>
 <li>There is a port-out PIN or number lock enabled.</li>
@@ -426,10 +366,10 @@
 <li>Alerts are enabled when changes happen, if offered.</li>
 </ul>
 <p>This aligns with the direction regulators have pushed carriers toward, because this fraud path has been so common. (<a href="https://www.fcc.gov/consumers/scam-alert/port-out-fraud-targets-your-private-accounts" rel="noopener">FCC port-out fraud alert</a>)</p>
-<h2 id="optional-hard-mode-for-higher-risk-people"><a href="#optional-hard-mode-for-higher-risk-people" class="heading-anchor">Optional hard mode: for higher-risk people</a></h2>
+<h2 id="optional-hard-mode-for-higher-risk-people">Optional hard mode: for higher-risk people</h2>
 <p>If you have a credible reason to worry about sophisticated targeting (journalists, activists, high-profile roles, hostile ex situations), <a href="https://support.apple.com/en-us/105120" rel="noopener">Lockdown Mode</a> is a deliberately restrictive option Apple provides to reduce attack surface.</p>
 <p>It is intentionally annoying. Only use it if you need it.</p>
-<h2 id="maintenance-schedule-that-keeps-this-from-decaying"><a href="#maintenance-schedule-that-keeps-this-from-decaying" class="heading-anchor">Maintenance schedule that keeps this from decaying</a></h2>
+<h2 id="maintenance-schedule-that-keeps-this-from-decaying">Maintenance schedule that keeps this from decaying</h2>
 <ul>
 <li><strong>Weekly</strong>: install updates when prompted</li>
 <li><strong>Monthly</strong>: review your installed apps and delete two you do not use</li>
@@ -437,24 +377,77 @@
 <li><strong>Yearly</strong>: check carrier account protections and update recovery options</li>
 </ul>
 
+  </div>
 
-    <hr>
+  
+    <section class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+      <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Tags</h2>
+      <div class="flex flex-wrap gap-2">
+        
+          
+        
+          
+            <a href="/tags/cyberseckyle-howto-series/" style="background-color: hsl(215 65% 45%)" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#cyberseckyle-howto-series</a>
+          
+        
+          
+            <a href="/tags/everyday-defense/" style="background-color: hsl(188 65% 45%)" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#everyday-defense</a>
+          
+        
+          
+            <a href="/tags/cybersecurity/" style="background-color: hsl(329 65% 45%)" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#cybersecurity</a>
+          
+        
+          
+            <a href="/tags/tutorials/" style="background-color: hsl(245 65% 45%)" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#tutorials</a>
+          
+        
+          
+            <a href="/tags/mobile-security/" style="background-color: hsl(35 65% 45%)" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#mobile-security</a>
+          
+        
+          
+            <a href="/tags/infosecurity/" style="background-color: hsl(262 65% 45%)" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#infosecurity</a>
+          
+        
+          
+            <a href="/tags/how-to/" style="background-color: hsl(336 65% 45%)" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#how-to</a>
+          
+        
+      </div>
+    </section>
+  
 
-<div style="margin-top: var(--space-xl)" class="flow">
-  <h4>Enjoyed this post?</h4>
-  <p class="text-step-min-1">Consider sharing it on Mastodon, joining in on the discussion below, or giving it some kudos.</p>
-  <!-- Share on Mastodon -->
+  <section class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
+      <div class="flex items-start gap-4">
+        <picture><source type="image/webp" srcset="/img/9TFc0M7-EG-180.webp 180w" sizes="auto"><img loading="lazy" decoding="async" src="/img/9TFc0M7-EG-180.jpeg" alt="Kyle Reddoch" width="180" height="180" class="author-card__avatar rounded-full"></picture>
+        <div>
+          <h2 class="font-semibold text-lg">About Kyle Reddoch</h2>
+          <p class="text-gray-600 dark:text-gray-400 mt-1">I am a cybersecurity expert and IT professional who writes as CybersecKyle. I share day-to-day security and MSP work on Mastodon and publish tools and experiments on GitHub.</p>
+          <div class="mt-3 flex flex-wrap gap-4 text-sm">
+            <a href="/about/" class="text-blue-600 hover:text-blue-800">More about me</a>
+            <a href="/coffee/" class="text-green-600 hover:text-green-800">Support my work</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+    <h2 class="text-xl font-semibold mb-2">Share or join the conversation</h2>
+    <p class="text-gray-600 dark:text-gray-400 mb-4">Share this post on Mastodon, jump into the thread, or leave a little kudos.</p>
+    
 
-
-
-
-
-
-
-
-
-
+<div class="share-links">
+  <span class="share-links__label text-gray-600 dark:text-gray-400">Share:</span>
+  
+  
+  
+  
+  
+  
+  
 
 
 
@@ -468,19 +461,19 @@
 
 
 
-<div data-masto-query="?text=CybersecKyle%20Security%20How-To%20Series%3A%20Everyday%20Defense%20Part%204%20-%20Phone%20hardening%20you%20can%20live%20with%20%E2%80%94%20A%20sane%20phone%20security%20baseline%20you%20can%20keep%20turned%20on%3A%20lock%20screen%2C%20anti-theft%2C%20app%20permissions%2C%20account%20protection%2C%20SIM-swap%20defenses%2C%20and%20a%20quick%20validation%20to%20prove%20it%20worked.%0A%0Ahttps%3A%2F%2Fwww.kylereddoch.me%2Fblog%2Fcyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with%2F" data-masto-fallback="mastodon.social" class="masto-share">
+<div data-masto-query="?text=CybersecKyle%20Security%20How-To%20Series%3A%20Everyday%20Defense%20Part%204%20-%20Phone%20hardening%20you%20can%20live%20with%20-%20A%20sane%20phone%20security%20baseline%20you%20can%20keep%20turned%20on%3A%20lock%20screen%2C%20anti-theft%2C%20app%20permissions%2C%20account%20protection%2C%20SIM-swap%20defenses%2C%20and%20a%20quick%20validation%20to%20prove%20it%20worked.%0A%0Ahttps%3A%2F%2Fwww.kylereddoch.me%2Fblog%2Fcyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with%2F" data-masto-fallback="mastodon.social" class="masto-share">
   
-  <a data-variant="tertiary" data-size="sm" href="https://mastodon.social/share?text=CybersecKyle%20Security%20How-To%20Series%3A%20Everyday%20Defense%20Part%204%20-%20Phone%20hardening%20you%20can%20live%20with%20%E2%80%94%20A%20sane%20phone%20security%20baseline%20you%20can%20keep%20turned%20on%3A%20lock%20screen%2C%20anti-theft%2C%20app%20permissions%2C%20account%20protection%2C%20SIM-swap%20defenses%2C%20and%20a%20quick%20validation%20to%20prove%20it%20worked.%0A%0Ahttps%3A%2F%2Fwww.kylereddoch.me%2Fblog%2Fcyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with%2F" data-masto-action="primary-share" class="button no-indicator">
+  <a href="https://mastodon.social/share?text=CybersecKyle%20Security%20How-To%20Series%3A%20Everyday%20Defense%20Part%204%20-%20Phone%20hardening%20you%20can%20live%20with%20-%20A%20sane%20phone%20security%20baseline%20you%20can%20keep%20turned%20on%3A%20lock%20screen%2C%20anti-theft%2C%20app%20permissions%2C%20account%20protection%2C%20SIM-swap%20defenses%2C%20and%20a%20quick%20validation%20to%20prove%20it%20worked.%0A%0Ahttps%3A%2F%2Fwww.kylereddoch.me%2Fblog%2Fcyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with%2F" data-masto-action="primary-share" class="inline-flex items-center gap-1 text-purple-600 hover:text-purple-800 no-indicator">
     <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
-    <span class="visually-hidden">Share on Mastodon</span><span aria-hidden="true">Share on Mastodon</span>
+    <span>Mastodon</span>
   </a>
 
   
   <div class="masto-share__menu">
     <details data-align="end">
-      <summary data-ghost data-size="sm" class="button">
+      <summary class="masto-share__summary inline-flex items-center gap-1 text-purple-600 hover:text-purple-800 no-indicator">
         <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
-        Choose popular instances
+        Choose instance
       </summary>
 
       <div role="menu" class="masto-share__dropdown">
@@ -531,14 +524,52 @@
   </div>
 </div>
 
+  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.kylereddoch.me%2Fblog%2Fcyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with%2F" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 no-indicator">
+    <i aria-hidden="true" class="fa-brands fa-linkedin-in"></i>
+    <span>LinkedIn</span>
+  </a>
+  <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.kylereddoch.me%2Fblog%2Fcyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with%2F&amp;text=CybersecKyle%20Security%20How-To%20Series%3A%20Everyday%20Defense%20Part%204%20-%20Phone%20hardening%20you%20can%20live%20with" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-sky-500 hover:text-sky-700 no-indicator">
+    <i aria-hidden="true" class="fa-brands fa-x-twitter"></i>
+    <span>Twitter</span>
+  </a>
+  <button type="button" data-copy-link="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/" class="share-link--button inline-flex items-center gap-1 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200">
+    <i aria-hidden="true" class="fa-regular fa-copy"></i>
+    <span>Copy Link</span>
+  </button>
 </div>
-  </div>
+
+<script>
+  (function() {
+    const buttons = document.querySelectorAll('[data-copy-link]');
+    buttons.forEach((button) => {
+      if (button.dataset.copyBound === 'true') return;
+      button.dataset.copyBound = 'true';
+      button.addEventListener('click', async () => {
+        const url = button.getAttribute('data-copy-link');
+        try {
+          if (navigator.share) {
+            await navigator.share({ title: document.title, url });
+          } else if (navigator.clipboard) {
+            await navigator.clipboard.writeText(url);
+          }
+          button.querySelector('span').textContent = 'Copied';
+          setTimeout(() => {
+            button.querySelector('span').textContent = 'Copy Link';
+          }, 1800);
+        } catch (error) {
+          if (navigator.clipboard && url) {
+            await navigator.clipboard.writeText(url);
+          }
+        }
+      });
+    });
+  })();
+</script>
 
 
-<div class="wrapper flow prose">
-  <!-- Discuss on Mastodon -->
-<template id="mastodon-post-template">
-<figure class="mastodon-post">
+    
+      <template id="mastodon-post-template">
+        <figure class="mastodon-post">
     <blockquote data-key="content" class="mastodon-post-quote"></blockquote>
     <figcaption class="mastodon-post__caption"><!--<cite> — <a data-key="url" rel="me"><span
                     data-key="username"></span>@<span data-key="hostname"></span></a></cite>-->
@@ -558,130 +589,238 @@
         </dl>
     </figcaption>
 </figure>
-</template>
+      </template>
 
-<div class="discuss-mastodon">
-<section class="full">
-    <mastodon-post><i style="color: #bd93f9" class="fa-brands fa-mastodon"></i> <a href="https://infosec.exchange/@cyberseckyle/115980101967831540" rel="me" style="font-size: var(--size-step-min-1) !important; color: #bd93f9; padding: 1em 0 0 0 !important; display: inline-block" class="no-indicator">Discuss on Mastodon</a></mastodon-post>
-    </section>
-  </div>
-</div>
-
-
-<div class="wrapper flow prose">
-  <div style="margin-top: var(--space-l)" class="flow">
-  <p class="text-step-min-1">Give this post some kudos.</p>
-<button data-path="/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/" class="tinylytics_kudos"></button>
-</div>
-</div>
-</div></main>
-
-    
-<footer class="site-footer mt-l-xl">
-  <!-- Main footer content (constrained) -->
-  <div class="wrapper site-footer__inner">
-    <div class="footer-grid">
-      <section class="left-pane text-step-min-1">
-        <p>This site is member of the following webrings!</p>
-
-        <div id="webrings" class="webrings">
-          <ol class="cluster">
-            <li class="webring">
-              <a href="https://fediring.net/previous?host=www.kylereddoch.me" class="no-indicator small no-wrap">← Previous</a>
-              <a href="https://fediring.net/" class="no-indicator webring__label">Fediring</a>
-              <a href="https://fediring.net/random?host=www.kylereddoch.me" class="no-indicator small no-wrap">rANdoM</a>
-              <a href="https://fediring.net/next?host=www.kylereddoch.me" class="no-indicator small no-wrap">Next →</a>
-            </li>
-            <li class="webring">
-              <a href="https://xn--sr8hvo.ws/previous" class="no-indicator small no-wrap">← Previous</a>
-              <a href="https://xn--sr8hvo.ws/" class="no-indicator webring__label">IndieWeb Webring</a>
-              <a href="https://xn--sr8hvo.ws/random" class="no-indicator small no-wrap">RANDom</a>
-              <a href="https://xn--sr8hvo.ws/next" class="no-indicator small no-wrap">Next →</a>
-            </li>
-            <li class="webring">
-              <a href class="no-indicator webring__label tinylytics_webring">Tinylytics 🕸️💍</a>
-            </li>
-          </ol>
+      <div class="discuss-mastodon mt-6">
+        <div class="discuss-mastodon__intro">
+          <a href="https://infosec.exchange/@cyberseckyle/115980101967831540" rel="me" class="no-indicator">Discuss on Mastodon</a>
         </div>
+        <mastodon-post></mastodon-post>
+      </div>
+    
 
-        <p class="webrings-note">👻 Proud member of <a href="https://darktheme.club" class="footer-link">darktheme.club</a> 👻</p>
+    <div class="mt-6">
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Give this post some kudos.</p>
+      <button data-path="/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/" class="tinylytics_kudos"></button>
+    </div>
+
+    <section id="webmentions" class="mt-12">
+    <h2 class="text-xl font-semibold mb-4">Responses</h2>
+    <div id="webmentions-list">
+      <div class="text-center py-4 text-gray-500">
+        <div class="animate-pulse">Loading webmentions...</div>
+      </div>
+    </div>
+  </section>
+
+  </section>
+
+  
+
+
+  <section class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+    <h2 class="text-xl font-semibold mb-6">Related Posts</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+        <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
+          <h3 class="font-semibold mb-2">
+            <a href="/blog/cyberseckyle-security-how-to-series-everyday-defense-part-5-scam-spotting-the-60-second-pause-protocol/" class="hover:text-blue-600">CybersecKyle Security How-To Series: Everyday Defense Part 5 - Scam Spotting, The 60-Second Pause Protocol</a>
+          </h3>
+          <time datetime="2026-03-04" class="text-sm text-gray-500 dark:text-gray-400">
+            March 4, 2026
+          </time>
+          
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">A one-minute routine that breaks urgency scams, forces verification, and keeps your accounts, money, and time where they belong.</p>
+          
+          
+            <div class="mt-3 flex flex-wrap gap-1">
+              
+                
+              
+                
+                  <span style="background-color: hsl(215 65% 45%)" class="text-xs px-2 py-0.5 rounded text-white">#cyberseckyle-howto-series</span>
+                
+              
+            </div>
+          
+        </article>
+      
+        <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
+          <h3 class="font-semibold mb-2">
+            <a href="/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/" class="hover:text-blue-600">CybersecKyle Security How-To Series: Everyday Defense, Part 3 - Browser Hygiene That Actually Sticks</a>
+          </h3>
+          <time datetime="2025-12-23" class="text-sm text-gray-500 dark:text-gray-400">
+            December 23, 2025
+          </time>
+          
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">A practical browser hardening guide: use profiles on purpose, keep extensions on a leash, tighten anti-tracking settings, and handle downloads safely without breaking your daily workflow.</p>
+          
+          
+            <div class="mt-3 flex flex-wrap gap-1">
+              
+                
+              
+                
+                  <span style="background-color: hsl(215 65% 45%)" class="text-xs px-2 py-0.5 rounded text-white">#cyberseckyle-howto-series</span>
+                
+              
+            </div>
+          
+        </article>
+      
+        <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
+          <h3 class="font-semibold mb-2">
+            <a href="/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/" class="hover:text-blue-600">CybersecKyle Security How-To Series: Everyday Defense, Part 2 - 2FA Rescue and Recovery</a>
+          </h3>
+          <time datetime="2025-11-19" class="text-sm text-gray-500 dark:text-gray-400">
+            November 19, 2025
+          </time>
+          
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Build a recovery kit for your accounts, add a spare authenticator or hardware key, and practice the lost-phone drill so lockouts do not stick.</p>
+          
+          
+            <div class="mt-3 flex flex-wrap gap-1">
+              
+                
+              
+                
+                  <span style="background-color: hsl(215 65% 45%)" class="text-xs px-2 py-0.5 rounded text-white">#cyberseckyle-howto-series</span>
+                
+              
+            </div>
+          
+        </article>
+      
+    </div>
+  </section>
+
+
+
+  <div hidden class="h-entry">
+    <a href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/" class="u-url">CybersecKyle Security How-To Series: Everyday Defense Part 4 - Phone hardening you can live with</a>
+    <a rel="author" href="https://www.kylereddoch.me" class="p-name u-url">Kyle Reddoch</a>
+    <img src="https://www.kylereddoch.me/assets/images/logo.png" alt="Kyle Reddoch" class="u-author h-card">
+  </div>
+</article>
+
+      </main>
+    </div>
+
+    <footer class="bg-[var(--surface)] border-t border-gray-200 dark:border-gray-700 mt-12">
+  <div class="container mx-auto px-4 py-8 max-w-4xl">
+    <div class="footer-layout grid grid-cols-1 gap-8 text-sm">
+      <section>
+        <h2 class="font-semibold mb-3 text-base">Webrings</h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-3">This site is part of a few corners of the independent web.</p>
+        <ul class="space-y-3 text-gray-600 dark:text-gray-400">
+          <li class="space-y-1">
+            <p class="font-medium text-gray-900 dark:text-gray-100">
+              <a href="https://fediring.net/" class="hover:text-blue-600">Fediring</a>
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a href="https://fediring.net/previous?host=www.kylereddoch.me" class="hover:text-blue-600">Previous</a>
+              <a href="https://fediring.net/random?host=www.kylereddoch.me" class="hover:text-blue-600">Random</a>
+              <a href="https://fediring.net/next?host=www.kylereddoch.me" class="hover:text-blue-600">Next</a>
+            </div>
+          </li>
+          <li class="space-y-1">
+            <p class="font-medium text-gray-900 dark:text-gray-100">
+              <a href="https://xn--sr8hvo.ws/" class="hover:text-blue-600">IndieWeb Webring</a>
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a href="https://xn--sr8hvo.ws/previous" class="hover:text-blue-600">Previous</a>
+              <a href="https://xn--sr8hvo.ws/random" class="hover:text-blue-600">Random</a>
+              <a href="https://xn--sr8hvo.ws/next" class="hover:text-blue-600">Next</a>
+            </div>
+          </li>
+          <li>
+            <a href="https://tinylytics.app" class="tinylytics_webring hover:text-blue-600">Tinylytics Webring</a>
+          </li>
+        </ul>
+        <p class="mt-4 text-gray-600 dark:text-gray-400">Proud member of <a href="https://darktheme.club" class="hover:text-blue-600">darktheme.club</a></p>
       </section>
 
-      <section class="right-pane">
-        <nav aria-label="Complementary" class="cluster gutter-xs text-step-min-1">
-          <a href="/license" class="footer-link">© 2026 <span class="font-display">CybersecKyle</span></a>
+      <section>
+        <h2 class="font-semibold mb-3 text-base">Explore</h2>
+        <ul class="space-y-2 text-gray-600 dark:text-gray-400">
           
-            <a href="/now/" class="footer-link">/Now</a>
+            <li><a href="/slashes/" class="hover:text-blue-600">Slashes</a></li>
           
-            <a href="/slashes/" class="footer-link">Slashes</a>
+            <li><a href="/guestbook/" class="hover:text-blue-600">Guestbook</a></li>
           
-            <a href="/guestbook/" class="footer-link">Guestbook</a>
+            <li><a href="/tags/" class="hover:text-blue-600">Tags</a></li>
           
-            <a href="/tags/" class="footer-link">Tags</a>
-          
-        </nav>
+          <li><a href="/blog/" class="hover:text-blue-600">Blog</a></li>
+          <li><a href="/notes/" class="hover:text-blue-600">Notes</a></li>
+          <li><a href="/listening/" class="hover:text-blue-600">Listening</a></li>
+          <li><a href="/bookshelf/" class="hover:text-blue-600">Bookshelf</a></li>
+          <li><a href="/sitemap/" class="hover:text-blue-600">Site Directory</a></li>
+        </ul>
+      </section>
 
-        <nav aria-label="Platforms" class="platforms | cluster gutter-xs text-step-min-0">
-          <a href="/feed.xml" rel="alternate" type="application/atom+xml" class="no-indicator">
+      <section>
+        <h2 class="font-semibold mb-3 text-base">Connect</h2>
+
+        <nav aria-label="Platforms" class="platforms flex flex-wrap gap-3 mb-4">
+          <a href="/feed.xml" rel="alternate" type="application/atom+xml" class="hover:text-blue-600">
             <span class="visually-hidden">Atom Feed</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><title>RSS</title><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
           </a>
           
+            
+              <a href="https://github.com/kylereddoch/" rel="me" title="Github" class="hover:text-blue-600">
+                <span class="visually-hidden">Github</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S8.93 17.38 9 18v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+              </a>
+            
           
-            <a href="https://github.com/kylereddoch/" rel="me" title="Github" class="no-indicator">
-              <span class="visually-hidden">Github</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S8.93 17.38 9 18v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
-            </a>
+            
+              <a href="https://infosec.exchange/@cyberseckyle" rel="me" title="Mastodon" class="hover:text-blue-600">
+                <span class="visually-hidden">Mastodon</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.887 5.996c-.308-2.314-2.298-4.14-4.655-4.492-.399-.059-1.906-.278-5.398-.278h-.026c-3.495 0-4.243.219-4.642.278-2.295.345-4.387 1.982-4.897 4.326-.242 1.153-.268 2.433-.222 3.606.065 1.684.078 3.361.228 5.039a24 24 0 0 0 .543 3.304c.484 2.009 2.439 3.68 4.355 4.359 2.049.71 4.256.829 6.368.342q.347-.085.69-.193c.513-.165 1.114-.351 1.559-.676q.009-.006.013-.016.006-.01.007-.024v-1.624s0-.013-.007-.02q-.002-.01-.013-.016l-.02-.01h-.019a17.4 17.4 0 0 1-4.132.49c-2.397 0-3.041-1.153-3.224-1.63a5.3 5.3 0 0 1-.281-1.287q0-.01.003-.019.002-.012.013-.017l.02-.01h.023c1.33.325 2.697.491 4.067.491.33 0 .657 0 .987-.01 1.376-.04 2.828-.11 4.184-.378.033-.007.069-.013.098-.02 2.138-.418 4.172-1.724 4.378-5.032.006-.129.026-1.365.026-1.498 0-.461.147-3.258-.023-4.979z"></path><path fill="currentColor" stroke-width="1" d="M6.061 7.288c0-.676.533-1.219 1.193-1.219.661 0 1.193.547 1.193 1.219 0 .673-.532 1.22-1.193 1.22-.66 0-1.193-.547-1.193-1.22Z"></path></svg>
+              </a>
+            
           
+            
+              <a href="https://www.linkedin.com/in/kylereddoch/" rel="me" title="Linkedin" class="hover:text-blue-600">
+                <span class="visually-hidden">Linkedin</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6M2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>
+              </a>
+            
           
-          
-            <a href="https://infosec.exchange/@cyberseckyle" rel="me" title="Mastodon" class="no-indicator">
-              <span class="visually-hidden">Mastodon</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.887 5.996c-.308-2.314-2.298-4.14-4.655-4.492-.399-.059-1.906-.278-5.398-.278h-.026c-3.495 0-4.243.219-4.642.278-2.295.345-4.387 1.982-4.897 4.326-.242 1.153-.268 2.433-.222 3.606.065 1.684.078 3.361.228 5.039a24 24 0 0 0 .543 3.304c.484 2.009 2.439 3.68 4.355 4.359 2.049.71 4.256.829 6.368.342q.347-.085.69-.193c.513-.165 1.114-.351 1.559-.676q.009-.006.013-.016.006-.01.007-.024v-1.624s0-.013-.007-.02q-.002-.01-.013-.016l-.02-.01h-.019a17.4 17.4 0 0 1-4.132.49c-2.397 0-3.041-1.153-3.224-1.63a5.3 5.3 0 0 1-.281-1.287q0-.01.003-.019.002-.012.013-.017l.02-.01h.023c1.33.325 2.697.491 4.067.491.33 0 .657 0 .987-.01 1.376-.04 2.828-.11 4.184-.378.033-.007.069-.013.098-.02 2.138-.418 4.172-1.724 4.378-5.032.006-.129.026-1.365.026-1.498 0-.461.147-3.258-.023-4.979z"></path><path fill="currentColor" stroke-width="1" d="M6.061 7.288c0-.676.533-1.219 1.193-1.219.661 0 1.193.547 1.193 1.219 0 .673-.532 1.22-1.193 1.22-.66 0-1.193-.547-1.193-1.22Z"></path></svg>
-            </a>
-          
-          
-          
-            <a href="https://www.linkedin.com/in/kylereddoch/" rel="me" title="Linkedin" class="no-indicator">
-              <span class="visually-hidden">Linkedin</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6M2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>
-            </a>
-          
-          
-          
-            <a href="https://ko-fi.com/kylereddoch" rel="me" title="Kofi" class="no-indicator">
-              <span class="visually-hidden">Kofi</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M18 3h1c1.06 0 2.078.527 2.828 1.464C22.578 5.402 23 6.674 23 8s-.421 2.598-1.172 3.536C21.078 12.473 20.061 13 19 13h-1M1 3h17v12.461c0 1.47-.512 2.878-1.423 3.917-.91 1.038-2.146 1.622-3.434 1.622H5.857c-1.288 0-2.523-.584-3.434-1.622S1 16.93 1 15.46z"></path><path fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13.288 8.707a2.43 2.43 0 0 0-2.65-.52c-.3.12-.57.3-.8.53l-.34.34-.35-.34a2.43 2.43 0 0 0-3.44 0c-.95.939-1 2.527.2 3.736L9.497 16l3.6-3.547c1.2-1.208 1.14-2.797.19-3.736v-.01Z"></path></svg>
-            </a>
-          
+            
+              <a href="https://ko-fi.com/kylereddoch" rel="me" title="Kofi" class="hover:text-blue-600">
+                <span class="visually-hidden">Kofi</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M18 3h1c1.06 0 2.078.527 2.828 1.464C22.578 5.402 23 6.674 23 8s-.421 2.598-1.172 3.536C21.078 12.473 20.061 13 19 13h-1M1 3h17v12.461c0 1.47-.512 2.878-1.423 3.917-.91 1.038-2.146 1.622-3.434 1.622H5.857c-1.288 0-2.523-.584-3.434-1.622S1 16.93 1 15.46z"></path><path fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13.288 8.707a2.43 2.43 0 0 0-2.65-.52c-.3.12-.57.3-.8.53l-.34.34-.35-.34a2.43 2.43 0 0 0-3.44 0c-.95.939-1 2.527.2 3.736L9.497 16l3.6-3.547c1.2-1.208 1.14-2.797.19-3.736v-.01Z"></path></svg>
+              </a>
+            
           
         </nav>
 
-        <aside class="creator | cluster gutter-2xs text-step-min-1">
-          Made with <span class="visually-hidden">love</span> <span><svg width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3C4.239 3 2 5.216 2 7.95c0 2.207.875 7.445 9.488 12.74a.99.99 0 0 0 1.024 0C21.125 15.395 22 10.157 22 7.95 22 5.216 19.761 3 17 3s-5 3-5 3-2.239-3-5-3"></path></svg></span> and
-          <a href="https://www.11ty.dev/" class="no-indicator">Eleventy</a>
-        </aside>
+        <p class="text-gray-600 dark:text-gray-400 mb-2">
+          Made with <span aria-hidden="true">♥</span> and <a href="https://www.11ty.dev/" class="hover:text-blue-600">Eleventy</a>
+        </p>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          Analytics powered by <a href="https://tinylytics.app/public/wgrU27nAtwqvZpx9zZwe" class="hover:text-blue-600">Tinylytics</a>
+        </p>
 
-        <aside class="creator | cluster gutter-xs text-step-min-2">
-          Analytics powered by <a href="https://tinylytics.app/public/wgrU27nAtwqvZpx9zZwe" class="no-indicator">Tinylytics</a>
-          </aside>
+        <p class="mb-4 text-sm text-gray-500 dark:text-gray-400">
+        © 2026 <span class="font-semibold">CybersecKyle</span>
+        <span aria-hidden="true" class="mx-2">·</span>
+        <a href="/license/" class="hover:text-blue-600">CC BY-NC-SA 4.0</a>
+      </p>
 
-        <!-- Speedlify -->
-        <a href="https://www.11ty.dev/speedlify/kylereddoch-me/" aria-label="View full results on speedlify.dev" class="no-indicator">
-          <p style="--speedlify-circle: white" class="text-step-min-2">
-            <speedlify-score speedlify-url="https://www.11ty.dev/speedlify/" hash="e33de02c" requests weight score></speedlify-score>
-          </p>
+        <a href="https://www.11ty.dev/speedlify/kylereddoch-me/" aria-label="View full results on speedlify.dev" class="inline-flex items-center hover:text-blue-600 no-indicator footer-speedlify">
+          <speedlify-score speedlify-url="https://www.11ty.dev/speedlify/" hash="e33de02c" score></speedlify-score>
         </a>
-
-        <script src="/assets/scripts/components/masto-share.js" defer></script>
       </section>
     </div>
   </div>
 
-  <!-- Bottom indie buttons band (full width), content constrained by wrapper -->
-  <div aria-label="Indie web buttons" class="indie-buttons-band">
-    <div class="wrapper">
-      <ul role="list" class="indie-buttons">
+  <div class="border-t border-gray-200 dark:border-gray-700 bg-black/5 dark:bg-white/5">
+    <div class="container mx-auto max-w-4xl px-4 py-4">
+      <ul role="list" class="indie-buttons flex flex-wrap gap-2">
         <li>
           <a href="https://11ty.dev" class="no-indicator">
             <img src="/assets/images/buttons/built-with-eleventy.gif" width="88" height="31" alt="Built with Eleventy" loading="lazy">
@@ -693,37 +832,42 @@
           </a>
         </li>
         <li>
-          <a href="/coffee" class="no-indicator">
-          <picture><source type="image/webp" srcset="/img/v2EdBgZ88c-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/v2EdBgZ88c-88.jpeg" width="88" height="31" alt="Coffee Powered"></picture>
+          <a href="/coffee/" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/v2EdBgZ88c-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/v2EdBgZ88c-88.jpeg" width="88" height="31" alt="Coffee Powered"></picture>
           </a>
         </li>
         <li>
           <a href="https://ko-fi.com/s/4662b19f61" class="no-indicator">
-          <picture><source type="image/webp" srcset="/img/weqd1DtQRi-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/weqd1DtQRi-88.jpeg" width="88" height="31" alt="Human Content"></picture>
+            <picture><source type="image/webp" srcset="/img/weqd1DtQRi-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/weqd1DtQRi-88.jpeg" width="88" height="31" alt="Human Content"></picture>
           </a>
         </li>
         <li>
           <a href="https://powrss.com" class="no-indicator">
-          <picture><source type="image/webp" srcset="/img/bk57H3yi5F-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/bk57H3yi5F-88.jpeg" width="88" height="31" alt="I'm on PowRSS"></picture></a>
+            <picture><source type="image/webp" srcset="/img/bk57H3yi5F-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/bk57H3yi5F-88.jpeg" width="88" height="31" alt="I'm on PowRSS"></picture>
+          </a>
         </li>
         <li>
           <a href="https://hillhouse.neocities.org/cliques/library/" class="no-indicator">
-          <picture><source type="image/webp" srcset="/img/c-H-zkovIx-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/c-H-zkovIx-88.jpeg" width="88" height="31" alt="Little Pixel Library"></picture></a>
+            <picture><source type="image/webp" srcset="/img/c-H-zkovIx-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/c-H-zkovIx-88.jpeg" width="88" height="31" alt="Little Pixel Library"></picture>
+          </a>
         </li>
         <li>
           <a href="https://32bit.cafe" class="no-indicator">
-          <picture><source type="image/webp" srcset="/img/kUiwyilU_X-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/kUiwyilU_X-88.jpeg" width="88" height="31" alt="32bit Cafe"></picture></a>
+            <picture><source type="image/webp" srcset="/img/kUiwyilU_X-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/kUiwyilU_X-88.jpeg" width="88" height="31" alt="32bit Cafe"></picture>
+          </a>
         </li>
         <li>
           <a href="https://people.pledge.party" class="no-indicator">
-          <picture><source type="image/webp" srcset="/img/1bL7bfWdZ8-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/1bL7bfWdZ8-88.jpeg" width="88" height="31" alt="People Pledge"></picture></a>
+            <picture><source type="image/webp" srcset="/img/1bL7bfWdZ8-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/1bL7bfWdZ8-88.jpeg" width="88" height="31" alt="People Pledge"></picture>
+          </a>
         </li>
         <li>
           <img src="/assets/images/buttons/cyberseckyle-button.gif" width="88" height="31" alt="CybersecKyle" loading="lazy">
         </li>
         <li>
           <a href="https://zakhary.dev/blog/gbc-web-button" class="no-indicator">
-          <img src="/assets/images/buttons/gameboygif.gif" width="88" height="31" alt="Gameboy" loading="lazy"></a>
+            <img src="/assets/images/buttons/gameboygif.gif" width="88" height="31" alt="Gameboy" loading="lazy">
+          </a>
         </li>
         <li>
           <a href="https://ko-fi.com/kylereddoch" class="no-indicator">
@@ -734,7 +878,17 @@
     </div>
   </div>
 </footer>
-<script type="module" src="/assets/scripts/components/mastodon-post.js"></script>
+
+
+    <script src="/assets/starter/main.js" defer></script>
+    <script src="/assets/starter/flexsearch.min.js" defer></script>
+    <script src="/assets/starter/search.js" defer></script>
+    <script src="/assets/starter/webmentions.js" defer></script>
+    <script src="/assets/starter/easter-eggs.js" defer></script>
+    <script src="https://kit.fontawesome.com/fb3ee9d8ef.js" crossorigin="anonymous" defer></script>
+    <script src="https://tinylytics.app/embed/aK6PBymtmDm6DxSXaP2H.js?webring&amp;kudos=%E2%9D%A4%EF%B8%8F" defer></script>
+    <script src="/assets/scripts/components/masto-share.js" defer></script>
+    <script src="/assets/scripts/components/mastodon-post.js" defer></script>
     <script src="/assets/scripts/components/speedlify-score.js" defer></script>
   
 

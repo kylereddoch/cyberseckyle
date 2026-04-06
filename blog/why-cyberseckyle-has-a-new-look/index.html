@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      
+        Why CybersecKyle Has a New Look - CybersecKyle
+      
+    </title>
+
+    
+
+<meta name="description" content="I finally launched a redesigned version of CybersecKyle built around a cleaner IndieWeb-focused template, better content organization, and a site experience that feels more like where this website is headed.">
+<meta name="theme-color" content="#1e1e2e" media="(prefers-color-scheme: dark)">
+<!-- Search Engines -->
+<meta name="robots" content="index,follow">
+<meta name="googlebot" content="index,follow">
+<!-- Made with Eleventy! -->
+<meta name="generator" content="Eleventy v3.1.2">
+<!-- Disable automatic detection and formatting of possible phone numbers -->
+<meta name="format-detection" content="telephone=no">
+<meta name="color-scheme" content="light dark">
+<!-- activates page transitions -->
+<meta name="view-transition" content="same-origin">
+<!-- Helps prevent duplicate content issues -->
+<link rel="canonical" href="https://www.kylereddoch.me/blog/why-cyberseckyle-has-a-new-look/">
+<!-- Links to information about the author(s) of the document -->
+<link rel="author" href="humans.txt">
+
+
+  <!-- Mastodon verified site -->
+  <link rel="me" href="https://infosec.exchange/@cyberseckyle">
+
+
+
+  <!-- fediverse creator tag -->
+  <meta name="fediverse:creator" content="@cyberseckyle@infosec.exchange">
+
+
+
+  <link rel="webmention" href="https://webmention.io/www.kylereddoch.me/webmention">
+  <link rel="pingback" href="https://webmention.io/www.kylereddoch.me/xmlrpc">
+
+
+<!-- Open Graph meta  -->
+<meta property="og:url" content="https://www.kylereddoch.me/blog/why-cyberseckyle-has-a-new-look/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Why CybersecKyle Has a New Look">
+<meta property="og:image" content="https://www.kylereddoch.me/assets/og-images/why-cyberseckyle-has-a-new-look-preview.jpeg">
+<meta property="og:image:alt" content="Why CybersecKyle Has a New Look">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:description" content="I finally launched a redesigned version of CybersecKyle built around a cleaner IndieWeb-focused template, better content organization, and a site experience that feels more like where this website is headed.">
+<meta property="og:site_name" content="CybersecKyle">
+<meta property="og:locale" content="en_EN">
+<meta property="article:author" content="Kyle Reddoch">
+
+<!-- Twitter specific head data was removed in v2 -->
+
+<!-- RSS Autodiscovery. Loops over meta.blog.feedLinks -->
+
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed: CybersecKyle" href="/feed.xml">
+
+  <link rel="alternate" type="application/json" title="JSON Feed: CybersecKyle" href="/feed.json">
+
+
+<!-- Favicon: https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+
+    <link rel="stylesheet" href="/assets/starter/build.css">
+    <link rel="stylesheet" href="/assets/starter/cyberseckyle.css">
+    <script>
+      window.Prism = window.Prism || {};
+      window.Prism.manual = true;
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup-templating.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-batch.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markdown.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-powershell.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-scss.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-twig.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js" defer></script>
+
+    <style>
+      .contrast {
+        filter: contrast(1.2) saturate(1.1);
+      }
+
+      .reduce-motion,
+      .reduce-motion * {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+      }
+    </style>
+  </head>
+  <body class="bg-[var(--bg)] text-[var(--text)] min-h-screen flex flex-col">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-black">
+      Skip to content
+    </a>
+
+    <div id="progress-bar" aria-hidden="true"></div>
+
+    
+    
+    
+    
+    
+    
+    
+
+    <header class="bg-[var(--surface)] border-b border-gray-200 dark:border-gray-700">
+      <div class="container mx-auto max-w-7xl px-4 py-3 flex items-center gap-3">
+        <button id="hamburger" aria-label="Toggle menu" aria-controls="primary-nav" aria-expanded="false" class="md:hidden p-2 rounded border border-gray-300 dark:border-gray-600">
+          <span class="bar-1 block w-5 h-0.5 bg-gray-700 dark:bg-gray-200 mb-1 transition-transform"></span>
+          <span class="bar-2 block w-5 h-0.5 bg-gray-700 dark:bg-gray-200 mb-1 transition-opacity"></span>
+          <span class="bar-3 block w-5 h-0.5 bg-gray-700 dark:bg-gray-200 transition-transform"></span>
+        </button>
+
+        <a href="/" class="site-brand no-indicator">
+          <picture><source type="image/webp" srcset="/img/9TFc0M7-EG-40.webp 40w" sizes="auto"><img loading="lazy" decoding="async" src="/img/9TFc0M7-EG-40.jpeg" alt width="40" height="40" class="site-brand__logo"></picture>
+          <span class="site-title text-lg font-semibold tracking-tight">CybersecKyle</span>
+        </a>
+
+        <form role="search" aria-label="Site" action="/search/" method="get" class="ml-auto hidden sm:block">
+          <label for="q" class="sr-only">Search</label>
+          <input id="q" name="q" type="search" placeholder="Search..." autocomplete="off" class="w-64 rounded border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder:text-gray-500 shadow-sm focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 dark:bg-white dark:text-gray-900 dark:placeholder:text-gray-500">
+        </form>
+
+        <div class="flex items-center gap-2 ml-2">
+          <button id="dark-toggle" aria-pressed="false" aria-label="Toggle dark mode" class="px-2 py-1 text-sm border rounded">🌙</button>
+          <div class="relative">
+            <button id="a11y-toggle" aria-expanded="false" aria-controls="a11y-menu" class="px-2 py-1 text-sm border rounded">A11y</button>
+            <div id="a11y-menu" class="absolute right-0 mt-1 bg-[var(--surface)] border rounded p-2 text-sm space-x-2 whitespace-nowrap hidden">
+              <button id="font-dec" class="px-2 py-1 border rounded">A-</button>
+              <button id="font-inc" class="px-2 py-1 border rounded">A+</button>
+              <button id="contrast-toggle" aria-pressed="false" class="px-2 py-1 border rounded">Contrast</button>
+              <button id="motion-toggle" aria-pressed="false" class="px-2 py-1 border rounded">Reduce motion</button>
+              <button id="font-toggle" type="button" aria-pressed="false" class="px-2 py-1 border rounded hidden md:inline-block">System Fonts</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="bg-[var(--surface)] border-b border-gray-200 dark:border-gray-700">
+      <div id="primary-nav" class="container mx-auto max-w-7xl px-4 py-2 hidden md:block">
+        <ul class="flex flex-col md:flex-row text-base md:text-sm space-y-3 md:space-y-0 md:space-x-6">
+          <li><a href="/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">🏠 Home</a></li>
+          <li><a href="/blog/" aria-current="page" class="nav-item block py-2 text-purple-600 dark:text-purple-400 underline font-semibold">✍️ Blog</a></li>
+          <li><a href="/tags/cybersecurity/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">🛡️ Cybersecurity</a></li>
+          <li><a href="/notes/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">📝 Notes</a></li>
+          <li><a href="/about/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">👋 About</a></li>
+          <li><a href="/contact/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">💬 Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-6 max-w-4xl flex-1">
+      <main id="main">
+        
+<a href="/blog/" class="inline-flex items-center text-blue-600 hover:text-blue-800 mb-3">
+  ← Back to Blog
+</a>
+
+<nav aria-label="Breadcrumb" class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+  <ol class="flex flex-wrap items-center gap-2">
+    <li><a href="/" class="hover:text-blue-600">Home</a></li>
+    <li aria-hidden="true">/</li>
+    <li><a href="/blog/" class="hover:text-blue-600">Blog</a></li>
+    <li aria-hidden="true">/</li>
+    <li class="text-gray-900 dark:text-gray-100">Why CybersecKyle Has a New Look</li>
+  </ol>
+</nav>
+
+<article class="h-entry mx-auto max-w-3xl">
+
+  
+    <div class="mb-8">
+      <picture><source type="image/webp" srcset="/img/MRW0Xipz54-1280.webp 1280w" sizes="auto"><img loading="lazy" decoding="async" src="/img/MRW0Xipz54-1280.jpeg" alt="Featured image for Why CybersecKyle Has a New Look" width="1280" height="852" class="u-photo w-full rounded-lg"></picture>
+    </div>
+  
+
+  <header class="mb-6">
+    <h1 class="p-name text-3xl font-bold tracking-tight mb-3">Why CybersecKyle Has a New Look</h1>
+    
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">I finally launched a redesigned version of CybersecKyle built around a cleaner IndieWeb-focused template, better content organization, and a site experience that feels more like where this website is headed.</p>
+    
+
+    <div class="text-sm text-gray-600 dark:text-gray-400">
+      Published on <time datetime="2026-04-06" class="dt-published">April 6, 2026</time>
+      by <span class="p-author h-card">
+        <a href="/about/" class="u-url p-name hover:text-blue-600">Kyle Reddoch</a>
+      </span>
+      <span aria-hidden="true" class="text-gray-400 dark:text-gray-500 mx-1">•</span>
+      <span>5 min read</span>
+    </div>
+
+    <a href="https://www.kylereddoch.me/blog/why-cyberseckyle-has-a-new-look/" class="u-url hidden">Permalink</a>
+  </header>
+
+  <div class="e-content prose max-w-none">
+    <p>If you are coming here to read this post, you probably notice that CybersecKyle looks a little different now.</p>
+<p>Actually, a lot different.</p>
+<p>I finally launched a redesign that has been bouncing around in my head for a while, and I wanted to write a proper post about <strong>why</strong> I changed it, <strong>what</strong> changed, and <strong>what I was trying to improve</strong> instead of just quietly swapping themes and moving on.</p>
+<h2 id="why-i-wanted-to-redesign-it">Why I wanted to redesign it</h2>
+<p>My old setup worked, but it had started to feel like a site I had outgrown.</p>
+<p>That does not mean it was bad. It just means the shape of the site and the shape of my writing were no longer lining up as well as I wanted. Over the past year or so, this site has turned into more than just a blog. It has become:</p>
+<ul>
+<li>a home for my longer cybersecurity and IT writing</li>
+<li>a place for weekly notes and smaller updates</li>
+<li>a testing ground for IndieWeb ideas</li>
+<li>a living system that includes search, OG images, Mastodon sharing, webmentions, reading, listening, and more</li>
+</ul>
+<p>At a certain point, the <a href="https://eleventy-excellent.netlify.app/" rel="noopener">old design</a> was doing more “containing” than “supporting.”</p>
+<p>I wanted something that felt calmer, more intentional, and more connected to the way I actually use the site now.</p>
+<h2 id="why-i-went-with-this-design">Why I went with this design</h2>
+<p>The new redesign is based on the <a href="https://indieweb-blog-starter.netlify.app/" rel="noopener">IndieWeb Starter Blog</a>, which I liked immediately because it felt like a better fit for the kind of personal site I want CybersecKyle to be.</p>
+<p>It has a few things I really liked from the start:</p>
+<ul>
+<li>it feels personal without feeling messy</li>
+<li>it gives smaller content types like notes room to exist naturally</li>
+<li>it is easier to browse</li>
+<li>it has a stronger IndieWeb vibe without becoming hard to use</li>
+<li>it gives the site a little more warmth and personality</li>
+</ul>
+<p>I am also just a sucker for seeing something on someone else’s website and immediately thinking, “man, that would look good on my website.”</p>
+<p>That probably will never fully go away, and honestly, I do not think I want it to. Part of the fun of having a personal website is seeing good ideas out in the wild and wanting to bring some of that inspiration home with you. What made this redesign feel worth doing, though, was that it was not only about the lipstick. This design also brought in a lot of backend structure and content organization that I had been wanting for a while. In that sense, it feels like a better foundation for the future too, even if I change the visual styling again later.</p>
+<p>That balance mattered to me.</p>
+<p>I did not want a site that felt like a product page. I also did not want a site that felt so stripped down that everything blurred together. This design gave me a much better middle ground.</p>
+<h2 id="what-i-wanted-to-keep-from-my-old-site">What I wanted to keep from my old site</h2>
+<p>This was not just a theme swap.</p>
+<p>A big part of this redesign was making the new design work <strong>with</strong> the things I had already built into the site and not throwing away the parts that made it mine.</p>
+<p>So while the visual design changed a lot, I kept a number of things from my existing setup, including:</p>
+<ul>
+<li>my OG image generation pipeline</li>
+<li>Mastodon sharing and discussion features</li>
+<li>webmentions support</li>
+<li>Eleventy Image usage in posts and pages</li>
+<li>the Speedlify score in the footer</li>
+<li>my existing footer structure and link organization</li>
+</ul>
+<p>That part mattered a lot to me because I did not want to lose the site-specific work I had already invested in just to chase a nicer layout.</p>
+<h2 id="what-changed-in-the-redesign">What changed in the redesign</h2>
+<p>The biggest improvement is probably that the site makes more sense now.</p>
+<p>The content feels less siloed and more like part of one connected publishing system. Weekly notes now live in the Notes section where they belong. The homepage does a better job of mixing different types of content together. The site directory is more useful. Search is easier to access. Tags and categories feel more intentional. And pages like Listening, Bookshelf, Projects, and the rest of the “small web” sections feel more at home instead of bolted on.</p>
+<p>Some of the newer pieces I especially wanted include:</p>
+<ul>
+<li>a stronger notes section</li>
+<li>a better site directory</li>
+<li>improved search</li>
+<li>accessible theme controls</li>
+<li>cleaner tag and category browsing</li>
+<li>support for richer personal sections like listening, bookshelf, podroll, projects, and more</li>
+</ul>
+<p>I also really like that the site now feels more cohesive from page to page. Posts, notes, and supporting pages all feel like they belong to the same site instead of feeling like separate systems wearing the same logo.</p>
+<h2 id="what-this-redesign-is-really-about">What this redesign is really about</h2>
+<p>More than anything, this redesign is me leaning further into what I want this website to be.</p>
+<p>I want CybersecKyle to be a place where I can publish serious cybersecurity writing, but also post smaller notes, personal updates, experiments, recommendations, and weird little corners of my life on the web without it feeling out of place.</p>
+<p>I want it to be useful.</p>
+<p>I want it to be readable.</p>
+<p>I want it to feel like a human built it.</p>
+<p>And I want it to be something I enjoy adding to, not just something I maintain.</p>
+<p>That is probably the biggest reason I made this change. A good redesign should not just make a site look nicer. It should make it easier to keep showing up and using the site the way you want to use it.</p>
+<p>This one feels like it does that.</p>
+<h2 id="i-also-added-a-style-guide-and-colophon">I also added a style guide and colophon</h2>
+<p>One thing I wanted with this redesign was a page that explains the look and feel of the site a little more directly, along with some of the stack and design choices behind it.</p>
+<p>So I added a <a href="/style/">Style Guide</a>, which also works a bit like a colophon. It gives a quick look at the typography, palette, components, and some of the thinking behind the site.</p>
+<p>I always enjoy seeing pages like that on other personal websites, so it felt right to add one here too.</p>
+<h2 id="final-thoughts">Final thoughts</h2>
+<p>This redesign probably will not be the final version of CybersecKyle, and that is okay.</p>
+<p>Personal websites are supposed to evolve. That is part of what makes them interesting.</p>
+<p>But this version feels a lot closer to the site I have been trying to build for a while now. It feels more like a home for the different kinds of things I want to publish, and it feels a lot more aligned with the independent web direction I want to keep leaning into.</p>
+<p>So yes, the site has a new look.</p>
+<p>But more importantly, it feels more like itself now.</p>
+
+  </div>
+
+  
+    <section class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+      <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Tags</h2>
+      <div class="flex flex-wrap gap-2">
+        
+          
+        
+          
+            <a href="/tags/blogging/" style="background-color: hsl(101 65% 45%)" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#blogging</a>
+          
+        
+          
+            <a href="/tags/personal/" style="background-color: #14b8a6" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#personal</a>
+          
+        
+          
+            <a href="/tags/website/" style="background-color: hsl(355 65% 45%)" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#website</a>
+          
+        
+          
+            <a href="/tags/indieweb/" style="background-color: #06b6d4" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#indieweb</a>
+          
+        
+      </div>
+    </section>
+  
+
+  <section class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
+      <div class="flex items-start gap-4">
+        <picture><source type="image/webp" srcset="/img/9TFc0M7-EG-180.webp 180w" sizes="auto"><img loading="lazy" decoding="async" src="/img/9TFc0M7-EG-180.jpeg" alt="Kyle Reddoch" width="180" height="180" class="author-card__avatar rounded-full"></picture>
+        <div>
+          <h2 class="font-semibold text-lg">About Kyle Reddoch</h2>
+          <p class="text-gray-600 dark:text-gray-400 mt-1">I am a cybersecurity expert and IT professional who writes as CybersecKyle. I share day-to-day security and MSP work on Mastodon and publish tools and experiments on GitHub.</p>
+          <div class="mt-3 flex flex-wrap gap-4 text-sm">
+            <a href="/about/" class="text-blue-600 hover:text-blue-800">More about me</a>
+            <a href="/coffee/" class="text-green-600 hover:text-green-800">Support my work</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+    <h2 class="text-xl font-semibold mb-2">Share or join the conversation</h2>
+    <p class="text-gray-600 dark:text-gray-400 mb-4">Share this post on Mastodon, jump into the thread, or leave a little kudos.</p>
+    
+
+<div class="share-links">
+  <span class="share-links__label text-gray-600 dark:text-gray-400">Share:</span>
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+<div data-masto-query="?text=Why%20CybersecKyle%20Has%20a%20New%20Look%20-%20I%20finally%20launched%20a%20redesigned%20version%20of%20CybersecKyle%20built%20around%20a%20cleaner%20IndieWeb-focused%20template%2C%20better%20content%20organization%2C%20and%20a%20site%20experience%20that%20feels%20more%20like%20where%20this%20website%20is%20headed.%0A%0Ahttps%3A%2F%2Fwww.kylereddoch.me%2Fblog%2Fwhy-cyberseckyle-has-a-new-look%2F" data-masto-fallback="mastodon.social" class="masto-share">
+  
+  <a href="https://mastodon.social/share?text=Why%20CybersecKyle%20Has%20a%20New%20Look%20-%20I%20finally%20launched%20a%20redesigned%20version%20of%20CybersecKyle%20built%20around%20a%20cleaner%20IndieWeb-focused%20template%2C%20better%20content%20organization%2C%20and%20a%20site%20experience%20that%20feels%20more%20like%20where%20this%20website%20is%20headed.%0A%0Ahttps%3A%2F%2Fwww.kylereddoch.me%2Fblog%2Fwhy-cyberseckyle-has-a-new-look%2F" data-masto-action="primary-share" class="inline-flex items-center gap-1 text-purple-600 hover:text-purple-800 no-indicator">
+    <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+    <span>Mastodon</span>
+  </a>
+
+  
+  <div class="masto-share__menu">
+    <details data-align="end">
+      <summary class="masto-share__summary inline-flex items-center gap-1 text-purple-600 hover:text-purple-800 no-indicator">
+        <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+        Choose instance
+      </summary>
+
+      <div role="menu" class="masto-share__dropdown">
+  <div class="masto-share__section masto-share__section--saved">
+    <button type="button" role="menuitem" data-masto-action="use-saved">
+      <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+      Use saved instance <small>(<span data-masto-current>none</span>)</small>
+    </button>
+
+    <button type="button" role="menuitem" data-masto-action="set-saved">
+      <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+      Set / change saved instance…
+    </button>
+
+    <button type="button" role="menuitem" data-masto-action="clear-saved">
+      <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+      Clear saved instance
+    </button>
+  </div>
+
+  <hr aria-hidden="true" class="masto-share__divider">
+
+  <div role="group" aria-label="Suggested instances" class="masto-share__section">
+    <button type="button" role="menuitem" data-masto-host="infosec.exchange">
+      <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+      infosec.exchange
+    </button>
+    <button type="button" role="menuitem" data-masto-host="mastodon.social">
+      <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+      mastodon.social
+    </button>
+    <button type="button" role="menuitem" data-masto-host="mas.to">
+      <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+      mas.to
+    </button>
+    <button type="button" role="menuitem" data-masto-host="fosstodon.org">
+      <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+      fosstodon.org
+    </button>
+    <button type="button" role="menuitem" data-masto-host="mastodon.online">
+      <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+      mastodon.online
+    </button>
+  </div>
+</div>
+
+    </details>
+  </div>
+</div>
+
+  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.kylereddoch.me%2Fblog%2Fwhy-cyberseckyle-has-a-new-look%2F" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 no-indicator">
+    <i aria-hidden="true" class="fa-brands fa-linkedin-in"></i>
+    <span>LinkedIn</span>
+  </a>
+  <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.kylereddoch.me%2Fblog%2Fwhy-cyberseckyle-has-a-new-look%2F&amp;text=Why%20CybersecKyle%20Has%20a%20New%20Look" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-sky-500 hover:text-sky-700 no-indicator">
+    <i aria-hidden="true" class="fa-brands fa-x-twitter"></i>
+    <span>Twitter</span>
+  </a>
+  <button type="button" data-copy-link="https://www.kylereddoch.me/blog/why-cyberseckyle-has-a-new-look/" class="share-link--button inline-flex items-center gap-1 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200">
+    <i aria-hidden="true" class="fa-regular fa-copy"></i>
+    <span>Copy Link</span>
+  </button>
+</div>
+
+<script>
+  (function() {
+    const buttons = document.querySelectorAll('[data-copy-link]');
+    buttons.forEach((button) => {
+      if (button.dataset.copyBound === 'true') return;
+      button.dataset.copyBound = 'true';
+      button.addEventListener('click', async () => {
+        const url = button.getAttribute('data-copy-link');
+        try {
+          if (navigator.share) {
+            await navigator.share({ title: document.title, url });
+          } else if (navigator.clipboard) {
+            await navigator.clipboard.writeText(url);
+          }
+          button.querySelector('span').textContent = 'Copied';
+          setTimeout(() => {
+            button.querySelector('span').textContent = 'Copy Link';
+          }, 1800);
+        } catch (error) {
+          if (navigator.clipboard && url) {
+            await navigator.clipboard.writeText(url);
+          }
+        }
+      });
+    });
+  })();
+</script>
+
+
+    
+
+    <div class="mt-6">
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Give this post some kudos.</p>
+      <button data-path="/blog/why-cyberseckyle-has-a-new-look/" class="tinylytics_kudos"></button>
+    </div>
+
+    <section id="webmentions" class="mt-12">
+    <h2 class="text-xl font-semibold mb-4">Responses</h2>
+    <div id="webmentions-list">
+      <div class="text-center py-4 text-gray-500">
+        <div class="animate-pulse">Loading webmentions...</div>
+      </div>
+    </div>
+  </section>
+
+  </section>
+
+  
+
+
+  <section class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+    <h2 class="text-xl font-semibold mb-6">Related Posts</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+        <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
+          <h3 class="font-semibold mb-2">
+            <a href="/blog/i-believe-in-human-websites-i-still-care-about-polish/" class="hover:text-blue-600">I Believe in Human Websites. I Still Care About Polish</a>
+          </h3>
+          <time datetime="2026-03-31" class="text-sm text-gray-500 dark:text-gray-400">
+            March 31, 2026
+          </time>
+          
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Reading Joel’s post on unpolished human websites made me think about the tension between keeping a site personal and still wanting it to be clear, readable, and discoverable.</p>
+          
+          
+            <div class="mt-3 flex flex-wrap gap-1">
+              
+                
+              
+                
+                  <span style="background-color: hsl(101 65% 45%)" class="text-xs px-2 py-0.5 rounded text-white">#blogging</span>
+                
+              
+            </div>
+          
+        </article>
+      
+        <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
+          <h3 class="font-semibold mb-2">
+            <a href="/blog/blog-questions-challenge-technology-edition/" class="hover:text-blue-600">Blog Questions Challenge: Technology Edition</a>
+          </h3>
+          <time datetime="2025-02-02" class="text-sm text-gray-500 dark:text-gray-400">
+            February 2, 2025
+          </time>
+          
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Taking on the Blog Questions Challenge: Technology Edition—sharing my journey through tech, from past favorites to future innovations!</p>
+          
+          
+            <div class="mt-3 flex flex-wrap gap-1">
+              
+                
+              
+                
+                  <span style="background-color: hsl(160 65% 45%)" class="text-xs px-2 py-0.5 rounded text-white">#challenges</span>
+                
+              
+            </div>
+          
+        </article>
+      
+        <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
+          <h3 class="font-semibold mb-2">
+            <a href="/blog/blog-question-challenge-2025/" class="hover:text-blue-600">Blog Question Challenge 2025</a>
+          </h3>
+          <time datetime="2025-01-12" class="text-sm text-gray-500 dark:text-gray-400">
+            January 12, 2025
+          </time>
+          
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">I've been tagged in the Blog Question Challenge 2025 so here are my answers to the questions. Enjoy!</p>
+          
+          
+            <div class="mt-3 flex flex-wrap gap-1">
+              
+                
+              
+                
+                  <span style="background-color: #14b8a6" class="text-xs px-2 py-0.5 rounded text-white">#personal</span>
+                
+              
+            </div>
+          
+        </article>
+      
+    </div>
+  </section>
+
+
+
+  <div hidden class="h-entry">
+    <a href="https://www.kylereddoch.me/blog/why-cyberseckyle-has-a-new-look/" class="u-url">Why CybersecKyle Has a New Look</a>
+    <a rel="author" href="https://www.kylereddoch.me" class="p-name u-url">Kyle Reddoch</a>
+    <img src="https://www.kylereddoch.me/assets/images/logo.png" alt="Kyle Reddoch" class="u-author h-card">
+  </div>
+</article>
+
+      </main>
+    </div>
+
+    <footer class="bg-[var(--surface)] border-t border-gray-200 dark:border-gray-700 mt-12">
+  <div class="container mx-auto px-4 py-8 max-w-4xl">
+    <div class="footer-layout grid grid-cols-1 gap-8 text-sm">
+      <section>
+        <h2 class="font-semibold mb-3 text-base">Webrings</h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-3">This site is part of a few corners of the independent web.</p>
+        <ul class="space-y-3 text-gray-600 dark:text-gray-400">
+          <li class="space-y-1">
+            <p class="font-medium text-gray-900 dark:text-gray-100">
+              <a href="https://fediring.net/" class="hover:text-blue-600">Fediring</a>
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a href="https://fediring.net/previous?host=www.kylereddoch.me" class="hover:text-blue-600">Previous</a>
+              <a href="https://fediring.net/random?host=www.kylereddoch.me" class="hover:text-blue-600">Random</a>
+              <a href="https://fediring.net/next?host=www.kylereddoch.me" class="hover:text-blue-600">Next</a>
+            </div>
+          </li>
+          <li class="space-y-1">
+            <p class="font-medium text-gray-900 dark:text-gray-100">
+              <a href="https://xn--sr8hvo.ws/" class="hover:text-blue-600">IndieWeb Webring</a>
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a href="https://xn--sr8hvo.ws/previous" class="hover:text-blue-600">Previous</a>
+              <a href="https://xn--sr8hvo.ws/random" class="hover:text-blue-600">Random</a>
+              <a href="https://xn--sr8hvo.ws/next" class="hover:text-blue-600">Next</a>
+            </div>
+          </li>
+          <li>
+            <a href="https://tinylytics.app" class="tinylytics_webring hover:text-blue-600">Tinylytics Webring</a>
+          </li>
+        </ul>
+        <p class="mt-4 text-gray-600 dark:text-gray-400">Proud member of <a href="https://darktheme.club" class="hover:text-blue-600">darktheme.club</a></p>
+      </section>
+
+      <section>
+        <h2 class="font-semibold mb-3 text-base">Explore</h2>
+        <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+          
+            <li><a href="/slashes/" class="hover:text-blue-600">Slashes</a></li>
+          
+            <li><a href="/guestbook/" class="hover:text-blue-600">Guestbook</a></li>
+          
+            <li><a href="/tags/" class="hover:text-blue-600">Tags</a></li>
+          
+          <li><a href="/blog/" class="hover:text-blue-600">Blog</a></li>
+          <li><a href="/notes/" class="hover:text-blue-600">Notes</a></li>
+          <li><a href="/listening/" class="hover:text-blue-600">Listening</a></li>
+          <li><a href="/bookshelf/" class="hover:text-blue-600">Bookshelf</a></li>
+          <li><a href="/sitemap/" class="hover:text-blue-600">Site Directory</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="font-semibold mb-3 text-base">Connect</h2>
+
+        <nav aria-label="Platforms" class="platforms flex flex-wrap gap-3 mb-4">
+          <a href="/feed.xml" rel="alternate" type="application/atom+xml" class="hover:text-blue-600">
+            <span class="visually-hidden">Atom Feed</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><title>RSS</title><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
+          </a>
+          
+            
+              <a href="https://github.com/kylereddoch/" rel="me" title="Github" class="hover:text-blue-600">
+                <span class="visually-hidden">Github</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S8.93 17.38 9 18v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+              </a>
+            
+          
+            
+              <a href="https://infosec.exchange/@cyberseckyle" rel="me" title="Mastodon" class="hover:text-blue-600">
+                <span class="visually-hidden">Mastodon</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.887 5.996c-.308-2.314-2.298-4.14-4.655-4.492-.399-.059-1.906-.278-5.398-.278h-.026c-3.495 0-4.243.219-4.642.278-2.295.345-4.387 1.982-4.897 4.326-.242 1.153-.268 2.433-.222 3.606.065 1.684.078 3.361.228 5.039a24 24 0 0 0 .543 3.304c.484 2.009 2.439 3.68 4.355 4.359 2.049.71 4.256.829 6.368.342q.347-.085.69-.193c.513-.165 1.114-.351 1.559-.676q.009-.006.013-.016.006-.01.007-.024v-1.624s0-.013-.007-.02q-.002-.01-.013-.016l-.02-.01h-.019a17.4 17.4 0 0 1-4.132.49c-2.397 0-3.041-1.153-3.224-1.63a5.3 5.3 0 0 1-.281-1.287q0-.01.003-.019.002-.012.013-.017l.02-.01h.023c1.33.325 2.697.491 4.067.491.33 0 .657 0 .987-.01 1.376-.04 2.828-.11 4.184-.378.033-.007.069-.013.098-.02 2.138-.418 4.172-1.724 4.378-5.032.006-.129.026-1.365.026-1.498 0-.461.147-3.258-.023-4.979z"></path><path fill="currentColor" stroke-width="1" d="M6.061 7.288c0-.676.533-1.219 1.193-1.219.661 0 1.193.547 1.193 1.219 0 .673-.532 1.22-1.193 1.22-.66 0-1.193-.547-1.193-1.22Z"></path></svg>
+              </a>
+            
+          
+            
+              <a href="https://www.linkedin.com/in/kylereddoch/" rel="me" title="Linkedin" class="hover:text-blue-600">
+                <span class="visually-hidden">Linkedin</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6M2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>
+              </a>
+            
+          
+            
+              <a href="https://ko-fi.com/kylereddoch" rel="me" title="Kofi" class="hover:text-blue-600">
+                <span class="visually-hidden">Kofi</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M18 3h1c1.06 0 2.078.527 2.828 1.464C22.578 5.402 23 6.674 23 8s-.421 2.598-1.172 3.536C21.078 12.473 20.061 13 19 13h-1M1 3h17v12.461c0 1.47-.512 2.878-1.423 3.917-.91 1.038-2.146 1.622-3.434 1.622H5.857c-1.288 0-2.523-.584-3.434-1.622S1 16.93 1 15.46z"></path><path fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13.288 8.707a2.43 2.43 0 0 0-2.65-.52c-.3.12-.57.3-.8.53l-.34.34-.35-.34a2.43 2.43 0 0 0-3.44 0c-.95.939-1 2.527.2 3.736L9.497 16l3.6-3.547c1.2-1.208 1.14-2.797.19-3.736v-.01Z"></path></svg>
+              </a>
+            
+          
+        </nav>
+
+        <p class="text-gray-600 dark:text-gray-400 mb-2">
+          Made with <span aria-hidden="true">♥</span> and <a href="https://www.11ty.dev/" class="hover:text-blue-600">Eleventy</a>
+        </p>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          Analytics powered by <a href="https://tinylytics.app/public/wgrU27nAtwqvZpx9zZwe" class="hover:text-blue-600">Tinylytics</a>
+        </p>
+
+        <p class="mb-4 text-sm text-gray-500 dark:text-gray-400">
+        © 2026 <span class="font-semibold">CybersecKyle</span>
+        <span aria-hidden="true" class="mx-2">·</span>
+        <a href="/license/" class="hover:text-blue-600">CC BY-NC-SA 4.0</a>
+      </p>
+
+        <a href="https://www.11ty.dev/speedlify/kylereddoch-me/" aria-label="View full results on speedlify.dev" class="inline-flex items-center hover:text-blue-600 no-indicator footer-speedlify">
+          <speedlify-score speedlify-url="https://www.11ty.dev/speedlify/" hash="e33de02c" score></speedlify-score>
+        </a>
+      </section>
+    </div>
+  </div>
+
+  <div class="border-t border-gray-200 dark:border-gray-700 bg-black/5 dark:bg-white/5">
+    <div class="container mx-auto max-w-4xl px-4 py-4">
+      <ul role="list" class="indie-buttons flex flex-wrap gap-2">
+        <li>
+          <a href="https://11ty.dev" class="no-indicator">
+            <img src="/assets/images/buttons/built-with-eleventy.gif" width="88" height="31" alt="Built with Eleventy" loading="lazy">
+          </a>
+        </li>
+        <li>
+          <a href="https://infosec.exchange/@cyberseckyle" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/Ii2PFSzIy8-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/Ii2PFSzIy8-88.jpeg" width="88" height="31" alt="Follow me on Mastodon"></picture>
+          </a>
+        </li>
+        <li>
+          <a href="/coffee/" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/v2EdBgZ88c-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/v2EdBgZ88c-88.jpeg" width="88" height="31" alt="Coffee Powered"></picture>
+          </a>
+        </li>
+        <li>
+          <a href="https://ko-fi.com/s/4662b19f61" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/weqd1DtQRi-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/weqd1DtQRi-88.jpeg" width="88" height="31" alt="Human Content"></picture>
+          </a>
+        </li>
+        <li>
+          <a href="https://powrss.com" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/bk57H3yi5F-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/bk57H3yi5F-88.jpeg" width="88" height="31" alt="I'm on PowRSS"></picture>
+          </a>
+        </li>
+        <li>
+          <a href="https://hillhouse.neocities.org/cliques/library/" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/c-H-zkovIx-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/c-H-zkovIx-88.jpeg" width="88" height="31" alt="Little Pixel Library"></picture>
+          </a>
+        </li>
+        <li>
+          <a href="https://32bit.cafe" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/kUiwyilU_X-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/kUiwyilU_X-88.jpeg" width="88" height="31" alt="32bit Cafe"></picture>
+          </a>
+        </li>
+        <li>
+          <a href="https://people.pledge.party" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/1bL7bfWdZ8-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/1bL7bfWdZ8-88.jpeg" width="88" height="31" alt="People Pledge"></picture>
+          </a>
+        </li>
+        <li>
+          <img src="/assets/images/buttons/cyberseckyle-button.gif" width="88" height="31" alt="CybersecKyle" loading="lazy">
+        </li>
+        <li>
+          <a href="https://zakhary.dev/blog/gbc-web-button" class="no-indicator">
+            <img src="/assets/images/buttons/gameboygif.gif" width="88" height="31" alt="Gameboy" loading="lazy">
+          </a>
+        </li>
+        <li>
+          <a href="https://ko-fi.com/kylereddoch" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/g0MA4zc58b-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/g0MA4zc58b-88.jpeg" width="88" height="31" alt="Buy me a coffee"></picture>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="/assets/starter/main.js" defer></script>
+    <script src="/assets/starter/flexsearch.min.js" defer></script>
+    <script src="/assets/starter/search.js" defer></script>
+    <script src="/assets/starter/webmentions.js" defer></script>
+    <script src="/assets/starter/easter-eggs.js" defer></script>
+    <script src="https://kit.fontawesome.com/fb3ee9d8ef.js" crossorigin="anonymous" defer></script>
+    <script src="https://tinylytics.app/embed/aK6PBymtmDm6DxSXaP2H.js?webring&amp;kudos=%E2%9D%A4%EF%B8%8F" defer></script>
+    <script src="/assets/scripts/components/masto-share.js" defer></script>
+    <script src="/assets/scripts/components/mastodon-post.js" defer></script>
+    <script src="/assets/scripts/components/speedlify-score.js" defer></script>
+  
+
+</body>
+</html>
