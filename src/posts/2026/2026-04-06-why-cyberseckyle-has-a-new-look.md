@@ -3,8 +3,8 @@ date: 2026-04-06T16:30:00-05:00
 title: Why CybersecKyle Has a New Look
 description: I finally launched a redesigned version of CybersecKyle built around a cleaner IndieWeb-focused template, better content organization, and a site experience that feels more like where this website is headed.
 featuredImage: /assets/images/time-for-change.jpg
-tags: [blogging, personal, website, indieweb]
-mastodon_url:
+tags: [blogging, personal, indieweb]
+mastodon_url: https://infosec.exchange/@cyberseckyle/116360037201080228
 ---
 
 If you are coming here to read this post, you probably notice that CybersecKyle looks a little different now.
