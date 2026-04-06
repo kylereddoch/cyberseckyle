@@ -9,7 +9,7 @@
 
 // register dotenv for process.env.* variables to pickup
 import dotenv from 'dotenv';
-dotenv.config();
+dotenv.config({ path: '.env' });
 
 // add yaml support
 import yaml from 'js-yaml';
@@ -19,17 +19,30 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 //  config import
-import { getAllPosts, showInSitemap, tagList, getNowPosts } from './src/_config/collections.js';
+import {
+  categoryList,
+  getAllPosts,
+  getBlogEntries,
+  getJournalPosts,
+  getNotes,
+  getNowPosts,
+  getPosts,
+  showInSitemap,
+  tagList
+} from './src/_config/collections.js';
 import events from './src/_config/events.js';
 import filters from './src/_config/filters.js';
 import dateFilters from './src/_config/filters/oldpost.js';
 import plugins from './src/_config/plugins.js';
 import shortcodes from './src/_config/shortcodes.js';
-import { buildAllCss } from './src/_config/plugins/css-config.js';
 import { buildAllJs } from './src/_config/plugins/js-config.js';
 
 // reading time plugin
 import readingTime from 'eleventy-plugin-reading-time';
+
+const tagColors = JSON.parse(
+  fs.readFileSync(path.join(process.cwd(), 'src/_data/tagColors.json'), 'utf8')
+);
 
 
 // Mastodon Direct-Embed: bleed-friendly, auto-height reliable
@@ -91,7 +104,6 @@ ${loader}
 export default async function (eleventyConfig) {
 
   eleventyConfig.on('eleventy.before', async () => {
-    await buildAllCss();
     await buildAllJs();
   });
 
@@ -102,6 +114,8 @@ export default async function (eleventyConfig) {
   eleventyConfig.addLayoutAlias('base', 'base.njk');
   eleventyConfig.addLayoutAlias('page', 'page.njk');
   eleventyConfig.addLayoutAlias('post', 'post.njk');
+  eleventyConfig.addLayoutAlias('note', 'note.njk');
+  eleventyConfig.addLayoutAlias('journal', 'journal.njk');
   eleventyConfig.addLayoutAlias('tags', 'tags.njk');
 
   // ---------------------
@@ -126,9 +140,14 @@ export default async function (eleventyConfig) {
       .replace(/-+/g, "-");
 
   //	---------------------  Collections
+  eleventyConfig.addCollection('posts', getPosts);
+  eleventyConfig.addCollection('blogEntries', getBlogEntries);
+  eleventyConfig.addCollection('notes', getNotes);
+  eleventyConfig.addCollection('journal', getJournalPosts);
   eleventyConfig.addCollection('allPosts', getAllPosts);
   eleventyConfig.addCollection('showInSitemap', showInSitemap);
   eleventyConfig.addCollection('tagList', tagList);
+  eleventyConfig.addCollection('categoryList', categoryList);
 
   // ✅ new now collection
   eleventyConfig.addCollection('nowEntries', getNowPosts);
@@ -148,6 +167,48 @@ export default async function (eleventyConfig) {
     }
 
     return [...byUrl.values()].sort((a, b) => b.date - a.date);
+  });
+
+  eleventyConfig.addCollection('homeEntries', collectionApi => {
+    return getAllPosts(collectionApi).filter(item => !item.data?.excludeFromHome);
+  });
+
+  eleventyConfig.addCollection('searchIndex', collectionApi => {
+    const getSearchableContent = item => {
+      const raw = typeof item?.rawInput === 'string' ? item.rawInput : '';
+      return raw
+        .replace(/^---[\s\S]*?---/, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+    };
+
+    const contentEntries = getAllPosts(collectionApi).map(item => ({
+      id: item.url,
+      title: item.data?.title || '',
+      description: item.data?.description || '',
+      tags: Array.isArray(item.data?.tags) ? item.data.tags.filter(tag => !['posts', 'notes', 'journal'].includes(tag)) : [],
+      content: getSearchableContent(item),
+      date: item.date
+    }));
+
+    const pageEntries = collectionApi
+      .getFilteredByGlob('./src/pages/**/*.{md,njk}')
+      .filter(item => !item.data?.eleventyExcludeFromCollections && !item.data?.excludeFromSearch)
+      .map(item => ({
+        id: item.url,
+        title: item.data?.title || '',
+        description: item.data?.description || '',
+        tags: [],
+        content: getSearchableContent(item),
+        date: item.date
+      }));
+
+    const seen = new Set();
+    return [...contentEntries, ...pageEntries].filter(item => {
+      if (!item.id || seen.has(item.id)) return false;
+      seen.add(item.id);
+      return true;
+    });
   });
 
 
@@ -299,12 +360,50 @@ export default async function (eleventyConfig) {
 
   eleventyConfig.addFilter('toIsoString', filters.toISOString);
   eleventyConfig.addFilter('formatDate', filters.formatDate);
+  eleventyConfig.addFilter('readableDate', date => filters.formatDate(date, 'MMMM D, YYYY'));
+  eleventyConfig.addFilter('htmlDateString', date => filters.formatDate(date, 'YYYY-MM-DD'));
   eleventyConfig.addFilter('markdownFormat', filters.markdownFormat);
   eleventyConfig.addFilter('splitlines', filters.splitlines);
   eleventyConfig.addFilter('striptags', filters.striptags);
   eleventyConfig.addFilter('shuffle', filters.shuffleArray);
   eleventyConfig.addFilter('alphabetic', filters.sortAlphabetically);
   eleventyConfig.addFilter('slugify', filters.slugifyString);
+  eleventyConfig.addFilter('slug', filters.slugifyString);
+  eleventyConfig.addFilter('json', (value, spaces = 0) => JSON.stringify(value, null, spaces));
+  eleventyConfig.addFilter('head', (arr, n) => {
+    if (!Array.isArray(arr)) return arr;
+    return n < 0 ? arr.slice(n) : arr.slice(0, n);
+  });
+  eleventyConfig.addFilter('tagColor', tag => {
+    if (!tag) return '#6b7280';
+    const key = String(tag).toLowerCase();
+    if (tagColors[key]) return tagColors[key];
+
+    let hash = 0;
+    for (let i = 0; i < key.length; i++) {
+      hash = (hash * 31 + key.charCodeAt(i)) >>> 0;
+    }
+
+    const hue = hash % 360;
+    return `hsl(${hue} 65% 45%)`;
+  });
+  eleventyConfig.addFilter('relatedEntries', (items, currentUrl, currentTags = [], limit = 3) => {
+    if (!Array.isArray(items) || !Array.isArray(currentTags) || currentTags.length === 0) {
+      return [];
+    }
+
+    return items
+      .filter(item => item?.url && item.url !== currentUrl)
+      .map(item => {
+        const tags = Array.isArray(item.data?.tags) ? item.data.tags : [];
+        const score = currentTags.filter(tag => tags.includes(tag)).length;
+        return { item, score };
+      })
+      .filter(entry => entry.score > 0)
+      .sort((a, b) => b.score - a.score || b.item.date - a.item.date)
+      .slice(0, limit)
+      .map(entry => entry.item);
+  });
 
   // Build a Mastodon /share URL
   eleventyConfig.addFilter("mastoShareUrl", (instance, url, text, title, hashtags = []) => {
@@ -364,6 +463,7 @@ export default async function (eleventyConfig) {
   });
 
   eleventyConfig.addPassthroughCopy({ "src/assets/svg": "assets/svg" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/starter": "assets/starter" });
 
   eleventyConfig.addPassthroughCopy({
     "node_modules/@zachleat/snow-fall/snow-fall.js":

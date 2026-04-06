@@ -1,83 +1,125 @@
 ---
-layout: index
-permalink: /index.html
-title: "Beep...Boop..."
-blog:
-  title: "Blog"
-  intro: "Here are the 6 most recent posts. There's probably more though..."
-
+layout: base
+permalink: /
+title: CybersecKyle
+description: "Welcome to CybersecKyle, where Kyle Reddoch writes about cybersecurity, IT life, practical defense, notes from the week, and independent web publishing."
 ---
 
-<div class="wrapper">
-  <header class="full | section" style="--spot-color: var(--color-primary)">
-    <div class="section__inner flow region">
-      <h1
-        class="text-center"
-        style="color: var(--color-bg);  font-size: var(--size-step-6) !important;"
-      >
-        {{ title }}
-      </h1>
-    </div>
-    {% svg "divider/pixels", null, "divider" %}
-  </header>
+<div class="h-feed">
+  <div class="text-center mb-12 py-8">
+    <h1 class="p-name text-4xl font-bold mb-4">Beep...Boop...</h1>
+    <p class="p-summary text-xl text-gray-600 dark:text-gray-400 mb-6">Welcome, I'm Kyle (aka CybersecKyle)!</p>
+    <a class="u-url hidden" href="{{ meta.url }}/"></a>
 
-  <article class="full | region">
-    <div class="wrapper flow">
-      <h2 id="an-eleventy-starter">I'm Kyle! (aka CybersecKyle)</h2>
-      <p>
-        I'm an IT professional working in the MSP/Cybersecurity industry. I love
-        everything tech. You can check out more about me <a
-          href="https://profile.kylereddoch.me"
-        >here</a> or read my blog posts below. I blog about cybersecurity,
-        technology trends, and best practices in IT. I even share the occasional
-        tech review every now and then.
+    <div class="max-w-2xl mx-auto mb-8">
+      <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+        This is my home on the independent web, where I write about cybersecurity, MSP life, practical IT work, and the occasional tech review. I also keep weekly notes here because not everything worth sharing needs to be a full post.
       </p>
-      <!-- prettier-ignore -->
-{% highlight "bash" %}
-$ hostname
-cyberseckyle.local
 
-$ cat about-$(hostname).config
-description="Cybersecurity analyst and MSP operator focused on securing modern infrastructure. Lover of all things tech and coffee."
-focus_areas=["Endpoint Hardening", "Network Security", "Threat Intelligence", "Cloud Security"]
-tech_stack=["PowerShell", "Python", "Linux", "SonicWall", "Kaseya", "EDR/XDR", "SIEM"]
-
-$ diagnostics --run full
-> Scanning system configs... [OK]
-> Verifying patch compliance... [OK]
-> Reviewing firewall rules... [WARN] minor gaps found
-> Checking audit logs... [OK]
-> Correlating threat intel... [OK]
-> Report saved to /opt/kyle/intel/summary-{{ helpers.buildTimeFile() }}.log
-
-$ buildtime
-{{ helpers.buildTimeHuman() }}
-{% endhighlight %}
-    </div>
-  </article>
-
-  <section class="full | region">
-    <div class="wrapper flow">
-      <h2>{{ blog.title }}</h2>
-      {% if blog.intro %}
-        <p>{{ blog.intro }}</p>
-      {% endif %}
-      <div class="feature | region region-space-l">
-        <custom-masonry layout="50-50">
-          {% set itemList = collections.allPosts %}
-          {% asyncEach item in itemList.slice(0, 6) %}
-          {% set headingLevel = "h3" %}
-          {% include "partials/card-blog.njk" %}
-          {% endeach %}
-        </custom-masonry>
+      <div class="flex flex-wrap justify-center gap-4 text-sm">
+        <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full">&#128737;&#65039; Cybersecurity</span>
+        <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full">&#128736;&#65039; Managed Services</span>
+        <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 px-3 py-1 rounded-full">&#128187; IT</span>
+        <span class="bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 px-3 py-1 rounded-full">&#10024; and More...</span>
       </div>
     </div>
 
-    <div class="wrapper flow mt-l-xl">
-      <p style="text-align: center;">
-        <a href="/blog/" class="button" data-button-variant="primary"
-        >View more posts</a>
-      </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="/about/" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg transition-colors">&#128075; Learn more about me</a>
+      <a href="/feed.xml" class="border border-purple-600 text-purple-600 hover:bg-purple-50 dark:hover:bg-purple-900/20 px-6 py-2 rounded-lg transition-colors">&#128225; Subscribe via RSS</a>
     </div>
+  </div>
+
+  <section class="mb-10">
+    <div class="mb-6">
+      <h2 class="text-2xl font-semibold">&#9997;&#65039; Latest from around the site</h2>
+    </div>
+
+    {% set recent = collections.homeEntries | default([]) %}
+    {% if recent | length > 0 %}
+      <div class="space-y-8">
+        {% for entry in recent | head(5) %}
+          {% set entryType = entry.data.contentType or 'post' %}
+          {% if '/now/' in entry.url %}
+            {% set entryType = 'now' %}
+          {% endif %}
+          {% if entryType == 'note' %}
+            {% set entryIcon = '&#128221;' %}
+            {% set entryLabel = 'Note' %}
+          {% elseif entryType == 'journal' %}
+            {% set entryIcon = '&#128214;' %}
+            {% set entryLabel = 'Journal' %}
+          {% elseif entryType == 'now' %}
+            {% set entryIcon = '&#128205;' %}
+            {% set entryLabel = 'Now' %}
+          {% else %}
+            {% set entryIcon = '&#9997;&#65039;' %}
+            {% set entryLabel = 'Post' %}
+          {% endif %}
+          <article class="h-entry border-b border-gray-200 dark:border-gray-700 pb-6 last:border-b-0">
+            <div class="flex flex-wrap items-center gap-3 mb-2">
+              <span class="entry-type-badge">
+                <span class="entry-type-badge__icon" aria-hidden="true">{{ entryIcon | safe }}</span>
+                <span class="entry-type-badge__label">{{ entryLabel }}</span>
+              </span>
+              {% if entry.date %}
+                <time class="dt-published text-sm text-gray-500 dark:text-gray-400" datetime="{{ entry.date | htmlDateString }}">{{ entry.date | readableDate }}</time>
+              {% endif %}
+            </div>
+
+            <h3 class="p-name text-xl font-semibold mb-2">
+              <a class="u-url hover:text-purple-600 dark:hover:text-purple-400 transition-colors" href="{{ entry.url }}">
+                {{ entry.data.title }}
+              </a>
+            </h3>
+
+            {% if entry.data.description %}
+              <p class="p-summary text-gray-700 dark:text-gray-300 mb-3 leading-relaxed">{{ entry.data.description }}</p>
+            {% endif %}
+
+            {% if entry.data.tags %}
+              <div class="flex flex-wrap gap-2">
+                {% for tag in entry.data.tags %}
+                  {% if tag != 'posts' and tag != 'notes' and tag != 'journal' %}
+                    <a class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity" style="background-color: {{ tag | tagColor }}" href="/tags/{{ tag | slug }}/">#{{ tag }}</a>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="/blog/" class="inline-flex items-center gap-2 text-purple-600 dark:text-purple-400 hover:underline">
+          View all posts &rarr;
+        </a>
+      </div>
+    {% else %}
+      <div class="text-center py-12 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+        <p class="text-gray-500 dark:text-gray-400 text-lg mb-4">No entries yet.</p>
+        <p class="text-gray-600 dark:text-gray-300">This is where new posts, notes, and updates will show up.</p>
+      </div>
+    {% endif %}
   </section>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
+    <a href="/now/" class="block p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors">
+      <div class="text-2xl mb-2">&#128205;</div>
+      <h3 class="font-semibold text-blue-800 dark:text-blue-200">What I'm focused on</h3>
+      <p class="text-sm text-blue-600 dark:text-blue-300">Projects, work, and current life updates</p>
+    </a>
+
+    <a href="/notes/" class="block p-4 bg-green-50 dark:bg-green-900/20 rounded-lg hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors">
+      <div class="text-2xl mb-2">&#128221;</div>
+      <h3 class="font-semibold text-green-800 dark:text-green-200">Weekly notes and smaller posts</h3>
+      <p class="text-sm text-green-600 dark:text-green-300">Shorter updates that still deserve a permalink</p>
+    </a>
+
+    <a href="/sitemap/" class="block p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors">
+      <div class="text-2xl mb-2">&#128506;&#65039;</div>
+      <h3 class="font-semibold text-purple-800 dark:text-purple-200">Explore the whole site</h3>
+      <p class="text-sm text-purple-600 dark:text-purple-300">Browse pages, posts, tags, and site sections</p>
+    </a>
+  </div>
 </div>

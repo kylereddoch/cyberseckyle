@@ -1,0 +1,160 @@
+---
+layout: base
+permalink: /bookshelf/
+title: Bookshelf
+description: "A living reading list powered by Hardcover, showing what I am reading, what I finished, and what is waiting in the wings."
+---
+
+<div class="max-w-4xl bookshelf-page">
+  <h1 class="text-3xl font-bold mb-2 flex items-center gap-2">
+    <span aria-hidden="true">&#128218;</span>
+    <span>Bookshelf</span>
+  </h1>
+  <p class="text-gray-600 dark:text-gray-400 mb-8">
+    A living reading list powered by Hardcover, tracking what I am reading, what I finished, and what I want to pick up next.
+  </p>
+
+  {% if bookshelf.error %}
+  <div class="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900/50 dark:bg-red-950/30 dark:text-red-200 mb-8">
+    Hardcover returned an error while building this page: {{ bookshelf.error }}
+  </div>
+  {% endif %}
+
+  {% if bookshelf.configured %}
+  <dl class="bookshelf-stats mb-10">
+    <div>
+      <dt>Currently Reading</dt>
+      <dd>{{ bookshelf.counts.reading }}</dd>
+    </div>
+    <div>
+      <dt>Finished</dt>
+      <dd>{{ bookshelf.counts.finished }}</dd>
+    </div>
+    <div>
+      <dt>Want to Read</dt>
+      <dd>{{ bookshelf.counts.wantToRead }}</dd>
+    </div>
+  </dl>
+
+  <p class="text-sm text-gray-600 dark:text-gray-400 mb-10">
+    Synced from <a href="{{ bookshelf.profileUrl }}" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">my Hardcover profile</a>.
+  </p>
+
+  <section class="space-y-12">
+    <div>
+      <div class="flex items-center justify-between gap-3 mb-5">
+        <h2 class="text-2xl font-semibold">Reading</h2>
+        <span class="text-sm text-gray-500 dark:text-gray-400">{{ bookshelf.counts.reading }} books</span>
+      </div>
+      {% if bookshelf.reading | length > 0 %}
+      <ul class="bookshelf-reading-list">
+        {% for book in bookshelf.reading %}
+        <li class="bookshelf-reading-item">
+          {% if book.image %}
+          <img src="{{ book.image }}" alt="" class="bookshelf-book__cover" loading="lazy" />
+          {% else %}
+          <div class="bookshelf-book__cover bookshelf-book__cover--placeholder" aria-hidden="true">&#128218;</div>
+          {% endif %}
+          <div class="min-w-0 flex-1">
+            <a href="{{ book.url }}" class="font-medium hover:text-violet-600 dark:hover:text-violet-300">{{ book.title }}</a>
+            {% if book.authors | length > 0 %}
+            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">{{ book.authors | join(', ') }}</p>
+            {% endif %}
+            <div class="mt-3 flex flex-wrap gap-2 text-xs text-gray-500 dark:text-gray-400">
+            {% if book.pages %}<span>{{ book.pages }} pages</span>{% endif %}
+            {% if book.releaseYear %}<span>{{ book.releaseYear }}</span>{% endif %}
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p class="text-sm text-gray-600 dark:text-gray-400">Nothing marked as currently reading yet.</p>
+      {% endif %}
+    </div>
+
+    <div>
+      <div class="flex items-center justify-between gap-3 mb-5">
+        <h2 class="text-2xl font-semibold">Finished</h2>
+        <span class="text-sm text-gray-500 dark:text-gray-400">{{ bookshelf.counts.finished }} books</span>
+      </div>
+      {% if bookshelf.finished | length > 0 %}
+      <ul class="bookshelf-cover-grid">
+        {% for book in bookshelf.finished | head(10) %}
+        <li class="bookshelf-cover-card">
+          <a href="{{ book.url }}" class="bookshelf-cover-card__media">
+            {% if book.image %}
+            <img src="{{ book.image }}" alt="" class="bookshelf-book__cover" loading="lazy" />
+            {% else %}
+            <div class="bookshelf-book__cover bookshelf-book__cover--placeholder" aria-hidden="true">&#128218;</div>
+            {% endif %}
+          </a>
+          <div class="bookshelf-cover-card__body">
+            <a href="{{ book.url }}" class="bookshelf-cover-card__title hover:text-emerald-600 dark:hover:text-emerald-300">{{ book.title }}</a>
+            {% if book.authors | length > 0 %}
+            <p class="bookshelf-cover-card__meta">{{ book.authors | join(', ') }}</p>
+            {% endif %}
+            {% if book.finishedAt %}
+            <p class="bookshelf-cover-card__meta">Finished {{ book.finishedAt | readableDate }}</p>
+            {% endif %}
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p class="text-sm text-gray-600 dark:text-gray-400">No finished books have been synced yet.</p>
+      {% endif %}
+    </div>
+
+    <div>
+      <div class="flex items-center justify-between gap-3 mb-5">
+        <h2 class="text-2xl font-semibold">Want to Read</h2>
+        <span class="text-sm text-gray-500 dark:text-gray-400">{{ bookshelf.counts.wantToRead }} books</span>
+      </div>
+      {% if bookshelf.wantToRead | length > 0 %}
+      <ul class="bookshelf-cover-grid">
+        {% for book in bookshelf.wantToRead | head(10) %}
+        <li class="bookshelf-cover-card">
+          <a href="{{ book.url }}" class="bookshelf-cover-card__media">
+            {% if book.image %}
+            <img src="{{ book.image }}" alt="" class="bookshelf-book__cover" loading="lazy" />
+            {% else %}
+            <div class="bookshelf-book__cover bookshelf-book__cover--placeholder" aria-hidden="true">&#128218;</div>
+            {% endif %}
+          </a>
+          <div class="bookshelf-cover-card__body">
+            <a href="{{ book.url }}" class="bookshelf-cover-card__title hover:text-amber-600 dark:hover:text-amber-300">{{ book.title }}</a>
+            {% if book.authors | length > 0 %}
+            <p class="bookshelf-cover-card__meta">{{ book.authors | join(', ') }}</p>
+            {% endif %}
+            <p class="bookshelf-cover-card__meta">
+              {% if book.pages %}<span>{{ book.pages }} pages</span>{% endif %}
+              {% if book.pages and book.releaseYear %}<span> &middot; </span>{% endif %}
+              {% if book.releaseYear %}<span>{{ book.releaseYear }}</span>{% endif %}
+            </p>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p class="text-sm text-gray-600 dark:text-gray-400">The to-be-read pile is clear for now.</p>
+      {% endif %}
+    </div>
+  </section>
+  {% else %}
+  <div class="border border-slate-200 p-6 dark:border-slate-800">
+    <h2 class="text-xl font-semibold mb-3">Bookshelf Sync Not Configured Yet</h2>
+    <p class="text-gray-600 dark:text-gray-400 mb-4">
+      This page is ready to pull directly from Hardcover once a working `HARDCOVER_TOKEN` is available at build time.
+    </p>
+    {% if bookshelf.error %}
+    <p class="text-sm text-red-600 dark:text-red-300 mb-4">
+      Current build error: {{ bookshelf.error }}
+    </p>
+    {% endif %}
+    <p class="text-sm text-gray-600 dark:text-gray-400">
+      Until then, my reading lives over on <a href="https://hardcover.app" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">Hardcover</a>.
+    </p>
+  </div>
+  {% endif %}
+</div>

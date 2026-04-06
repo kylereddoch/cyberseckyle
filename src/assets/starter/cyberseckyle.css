@@ -1,0 +1,1069 @@
+:root {
+  color-scheme: light dark;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.no-indicator {
+  text-decoration: none;
+}
+
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, #8b5cf6, #ec4899);
+}
+
+.site-title {
+  letter-spacing: -0.02em;
+}
+
+.site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.site-brand__logo {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.75rem;
+  object-fit: cover;
+  flex: none;
+}
+
+.platforms svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.indie-buttons img {
+  display: block;
+}
+
+.starter-panel {
+  background: rgba(148, 163, 184, 0.06);
+}
+
+.listening-now {
+  border-bottom: 1px solid rgb(226 232 240 / 1);
+  padding-bottom: 2rem;
+}
+
+.dark .listening-now {
+  border-bottom-color: rgb(55 65 81 / 1);
+}
+
+.listening-now__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.listening-now__cover {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 1rem;
+  object-fit: cover;
+  flex: none;
+}
+
+.listening-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.listening-grid--tracks {
+  gap: 1.25rem 1.1rem;
+}
+
+.listening-track {
+  min-width: 0;
+  padding: 0 0 1rem;
+  border-bottom: 1px solid rgb(226 232 240 / 1);
+}
+
+.dark .listening-track {
+  border-bottom-color: rgb(55 65 81 / 1);
+}
+
+.listening-card__top {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.listening-card__cover {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.75rem;
+  object-fit: cover;
+  flex: none;
+}
+
+.listening-meta-grid {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.simple-data-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.simple-data-list__item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid rgb(226 232 240 / 1);
+}
+
+.dark .simple-data-list__item {
+  border-bottom-color: rgb(55 65 81 / 1);
+}
+
+.simple-data-list__item--stacked {
+  align-items: center;
+}
+
+.bookshelf-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgb(226 232 240 / 1);
+}
+
+.dark .bookshelf-stats {
+  border-bottom-color: rgb(55 65 81 / 1);
+}
+
+.bookshelf-stats dt {
+  font-size: 0.85rem;
+  color: rgb(100 116 139 / 1);
+}
+
+.bookshelf-stats dd {
+  margin: 0.2rem 0 0;
+  font-size: 1.65rem;
+  font-weight: 700;
+}
+
+.bookshelf-reading-list {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.bookshelf-reading-item {
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid rgb(226 232 240 / 1);
+}
+
+.dark .bookshelf-reading-item {
+  border-bottom-color: rgb(55 65 81 / 1);
+}
+
+.bookshelf-book__cover {
+  width: 4.75rem;
+  height: 7rem;
+  border-radius: 0.85rem;
+  object-fit: cover;
+  flex: none;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.14);
+}
+
+.bookshelf-book__cover--placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(148, 163, 184, 0.12);
+  font-size: 1.4rem;
+}
+
+.bookshelf-cover-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem 1rem;
+}
+
+.bookshelf-cover-card {
+  min-width: 0;
+}
+
+.bookshelf-cover-card__media {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.bookshelf-cover-card__media .bookshelf-book__cover {
+  width: 100%;
+  max-width: 8.5rem;
+  height: auto;
+  aspect-ratio: 2 / 3;
+}
+
+.bookshelf-cover-card__body {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.bookshelf-cover-card__title {
+  display: block;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.bookshelf-cover-card__meta {
+  color: rgb(100 116 139 / 1);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.entry-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border-radius: 9999px;
+  background: rgb(241 245 249 / 1);
+  color: rgb(71 85 105 / 1);
+  padding: 0.35rem 0.8rem 0.35rem 0.45rem;
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.dark .entry-type-badge {
+  background: rgb(31 41 55 / 1);
+  color: rgb(209 213 219 / 1);
+}
+
+.entry-type-badge__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+  background: rgba(139, 92, 246, 0.14);
+  font-size: 0.82rem;
+}
+
+.entry-type-badge__label {
+  line-height: 1;
+}
+
+.share-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  font-size: 0.875rem;
+}
+
+.share-links__label {
+  font-size: 0.875rem;
+}
+
+.share-link--button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+}
+
+.webmention-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  color: rgb(100 116 139 / 1);
+  font-size: 0.95rem;
+}
+
+.webmention-grid {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.webmention-group {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.webmention-group__title,
+.webmention-comments__title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.webmention-faces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.webmention-face {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+  overflow: hidden;
+  border: 1px solid rgb(226 232 240 / 1);
+  background: rgba(148, 163, 184, 0.08);
+  text-decoration: none;
+}
+
+.dark .webmention-face {
+  border-color: rgb(55 65 81 / 1);
+  background: rgba(148, 163, 184, 0.12);
+}
+
+.webmention-face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.webmention-face__fallback,
+.webmention-comment__fallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: rgb(71 85 105 / 1);
+}
+
+.webmention-comments {
+  display: grid;
+  gap: 1rem;
+}
+
+.webmention-comment-list {
+  display: grid;
+  gap: 1rem;
+  list-style: decimal;
+  padding-left: 1.25rem;
+}
+
+.webmention-comment {
+  padding-left: 0.25rem;
+}
+
+.webmention-comment__card {
+  display: flex;
+  gap: 0.9rem;
+  border: 1px solid rgb(226 232 240 / 1);
+  border-radius: 1rem;
+  padding: 1rem;
+  background: rgba(148, 163, 184, 0.05);
+}
+
+.dark .webmention-comment__card {
+  border-color: rgb(55 65 81 / 1);
+  background: rgba(148, 163, 184, 0.08);
+}
+
+.webmention-comment__avatar,
+.webmention-comment__avatar img,
+.webmention-comment__fallback {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+}
+
+.webmention-comment__avatar {
+  flex: none;
+  overflow: hidden;
+}
+
+.webmention-comment__avatar img {
+  object-fit: cover;
+}
+
+.webmention-comment__body {
+  min-width: 0;
+  flex: 1;
+}
+
+.webmention-comment__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.6rem;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.webmention-comment__author {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.webmention-comment__author:hover,
+.webmention-comment__link:hover {
+  color: #8b5cf6;
+}
+
+.webmention-comment__action,
+.webmention-comment__date {
+  color: rgb(100 116 139 / 1);
+}
+
+.webmention-comment__content {
+  margin-top: 0.7rem;
+  margin-bottom: 0.7rem;
+  white-space: pre-wrap;
+}
+
+.webmention-comment__link {
+  font-size: 0.92rem;
+  text-decoration: none;
+}
+
+.masto-share {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.masto-share summary,
+.masto-share__dropdown button {
+  border-radius: 9999px;
+}
+
+.masto-share a[data-masto-action="primary-share"] {
+  font-weight: 400;
+}
+
+.masto-share__menu details {
+  position: relative;
+}
+
+.masto-share__menu summary {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.masto-share__menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.masto-share__dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  width: min(20rem, 90vw);
+  background: var(--surface);
+  border: 1px solid rgb(203 213 225 / 1);
+  border-radius: 1rem;
+  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.16);
+  padding: 0.5rem;
+  z-index: 20;
+}
+
+.masto-share__section {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.masto-share__dropdown button {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  padding: 0.7rem 0.8rem;
+  cursor: pointer;
+}
+
+.masto-share__dropdown button:hover {
+  background: rgba(139, 92, 246, 0.08);
+}
+
+.masto-share__divider {
+  border: 0;
+  border-top: 1px solid rgb(226 232 240 / 1);
+  margin: 0.4rem 0;
+}
+
+.discuss-mastodon {
+  margin-top: 1.5rem;
+  border: 1px solid rgb(226 232 240 / 1);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: transparent;
+}
+
+.dark .discuss-mastodon {
+  border-color: rgb(55 65 81 / 1);
+}
+
+.discuss-mastodon__intro {
+  padding: 1rem 1.25rem 0;
+  font-weight: 600;
+}
+
+.discuss-mastodon__intro a {
+  color: #8b5cf6;
+}
+
+.mastodon-post {
+  margin: 0;
+}
+
+.mastodon-post-quote {
+  margin: 0;
+  padding: 1.25rem;
+  border: 0;
+  background: transparent !important;
+  max-inline-size: 100% !important;
+}
+
+.mastodon-post__caption {
+  position: relative;
+  display: block;
+  padding: 1rem 1.25rem 1.25rem;
+  background: transparent !important;
+}
+
+.mastodon-post__caption::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 1.25rem;
+  right: 1.25rem;
+  height: 1px;
+  background: rgb(226 232 240 / 1);
+}
+
+.mastodon-post__stats {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.mastodon-post__stat dt,
+.mastodon-post__stat dd {
+  display: inline;
+  margin: 0;
+}
+
+.mastodon-post__stats a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.mastodon-post__stats a:hover {
+  color: #8b5cf6;
+}
+
+.footer-speedlify,
+.footer-speedlify:hover {
+  text-decoration: none;
+}
+
+.footer-layout {
+  display: grid;
+  gap: 2rem;
+}
+
+.author-card__avatar {
+  width: 7rem;
+  height: 4rem;
+  object-fit: contain;
+  flex: none;
+  background: rgba(15, 23, 42, 0.08);
+  padding: 0.2rem;
+}
+
+#guestbooks___guestbook-form-container {
+  margin-bottom: 2rem;
+}
+
+#guestbooks___guestbook-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.guestbooks___input-container {
+  margin: 0;
+}
+
+#guestbooks___guestbook-form input[type='text'],
+#guestbooks___guestbook-form input[type='url'],
+#guestbooks___guestbook-form input[type='submit'],
+#guestbooks___guestbook-form textarea,
+#guestbooks___challenge-answer-container input {
+  width: 100%;
+  border: 1px solid rgb(203 213 225 / 1);
+  border-radius: 0.75rem;
+  background: var(--surface);
+  color: inherit;
+  padding: 0.8rem 0.95rem;
+  box-sizing: border-box;
+}
+
+#guestbooks___guestbook-form input::placeholder,
+#guestbooks___guestbook-form textarea::placeholder {
+  color: rgb(100 116 139 / 1);
+}
+
+#guestbooks___guestbook-form textarea {
+  min-height: 10rem;
+  resize: vertical;
+}
+
+#guestbooks___guestbook-form input[type='submit'] {
+  width: auto;
+  justify-self: start;
+  cursor: pointer;
+  border-color: #8b5cf6;
+  color: #8b5cf6;
+  background: transparent;
+  transition:
+    color 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+#guestbooks___guestbook-form input[type='submit']:hover {
+  background: rgba(139, 92, 246, 0.08);
+}
+
+#guestbooks___guestbook-form input:focus,
+#guestbooks___guestbook-form textarea:focus,
+#guestbooks___challenge-answer-container input:focus {
+  outline: 2px solid rgba(139, 92, 246, 0.2);
+  outline-offset: 2px;
+  border-color: #8b5cf6;
+}
+
+#guestbooks___error-message {
+  color: rgb(220 38 38 / 1);
+  font-size: 0.95rem;
+}
+
+#guestbooks___guestbook-made-with {
+  text-align: left !important;
+  margin-top: 0.5rem !important;
+}
+
+.dark #guestbooks___guestbook-form input[type='text'],
+.dark #guestbooks___guestbook-form input[type='url'],
+.dark #guestbooks___guestbook-form input[type='submit'],
+.dark #guestbooks___guestbook-form textarea,
+.dark #guestbooks___challenge-answer-container input {
+  border-color: rgb(55 65 81 / 1);
+}
+
+.prose picture,
+.prose figure {
+  margin-block: 2rem;
+}
+
+.prose blockquote {
+  padding-right: 1.5rem;
+}
+
+.prose picture img,
+.prose figure img {
+  border-radius: 1rem;
+}
+
+.prose figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.92rem;
+  color: rgb(100 116 139 / 1);
+}
+
+.gallery dialog {
+  border: 0;
+  border-radius: 1rem;
+  padding: 1rem;
+  inset: revert;
+}
+
+.gallery dialog::backdrop {
+  background: rgba(15, 23, 42, 0.75);
+}
+
+.gallery dialog + button {
+  all: unset;
+  cursor: pointer;
+}
+
+.gallery dialog + button:focus-visible {
+  outline: 3px solid rgba(139, 92, 246, 0.55);
+  outline-offset: 0.3rem;
+}
+
+.gallery dialog > button {
+  margin-inline: auto;
+  display: flex;
+}
+
+.gallery dialog img {
+  max-width: min(90vw, 70rem);
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.gallery dialog + button img {
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.footnotes {
+  font-size: 0.95rem;
+}
+
+.footnote-ref {
+  vertical-align: super;
+  font-size: 0.8rem;
+}
+
+.footnote-ref a,
+.footnote-backref {
+  text-decoration: none;
+}
+
+.footnote-backref {
+  border-radius: 9999px;
+  padding: 0 0.45rem;
+  background: rgba(139, 92, 246, 0.08);
+}
+
+@media (max-width: 640px) {
+  .listening-now__header {
+    align-items: flex-start;
+  }
+
+  .listening-now__cover {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .share-links {
+    align-items: flex-start;
+  }
+
+  .share-links__label {
+    width: 100%;
+  }
+
+  .listening-grid--tracks {
+    gap: 1rem;
+  }
+
+  .masto-share {
+    align-items: flex-start;
+  }
+
+  .masto-share__dropdown {
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+
+  .bookshelf-cover-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.35rem 0.9rem;
+  }
+}
+
+@media (min-width: 700px) {
+  .listening-grid--tracks {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .footer-layout {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr) minmax(0, 1fr);
+  }
+
+  .listening-grid--tracks {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.35rem 1.25rem;
+  }
+
+  .listening-track {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .listening-meta-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem;
+  }
+
+  .bookshelf-cover-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.75rem 1.25rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .bookshelf-cover-grid {
+    gap: 2rem 1.5rem;
+  }
+}
+
+/* Local syntax highlighting so code blocks stay reliable with the starter shell */
+
+.prose pre,
+pre[class*='language-'] {
+  position: relative;
+  overflow-x: auto;
+  border: 1px solid rgb(226 232 240 / 1);
+  border-radius: 1rem;
+  padding: 1rem 1.25rem;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 0.35), transparent 1.5rem),
+    rgb(243 244 246 / 1);
+  color: rgb(15 23 42 / 1);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.45);
+}
+
+.dark .prose pre,
+.dark pre[class*='language-'] {
+  border-color: rgb(55 65 81 / 1);
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 0.04), transparent 1.5rem),
+    rgb(17 24 39 / 1);
+  color: rgb(226 232 240 / 1);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.03);
+}
+
+.dark .mastodon-post__caption::before {
+  background: rgb(55 65 81 / 1);
+}
+
+.prose pre code,
+pre[class*='language-'] code {
+  display: block;
+  min-width: max-content;
+  font-size: 0.95em;
+  line-height: 1.7;
+  tab-size: 2;
+}
+
+.prose :not(pre) > code {
+  display: inline-block;
+  padding: 0.12rem 0.45rem;
+  border-radius: 0.4rem;
+  border: 1px solid rgb(226 232 240 / 1);
+  background: rgb(241 245 249 / 1);
+  color: rgb(124 58 237 / 1);
+  font-size: 0.92em;
+  white-space: break-spaces;
+}
+
+.dark .prose :not(pre) > code {
+  border-color: rgb(55 65 81 / 1);
+  background: rgb(30 41 59 / 1);
+  color: rgb(216 180 254 / 1);
+}
+
+.prose pre code[data-language='bash'],
+.prose pre code[data-language='batch'],
+.prose pre code[data-language='powershell'],
+.prose pre code[data-language='text'],
+.prose pre code[data-language='plaintext'],
+.prose pre code[data-language='markdown'],
+pre.language-bash code,
+pre.language-batch code,
+pre.language-powershell code,
+pre.language-text code,
+pre.language-plaintext code,
+pre.language-markdown code {
+  min-width: 100%;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.prose pre code .token.comment,
+.prose pre code .token.prolog,
+.prose pre code .token.doctype,
+.prose pre code .token.cdata,
+pre[class*='language-'] code .token.comment,
+pre[class*='language-'] code .token.prolog,
+pre[class*='language-'] code .token.doctype,
+pre[class*='language-'] code .token.cdata {
+  color: rgb(100 116 139 / 1);
+}
+
+.dark .prose pre code .token.comment,
+.dark .prose pre code .token.prolog,
+.dark .prose pre code .token.doctype,
+.dark .prose pre code .token.cdata,
+.dark pre[class*='language-'] code .token.comment,
+.dark pre[class*='language-'] code .token.prolog,
+.dark pre[class*='language-'] code .token.doctype,
+.dark pre[class*='language-'] code .token.cdata {
+  color: rgb(148 163 184 / 1);
+}
+
+.prose pre code .token.punctuation,
+pre[class*='language-'] code .token.punctuation {
+  color: rgb(100 116 139 / 1);
+}
+
+.dark .prose pre code .token.punctuation,
+.dark pre[class*='language-'] code .token.punctuation {
+  color: rgb(203 213 225 / 0.8);
+}
+
+.prose pre code .token.property,
+.prose pre code .token.tag,
+.prose pre code .token.constant,
+.prose pre code .token.symbol,
+.prose pre code .token.deleted,
+.prose pre code .token.boolean,
+.prose pre code .token.number,
+.prose pre code .token.selector,
+.prose pre code .token.attr-name,
+.prose pre code .token.char,
+.prose pre code .token.builtin,
+.prose pre code .token.inserted,
+pre[class*='language-'] code .token.property,
+pre[class*='language-'] code .token.tag,
+pre[class*='language-'] code .token.constant,
+pre[class*='language-'] code .token.symbol,
+pre[class*='language-'] code .token.deleted,
+pre[class*='language-'] code .token.boolean,
+pre[class*='language-'] code .token.number,
+pre[class*='language-'] code .token.selector,
+pre[class*='language-'] code .token.attr-name,
+pre[class*='language-'] code .token.char,
+pre[class*='language-'] code .token.builtin,
+pre[class*='language-'] code .token.inserted {
+  color: rgb(220 38 38 / 1);
+}
+
+.dark .prose pre code .token.property,
+.dark .prose pre code .token.tag,
+.dark .prose pre code .token.constant,
+.dark .prose pre code .token.symbol,
+.dark .prose pre code .token.deleted,
+.dark .prose pre code .token.boolean,
+.dark .prose pre code .token.number,
+.dark .prose pre code .token.selector,
+.dark .prose pre code .token.attr-name,
+.dark .prose pre code .token.char,
+.dark .prose pre code .token.builtin,
+.dark .prose pre code .token.inserted,
+.dark pre[class*='language-'] code .token.property,
+.dark pre[class*='language-'] code .token.tag,
+.dark pre[class*='language-'] code .token.constant,
+.dark pre[class*='language-'] code .token.symbol,
+.dark pre[class*='language-'] code .token.deleted,
+.dark pre[class*='language-'] code .token.boolean,
+.dark pre[class*='language-'] code .token.number,
+.dark pre[class*='language-'] code .token.selector,
+.dark pre[class*='language-'] code .token.attr-name,
+.dark pre[class*='language-'] code .token.char,
+.dark pre[class*='language-'] code .token.builtin,
+.dark pre[class*='language-'] code .token.inserted {
+  color: rgb(248 113 113 / 1);
+}
+
+.prose pre code .token.attr-value,
+.prose pre code .token.string,
+.prose pre code .token.regex,
+.prose pre code .token.url,
+pre[class*='language-'] code .token.attr-value,
+pre[class*='language-'] code .token.string,
+pre[class*='language-'] code .token.regex,
+pre[class*='language-'] code .token.url {
+  color: rgb(22 163 74 / 1);
+}
+
+.dark .prose pre code .token.attr-value,
+.dark .prose pre code .token.string,
+.dark .prose pre code .token.regex,
+.dark .prose pre code .token.url,
+.dark pre[class*='language-'] code .token.attr-value,
+.dark pre[class*='language-'] code .token.string,
+.dark pre[class*='language-'] code .token.regex,
+.dark pre[class*='language-'] code .token.url {
+  color: rgb(74 222 128 / 1);
+}
+
+.prose pre code .token.atrule,
+.prose pre code .token.keyword,
+.prose pre code .token.function,
+.prose pre code .token.class-name,
+pre[class*='language-'] code .token.atrule,
+pre[class*='language-'] code .token.keyword,
+pre[class*='language-'] code .token.function,
+pre[class*='language-'] code .token.class-name {
+  color: rgb(124 58 237 / 1);
+}
+
+.dark .prose pre code .token.atrule,
+.dark .prose pre code .token.keyword,
+.dark .prose pre code .token.function,
+.dark .prose pre code .token.class-name,
+.dark pre[class*='language-'] code .token.atrule,
+.dark pre[class*='language-'] code .token.keyword,
+.dark pre[class*='language-'] code .token.function,
+.dark pre[class*='language-'] code .token.class-name {
+  color: rgb(196 181 253 / 1);
+}
+
+.prose pre code .token.operator,
+.prose pre code .token.entity,
+.prose pre code .token.variable,
+pre[class*='language-'] code .token.operator,
+pre[class*='language-'] code .token.entity,
+pre[class*='language-'] code .token.variable {
+  color: rgb(2 132 199 / 1);
+}
+
+.dark .prose pre code .token.operator,
+.dark .prose pre code .token.entity,
+.dark .prose pre code .token.variable,
+.dark pre[class*='language-'] code .token.operator,
+.dark pre[class*='language-'] code .token.entity,
+.dark pre[class*='language-'] code .token.variable {
+  color: rgb(125 211 252 / 1);
+}

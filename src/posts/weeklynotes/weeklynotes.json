@@ -1,0 +1,6 @@
+{
+  "layout": "note",
+  "tags": ["notes"],
+  "contentType": "note",
+  "permalink": "/notes/{{ page.filePathStem | replace('/posts/weeklynotes/', '') | replace('/src', '') | replace('/posts/', '') }}/"
+}

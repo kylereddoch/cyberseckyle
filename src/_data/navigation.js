@@ -19,10 +19,6 @@ export default {
   ],
   bottom: [
     {
-      text: '/Now',
-      url: '/now/'
-    },
-    {
       text: 'Slashes',
       url: '/slashes/'
     },

@@ -11,6 +11,7 @@ src/_includes/scripts
 
 # secret data
 .env
+.env-sample
 .DS_Store
 .vscode/*
 src/.DS_Store

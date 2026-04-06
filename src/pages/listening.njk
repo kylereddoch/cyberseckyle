@@ -1,0 +1,138 @@
+---
+layout: base
+permalink: /listening/
+title: Listening
+description: "A running log of what I am listening to, powered by Last.fm."
+---
+
+<div class="max-w-4xl listening-page">
+  <h1 class="text-3xl font-bold mb-2 flex items-center gap-2">
+    <span aria-hidden="true">&#127925;</span>
+    <span>Listening</span>
+  </h1>
+  <p class="text-gray-600 dark:text-gray-400 mb-8">
+    A running look at what has been in rotation lately, powered by Last.fm.
+  </p>
+
+  {% if listening.error %}
+  <div class="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900/50 dark:bg-red-950/30 dark:text-red-200 mb-8">
+    Last.fm returned an error while building this page: {{ listening.error }}
+  </div>
+  {% endif %}
+
+  {% if listening.configured %}
+  {% if listening.nowPlaying %}
+  <section class="listening-now mb-10">
+    <div class="listening-now__header">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">Now Playing</p>
+        <h2 class="text-2xl font-semibold mt-2">{{ listening.nowPlaying.name }}</h2>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">{{ listening.nowPlaying.artist }}{% if listening.nowPlaying.album %} - {{ listening.nowPlaying.album }}{% endif %}</p>
+      </div>
+      {% if listening.nowPlaying.image %}
+      <img src="{{ listening.nowPlaying.image }}" alt="" class="listening-now__cover" loading="lazy" />
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
+
+  <section class="mb-12">
+    <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+      <h2 class="text-2xl font-semibold">Recent Listening</h2>
+      <a href="{{ listening.profileUrl }}" class="text-sm text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">View my Last.fm profile</a>
+    </div>
+
+    {% if listening.recentTracks | length > 0 %}
+    <ul class="listening-grid listening-grid--tracks">
+      {% for track in listening.recentTracks %}
+      <li class="listening-track">
+        <div class="listening-card__top">
+          {% if track.image %}
+          <img src="{{ track.image }}" alt="" class="listening-card__cover" loading="lazy" />
+          {% endif %}
+          <div class="min-w-0 flex-1">
+            <div class="flex flex-wrap items-center gap-2">
+              {% if track.url %}
+              <a href="{{ track.url }}" class="font-medium hover:text-fuchsia-600 dark:hover:text-fuchsia-300">{{ track.name }}</a>
+              {% else %}
+              <p class="font-medium">{{ track.name }}</p>
+              {% endif %}
+              {% if track.nowPlaying %}
+              <span class="rounded-full border border-fuchsia-200 px-2 py-0.5 text-xs text-fuchsia-700 dark:border-fuchsia-800 dark:text-fuchsia-300">Now</span>
+              {% endif %}
+            </div>
+            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">{{ track.artist }}</p>
+            {% if track.album %}
+            <p class="text-sm text-gray-500 dark:text-gray-400">{{ track.album }}</p>
+            {% endif %}
+          </div>
+        </div>
+        {% if track.listenedAt and not track.nowPlaying %}
+        <p class="mt-3 text-xs text-gray-500 dark:text-gray-400">{{ track.listenedAt }}</p>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="text-sm text-gray-600 dark:text-gray-400">No recent listens were returned.</p>
+    {% endif %}
+  </section>
+
+  <div class="listening-meta-grid mb-8">
+    <section>
+      <h2 class="text-xl font-semibold mb-4">Top Artists This Month</h2>
+      {% if listening.topArtists | length > 0 %}
+      <ul class="simple-data-list">
+        {% for artist in listening.topArtists %}
+        <li class="simple-data-list__item">
+          <div class="min-w-0">
+            {% if artist.url %}
+            <a href="{{ artist.url }}" class="font-medium hover:text-indigo-600 dark:hover:text-indigo-300">{{ artist.name }}</a>
+            {% else %}
+            <p class="font-medium">{{ artist.name }}</p>
+            {% endif %}
+          </div>
+          <span class="text-sm text-gray-500 dark:text-gray-400">{{ artist.playcount }} plays</span>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p class="text-sm text-gray-600 dark:text-gray-400">No artist data yet.</p>
+      {% endif %}
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold mb-4">Top Albums This Month</h2>
+      {% if listening.topAlbums | length > 0 %}
+      <ul class="simple-data-list">
+        {% for album in listening.topAlbums %}
+        <li class="simple-data-list__item simple-data-list__item--stacked">
+          <div class="min-w-0">
+            {% if album.url %}
+            <a href="{{ album.url }}" class="font-medium hover:text-cyan-600 dark:hover:text-cyan-300">{{ album.name }}</a>
+            {% else %}
+            <p class="font-medium">{{ album.name }}</p>
+            {% endif %}
+            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">{{ album.artist }}</p>
+          </div>
+          <span class="text-sm text-gray-500 dark:text-gray-400">{{ album.playcount }} plays</span>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p class="text-sm text-gray-600 dark:text-gray-400">No album data yet.</p>
+      {% endif %}
+    </section>
+  </div>
+  {% else %}
+  <div class="border border-slate-200 p-6 dark:border-slate-800">
+    <h2 class="text-xl font-semibold mb-3">Listening Sync Not Configured Yet</h2>
+    <p class="text-gray-600 dark:text-gray-400 mb-4">
+      This page is ready to pull from Last.fm once `LASTFM_API_KEY` and `LASTFM_USERNAME` are available at build time.
+    </p>
+    <p class="text-sm text-gray-600 dark:text-gray-400">
+      Once those are set, this page will automatically populate with recent tracks, top artists, and top albums in this same layout.
+    </p>
+  </div>
+  {% endif %}
+</div>

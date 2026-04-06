@@ -7,7 +7,7 @@ layout: page
 
 This is the landing slash page for all my /slash pages. Feel free to take a look at all of them below to get to know me better!
 
->[Slash pages](https://slashpages.net/) are common pages you can add to your website, usually with a standard, root-level slug-like `/now`, `/about`, or `/uses`. They tend to describe the individual behind the site and are distinguishing characteristics of the IndieWeb.
+>[Slash pages](https://slashpages.net/) are common pages you can add to your website, usually with a standard, root-level slug-like /now, /about, or /uses. They tend to describe the individual behind the site and are distinguishing characteristics of the IndieWeb.
 
 **[/about](/about)** - This is pretty self-explanatory. It's the about me, who I am, obligatory page. There might be some interesting stuff in there. Who knows?
 
@@ -17,7 +17,7 @@ This is the landing slash page for all my /slash pages. Feel free to take a look
 
 **[/contact](/contact)** - Ways to get ahold of me across the interwebs. Just ping me!
 
-**/defaults** - This is the list of apps I use daily for various tasks, etc. 
+**/defaults** - This is the list of apps I use daily for various tasks, etc.
 
 **/interests** - These are the things that I am interested in or excite me.
 
@@ -25,10 +25,10 @@ This is the landing slash page for all my /slash pages. Feel free to take a look
 
 **[/podroll](/podroll)** - List of podcasts that I listen to and enjoy.
 
-**/save** - 
+**/save** -
 
-**/subscribe** - 
+**/subscribe** -
 
-**/usermanual** - 
+**/usermanual** -
 
 **[/uses](/uses)** - This is a collection of products and services that work best for me and I recommend.

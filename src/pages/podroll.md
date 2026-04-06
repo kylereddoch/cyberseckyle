@@ -8,7 +8,7 @@ layout: page
 Here is the list of podcasts that I enjoy listening to. They are in no particular order and range in categories from Tech, Cybersecurity, to more Tech.
 
 - **Mac Power Users** - [Website](https://www.relay.fm/mpu) | [RSS](https://www.relay.fm/mpu/feed)
-- **MacBreak Weekly** - [Website](https://twit.tv/shows/macbreak-weekly) | [RSS](https://feeds.twit.tv/mbw.xml) 
+- **MacBreak Weekly** - [Website](https://twit.tv/shows/macbreak-weekly) | [RSS](https://feeds.twit.tv/mbw.xml)
 - **Connected** - [Website](https://www.relay.fm/connected) | [RSS](https://www.relay.fm/connected/feed)
 - **AppStories** - [Website](https://appstories.net/) | [RSS](https://appstories.net/episodes/feed/)
 - **Security Now** - [Website](https://twit.tv/shows/security-now) | [RSS](https://feeds.twit.tv/sn.xml)
@@ -25,6 +25,7 @@ Here is the list of podcasts that I enjoy listening to. They are in no particula
 - **Cyber Security Headlines** - [Website](https://cisoseries.com/category/podcast/cyber-security-headlines/) | [RSS](https://cisoseries.libsyn.com/rss)
 
 #### Podcasts no longer listening to
+
 - ~~**Primary Technology** - [Website](https://primarytech.fm) | [RSS](https://feeds.transistor.fm/primary-technology)~~
 - ~~**iOS Today** - [Website](https://twit.tv/shows/ios-today) | [RSS](https://feeds.twit.tv/ipad.xml)~~
 - ~~**The MacRumours Show** - [Website](https://www.macrumors.com/guide/the-macrumors-show/) | [RSS](https://audioboom.com/channels/5096144.rss)~~

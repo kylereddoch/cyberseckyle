@@ -14,13 +14,20 @@ export const author = {
   website: 'https://www.kylereddoch.me', // i.e. https.://www.lenesaile.com - the personal site of the author
   fediverse: '@cyberseckyle@infosec.exchange' // used for highlighting journalism on the fediverse. Can be Mastodon, Flipboard, Threads, WordPress (with the ActivityPub plugin installed), PeerTube, Pixelfed, etc. https://blog.joinmastodon.org/2024/07/highlighting-journalism-on-mastodon/
 };
+export const donate = {
+  enabled: true, // set to false to hide the donate page and links
+  kofi: "kylereddoch",
+  buymeacoffee: "kylereddoch",
+  github: "kylereddoch",
+  message: "If you find value in my writing, consider supporting my work. Every contribution helps me continue creating thoughtful content."
+};
 export const creator = {
   name: 'Kyle Reddoch', // i.e. Lene Saile - creator's (developer) name.
   email: 'kyle@kylereddoch.me',
   website: 'https://www.kylereddoch.me',
   social: 'https://infosec.exchange/@cyberseckyle' // i.e. creator's social media account
 };
-export const pathToSvgLogo = '/assets/images/logo.png'; // used for favicon generation
+export const pathToSvgLogo = '/favicon.svg'; // used for favicon generation
 export const themeColor = '#cba6f7'; // used in manifest, for example primary color value
 export const themeDark = '#1e1e2e'; // used for meta tag theme-color, if dark colors are prefered. best use value set for dark bg
 export const opengraph_default = '/assets/images/template/opengraph-default.jpg'; // fallback/default meta image

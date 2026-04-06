@@ -10,6 +10,23 @@ import markdownitMark from 'markdown-it-mark';
 import markdownitAbbr from 'markdown-it-abbr';
 import {slugifyString} from '../filters/slugify.js';
 
+const codeLanguageAliases = {
+  cmd: 'batch',
+  htm: 'markup',
+  html: 'markup',
+  md: 'markdown',
+  njk: 'twig',
+  nunjucks: 'twig',
+  pseudocode: 'text',
+  ps1: 'powershell',
+  sh: 'bash',
+  shell: 'bash',
+  svg: 'markup',
+  txt: 'text',
+  xml: 'markup',
+  yml: 'yaml'
+};
+
 export const markdownLib = markdownIt({
   html: true,
   breaks: true,
@@ -18,15 +35,27 @@ export const markdownLib = markdownIt({
 })
   .disable('code')
   .use(markdownItAttrs)
+  .use(md => {
+    md.core.ruler.push('normalize-code-languages', state => {
+      for (const token of state.tokens) {
+        if (token.type !== 'fence' || !token.info) continue;
+
+        const [language, ...rest] = token.info.trim().split(/\s+/);
+        if (!language) continue;
+
+        const normalized = codeLanguageAliases[language.toLowerCase()];
+        if (!normalized) continue;
+
+        token.info = [normalized, ...rest].join(' ');
+      }
+    });
+  })
   .use(markdownItPrism, {
     defaultLanguage: 'plaintext'
   })
   .use(markdownItAnchor, {
     slugify: slugifyString,
-    tabIndex: false,
-    permalink: markdownItAnchor.permalink.headerLink({
-      class: 'heading-anchor'
-    })
+    tabIndex: false
   })
   .use(markdownItClass, {})
   .use(markdownItLinkAttributes, [

@@ -18,12 +18,5 @@
       <button data-index="{{ loop.index }}">{%- image item.image, item.alt -%}</button>
     {%- endfor -%}
   </div>
-
-  {% css "local" %}
-    {% include "css/gallery.css" %}
-  {% endcss %}
-
-  {% js "defer" %}
-    {% include "scripts/dialog.js" %}
-  {% endjs %}
+  <script src="/assets/scripts/components/gallery-dialog.js" defer></script>
 </is-land>

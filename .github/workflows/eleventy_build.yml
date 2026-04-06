@@ -40,6 +40,9 @@ jobs:
         run: npm run build-ghpages
         env:
           TZ: America/Chicago
+          LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
+          LASTFM_USERNAME: ${{ vars.LASTFM_USERNAME }}
+          HARDCOVER_TOKEN: ${{ secrets.HARDCOVER_TOKEN }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

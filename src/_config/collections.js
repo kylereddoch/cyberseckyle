@@ -1,29 +1,90 @@
-/** All blog posts as a collection. */
+const sortByNewest = (a, b) => b.date - a.date;
+
+const dedupeByUrl = items => {
+  const map = new Map();
+  items.forEach(item => {
+    if (!item?.url) return;
+    map.set(item.url, item);
+  });
+  return [...map.values()];
+};
+
+export const getPosts = collection =>
+  collection
+    .getFilteredByGlob('./src/posts/**/*.md')
+    .filter(item => !item.inputPath.includes('\\weeklynotes\\') && !item.inputPath.includes('/weeklynotes/'))
+    .sort(sortByNewest);
+
+export const getBlogEntries = collection =>
+  dedupeByUrl([
+    ...getPosts(collection),
+    ...getNowPosts(collection)
+  ]).sort(sortByNewest);
+
+
+export const getNotes = collection =>
+  collection
+    .getFilteredByGlob([
+      './src/posts/weeklynotes/**/*.md',
+      './src/notes/**/*.md'
+    ])
+    .sort(sortByNewest);
+
+export const getJournalPosts = collection =>
+  collection
+    .getFilteredByGlob([
+      './src/journal/**/*.md',
+      './src/posts/journal/**/*.md'
+    ])
+    .sort(sortByNewest);
+
+/** Blog + notes + journal + /now, newest first */
 export const getAllPosts = collection => {
-  return collection.getFilteredByGlob([
-    './src/posts/**/*.md',
-    './src/now/**/*.md'
-  ]).reverse();
+  return dedupeByUrl([
+    ...getBlogEntries(collection),
+    ...getNotes(collection),
+    ...getJournalPosts(collection)
+  ]).sort(sortByNewest);
 };
 
 /** All relevant pages as a collection for sitemap.xml */
 export const showInSitemap = collection => {
-  return collection.getFilteredByGlob('./src/**/*.{md,njk}');
+  return collection
+    .getFilteredByGlob('./src/**/*.{md,njk}')
+    .filter(item => {
+      const url = item?.url || '';
+      return !url.endsWith('.json') && !url.endsWith('.xml');
+    });
 };
 
-/** All tags from all posts as a collection - excluding custom collections */
+/** All tags from all post-like content, excluding internal collection tags */
 export const tagList = collection => {
   const tagsSet = new Set();
-  collection.getAll().forEach(item => {
-    if (!item.data.tags) return;
-    item.data.tags.filter(tag => !['posts', 'docs', 'all'].includes(tag)).forEach(tag => tagsSet.add(tag));
+  const ignored = new Set(['all', 'docs', 'posts', 'notes', 'journal', 'allPosts', 'tagList', 'tags']);
+
+  getAllPosts(collection).forEach(item => {
+    if (!Array.isArray(item.data?.tags)) return;
+    item.data.tags
+      .filter(tag => !ignored.has(tag))
+      .forEach(tag => tagsSet.add(tag));
   });
-  return Array.from(tagsSet).sort();
+
+  return Array.from(tagsSet).sort((a, b) => String(a).localeCompare(String(b)));
+};
+
+export const categoryList = collection => {
+  const categories = new Set();
+
+  getPosts(collection).forEach(item => {
+    if (item.data?.category) categories.add(item.data.category);
+  });
+
+  return Array.from(categories).sort((a, b) => String(a).localeCompare(String(b)));
 };
 
 /** All /now updates, newest first */
 export const getNowPosts = collection => {
   return collection
     .getFilteredByGlob('./src/now/**/*.md')
-    .sort((a, b) => b.date - a.date); // newest first
+    .sort(sortByNewest);
 };

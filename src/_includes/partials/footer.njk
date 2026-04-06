@@ -1,82 +1,92 @@
-{# footer.njk #}
-<footer class="site-footer mt-l-xl">
-  <!-- Main footer content (constrained) -->
-  <div class="wrapper site-footer__inner">
-    <div class="footer-grid">
-      <section class="left-pane text-step-min-1">
-        <p>This site is member of the following webrings!</p>
-
-        <div id="webrings" class="webrings">
-          <ol class="cluster">
-            <li class="webring">
-              <a class="no-indicator small no-wrap" href="https://fediring.net/previous?host=www.kylereddoch.me">← Previous</a>
-              <a class="no-indicator webring__label" href="https://fediring.net/">Fediring</a>
-              <a class="no-indicator small no-wrap" href="https://fediring.net/random?host=www.kylereddoch.me">rANdoM</a>
-              <a class="no-indicator small no-wrap" href="https://fediring.net/next?host=www.kylereddoch.me">Next →</a>
-            </li>
-            <li class="webring">
-              <a class="no-indicator small no-wrap" href="https://xn--sr8hvo.ws/previous">← Previous</a>
-              <a class="no-indicator webring__label" href="https://xn--sr8hvo.ws/">IndieWeb Webring</a>
-              <a class="no-indicator small no-wrap" href="https://xn--sr8hvo.ws/random">RANDom</a>
-              <a class="no-indicator small no-wrap" href="https://xn--sr8hvo.ws/next">Next →</a>
-            </li>
-            <li class="webring">
-              <a href="" class="no-indicator webring__label tinylytics_webring">Tinylytics 🕸️💍</a>
-            </li>
-          </ol>
-        </div>
-
-        <p class="webrings-note">👻 Proud member of <a class="footer-link" href="https://darktheme.club">darktheme.club</a> 👻</p>
+<footer class="bg-[var(--surface)] border-t border-gray-200 dark:border-gray-700 mt-12">
+  <div class="container mx-auto px-4 py-8 max-w-4xl">
+    <div class="footer-layout grid grid-cols-1 gap-8 text-sm">
+      <section>
+        <h2 class="font-semibold mb-3 text-base">Webrings</h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-3">This site is part of a few corners of the independent web.</p>
+        <ul class="space-y-3 text-gray-600 dark:text-gray-400">
+          <li class="space-y-1">
+            <p class="font-medium text-gray-900 dark:text-gray-100">
+              <a class="hover:text-blue-600" href="https://fediring.net/">Fediring</a>
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a class="hover:text-blue-600" href="https://fediring.net/previous?host=www.kylereddoch.me">Previous</a>
+              <a class="hover:text-blue-600" href="https://fediring.net/random?host=www.kylereddoch.me">Random</a>
+              <a class="hover:text-blue-600" href="https://fediring.net/next?host=www.kylereddoch.me">Next</a>
+            </div>
+          </li>
+          <li class="space-y-1">
+            <p class="font-medium text-gray-900 dark:text-gray-100">
+              <a class="hover:text-blue-600" href="https://xn--sr8hvo.ws/">IndieWeb Webring</a>
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a class="hover:text-blue-600" href="https://xn--sr8hvo.ws/previous">Previous</a>
+              <a class="hover:text-blue-600" href="https://xn--sr8hvo.ws/random">Random</a>
+              <a class="hover:text-blue-600" href="https://xn--sr8hvo.ws/next">Next</a>
+            </div>
+          </li>
+          <li>
+            <a href="https://tinylytics.app" class="tinylytics_webring hover:text-blue-600">Tinylytics Webring</a>
+          </li>
+        </ul>
+        <p class="mt-4 text-gray-600 dark:text-gray-400">Proud member of <a class="hover:text-blue-600" href="https://darktheme.club">darktheme.club</a></p>
       </section>
 
-      <section class="right-pane">
-        <nav class="cluster gutter-xs text-step-min-1" aria-label="{{ meta.navigation.ariaBottom }}">
-          <a class="footer-link" href="/license">&copy; {% year %} <span class="font-display">{{ meta.siteName }}</span></a>
+      <section>
+        <h2 class="font-semibold mb-3 text-base">Explore</h2>
+        <ul class="space-y-2 text-gray-600 dark:text-gray-400">
           {% for item in navigation.bottom %}
-            <a class="footer-link" href="{{ item.url }}" {{ helpers.getLinkActiveState(item.url, page.url) | safe }}>{{ item.text }}</a>
+            <li><a class="hover:text-blue-600" href="{{ item.url }}">{{ item.text }}</a></li>
           {% endfor %}
-        </nav>
+          <li><a class="hover:text-blue-600" href="/blog/">Blog</a></li>
+          <li><a class="hover:text-blue-600" href="/notes/">Notes</a></li>
+          <li><a class="hover:text-blue-600" href="/listening/">Listening</a></li>
+          <li><a class="hover:text-blue-600" href="/bookshelf/">Bookshelf</a></li>
+          <li><a class="hover:text-blue-600" href="/sitemap/">Site Directory</a></li>
+        </ul>
+      </section>
 
-        <nav class="platforms | cluster gutter-xs text-step-min-0" aria-label="{{ meta.navigation.ariaPlatforms }}">
-          <a class="no-indicator" href="{{ meta.blog.feedLinks[0].url }}" rel="alternate" type="{{ meta.blog.feedLinks[0].type }}">
+      <section>
+        <h2 class="font-semibold mb-3 text-base">Connect</h2>
+
+        <nav class="platforms flex flex-wrap gap-3 mb-4" aria-label="{{ meta.navigation.ariaPlatforms }}">
+          <a class="hover:text-blue-600" href="{{ meta.blog.feedLinks[0].url }}" rel="alternate" type="{{ meta.blog.feedLinks[0].type }}">
             <span class="visually-hidden">{{ meta.blog.feedLinks[0].title }}</span>
             {% svg "misc/rss" %}
           </a>
           {% for key, value in personal.platforms %}
-          {% if value != "" %}
-            <a class="no-indicator" href="{{ value }}" rel="me" title="{{ key | capitalize }}">
-              <span class="visually-hidden">{{ key | capitalize }}</span>
-              {% svg 'platform/' + key %}
-            </a>
-          {% endif %}
+            {% if value != "" %}
+              <a class="hover:text-blue-600" href="{{ value }}" rel="me" title="{{ key | capitalize }}">
+                <span class="visually-hidden">{{ key | capitalize }}</span>
+                {% svg 'platform/' + key %}
+              </a>
+            {% endif %}
           {% endfor %}
         </nav>
 
-        <aside class="creator | cluster gutter-2xs text-step-min-1">
-          Made with <span class="visually-hidden">love</span> <span>{% svg "misc/heart" %}</span> and
-          <a class="no-indicator" href="https://www.11ty.dev/">Eleventy</a>
-        </aside>
+        <p class="text-gray-600 dark:text-gray-400 mb-2">
+          Made with <span aria-hidden="true">&hearts;</span> and <a class="hover:text-blue-600" href="https://www.11ty.dev/">Eleventy</a>
+        </p>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          Analytics powered by <a class="hover:text-blue-600" href="https://tinylytics.app/public/wgrU27nAtwqvZpx9zZwe">Tinylytics</a>
+        </p>
 
-        <aside class="creator | cluster gutter-xs text-step-min-2">
-          Analytics powered by <a class="no-indicator" href="https://tinylytics.app/public/wgrU27nAtwqvZpx9zZwe">Tinylytics</a>
-          </aside>
+        <p class="mb-4 text-sm text-gray-500 dark:text-gray-400">
+        &copy; {% year %} <span class="font-semibold">{{ meta.siteName }}</span>
+        <span class="mx-2" aria-hidden="true">&middot;</span>
+        <a class="hover:text-blue-600" href="/license/">CC BY-NC-SA 4.0</a>
+      </p>
 
-        <!-- Speedlify -->
-        <a href="https://www.11ty.dev/speedlify/kylereddoch-me/" aria-label="View full results on speedlify.dev" class="no-indicator">
-          <p class="text-step-min-2" style="--speedlify-circle: white">
-            <speedlify-score speedlify-url="https://www.11ty.dev/speedlify/" hash="e33de02c" requests weight score></speedlify-score>
-          </p>
+        <a href="https://www.11ty.dev/speedlify/kylereddoch-me/" aria-label="View full results on speedlify.dev" class="inline-flex items-center hover:text-blue-600 no-indicator footer-speedlify">
+          <speedlify-score speedlify-url="https://www.11ty.dev/speedlify/" hash="e33de02c" score></speedlify-score>
         </a>
-
-        <script src="/assets/scripts/components/masto-share.js" defer></script>
       </section>
     </div>
   </div>
 
-  <!-- Bottom indie buttons band (full width), content constrained by wrapper -->
-  <div class="indie-buttons-band" aria-label="Indie web buttons">
-    <div class="wrapper">
-      <ul class="indie-buttons" role="list">
+  <div class="border-t border-gray-200 dark:border-gray-700 bg-black/5 dark:bg-white/5">
+    <div class="container mx-auto max-w-4xl px-4 py-4">
+      <ul class="indie-buttons flex flex-wrap gap-2" role="list">
         <li>
           <a href="https://11ty.dev" class="no-indicator">
             <img eleventy:ignore src="/assets/images/buttons/built-with-eleventy.gif" width="88" height="31" alt="Built with Eleventy" loading="lazy" />
@@ -88,37 +98,42 @@
           </a>
         </li>
         <li>
-          <a href="/coffee" class="no-indicator">
-          <img src="/assets/images/buttons/CoffeePowered.png" width="88" height="31" alt="Coffee Powered" loading="lazy" />
+          <a href="/coffee/" class="no-indicator">
+            <img src="/assets/images/buttons/CoffeePowered.png" width="88" height="31" alt="Coffee Powered" loading="lazy" />
           </a>
         </li>
         <li>
           <a href="https://ko-fi.com/s/4662b19f61" class="no-indicator">
-          <img src="/assets/images/buttons/HumanContent.png" width="88" height="31" alt="Human Content" loading="lazy" />
+            <img src="/assets/images/buttons/HumanContent.png" width="88" height="31" alt="Human Content" loading="lazy" />
           </a>
         </li>
         <li>
           <a href="https://powrss.com" class="no-indicator">
-          <img src="/assets/images/buttons/powrss.gif" width="88" height="31" alt="I'm on PowRSS" loading="lazy" /></a>
+            <img src="/assets/images/buttons/powrss.gif" width="88" height="31" alt="I'm on PowRSS" loading="lazy" />
+          </a>
         </li>
         <li>
           <a href="https://hillhouse.neocities.org/cliques/library/" class="no-indicator">
-          <img src="/assets/images/buttons/library-purple.png" width="88" height="31" alt="Little Pixel Library" loading="lazy" /></a>
+            <img src="/assets/images/buttons/library-purple.png" width="88" height="31" alt="Little Pixel Library" loading="lazy" />
+          </a>
         </li>
         <li>
           <a href="https://32bit.cafe" class="no-indicator">
-          <img src="/assets/images/buttons/32bitty-loren.png" width="88" height="31" alt="32bit Cafe" loading="lazy" /></a>
+            <img src="/assets/images/buttons/32bitty-loren.png" width="88" height="31" alt="32bit Cafe" loading="lazy" />
+          </a>
         </li>
         <li>
           <a href="https://people.pledge.party" class="no-indicator">
-          <img src="/assets/images/buttons/people_pledge_badge.png" width="88" height="31" alt="People Pledge" loading="lazy" /></a>
+            <img src="/assets/images/buttons/people_pledge_badge.png" width="88" height="31" alt="People Pledge" loading="lazy" />
+          </a>
         </li>
         <li>
           <img eleventy:ignore src="/assets/images/buttons/cyberseckyle-button.gif" width="88" height="31" alt="CybersecKyle" loading="lazy" />
         </li>
         <li>
           <a href="https://zakhary.dev/blog/gbc-web-button" class="no-indicator">
-          <img eleventy:ignore src="/assets/images/buttons/gameboygif.gif" width="88" height="31" alt="Gameboy" loading="lazy" /></a>
+            <img eleventy:ignore src="/assets/images/buttons/gameboygif.gif" width="88" height="31" alt="Gameboy" loading="lazy" />
+          </a>
         </li>
         <li>
           <a href="https://ko-fi.com/kylereddoch" class="no-indicator">

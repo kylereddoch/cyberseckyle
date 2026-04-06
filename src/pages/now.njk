@@ -1,146 +1,33 @@
 ---
 layout: base
 title: /Now
-permalink: "now/index.html"
-schema: BlogPosting
-# Prevent /now index from being treated like a content entry
+permalink: /now/
+description: "A snapshot of what Kyle Reddoch is focused on right now."
 eleventyExcludeFromCollections: true
-# Tell Eleventy it must build the nowEntries collection first
 eleventyImport:
   collections: ["nowEntries"]
-eleventyComputed:
-  description: >
-    {% set latestNow = collections.nowEntries | first %}{% if latestNow and latestNow.data.description %}{{ latestNow.data.description }}{% else %}"What Kyle Reddoch is focused on right now."{% endif %}
-  mastodon_url: >
-    {% set latestNow = collections.nowEntries | first %}{% if latestNow and latestNow.data.mastodon_url %}{{ latestNow.data.mastodon_url }}{% else %}null{% endif %}
 ---
 
 {% set latestNow = collections.nowEntries | first %}
 
-<div class="wrapper flow prose">
-  <header class="full | section" style="--spot-color: var(--color-secondary)">
-    <div class="section__inner flow region">
-      <h1 class="text-center" style="color: var(--color-bg); font-size: var(--size-step-6) !important;">
-        {{ title }}
-      </h1>
-    </div>
-    {% svg "divider/edgy", null, "divider" %}
+<article class="mx-auto max-w-3xl">
+  <header class="mb-8">
+    <h1 class="text-2xl font-bold tracking-tight">/Now</h1>
+    <p class="mt-3 text-gray-600 dark:text-gray-400 max-w-2xl">A quick snapshot of what I am focused on lately, inspired by the <a href="https://nownownow.com/about" class="text-purple-600 dark:text-purple-400 hover:underline">/now movement</a>.</p>
   </header>
 
-  <div class="region flow">
+  {% if latestNow %}
+    <section>
+      <header class="mb-6">
+        <h2 class="text-2xl font-semibold tracking-tight">{{ latestNow.data.title }}</h2>
+        <time class="mt-2 block text-sm text-gray-500 dark:text-gray-400" datetime="{{ latestNow.date | htmlDateString }}">Last updated {{ latestNow.date | readableDate }}</time>
+      </header>
 
-    <p style="font-size: var(--size-step-min-1);" class="text-center">This is a <strong>now</strong> page, inspired by the <i>`/now`</i> page movement: a simple snapshot of what I’m focused on lately. <a href="https://nownownow.com/about">nownownow.com</a> <a href="https://indieweb.org/now">indieweb.org</a></p>
-
-    
-    {% if latestNow %}
-
-    <h1 class="gradient-text" style="font-size: var(--size-step-4) !important;">{{ latestNow.data.title }}</h1>
-
-      <p style="font-size: var(--size-step-min-1);">
-        Last updated:
-        {# feed the partial the same variables post.njk uses #}
-        {% set definedDate = latestNow.date %}
-        {% set content = latestNow.templateContent %}
-        {% include "partials/date-read.njk" %}
-      </p>
-
-      {% if latestNow.data.tags %}
-        <p class="meta | cluster gutter-xs-s">
-          {% for tag in latestNow.data.tags %}
-            {% if tag != "posts" %}
-              <a class="button" href="/tags/{{ tag | slugify }}/" data-small-button>#{{ tag }}</a>
-            {% endif %}
-          {% endfor %}
-        </p>
-      {% endif %}
-
-      <article class="flow">
-        <div class="prose flow">
-          {{ latestNow.templateContent | safe }}
-        </div>
-      </article>
-
-    {% else %}
-      <p>
-        No <code>now</code> updates yet. Once you publish a file in
-        <code>src/now/</code> with the <code>now</code> tag, it will appear here.
-      </p>
-    {% endif %}
-  </div>
-
-  <div class="flow" style="margin-top: var(--space-xl);">
-  <h4>Enjoyed this post?</h4>
-  <p class="text-step-min-1">Consider sharing it on Mastodon, joining in on the discussion below, or giving it some kudos.</p>
-  <!-- Share on Mastodon -->
-{# Build the final share text exactly as before #}
-{% set fullUrl  = page.url | url | absoluteUrl(meta.url) %}
-{% set hashtags = mastodon_hashtags | default([]) %}
-
-{% set tagsInline = "" %}
-{% if (hashtags | length) > 0 %}
-  {% set tagsInline = "\n\n#" ~ (hashtags | join(' #')) %}
-{% endif %}
-
-{% set text = (title ~ " — " ~ (description or "")) ~ "\n\n" ~ fullUrl ~ tagsInline %}
-{% set label = "Share on Mastodon" %}
-
-{% include "partials/masto-share.njk" %}
-</div>
-
-{% if mastodon_url %}
-  <!-- Discuss on Mastodon -->
-<template id="mastodon-post-template">
-{% include 'partials/mastodon-temp.njk' %}
-</template>
-
-<div class="discuss-mastodon">
-<section class="full">
-    <mastodon-post><i class="fa-brands fa-mastodon" style="color: #bd93f9;"></i> <a href="{{ mastodon_url }}" rel="me" style="font-size: var(--size-step-min-1) !important; color: #bd93f9; padding: 1em 0 0 0 !important; display: inline-block;" class="no-indicator">Discuss on Mastodon</a></mastodon-post>
+      <div class="prose max-w-none">
+        {{ latestNow.templateContent | safe }}
+      </div>
     </section>
-  </div>
-{% endif %}
-
-  <div class="flow" style="margin-top: var(--space-l);">
-  <p class="text-step-min-1">Give this post some kudos.</p>
-<button
-  class="tinylytics_kudos"
-  data-path="{{ page.url | url }}"
-></button>
-</div>
-
-<div class="flow" style="margin-top: var(--space-xl);">
-  {# Previous /now entries – show only the next 2 #}
-  {% if collections.nowEntries | length > 1 %}
-  <hr>
-      <h3>Previous now updates</h3>
-      <p>
-        Here are the two most recent past updates. For older updates, check out my <a href="/tags/now/">#now</a> archive.</a>.
-      </p>
-
-<div class="region region-space-l">
-  <div class="region region-space-l">
-      <custom-masonry layout="50-50">
-      {# loop.index0: 0 = latest, 1 & 2 = the next two #}
-      {% for item in collections.nowEntries %}
-        {% if loop.index0 >= 1 and loop.index0 <= 2 %}
-          {% include "partials/card-now.njk" %}
-        {% endif %}
-      {% endfor %}
-    </custom-masonry>
-  </div>
-    </div>
+  {% else %}
+    <p class="text-gray-500 dark:text-gray-400">No /now updates yet.</p>
   {% endif %}
-</div>
-
-    <!--  h-card infos: https://indieweb.org/authorship -->
-  <div hidden class="h-entry">
-    <a class="u-url" href="{{ page.url | url | absoluteUrl(meta.url) }}">{{ title }}</a>
-    <a class="p-name u-url" rel="author" href="{{ meta.url }}">{{ meta.author.name }}</a>
-    <img
-      eleventy:ignore
-      class="u-author h-card"
-      src="{{ meta.author.avatar | url | absoluteUrl(meta.url) }}"
-      alt="{{ meta.author.name }}"
-    />
-  </div>
-</div>
+</article>

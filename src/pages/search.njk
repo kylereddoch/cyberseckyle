@@ -1,0 +1,99 @@
+---
+layout: base
+permalink: /search/
+title: Search
+description: "Search results across posts, notes, and pages."
+excludeFromSearch: true
+---
+
+<div class="mx-auto max-w-3xl">
+  <h1 class="text-2xl font-bold mb-4">&#128269; Search Results</h1>
+  <p id="search-summary" class="text-gray-600 dark:text-gray-400 mb-6">Use the search box in the header to explore the site.</p>
+
+  <div id="search-results-container" class="hidden">
+    <div id="search-results-list" class="space-y-6"></div>
+  </div>
+
+  <div id="no-results" class="hidden text-center py-12">
+    <h2 class="text-xl font-semibold mb-2">No results found</h2>
+    <p class="text-gray-600 dark:text-gray-400">Try different keywords or browse the tags and categories.</p>
+  </div>
+</div>
+
+<script>
+(function() {
+  const summary = document.getElementById('search-summary');
+  const resultsContainer = document.getElementById('search-results-container');
+  const resultsList = document.getElementById('search-results-list');
+  const noResults = document.getElementById('no-results');
+
+  function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+  }
+
+  function highlightMatch(text, query) {
+    if (!text || !query) return text || '';
+    const safeQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return text.replace(new RegExp(`(${safeQuery})`, 'gi'), '<mark class="bg-yellow-200 dark:bg-yellow-800 px-1 rounded">$1</mark>');
+  }
+
+  async function initResults() {
+    const query = getQueryParam('q');
+    const headerInput = document.getElementById('q');
+
+    if (headerInput && query) {
+      headerInput.value = query;
+    }
+
+    if (!query) {
+      summary.textContent = 'Use the search box in the header to explore the site.';
+      return;
+    }
+
+    summary.textContent = `Showing results for "${query}"`;
+
+    try {
+      const response = await fetch('/search.json');
+      const searchIndex = await response.json();
+
+      if (typeof FlexSearch === 'undefined') return;
+
+      const flexSearch = new FlexSearch.Index({
+        tokenize: 'forward',
+        cache: true,
+        resolution: 9
+      });
+
+      searchIndex.forEach((item, index) => {
+        if (item && item.title) {
+          const searchText = `${item.title} ${item.description || ''} ${item.content || ''} ${(item.tags || []).join(' ')}`;
+          flexSearch.add(index, searchText);
+        }
+      });
+
+      const results = flexSearch.search(query, { limit: 20 }).map(index => searchIndex[index]).filter(Boolean);
+
+      if (!results.length) {
+        noResults.classList.remove('hidden');
+        return;
+      }
+
+      resultsContainer.classList.remove('hidden');
+      resultsList.innerHTML = results.map(item => `
+        <article class="border-b border-gray-200 dark:border-gray-700 pb-6 last:border-b-0">
+          <h2 class="text-xl font-semibold mb-2">
+            <a href="${item.id}" class="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">${highlightMatch(item.title || '', query)}</a>
+          </h2>
+          <p class="text-gray-600 dark:text-gray-400 mb-3 leading-relaxed">${highlightMatch(item.description || item.content || '', query)}</p>
+          ${item.tags && item.tags.length ? `<div class="flex flex-wrap gap-2">${item.tags.map(tag => `<a href="/tags/${tag.toLowerCase().replace(/\\s+/g, '-')}/" class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded text-xs">#${tag}</a>`).join('')}</div>` : ''}
+        </article>
+      `).join('');
+    } catch (error) {
+      console.error('Search page failed:', error);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', initResults);
+})();
+</script>

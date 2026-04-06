@@ -3,7 +3,7 @@ import htmlmin from 'html-minifier-terser';
 const isProduction = process.env.ELEVENTY_ENV === 'production';
 
 export const htmlConfig = (eleventyConfig) => {
-  eleventyConfig.addTransform('html-minify', function (content, outputPath) {
+  eleventyConfig.addTransform('html-minify', async function (content, outputPath) {
     // Only run for built HTML in production
     if (!isProduction || !outputPath || !outputPath.endsWith('.html')) return content;
 
@@ -12,7 +12,7 @@ export const htmlConfig = (eleventyConfig) => {
     if (page.data && page.data.no_minify) return content;
 
     try {
-      return htmlmin.minify(content, {
+      return await htmlmin.minify(content, {
         // Safe defaults that won’t mangle modern inline JS/attrs
         collapseWhitespace: true,
         removeComments: true,

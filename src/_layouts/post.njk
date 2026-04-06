@@ -3,102 +3,125 @@ layout: base
 schema: BlogPosting
 ---
 
-<div class="region" style="--region-space-top: var(--space-2xl)">
-  <div class="wrapper flow prose">
-    <h1 class="gradient-text" style="font-size: var(--size-step-4) !important;">{{ title }}</h1>
-    {% if image %}
-      <!-- image -->
-      {% image image, alt or "", credit, "eager", "feature"  %}
+<a href="/blog/" class="inline-flex items-center text-blue-600 hover:text-blue-800 mb-3">
+  &larr; Back to Blog
+</a>
+
+<nav class="text-sm text-gray-600 dark:text-gray-400 mb-4" aria-label="Breadcrumb">
+  <ol class="flex flex-wrap items-center gap-2">
+    <li><a href="/" class="hover:text-blue-600">Home</a></li>
+    <li aria-hidden="true">/</li>
+    <li><a href="/blog/" class="hover:text-blue-600">Blog</a></li>
+    <li aria-hidden="true">/</li>
+    <li class="text-gray-900 dark:text-gray-100">{{ title }}</li>
+  </ol>
+</nav>
+
+<article class="h-entry mx-auto max-w-3xl">
+
+  {% if featuredImage %}
+    <div class="mb-8">
+      <img class="u-photo w-full rounded-lg" src="{{ featuredImage }}" alt="{{ featuredImageAlt or alt or ('Featured image for ' ~ title) }}" />
+    </div>
+  {% endif %}
+
+  <header class="mb-6">
+    <h1 class="p-name text-3xl font-bold tracking-tight mb-3">{{ title }}</h1>
+    {% if description %}
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">{{ description }}</p>
     {% endif %}
 
-    <!--  h-card infos: https://indieweb.org/authorship -->
+    <div class="text-sm text-gray-600 dark:text-gray-400">
+      Published on <time class="dt-published" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+      by <span class="p-author h-card">
+        <a class="u-url p-name hover:text-blue-600" href="/about/">{{ meta.author.name }}</a>
+      </span>
+      <span aria-hidden="true" class="text-gray-400 dark:text-gray-500 mx-1">&bull;</span>
+      <span>{{ content | readTime }}</span>
+    </div>
+
+    <a class="u-url hidden" href="{{ page.url | url | absoluteUrl(meta.url) }}">Permalink</a>
+  </header>
+
+  {%- set isOldPost -%}{{ page.date | isOldPost }}{%- endset -%}
+  {% if isOldPost == "true" %}
+    <aside class="mb-8 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-100">
+      <strong>Heads up:</strong> this post is older, so some technical details may be out of date.
+    </aside>
+  {% endif %}
+
+  <div class="e-content prose max-w-none">
+    {{ content | safe }}
+  </div>
+
+  {% if tags and tags.length %}
+    <section class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+      <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Tags</h2>
+      <div class="flex flex-wrap gap-2">
+        {% for tag in tags %}
+          {% if tag != 'posts' %}
+            <a class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity" style="background-color: {{ tag | tagColor }}" href="/tags/{{ tag | slug }}/">#{{ tag }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  <section class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
+      <div class="flex items-start gap-4">
+        <img class="author-card__avatar rounded-full" src="{{ meta.author.avatar }}" alt="{{ meta.author.name }}" />
+        <div>
+          <h2 class="font-semibold text-lg">About {{ meta.author.name }}</h2>
+          <p class="text-gray-600 dark:text-gray-400 mt-1">I am a cybersecurity expert and IT professional who writes as CybersecKyle. I share day-to-day security and MSP work on Mastodon and publish tools and experiments on GitHub.</p>
+          <div class="mt-3 flex flex-wrap gap-4 text-sm">
+            <a href="/about/" class="text-blue-600 hover:text-blue-800">More about me</a>
+            <a href="/coffee/" class="text-green-600 hover:text-green-800">Support my work</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+    <h2 class="text-xl font-semibold mb-2">Share or join the conversation</h2>
+    <p class="text-gray-600 dark:text-gray-400 mb-4">Share this post on Mastodon, jump into the thread, or leave a little kudos.</p>
+    {% include "partials/share-links.njk" %}
+
+    {% if mastodon_url %}
+      <template id="mastodon-post-template">
+        {% include "partials/mastodon-temp.njk" %}
+      </template>
+
+      <div class="discuss-mastodon mt-6">
+        <div class="discuss-mastodon__intro">
+          <a href="{{ mastodon_url }}" rel="me" class="no-indicator">Discuss on Mastodon</a>
+        </div>
+        <mastodon-post></mastodon-post>
+      </div>
+    {% endif %}
+
+    <div class="mt-6">
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Give this post some kudos.</p>
+      <button class="tinylytics_kudos" data-path="{{ page.url | url }}"></button>
+    </div>
+
+    <section id="webmentions" class="mt-12">
+    <h2 class="text-xl font-semibold mb-4">Responses</h2>
+    <div id="webmentions-list">
+      <div class="text-center py-4 text-gray-500">
+        <div class="animate-pulse">Loading webmentions...</div>
+      </div>
+    </div>
+  </section>
+
+  </section>
+
+  {% include "partials/related-posts.njk" %}
+
   <div hidden class="h-entry">
     <a class="u-url" href="{{ page.url | url | absoluteUrl(meta.url) }}">{{ title }}</a>
     <a class="p-name u-url" rel="author" href="{{ meta.url }}">{{ meta.author.name }}</a>
-    <img
-      eleventy:ignore
-      class="u-author h-card"
-      src="{{ meta.author.avatar | url | absoluteUrl(meta.url) }}"
-      alt="{{ meta.author.name }}"
-    />
+    <img eleventy:ignore class="u-author h-card" src="{{ meta.author.avatar | url | absoluteUrl(meta.url) }}" alt="{{ meta.author.name }}" />
   </div>
-
-    <p class="meta">
-      <!-- draft status -->
-      {%- if draft -%}
-        <span class="button" data-small-button data-button-variant="tertiary">draft</span>
-      {%- endif %}
-      <!-- date -->
-      {% set definedDate = date %} {% include "partials/date-read.njk" %}
-    </p>
-
-    <p class="meta | cluster gutter-xs-s">
-    {% if tags.length > 1 %}
-        <!-- tags -->
-        {% for tag in tags %}{% if tag != "posts" %}
-          <a class="button" href="/tags/{{ tag | slugify }}/" data-small-button> #{{ tag }} </a>
-        {% endif %}{% endfor %}
-      {% endif %}
-      </p>
-
-      {%- set isOldPost -%}{{ page.date | isOldPost }}{%- endset -%}
-    {% if isOldPost == "true" and '/blog' in page.url %}
-        <aside class="alert">
-            <p><b>[!] Proceed with caution:</b> Signal recovered from a long-dead node ~ {{ page.date | diffInYears }} years old. Data integrity compromised... Some info may be obsolete or fragmented. 🔥💾.</p>
-        </aside>
-    {% endif %}
-
-    {{ content | safe }}
-
-    <hr />
-
-<div class="flow" style="margin-top: var(--space-xl);">
-  <h4>Enjoyed this post?</h4>
-  <p class="text-step-min-1">Consider sharing it on Mastodon, joining in on the discussion below, or giving it some kudos.</p>
-  <!-- Share on Mastodon -->
-{# Build the final share text exactly as before #}
-{% set fullUrl  = page.url | url | absoluteUrl(meta.url) %}
-{% set hashtags = mastodon_hashtags | default([]) %}
-
-{% set tagsInline = "" %}
-{% if (hashtags | length) > 0 %}
-  {% set tagsInline = "\n\n#" ~ (hashtags | join(' #')) %}
-{% endif %}
-
-{% set text = (title ~ " — " ~ (description or "")) ~ "\n\n" ~ fullUrl ~ tagsInline %}
-{% set label = "Share on Mastodon" %}
-
-{% include "partials/masto-share.njk" %}
-</div>
-  </div>
-
-{% if mastodon_url %}
-<div class="wrapper flow prose">
-  <!-- Discuss on Mastodon -->
-<template id="mastodon-post-template">
-{% include 'partials/mastodon-temp.njk' %}
-</template>
-
-<div class="discuss-mastodon">
-<section class="full">
-    <mastodon-post><i class="fa-brands fa-mastodon" style="color: #bd93f9;"></i> <a href="{{ mastodon_url }}" rel="me" style="font-size: var(--size-step-min-1) !important; color: #bd93f9; padding: 1em 0 0 0 !important; display: inline-block;" class="no-indicator">Discuss on Mastodon</a></mastodon-post>
-    </section>
-  </div>
-</div>
-{% endif %}
-
-<div class="wrapper flow prose">
-  <div class="flow" style="margin-top: var(--space-l);">
-  <p class="text-step-min-1">Give this post some kudos.</p>
-<button
-  class="tinylytics_kudos"
-  data-path="{{ page.url | url }}"
-></button>
-</div>
-</div>
-</div>
-
-{%- css "local" -%}
-  {%- include 'css/post.css' -%}
-  {%- include 'css/footnotes.css' -%}
-{%- endcss -%}
+</article>

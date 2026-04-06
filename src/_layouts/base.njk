@@ -1,60 +1,137 @@
-{% set assetHash = helpers.random() %}
-
 <!doctype html>
-<html lang="{{ meta.lang }}">
-  <!-- The order of elements in the head follows recommendations by Harry Roberts. learn more here: https://www.youtube.com/watch?v=MHyAOZ45vnU -->
-
+<html lang="{{ meta.lang }}" class="scroll-smooth">
   <head>
-    <!-- 1 charset/viewport -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- 2 title -->
     <title>
-       {{ title }} - {{ meta.siteName }}
+      {% if page.url == '/' %}
+        {{ meta.siteName }}
+      {% elseif title %}
+        {{ title }} - {{ meta.siteName }}
+      {% else %}
+        {{ meta.siteName }}
+      {% endif %}
     </title>
 
-    <base href="{{ page.url }}" />
-
-    <!-- 3 synchronous js  -->
-    {% include "head/js-inline.njk" %}
-
-    <!-- 4 schema settings -->
-    {% include "head/schema.njk" %}
-
-    <!-- 5 CSS  -->
-    <!-- <link rel="stylesheet" href="/assets/css/global.css?{{ assetHash }}" /> -->
-    {% include "head/css-inline.njk" %}
-
-    <!-- 6 preloads  -->
-    {% include "head/preloads.njk" %}
-
-    <!-- 7 defer  -->
-    {% include "head/js-defer.njk" %}
-
-    <!-- 8 meta tags, icons, open graph etc.  -->
     {% include "head/meta-info.njk" %}
 
-    <!-- <script type="module" src="/assets/scripts/components/snow-fall.js" defer></script> -->
+    <link rel="stylesheet" href="/assets/starter/build.css" />
+    <link rel="stylesheet" href="/assets/starter/cyberseckyle.css" />
+    <script>
+      window.Prism = window.Prism || {};
+      window.Prism.manual = true;
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup-templating.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-batch.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markdown.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-powershell.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-scss.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-twig.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js" defer></script>
+
+    <style>
+      .contrast {
+        filter: contrast(1.2) saturate(1.1);
+      }
+
+      .reduce-motion,
+      .reduce-motion * {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+      }
+    </style>
   </head>
+  <body class="bg-[var(--bg)] text-[var(--text)] min-h-screen flex flex-col">
+    <a class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-black" href="#main">
+      {{ meta.skipContent }}
+    </a>
 
-  <body class="{{ layout }}">
-    <is-land on:media="(prefers-reduced-motion: no-preference)"><snow-fall count="200"></snow-fall></is-land>
-    {% set indicateActiveHome %}
-      {% if page.url == "/" %}
-        aria-current=page
-      {% endif %}
-    {% endset %}
-    {% include "partials/header.njk" %}
+    <div id="progress-bar" aria-hidden="true"></div>
 
-    <main id="main" class="flow">{{ content | safe }}</main>
+    {% set url = page.url or '/' %}
+    {% set isHome = url == '/' %}
+    {% set isBlog = url == '/blog/' or '/blog/' in url %}
+    {% set isCybersecurity = url == '/tags/cybersecurity/' %}
+    {% set isNotes = url == '/notes/' or '/notes/' in url %}
+    {% set isAbout = url == '/about/' %}
+    {% set isContact = url == '/contact/' %}
+
+    <header class="bg-[var(--surface)] border-b border-gray-200 dark:border-gray-700">
+      <div class="container mx-auto max-w-7xl px-4 py-3 flex items-center gap-3">
+        <button id="hamburger" class="md:hidden p-2 rounded border border-gray-300 dark:border-gray-600" aria-label="Toggle menu" aria-controls="primary-nav" aria-expanded="false">
+          <span class="bar-1 block w-5 h-0.5 bg-gray-700 dark:bg-gray-200 mb-1 transition-transform"></span>
+          <span class="bar-2 block w-5 h-0.5 bg-gray-700 dark:bg-gray-200 mb-1 transition-opacity"></span>
+          <span class="bar-3 block w-5 h-0.5 bg-gray-700 dark:bg-gray-200 transition-transform"></span>
+        </button>
+
+        <a class="site-brand no-indicator" href="/">
+          <img class="site-brand__logo" src="/assets/images/logo.png" alt="" width="40" height="40" />
+          <span class="site-title text-lg font-semibold tracking-tight">{{ meta.siteName }}</span>
+        </a>
+
+        <form class="ml-auto hidden sm:block" role="search" aria-label="Site" action="/search/" method="get">
+          <label class="sr-only" for="q">Search</label>
+          <input
+            id="q"
+            name="q"
+            type="search"
+            placeholder="Search..."
+            class="w-64 rounded border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder:text-gray-500 shadow-sm focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 dark:bg-white dark:text-gray-900 dark:placeholder:text-gray-500"
+            autocomplete="off"
+          />
+        </form>
+
+        <div class="flex items-center gap-2 ml-2">
+          <button id="dark-toggle" class="px-2 py-1 text-sm border rounded" aria-pressed="false" aria-label="Toggle dark mode">&#127769;</button>
+          <div class="relative">
+            <button id="a11y-toggle" class="px-2 py-1 text-sm border rounded" aria-expanded="false" aria-controls="a11y-menu">A11y</button>
+            <div id="a11y-menu" class="absolute right-0 mt-1 bg-[var(--surface)] border rounded p-2 text-sm space-x-2 whitespace-nowrap hidden">
+              <button id="font-dec" class="px-2 py-1 border rounded">A-</button>
+              <button id="font-inc" class="px-2 py-1 border rounded">A+</button>
+              <button id="contrast-toggle" class="px-2 py-1 border rounded" aria-pressed="false">Contrast</button>
+              <button id="motion-toggle" class="px-2 py-1 border rounded" aria-pressed="false">Reduce motion</button>
+              <button id="font-toggle" type="button" aria-pressed="false" class="px-2 py-1 border rounded hidden md:inline-block">System Fonts</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="bg-[var(--surface)] border-b border-gray-200 dark:border-gray-700">
+      <div id="primary-nav" class="container mx-auto max-w-7xl px-4 py-2 hidden md:block">
+        <ul class="flex flex-col md:flex-row text-base md:text-sm space-y-3 md:space-y-0 md:space-x-6">
+          <li><a href="/" class="nav-item block py-2 text-purple-600 dark:text-purple-400 {% if isHome %}underline font-semibold{% endif %}" {% if isHome %}aria-current="page"{% endif %}>&#127968; Home</a></li>
+          <li><a href="/blog/" class="nav-item block py-2 text-purple-600 dark:text-purple-400 {% if isBlog %}underline font-semibold{% endif %}" {% if isBlog %}aria-current="page"{% endif %}>&#9997;&#65039; Blog</a></li>
+          <li><a href="/tags/cybersecurity/" class="nav-item block py-2 text-purple-600 dark:text-purple-400 {% if isCybersecurity %}underline font-semibold{% endif %}" {% if isCybersecurity %}aria-current="page"{% endif %}>&#128737;&#65039; Cybersecurity</a></li>
+          <li><a href="/notes/" class="nav-item block py-2 text-purple-600 dark:text-purple-400 {% if isNotes %}underline font-semibold{% endif %}" {% if isNotes %}aria-current="page"{% endif %}>&#128221; Notes</a></li>
+          <li><a href="/about/" class="nav-item block py-2 text-purple-600 dark:text-purple-400 {% if isAbout %}underline font-semibold{% endif %}" {% if isAbout %}aria-current="page"{% endif %}>&#128075; About</a></li>
+          <li><a href="/contact/" class="nav-item block py-2 text-purple-600 dark:text-purple-400 {% if isContact %}underline font-semibold{% endif %}" {% if isContact %}aria-current="page"{% endif %}>&#128172; Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-6 max-w-4xl flex-1">
+      <main id="main">
+        {{ content | safe }}
+      </main>
+    </div>
 
     {% include "partials/footer.njk" %}
-    {%- if meta.easteregg -%}
-      <script type="module" src="/assets/scripts/components/custom-easteregg.js"></script>
-      <custom-easteregg></custom-easteregg>
-    {%- endif -%}
-    <script type="module" src="/assets/scripts/components/mastodon-post.js"></script>
+
+    <script src="/assets/starter/main.js" defer></script>
+    <script src="/assets/starter/flexsearch.min.js" defer></script>
+    <script src="/assets/starter/search.js" defer></script>
+    <script src="/assets/starter/webmentions.js" defer></script>
+    <script src="/assets/starter/easter-eggs.js" defer></script>
+    <script src="https://kit.fontawesome.com/fb3ee9d8ef.js" crossorigin="anonymous" defer></script>
+    <script src="https://tinylytics.app/embed/aK6PBymtmDm6DxSXaP2H.js?webring&kudos=%E2%9D%A4%EF%B8%8F" defer></script>
+    <script src="/assets/scripts/components/masto-share.js" defer></script>
+    <script src="/assets/scripts/components/mastodon-post.js" defer></script>
     <script src="/assets/scripts/components/speedlify-score.js" defer></script>
   </body>
 </html>

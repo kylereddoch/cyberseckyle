@@ -1,0 +1,82 @@
+---
+layout: base
+---
+
+<a href="/notes/" class="inline-flex items-center text-blue-600 hover:text-blue-800 mb-3">
+  &larr; Back to Notes
+</a>
+
+<nav class="text-sm text-gray-600 dark:text-gray-400 mb-4" aria-label="Breadcrumb">
+  <ol class="flex flex-wrap items-center gap-2">
+    <li><a href="/" class="hover:text-blue-600">Home</a></li>
+    <li aria-hidden="true">/</li>
+    <li><a href="/notes/" class="hover:text-blue-600">Notes</a></li>
+    <li aria-hidden="true">/</li>
+    <li class="text-gray-900 dark:text-gray-100">{{ title }}</li>
+  </ol>
+</nav>
+
+<article class="h-entry mx-auto max-w-3xl">
+  <header class="mb-5">
+    <h1 class="p-name text-3xl font-bold tracking-tight mb-2">{{ title }}</h1>
+    {% if description %}
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-3">{{ description }}</p>
+    {% endif %}
+    <div class="text-sm text-gray-600 dark:text-gray-400 flex flex-wrap items-center gap-x-3 gap-y-1">
+      <time class="dt-published" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+      <span>•</span>
+      <span>{{ content | readTime }}</span>
+      <a class="u-url hidden" href="{{ page.url | url | absoluteUrl(meta.url) }}">Permalink</a>
+    </div>
+  </header>
+
+  <div class="e-content prose max-w-none">
+    {{ content | safe }}
+  </div>
+
+  {% if tags and tags.length %}
+    <section class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+      <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Tags</h2>
+      <div class="flex flex-wrap gap-2">
+        {% for tag in tags %}
+          {% if tag != 'notes' and tag != 'posts' and tag != 'journal' %}
+            <a class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity" style="background-color: {{ tag | tagColor }}" href="/tags/{{ tag | slug }}/">#{{ tag }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  <section class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+    <h2 class="text-xl font-semibold mb-2">Share or join the conversation</h2>
+    <p class="text-gray-600 dark:text-gray-400 mb-4">Share this note on Mastodon, jump into the thread, or leave a little kudos.</p>
+    {% include "partials/share-links.njk" %}
+
+    {% if mastodon_url %}
+      <template id="mastodon-post-template">
+        {% include "partials/mastodon-temp.njk" %}
+      </template>
+
+      <div class="discuss-mastodon mt-6">
+        <div class="discuss-mastodon__intro">
+          <a href="{{ mastodon_url }}" rel="me" class="no-indicator">Discuss on Mastodon</a>
+        </div>
+        <mastodon-post></mastodon-post>
+      </div>
+    {% endif %}
+
+    <div class="mt-6">
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Give this note some kudos.</p>
+      <button class="tinylytics_kudos" data-path="{{ page.url | url }}"></button>
+    </div>
+  </section>
+
+  <section id="webmentions" class="mt-12">
+    <h2 class="text-xl font-semibold mb-4">Responses</h2>
+    <div id="webmentions-list">
+      <div class="text-center py-4 text-gray-500">
+        <div class="animate-pulse">Loading webmentions...</div>
+      </div>
+    </div>
+  </section>
+</article>

@@ -1,0 +1,54 @@
+{% set pageUrl = page.url | url | absoluteUrl(meta.url) %}
+
+<div class="share-links">
+  <span class="share-links__label text-gray-600 dark:text-gray-400">Share:</span>
+  {% set fullUrl = pageUrl %}
+  {% set hashtags = mastodon_hashtags | default([]) %}
+  {% set tagsInline = "" %}
+  {% if (hashtags | length) > 0 %}
+    {% set tagsInline = "\n\n#" ~ (hashtags | join(' #')) %}
+  {% endif %}
+  {% set text = (title ~ " - " ~ (description or "")) ~ "\n\n" ~ fullUrl ~ tagsInline %}
+  {% set label = "Mastodon" %}
+  {% include "partials/masto-share.njk" %}
+  <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ pageUrl | urlencode }}" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 no-indicator">
+    <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+    <span>LinkedIn</span>
+  </a>
+  <a href="https://twitter.com/intent/tweet?url={{ pageUrl | urlencode }}&text={{ title | urlencode }}" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-sky-500 hover:text-sky-700 no-indicator">
+    <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+    <span>Twitter</span>
+  </a>
+  <button type="button" class="share-link--button inline-flex items-center gap-1 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" data-copy-link="{{ pageUrl }}">
+    <i class="fa-regular fa-copy" aria-hidden="true"></i>
+    <span>Copy Link</span>
+  </button>
+</div>
+
+<script>
+  (function() {
+    const buttons = document.querySelectorAll('[data-copy-link]');
+    buttons.forEach((button) => {
+      if (button.dataset.copyBound === 'true') return;
+      button.dataset.copyBound = 'true';
+      button.addEventListener('click', async () => {
+        const url = button.getAttribute('data-copy-link');
+        try {
+          if (navigator.share) {
+            await navigator.share({ title: document.title, url });
+          } else if (navigator.clipboard) {
+            await navigator.clipboard.writeText(url);
+          }
+          button.querySelector('span').textContent = 'Copied';
+          setTimeout(() => {
+            button.querySelector('span').textContent = 'Copy Link';
+          }, 1800);
+        } catch (error) {
+          if (navigator.clipboard && url) {
+            await navigator.clipboard.writeText(url);
+          }
+        }
+      });
+    });
+  })();
+</script>

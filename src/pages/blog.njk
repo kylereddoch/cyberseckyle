@@ -1,38 +1,67 @@
 ---
 layout: base
-title: Blog
-description: 'CybersecKyle is where Kyle Reddoch shares practical cybersecurity tips, MSP life lessons, and honest write ups on real world threats, tools, and home lab experiments.'
 pagination:
-  data: collections.allPosts
-  size: 8
-permalink: 'blog/{% if pagination.pageNumber >=1 %}page-{{ pagination.pageNumber + 1 }}/{% endif %}index.html'
+  data: collections.blogEntries
+  size: 10
+  alias: entries
+permalink: "/blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}"
+title: Blog
+description: "Writing from CybersecKyle, including long-form posts and dated /now updates."
 ---
 
-<div class="wrapper flow">
-  <header class="full | section" style="--spot-color: var(--color-tertiary)">
-    <div class="section__inner flow region">
-      <h1 class="text-center" style="color: var(--color-bg); font-size: var(--size-step-6) !important;">{{ title }}</h1>
-    </div>
-    {% svg "divider/waves", null, "divider" %}
-  </header>
+<div class="h-feed mx-auto max-w-3xl">
+  <h1 class="p-name text-2xl font-bold mb-6">&#9997;&#65039; Blog</h1>
+  <a class="u-url hidden" href="{{ meta.url }}/blog/"></a>
+  <p class="text-gray-600 dark:text-gray-400 mb-6">Longer posts on cybersecurity, IT work, publishing, plus dated /now updates as they are published.</p>
 
-  <div class="region flow">
-    <p>I cover topics in cybersecurity, explore the latest in tech trends, and dive into IT best practices. Occasionally, I’ll also post a tech review.</p>
+  <div class="space-y-8">
+    {% for post in entries %}
+      {% if '/now/' in post.url %}
+        {% set entryIcon = '&#128205;' %}
+        {% set entryLabel = 'Now' %}
+      {% else %}
+        {% set entryIcon = '&#9997;&#65039;' %}
+        {% set entryLabel = 'Post' %}
+      {% endif %}
+      <article class="h-entry border-b border-gray-200 dark:border-gray-700 pb-6">
+        <div class="flex flex-wrap items-center gap-3 mb-2">
+          <span class="entry-type-badge">
+            <span class="entry-type-badge__icon" aria-hidden="true">{{ entryIcon | safe }}</span>
+            <span class="entry-type-badge__label">{{ entryLabel }}</span>
+          </span>
+        </div>
+
+        <h2 class="p-name text-xl font-semibold">
+          <a class="u-url hover:text-blue-600" href="{{ post.url }}">{{ post.data.title }}</a>
+        </h2>
+        <time class="dt-published text-sm text-gray-500 dark:text-gray-400 block mt-1" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+
+        {% if post.data.description %}
+          <div class="p-summary mt-3 text-gray-700 dark:text-gray-300">{{ post.data.description }}</div>
+        {% endif %}
+
+        {% if post.data.tags %}
+          <div class="mt-3 flex flex-wrap gap-2">
+            {% for tag in post.data.tags %}
+              {% if tag != 'posts' %}
+                <a class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity" style="background-color: {{ tag | tagColor }}" href="/tags/{{ tag | slug }}/">#{{ tag }}</a>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </article>
+    {% endfor %}
   </div>
 
-  <custom-masonry layout="50-50">
-		{% asyncEach item in pagination.items %}
-			{% include "partials/card-blog.njk" %}
-		{% endeach %}
-	</custom-masonry>
+  <nav class="mt-8 flex items-center justify-between" aria-label="Pagination">
+    {% if pagination.href.previous %}
+      <a class="px-3 py-2 border rounded" href="{{ pagination.href.previous }}">Newer</a>
+    {% else %}
+      <span></span>
+    {% endif %}
 
-  <!-- set collection to paginate -->
-  {% set collectionToPaginate = collections.allPosts %}
-  <!-- set target pagination settings in meta.js -->
-  {% set metaKey = "blog" %}
-  <!-- if the number of items in the collection is greater than the number of items shown on one page -->
-  {% if collectionToPaginate.length > pagination.size %}
-    <!-- include pagination -->
-    {% include 'partials/pagination.njk' %}
-  {% endif %}
+    {% if pagination.href.next %}
+      <a class="px-3 py-2 border rounded" href="{{ pagination.href.next }}">Older</a>
+    {% endif %}
+  </nav>
 </div>

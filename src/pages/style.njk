@@ -1,0 +1,104 @@
+---
+layout: base
+permalink: /style/
+title: Style Guide
+description: "A quick look at the typography, colors, components, and stack behind CybersecKyle."
+---
+
+<div class="max-w-4xl">
+  <h1 class="text-3xl font-bold mb-2 flex items-center gap-2">
+    <span aria-hidden="true">&#127912;</span>
+    <span>Style Guide</span>
+  </h1>
+  <p class="text-gray-600 dark:text-gray-400 mb-8">
+    Part style guide, part colophon. This page highlights the look, feel, and building blocks behind CybersecKyle.
+  </p>
+
+  <div class="space-y-12">
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">Typography</h2>
+      <div class="space-y-4">
+        <div>
+          <h1 class="text-3xl font-bold">Heading One</h1>
+          <h2 class="text-2xl font-semibold mt-3">Heading Two</h2>
+          <h3 class="text-xl font-medium mt-3">Heading Three</h3>
+          <h4 class="text-lg mt-3">Heading Four</h4>
+        </div>
+        <p>This is the default paragraph voice used across the site for posts, notes, and pages.</p>
+        <p class="text-sm text-gray-600 dark:text-gray-400">This is the quieter metadata style used for descriptions, dates, and secondary details.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">Palette</h2>
+      <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+        <div>
+          <div class="h-16 rounded-lg border" style="background-color: #1e1b2e; border-color: rgba(255,255,255,0.1);"></div>
+          <p class="mt-2 text-sm">Night Surface</p>
+        </div>
+        <div>
+          <div class="h-16 rounded-lg border" style="background-color: #cba6f7; border-color: rgba(255,255,255,0.1);"></div>
+          <p class="mt-2 text-sm">Accent Lilac</p>
+        </div>
+        <div>
+          <div class="h-16 rounded-lg border" style="background-color: #89b4fa; border-color: rgba(255,255,255,0.1);"></div>
+          <p class="mt-2 text-sm">Cool Blue</p>
+        </div>
+        <div>
+          <div class="h-16 rounded-lg border" style="background-color: #a6e3a1; border-color: rgba(255,255,255,0.1);"></div>
+          <p class="mt-2 text-sm">Signal Green</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">Common Components</h2>
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-3">Badges</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full">&#128737;&#65039; Cybersecurity</span>
+            <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full">&#128736;&#65039; Managed Services</span>
+            <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 px-3 py-1 rounded-full">&#128187; IT</span>
+            <span class="bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 px-3 py-1 rounded-full">&#10024; and More...</span>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold mb-3">Tags</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-3 py-1 text-sm rounded-full" style="background-color: #dbeafe; color: #1e40af;">#eleventy</span>
+            <span class="px-3 py-1 text-sm rounded-full" style="background-color: #fae8ff; color: #a21caf;">#mastodon</span>
+            <span class="px-3 py-1 text-sm rounded-full" style="background-color: #d1fae5; color: #065f46;">#security</span>
+          </div>
+        </div>
+
+        <div class="rounded-lg border border-gray-200 bg-[var(--surface)] p-6 dark:border-gray-800">
+          <h3 class="text-xl font-semibold mb-2">Card Example</h3>
+          <p class="text-gray-700 dark:text-gray-300">
+            This matches the soft surface treatment used around the site for supporting content, profile boxes, and utility sections.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="prose max-w-none">
+      <h2>Content Styling</h2>
+      <p>This section shows the prose rhythm used for articles and notes, including links, code, and quotes.</p>
+      <blockquote>
+        <p>A good personal site should feel calm, readable, and unmistakably yours.</p>
+      </blockquote>
+      <pre><code class="language-njk">{% raw %}&lt;a href="/blog/" class="font-medium"&gt;Read the blog&lt;/a&gt;{% endraw %}</code></pre>
+      <p>Inline code like <code>featuredImage</code> and <code>mastodonHandle</code> should stay readable in both themes.</p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">Colophon</h2>
+      <div class="space-y-4 text-gray-700 dark:text-gray-300">
+        <p>This site is built with Eleventy and shaped around the IndieWeb Starter Blog design, then customized with my own publishing workflow, Mastodon sharing, OG image generation, search, notes, listening, and bookshelf integrations.</p>
+        <p>The visual direction leans on a dark-first palette, rounded surfaces, colorful tag treatments, and a logo system built around my current CybersecKyle mark.</p>
+        <p>Accessibility features include theme switching, font controls, contrast controls, and reduced-motion support.</p>
+      </div>
+    </section>
+  </div>
+</div>

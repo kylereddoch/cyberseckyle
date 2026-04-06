@@ -22,19 +22,19 @@
      data-masto-query="{{ _qs }}"
      data-masto-fallback="{{ _fallbackHost }}">
   {# Primary action: uses saved instance if present, else prompts & saves #}
-  <a class="button no-indicator" data-variant="tertiary" data-size="sm"
+  <a class="inline-flex items-center gap-1 text-purple-600 hover:text-purple-800 no-indicator"
      href="https://{{ _fallbackHost }}/share{{ _qs }}"
      data-masto-action="primary-share">
     <i class="fa-brands fa-mastodon" aria-hidden="true"></i>
-    <span class="visually-hidden">{{ _label }}</span><span aria-hidden="true">{{ _label }}</span>
+    <span>{{ _label }}</span>
   </a>
 
   {# Instance menu wired to your footer JS #}
   <div class="masto-share__menu">
     <details data-align="end">
-      <summary class="button" data-ghost data-size="sm">
+      <summary class="masto-share__summary inline-flex items-center gap-1 text-purple-600 hover:text-purple-800 no-indicator">
         <i class="fa-brands fa-mastodon" aria-hidden="true"></i>
-        Choose popular instances
+        Choose instance
       </summary>
 
       <div class="masto-share__dropdown" role="menu">

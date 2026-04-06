@@ -1,0 +1,30 @@
+---
+layout: base
+title: Tags
+permalink: /tags/
+description: "Browse posts and notes by tag."
+excludeFromSearch: true
+---
+
+<div class="mx-auto max-w-3xl">
+  <h1 class="text-2xl font-bold mb-6">&#127991;&#65039; Tags</h1>
+
+  {% if collections.tagList and collections.tagList.length %}
+    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      {% for t in collections.tagList %}
+        {% set count = 0 %}
+        {% for post in collections.homeEntries %}
+          {% if post.data.tags and (t in post.data.tags) %}
+            {% set count = count + 1 %}
+          {% endif %}
+        {% endfor %}
+        <li class="border rounded p-3 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-800">
+          <a class="font-medium hover:text-blue-600" href="/tags/{{ t | slug }}/">#{{ t }}</a>
+          <span class="text-xs text-gray-500">{{ count }} item{% if count != 1 %}s{% endif %}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="text-gray-500 dark:text-gray-400">No tags yet.</p>
+  {% endif %}
+</div>

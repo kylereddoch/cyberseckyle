@@ -1,8 +1,9 @@
 ---
-fontDisplay: "'Atkinson Hyperlegible', Ubuntu" # needed created in local development, font must be installed on your system.
-fontBody: "'Atkinson Hyperlegible', Ubuntu" # needed created in local development, font must be installed on your system.
-background: "#cba6f7"
-text: "#1e1e2e"
+fontDisplay: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+fontBody: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+backgroundBase: "#0f0a1a"
+backgroundOverlay: "rgb(88 28 135 / 0.2)"
+text: "rgb(216 180 254)"
 siteUrl: "kylereddoch.me"
 pagination:
   data: collections.allPosts
@@ -142,13 +143,8 @@ eleventyExcludeFromCollections: true
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
 >
-  <rect
-    id="bg"
-    width="100%"
-    height="100%"
-    opacity="1"
-    fill="{{ background }}"
-  />
+  <rect id="bg-base" width="100%" height="100%" opacity="1" fill="{{ backgroundBase }}" />
+  <rect id="bg-overlay" width="100%" height="100%" opacity="1" fill="{{ backgroundOverlay }}" />
 
   <!-- date -->
   <text
