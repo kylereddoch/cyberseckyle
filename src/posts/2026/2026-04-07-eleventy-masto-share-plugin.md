@@ -5,7 +5,7 @@ description: "A new Eleventy plugin that adds a Mastodon share button with an in
 featuredImage: /assets/images/eleventy-masto-share-img.png
 tags: [eleventy, mastodon, open-source, plugin, fediverse]
 category: projects
-mastodon_url: 
+mastodon_url: https://infosec.exchange/@cyberseckyle/116365311604883127
 ---
 
 I am happy to share a new open source project I have been working on: `@kylereddoch/eleventy-plugin-mastodon-share`.
