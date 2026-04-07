@@ -44,6 +44,23 @@ const tagColors = JSON.parse(
   fs.readFileSync(path.join(process.cwd(), 'src/_data/tagColors.json'), 'utf8')
 );
 
+const normalizeWebmentionTarget = value => {
+  if (!value) return '';
+
+  try {
+    const parsed = new URL(String(value));
+    parsed.hash = '';
+    parsed.search = '';
+    const pathname = parsed.pathname.replace(/\/+$/, '') || '/';
+    return `${parsed.origin}${pathname === '/' ? '/' : pathname}`;
+  } catch {
+    return String(value)
+      .split('#')[0]
+      .split('?')[0]
+      .replace(/\/+$/, '');
+  }
+};
+
 
 // Mastodon Direct-Embed: bleed-friendly, auto-height reliable
 async function mastodonEmbedShortcode(statusUrl, maxWidth = 720, layout = 'normal') {
@@ -369,6 +386,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter('alphabetic', filters.sortAlphabetically);
   eleventyConfig.addFilter('slugify', filters.slugifyString);
   eleventyConfig.addFilter('slug', filters.slugifyString);
+  eleventyConfig.addFilter('webmentionTarget', normalizeWebmentionTarget);
   eleventyConfig.addFilter('json', (value, spaces = 0) => JSON.stringify(value, null, spaces));
   eleventyConfig.addFilter('head', (arr, n) => {
     if (!Array.isArray(arr)) return arr;

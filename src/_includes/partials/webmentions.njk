@@ -1,0 +1,113 @@
+{% set webmentionTarget = page.url | url | absoluteUrl(meta.url) | webmentionTarget %}
+{% set mentions = webmentions.byTarget[webmentionTarget] %}
+
+<section id="webmentions" class="webmentions mt-12" data-pagefind-ignore>
+  <h2 class="text-xl font-semibold mb-4">Responses</h2>
+
+  {% if webmentions.error %}
+    <div class="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900/50 dark:bg-red-950/30 dark:text-red-200">
+      Webmentions could not be loaded at build time: {{ webmentions.error }}
+    </div>
+  {% elseif mentions and mentions.total %}
+    {% if mentions.reposts.length %}
+      <section class="webmentions__facepile">
+        <h3 class="webmentions__hed" id="webmentions-reposts">{{ mentions.reposts.length }} {{ 'Repost' if mentions.reposts.length == 1 else 'Reposts' }}</h3>
+        <div class="webmentions__faces" aria-labelledby="webmentions-reposts">
+          {% for mention in mentions.reposts %}
+            <a class="webmentions__face h-card u-url" href="{{ mention.url or mention.author.url }}" target="_blank" rel="noopener noreferrer" title="{{ mention.author.name }}">
+              {% if mention.author.photo %}
+                <img class="u-photo" src="{{ mention.author.photo }}" alt="{{ mention.author.name }}" loading="lazy" decoding="async" />
+              {% else %}
+                <span class="webmentions__face-fallback" aria-hidden="true">{{ mention.author.name[0] | upper }}</span>
+                <span class="visually-hidden">{{ mention.author.name }}</span>
+              {% endif %}
+            </a>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if mentions.likes.length %}
+      <section class="webmentions__facepile">
+        <h3 class="webmentions__hed" id="webmentions-likes">{{ mentions.likes.length }} {{ 'Like' if mentions.likes.length == 1 else 'Likes' }}</h3>
+        <div class="webmentions__faces" aria-labelledby="webmentions-likes">
+          {% for mention in mentions.likes %}
+            <a class="webmentions__face h-card u-url" href="{{ mention.url or mention.author.url }}" target="_blank" rel="noopener noreferrer" title="{{ mention.author.name }}">
+              {% if mention.author.photo %}
+                <img class="u-photo" src="{{ mention.author.photo }}" alt="{{ mention.author.name }}" loading="lazy" decoding="async" />
+              {% else %}
+                <span class="webmentions__face-fallback" aria-hidden="true">{{ mention.author.name[0] | upper }}</span>
+                <span class="visually-hidden">{{ mention.author.name }}</span>
+              {% endif %}
+            </a>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if mentions.bookmarks.length %}
+      <section class="webmentions__facepile">
+        <h3 class="webmentions__hed" id="webmentions-bookmarks">{{ mentions.bookmarks.length }} {{ 'Bookmark' if mentions.bookmarks.length == 1 else 'Bookmarks' }}</h3>
+        <div class="webmentions__faces" aria-labelledby="webmentions-bookmarks">
+          {% for mention in mentions.bookmarks %}
+            <a class="webmentions__face h-card u-url" href="{{ mention.url or mention.author.url }}" target="_blank" rel="noopener noreferrer" title="{{ mention.author.name }}">
+              {% if mention.author.photo %}
+                <img class="u-photo" src="{{ mention.author.photo }}" alt="{{ mention.author.name }}" loading="lazy" decoding="async" />
+              {% else %}
+                <span class="webmentions__face-fallback" aria-hidden="true">{{ mention.author.name[0] | upper }}</span>
+                <span class="visually-hidden">{{ mention.author.name }}</span>
+              {% endif %}
+            </a>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if mentions.comments.length %}
+      <section class="webmentions__thread">
+        <h3 class="webmentions__hed">{{ mentions.comments.length }} {{ 'Comment' if mentions.comments.length == 1 else 'Comments' }}</h3>
+        <ol class="webmentions__comment-list">
+          {% for mention in mentions.comments %}
+            <li class="webmentions__comment">
+              <article class="webmentions__comment-card u-comment h-cite">
+                <div class="webmentions__comment-avatar">
+                  {% if mention.author.photo %}
+                    <img class="u-photo" src="{{ mention.author.photo }}" alt="{{ mention.author.name }}" loading="lazy" decoding="async" />
+                  {% else %}
+                    <span class="webmentions__comment-fallback" aria-hidden="true">{{ mention.author.name[0] | upper }}</span>
+                  {% endif %}
+                </div>
+                <div class="webmentions__comment-body">
+                  <div class="webmentions__comment-meta">
+                    <a class="webmentions__comment-author p-author h-card" href="{{ mention.author.url }}" target="_blank" rel="noopener noreferrer">{{ mention.author.name }}</a>
+                    <span class="webmentions__comment-action">{{ mention.action }}</span>
+                    {% if mention.published %}
+                      <a class="webmentions__comment-date u-url" href="{{ mention.url }}" target="_blank" rel="noopener noreferrer">
+                        <time class="dt-published" datetime="{{ mention.published }}">{{ mention.publishedLabel }}</time>
+                      </a>
+                    {% endif %}
+                  </div>
+                  {% if mention.contentHtml %}
+                    <div class="webmentions__comment-content e-content">{{ mention.contentHtml | safe }}</div>
+                  {% elseif mention.contentText %}
+                    <p class="webmentions__comment-content">{{ mention.contentText }}</p>
+                  {% endif %}
+                  <a class="webmentions__comment-link" href="{{ mention.url }}" target="_blank" rel="noopener noreferrer">View original</a>
+                </div>
+              </article>
+            </li>
+          {% endfor %}
+        </ol>
+      </section>
+    {% endif %}
+
+    <p class="webmentions__attribution text-sm text-gray-600 dark:text-gray-400">
+      These are webmentions via the IndieWeb and <a href="https://webmention.io/" target="_blank" rel="noopener noreferrer">webmention.io</a>.
+    </p>
+  {% else %}
+    <div class="text-center py-8 text-gray-500">
+      <p>No webmentions yet.</p>
+      <p class="text-sm mt-2">Likes, reposts, and replies will show up here when they come in.</p>
+    </div>
+  {% endif %}
+</section>

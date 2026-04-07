@@ -17,16 +17,23 @@ layout: base
 </nav>
 
 <article class="h-entry mx-auto max-w-3xl">
-  <header class="mb-5">
+
+  <div class="mb-8">
+      <img class="u-photo w-full rounded-lg" src="{{ featuredImage }}" alt="{{ featuredImageAlt or alt or ('Featured image for ' ~ title) }}" />
+    </div>
+
+  <header class="mb-6">
     <h1 class="p-name text-3xl font-bold tracking-tight mb-2">{{ title }}</h1>
     {% if description %}
       <p class="text-lg text-gray-600 dark:text-gray-400 mb-3">{{ description }}</p>
     {% endif %}
-    <div class="text-sm text-gray-600 dark:text-gray-400 flex flex-wrap items-center gap-x-3 gap-y-1">
-      <time class="dt-published" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
-      <span>•</span>
+    <div class="text-sm text-gray-600 dark:text-gray-400">
+      Published on <time class="dt-published" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+      by <span class="p-author h-card">
+        <a class="u-url p-name hover:text-blue-600" href="/about/">{{ meta.author.name }}</a>
+      </span>
+      <span aria-hidden="true" class="text-gray-400 dark:text-gray-500 mx-1">&bull;</span>
       <span>{{ content | readTime }}</span>
-      <a class="u-url hidden" href="{{ page.url | url | absoluteUrl(meta.url) }}">Permalink</a>
     </div>
   </header>
 
@@ -59,7 +66,7 @@ layout: base
 
       <div class="discuss-mastodon mt-6">
         <div class="discuss-mastodon__intro">
-          <a href="{{ mastodon_url }}" rel="me" class="no-indicator">Discuss on Mastodon</a>
+          <a href="{{ mastodon_url }}" rel="syndication noopener" target="_blank" class="u-syndication no-indicator">Discuss on Mastodon</a>
         </div>
         <mastodon-post></mastodon-post>
       </div>
@@ -71,12 +78,10 @@ layout: base
     </div>
   </section>
 
-  <section id="webmentions" class="mt-12">
-    <h2 class="text-xl font-semibold mb-4">Responses</h2>
-    <div id="webmentions-list">
-      <div class="text-center py-4 text-gray-500">
-        <div class="animate-pulse">Loading webmentions...</div>
-      </div>
-    </div>
-  </section>
+  {% include "partials/webmentions.njk" %}
+
+  <a class="u-bridgy-fed" href="https://fed.brid.gy/" hidden="from-humans">Bridge this note to Bridgy Fed</a>
+  {% if mastodon_url %}
+    <a hidden class="u-syndication" rel="syndication" href="{{ mastodon_url }}">Syndicated on Mastodon</a>
+  {% endif %}
 </article>

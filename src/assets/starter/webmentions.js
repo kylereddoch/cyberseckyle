@@ -32,18 +32,58 @@
     });
   }
 
+  function getCandidateTargets() {
+    const canonicalHref = document.querySelector('link[rel="canonical"]')?.href;
+    const base = canonicalHref || `${window.location.origin}${window.location.pathname}`;
+    const clean = String(base || '')
+      .split('#')[0]
+      .split('?')[0];
+
+    if (!clean) return [];
+
+    const targets = new Set([clean]);
+    if (clean.endsWith('/')) {
+      targets.add(clean.slice(0, -1));
+    } else {
+      targets.add(`${clean}/`);
+    }
+
+    return [...targets];
+  }
+
+  async function fetchMentionsForTarget(target) {
+    const response = await fetch(`https://webmention.io/api/mentions.jf2?target=${encodeURIComponent(target)}&per-page=100`);
+    if (!response.ok) {
+      throw new Error(`Webmention lookup failed for ${target}: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return Array.isArray(data?.children) ? data.children : [];
+  }
+
   async function loadWebmentions() {
     const container = document.getElementById('webmentions-list');
     if (!container) return;
-
-    const currentUrl = window.location.href;
+    const targets = getCandidateTargets();
 
     try {
-      const response = await fetch(`https://webmention.io/api/mentions.jf2?target=${encodeURIComponent(currentUrl)}&per-page=100`);
-      const data = await response.json();
+      const results = await Promise.allSettled(targets.map(fetchMentionsForTarget));
+      const mentions = [];
+      const seen = new Set();
 
-      if (data.children && data.children.length > 0) {
-        displayWebmentions(data.children, container);
+      results.forEach(result => {
+        if (result.status !== 'fulfilled') return;
+
+        result.value.forEach(mention => {
+          const key = mention['wm-id'] || mention.url || `${mention.author?.url || ''}-${mention.published || mention['wm-received'] || ''}`;
+          if (seen.has(key)) return;
+          seen.add(key);
+          mentions.push(mention);
+        });
+      });
+
+      if (mentions.length > 0) {
+        displayWebmentions(mentions, container);
       } else {
         showEmptyState(container);
       }
