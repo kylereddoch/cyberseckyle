@@ -379,6 +379,36 @@
 
 
     
+      <template id="mastodon-post-template">
+        <figure class="mastodon-post">
+    <blockquote data-key="content" class="mastodon-post-quote"></blockquote>
+    <figcaption class="mastodon-post__caption"><!--<cite> — <a data-key="url" rel="me"><span
+                    data-key="username"></span>@<span data-key="hostname"></span></a></cite>-->
+        <dl class="mastodon-post__stats">
+            <div class="mastodon-post__stat">
+                <a href="https://infosec.exchange/@cyberseckyle/116364458832156285/reblogs/" class="no-indicator"><dt><i class="fa-solid fa-rocket"></i></dt>
+                <dd data-key="reblogs_count"></dd></a>
+            </div>
+            <div class="mastodon-post__stat">
+                <a href="https://infosec.exchange/@cyberseckyle/116364458832156285/" class="no-indicator"><dt><i class="fa-solid fa-comment"></i></dt>
+                <dd data-key="replies_count"></dd></a>
+            </div>
+            <div class="mastodon-post__stat">
+                <a href="https://infosec.exchange/@cyberseckyle/116364458832156285/favourites/" class="no-indicator"><dt><i class="fa-solid fa-heart"></i></dt>
+                <dd data-key="favourites_count"></dd></a>
+            </div>
+        </dl>
+    </figcaption>
+</figure>
+      </template>
+
+      <div class="discuss-mastodon mt-6">
+        <div class="discuss-mastodon__intro">
+          <a href="https://infosec.exchange/@cyberseckyle/116364458832156285" rel="syndication noopener" target="_blank" class="u-syndication no-indicator">Discuss on Mastodon</a>
+        </div>
+        <mastodon-post></mastodon-post>
+      </div>
+    
 
     <div class="mt-6">
       <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Give this note some kudos.</p>
@@ -402,6 +432,8 @@
 
 
   <a href="https://fed.brid.gy/" hidden="from-humans" class="u-bridgy-fed">Bridge this note to Bridgy Fed</a>
+  
+    <a hidden rel="syndication" href="https://infosec.exchange/@cyberseckyle/116364458832156285" class="u-syndication">Syndicated on Mastodon</a>
   
 </article>
 
