@@ -8,51 +8,130 @@
       .replace(/'/g, '&#39;');
   }
 
+  function normalizeTarget(url) {
+    if (!url) return '';
+
+    try {
+      const parsed = new URL(String(url));
+      parsed.hash = '';
+      parsed.search = '';
+
+      const pathname = parsed.pathname.replace(/\/+$/, '') || '/';
+      return `${parsed.origin}${pathname === '/' ? '/' : pathname}`;
+    } catch {
+      return String(url)
+        .split('#')[0]
+        .split('?')[0]
+        .replace(/\/+$/, '');
+    }
+  }
+
+  function getTargets(section) {
+    const explicit = section?.dataset?.webmentionsTarget;
+    const canonical = document.querySelector('link[rel="canonical"]')?.href;
+    const current = `${window.location.origin}${window.location.pathname}`;
+    const base = normalizeTarget(explicit || canonical || current);
+
+    if (!base) return [];
+
+    const targets = new Set([base]);
+
+    if (base.endsWith('/')) {
+      targets.add(base.slice(0, -1));
+    } else {
+      targets.add(`${base}/`);
+    }
+
+    return [...targets];
+  }
+
   function formatDate(value) {
     if (!value) return '';
+
     try {
-      return new Date(value).toLocaleDateString(undefined, {
+      return new Intl.DateTimeFormat('en-US', {
         year: 'numeric',
         month: 'short',
         day: 'numeric'
-      });
+      }).format(new Date(value));
     } catch {
       return '';
     }
   }
 
-  function dedupeByAuthor(items) {
+  function stripHtml(value) {
+    return String(value || '').replace(/<[^>]*>/g, ' ');
+  }
+
+  function sanitizeText(value) {
+    return stripHtml(value).replace(/\s+/g, ' ').trim();
+  }
+
+  function toMention(rawMention) {
+    const author = rawMention.author || {};
+    const content = rawMention.content || {};
+    const published = rawMention.published || rawMention['wm-received'] || '';
+
+    return {
+      id: rawMention['wm-id'] || rawMention.url || `${author.url || author.name || 'anon'}-${published}`,
+      property: rawMention['wm-property'] || '',
+      url: rawMention.url || author.url || '#',
+      published,
+      publishedLabel: formatDate(published),
+      action: mapPropertyToAction(rawMention['wm-property']),
+      author: {
+        name: author.name || 'Anonymous',
+        url: author.url || rawMention.url || '#',
+        photo: author.photo || ''
+      },
+      contentText: sanitizeText(content.text || content.html || '')
+    };
+  }
+
+  function mapPropertyToAction(property) {
+    switch (property) {
+      case 'like-of':
+        return 'liked this';
+      case 'repost-of':
+        return 'reposted this';
+      case 'bookmark-of':
+        return 'bookmarked this';
+      case 'in-reply-to':
+        return 'replied';
+      default:
+        return 'mentioned this';
+    }
+  }
+
+  function dedupeMentions(items) {
     const seen = new Set();
 
     return items.filter(item => {
-      const key = item?.author?.url || item?.author?.name || item?.url;
+      const key = item.id || item.url || `${item.author.url || item.author.name}-${item.published || ''}`;
       if (!key || seen.has(key)) return false;
       seen.add(key);
       return true;
     });
   }
 
-  function getCandidateTargets() {
-    const canonicalHref = document.querySelector('link[rel="canonical"]')?.href;
-    const base = canonicalHref || `${window.location.origin}${window.location.pathname}`;
-    const clean = String(base || '')
-      .split('#')[0]
-      .split('?')[0];
+  function dedupeFaces(items) {
+    const seen = new Set();
 
-    if (!clean) return [];
-
-    const targets = new Set([clean]);
-    if (clean.endsWith('/')) {
-      targets.add(clean.slice(0, -1));
-    } else {
-      targets.add(`${clean}/`);
-    }
-
-    return [...targets];
+    return items.filter(item => {
+      const key = item.author.url || item.author.name || item.url;
+      if (!key || seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
   }
 
   async function fetchMentionsForTarget(target) {
-    const response = await fetch(`https://webmention.io/api/mentions.jf2?target=${encodeURIComponent(target)}&per-page=100`);
+    const response = await fetch(`https://webmention.io/api/mentions.jf2?target=${encodeURIComponent(target)}&per-page=100`, {
+      headers: {
+        Accept: 'application/json'
+      }
+    });
+
     if (!response.ok) {
       throw new Error(`Webmention lookup failed for ${target}: ${response.status}`);
     }
@@ -61,10 +140,119 @@
     return Array.isArray(data?.children) ? data.children : [];
   }
 
+  function renderFacepile(items, id, label) {
+    const faces = dedupeFaces(items);
+    if (!faces.length) return '';
+
+    return `
+      <section class="webmentions__facepile">
+        <h3 class="webmentions__hed" id="${escapeHtml(id)}">${escapeHtml(label)}</h3>
+        <div class="webmentions__faces" aria-labelledby="${escapeHtml(id)}">
+          ${faces.map(renderFace).join('')}
+        </div>
+      </section>
+    `;
+  }
+
+  function renderFace(mention) {
+    const authorName = escapeHtml(mention.author.name || 'Anonymous');
+    const href = escapeHtml(mention.url || mention.author.url || '#');
+    const initial = authorName.charAt(0).toUpperCase();
+
+    return `
+      <a class="webmentions__face h-card u-url" href="${href}" target="_blank" rel="noopener noreferrer" title="${authorName}">
+        ${mention.author.photo
+          ? `<img class="u-photo" src="${escapeHtml(mention.author.photo)}" alt="${authorName}" loading="lazy" decoding="async" />`
+          : `<span class="webmentions__face-fallback" aria-hidden="true">${escapeHtml(initial)}</span><span class="visually-hidden">${authorName}</span>`}
+      </a>
+    `;
+  }
+
+  function renderComments(items) {
+    if (!items.length) return '';
+
+    return `
+      <details class="webmentions__thread">
+        <summary class="webmentions__summary">
+          <span class="webmentions__hed">${items.length} ${items.length === 1 ? 'Comment' : 'Comments'}</span>
+        </summary>
+        <ol class="webmentions__comment-list">
+          ${items.map(renderComment).join('')}
+        </ol>
+      </details>
+    `;
+  }
+
+  function renderComment(mention) {
+    const authorName = escapeHtml(mention.author.name || 'Anonymous');
+    const authorUrl = escapeHtml(mention.author.url || mention.url || '#');
+    const mentionUrl = escapeHtml(mention.url || mention.author.url || '#');
+    const initial = authorName.charAt(0).toUpperCase();
+
+    return `
+      <li class="webmentions__comment">
+        <article class="webmentions__comment-card u-comment h-cite">
+          <div class="webmentions__comment-avatar">
+            ${mention.author.photo
+              ? `<img class="u-photo" src="${escapeHtml(mention.author.photo)}" alt="${authorName}" loading="lazy" decoding="async" />`
+              : `<span class="webmentions__comment-fallback" aria-hidden="true">${escapeHtml(initial)}</span>`}
+          </div>
+          <div class="webmentions__comment-body">
+            <div class="webmentions__comment-meta">
+              <a class="webmentions__comment-author p-author h-card" href="${authorUrl}" target="_blank" rel="noopener noreferrer">${authorName}</a>
+              <span class="webmentions__comment-action">${escapeHtml(mention.action)}</span>
+              ${mention.published
+                ? `<a class="webmentions__comment-date u-url" href="${mentionUrl}" target="_blank" rel="noopener noreferrer"><time class="dt-published" datetime="${escapeHtml(mention.published)}">${escapeHtml(mention.publishedLabel)}</time></a>`
+                : ''}
+            </div>
+            ${mention.contentText ? `<p class="webmentions__comment-content">${escapeHtml(mention.contentText)}</p>` : ''}
+            <a class="webmentions__comment-link" href="${mentionUrl}" target="_blank" rel="noopener noreferrer">View original</a>
+          </div>
+        </article>
+      </li>
+    `;
+  }
+
+  function renderEmptyState() {
+    return `
+      <div class="text-center py-8 text-gray-500">
+        <p>No webmentions yet.</p>
+        <p class="text-sm mt-2">Likes, reposts, and replies will show up here when they come in.</p>
+      </div>
+    `;
+  }
+
+  function renderMentions(rawMentions) {
+    const mentions = dedupeMentions(rawMentions.map(toMention));
+    const likes = mentions.filter(mention => mention.property === 'like-of');
+    const reposts = mentions.filter(mention => mention.property === 'repost-of');
+    const bookmarks = mentions.filter(mention => mention.property === 'bookmark-of');
+    const comments = mentions
+      .filter(mention => mention.property === 'in-reply-to' || mention.property === 'mention-of')
+      .sort((a, b) => new Date(a.published || 0).getTime() - new Date(b.published || 0).getTime());
+
+    const parts = [
+      renderFacepile(reposts, 'webmentions-reposts-live', `${reposts.length} ${reposts.length === 1 ? 'Repost' : 'Reposts'}`),
+      renderFacepile(likes, 'webmentions-likes-live', `${likes.length} ${likes.length === 1 ? 'Like' : 'Likes'}`),
+      renderFacepile(bookmarks, 'webmentions-bookmarks-live', `${bookmarks.length} ${bookmarks.length === 1 ? 'Bookmark' : 'Bookmarks'}`),
+      renderComments(comments)
+    ].filter(Boolean);
+
+    if (!parts.length) {
+      return renderEmptyState();
+    }
+
+    return parts.join('');
+  }
+
   async function loadWebmentions() {
+    const section = document.getElementById('webmentions');
     const container = document.getElementById('webmentions-list');
-    if (!container) return;
-    const targets = getCandidateTargets();
+
+    if (!section || !container) return;
+
+    const targets = getTargets(section);
+    if (!targets.length) return;
 
     try {
       const results = await Promise.allSettled(targets.map(fetchMentionsForTarget));
@@ -75,143 +263,17 @@
         if (result.status !== 'fulfilled') return;
 
         result.value.forEach(mention => {
-          const key = mention['wm-id'] || mention.url || `${mention.author?.url || ''}-${mention.published || mention['wm-received'] || ''}`;
-          if (seen.has(key)) return;
+          const key = mention['wm-id'] || mention.url || `${mention.author?.url || mention.author?.name || 'anon'}-${mention.published || mention['wm-received'] || ''}`;
+          if (!key || seen.has(key)) return;
           seen.add(key);
           mentions.push(mention);
         });
       });
 
-      if (mentions.length > 0) {
-        displayWebmentions(mentions, container);
-      } else {
-        showEmptyState(container);
-      }
+      container.innerHTML = renderMentions(mentions);
     } catch (error) {
-      console.warn('Failed to load webmentions:', error);
-      showEmptyState(container);
+      console.warn('Failed to load webmentions live:', error);
     }
-  }
-
-  function renderFaces(items, label) {
-    const uniqueItems = dedupeByAuthor(items);
-    if (!uniqueItems.length) return '';
-
-    return `
-      <section class="webmention-group">
-        <h3 class="webmention-group__title">${escapeHtml(label)}</h3>
-        <div class="webmention-faces" role="list" aria-label="${escapeHtml(label)}">
-          ${uniqueItems.map(renderFace).join('')}
-        </div>
-      </section>
-    `;
-  }
-
-  function renderFace(mention) {
-    const author = mention.author || {};
-    const authorName = escapeHtml(author.name || 'Anonymous');
-    const authorUrl = escapeHtml(author.url || mention.url || '#');
-    const authorInitial = authorName.charAt(0).toUpperCase();
-
-    return `
-      <a class="webmention-face" href="${authorUrl}" target="_blank" rel="noopener" title="${authorName}">
-        ${author.photo
-          ? `<img src="${escapeHtml(author.photo)}" alt="${authorName}" loading="lazy" />`
-          : `<span class="webmention-face__fallback" aria-hidden="true">${authorInitial}</span><span class="visually-hidden">${authorName}</span>`}
-      </a>
-    `;
-  }
-
-  function renderConversation(mentions) {
-    if (!mentions.length) return '';
-
-    return `
-      <section class="webmention-comments">
-        <h3 class="webmention-comments__title">${mentions.length} ${mentions.length === 1 ? 'Comment' : 'Comments'}</h3>
-        <ol class="webmention-comment-list">
-          ${mentions.map(renderMention).join('')}
-        </ol>
-      </section>
-    `;
-  }
-
-  function displayWebmentions(mentions, container) {
-    const likes = mentions.filter(m => m['wm-property'] === 'like-of');
-    const reposts = mentions.filter(m => m['wm-property'] === 'repost-of');
-    const bookmarks = mentions.filter(m => m['wm-property'] === 'bookmark-of');
-    const replies = mentions.filter(m => m['wm-property'] === 'in-reply-to');
-    const general = mentions.filter(m => m['wm-property'] === 'mention-of');
-    const conversation = [...replies, ...general].sort((a, b) => new Date(a.published || 0) - new Date(b.published || 0));
-
-    let html = '';
-
-    if (likes.length || reposts.length || bookmarks.length) {
-      html += '<div class="webmention-summary">';
-      if (reposts.length) html += `<span>\uD83D\uDD01 ${reposts.length} ${reposts.length === 1 ? 'Repost' : 'Reposts'}</span>`;
-      if (likes.length) html += `<span>\u2764\uFE0F ${likes.length} ${likes.length === 1 ? 'Like' : 'Likes'}</span>`;
-      if (bookmarks.length) html += `<span>\uD83D\uDD16 ${bookmarks.length} ${bookmarks.length === 1 ? 'Bookmark' : 'Bookmarks'}</span>`;
-      html += '</div>';
-    }
-
-    if (reposts.length || likes.length || bookmarks.length) {
-      html += '<div class="webmention-grid">';
-      html += renderFaces(reposts, `${reposts.length} ${reposts.length === 1 ? 'Repost' : 'Reposts'}`);
-      html += renderFaces(likes, `${likes.length} ${likes.length === 1 ? 'Like' : 'Likes'}`);
-      html += renderFaces(bookmarks, `${bookmarks.length} ${bookmarks.length === 1 ? 'Bookmark' : 'Bookmarks'}`);
-      html += '</div>';
-    }
-
-    html += renderConversation(conversation);
-
-    container.innerHTML = html || emptyStateMarkup();
-  }
-
-  function renderMention(mention) {
-    const author = mention.author || {};
-    const content = mention.content || {};
-    const published = formatDate(mention.published);
-    const authorName = escapeHtml(author.name || 'Anonymous');
-    const authorInitial = authorName.charAt(0).toUpperCase();
-    const contentText = content.text
-      ? escapeHtml(content.text.length > 600 ? `${content.text.substring(0, 600)}...` : content.text)
-      : '';
-    const authorUrl = escapeHtml(author.url || '#');
-    const mentionUrl = escapeHtml(mention.url || author.url || '#');
-    const action = mention['wm-property'] === 'in-reply-to' ? 'replied' : 'mentioned this';
-
-    return `
-      <li class="webmention-comment">
-        <article class="webmention-comment__card">
-          <div class="webmention-comment__avatar">
-            ${author.photo
-              ? `<img src="${escapeHtml(author.photo)}" alt="${authorName}" loading="lazy" />`
-              : `<div class="webmention-comment__fallback" aria-hidden="true">${authorInitial}</div>`}
-          </div>
-          <div class="webmention-comment__body">
-            <div class="webmention-comment__meta">
-              <a href="${authorUrl}" class="webmention-comment__author" target="_blank" rel="noopener">${authorName}</a>
-              <span class="webmention-comment__action">${escapeHtml(action)}</span>
-              ${published ? `<time class="webmention-comment__date">${escapeHtml(published)}</time>` : ''}
-            </div>
-            ${contentText ? `<p class="webmention-comment__content">${contentText}</p>` : ''}
-            <a href="${mentionUrl}" class="webmention-comment__link" target="_blank" rel="noopener">View original</a>
-          </div>
-        </article>
-      </li>
-    `;
-  }
-
-  function emptyStateMarkup() {
-    return `
-      <div class="text-center py-8 text-gray-500">
-        <p>No webmentions yet.</p>
-        <p class="text-sm mt-2">Likes, reposts, and replies will show up here when they come in.</p>
-      </div>
-    `;
-  }
-
-  function showEmptyState(container) {
-    container.innerHTML = emptyStateMarkup();
   }
 
   if (document.readyState === 'loading') {

@@ -4,12 +4,123 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-04-07T16:55:26Z</updated>
+  <updated>2026-04-07T20:24:42Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>I Built an Eleventy Plugin for Sharing Posts to Mastodon</title>
+      <link href="https://www.kylereddoch.me/blog/i-built-an-eleventy-plugin-for-sharing-posts-to-mastodon/" />
+      <updated>2026-04-07T18:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/i-built-an-eleventy-plugin-for-sharing-posts-to-mastodon/</id>
+      <content type="html">
+        &lt;p&gt;I am happy to share a new open source project I have been working on: &lt;code&gt;@kylereddoch/eleventy-plugin-mastodon-share&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;You can browse the source on &lt;a href=&quot;https://github.com/kylereddoch/eleventy-plugin-mastodon-share&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt; and try the &lt;a href=&quot;https://eleventy-plugin-mastodon-share.vercel.app/&quot; rel=&quot;noopener&quot;&gt;live demo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;It is a small Eleventy plugin that makes it easier for people to share posts from your site to Mastodon.&lt;/p&gt;
+&lt;p&gt;If you have ever tried to add Mastodon sharing to a website, you already know the awkward part: there is no single universal destination the way there is with some other social platforms. People need to post through their own Mastodon instance, which means a simple “share this post” button is usually not enough.&lt;/p&gt;
+&lt;p&gt;That is the problem I wanted to solve.&lt;/p&gt;
+&lt;h2 id=&quot;what-this-plugin-does&quot;&gt;What This Plugin Does&lt;/h2&gt;
+&lt;p&gt;This plugin adds a Mastodon share button to an Eleventy site, along with a small instance picker that helps visitors choose where they want to post.&lt;/p&gt;
+&lt;p&gt;It includes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a main “Share on Mastodon” button&lt;/li&gt;
+&lt;li&gt;a prompt for entering a custom Mastodon instance&lt;/li&gt;
+&lt;li&gt;a list of popular instances to choose from&lt;/li&gt;
+&lt;li&gt;the ability to save a preferred instance for future shares&lt;/li&gt;
+&lt;li&gt;shortcode helpers so Eleventy users do not have to hand-build all of the markup and logic themselves&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The goal was to make this feel easy for both sides:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;easy for site owners to install and use&lt;/li&gt;
+&lt;li&gt;easy for readers to actually share something without confusion&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;why-i-built-it&quot;&gt;Why I Built It&lt;/h2&gt;
+&lt;p&gt;I wanted a Mastodon sharing experience that fit naturally into Eleventy.&lt;/p&gt;
+&lt;p&gt;There are plenty of ways to build your own share button, but once you start dealing with instance selection, remembering preferences, progressive enhancement, and reusable templates, it becomes more work than it should be.&lt;/p&gt;
+&lt;p&gt;I wanted something I could drop into an Eleventy site and feel good about sharing with the broader community too.&lt;/p&gt;
+&lt;h2 id=&quot;how-it-works&quot;&gt;How It Works&lt;/h2&gt;
+&lt;p&gt;Once the plugin is added to an Eleventy project, you can load its assets in your layout and render the share UI with a shortcode.&lt;/p&gt;
+&lt;p&gt;For a basic post layout, it can look like this:&lt;/p&gt;
+&lt;pre class=&quot;language-twig&quot;&gt;&lt;code class=&quot;language-twig&quot;&gt;&lt;span class=&quot;token twig language-twig&quot;&gt;&lt;span class=&quot;token delimiter punctuation&quot;&gt;{%&lt;/span&gt; &lt;span class=&quot;token tag-name keyword&quot;&gt;mastodonSharePost&lt;/span&gt; title&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;title&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; description&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;description&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; hashtags&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;mastodon_hashtags &lt;span class=&quot;token delimiter punctuation&quot;&gt;%}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The plugin can build the share text from your page data, include the page URL, and pass hashtags through to Mastodon.&lt;/p&gt;
+&lt;p&gt;For people visiting your site:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;If they already saved an instance, the button opens that instance directly.&lt;/li&gt;
+&lt;li&gt;If they have not saved one yet, they can enter their own instance.&lt;/li&gt;
+&lt;li&gt;They can also choose from a list of popular instances and save one for next time.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;That means the share flow is much smoother than dropping people onto a generic page and expecting them to figure everything out on their own.&lt;/p&gt;
+&lt;h2 id=&quot;built-for-eleventy&quot;&gt;Built for Eleventy&lt;/h2&gt;
+&lt;p&gt;One thing that mattered to me with this project was making it feel like an Eleventy plugin, not just a chunk of copied template code.&lt;/p&gt;
+&lt;p&gt;It supports:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Nunjucks&lt;/li&gt;
+&lt;li&gt;Liquid&lt;/li&gt;
+&lt;li&gt;Eleventy JavaScript templates&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It also includes helper shortcodes for:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;rendering the share UI&lt;/li&gt;
+&lt;li&gt;rendering the stylesheet&lt;/li&gt;
+&lt;li&gt;rendering the script&lt;/li&gt;
+&lt;li&gt;rendering both assets together&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So instead of rebuilding the same pattern in each project, users can install the plugin and get going much faster.&lt;/p&gt;
+&lt;h2 id=&quot;a-few-things-i-wanted-to-get-right&quot;&gt;A Few Things I Wanted to Get Right&lt;/h2&gt;
+&lt;p&gt;I wanted this to be practical, lightweight, and approachable.&lt;/p&gt;
+&lt;p&gt;So the plugin is designed around a few simple ideas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;it should work well with regular Eleventy projects&lt;/li&gt;
+&lt;li&gt;it should not require a heavy setup&lt;/li&gt;
+&lt;li&gt;it should offer sensible defaults&lt;/li&gt;
+&lt;li&gt;it should still be customizable if someone wants to adapt it to their site&lt;/li&gt;
+&lt;li&gt;it should help readers share to Mastodon in a way that makes sense&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It also uses progressive enhancement, so the experience still has a fallback even if JavaScript is unavailable.&lt;/p&gt;
+&lt;h2 id=&quot;who-this-is-for&quot;&gt;Who This Is For&lt;/h2&gt;
+&lt;p&gt;This plugin is for Eleventy users who:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;publish blog posts or articles&lt;/li&gt;
+&lt;li&gt;want to encourage sharing on Mastodon&lt;/li&gt;
+&lt;li&gt;do not want to reimplement instance selection from scratch&lt;/li&gt;
+&lt;li&gt;want a reusable solution they can drop into layouts and templates&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you write on the open web and care about the fediverse, I hope this makes your site a little more helpful to your readers.&lt;/p&gt;
+&lt;h2 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h2&gt;
+&lt;p&gt;Install the package:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; @kylereddoch/eleventy-plugin-mastodon-share&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Register it in your Eleventy config:&lt;/p&gt;
+&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; mastodonShare &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;@kylereddoch/eleventy-plugin-mastodon-share&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;eleventyConfig&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  eleventyConfig&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addPlugin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;mastodonShare&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token literal-property property&quot;&gt;siteUrl&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://example.com&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token literal-property property&quot;&gt;emitStylesheetLink&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then load the assets in your layout:&lt;/p&gt;
+&lt;pre class=&quot;language-twig&quot;&gt;&lt;code class=&quot;language-twig&quot;&gt;&lt;span class=&quot;token twig language-twig&quot;&gt;&lt;span class=&quot;token delimiter punctuation&quot;&gt;{%&lt;/span&gt; &lt;span class=&quot;token tag-name keyword&quot;&gt;mastodonShareAssets&lt;/span&gt; &lt;span class=&quot;token delimiter punctuation&quot;&gt;%}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And render the share UI where you want it:&lt;/p&gt;
+&lt;pre class=&quot;language-twig&quot;&gt;&lt;code class=&quot;language-twig&quot;&gt;&lt;span class=&quot;token twig language-twig&quot;&gt;&lt;span class=&quot;token delimiter punctuation&quot;&gt;{%&lt;/span&gt; &lt;span class=&quot;token tag-name keyword&quot;&gt;mastodonSharePost&lt;/span&gt; title&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;title&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; description&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;description&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; hashtags&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;mastodon_hashtags &lt;span class=&quot;token delimiter punctuation&quot;&gt;%}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you want more control, the plugin also supports a lower-level shortcode for custom share text and additional configuration options.&lt;/p&gt;
+&lt;h2 id=&quot;open-source-and-community&quot;&gt;Open Source and Community&lt;/h2&gt;
+&lt;p&gt;This project is open source, and I built it with the Eleventy community in mind.&lt;/p&gt;
+&lt;p&gt;I want it to be genuinely useful, easy to understand, and easy to improve over time.&lt;/p&gt;
+&lt;p&gt;If you try it and have ideas, feedback, bug reports, or suggestions, I would love to hear from you.&lt;/p&gt;
+&lt;h2 id=&quot;links&quot;&gt;Links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/kylereddoch/eleventy-plugin-mastodon-share&quot; rel=&quot;noopener&quot;&gt;GitHub Repository&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://eleventy-plugin-mastodon-share.vercel.app/&quot; rel=&quot;noopener&quot;&gt;Live Demo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/@kylereddoch/eleventy-plugin-mastodon-share&quot; rel=&quot;noopener&quot;&gt;npm Package&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;final-thoughts&quot;&gt;Final Thoughts&lt;/h2&gt;
+&lt;p&gt;I love small tools that solve specific problems well, especially when they help make the open web a little easier to use.&lt;/p&gt;
+&lt;p&gt;That is what I hope this plugin does.&lt;/p&gt;
+&lt;p&gt;If you use Eleventy and want a cleaner Mastodon sharing experience on your site, I hope &lt;code&gt;eleventy-plugin-mastodon-share&lt;/code&gt; is helpful.&lt;/p&gt;
+
+      </content>
+    </entry><entry>
       <title>A New Look, a Quiet Weekend, and a Full Heart (Week 14, 2026)</title>
       <link href="https://www.kylereddoch.me/notes/2026/week-14-2026/" />
       <updated>2026-04-07T15:00:00Z</updated>
