@@ -67,6 +67,8 @@ schema: BlogPosting
     </section>
   {% endif %}
 
+  {% include "partials/related-posts.njk" %}
+
   <section class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
     <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
       <div class="flex items-start gap-4">
@@ -109,8 +111,6 @@ schema: BlogPosting
     {% include "partials/webmentions.njk" %}
 
   </section>
-
-  {% include "partials/related-posts.njk" %}
 
   <div hidden class="h-entry">
     <a class="u-url" href="{{ page.url | url | absoluteUrl(meta.url) }}">{{ title }}</a>

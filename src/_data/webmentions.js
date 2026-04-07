@@ -1,7 +1,10 @@
 import EleventyFetch from '@11ty/eleventy-fetch';
+import dotenv from 'dotenv';
 import sanitizeHtml from 'sanitize-html';
 
 import { domain as siteDomain } from './meta.js';
+
+dotenv.config({ path: '.env' });
 
 const API_ORIGIN = 'https://webmention.io/api/mentions.jf2';
 const TOKEN = process.env.WEBMENTION_IO_TOKEN;

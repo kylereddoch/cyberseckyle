@@ -387,6 +387,10 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter('slugify', filters.slugifyString);
   eleventyConfig.addFilter('slug', filters.slugifyString);
   eleventyConfig.addFilter('webmentionTarget', normalizeWebmentionTarget);
+  eleventyConfig.addFilter('lookup', (obj, key) => {
+    if (!obj || typeof obj !== 'object') return undefined;
+    return obj[key];
+  });
   eleventyConfig.addFilter('json', (value, spaces = 0) => JSON.stringify(value, null, spaces));
   eleventyConfig.addFilter('head', (arr, n) => {
     if (!Array.isArray(arr)) return arr;
