@@ -31,6 +31,7 @@ export default async function () {
     return {
       configured: false,
       error: null,
+      clientApiKey: null,
       username: username || null,
       profileUrl: username ? `https://www.last.fm/user/${username}` : 'https://www.last.fm',
       nowPlaying: null,
@@ -109,6 +110,7 @@ export default async function () {
     return {
       configured: true,
       error: null,
+      clientApiKey: apiKey,
       username,
       profileUrl: `https://www.last.fm/user/${username}`,
       nowPlaying,
@@ -120,6 +122,7 @@ export default async function () {
     return {
       configured: true,
       error: error.message,
+      clientApiKey: apiKey,
       username,
       profileUrl: `https://www.last.fm/user/${username}`,
       nowPlaying: null,
