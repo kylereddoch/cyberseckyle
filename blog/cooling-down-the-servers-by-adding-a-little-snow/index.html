@@ -379,7 +379,7 @@ or
           <p class="text-gray-600 dark:text-gray-400 mt-1">I am a cybersecurity expert and IT professional who writes as CybersecKyle. I share day-to-day security and MSP work on Mastodon and publish tools and experiments on GitHub.</p>
           <div class="mt-3 flex flex-wrap gap-4 text-sm">
             <a href="/about/" class="text-blue-600 hover:text-blue-800">More about me</a>
-            <a href="/coffee/" class="text-green-600 hover:text-green-800">Support my work</a>
+            <a href="/donate/" class="text-green-600 hover:text-green-800">Support my work</a>
           </div>
         </div>
       </div>
@@ -545,7 +545,7 @@ or
 
       <div class="discuss-mastodon mt-6">
         <div class="discuss-mastodon__intro">
-          <a href="https://infosec.exchange/@cyberseckyle/115697115782901181" rel="me" class="no-indicator">Discuss on Mastodon</a>
+          <a href="https://infosec.exchange/@cyberseckyle/115697115782901181" rel="syndication noopener" target="_blank" class="u-syndication no-indicator">Discuss on Mastodon</a>
         </div>
         <mastodon-post></mastodon-post>
       </div>
@@ -556,14 +556,20 @@ or
       <button data-path="/blog/cooling-down-the-servers-by-adding-a-little-snow/" class="tinylytics_kudos"></button>
     </div>
 
-    <section id="webmentions" class="mt-12">
-    <h2 class="text-xl font-semibold mb-4">Responses</h2>
-    <div id="webmentions-list">
-      <div class="text-center py-4 text-gray-500">
-        <div class="animate-pulse">Loading webmentions...</div>
-      </div>
+    
+
+
+<section id="webmentions" data-pagefind-ignore class="webmentions mt-12">
+  <h2 class="text-xl font-semibold mb-4">Responses</h2>
+
+  
+    <div class="text-center py-8 text-gray-500">
+      <p>No webmentions yet.</p>
+      <p class="text-sm mt-2">Likes, reposts, and replies will show up here when they come in.</p>
     </div>
-  </section>
+  
+</section>
+
 
   </section>
 
@@ -652,6 +658,10 @@ or
   <div hidden class="h-entry">
     <a href="https://www.kylereddoch.me/blog/cooling-down-the-servers-by-adding-a-little-snow/" class="u-url">Cooling Down the Servers by Adding a Little Snow</a>
     <a rel="author" href="https://www.kylereddoch.me" class="p-name u-url">Kyle Reddoch</a>
+    <a href="https://fed.brid.gy/" hidden="from-humans" class="u-bridgy-fed">Bridge this post to Bridgy Fed</a>
+    
+      <a rel="syndication" href="https://infosec.exchange/@cyberseckyle/115697115782901181" class="u-syndication">Syndicated on Mastodon</a>
+    
     <img src="https://www.kylereddoch.me/assets/images/logo.png" alt="Kyle Reddoch" class="u-author h-card">
   </div>
 </article>
@@ -835,7 +845,6 @@ or
     <script src="/assets/starter/main.js" defer></script>
     <script src="/assets/starter/flexsearch.min.js" defer></script>
     <script src="/assets/starter/search.js" defer></script>
-    <script src="/assets/starter/webmentions.js" defer></script>
     <script src="/assets/starter/easter-eggs.js" defer></script>
     <script src="https://kit.fontawesome.com/fb3ee9d8ef.js" crossorigin="anonymous" defer></script>
     <script src="https://tinylytics.app/embed/aK6PBymtmDm6DxSXaP2H.js?webring&amp;kudos=%E2%9D%A4%EF%B8%8F" defer></script>

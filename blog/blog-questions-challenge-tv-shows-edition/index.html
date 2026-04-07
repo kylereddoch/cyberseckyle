@@ -252,7 +252,7 @@
           <p class="text-gray-600 dark:text-gray-400 mt-1">I am a cybersecurity expert and IT professional who writes as CybersecKyle. I share day-to-day security and MSP work on Mastodon and publish tools and experiments on GitHub.</p>
           <div class="mt-3 flex flex-wrap gap-4 text-sm">
             <a href="/about/" class="text-blue-600 hover:text-blue-800">More about me</a>
-            <a href="/coffee/" class="text-green-600 hover:text-green-800">Support my work</a>
+            <a href="/donate/" class="text-green-600 hover:text-green-800">Support my work</a>
           </div>
         </div>
       </div>
@@ -418,7 +418,7 @@
 
       <div class="discuss-mastodon mt-6">
         <div class="discuss-mastodon__intro">
-          <a href="https://infosec.exchange/@beardedtechguy/114065683540823558" rel="me" class="no-indicator">Discuss on Mastodon</a>
+          <a href="https://infosec.exchange/@beardedtechguy/114065683540823558" rel="syndication noopener" target="_blank" class="u-syndication no-indicator">Discuss on Mastodon</a>
         </div>
         <mastodon-post></mastodon-post>
       </div>
@@ -429,14 +429,20 @@
       <button data-path="/blog/blog-questions-challenge-tv-shows-edition/" class="tinylytics_kudos"></button>
     </div>
 
-    <section id="webmentions" class="mt-12">
-    <h2 class="text-xl font-semibold mb-4">Responses</h2>
-    <div id="webmentions-list">
-      <div class="text-center py-4 text-gray-500">
-        <div class="animate-pulse">Loading webmentions...</div>
-      </div>
+    
+
+
+<section id="webmentions" data-pagefind-ignore class="webmentions mt-12">
+  <h2 class="text-xl font-semibold mb-4">Responses</h2>
+
+  
+    <div class="text-center py-8 text-gray-500">
+      <p>No webmentions yet.</p>
+      <p class="text-sm mt-2">Likes, reposts, and replies will show up here when they come in.</p>
     </div>
-  </section>
+  
+</section>
+
 
   </section>
 
@@ -447,6 +453,27 @@
     <h2 class="text-xl font-semibold mb-6">Related Posts</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+        <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
+          <h3 class="font-semibold mb-2">
+            <a href="/notes/2026/week-14-2026/" class="hover:text-blue-600">A New Look, a Quiet Weekend, and a Full Heart (Week 14, 2026)</a>
+          </h3>
+          <time datetime="2026-04-07" class="text-sm text-gray-500 dark:text-gray-400">
+            April 7, 2026
+          </time>
+          
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Week 14 was a mix of creative momentum, meaningful reflection, and much-needed rest, from launching my new blog design to slowing down for a spiritually important week.</p>
+          
+          
+            <div class="mt-3 flex flex-wrap gap-1">
+              
+                
+              
+                
+              
+            </div>
+          
+        </article>
       
         <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
           <h3 class="font-semibold mb-2">
@@ -494,29 +521,6 @@
           
         </article>
       
-        <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
-          <h3 class="font-semibold mb-2">
-            <a href="/blog/i-believe-in-human-websites-i-still-care-about-polish/" class="hover:text-blue-600">I Believe in Human Websites. I Still Care About Polish</a>
-          </h3>
-          <time datetime="2026-03-31" class="text-sm text-gray-500 dark:text-gray-400">
-            March 31, 2026
-          </time>
-          
-            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Reading Joel’s post on unpolished human websites made me think about the tension between keeping a site personal and still wanting it to be clear, readable, and discoverable.</p>
-          
-          
-            <div class="mt-3 flex flex-wrap gap-1">
-              
-                
-              
-                
-                  <span style="background-color: hsl(101 65% 45%)" class="text-xs px-2 py-0.5 rounded text-white">#blogging</span>
-                
-              
-            </div>
-          
-        </article>
-      
     </div>
   </section>
 
@@ -525,6 +529,10 @@
   <div hidden class="h-entry">
     <a href="https://www.kylereddoch.me/blog/blog-questions-challenge-tv-shows-edition/" class="u-url">Blog Questions Challenge – TV Shows Edition</a>
     <a rel="author" href="https://www.kylereddoch.me" class="p-name u-url">Kyle Reddoch</a>
+    <a href="https://fed.brid.gy/" hidden="from-humans" class="u-bridgy-fed">Bridge this post to Bridgy Fed</a>
+    
+      <a rel="syndication" href="https://infosec.exchange/@beardedtechguy/114065683540823558" class="u-syndication">Syndicated on Mastodon</a>
+    
     <img src="https://www.kylereddoch.me/assets/images/logo.png" alt="Kyle Reddoch" class="u-author h-card">
   </div>
 </article>
@@ -708,7 +716,6 @@
     <script src="/assets/starter/main.js" defer></script>
     <script src="/assets/starter/flexsearch.min.js" defer></script>
     <script src="/assets/starter/search.js" defer></script>
-    <script src="/assets/starter/webmentions.js" defer></script>
     <script src="/assets/starter/easter-eggs.js" defer></script>
     <script src="https://kit.fontawesome.com/fb3ee9d8ef.js" crossorigin="anonymous" defer></script>
     <script src="https://tinylytics.app/embed/aK6PBymtmDm6DxSXaP2H.js?webring&amp;kudos=%E2%9D%A4%EF%B8%8F" defer></script>

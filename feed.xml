@@ -4,12 +4,40 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-04-07T00:00:45Z</updated>
+  <updated>2026-04-07T16:08:16Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>A New Look, a Quiet Weekend, and a Full Heart (Week 14, 2026)</title>
+      <link href="https://www.kylereddoch.me/notes/2026/week-14-2026/" />
+      <updated>2026-04-07T15:00:00Z</updated>
+      <id>https://www.kylereddoch.me/notes/2026/week-14-2026/</id>
+      <content type="html">
+        &lt;blockquote&gt;
+&lt;p&gt;Coming in a day late with this one again but it is for a good reason. I was busy launching my new design yesterday.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
+&lt;p&gt;This week felt grounded in the best way. There was a lot of energy poured into launching my new blog design, but it was balanced out by a quieter weekend, some real physical reset, and time to reflect during a spiritually important week. Overall, it felt like one of those weeks where progress and pause came together nicely.&lt;/p&gt;
+&lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;I went to my chiropractor for my regular adjustment visit. Man do these feel good. This time I had them pull (decompression) on my lumbar area (the past two times I have had them pull on my neck). They started with a light pull so I didn’t really feel it. After leaving, I did start to notice my numbness in my left leg after work and into the evening that I havent had that much in a while. I am not sure if the pull caused a nerve to relocate or what.&lt;/li&gt;
+&lt;li&gt;I worked a my &lt;a href=&quot;https://www.kylereddoch.me/notes/2026/week-14-2026/blog/why-cyberseckyle-has-a-new-look/&quot;&gt;new design for the blog&lt;/a&gt; pretty much all week. I wanted to get a design that was more IndieWeb friendly and more focused on the content and didn’t feel like some generic template. I am really happy with the way it turned out.&lt;/li&gt;
+&lt;li&gt;This week was a special week. It was the &lt;a href=&quot;https://www.jw.org/en/jehovahs-witnesses/memorial/&quot; rel=&quot;noopener&quot;&gt;Memorial Week of the death of Jesus&lt;/a&gt;. As a Christian, this is a very important week for me. It is a time to reflect on the sacrifice that Jesus made for us and to &lt;a href=&quot;https://www.jw.org/en/library/videos/Good-News-From-God-Video-Series/video-why-did-jesus-die/&quot; rel=&quot;noopener&quot;&gt;remember the love&lt;/a&gt; that he has for us. The memorial landing on Thursday this year and it was a really good service. It was nice to be reminded of the &lt;a href=&quot;https://www.jw.org/en/jehovahs-witnesses/memorial/remember-jesus-death/&quot; rel=&quot;noopener&quot;&gt;benefits that Jesus’ death has for us&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;I did absolutely nothing this weekend. I stayed home and just relaxed. I just felt like slumming it. 😁&lt;/li&gt;
+&lt;li&gt;I have been watching &lt;em&gt;The Man in the High Castle&lt;/em&gt;. It is a show about an alternate history where the Axis powers won World War II. It is a really good show and I have been enjoying it a lot. It is a great show and I would definitely recommend it if you are looking for something to watch.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;worth-sharing&quot;&gt;Worth sharing&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Came across this &lt;a href=&quot;https://mastodon.social/@danie10/116325566423039061&quot; rel=&quot;noopener&quot;&gt;post on Mastodon&lt;/a&gt; for this open source app that allows you to safely test PDFs. I will be checking this out for sure.&lt;/li&gt;
+&lt;li&gt;HaveIBeenPwned got a &lt;a href=&quot;https://infosec.exchange/@troyhunt/116319598845501037&quot; rel=&quot;noopener&quot;&gt;new feature&lt;/a&gt; for passkeys.&lt;/li&gt;
+&lt;li&gt;I wrote my thoughts on the recent &lt;a href=&quot;https://www.kylereddoch.me/blog/the-biggest-cybersecurity-risk-for-smbs-still-isnt-the-fancy-stuff/&quot;&gt;2026 Cyber Protect Report from SonicWall&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;✌️ That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
+
+      </content>
+    </entry><entry>
       <title>Why CybersecKyle Has a New Look</title>
       <link href="https://www.kylereddoch.me/blog/why-cyberseckyle-has-a-new-look/" />
       <updated>2026-04-06T21:30:00Z</updated>
@@ -202,9 +230,7 @@
       <updated>2026-03-31T15:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-13-2026/</id>
       <content type="html">
-        &lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-875w.webp 875w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
-&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-875w.jpeg 875w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-875w.jpeg&quot; width=&quot;875&quot; height=&quot;583&quot; alt=&quot;Cozy desk scene with an open handwritten notebook, a fountain pen, and a warm cup of coffee beside a lit candle on a rustic wooden table.&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
-&lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
+        &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
 &lt;p&gt;A grounded weekly note with a little whiplash. Mostly everyday family life, then suddenly a wild neighborhood story that shifts the whole mood.&lt;/p&gt;
 &lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
 &lt;ul&gt;
@@ -374,9 +400,7 @@
       <updated>2026-03-23T21:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-12-2026/</id>
       <content type="html">
-        &lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-1536w.webp 1536w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
-&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-1536w.jpeg 1536w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-1536w.jpeg&quot; width=&quot;1536&quot; height=&quot;1024&quot; alt=&quot;Cozy desk scene with an open handwritten notebook, a fountain pen, and a warm cup of coffee beside a lit candle on a rustic wooden table.&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
-&lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
+        &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
 &lt;p&gt;Life maintenance and finish-line energy.&lt;/p&gt;
 &lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
 &lt;ul&gt;
@@ -652,8 +676,6 @@
         &lt;blockquote&gt;
 &lt;p&gt;Another week coming in late with this one.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-1536w.webp 1536w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
-&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-1536w.jpeg 1536w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-1536w.jpeg&quot; width=&quot;1536&quot; height=&quot;1024&quot; alt=&quot;Cozy desk scene with an open handwritten notebook, a fountain pen, and a warm cup of coffee beside a lit candle on a rustic wooden table.&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
 &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
 &lt;p&gt;Reflective, slightly overstimulated, but ending on a better note.&lt;/p&gt;
 &lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
@@ -931,9 +953,7 @@ It is “Can our current MFA model be socially engineered in real time?”&lt;/p
       <updated>2026-03-10T21:30:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-10-2026/</id>
       <content type="html">
-        &lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-1536w.webp 1536w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
-&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-1536w.jpeg 1536w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-1536w.jpeg&quot; width=&quot;1536&quot; height=&quot;1024&quot; alt=&quot;Cozy desk scene with an open handwritten notebook, a fountain pen, and a warm cup of coffee beside a lit candle on a rustic wooden table.&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
-&lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
+        &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
 &lt;p&gt;Motivated by the return of racing while navigating a few rough nights and a busy week of security work.&lt;/p&gt;
 &lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
 &lt;ul&gt;
@@ -1097,9 +1117,7 @@ It is “Can our current MFA model be socially engineered in real time?”&lt;/p
       <updated>2026-03-02T21:30:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-09-2026/</id>
       <content type="html">
-        &lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-1536w.webp 1536w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
-&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-1536w.jpeg 1536w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-1536w.jpeg&quot; width=&quot;1536&quot; height=&quot;1024&quot; alt=&quot;Cozy desk scene with an open handwritten notebook, a fountain pen, and a warm cup of coffee beside a lit candle on a rustic wooden table.&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
-&lt;blockquote&gt;
+        &lt;blockquote&gt;
 &lt;p&gt;These past few weeks have been pretty rough for me, as you might have seen. &lt;a href=&quot;https://infosec.exchange/@cyberseckyle/116131496602643142&quot; rel=&quot;noopener&quot;&gt;I recently just haven’t felt like myself.&lt;/a&gt; Haven’t felt like getting on the internet much at all. As a result of that, I haven’t been writing much articles/posts on the blog. I have been trying to get back into the groove of things, but it has been a struggle.&lt;/p&gt;
 &lt;p&gt;Now onto what last week was like.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1132,8 +1150,6 @@ It is “Can our current MFA model be socially engineered in real time?”&lt;/p
         &lt;blockquote&gt;
 &lt;p&gt;Sorry for another late post. It has been a busy week again plus I have just been taking a break from the internet. As a result, I haven’t been writing as much.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-1536w.webp 1536w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
-&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-1536w.jpeg 1536w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-1536w.jpeg&quot; width=&quot;1536&quot; height=&quot;1024&quot; alt=&quot;Cozy desk scene with an open handwritten notebook, a fountain pen, and a warm cup of coffee beside a lit candle on a rustic wooden table.&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
 &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
 &lt;p&gt;A “touch grass” week in the best way. Less internet, more real life: catching up with a friend, upgrading a couple comfort essentials at home, and then sneaking in one productive nerd-win at work by turning a messy PUP problem into a clean PowerShell workflow.&lt;/p&gt;
 &lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
@@ -1538,8 +1554,6 @@ On the endpoint, the script also writes a transcript log under &lt;code&gt;C:&#9
         &lt;blockquote&gt;
 &lt;p&gt;Yesterday was a busy Monday so yet again, I am writing these notes on Tuesday. But hey, better late than never, right? Let’s dive into the weekly notes for week 7 of 2026!&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-1536w.webp 1536w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
-&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-1536w.jpeg 1536w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero-1536w.jpeg&quot; width=&quot;1536&quot; height=&quot;1024&quot; alt=&quot;Cozy desk scene with an open handwritten notebook, a fountain pen, and a warm cup of coffee beside a lit candle on a rustic wooden table.&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
 &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
 &lt;p&gt;Practical, steady, and a little cozy: health check relief, home-office rhythm, sports on in the background, and just enough “new tool energy” to keep the work week moving.&lt;/p&gt;
 &lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
@@ -1636,8 +1650,6 @@ On the endpoint, the script also writes a transcript log under &lt;code&gt;C:&#9
         &lt;blockquote&gt;
 &lt;p&gt;Let me preface this by saying… Let’s GO SUPER BOWL CHAMPS! 🏆🏈 My Seahawks did it! We got the revenge we’ve been waiting for. Okay now for the weekly notes. LOL&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.webp 1200w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
-&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.jpeg 1200w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.jpeg&quot; width=&quot;1200&quot; height=&quot;800&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
 &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
 &lt;p&gt;A mostly steady, practical week with a lot going right, right up until one “helpful” automation reminded me that logs are sacred and the SOC has zero sense of humor about surprise cleanup.&lt;/p&gt;
 &lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
@@ -2368,8 +2380,6 @@ Snapshot &lt;strong&gt;persistent volumes&lt;/strong&gt; (CSI VolumeSnapshots) a
         &lt;blockquote&gt;
 &lt;p&gt;I really need to start keeping some sort of daily log so I can remember what the heck I did throughout the week. My memory is terrible.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.webp 1200w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
-&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.jpeg 1200w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.jpeg&quot; width=&quot;1200&quot; height=&quot;800&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
 &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
 &lt;p&gt;A steady, practical week of tuning the knobs: comfort, focus, and craft, one small improvement at a time.&lt;/p&gt;
 &lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
@@ -3112,9 +3122,7 @@ Yes, it works.&lt;/p&gt;
       <updated>2026-01-27T19:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-04-2026/</id>
       <content type="html">
-        &lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.webp 1200w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
-&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.jpeg 1200w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.jpeg&quot; width=&quot;1200&quot; height=&quot;800&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
-&lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
+        &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
 &lt;p&gt;A fake-apocalypse snow week that still managed to bite, held together with space heaters, nostalgia dopamine, and the sheer satisfaction of typing “draft complete.”&lt;/p&gt;
 &lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
 &lt;ul&gt;
@@ -4078,9 +4086,7 @@ Clients do not need fear. They need:&lt;/p&gt;
       <updated>2026-01-19T21:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-03-2026/</id>
       <content type="html">
-        &lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.webp 1200w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
-&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.jpeg 1200w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.jpeg&quot; width=&quot;1200&quot; height=&quot;800&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
-&lt;blockquote&gt;
+        &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Recap:&lt;/strong&gt; This past week wasn’t what I hoped for. I got sick right after Monday and ended up staying home the rest of the week. I didn’t get anything productive done. I mostly just slept.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
@@ -4106,9 +4112,7 @@ Clients do not need fear. They need:&lt;/p&gt;
       <updated>2026-01-12T19:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-02-2026/</id>
       <content type="html">
-        &lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.webp 1200w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
-&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.jpeg 1200w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weekly_notes_hero-1200w.jpeg&quot; width=&quot;1200&quot; height=&quot;800&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
-&lt;blockquote&gt;
+        &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Recap:&lt;/strong&gt; A mostly quiet back-to-routine week: school kicked off again, early tennis mornings returned, I binged some solid TV, and work was the usual security grind with one real troubleshooting headache.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
@@ -4530,8 +4534,7 @@ Once abuse becomes a crisis, it becomes incident response: logs, timelines, cont
       <updated>2026-01-06T15:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-01-2026/</id>
       <content type="html">
-        &lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.webp 1200w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.jpeg&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
-&lt;p&gt;This week’s notes cover the tail end of 2025 and the first few days of 2026. It was another short week with New Year’s Day off on Thursday, then right back to work on Friday.&lt;/p&gt;
+        &lt;p&gt;This week’s notes cover the tail end of 2025 and the first few days of 2026. It was another short week with New Year’s Day off on Thursday, then right back to work on Friday.&lt;/p&gt;
 &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
 &lt;p&gt;Late 2025 stayed about as quiet as it gets. Mostly calm and steady, with a few quick spikes of anxiety mixed in.&lt;/p&gt;
 &lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
@@ -4918,8 +4921,7 @@ Mark which steps are reversible and which require human approval.&lt;/p&gt;
       <updated>2025-12-29T15:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2025/week-52-2025/</id>
       <content type="html">
-        &lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.webp 1200w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.jpeg&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
-&lt;p&gt;TThis week’s note is shorter than usual since it was a holiday week and everything ran on “short week” mode.&lt;/p&gt;
+        &lt;p&gt;TThis week’s note is shorter than usual since it was a holiday week and everything ran on “short week” mode.&lt;/p&gt;
 &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
 &lt;p&gt;Last week was steady in the best way. I only worked through Wednesday, and work stayed mostly quiet outside of the usual alerts and the occasional support call. Personally, I did what I’ve needed for a while: relaxed, watched a bunch of movies, and took it easy. No regrets.&lt;/p&gt;
 &lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
@@ -5285,7 +5287,6 @@ Many Chromium browsers have similar “always use secure connections” settings
         &lt;blockquote&gt;
 &lt;p&gt;I am trying out a new format for these posts. Let me know what you think!&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.webp 1200w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.jpeg&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
 &lt;p&gt;Yesterday was a busy day, I got a call before I was even to work. The day didn’t stop after that. I wasn’t able to write this post yesterday so here is to posting it with a delay. Hopefully, it doesn’t become a pattern but no promises.&lt;/p&gt;
 &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
 &lt;p&gt;Last week slowed down a bit, which was nice. It gave me some time to relax and recharge. Overall vibe was less chaotic and more grounded.&lt;/p&gt;
@@ -5329,8 +5330,7 @@ Many Chromium browsers have similar “always use secure connections” settings
       <updated>2025-12-15T15:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2025/week-50-2025/</id>
       <content type="html">
-        &lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.webp 1200w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.jpeg&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
-&lt;p&gt;Last week was a mixed bag, leaning heavier on the rough stuff than the wins. But that’s how it goes sometimes. You take the hits, appreciate the bright spots where you can, and keep moving forward.&lt;/p&gt;
+        &lt;p&gt;Last week was a mixed bag, leaning heavier on the rough stuff than the wins. But that’s how it goes sometimes. You take the hits, appreciate the bright spots where you can, and keep moving forward.&lt;/p&gt;
 &lt;p&gt;So I’m going to knock out the bad first, then end on the good.&lt;/p&gt;
 &lt;h3 id=&quot;the-bad-😞&quot;&gt;The Bad 😞&lt;/h3&gt;
 &lt;p&gt;Early in the week, my right ear started hurting. It felt like I had a scab or something stuck inside my ear canal. Then it got worse. The swelling kicked in, and the pain started radiating into my jaw. And let me tell you, that pain was no joke.&lt;/p&gt;
@@ -5955,8 +5955,7 @@ Put security and compliance on a regular cadence: monthly operational reviews, q
       <updated>2025-12-09T15:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2025/week-49-2025/</id>
       <content type="html">
-        &lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.webp 1200w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.jpeg&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
-&lt;p&gt;Last week was a blend of the usual work hustle, which was the normal working the latest alert tickets, and the personal side of life that kept me grounded at times. Here’s a quick rundown of what went down last week.&lt;/p&gt;
+        &lt;p&gt;Last week was a blend of the usual work hustle, which was the normal working the latest alert tickets, and the personal side of life that kept me grounded at times. Here’s a quick rundown of what went down last week.&lt;/p&gt;
 &lt;h3 id=&quot;the-💻-work-grind&quot;&gt;The 💻 Work Grind&lt;/h3&gt;
 &lt;p&gt;Nothing different happened at work this past week. It was a pretty standard week of handling tickets, monitoring systems, and keeping things running smoothly for our clients. The usual grind of an MSP tech. The constant alerts to monitor and respond to are something to keep an eye on. With what is called, &lt;a href=&quot;https://www.kylereddoch.me/blog/the-breaking-point-why-cybersecurity-and-soc-professionals-are-burning-out-and-what-actually-works/&quot;&gt;“alert fatigue”&lt;/a&gt;, it can be easy to miss something important if you are not careful. So staying focused and organized is key. I have setup automations to help with some of the alert noise, but there still seems to be a lot to handle at times.&lt;/p&gt;
 &lt;h3 id=&quot;the-personal-things-🙂&quot;&gt;The Personal Things 🙂&lt;/h3&gt;
@@ -6845,8 +6844,7 @@ For developer workstations or privileged admins, consider staging updates or usi
       <updated>2025-12-01T15:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2025/week-48-2025/</id>
       <content type="html">
-        &lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.webp 1200w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.jpeg&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
-&lt;p&gt;Due to the Thanksgiving holiday here in the US, it was a short week which was very welcomed. Here’s a quick rundown of what went down last week.&lt;/p&gt;
+        &lt;p&gt;Due to the Thanksgiving holiday here in the US, it was a short week which was very welcomed. Here’s a quick rundown of what went down last week.&lt;/p&gt;
 &lt;h3 id=&quot;💻-good-ol-work&quot;&gt;💻 Good ’ol Work&lt;/h3&gt;
 &lt;p&gt;Nothing much happened at work last week. It was a pretty quiet week overall, which was nice. Since I stepped back from doing as much of the hands-on IT work; the work that takes lifting, moving, installing, etc. of hardware, servers, printers, etc. my days have been less hectic. I am now more focused on the MSP side of things, which is more about monitoring, managing, and maintaining client systems remotely. More of a strategic, overview role rather than a tactical one.&lt;/p&gt;
 &lt;h3 id=&quot;🙂-personal-life&quot;&gt;🙂 Personal Life&lt;/h3&gt;
@@ -7017,7 +7015,6 @@ That is fine as a high-level goal. It is not a plan.&lt;/p&gt;
 &lt;p&gt;I almost forgot to publish these weekly notes! I got busy yesterday with actually working. 😃&lt;br&gt;
 Better late than never, I suppose.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.webp 1200w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.jpeg&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
 &lt;p&gt;Last week was pretty manageable again. Work stayed steady, which gave me a good window to keep catching up on things that had been sitting on my to-do list for way too long.&lt;/p&gt;
 &lt;h3 id=&quot;💻-good-ol-work&quot;&gt;💻 Good ’ol Work&lt;/h3&gt;
 &lt;p&gt;Most of my week was spent grinding through alerts I’d fallen behind on. I’m finally almost caught up, and that alone takes a lot of mental weight off. I also started sketching out some ideas I’ve been wanting to bring to my boss (who’s also the owner). I’ve got a few thoughts on how we can tighten our security posture and strengthen our overall technical foundation. I’m hoping to sit down with him soon and talk through what those changes might look like in practice.&lt;/p&gt;
@@ -7526,8 +7523,7 @@ Three sheets: Factors, Hardware Keys, Recovery Contacts.&lt;br&gt;
       <updated>2025-11-17T19:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2025/week-46-2025/</id>
       <content type="html">
-        &lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.webp 1200w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.jpeg&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
-&lt;p&gt;This past week wasn’t too bad. Work was steady and not too hectic, which is always a nice thing. This keeps my stress and anxiety at a manageable level. Personally, things were pretty good too. I choose to relax and focus on me and my family. I took a break from the couple of personal projects I have going on to just clear my head.&lt;/p&gt;
+        &lt;p&gt;This past week wasn’t too bad. Work was steady and not too hectic, which is always a nice thing. This keeps my stress and anxiety at a manageable level. Personally, things were pretty good too. I choose to relax and focus on me and my family. I took a break from the couple of personal projects I have going on to just clear my head.&lt;/p&gt;
 &lt;h3 id=&quot;💻-catching-up-on-alerts&quot;&gt;💻 Catching up on alerts&lt;/h3&gt;
 &lt;p&gt;I have been a little behind on our EDR alerts and log reviews for the past couple of weeks. This past week I started getting caught up on those. It is going to take a couple more weeks to get fully caught up, but I am making good progress. I also did some research on a few new security tools that we might want to try out in our environment. Overall, work was productive and I feel like I made good progress on my tasks.&lt;/p&gt;
 &lt;h3 id=&quot;😎-focusing-on-family&quot;&gt;😎 Focusing on family&lt;/h3&gt;
@@ -8132,8 +8128,7 @@ They reduce risk when done right, but they are not phishing-resistant. Use phish
       <updated>2025-11-10T19:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2025/week-45-2025/</id>
       <content type="html">
-        &lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.webp 1200w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.jpeg&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
-&lt;p&gt;Last week had a bit of everything. Work stayed calm, I carved out time to tune up my site, and my back and neck reminded me who’s boss. That part was not fun.&lt;/p&gt;
+        &lt;p&gt;Last week had a bit of everything. Work stayed calm, I carved out time to tune up my site, and my back and neck reminded me who’s boss. That part was not fun.&lt;/p&gt;
 &lt;h3 id=&quot;💻-work&quot;&gt;💻 Work&lt;/h3&gt;
 &lt;p&gt;Quiet week overall, which let me chip away at schoolwork during the day and save evenings for family. I also started a small facelift for the site. More on that below.&lt;/p&gt;
 &lt;p&gt;Friday picked up when we signed a new MSP client. I spent the afternoon getting them onboarded into our stack. It was not chaotic, just steady. The RMM onboarding scripts did their job and kept things smooth. There is always one odd edge case to chase, but nothing critical.&lt;/p&gt;
@@ -8326,8 +8321,7 @@ Store you master password somewhere safe and secure (I keep mine in Apple Note a
       <updated>2025-11-03T19:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2025/week-44-2025/</id>
       <content type="html">
-        &lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.webp 1200w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.jpeg&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
-&lt;p&gt;Last week was a nice week. It was not too eventful at work, had a easy time around the house. On and the weather was just perfect. Here are my notes for the week.&lt;/p&gt;
+        &lt;p&gt;Last week was a nice week. It was not too eventful at work, had a easy time around the house. On and the weather was just perfect. Here are my notes for the week.&lt;/p&gt;
 &lt;h3 id=&quot;💻-work&quot;&gt;💻 Work&lt;/h3&gt;
 &lt;p&gt;Work was quiet last week. Nothing major happened which is always nice, but it also gives me some weariness about what might be coming. 😄 I was able to get some schoolwork done in between work (don’t tell my boss, LOL).&lt;/p&gt;
 &lt;p&gt;We also had some meetings with a vendor of ours about some possible new additions to the toolset we already use with them. I am also looking into some new training options for the team as well. I will probably be getting busy in the near future with those things.&lt;/p&gt;
@@ -8745,8 +8739,7 @@ No. Pick one channel per device to avoid conflicts.&lt;/p&gt;
       <updated>2025-10-27T19:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2025/week-43-2025/</id>
       <content type="html">
-        &lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.webp 1200w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.jpeg&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
-&lt;p&gt;Last week was a crazy ride in my personal life. Here are my notes for the week.&lt;/p&gt;
+        &lt;p&gt;Last week was a crazy ride in my personal life. Here are my notes for the week.&lt;/p&gt;
 &lt;h3 id=&quot;💻-work&quot;&gt;💻 Work&lt;/h3&gt;
 &lt;p&gt;I only worked two days. I took Wednesday through Friday off to handle personal matters (more on that below). The short week in the office was calm for a change, which I appreciated after the chaos before. I cleared out emails and knocked out a stack of small tasks that had been waiting.&lt;/p&gt;
 &lt;h3 id=&quot;😎-personal&quot;&gt;😎 Personal&lt;/h3&gt;
@@ -8837,8 +8830,7 @@ No. Pick one channel per device to avoid conflicts.&lt;/p&gt;
       <updated>2025-10-20T19:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2025/week-42-2025/</id>
       <content type="html">
-        &lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.webp 1200w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.jpeg&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
-&lt;p&gt;Last week was one heck of a week at work. Very stressful which bleed into my personal life which I never like. Add all this up and this was a week that I am glad is over. Here are my notes for the week.&lt;/p&gt;
+        &lt;p&gt;Last week was one heck of a week at work. Very stressful which bleed into my personal life which I never like. Add all this up and this was a week that I am glad is over. Here are my notes for the week.&lt;/p&gt;
 &lt;h3 id=&quot;💻-work&quot;&gt;💻 Work&lt;/h3&gt;
 &lt;p&gt;Let’s start off with work since that was the most stressful part of my week. I won’t go into too much of the detail or rewrite it all, you can find the full story on my Mastodon post &lt;a href=&quot;https://infosec.exchange/@cyberseckyle/115381230745324239&quot; rel=&quot;noopener&quot;&gt;here&lt;/a&gt;. But, long story short, a third-party vendor one of our clients use for their dealership that connects their printers to the vendors DMS system, rermoved all of the printers from both of the clients locations. They were unable to print anything from this system. This was a huge problem since this system is used to print all of the paperwork for the vehicles they sell. This included everything from the buyer’s order, to the title work, to the registration forms, to the financing documents, and more.&lt;/p&gt;
 &lt;p&gt;In total, I spent about 3 days getting this set all back up and running. It was a total nightmare.&lt;/p&gt;
@@ -9013,8 +9005,7 @@ Subscribe to official updates and credible tech press. The MLK pause is not the 
       <updated>2025-10-13T15:15:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2025/week-41-2025/</id>
       <content type="html">
-        &lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.webp 1200w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;eager&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/TMLQLPEGit-1200.jpeg&quot; alt=&quot;Weekly notes hero image - created by ChatGPT5, edited in Photoshop&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
-&lt;p&gt;Last week was a fairly normal week. I worked on a few articles, did some reading, and spent time with my family. Here are some highlights from the week:&lt;/p&gt;
+        &lt;p&gt;Last week was a fairly normal week. I worked on a few articles, did some reading, and spent time with my family. Here are some highlights from the week:&lt;/p&gt;
 &lt;h3 id=&quot;😎-personal&quot;&gt;😎 Personal&lt;/h3&gt;
 &lt;p&gt;This week there was no F1 race which made the weekend a bit slow. I didn’t get my usual boost of adrenaline as I do from watching the races. I did get to watch a few movies with my wife which was nice. We watched “Kiss the Girls” and “Along Came a Spider”. Both of course which are great movies. We also are still continuing out binging of Criminal Minds. We just starting season 13. Most of our shows are coming back on so we will be busy watching those as well.&lt;/p&gt;
 &lt;p&gt;I also got to spend some time with the sole remaining daughter left at home which is always a highlight of my week.&lt;/p&gt;
