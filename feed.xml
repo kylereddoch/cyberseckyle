@@ -4,12 +4,101 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-04-08T17:29:07Z</updated>
+  <updated>2026-04-08T20:21:21Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>Why I’m Building More Intentionally Online, and I’d Love to Have You Along</title>
+      <link href="https://www.kylereddoch.me/blog/why-im-building-more-intentionally-online-and-id-love-to-have-you-along/" />
+      <updated>2026-04-08T20:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/why-im-building-more-intentionally-online-and-id-love-to-have-you-along/</id>
+      <content type="html">
+        &lt;p&gt;I spent some time recently rebuilding my sponsorship and membership pages across &lt;a href=&quot;https://github.com/sponsors/kylereddoch&quot; rel=&quot;noopener&quot;&gt;GitHub Sponsors&lt;/a&gt;, &lt;a href=&quot;https://ko-fi.com/kylereddoch&quot; rel=&quot;noopener&quot;&gt;Ko-fi&lt;/a&gt;, and &lt;a href=&quot;https://buymeacoffee.com/kylereddoch&quot; rel=&quot;noopener&quot;&gt;Buy Me a Coffee&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;On the surface, that probably looks like a small housekeeping task. Update some wording. Clean up some old perks. Swap out a few links. Done.&lt;/p&gt;
+&lt;p&gt;But honestly, it felt bigger than that.&lt;/p&gt;
+&lt;p&gt;It felt like finally admitting that my focus has changed, my work has changed, and the way I want to show up online has changed too.&lt;/p&gt;
+&lt;p&gt;For a while, some of those pages were still carrying pieces of an older version of me. Older projects. Older goals. Older platforms I do not even use anymore. Some of that stuff was not wrong exactly. It just was not current. And the more I thought about where I want to go long term, the more it bothered me that my support pages did not really match the work I actually care about now.&lt;/p&gt;
+&lt;p&gt;These days, the center of gravity is pretty clear.&lt;/p&gt;
+&lt;p&gt;I care about practical cybersecurity. MSP automation. Indie web tools. Real-world IT projects. Small things that are genuinely useful. Writeups that come from actual experience. Tools and automations that solve a problem instead of just sounding cool in a post title.&lt;/p&gt;
+&lt;p&gt;That is the lane I want to keep leaning into.&lt;/p&gt;
+&lt;h2 id=&quot;why-even-do-sponsorships-or-memberships&quot;&gt;Why even do sponsorships or memberships?&lt;/h2&gt;
+&lt;p&gt;I know posts like this can drift into weird territory fast.&lt;/p&gt;
+&lt;p&gt;I do not want this to sound like a guilt trip, and I do not want it to read like I am standing on a digital street corner shaking a cup. That is not what this is.&lt;/p&gt;
+&lt;p&gt;This is more about being honest.&lt;/p&gt;
+&lt;p&gt;The kind of work I want to keep doing takes time. Not just the fun part of building something, but the less visible parts too. Testing. Documentation. Writing. Rewriting. Hosting costs. Domain renewals. Tooling. Time spent cleaning things up enough to actually publish instead of leaving them half-finished in a folder somewhere.&lt;/p&gt;
+&lt;p&gt;A lot of useful work never gets shared because it dies in that gap between “I made this for myself” and “this is ready to put out into the world.”&lt;/p&gt;
+&lt;p&gt;Support helps close that gap.&lt;/p&gt;
+&lt;p&gt;It helps me spend more time turning rough ideas into finished things people can actually use.&lt;/p&gt;
+&lt;h2 id=&quot;what-the-long-term-plan-looks-like&quot;&gt;What the long-term plan looks like&lt;/h2&gt;
+&lt;p&gt;The short version is that I want to build toward independent work that is sustainable.&lt;/p&gt;
+&lt;p&gt;Not overnight. Not through some dramatic “quit everything and hope for the best” moment. Not by pretending I have it all figured out.&lt;/p&gt;
+&lt;p&gt;I mean sustainable in the boring, real-world sense.&lt;/p&gt;
+&lt;p&gt;I want to keep building enough momentum that I can devote more of my time to making useful things without every project having to fight for scraps of leftover energy after the workday is done. I want room to publish more consistently, experiment more often, and follow through on ideas that deserve more than a half-finished note.&lt;/p&gt;
+&lt;p&gt;That includes things like:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;practical cybersecurity writeups&lt;/li&gt;
+&lt;li&gt;MSP and admin automations&lt;/li&gt;
+&lt;li&gt;scripts and small utilities&lt;/li&gt;
+&lt;li&gt;indie web tools and experiments&lt;/li&gt;
+&lt;li&gt;downloadable checklists, templates, and resources&lt;/li&gt;
+&lt;li&gt;maybe some small fixed-scope consulting and review work where it makes sense&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That is the bigger picture.&lt;/p&gt;
+&lt;p&gt;I am not trying to become a generic creator machine. I am trying to build a body of work that feels useful, grounded, and honest.&lt;/p&gt;
+&lt;h2 id=&quot;why-your-support-matters&quot;&gt;Why your support matters&lt;/h2&gt;
+&lt;p&gt;If you have ever read one of my posts, used something I built, learned from one of my mistakes, borrowed an idea, or just generally thought, “yeah, this is my kind of tech corner,” that is really what these pages are for.&lt;/p&gt;
+&lt;p&gt;Support is not just a transaction to me. It is a signal.&lt;/p&gt;
+&lt;p&gt;It tells me there is value in continuing to make this stuff public instead of keeping it to myself. It gives me a little more breathing room to keep building in public, keep writing, and keep investing in the things I think are worth making.&lt;/p&gt;
+&lt;p&gt;And just as important, it gives me a way to do that without turning every post into a sales pitch.&lt;/p&gt;
+&lt;p&gt;That part matters to me a lot.&lt;/p&gt;
+&lt;p&gt;I would much rather have direct support from people who genuinely like my work than feel pressure to force everything into ads, funnels, and whatever else the modern internet keeps trying to become.&lt;/p&gt;
+&lt;h2 id=&quot;where-you-can-support-my-work&quot;&gt;Where you can support my work&lt;/h2&gt;
+&lt;p&gt;If you want to support what I am building, here are the pages:&lt;/p&gt;
+&lt;p class=&quot;support-badges&quot;&gt;
+  &lt;a href=&quot;https://github.com/sponsors/kylereddoch&quot;&gt;
+    &lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/blog/why-im-building-more-intentionally-online-and-id-love-to-have-you-along/GRs3BcQLU_-173.webp 173w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/blog/why-im-building-more-intentionally-online-and-id-love-to-have-you-along/GRs3BcQLU_-173.jpeg&quot; alt=&quot;Support me on GitHub Sponsors&quot; height=&quot;20&quot; width=&quot;173&quot;&gt;&lt;/picture&gt;
+  &lt;/a&gt;
+  &lt;a href=&quot;https://ko-fi.com/kylereddoch&quot;&gt;
+    &lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/blog/why-im-building-more-intentionally-online-and-id-love-to-have-you-along/QVhnXpHd10-107.webp 107w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/blog/why-im-building-more-intentionally-online-and-id-love-to-have-you-along/QVhnXpHd10-107.jpeg&quot; alt=&quot;Support me on Ko-fi&quot; height=&quot;20&quot; width=&quot;107&quot;&gt;&lt;/picture&gt;
+  &lt;/a&gt;
+  &lt;a href=&quot;https://buymeacoffee.com/kylereddoch&quot;&gt;
+    &lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/blog/why-im-building-more-intentionally-online-and-id-love-to-have-you-along/Z0321atudL-171.webp 171w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/blog/why-im-building-more-intentionally-online-and-id-love-to-have-you-along/Z0321atudL-171.jpeg&quot; alt=&quot;Support me on Buy Me a Coffee&quot; height=&quot;20&quot; width=&quot;171&quot;&gt;&lt;/picture&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;Each one now reflects the direction I am actually heading:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;practical cybersecurity&lt;/li&gt;
+&lt;li&gt;MSP automation&lt;/li&gt;
+&lt;li&gt;indie web tools&lt;/li&gt;
+&lt;li&gt;and real-world IT projects.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;what-i-want-to-make-more-of&quot;&gt;What I want to make more of&lt;/h2&gt;
+&lt;p&gt;One reason I wanted to refresh these pages before writing this post is that I wanted to be able to point forward, not backward.&lt;/p&gt;
+&lt;p&gt;So here are some of the kinds of things I want to do more of from here:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;more real-world cybersecurity posts that are actually practical&lt;/li&gt;
+&lt;li&gt;more MSP and IT admin automation ideas&lt;/li&gt;
+&lt;li&gt;more small open-source or public-facing tools&lt;/li&gt;
+&lt;li&gt;more downloadable resources people can use immediately&lt;/li&gt;
+&lt;li&gt;more personal writing about work, learning, and where all of this is going&lt;/li&gt;
+&lt;li&gt;more experiments that sit somewhere between tech, blogging, and the indie web&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Some of that will be polished. Some of it will be scrappier. Some of it will probably start as “I made this for myself and maybe it helps somebody else too.”&lt;/p&gt;
+&lt;p&gt;Honestly, those are usually the best kinds of things anyway.&lt;/p&gt;
+&lt;h2 id=&quot;the-personal-part&quot;&gt;The personal part&lt;/h2&gt;
+&lt;p&gt;A lot of this comes down to something pretty simple.&lt;/p&gt;
+&lt;p&gt;I do not just want to consume the internet. I want to contribute to it.&lt;/p&gt;
+&lt;p&gt;I want to make things. I want to share useful knowledge. I want to document what I learn. I want to build a corner of the web that feels like it came from a real person doing real work.&lt;/p&gt;
+&lt;p&gt;That has been the thread running through everything for me lately.&lt;/p&gt;
+&lt;p&gt;This refresh was not just about cleaning up a few support pages. It was about getting more intentional. About making sure the infrastructure around my work actually matches the direction I want my work to go.&lt;/p&gt;
+&lt;p&gt;So that is where things are headed.&lt;/p&gt;
+&lt;p&gt;If you want to follow along, thank you. If you want to support it directly, thank you even more. And if you have just been reading what I put out and quietly cheering from the sidelines, that counts for more than you probably realize too.&lt;/p&gt;
+&lt;p&gt;I am excited about what comes next.&lt;/p&gt;
+
+      </content>
+    </entry><entry>
       <title>Russia’s Router Campaign Should Be a Wake-Up Call for Every Office</title>
       <link href="https://www.kylereddoch.me/blog/russias-router-campaign-should-be-a-wake-up-call-for-every-office/" />
       <updated>2026-04-08T16:00:00Z</updated>
