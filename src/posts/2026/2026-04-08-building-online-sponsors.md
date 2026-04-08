@@ -4,7 +4,7 @@ title: Why I’m Building More Intentionally Online, and I’d Love to Have You 
 description: A personal look at why I’m building more intentionally online, where I want to take my work next, and how support can help me create more practical cybersecurity, MSP, and indie web projects.
 featuredImage: /assets/images/laptop-coffee-desk.png
 tags: [personal, indie-web]
-mastodon_url: 
+mastodon_url: https://infosec.exchange/@cyberseckyle/116370955287769654
 ---
 
 I spent some time recently rebuilding my sponsorship and membership pages across [GitHub Sponsors](https://github.com/sponsors/kylereddoch), [Ko-fi](https://ko-fi.com/kylereddoch), and [Buy Me a Coffee](https://buymeacoffee.com/kylereddoch).
