@@ -4,7 +4,7 @@ title: Russia’s Router Campaign Should Be a Wake-Up Call for Every Office
 description: APT28 did not need to break Microsoft to create real risk. By abusing neglected routers, hijacking DNS, and sitting in the middle of web traffic, the group turned cheap edge hardware into a serious credential theft and surveillance problem.
 featuredImage: /assets/images/russia-router-hack.png
 tags: [cybersecurity, threat-intelligence, MSP]
-mastodon_url:
+mastodon_url: https://infosec.exchange/@cyberseckyle/116370250112131094
 ---
 
 One of the biggest mistakes I see in small business IT and even in some larger environments is that routers are still treated like background equipment. I have been circling this theme for a while in posts like [The FCC’s Router Crackdown Shouldn’t Surprise Anyone in Cybersecurity](/blog/the-fccs-router-crackdown-shouldnt-surprise-anyone-in-cybersecurity/) and [The Network Edge Cleanup Most Teams Cannot Keep Putting Off](/blog/the-network-edge-cleanup-most-teams-cannot-keep-putting-off/), and this campaign is exactly why.
