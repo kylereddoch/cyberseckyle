@@ -30,7 +30,7 @@ That is the uncomfortable truth here: a lot of the behavior we train users to ac
 > A link that looks like a sign-in page.
 > A technician asking the user to “help fix the issue quickly.”
 
-That is not just a phishing problem. It is a trust-design problem.
+That is not just a phishing problem. It is a trust-design problem. It is also why I keep coming back to user verification habits like the ones I laid out in [The 60-Second Pause Protocol](/blog/cyberseckyle-security-how-to-series-everyday-defense-part-5-scam-spotting-the-60-second-pause-protocol/): attackers win when they can rush people through familiar-looking support motions.
 
 ## The industry data is pointing in the same direction
 
@@ -122,7 +122,7 @@ That should never be treated as inconvenience. That is exactly what good process
 
 ### 6. Preserve the logs that tell the story
 
-There is one more lesson hiding in all of this: if attackers are using legitimate channels and legitimate tools, your visibility matters even more.
+There is one more lesson hiding in all of this: if attackers are using legitimate channels and legitimate tools, your visibility matters even more. That is exactly where a usable logging pipeline starts to matter, which is one reason I wrote [Making SIEM Useful](/blog/making-siem-useful-how-it-works-what-it-does-and-why-you-should-care/) the way I did.
 
 When remote support tools, identity events, Teams interactions, endpoint behavior, and admin changes all start to blur together, logs are how you separate a rough Monday from an actual intrusion. If your environment does not retain the right telemetry, or if your logging strategy is inconsistent across clients, you make incident response much harder than it needs to be.
 

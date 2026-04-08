@@ -8,7 +8,7 @@ mastodon_url: https://infosec.exchange/@cyberseckyle/115464348578987565
 
 ![Mastodon Embed hero](/assets/images/mastodon_embed_eleventy_hero.png){loading="eager" eleventy:widths="auto"}
 
-I wanted a Mastodon status to sit inside an Eleventy post without breaking my layout or forcing weird fixed sizes. I tried the usual suspects and hit the same walls each time. In the end, a simple shortcode solved it. The page controls width and Mastodon’s script sets height. It also supports a full-bleed option when I want the embed to break out of the narrow reading column.
+I wanted a Mastodon status to sit inside an Eleventy post without breaking my layout or forcing weird fixed sizes. I tried the usual suspects and hit the same walls each time. In the end, a simple shortcode solved it. The page controls width and Mastodon’s script sets height. It also supports a full-bleed option when I want the embed to break out of the narrow reading column. That same general "make Mastodon fit the site cleanly" mindset also led me to build [an Eleventy plugin for sharing posts to Mastodon](/blog/i-built-an-eleventy-plugin-for-sharing-posts-to-mastodon/) later on.
 
 This write-up documents what failed fast, what finally worked, and the exact code I am using now.
 

@@ -26,7 +26,7 @@ On one side, I want my website to feel like mine. Personal. Imperfect. Not overp
 
 On the other side, I still care about polish, and I do not think that automatically makes a site less human.
 
-I think there is a difference between polishing a site for people and polishing a site for systems.
+I think there is a difference between polishing a site for people and polishing a site for systems. That line of thinking is a big part of why I recently gave the site [a new look](/blog/why-cyberseckyle-has-a-new-look/) without wanting it to feel colder or more corporate.
 
 Making a title clearer is not always selling out to SEO. Sometimes it is just helping the next person understand what they are about to read. Fixing grammar is not always sanding off personality. Sometimes it is respect for the reader. Adding structure does not have to mean becoming sterile. Sometimes it just means your ideas are easier to follow. Even SEO, in its best form, is not supposed to be trickery. At its core, it can simply be about making good work easier to discover.
 

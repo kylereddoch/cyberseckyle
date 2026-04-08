@@ -12,7 +12,7 @@ A half-finished draft. A headline that felt clever yesterday. A note to myself t
 
 I’ve always liked reading posts about other people’s blogging workflows, not because there’s one “right” way, but because it proves the internet is still made of humans doing little human systems to keep themselves creating. Robert Birming has a solid roundup of these, and it was the nudge I needed to finally write mine down: [Our Blogging Workflow](https://robertbirming.com/our-blogging-workflow/).
 
-My setup is simple and a little nerdy: **Ulysses → VS Code → Eleventy → GitHub Pages**.
+My setup is simple and a little nerdy: **Ulysses → VS Code → Eleventy → GitHub Pages**. If you want the fuller backstory on how I landed on that stack, I wrote about [moving my blog to Eleventy + GitHub Pages](/blog/from-start-to-finish-moving-my-blog-to-eleventy-github-pages/) when I made the jump.
 
 It’s not glamorous. It’s reliable. It’s the exact kind of workflow I’d build for a client if the client was… me.
 
@@ -55,7 +55,7 @@ VS Code is where the post gets dressed and told to stand up straight.
 
 ## Eleventy is the quiet machine in the back room
 
-My site runs on [Eleventy](https://www.11ty.dev/), and I like it for the same reason I like reliable infrastructure: it does what it says it does, and it doesn’t ask for a ceremony about it.
+My site runs on [Eleventy](https://www.11ty.dev/), and I like it for the same reason I like reliable infrastructure: it does what it says it does, and it doesn’t ask for a ceremony about it. That has also made it easier to keep experimenting with things like [Mastodon embeds](/blog/embedding-mastodon-posts-in-eleventy-my-journey/) and other small site features without turning the whole project into a mess.
 
 When I’m working on a post, I usually have the local build running so I can preview it as a real page. This is where things become obvious:
 

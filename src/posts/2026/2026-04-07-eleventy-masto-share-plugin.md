@@ -37,7 +37,7 @@ The goal was to make this feel easy for both sides:
 
 ## Why I Built It
 
-I wanted a Mastodon sharing experience that fit naturally into Eleventy.
+I wanted a Mastodon sharing experience that fit naturally into Eleventy. Some of that came from the same rabbit hole that led me to write about [embedding Mastodon posts in Eleventy](/blog/embedding-mastodon-posts-in-eleventy-my-journey/): once I start smoothing out fediverse features on my site, I usually keep going.
 
 There are plenty of ways to build your own share button, but once you start dealing with instance selection, remembering preferences, progressive enhancement, and reusable templates, it becomes more work than it should be.
 

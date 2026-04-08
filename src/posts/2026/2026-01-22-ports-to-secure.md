@@ -10,7 +10,7 @@ mastodon_url: https://infosec.exchange/@cyberseckyle/115940630752567216
 
 Ports are the “doors” your services listen on. Some doors should be inside the building only. Some should be behind a badge reader. Some should be welded shut and buried under concrete.
 
-The tricky part is that a port number does not magically equal a protocol or safety level. It is just a rendezvous point. Security comes from what is listening, how it is configured, and who can reach it. The official source of truth for common service-to-port mappings is the IANA Service Name and Transport Protocol Port Number Registry, which is worth bookmarking. [IANA registry](https://www.iana.org/assignments/service-names-port-numbers).
+The tricky part is that a port number does not magically equal a protocol or safety level. It is just a rendezvous point. Security comes from what is listening, how it is configured, and who can reach it. The official source of truth for common service-to-port mappings is the IANA Service Name and Transport Protocol Port Number Registry, which is worth bookmarking. [IANA registry](https://www.iana.org/assignments/service-names-port-numbers). This is also why I keep stressing that [the network edge still deserves real cleanup work](/blog/the-network-edge-cleanup-most-teams-cannot-keep-putting-off/): open or poorly controlled ports are usually a symptom of a larger exposure problem, not the whole story.
 
 ## The rules that keep you out of trouble
 
@@ -182,7 +182,7 @@ Here is a downloadable PDF version of the cheat sheet for easy reference: [20 Co
 
 ### Remote admin ports (22, 3389, 135, 139, 445)
 
-If these are reachable from everywhere, you are living dangerously.
+If these are reachable from everywhere, you are living dangerously. In MSP and SMB environments, this is often how "temporary" access turns into a standing security problem.
 
 - **SSH (22):** keys only, no root login, limit who can attempt auth, and keep it off the public edge unless you have a strong access broker. SSH is designed for secure remote login, but only if you run it like you expect attackers. [RFC 4251](https://datatracker.ietf.org/doc/html/rfc4251)
 - **RDP (3389):** assume it will be hammered. Prefer RD Gateway or a ZTNA solution, require MFA, and treat exposed RDP as an incident waiting to happen. Microsoft documents 3389 as a core Remote Desktop Services port. [Ports used by RDS](https://learn.microsoft.com/en-us/troubleshoot/windows-server/remote/ports-used-by-rds)

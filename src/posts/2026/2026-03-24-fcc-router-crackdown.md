@@ -22,7 +22,7 @@ Still, the core message is real: Washington is no longer willing to treat home n
 
 ## Honestly, I am not shocked
 
-I am not surprised by this crackdown because consumer routers have been one of the internet’s favorite soft targets for years. They sit at a uniquely valuable place on the network. They are always on, often exposed, rarely monitored, and commonly left in place long after the vendor has mentally moved on to newer hardware. That is exactly the kind of product category that gets abused by both criminal operators and state-linked actors.
+I am not surprised by this crackdown because consumer routers have been one of the internet’s favorite soft targets for years. They sit at a uniquely valuable place on the network. They are always on, often exposed, rarely monitored, and commonly left in place long after the vendor has mentally moved on to newer hardware. That is exactly the kind of product category that gets abused by both criminal operators and state-linked actors. It is the same basic lifecycle problem I have been warning about in [The Network Edge Cleanup Most Teams Cannot Keep Putting Off](/blog/the-network-edge-cleanup-most-teams-cannot-keep-putting-off/).
 
 The [CISA advisory on Volt Typhoon](https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a) made this painfully clear back in 2024 when it said PRC state-sponsored actors had been observed leveraging compromised small office and home office routers to proxy command-and-control traffic. The [Justice Department’s operation against the KV Botnet](https://www.justice.gov/archives/opa/pr/us-government-disrupts-botnet-peoples-republic-china-used-conceal-hacking-critical) told a similar story: privately owned SOHO routers were being used to conceal the origin of activity targeting U.S. critical infrastructure.
 
@@ -68,7 +68,7 @@ If regulators are serious, the next step cannot just be blocking categories of d
 
 For most people, the immediate implication is not that they need to rip out the router they already own tonight. The more realistic implication is that buying decisions, product availability, and prices may shift if manufacturers have to rework supply chains or pursue conditional approval. [AP noted](https://apnews.com/article/fcc-foreign-router-ban-national-security-technology-7e5333aeaf82496ce6350f57699db5ba) that shortages and price hikes are possible as vendors restructure manufacturing and navigate approvals.
 
-What consumers should take from this is simpler and more practical.
+What consumers should take from this is simpler and more practical. If you want the office and MSP version of the same conversation, my post on [common network ports you must know and secure](/blog/20-common-network-ports-you-must-know-and-secure/) pairs well with this one.
 
 Your router deserves the same attention you already give your phone or laptop. Check whether the model is still supported. Install firmware updates. Disable remote administration unless you absolutely need it. Use a strong, unique admin password. Turn on automatic updates if the vendor offers them. [Replace end-of-life gear](/blog/the-network-edge-cleanup-most-teams-cannot-keep-putting-off/) instead of nursing it along until it dies.
 

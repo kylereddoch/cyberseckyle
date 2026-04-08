@@ -8,7 +8,7 @@ mastodon_url: https://infosec.exchange/@cyberseckyle/115945421540619528
 
 {% image "/assets/images/vuln-hero-image.png", "Three-panel photo collage showing MSP-style vulnerability work: a warm-lit desk with a laptop and “Patch” sticky notes, hands holding a tablet in front of server racks with a vulnerability dashboard, and a notebook labeled “Critical / High / Medium” beside a laptop and phone.", "A snapshot of vulnerability management in an MSP world, patching, monitoring, and prioritizing risk across environments. (Image generated with ChatGPT.)", "eager", "text-center", "!important", [auto], "(min-width:30em) 50vw, 100vw", ['webp', 'jpeg'] %}
 
-MSPs don’t “manage vulnerabilities.” They manage *other people’s outages* that vulnerabilities become when you ignore them long enough. The trick is building a program that scales across many client environments without turning your team into a patching sweatshop.
+MSPs don’t “manage vulnerabilities.” They manage *other people’s outages* that vulnerabilities become when you ignore them long enough. The trick is building a program that scales across many client environments without turning your team into a patching sweatshop. A lot of that risk gets especially ugly when it lives on forgotten edge gear, which is something I also talk about in [The Network Edge Cleanup Most Teams Cannot Keep Putting Off](/blog/the-network-edge-cleanup-most-teams-cannot-keep-putting-off/).
 
 This is a field guide from the cybersecurity side of the house: how to run vulnerability management across clients, how to prioritize like a grown-up, and how to handle the latest “internet is on fire” CVEs without breaking trust or uptime.
 
@@ -58,6 +58,8 @@ Pipe it into one place (PSA tickets, or a vulnerability board) with consistent f
 * Exposure (is it reachable from the internet?)
 * Business impact (what breaks if we patch?)
 * Recommended fix and compensating controls
+
+This is also where MSPs get into trouble if they think only about endpoints and servers. Routers, firewalls, VPNs, and remote support tools belong in the same risk conversation because they are often the systems that make one weak control turn into a much larger incident.
 
 ### 3) Prioritize with “Exploitability + Exposure + Impact”
 

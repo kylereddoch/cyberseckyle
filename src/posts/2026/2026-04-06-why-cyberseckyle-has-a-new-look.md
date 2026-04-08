@@ -11,11 +11,11 @@ If you are coming here to read this post, you probably notice that CybersecKyle 
 
 Actually, a lot different.
 
-I finally launched a redesign that has been bouncing around in my head for a while, and I wanted to write a proper post about **why** I changed it, **what** changed, and **what I was trying to improve** instead of just quietly swapping themes and moving on.
+I finally launched a redesign that has been bouncing around in my head for a while, and I wanted to write a proper post about **why** I changed it, **what** changed, and **what I was trying to improve** instead of just quietly swapping themes and moving on. A lot of the thinking behind it overlaps with something else I wrote recently about [human websites and polish](/blog/i-believe-in-human-websites-i-still-care-about-polish/).
 
 ## Why I wanted to redesign it
 
-My old setup worked, but it had started to feel like a site I had outgrown.
+My old setup worked, but it had started to feel like a site I had outgrown. That is especially funny to say after all the work I put into [moving the site to Eleventy + GitHub Pages](/blog/from-start-to-finish-moving-my-blog-to-eleventy-github-pages/), but getting onto a better stack was only part of the job.
 
 That does not mean it was bad. It just means the shape of the site and the shape of my writing were no longer lining up as well as I wanted. Over the past year or so, this site has turned into more than just a blog. It has become:
 
