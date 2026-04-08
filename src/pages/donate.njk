@@ -2,60 +2,83 @@
 layout: base
 permalink: /donate/
 title: Support My Work
+description: Support my work in practical cybersecurity, MSP automation, indie web tools, and real-world IT projects through GitHub Sponsors, Ko-fi, or Buy Me a Coffee.
 ---
-<h1 class="text-2xl font-bold mb-6">Support My Work</h1>
+
+<h1 class="text-3xl font-bold mb-6">Support My Work</h1>
 
 <div class="prose prose-lg dark:prose-invert max-w-none">
   {% if meta.donate.message %}
   <p>{{ meta.donate.message }}</p>
   {% else %}
-  <p>If you find value in my writing and want to support my work, there are several ways you can help:</p>
+  <p>
+    If something I’ve written, built, or shared has been helpful to you, this page is one way to support that work.
+    Over time, this site has become more than just a place for me to post things. It has turned into a space where I can share what I’m learning, document real-world work, and build practical things around cybersecurity, MSP automation, indie web tools, and IT.
+  </p>
+
+  <p>
+    Support helps me keep doing more of that. It gives me more room to build, test, document, refine, and publish useful work instead of leaving ideas half-finished behind the scenes.
+  </p>
   {% endif %}
 
   {% if meta.donate.enabled %}
-  <h2>One-time Support</h2>
-  <p>Buy me a coffee or make a one-time contribution to help fuel my writing:</p>
-  
-  <div class="flex flex-wrap gap-4 my-6">
-    {% if meta.donate.kofi %}
-    <a href="https://ko-fi.com/{{ meta.donate.kofi }}" target="_blank" rel="noopener" 
-       class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-      ☕ Ko-fi
-    </a>
-    {% endif %}
+  <h2>Ways to Support</h2>
+  <p>
+    I’ve set up a few different ways to support my work depending on what makes the most sense for you. Some people prefer a one-time contribution. Others like supporting the work on an ongoing basis. Either way, I appreciate it more than I can really say.
+  </p>
 
+  <h3>One-Time Support</h3>
+  <p>
+    If you just want to chip in once, Buy Me a Coffee is the simplest option. One-time support helps cover the quieter parts of this work too, like hosting, tooling, testing, and the time it takes to turn rough ideas into something worth sharing.
+  </p>
+
+  <div class="flex flex-wrap gap-4 my-6">
     {% if meta.donate.buymeacoffee %}
-    <a href="https://buymeacoffee.com/{{ meta.donate.buymeacoffee }}" target="_blank" rel="noopener" 
-       class="inline-flex items-center px-6 py-3 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition-colors">
+    <a href="https://buymeacoffee.com/{{ meta.donate.buymeacoffee }}" target="_blank" rel="noopener"
+       class="inline-flex items-center px-6 py-3 bg-yellow-500 text-black rounded-lg hover:bg-yellow-400 transition-colors">
       ☕ Buy Me a Coffee
     </a>
     {% endif %}
-
   </div>
 
-  {% if meta.donate.github %}
-  <h2>Ongoing Support</h2>
-  <p>For ongoing support, consider sponsoring me on GitHub:</p>
-  
-  <div class="my-6">
-    <a href="https://github.com/sponsors/{{ meta.donate.github }}" target="_blank" rel="noopener" 
+  <h3>Monthly Support</h3>
+  <p>
+    If you want to support what I’m building in a more ongoing way, GitHub Sponsors and Ko-fi are the main places I’m doing that. Monthly support helps me invest more consistently in writeups, tools, scripts, experiments, and small projects I can share publicly.
+  </p>
+
+  <div class="flex flex-wrap gap-4 my-6">
+    {% if meta.donate.github %}
+    <a href="https://github.com/sponsors/{{ meta.donate.github }}" target="_blank" rel="noopener"
        class="inline-flex items-center px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors">
-      💖 GitHub Sponsors
-  </a>
+      💖 Sponsor on GitHub
+    </a>
+    {% endif %}
 
+    {% if meta.donate.kofi %}
+    <a href="https://ko-fi.com/{{ meta.donate.kofi }}" target="_blank" rel="noopener"
+       class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+      ☕ Join on Ko-fi
+    </a>
+    {% endif %}
   </div>
   {% endif %}
-  {% endif %}
+
+  <h2>What Support Helps Make Possible</h2>
+  <ul>
+    <li>More practical cybersecurity writeups and resources</li>
+    <li>More MSP and IT automation ideas, scripts, and experiments</li>
+    <li>More indie web tools and small public projects</li>
+    <li>More time to test, refine, and document the things I build before I publish them</li>
+  </ul>
 
   <h2>Other Ways to Help</h2>
   <ul>
-    <li><strong>Share my posts</strong> with others who might find them valuable</li>
-    <li><strong>Follow me on social media</strong> and engage with my content</li>
-    <li><strong>Send feedback</strong> via email or webmentions</li>
+    <li><strong>Share a post</strong> with someone who might find it useful</li>
+    <li><strong>Follow along</strong> and engage with what I’m building</li>
+    <li><strong>Send feedback</strong> when something resonates, helps, or sparks an idea</li>
   </ul>
 
   <p class="text-sm text-gray-600 dark:text-gray-400 mt-8">
-    Every contribution, no matter how small, helps me continue creating thoughtful content 
-    and maintaining this blog. Thank you for your support! 🙏
+    Whether you support financially, share something I’ve posted, or just keep showing up to read what I’m making, thank you. It all means more than you probably realize.
   </p>
 </div>
