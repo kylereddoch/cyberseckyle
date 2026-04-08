@@ -209,11 +209,11 @@
     <figure slot="image" class="text-center"><picture>   <source type="image/webp" srcset="/assets/images/network_edge_devices_dusty-875w.webp 875w" sizes="(min-width:30em) 50vw, 100vw">
   <source type="image/jpeg" srcset="/assets/images/network_edge_devices_dusty-875w.jpeg 875w" sizes="(min-width:30em) 50vw, 100vw"><img src="/assets/images/network_edge_devices_dusty-875w.jpeg" width="875" height="583" alt="Close-up of aging network edge equipment in a dim server room, showing dusty firewall and router appliances with connected Ethernet cables and warning lights" loading="eager" decoding="sync" eleventy:ignore class="!important"></picture><figcaption>Old network edge devices often stay in place far longer than they should, creating technical debt and unnecessary security risk</figcaption></figure>
 <p>I keep coming back to the same thought lately: a lot of cybersecurity risk is not hiding in some mysterious zero-day fog machine. A lot of it is sitting right at the edge of the network, blinking away like it has all the time in the world.</p>
-<p>Firewalls, VPN appliances, routers, switches, load balancers, and SD-WAN gear often get treated like permanent infrastructure. Once they are in place and mostly working, they quietly become “future me’s problem.” That works right up until the future shows up angry.</p>
+<p>Firewalls, VPN appliances, routers, switches, load balancers, and SD-WAN gear often get treated like permanent infrastructure. Once they are in place and mostly working, they quietly become “future me’s problem.” That works right up until the future shows up angry. I have written before about how that same neglect shows up in smaller ways too, from <a href="/blog/20-common-network-ports-you-must-know-and-secure/">basic port exposure</a> to weak device governance in branch and office networks.</p>
 <p>And right now, the warning lights are not subtle.</p>
 <p>In early February, <a href="https://www.ic3.gov/CSA/2026/260205.pdf" rel="noopener">CISA, the FBI, and the U.K. NCSC released joint guidance on end-of-support edge devices</a>. Their point was blunt: threat actors are actively exploiting unsupported edge devices such as firewalls, routers, load balancers, and VPN gateways to get into networks, keep access, and compromise sensitive data. That is not theoretical. That is your perimeter becoming technical debt with an Ethernet port.</p>
 <p>CISA followed that with <a href="https://www.cisa.gov/news-events/news/cisa-orders-federal-agencies-strengthen-edge-device-security-amid-rising-cyber-threats" rel="noopener">Binding Operational Directive 26-02</a>, which requires federal agencies to identify and remove unsupported edge devices on a defined timeline. Even if you do not work in federal space, the message is still useful: lifecycle management is now a security control, not just a budgeting chore.</p>
-<p>Then on February 25, CISA warned about <a href="https://www.cisa.gov/news-events/alerts/2026/02/25/cisa-and-partners-release-guidance-ongoing-global-exploitation-cisco-sd-wan-systems" rel="noopener">ongoing exploitation of Cisco SD-WAN systems</a>, including the critical <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-20127" rel="noopener">CVE-2026-20127</a> authentication bypass issue in Cisco Catalyst SD-WAN Controller and Manager. Cisco rated it <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-rpa-EHchtZk" rel="noopener">critical with a CVSS score of 10.0</a>. That is the sort of advisory that should make every network team stop pretending next maintenance window is a personality trait.</p>
+<p>Then on February 25, CISA warned about <a href="https://www.cisa.gov/news-events/alerts/2026/02/25/cisa-and-partners-release-guidance-ongoing-global-exploitation-cisco-sd-wan-systems" rel="noopener">ongoing exploitation of Cisco SD-WAN systems</a>, including the critical <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-20127" rel="noopener">CVE-2026-20127</a> authentication bypass issue in Cisco Catalyst SD-WAN Controller and Manager. Cisco rated it <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-rpa-EHchtZk" rel="noopener">critical with a CVSS score of 10.0</a>. That is the sort of advisory that should make every network team stop pretending next maintenance window is a personality trait. I dug into the broader implications of that in <a href="/blog/the-cisco-sd-wan-story-is-bigger-than-cisco/">The Cisco SD-WAN Story Is Bigger Than Cisco</a>, because the bigger issue is how exposed management and stale edge gear keep becoming attacker shortcuts.</p>
 <p>There is also the bigger backdrop. In its <a href="https://blog.cloudflare.com/2026-threat-report/" rel="noopener">2026 Threat Report</a>, Cloudflare said DDoS attacks more than doubled in 2025 and hyper-volumetric network-layer attacks grew 700%. At the same time, Google said its disruption of the <a href="https://cloud.google.com/blog/topics/threat-intelligence/disrupting-largest-residential-proxy-network" rel="noopener">IPIDEA residential proxy network</a> reduced the pool of available devices by millions. Different stories, same lesson: attackers love cheap infrastructure, weak visibility, and edge systems defenders have not cleaned up.</p>
 <h2 id="what-to-do-about-it">What to do about it</h2>
 <p>This is the practical part. Not the “buy seven products and ascend to zero trust enlightenment” part. Just the boring, useful stuff that actually lowers risk.</p>
@@ -375,13 +375,13 @@
       
         <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
           <h3 class="font-semibold mb-2">
-            <a href="/blog/the-biggest-cybersecurity-risk-for-smbs-still-isnt-the-fancy-stuff/" class="hover:text-blue-600">The Biggest Cybersecurity Risk for SMBs Still Isn’t the Fancy Stuff</a>
+            <a href="/blog/russias-router-campaign-should-be-a-wake-up-call-for-every-office/" class="hover:text-blue-600">Russia’s Router Campaign Should Be a Wake-Up Call for Every Office</a>
           </h3>
-          <time datetime="2026-04-01" class="text-sm text-gray-500 dark:text-gray-400">
-            April 1, 2026
+          <time datetime="2026-04-08" class="text-sm text-gray-500 dark:text-gray-400">
+            April 8, 2026
           </time>
           
-            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">The latest Cyber Protect Report from SonicWall makes a strong case that most small business security failures still come down to weak fundamentals, false confidence, and poor execution rather than flashy advanced threats.</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">APT28 did not need to break Microsoft to create real risk. By abusing neglected routers, hijacking DNS, and sitting in the middle of web traffic, the group turned cheap edge hardware into a serious credential theft and surveillance problem.</p>
           
           
             <div class="mt-3 flex flex-wrap gap-1">
@@ -398,13 +398,13 @@
       
         <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
           <h3 class="font-semibold mb-2">
-            <a href="/blog/network-diagrams-are-boring-until-you-need-one/" class="hover:text-blue-600">Network diagrams are boring until you need one</a>
+            <a href="/blog/the-biggest-cybersecurity-risk-for-smbs-still-isnt-the-fancy-stuff/" class="hover:text-blue-600">The Biggest Cybersecurity Risk for SMBs Still Isn’t the Fancy Stuff</a>
           </h3>
-          <time datetime="2026-03-18" class="text-sm text-gray-500 dark:text-gray-400">
-            March 18, 2026
+          <time datetime="2026-04-01" class="text-sm text-gray-500 dark:text-gray-400">
+            April 1, 2026
           </time>
           
-            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">A practical, personal look at why network diagramming matters, how I build useful diagrams, and which free and paid tools are worth considering.</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">The latest Cyber Protect Report from SonicWall makes a strong case that most small business security failures still come down to weak fundamentals, false confidence, and poor execution rather than flashy advanced threats.</p>
           
           
             <div class="mt-3 flex flex-wrap gap-1">
@@ -412,7 +412,7 @@
                 
               
                 
-                  <span style="background-color: hsl(212 65% 45%)" class="text-xs px-2 py-0.5 rounded text-white">#networking</span>
+                  <span style="background-color: hsl(329 65% 45%)" class="text-xs px-2 py-0.5 rounded text-white">#cybersecurity</span>
                 
               
             </div>

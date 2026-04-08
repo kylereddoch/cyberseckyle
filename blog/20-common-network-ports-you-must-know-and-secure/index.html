@@ -199,7 +199,7 @@
         <a href="/about/" class="u-url p-name hover:text-blue-600">Kyle Reddoch</a>
       </span>
       <span aria-hidden="true" class="text-gray-400 dark:text-gray-500 mx-1">•</span>
-      <span>6 min read</span>
+      <span>7 min read</span>
     </div>
 
     <a href="https://www.kylereddoch.me/blog/20-common-network-ports-you-must-know-and-secure/" class="u-url hidden">Permalink</a>
@@ -209,7 +209,7 @@
     <figure slot="image" class="text-center"><picture>   <source type="image/webp" srcset="/assets/images/network-ports-850w.webp 850w" sizes="(min-width:30em) 50vw, 100vw">
   <source type="image/jpeg" srcset="/assets/images/network-ports-850w.jpeg 850w" sizes="(min-width:30em) 50vw, 100vw"><img src="/assets/images/network-ports-850w.jpeg" width="850" height="566" alt="Close-up of a network switch with dozens of blue Ethernet cables plugged in, LED link lights glowing across the ports." loading="eager" decoding="sync" eleventy:ignore class="!important"></picture><figcaption>A busy switch full of connections, every lit port is a service path you should inventory, control, and monitor. (Photo by Scott Rodgerson on Unsplash)</figcaption></figure>
 <p>Ports are the “doors” your services listen on. Some doors should be inside the building only. Some should be behind a badge reader. Some should be welded shut and buried under concrete.</p>
-<p>The tricky part is that a port number does not magically equal a protocol or safety level. It is just a rendezvous point. Security comes from what is listening, how it is configured, and who can reach it. The official source of truth for common service-to-port mappings is the IANA Service Name and Transport Protocol Port Number Registry, which is worth bookmarking. <a href="https://www.iana.org/assignments/service-names-port-numbers" rel="noopener">IANA registry</a>.</p>
+<p>The tricky part is that a port number does not magically equal a protocol or safety level. It is just a rendezvous point. Security comes from what is listening, how it is configured, and who can reach it. The official source of truth for common service-to-port mappings is the IANA Service Name and Transport Protocol Port Number Registry, which is worth bookmarking. <a href="https://www.iana.org/assignments/service-names-port-numbers" rel="noopener">IANA registry</a>. This is also why I keep stressing that <a href="/blog/the-network-edge-cleanup-most-teams-cannot-keep-putting-off/">the network edge still deserves real cleanup work</a>: open or poorly controlled ports are usually a symptom of a larger exposure problem, not the whole story.</p>
 <h2 id="the-rules-that-keep-you-out-of-trouble">The rules that keep you out of trouble</h2>
 <ol>
 <li><strong>Default deny, then allow only what you need.</strong> This is straight out of firewall best practice: allow only necessary traffic, block the rest. <a href="https://csrc.nist.gov/pubs/sp/800/41/r1/final" rel="noopener">NIST SP 800-41 Rev.1</a></li>
@@ -375,7 +375,7 @@
 <p>Here is a downloadable PDF version of the cheat sheet for easy reference: <a href="/assets/downloads/20-common-network-ports-cheatsheet-printable.pdf">20 Common Network Ports You Must Know (and Secure) - PDF</a></p>
 <h2 id="what-secure-looks-like-in-human-terms">What “secure” looks like, in human terms</h2>
 <h3 id="remote-admin-ports-22-3389-135-139-445">Remote admin ports (22, 3389, 135, 139, 445)</h3>
-<p>If these are reachable from everywhere, you are living dangerously.</p>
+<p>If these are reachable from everywhere, you are living dangerously. In MSP and SMB environments, this is often how “temporary” access turns into a standing security problem.</p>
 <ul>
 <li><strong>SSH (22):</strong> keys only, no root login, limit who can attempt auth, and keep it off the public edge unless you have a strong access broker. SSH is designed for secure remote login, but only if you run it like you expect attackers. <a href="https://datatracker.ietf.org/doc/html/rfc4251" rel="noopener">RFC 4251</a></li>
 <li><strong>RDP (3389):</strong> assume it will be hammered. Prefer RD Gateway or a ZTNA solution, require MFA, and treat exposed RDP as an incident waiting to happen. Microsoft documents 3389 as a core Remote Desktop Services port. <a href="https://learn.microsoft.com/en-us/troubleshoot/windows-server/remote/ports-used-by-rds" rel="noopener">Ports used by RDS</a></li>

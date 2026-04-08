@@ -208,7 +208,7 @@
   <div class="e-content prose max-w-none">
     <figure slot="image" class="text-center"><picture>   <source type="image/webp" srcset="/assets/images/vuln-hero-image-800w.webp 800w" sizes="(min-width:30em) 50vw, 100vw">
   <source type="image/jpeg" srcset="/assets/images/vuln-hero-image-800w.jpeg 800w" sizes="(min-width:30em) 50vw, 100vw"><img src="/assets/images/vuln-hero-image-800w.jpeg" width="800" height="533" alt="Three-panel photo collage showing MSP-style vulnerability work: a warm-lit desk with a laptop and “Patch” sticky notes, hands holding a tablet in front of server racks with a vulnerability dashboard, and a notebook labeled “Critical / High / Medium” beside a laptop and phone." loading="eager" decoding="sync" eleventy:ignore class="!important"></picture><figcaption>A snapshot of vulnerability management in an MSP world, patching, monitoring, and prioritizing risk across environments. (Image generated with ChatGPT.)</figcaption></figure>
-<p>MSPs don’t “manage vulnerabilities.” They manage <em>other people’s outages</em> that vulnerabilities become when you ignore them long enough. The trick is building a program that scales across many client environments without turning your team into a patching sweatshop.</p>
+<p>MSPs don’t “manage vulnerabilities.” They manage <em>other people’s outages</em> that vulnerabilities become when you ignore them long enough. The trick is building a program that scales across many client environments without turning your team into a patching sweatshop. A lot of that risk gets especially ugly when it lives on forgotten edge gear, which is something I also talk about in <a href="/blog/the-network-edge-cleanup-most-teams-cannot-keep-putting-off/">The Network Edge Cleanup Most Teams Cannot Keep Putting Off</a>.</p>
 <p>This is a field guide from the cybersecurity side of the house: how to run vulnerability management across clients, how to prioritize like a grown-up, and how to handle the latest “internet is on fire” CVEs without breaking trust or uptime.</p>
 <h2 id="what-makes-msp-vulnerability-management-different">What makes MSP vulnerability management different</h2>
 <p>In-house IT usually has one environment and one culture. MSPs have dozens (or hundreds) of mini-civilizations:</p>
@@ -250,6 +250,7 @@
 <li>Business impact (what breaks if we patch?)</li>
 <li>Recommended fix and compensating controls</li>
 </ul>
+<p>This is also where MSPs get into trouble if they think only about endpoints and servers. Routers, firewalls, VPNs, and remote support tools belong in the same risk conversation because they are often the systems that make one weak control turn into a much larger incident.</p>
 <h3 id="3-prioritize-with-exploitability-exposure-impact">3) Prioritize with “Exploitability + Exposure + Impact”</h3>
 <p>CVSS is useful, but not enough. In MSP land, these three questions beat everything:</p>
 <ol>
@@ -521,13 +522,13 @@ Clients do not need fear. They need:</p>
       
         <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
           <h3 class="font-semibold mb-2">
-            <a href="/blog/the-network-edge-cleanup-most-teams-cannot-keep-putting-off/" class="hover:text-blue-600">The Network Edge Cleanup Most Teams Cannot Keep Putting Off</a>
+            <a href="/blog/russias-router-campaign-should-be-a-wake-up-call-for-every-office/" class="hover:text-blue-600">Russia’s Router Campaign Should Be a Wake-Up Call for Every Office</a>
           </h3>
-          <time datetime="2026-03-13" class="text-sm text-gray-500 dark:text-gray-400">
-            March 13, 2026
+          <time datetime="2026-04-08" class="text-sm text-gray-500 dark:text-gray-400">
+            April 8, 2026
           </time>
           
-            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Unsupported firewalls, routers, VPN appliances, and SD-WAN systems are becoming an avoidable risk. Here is a practical edge security cleanup plan for IT teams, MSPs, and small organizations in 2026.</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">APT28 did not need to break Microsoft to create real risk. By abusing neglected routers, hijacking DNS, and sitting in the middle of web traffic, the group turned cheap edge hardware into a serious credential theft and surveillance problem.</p>
           
           
             <div class="mt-3 flex flex-wrap gap-1">

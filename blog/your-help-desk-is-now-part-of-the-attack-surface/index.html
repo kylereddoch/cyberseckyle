@@ -224,7 +224,7 @@ A prompt to approve MFA.<br>
 A link that looks like a sign-in page.<br>
 A technician asking the user to “help fix the issue quickly.”</p>
 </blockquote>
-<p>That is not just a phishing problem. It is a trust-design problem.</p>
+<p>That is not just a phishing problem. It is a trust-design problem. It is also why I keep coming back to user verification habits like the ones I laid out in <a href="/blog/cyberseckyle-security-how-to-series-everyday-defense-part-5-scam-spotting-the-60-second-pause-protocol/">The 60-Second Pause Protocol</a>: attackers win when they can rush people through familiar-looking support motions.</p>
 <h2 id="the-industry-data-is-pointing-in-the-same-direction">The industry data is pointing in the same direction</h2>
 <p>The bigger trend underneath all of this is identity compromise.</p>
 <p><a href="https://www.sophos.com/en-us/press/press-releases/sophos-active-adversary-report-2026-identity-attacks-dominate-as-threat-groups-proliferate" rel="noopener">Sophos’ 2026 Active Adversary Report</a> says identity-rooted attacks continue to rise and that MFA was absent in 59% of the cases they analyzed. <a href="https://www.verizon.com/about/news/2025-data-breach-investigations-report" rel="noopener">Verizon’s 2025 DBIR</a> found that credential abuse and vulnerability exploitation remain leading initial access vectors, with third-party involvement doubling to 30%.</p>
@@ -282,7 +282,7 @@ It is “Can our current MFA model be socially engineered in real time?”</p>
 <p>Users should know that it is acceptable, and expected, to challenge support requests. They should be allowed to hang up, call back using a known number, open a ticket through the approved portal, or escalate to a manager before granting access.</p>
 <p>That should never be treated as inconvenience. That is exactly what good process looks like.</p>
 <h3 id="6-preserve-the-logs-that-tell-the-story">6. Preserve the logs that tell the story</h3>
-<p>There is one more lesson hiding in all of this: if attackers are using legitimate channels and legitimate tools, your visibility matters even more.</p>
+<p>There is one more lesson hiding in all of this: if attackers are using legitimate channels and legitimate tools, your visibility matters even more. That is exactly where a usable logging pipeline starts to matter, which is one reason I wrote <a href="/blog/making-siem-useful-how-it-works-what-it-does-and-why-you-should-care/">Making SIEM Useful</a> the way I did.</p>
 <p>When remote support tools, identity events, Teams interactions, endpoint behavior, and admin changes all start to blur together, logs are how you separate a rough Monday from an actual intrusion. If your environment does not retain the right telemetry, or if your logging strategy is inconsistent across clients, you make incident response much harder than it needs to be.</p>
 <p>For MSPs, that is not an abstract best practice. That is the difference between quickly answering “what happened?” and spending a day guessing.</p>
 <h2 id="final-thought">Final thought</h2>
@@ -330,6 +330,29 @@ It is “Can our current MFA model be socially engineered in real time?”</p>
       
         <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
           <h3 class="font-semibold mb-2">
+            <a href="/blog/russias-router-campaign-should-be-a-wake-up-call-for-every-office/" class="hover:text-blue-600">Russia’s Router Campaign Should Be a Wake-Up Call for Every Office</a>
+          </h3>
+          <time datetime="2026-04-08" class="text-sm text-gray-500 dark:text-gray-400">
+            April 8, 2026
+          </time>
+          
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">APT28 did not need to break Microsoft to create real risk. By abusing neglected routers, hijacking DNS, and sitting in the middle of web traffic, the group turned cheap edge hardware into a serious credential theft and surveillance problem.</p>
+          
+          
+            <div class="mt-3 flex flex-wrap gap-1">
+              
+                
+              
+                
+                  <span style="background-color: hsl(329 65% 45%)" class="text-xs px-2 py-0.5 rounded text-white">#cybersecurity</span>
+                
+              
+            </div>
+          
+        </article>
+      
+        <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
+          <h3 class="font-semibold mb-2">
             <a href="/blog/the-biggest-cybersecurity-risk-for-smbs-still-isnt-the-fancy-stuff/" class="hover:text-blue-600">The Biggest Cybersecurity Risk for SMBs Still Isn’t the Fancy Stuff</a>
           </h3>
           <time datetime="2026-04-01" class="text-sm text-gray-500 dark:text-gray-400">
@@ -360,29 +383,6 @@ It is “Can our current MFA model be socially engineered in real time?”</p>
           </time>
           
             <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Unsupported firewalls, routers, VPN appliances, and SD-WAN systems are becoming an avoidable risk. Here is a practical edge security cleanup plan for IT teams, MSPs, and small organizations in 2026.</p>
-          
-          
-            <div class="mt-3 flex flex-wrap gap-1">
-              
-                
-              
-                
-                  <span style="background-color: hsl(329 65% 45%)" class="text-xs px-2 py-0.5 rounded text-white">#cybersecurity</span>
-                
-              
-            </div>
-          
-        </article>
-      
-        <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
-          <h3 class="font-semibold mb-2">
-            <a href="/blog/dont-do-this-how-i-accidentally-simulated-attacker-cleanup/" class="hover:text-blue-600">Don’t Do This: How I Accidentally Simulated Attacker Cleanup</a>
-          </h3>
-          <time datetime="2026-02-09" class="text-sm text-gray-500 dark:text-gray-400">
-            February 9, 2026
-          </time>
-          
-            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">I accidentally triggered the classic “attacker covering tracks” signal across our fleet. Here’s why that matters, what you lose, and the safer alternatives.</p>
           
           
             <div class="mt-3 flex flex-wrap gap-1">
