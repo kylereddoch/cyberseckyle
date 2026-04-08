@@ -915,17 +915,17 @@
   background: rgba(15, 23, 42, 0.75);
 }
 
-.gallery dialog + button {
+.gallery dialog+button {
   all: unset;
   cursor: pointer;
 }
 
-.gallery dialog + button:focus-visible {
+.gallery dialog+button:focus-visible {
   outline: 3px solid rgba(139, 92, 246, 0.55);
   outline-offset: 0.3rem;
 }
 
-.gallery dialog > button {
+.gallery dialog>button {
   margin-inline: auto;
   display: flex;
 }
@@ -936,7 +936,7 @@
   object-fit: contain;
 }
 
-.gallery dialog + button img {
+.gallery dialog+button img {
   aspect-ratio: 1;
   object-fit: cover;
 }
@@ -1076,7 +1076,7 @@ pre[class*='language-'] code {
   tab-size: 2;
 }
 
-.prose :not(pre) > code {
+.prose :not(pre)>code {
   display: inline-block;
   padding: 0.12rem 0.45rem;
   border-radius: 0.4rem;
@@ -1087,7 +1087,7 @@ pre[class*='language-'] code {
   white-space: break-spaces;
 }
 
-.dark .prose :not(pre) > code {
+.dark .prose :not(pre)>code {
   border-color: rgb(55 65 81 / 1);
   background: rgb(30 41 59 / 1);
   color: rgb(216 180 254 / 1);
@@ -1256,4 +1256,29 @@ pre[class*='language-'] code .token.variable {
 .dark pre[class*='language-'] code .token.entity,
 .dark pre[class*='language-'] code .token.variable {
   color: rgb(125 211 252 / 1);
+}
+
+.support-badges {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+  margin: .5rem 0;
+  text-align: left !important;
+  justify-content: flex-start !important;
+}
+
+.support-badges a {
+  display: inline-flex;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+.support-badges img {
+  display: block;
+  width: auto !important;
+  max-width: none !important;
+  height: 28px !important;
+  margin: 0 !important;
 }
