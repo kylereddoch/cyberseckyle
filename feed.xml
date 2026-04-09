@@ -4,12 +4,49 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-04-09T16:03:54Z</updated>
+  <updated>2026-04-09T19:49:55Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>Introducing Retro Garden, My New Eleventy Starter Theme</title>
+      <link href="https://www.kylereddoch.me/blog/introducing-retro-garden-my-new-eleventy-starter-theme/" />
+      <updated>2026-04-09T18:15:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/introducing-retro-garden-my-new-eleventy-starter-theme/</id>
+      <content type="html">
+        &lt;p&gt;I have been wanting to build a starter theme for a while that feels more like the kind of web I actually enjoy using.&lt;/p&gt;
+&lt;p&gt;Not sterile. Not overly polished. Not trying to look like every SaaS landing page on the internet.&lt;/p&gt;
+&lt;p&gt;That idea turned into &lt;strong&gt;Retro Garden&lt;/strong&gt;, my new &lt;strong&gt;Eleventy starter theme&lt;/strong&gt;. It is built for personal websites, blogs, and small indie spaces that want some retro personality without giving up the things that still matter, like accessibility, maintainability, and a solid publishing workflow.&lt;/p&gt;
+&lt;h2 id=&quot;why-i-made-it&quot;&gt;Why I made it&lt;/h2&gt;
+&lt;p&gt;I spend a lot of time around websites that are technically polished but feel completely interchangeable. They load fast, score well, and check every modern box, but a lot of them also feel like they were built from the same handful of design trends and never pushed any further.&lt;/p&gt;
+&lt;p&gt;I wanted to make something that leaned the other direction.&lt;/p&gt;
+&lt;p&gt;Retro Garden came out of that tension I keep coming back to. I love modern tooling because it makes publishing easier, more stable, and more sustainable in the long run. At the same time, I still think personal websites should feel personal. They should have quirks. They should have texture. They should leave room for taste, weirdness, and identity instead of sanding everything down into the same safe look.&lt;/p&gt;
+&lt;p&gt;That is really the heart of this starter. It is meant to give people a strong foundation without locking them into a lifeless, overly polished shell.&lt;/p&gt;
+&lt;h2 id=&quot;what-retro-garden-is&quot;&gt;What Retro Garden is&lt;/h2&gt;
+&lt;p&gt;At its core, Retro Garden is an Eleventy starter theme for building a small web home with a retro-inspired feel and a modern content workflow.&lt;/p&gt;
+&lt;p&gt;It is designed for people who want a site that feels expressive and handmade while still having practical features under the hood. Things like markdown-based writing, feeds, reusable components, share features, and a structure that is easy to maintain all matter. I wanted it to feel fun, but I also wanted it to be useful.&lt;/p&gt;
+&lt;p&gt;What I like most about it is that it is not “retro” just for the sake of looking old. The visual style borrows from 90s web energy and small-web personality, but the structure is still built to work well now. The goal was never to make a novelty. The goal was to make something that feels alive.&lt;/p&gt;
+&lt;h2 id=&quot;what-is-included&quot;&gt;What is included&lt;/h2&gt;
+&lt;p&gt;Retro Garden includes a set of features that I think hit a really good middle ground for personal publishing.&lt;/p&gt;
+&lt;p&gt;You get a modern Eleventy setup, markdown support, feeds, reusable components, accessible defaults, and styling that already has a distinct personality without feeling impossible to change. It is meant to be something you can install, understand, and start bending into your own shape pretty quickly.&lt;/p&gt;
+&lt;p&gt;I also wanted the starter to feel approachable. That matters to me. A good starter theme should not feel locked up or over-engineered. It should feel like a solid base that someone can learn from, borrow from, and keep evolving as their site grows.&lt;/p&gt;
+&lt;h2 id=&quot;built-to-be-customized&quot;&gt;Built to be customized&lt;/h2&gt;
+&lt;p&gt;One of the biggest things I wanted to avoid was making a starter that only works if someone likes it exactly the way I built it.&lt;/p&gt;
+&lt;p&gt;That is why Retro Garden is meant to be remixed. The styling, structure, and components are there to give someone momentum, not to trap them inside my exact taste. If someone wants to keep the retro vibe, great. If they want to tone it down, swap colors, simplify sections, or turn it into something that barely resembles the original, that is exactly the kind of flexibility I wanted it to have.&lt;/p&gt;
+&lt;p&gt;A starter theme should help someone begin faster. It should not make their site feel like a copy of yours.&lt;/p&gt;
+&lt;h2 id=&quot;the-kind-of-site-i-made-this-for&quot;&gt;The kind of site I made this for&lt;/h2&gt;
+&lt;p&gt;I made Retro Garden for people who still believe a website can feel like a place.&lt;/p&gt;
+&lt;p&gt;Not just a profile. Not just a content funnel. Not just a collection of posts sitting in a layout that looks like everything else.&lt;/p&gt;
+&lt;p&gt;This is for bloggers, indie web folks, tinkerers, digital gardeners, and anyone who wants their site to feel a little more handmade. It is for people who want modern publishing tools but still want some charm, some personality, and some room to make the site actually feel like their own.&lt;/p&gt;
+&lt;p&gt;Honestly, I think the web needs more of that again.&lt;/p&gt;
+&lt;h2 id=&quot;go-take-a-look&quot;&gt;Go take a look&lt;/h2&gt;
+&lt;p&gt;You can check out the demo here: &lt;a href=&quot;https://retro-garden-eleventy-theme.vercel.app/&quot; rel=&quot;noopener&quot;&gt;Retro Garden&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I built it because I still care about the kind of web that feels human. Retro Garden is my attempt to give that idea a solid Eleventy starting point.&lt;/p&gt;
+&lt;p&gt;And yes, I absolutely hope people borrow the good ideas and make something even weirder with them.&lt;/p&gt;
+
+      </content>
+    </entry><entry>
       <title>Building More Than Blog Posts</title>
       <link href="https://www.kylereddoch.me/blog/building-more-than-blog-posts/" />
       <updated>2026-04-09T15:00:00Z</updated>
