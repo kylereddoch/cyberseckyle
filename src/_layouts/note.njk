@@ -17,9 +17,11 @@ layout: base
 </nav>
 
 <article class="h-entry mx-auto max-w-3xl">
+  {% set heroImage = featuredImage or featured_image %}
+  {% set heroImageAlt = featuredImageAlt or featured_image_alt or alt or ('Featured image for ' ~ title) %}
 
   <div class="mb-8">
-      <img class="u-photo w-full rounded-lg" src="{{ featuredImage }}" alt="{{ featuredImageAlt or alt or ('Featured image for ' ~ title) }}" />
+      <img class="u-photo w-full rounded-lg" src="{{ heroImage }}" alt="{{ heroImageAlt }}" />
     </div>
 
   <header class="mb-6">
