@@ -4,12 +4,119 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-04-08T21:03:55Z</updated>
+  <updated>2026-04-09T15:48:33Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>Building More Than Blog Posts</title>
+      <link href="https://www.kylereddoch.me/blog/building-more-than-blog-posts/" />
+      <updated>2026-04-09T15:00:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/building-more-than-blog-posts/</id>
+      <content type="html">
+        &lt;p&gt;Lately I have been spending a lot of time thinking about how to build something a little bigger around the work I already do here.&lt;/p&gt;
+&lt;p&gt;I have my regular blog posts. I have my &lt;a href=&quot;https://www.kylereddoch.me/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/&quot;&gt;CybersecKyle Security How-To series&lt;/a&gt; that I am actively working on. I have the day to day real-world perspective that comes from working in IT, managed services, and cybersecurity. Over time, I have realized there is room to turn some of that into &lt;em&gt;more than just blog posts&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Not by putting everything behind a wall, and not by making things feel overly corporate or transactional. What I want to build is a sponsor-supported layer around the site that adds &lt;strong&gt;more value for the people&lt;/strong&gt; who want to &lt;a href=&quot;https://www.kylereddoch.me/donate/&quot;&gt;support&lt;/a&gt; what I do.&lt;/p&gt;
+&lt;p&gt;That means more practical resources, more polished downloads, and more ways to turn ideas from the blog into things people can actually use.&lt;/p&gt;
+&lt;h2 id=&quot;the-general-idea&quot;&gt;The general idea&lt;/h2&gt;
+&lt;p&gt;The blog is still the main thing. &lt;strong&gt;That is not changing.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The Security How-To series, my regular writing, my opinions, my notes, and my posts are still what drive everything else. The goal here is not to replace that. The goal is to build a companion layer around it.&lt;/p&gt;
+&lt;p&gt;What I am planning is a mix of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;downloadable checklists&lt;/li&gt;
+&lt;li&gt;quick-reference PDFs&lt;/li&gt;
+&lt;li&gt;workbooks and planners&lt;/li&gt;
+&lt;li&gt;premium guides and mini ebooks&lt;/li&gt;
+&lt;li&gt;supporter updates and field notes&lt;/li&gt;
+&lt;li&gt;small resource bundles in my shop&lt;/li&gt;
+&lt;li&gt;larger bonus materials for recurring supporters&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I want these to feel connected to the work I am already doing here, not like random extras.&lt;/p&gt;
+&lt;h2 id=&quot;how-it-connects-to-the-security-how-to-series&quot;&gt;How it connects to the Security How-To series&lt;/h2&gt;
+&lt;p&gt;This is the part I am most excited about.&lt;/p&gt;
+&lt;p&gt;The CybersecKyle Security How-To series already gives me a strong foundation to build from. The public posts can stay public and continue doing what they are meant to do: help people, explain things clearly, and give practical advice.&lt;/p&gt;
+&lt;p&gt;Then the supporter side can go one layer deeper.&lt;/p&gt;
+&lt;p&gt;So, for example, if I publish a post about password managers, the companion resources might be things like a setup checklist, a migration planner, or a short guide that helps someone actually move into a password manager without making a mess of their accounts.&lt;/p&gt;
+&lt;p&gt;If I publish a post about MFA and account recovery, the companion resources could be a recovery checklist, a backup codes worksheet, or a small workbook that helps someone prepare before they lose access to a device.&lt;/p&gt;
+&lt;p&gt;That kind of structure makes a lot more sense to me than just trying to invent unrelated perks.&lt;/p&gt;
+&lt;h2 id=&quot;what-i-am-planning-to-make&quot;&gt;What I am planning to make&lt;/h2&gt;
+&lt;p&gt;Right now, I am thinking in a few categories.&lt;/p&gt;
+&lt;h3 id=&quot;quick-downloads&quot;&gt;Quick downloads&lt;/h3&gt;
+&lt;p&gt;These would be the smaller, practical resources. Things people can open, read, and use right away.&lt;/p&gt;
+&lt;p&gt;Some examples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2FA recovery checklists&lt;/li&gt;
+&lt;li&gt;password manager setup checklists&lt;/li&gt;
+&lt;li&gt;browser privacy cleanup sheets&lt;/li&gt;
+&lt;li&gt;new device security checklists&lt;/li&gt;
+&lt;li&gt;mobile hardening checklists&lt;/li&gt;
+&lt;li&gt;backup verification sheets&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These are the kinds of resources that are not flashy, but they are useful, and useful tends to age well.&lt;/p&gt;
+&lt;h3 id=&quot;workbooks-and-planners&quot;&gt;Workbooks and planners&lt;/h3&gt;
+&lt;p&gt;This is where I can go a little deeper.&lt;/p&gt;
+&lt;p&gt;Instead of just telling people what to do, these would help them actually work through something step by step.&lt;/p&gt;
+&lt;p&gt;Some examples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;password migration planner&lt;/li&gt;
+&lt;li&gt;account recovery workbook&lt;/li&gt;
+&lt;li&gt;personal backup planning worksheet&lt;/li&gt;
+&lt;li&gt;home device inventory workbook&lt;/li&gt;
+&lt;li&gt;scam response planning sheet&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I like these because they turn advice into action.&lt;/p&gt;
+&lt;h3 id=&quot;premium-guides-and-mini-ebooks&quot;&gt;Premium guides and mini ebooks&lt;/h3&gt;
+&lt;p&gt;These would be the more polished anchor pieces.&lt;/p&gt;
+&lt;p&gt;Not giant bloated ebooks just for the sake of saying I made an ebook, but focused guides that are easy to read, professionally laid out, and worth keeping around.&lt;/p&gt;
+&lt;p&gt;A few ideas I am considering:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a practical guide to passwords, MFA, and recovery&lt;/li&gt;
+&lt;li&gt;a home cybersecurity starter guide&lt;/li&gt;
+&lt;li&gt;a small business security basics guide&lt;/li&gt;
+&lt;li&gt;a realistic safer browsing guide for everyday users&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These are the kinds of pieces I want to take my time with and make feel genuinely solid.&lt;/p&gt;
+&lt;h3 id=&quot;supporter-notes-and-behind-the-scenes-updates&quot;&gt;Supporter notes and behind-the-scenes updates&lt;/h3&gt;
+&lt;p&gt;Not everything needs to be a formal guide.&lt;/p&gt;
+&lt;p&gt;I also want to share more of what I am seeing, testing, thinking about, and building. That could include monthly field notes, updates on what I am working on, early looks at upcoming resources, and maybe even occasional polls so supporters can help me decide what I should make next.&lt;/p&gt;
+&lt;p&gt;That part feels important to me because I do not want support to just be a transaction. I want it to feel like people are helping shape where this goes.&lt;/p&gt;
+&lt;h2 id=&quot;how-i-am-thinking-about-the-rollout&quot;&gt;How I am thinking about the rollout&lt;/h2&gt;
+&lt;p&gt;I am trying to be realistic about this.&lt;/p&gt;
+&lt;p&gt;I do not want to announce a huge list of things and then create pressure to rush through them. I would rather build this carefully and make sure the quality is there.&lt;/p&gt;
+&lt;p&gt;So the plan is to start with smaller, strong foundation pieces first.&lt;/p&gt;
+&lt;p&gt;That likely means:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a supporter welcome pack&lt;/li&gt;
+&lt;li&gt;a few practical quick-start checklists&lt;/li&gt;
+&lt;li&gt;my first monthly field notes issue&lt;/li&gt;
+&lt;li&gt;one or two small worksheet-style resources&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;After that, I want to move into more substantial resources like planners, workbooks, and eventually the first premium mini ebook.&lt;/p&gt;
+&lt;p&gt;That approach gives me room to build a library over time instead of trying to dump everything out at once.&lt;/p&gt;
+&lt;h2 id=&quot;what-i-want-these-resources-to-feel-like&quot;&gt;What I want these resources to feel like&lt;/h2&gt;
+&lt;p&gt;One thing I care about a lot is presentation.&lt;/p&gt;
+&lt;p&gt;If I do this, I want these downloads to feel like real resources people would actually trust and use. Clean layout, readable structure, practical content, and a look that fits my brand without feeling overdesigned or artificial.&lt;/p&gt;
+&lt;p&gt;I want them to feel professional and approachable. More like something you would keep in your downloads folder because it is genuinely helpful, and less like filler that exists just to pad out a membership page.&lt;/p&gt;
+&lt;p&gt;That matters to me.&lt;/p&gt;
+&lt;h2 id=&quot;what-support-would-actually-help-make-possible&quot;&gt;What support would actually help make possible&lt;/h2&gt;
+&lt;p&gt;Support would help me spend more time creating and polishing this kind of material.&lt;/p&gt;
+&lt;p&gt;That includes the writing itself, the design work, the formatting, the planning, and the time it takes to turn a rough idea into something useful and polished. It also helps me continue putting time into the blog, the Security How-To series, and the broader CybersecKyle project as a whole.&lt;/p&gt;
+&lt;p&gt;In other words, support would not just be helping me publish more. It would be helping me publish better.&lt;/p&gt;
+&lt;h2 id=&quot;how-you-can-help-shape-it&quot;&gt;How you can help shape it&lt;/h2&gt;
+&lt;p&gt;This is something I want to be transparent about from the beginning.&lt;/p&gt;
+&lt;p&gt;If there are specific topics you would want to see turned into a checklist, worksheet, quick guide, or premium resource, I want to hear that. If there is a part of the Security How-To series that you think deserves a deeper companion download, that is useful feedback too.&lt;/p&gt;
+&lt;p&gt;I already have a lot of ideas, but the best version of this will probably come from a mix of what I want to build and what people actually want help with.&lt;/p&gt;
+&lt;p&gt;So if you have thoughts, &lt;a href=&quot;https://www.kylereddoch.me/contact/&quot;&gt;send them my way&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;where-this-is-headed&quot;&gt;Where this is headed&lt;/h2&gt;
+&lt;p&gt;At the end of the day, what I am trying to build is pretty simple.&lt;/p&gt;
+&lt;p&gt;I want the blog to stay public and useful. I want the Security How-To series to keep growing. I want supporters to get access to practical companion resources, deeper guides, and behind-the-scenes updates. And I want the whole thing to grow into a library of material that is actually worth supporting.&lt;/p&gt;
+&lt;p&gt;That is the plan.&lt;/p&gt;
+&lt;p&gt;It is still taking shape, but I wanted to share where my head is at, what I am building toward, and how it all fits together.&lt;/p&gt;
+&lt;p&gt;Thanks for reading, and thanks to everyone who has already encouraged me to keep building this thing.&lt;/p&gt;
+
+      </content>
+    </entry><entry>
       <title>Why I’m Building More Intentionally Online, and I’d Love to Have You Along</title>
       <link href="https://www.kylereddoch.me/blog/why-im-building-more-intentionally-online-and-id-love-to-have-you-along/" />
       <updated>2026-04-08T20:00:00Z</updated>
