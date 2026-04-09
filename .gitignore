@@ -8,6 +8,8 @@ src/_includes/scripts
 
 # cache
 .cache
+.tmp-build
+.tmp-eleventy-img
 
 # secret data
 .env
