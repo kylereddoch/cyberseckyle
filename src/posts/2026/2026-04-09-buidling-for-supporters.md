@@ -3,7 +3,7 @@ date: 2026-04-09T10:00:00-05:00
 title: Building More Than Blog Posts
 description: I want to be transparent about what I’m building around CybersecKyle, from practical companion resources and supporter downloads to bigger guides tied to the work I’m already doing here.
 tags: [editorials, personal]
-mastodon_url:
+mastodon_url: https://infosec.exchange/@cyberseckyle/116375578744026047
 ---
 
 Lately I have been spending a lot of time thinking about how to build something a little bigger around the work I already do here.
