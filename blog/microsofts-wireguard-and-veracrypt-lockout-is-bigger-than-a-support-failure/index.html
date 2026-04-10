@@ -483,6 +483,36 @@
 
 
     
+      <template id="mastodon-post-template">
+        <figure class="mastodon-post">
+    <blockquote data-key="content" class="mastodon-post-quote"></blockquote>
+    <figcaption class="mastodon-post__caption"><!--<cite> — <a data-key="url" rel="me"><span
+                    data-key="username"></span>@<span data-key="hostname"></span></a></cite>-->
+        <dl class="mastodon-post__stats">
+            <div class="mastodon-post__stat">
+                <a href="https://infosec.exchange/@cyberseckyle/116380864040773399/reblogs/" class="no-indicator"><dt><i class="fa-solid fa-rocket"></i></dt>
+                <dd data-key="reblogs_count"></dd></a>
+            </div>
+            <div class="mastodon-post__stat">
+                <a href="https://infosec.exchange/@cyberseckyle/116380864040773399/" class="no-indicator"><dt><i class="fa-solid fa-comment"></i></dt>
+                <dd data-key="replies_count"></dd></a>
+            </div>
+            <div class="mastodon-post__stat">
+                <a href="https://infosec.exchange/@cyberseckyle/116380864040773399/favourites/" class="no-indicator"><dt><i class="fa-solid fa-heart"></i></dt>
+                <dd data-key="favourites_count"></dd></a>
+            </div>
+        </dl>
+    </figcaption>
+</figure>
+      </template>
+
+      <div class="discuss-mastodon mt-6">
+        <div class="discuss-mastodon__intro">
+          <a href="https://infosec.exchange/@cyberseckyle/116380864040773399" rel="syndication noopener" target="_blank" class="u-syndication no-indicator">Discuss on Mastodon</a>
+        </div>
+        <mastodon-post></mastodon-post>
+      </div>
+    
 
     <div class="mt-6">
       <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Give this post some kudos.</p>
@@ -512,6 +542,8 @@
     <a href="https://www.kylereddoch.me/blog/microsofts-wireguard-and-veracrypt-lockout-is-bigger-than-a-support-failure/" class="u-url">Microsoft’s WireGuard and VeraCrypt Lockout Is Bigger Than a Support Failure</a>
     <a rel="author" href="https://www.kylereddoch.me" class="p-name u-url">Kyle Reddoch</a>
     <a href="https://fed.brid.gy/" hidden="from-humans" class="u-bridgy-fed">Bridge this post to Bridgy Fed</a>
+    
+      <a rel="syndication" href="https://infosec.exchange/@cyberseckyle/116380864040773399" class="u-syndication">Syndicated on Mastodon</a>
     
     <img src="https://www.kylereddoch.me/assets/images/logo.png" alt="Kyle Reddoch" class="u-author h-card">
   </div>
