@@ -5,7 +5,7 @@ description: A major update to my Catppuccin Mastodon theme with configurable fl
 featuredImage: /assets/images/catppuccin-complete-ui.png
 tags: [mastodon, themes, social media]
 category: projects
-mastodon_url: 
+mastodon_url: https://infosec.exchange/@cyberseckyle/116382090542616136
 ---
 
 When I first shared my Catppuccin Mastodon theme, it was a pretty personal project.
