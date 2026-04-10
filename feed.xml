@@ -4,12 +4,90 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-04-10T19:26:46Z</updated>
+  <updated>2026-04-10T19:34:13Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>Catppuccin Complete UI for Mastodon 2.0</title>
+      <link href="https://www.kylereddoch.me/blog/catppuccin-complete-ui-for-mastodon-20/" />
+      <updated>2026-04-10T19:30:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/catppuccin-complete-ui-for-mastodon-20/</id>
+      <content type="html">
+        &lt;p&gt;When I first shared my Catppuccin Mastodon theme, it was a pretty personal project.&lt;/p&gt;
+&lt;p&gt;I wanted Mastodon’s web UI to feel more comfortable for me, more intentional, and more in line with the kind of design language I already liked. That first version was focused mainly on a Catppuccin Mocha look and my preferred advanced web layout, especially with the composer moved over to the left.&lt;/p&gt;
+&lt;p&gt;If you missed that earlier post, you can read it here: &lt;a href=&quot;https://www.kylereddoch.me/blog/catppuccin-mocha-ui-for-mastodon/&quot;&gt;Catppuccin Mocha UI for Mastodon&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This new release is a much bigger step forward.&lt;/p&gt;
+&lt;h2 id=&quot;introducing-catppuccin-complete-ui-for-mastodon&quot;&gt;Introducing Catppuccin Complete UI for Mastodon&lt;/h2&gt;
+&lt;p&gt;The project now has a new name: &lt;strong&gt;Catppuccin Complete UI for Mastodon&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;That rename reflects what it has become. This is no longer just a one-off Mocha customization for my own setup. It is now a more complete theme package for Mastodon, still inspired by Bird UI, but rebuilt around Catppuccin and designed to be easier for other people to install, customize, and use.&lt;/p&gt;
+&lt;h2 id=&quot;whats-new-in-20&quot;&gt;What’s New in 2.0&lt;/h2&gt;
+&lt;h3 id=&quot;1-more-than-just-mocha&quot;&gt;1. More than just Mocha&lt;/h3&gt;
+&lt;p&gt;The biggest change is that this is no longer limited to a single Catppuccin flavor.&lt;/p&gt;
+&lt;p&gt;The theme now supports:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Mocha&lt;/li&gt;
+&lt;li&gt;Macchiato&lt;/li&gt;
+&lt;li&gt;Frappe&lt;/li&gt;
+&lt;li&gt;Latte&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That means both dark and light Catppuccin users now have proper options instead of one fixed palette.&lt;/p&gt;
+&lt;h3 id=&quot;2-accent-color-selection&quot;&gt;2. Accent color selection&lt;/h3&gt;
+&lt;p&gt;On top of flavor switching, the theme now supports Catppuccin accent selection across the palette.&lt;/p&gt;
+&lt;p&gt;So if you want blue, rosewater, mauve, teal, green, lavender, or something else from the Catppuccin range, you can choose it without editing CSS by hand.&lt;/p&gt;
+&lt;p&gt;This ended up becoming a bigger improvement than I expected, because once accent colors were configurable, I also had to go back through the UI and make sure those accents were applied more consistently across the interface.&lt;/p&gt;
+&lt;h3 id=&quot;3-better-coverage-across-the-ui&quot;&gt;3. Better coverage across the UI&lt;/h3&gt;
+&lt;p&gt;A big part of this update was just going through the theme and making it feel more complete.&lt;/p&gt;
+&lt;p&gt;That included improving accent coverage and fixing places where colors were either inconsistent or not being applied at all. Headers, hashtag links, compose actions, drawer controls, and other parts of the UI now follow the selected theme more closely.&lt;/p&gt;
+&lt;p&gt;I also spent time fixing contrast and readability issues, especially in lighter themes like Latte and in places where some accent combinations were too weak.&lt;/p&gt;
+&lt;h3 id=&quot;4-advanced-web-and-regular-view-support&quot;&gt;4. Advanced web and regular view support&lt;/h3&gt;
+&lt;p&gt;The original project was mostly centered around Mastodon’s advanced web interface.&lt;/p&gt;
+&lt;p&gt;That is still the most customized version of the theme, and it is where my left-side composer layout really lives, but the theme now also properly supports Mastodon’s regular single-column interface.&lt;/p&gt;
+&lt;p&gt;That means this project is no longer only for people using advanced web all day.&lt;/p&gt;
+&lt;h3 id=&quot;5-a-proper-usercss-install&quot;&gt;5. A proper UserCSS install&lt;/h3&gt;
+&lt;p&gt;The recommended install is now a real configurable userstyle:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;catppuccin-complete-ui.user.css&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;If you use Stylus or a similar extension, you can now choose:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Catppuccin flavor&lt;/li&gt;
+&lt;li&gt;accent color&lt;/li&gt;
+&lt;li&gt;composer side&lt;/li&gt;
+&lt;li&gt;surface style&lt;/li&gt;
+&lt;li&gt;composer width&lt;/li&gt;
+&lt;li&gt;timeline column width&lt;/li&gt;
+&lt;li&gt;optional active header glow&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;picture slot=&quot;image&quot; class=&quot;text-center&quot;&gt;  &lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/stylus-config-panel-474w.webp 474w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;br&gt;
+&lt;source type=&quot;image/jpeg&quot; srcset=&quot;https://www.kylereddoch.me/assets/images/stylus-config-panel-474w.jpeg 474w&quot; sizes=&quot;(min-width:30em) 50vw, 100vw&quot;&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/stylus-config-panel-474w.jpeg&quot; width=&quot;474&quot; height=&quot;445&quot; alt=&quot;Stylus Config Panel for Catppuccin Complete UI showing configuration options&quot; loading=&quot;eager&quot; decoding=&quot;sync&quot; eleventy:ignore class=&quot;!important&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;That is a much better experience than editing one giant CSS file manually.&lt;/p&gt;
+&lt;h3 id=&quot;6-fixed-css-downloads-too&quot;&gt;6. Fixed CSS downloads too&lt;/h3&gt;
+&lt;p&gt;Not everyone wants a configurable userstyle, and not everyone uses Stylus.&lt;/p&gt;
+&lt;p&gt;So alongside the UserCSS version, I also added fixed CSS exports for both layouts. There are now organized theme files for each flavor and accent combination, which makes it much easier to grab exactly what you want and drop it into Mastodon custom CSS or another userstyle tool.&lt;/p&gt;
+&lt;h3 id=&quot;7-cleaner-internals-and-easier-updates&quot;&gt;7. Cleaner internals and easier updates&lt;/h3&gt;
+&lt;p&gt;One of the less visible but most important changes in this release is that the project is now generated through a build script instead of being one giant hand-edited CSS file.&lt;/p&gt;
+&lt;p&gt;That makes the theme a lot easier to maintain, and it makes future upstream Bird UI updates much less painful to integrate.&lt;/p&gt;
+&lt;p&gt;In other words, 2.0 is not just a visual refresh. It is also a much better foundation.&lt;/p&gt;
+&lt;h2 id=&quot;what-stayed-the-same&quot;&gt;What stayed the same&lt;/h2&gt;
+&lt;p&gt;Even with all the structural changes, the original goal is still the same:&lt;/p&gt;
+&lt;p&gt;I want Mastodon to feel cleaner, calmer, and nicer to use every day, while still keeping the Catppuccin personality I wanted from the beginning.&lt;/p&gt;
+&lt;p&gt;The larger left-side composer in advanced web is still here. The project is still very much shaped by my own preferences. It is just much more flexible now.&lt;/p&gt;
+&lt;h2 id=&quot;compatibility&quot;&gt;Compatibility&lt;/h2&gt;
+&lt;p&gt;Right now I am treating this release as aligned with Mastodon 4.5-era styling.&lt;/p&gt;
+&lt;p&gt;Upstream Bird UI 3.0.0 currently documents Mastodon 4.5.0 support in its README, and that is the base this project is pinned around. I still expect newer Mastodon builds to occasionally need selector updates, so I would rather be conservative than overclaim compatibility.&lt;/p&gt;
+&lt;h2 id=&quot;whats-next&quot;&gt;What’s next&lt;/h2&gt;
+&lt;p&gt;There is still plenty I want to keep improving.&lt;/p&gt;
+&lt;p&gt;Some of that is just continued polish: better coverage, more consistency, and catching the little edge cases that only show up once you start using a theme full time.&lt;/p&gt;
+&lt;p&gt;I also want to keep exploring where this can go for both advanced web and the regular Mastodon view without losing the design direction that made me build it in the first place.&lt;/p&gt;
+&lt;h2 id=&quot;try-it-out&quot;&gt;Try it out&lt;/h2&gt;
+&lt;p&gt;If you want to use it, the project is available here:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/kylereddoch/catpuccin-mocha-ui-mastodon&quot; rel=&quot;noopener&quot;&gt;Catppuccin Mocha UI for Mastodon&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The recommended install is the configurable UserCSS file, but there are also fixed CSS exports if you want something simpler.&lt;/p&gt;
+&lt;p&gt;And if you want to support the project, there are support links in the repo as well or you can contribute through the usual &lt;a href=&quot;https://www.kylereddoch.me/donate/&quot;&gt;channels&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This started as a personal theme experiment, but 2.0 feels like the first version that really earns the word “complete.”&lt;/p&gt;
+
+      </content>
+    </entry><entry>
       <title>Microsoft’s WireGuard and VeraCrypt Lockout Is Bigger Than a Support Failure</title>
       <link href="https://www.kylereddoch.me/blog/microsofts-wireguard-and-veracrypt-lockout-is-bigger-than-a-support-failure/" />
       <updated>2026-04-10T14:00:00Z</updated>
