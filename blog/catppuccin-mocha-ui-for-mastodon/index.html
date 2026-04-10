@@ -232,6 +232,18 @@
         
           
         
+          
+            <a href="/tags/mastodon/" style="background-color: hsl(345 65% 45%)" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#mastodon</a>
+          
+        
+          
+            <a href="/tags/themes/" style="background-color: hsl(226 65% 45%)" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#themes</a>
+          
+        
+          
+            <a href="/tags/social/" style="background-color: hsl(5 65% 45%)" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#social</a>
+          
+        
       </div>
     </section>
   
@@ -243,29 +255,6 @@
     <h2 class="text-xl font-semibold mb-6">Related Posts</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      
-        <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
-          <h3 class="font-semibold mb-2">
-            <a href="/blog/microsofts-wireguard-and-veracrypt-lockout-is-bigger-than-a-support-failure/" class="hover:text-blue-600">Microsoft’s WireGuard and VeraCrypt Lockout Is Bigger Than a Support Failure</a>
-          </h3>
-          <time datetime="2026-04-10" class="text-sm text-gray-500 dark:text-gray-400">
-            April 10, 2026
-          </time>
-          
-            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">The most important part of Microsoft’s WireGuard and VeraCrypt account suspensions is not the headline drama. It is the reminder that modern software trust chains can turn into chokepoints fast, especially for security tools that need signed updates to protect users.</p>
-          
-          
-            <div class="mt-3 flex flex-wrap gap-1">
-              
-                
-              
-                
-                  <span style="background-color: hsl(329 65% 45%)" class="text-xs px-2 py-0.5 rounded text-white">#cybersecurity</span>
-                
-              
-            </div>
-          
-        </article>
       
         <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
           <h3 class="font-semibold mb-2">
@@ -292,13 +281,13 @@
       
         <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
           <h3 class="font-semibold mb-2">
-            <a href="/blog/building-more-than-blog-posts/" class="hover:text-blue-600">Building More Than Blog Posts</a>
+            <a href="/blog/i-built-an-eleventy-plugin-for-sharing-posts-to-mastodon/" class="hover:text-blue-600">I Built an Eleventy Plugin for Sharing Posts to Mastodon</a>
           </h3>
-          <time datetime="2026-04-09" class="text-sm text-gray-500 dark:text-gray-400">
-            April 9, 2026
+          <time datetime="2026-04-07" class="text-sm text-gray-500 dark:text-gray-400">
+            April 7, 2026
           </time>
           
-            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">I want to be transparent about what I’m building around CybersecKyle, from practical companion resources and supporter downloads to bigger guides tied to the work I’m already doing here.</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">A new Eleventy plugin that adds a Mastodon share button with an instance picker, saved instance support, and shortcode helpers.</p>
           
           
             <div class="mt-3 flex flex-wrap gap-1">
@@ -306,7 +295,30 @@
                 
               
                 
-                  <span style="background-color: hsl(316 65% 45%)" class="text-xs px-2 py-0.5 rounded text-white">#editorials</span>
+                  <span style="background-color: #10b981" class="text-xs px-2 py-0.5 rounded text-white">#eleventy</span>
+                
+              
+            </div>
+          
+        </article>
+      
+        <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
+          <h3 class="font-semibold mb-2">
+            <a href="/blog/embedding-mastodon-posts-in-eleventy-my-journey/" class="hover:text-blue-600">Embedding Mastodon Posts in Eleventy: My Journey</a>
+          </h3>
+          <time datetime="2025-10-30" class="text-sm text-gray-500 dark:text-gray-400">
+            October 30, 2025
+          </time>
+          
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">What finally worked to embed Mastodon posts in Eleventy: a tiny shortcode that lets embed.js set height and supports a clean full-bleed layout.</p>
+          
+          
+            <div class="mt-3 flex flex-wrap gap-1">
+              
+                
+              
+                
+                  <span style="background-color: #10b981" class="text-xs px-2 py-0.5 rounded text-white">#eleventy</span>
                 
               
             </div>
@@ -468,36 +480,6 @@
 
 
     
-      <template id="mastodon-post-template">
-        <figure class="mastodon-post">
-    <blockquote data-key="content" class="mastodon-post-quote"></blockquote>
-    <figcaption class="mastodon-post__caption"><!--<cite> — <a data-key="url" rel="me"><span
-                    data-key="username"></span>@<span data-key="hostname"></span></a></cite>-->
-        <dl class="mastodon-post__stats">
-            <div class="mastodon-post__stat">
-                <a href="mastodon,themes,social/reblogs/" class="no-indicator"><dt><i class="fa-solid fa-rocket"></i></dt>
-                <dd data-key="reblogs_count"></dd></a>
-            </div>
-            <div class="mastodon-post__stat">
-                <a href="mastodon,themes,social/" class="no-indicator"><dt><i class="fa-solid fa-comment"></i></dt>
-                <dd data-key="replies_count"></dd></a>
-            </div>
-            <div class="mastodon-post__stat">
-                <a href="mastodon,themes,social/favourites/" class="no-indicator"><dt><i class="fa-solid fa-heart"></i></dt>
-                <dd data-key="favourites_count"></dd></a>
-            </div>
-        </dl>
-    </figcaption>
-</figure>
-      </template>
-
-      <div class="discuss-mastodon mt-6">
-        <div class="discuss-mastodon__intro">
-          <a href="mastodon,themes,social" rel="syndication noopener" target="_blank" class="u-syndication no-indicator">Discuss on Mastodon</a>
-        </div>
-        <mastodon-post></mastodon-post>
-      </div>
-    
 
     <div class="mt-6">
       <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Give this post some kudos.</p>
@@ -527,8 +509,6 @@
     <a href="https://www.kylereddoch.me/blog/catppuccin-mocha-ui-for-mastodon/" class="u-url">Catppuccin Mocha UI for Mastodon</a>
     <a rel="author" href="https://www.kylereddoch.me" class="p-name u-url">Kyle Reddoch</a>
     <a href="https://fed.brid.gy/" hidden="from-humans" class="u-bridgy-fed">Bridge this post to Bridgy Fed</a>
-    
-      <a rel="syndication" href="mastodon,themes,social" class="u-syndication">Syndicated on Mastodon</a>
     
     <img src="https://www.kylereddoch.me/assets/images/logo.png" alt="Kyle Reddoch" class="u-author h-card">
   </div>
