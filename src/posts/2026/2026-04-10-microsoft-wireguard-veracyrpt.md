@@ -5,7 +5,7 @@ description: The most important part of Microsoft’s WireGuard and VeraCrypt ac
 featuredImage: /assets/images/msft-wireguard-veracrypt.png
 tags: [cybersecurity, windows, open-source, privacy]
 category: cybersecurity
-mastodon_url: 
+mastodon_url: https://infosec.exchange/@cyberseckyle/116380864040773399
 ---
 
 A friend on Mastodon, [CJ Errington](https://mstdn.social/@cjerrington/116377293389901114), put this story on my radar after [Neowin reported](https://www.neowin.net/news/microsoft-pulls-developer-accounts-of-wireguard-and-veracrypt/) that Microsoft had pulled the developer accounts tied to WireGuard and VeraCrypt. The headline is attention-grabbing on its own, but the part that really matters to me is not the drama. It is what this says about how fragile software trust and update pipelines can become when one company sits in the middle of them.
