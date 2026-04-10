@@ -2,7 +2,7 @@
 date: 2025-01-11
 title: 'Catppuccin Mocha UI for Mastodon'
 description: "Discover Catppuccin Mocha UI for Mastodon, a beautifully enhanced theme inspired by Rolle's BirdUI and Jason Crabtree's Catppuccin Mocha palette. This customized UI brings modern aesthetics and usability to Mastodon, featuring a left-aligned compose section and narrower columns for a streamlined multi-column view. Perfect for those seeking a visually appealing and functional Mastodon experience. Learn more and install now!"
-mastodon_url: [mastodon, themes, social]
+tags: [mastodon, themes, social]
 ---
 
 I first signed up for Mastodon back in 2018 on mastodon.social but after that, really never did anything with it. I was more active on Twitter like most other people. But, as Twitter started to decline after [Elon bought it](https://www.theverge.com/2022/4/11/23019836/elon-musk-twitter-board-of-directors-news-updates), I decided to give Mastodon another look. I moved around different instances at first but then finally found a home on [allthingstech.social](https://allthingstech.social) where I am a co-admin along with [@cliffwade](https://allthingstech.social@cliffwade).
