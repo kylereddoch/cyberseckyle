@@ -374,6 +374,21 @@ export default async function (eleventyConfig) {
       return '';
     }
   });
+  eleventyConfig.addAsyncFilter('appendTinylyticsPixel', async (content, postUrl, siteCode) => {
+    const renderedContent =
+      typeof content === 'string'
+        ? content
+        : content == null
+          ? ''
+          : String(await content);
+
+    if (!siteCode || !postUrl) {
+      return renderedContent;
+    }
+
+    const pixel = `<img src="https://tinylytics.app/pixel/${siteCode}.gif?path=${encodeURIComponent(postUrl)}" alt="" style="width:1px;height:1px;border:0;" />`;
+    return `${renderedContent}${pixel}`;
+  });
 
   eleventyConfig.addFilter('toIsoString', filters.toISOString);
   eleventyConfig.addFilter('formatDate', filters.formatDate);

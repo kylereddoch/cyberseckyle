@@ -20,7 +20,7 @@ excludeFromSitemap: true
       "id": "{{ absolutePostUrl }}",
       "url": "{{ absolutePostUrl }}",
       "title": "{{ post.data.title }}",
-      "content_html": {% if post.content %}{{ post.content | renderTransforms(post.data.page, meta.url) | dump | safe }}{% else %}""{% endif %},
+      "content_html": {{ post.content | renderTransforms(post.data.page, meta.url) | appendTinylyticsPixel(post.url, meta.analytics.tinylytics.siteCode) | dump | safe }},
       "date_published": "{{ post.date | dateToRfc3339 }}"
     }{% if not loop.last %},{% endif %}
     {%- endfor -%}

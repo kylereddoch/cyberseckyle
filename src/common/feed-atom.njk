@@ -23,7 +23,7 @@ excludeFromSitemap: true
       <updated>{{ post.date | dateToRfc3339 }}</updated>
       <id>{{ absolutePostUrl }}</id>
       <content type="html">
-        {{ post.content | renderTransforms(post.data.page, meta.url) }}
+        {{ post.content | renderTransforms(post.data.page, meta.url) | appendTinylyticsPixel(post.url, meta.analytics.tinylytics.siteCode) }}
       </content>
     </entry>
   {%- endfor -%}

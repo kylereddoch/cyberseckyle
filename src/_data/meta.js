@@ -27,6 +27,12 @@ export const creator = {
   website: 'https://www.kylereddoch.me',
   social: 'https://infosec.exchange/@cyberseckyle' // i.e. creator's social media account
 };
+export const analytics = {
+  tinylytics: {
+    siteCode: process.env.TINYLYTICS_SITE_CODE || 'aK6PBymtmDm6DxSXaP2H',
+    publicId: process.env.TINYLYTICS_PUBLIC_ID || 'wgrU27nAtwqvZpx9zZwe'
+  }
+};
 export const pathToSvgLogo = '/favicon.svg'; // used for favicon generation
 export const themeColor = '#cba6f7'; // used in manifest, for example primary color value
 export const themeDark = '#1e1e2e'; // used for meta tag theme-color, if dark colors are prefered. best use value set for dark bg
