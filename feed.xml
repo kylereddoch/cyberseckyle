@@ -4,7 +4,7 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-04-13T17:41:32Z</updated>
+  <updated>2026-04-13T20:09:57Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
@@ -36,7 +36,7 @@
 &lt;li&gt;I also wrote about the type of content I plan creating. This includes both free content and content for supporters (either monthly or one-time). You can read about that here: &lt;a href=&quot;https://www.kylereddoch.me/blog/building-more-than-blog-posts/&quot;&gt;Building More Than Blog Posts&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;✌️ That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2026%2Fweek-15-2026%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>AI Is Not the Reason an MSP Succeeds, But It May Decide Which Ones Pull Ahead</title>
@@ -85,7 +85,7 @@
 &lt;p&gt;The MSPs that pull ahead will use AI to reduce internal drag, sharpen service delivery, strengthen security operations, and guide clients through decisions that are still messy and uncertain. They will not treat AI like magic. They will treat it like leverage. They will care about documentation, integration, governance, identity, and measurable outcomes. They will understand that trust is still the product, even when automation gets better.&lt;/p&gt;
 &lt;p&gt;That is the part I keep coming back to.&lt;/p&gt;
 &lt;p&gt;Clients are still buying judgment. They are still buying consistency. They are still buying responsiveness and confidence and the sense that somebody competent is paying attention. AI can absolutely help an MSP deliver more of that. But it cannot replace it. And the provider that forgets that is probably going to end up with more tools, more noise, and less actual value.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fai-is-not-the-reason-an-msp-succeeds-but-it-may-decide-which-ones-pull-ahead%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Catppuccin Complete UI for Mastodon 2.0</title>
@@ -163,7 +163,7 @@
 &lt;p&gt;The recommended install is the configurable UserCSS file, but there are also fixed CSS exports if you want something simpler.&lt;/p&gt;
 &lt;p&gt;And if you want to support the project, there are support links in the repo as well or you can contribute through the usual &lt;a href=&quot;https://www.kylereddoch.me/donate/&quot;&gt;channels&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;This started as a personal theme experiment, but 2.0 feels like the first version that really earns the word “complete.”&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fcatppuccin-complete-ui-for-mastodon-20%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Microsoft’s WireGuard and VeraCrypt Lockout Is Bigger Than a Support Failure</title>
@@ -180,7 +180,7 @@
 &lt;p&gt;There is also a more practical lesson here for the rest of us. Security teams should know which tools in their environment depend on third-party signing programs, marketplace accounts, or platform-owned verification systems to keep shipping updates. That does not mean abandoning Windows or assuming every centralized vendor process is hostile. It means being realistic about dependencies. If one vendor-controlled program can interrupt the release pipeline for a widely trusted tool, that dependency belongs in risk conversations just as much as CVEs, patch SLAs, or backup testing.&lt;/p&gt;
 &lt;p&gt;From my side of the fence, this is exactly why I keep coming back to the same opinion: resilience is not just about preventing compromise. It is also about making sure the path to recovery and patching cannot be quietly choked off by one administrative failure. Microsoft may well get these accounts restored. In fact, later reporting says company representatives were already engaging publicly and promising reinstatement efforts, as &lt;a href=&quot;https://www.bleepingcomputer.com/news/microsoft/microsoft-suspends-dev-accounts-for-high-profile-open-source-projects/&quot; rel=&quot;noopener&quot;&gt;BleepingComputer noted&lt;/a&gt;. But even if this ends with everyone unblocked, the incident still exposed something worth talking about. It showed how quickly “trusted software delivery” can become “trusted software delay.”&lt;/p&gt;
 &lt;p&gt;And honestly, that should bother a lot more people than the headline itself.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fmicrosofts-wireguard-and-veracrypt-lockout-is-bigger-than-a-support-failure%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Introducing Retro Garden, My New Eleventy Starter Theme</title>
@@ -217,7 +217,7 @@
 &lt;p&gt;You can check out the demo here: &lt;a href=&quot;https://retro-garden-eleventy-theme.vercel.app/&quot; rel=&quot;noopener&quot;&gt;Retro Garden&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;I built it because I still care about the kind of web that feels human. Retro Garden is my attempt to give that idea a solid Eleventy starting point.&lt;/p&gt;
 &lt;p&gt;And yes, I absolutely hope people borrow the good ideas and make something even weirder with them.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fintroducing-retro-garden-my-new-eleventy-starter-theme%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Building More Than Blog Posts</title>
@@ -324,7 +324,7 @@
 &lt;p&gt;That is the plan.&lt;/p&gt;
 &lt;p&gt;It is still taking shape, but I wanted to share where my head is at, what I am building toward, and how it all fits together.&lt;/p&gt;
 &lt;p&gt;Thanks for reading, and thanks to everyone who has already encouraged me to keep building this thing.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fbuilding-more-than-blog-posts%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Why I’m Building More Intentionally Online, and I’d Love to Have You Along</title>
@@ -413,7 +413,7 @@
 &lt;p&gt;So that is where things are headed.&lt;/p&gt;
 &lt;p&gt;If you want to follow along, thank you. If you want to support it directly, thank you even more. And if you have just been reading what I put out and quietly cheering from the sidelines, that counts for more than you probably realize too.&lt;/p&gt;
 &lt;p&gt;I am excited about what comes next.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fwhy-im-building-more-intentionally-online-and-id-love-to-have-you-along%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Russia’s Router Campaign Should Be a Wake-Up Call for Every Office</title>
@@ -474,7 +474,7 @@
 &lt;p&gt;APT28 did not need some wildly exotic Hollywood-grade exploit chain to create real risk here. They needed vulnerable routers, weak edge hygiene, and enough organizations willing to ignore infrastructure that “seemed fine.” That should hit home for a lot of businesses, because I can promise there are still plenty of offices and home work setups out there running exactly the kind of hardware this campaign was built to abuse.&lt;/p&gt;
 &lt;p&gt;And that is why this story matters.&lt;/p&gt;
 &lt;p&gt;Not because it is dramatic. Not because “Russia” in the headline guarantees clicks. But because it is a very real reminder that security failures do not always begin where people are looking. Sometimes they begin at the edge, on the forgotten device everyone assumed was too boring to matter.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Frussias-router-campaign-should-be-a-wake-up-call-for-every-office%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>I Built an Eleventy Plugin for Sharing Posts to Mastodon</title>
@@ -585,7 +585,7 @@
 &lt;p&gt;I love small tools that solve specific problems well, especially when they help make the open web a little easier to use.&lt;/p&gt;
 &lt;p&gt;That is what I hope this plugin does.&lt;/p&gt;
 &lt;p&gt;If you use Eleventy and want a cleaner Mastodon sharing experience on your site, I hope &lt;code&gt;eleventy-plugin-mastodon-share&lt;/code&gt; is helpful.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fi-built-an-eleventy-plugin-for-sharing-posts-to-mastodon%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>A New Look, a Quiet Weekend, and a Full Heart (Week 14, 2026)</title>
@@ -613,7 +613,7 @@
 &lt;li&gt;I wrote my thoughts on the recent &lt;a href=&quot;https://www.kylereddoch.me/blog/the-biggest-cybersecurity-risk-for-smbs-still-isnt-the-fancy-stuff/&quot;&gt;2026 Cyber Protect Report from SonicWall&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;✌️ That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2026%2Fweek-14-2026%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Why CybersecKyle Has a New Look</title>
@@ -694,7 +694,7 @@
 &lt;p&gt;But this version feels a lot closer to the site I have been trying to build for a while now. It feels more like a home for the different kinds of things I want to publish, and it feels a lot more aligned with the independent web direction I want to keep leaning into.&lt;/p&gt;
 &lt;p&gt;So yes, the site has a new look.&lt;/p&gt;
 &lt;p&gt;But more importantly, it feels more like itself now.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fwhy-cyberseckyle-has-a-new-look%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>The Biggest Cybersecurity Risk for SMBs Still Isn’t the Fancy Stuff</title>
@@ -764,7 +764,7 @@
 &lt;p&gt;Because if the biggest risks still come back to fundamentals, then a lot of the best improvements are still within reach.&lt;/p&gt;
 &lt;p&gt;Not easy. Not instant. Not glamorous.&lt;/p&gt;
 &lt;p&gt;But reachable.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fthe-biggest-cybersecurity-risk-for-smbs-still-isnt-the-fancy-stuff%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>I Believe in Human Websites. I Still Care About Polish</title>
@@ -800,7 +800,7 @@
 &lt;p&gt;The best personal websites still feel like their owners.&lt;/p&gt;
 &lt;p&gt;Some will be rougher. Some will be cleaner. Some will be chaotic. Some will be carefully structured. What matters most is that the person behind the site is still visible through it all.&lt;/p&gt;
 &lt;p&gt;That is the part worth protecting.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fi-believe-in-human-websites-i-still-care-about-polish%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Clearer Views, Unexpected Turns (Week 13, 2026)</title>
@@ -824,7 +824,7 @@
 &lt;li&gt;I resently wrote about why I continue to use &lt;a href=&quot;https://www.kylereddoch.me/blog/why-trakt-is-still-my-home-base-for-movies-and-tv/&quot;&gt;Trakt&lt;/a&gt; as my media tracking service of choice.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;✌️ That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2026%2Fweek-13-2026%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Why Trakt Is Still My Home Base for Movies and TV</title>
@@ -870,7 +870,7 @@
 &lt;p&gt;And yes, Trakt is still the one I use.&lt;/p&gt;
 &lt;p&gt;Not because it is perfect.&lt;/p&gt;
 &lt;p&gt;Because it still feels the most like home.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fwhy-trakt-is-still-my-home-base-for-movies-and-tv%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>The FCC’s Router Crackdown Shouldn’t Surprise Anyone in Cybersecurity</title>
@@ -925,7 +925,7 @@
 &lt;p&gt;What would have been shocking is if years of botnet activity, router exploitation, proxy abuse, DNS interception concerns, and supply chain scrutiny had produced no regulatory response at all.&lt;/p&gt;
 &lt;p&gt;The real challenge now is making sure this does not stop at the headline.&lt;/p&gt;
 &lt;p&gt;Because the truth is that the router problem was never only about where these devices are made. It is about what happens when the most important box in the house is also one of the least scrutinized.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fthe-fccs-router-crackdown-shouldnt-surprise-anyone-in-cybersecurity%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>As a Cybersecurity Professional, I Think Proton’s Born Private Campaign is a Smart Move</title>
@@ -970,7 +970,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Affiliate disclosure&lt;/strong&gt;: This article contains affiliate links. If you choose to purchase through these links, I may receive a commission. This helps support my work and does not affect the price you pay. I only recommend products I use and trust. My views are my own.&lt;/p&gt;
 &lt;/blockquote&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fas-a-cybersecurity-professional-i-think-protons-born-private-campaign-is-a-smart-move%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>New Glasses, New Network, Final Stretch (Week 12, 2026)</title>
@@ -995,7 +995,7 @@
 &lt;li&gt;A good network diagram is boring until you need one. I wrote a more personal &lt;a href=&quot;https://www.kylereddoch.me/blog/network-diagrams-are-boring-until-you-need-one/&quot;&gt;post on how I think about network diagramming&lt;/a&gt;, why it matters, and the tools I would actually recommend depending on whether you want free, collaborative, or discovery-driven.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;✌️ That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2026%2Fweek-12-2026%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Network diagrams are boring until you need one</title>
@@ -1243,7 +1243,7 @@
 &lt;p&gt;That is why I keep coming back to them.&lt;/p&gt;
 &lt;p&gt;Not because diagramming is glamorous. Not because it feels especially exciting on a random Tuesday. But because in networking, confusion is expensive. Good documentation is one of the cheapest ways to fight it.&lt;/p&gt;
 &lt;p&gt;And honestly, that is enough reason for me.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fnetwork-diagrams-are-boring-until-you-need-one%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>New Contacts and New Corners (Week 11, 2026)</title>
@@ -1273,7 +1273,7 @@
 &lt;li&gt;Exploring the &lt;a href=&quot;https://www.everythingmsp.com/blog/thinking-like-a-hacker-one-of-the-most-valuable-parts-of-zero-trust-world.html&quot; rel=&quot;noopener&quot;&gt;mindset of a cyber adversary&lt;/a&gt; is crucial in today’s Zero Trust landscape.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;✌️ That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2026%2Fweek-11-2026%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>The Cisco SD-WAN Story Is Bigger Than Cisco</title>
@@ -1321,7 +1321,7 @@
 &lt;h2 id=&quot;final-takeaway&quot;&gt;Final takeaway&lt;/h2&gt;
 &lt;p&gt;My main takeaway is this: the headline is Cisco, but the real story is &lt;strong&gt;trust in the management plane&lt;/strong&gt;. The organizations that come out of this strongest will be the ones that stop thinking in terms of “device security” and start thinking in terms of &lt;strong&gt;control-plane resilience&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;That is the shift. That is the lesson. And frankly, it is overdue.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fthe-cisco-sd-wan-story-is-bigger-than-cisco%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>The Network Edge Cleanup Most Teams Cannot Keep Putting Off</title>
@@ -1431,7 +1431,7 @@
 &lt;p&gt;For MSPs, internal IT teams, and smaller organizations especially, this is one of the more practical security wins available right now. Inventory the edge. Patch what is supported. Replace what is not. Lock down management access. Track support dates like they actually matter, because they do.&lt;/p&gt;
 &lt;p&gt;Not every cyber problem can be solved with a checklist. This one can get a lot better with one.&lt;/p&gt;
 &lt;p&gt;And honestly, I would love to know what other teams are seeing here: are unsupported edge devices still one of the hardest things to get budget for, or has that finally started to change?&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fthe-network-edge-cleanup-most-teams-cannot-keep-putting-off%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Your Help Desk Is Now Part of the Attack Surface</title>
@@ -1523,7 +1523,7 @@ It is “Can our current MFA model be socially engineered in real time?”&lt;/p
 &lt;p&gt;That means MSP security cannot just live in the firewall, the EDR console, or the spam filter. It has to live in the script your technician follows, the remote support tool you allow, the MFA method you enforce, the Teams policy you leave enabled, and the confidence a user has to question a request that feels wrong.&lt;/p&gt;
 &lt;p&gt;The weird little goblin truth of modern defense is this: sometimes the safest thing a user can do is be a little rude to “IT.”&lt;/p&gt;
 &lt;p&gt;In 2026, that might be one of the healthiest security habits we can teach.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fyour-help-desk-is-now-part-of-the-attack-surface%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>F1 Returns, Lego Additions, and a Rough Reflux Week (Week 10, 2026)</title>
@@ -1551,7 +1551,7 @@ It is “Can our current MFA model be socially engineered in real time?”&lt;/p
 &lt;li&gt;Recent LastPass scam shows just how easy it is for scammers to use phishing campaigns to steal credentials and access accounts. &lt;a href=&quot;https://www.bleepingcomputer.com/news/security/fake-lastpass-support-email-threads-try-to-steal-vault-passwords/&quot; rel=&quot;noopener&quot;&gt;Fake LastPass support email threads try to steal vault passwords&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;✌️ That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2026%2Fweek-10-2026%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>CybersecKyle Security How-To Series: Everyday Defense Part 5 - Scam Spotting, The 60-Second Pause Protocol</title>
@@ -1687,7 +1687,7 @@ It is “Can our current MFA model be socially engineered in real time?”&lt;/p
 &lt;p&gt;If you spot a scam or you think you got burned, &lt;strong&gt;&lt;a href=&quot;https://www.ic3.gov/&quot; rel=&quot;noopener&quot;&gt;report it&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Scams thrive in the gap between “I should verify” and “I already clicked.” This protocol closes that gap with a timer and a habit.&lt;/p&gt;
 &lt;p&gt;Season 1 is &lt;a href=&quot;https://www.kylereddoch.me/tags/everyday-defense/&quot;&gt;Everyday Defense&lt;/a&gt; for a reason: boring, repeatable, and effective beats flashy every time.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fcyberseckyle-security-how-to-series-everyday-defense-part-5-scam-spotting-the-60-second-pause-protocol%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Weekly Notes: Tennis Starts, Migraine Friday, Fraud Flag Sunday (Week 9, 2026)</title>
@@ -1717,7 +1717,7 @@ It is “Can our current MFA model be socially engineered in real time?”&lt;/p
 &lt;h2 id=&quot;worth-sharing&quot;&gt;Worth sharing&lt;/h2&gt;
 &lt;p&gt;Unfortunately, I don’t have anything to share this week. Sorry!&lt;/p&gt;
 &lt;p&gt;✌️ That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2026%2Fweek-09-2026%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Weekly Notes: Big Comfort Upgrades and a Useful Little Script (Week 8, 2026)</title>
@@ -1747,7 +1747,7 @@ It is “Can our current MFA model be socially engineered in real time?”&lt;/p
 &lt;li&gt;I wrote a blog post about the script I created to remove PUP and adware type programs from our clients’ computers. You can read it here: &lt;a href=&quot;https://www.kylereddoch.me/blog/fighting-the-pup-wave-a-practical-powershell-cleanup-workflow-for-msps/&quot;&gt;Fighting the PUP Wave: A Practical PowerShell Cleanup Workflow for MSPs&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Check out this post from &lt;a href=&quot;https://mastodon.social/@nazhamid/116105206266850329&quot; rel=&quot;noopener&quot;&gt;Naz&lt;/a&gt; on how he created a Shelf to collect his media on this blog. I am thinking about do the same thing.&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2026%2Fweek-08-2026%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Fighting the PUP Wave: A Practical PowerShell Cleanup Workflow for MSPs</title>
@@ -2121,7 +2121,7 @@ On the endpoint, the script also writes a transcript log under &lt;code&gt;C:&#9
 &lt;li&gt;Treat this as hygiene, not a replacement for preventative controls. Allowlisting is still the cleaner long-term answer when you can fund it.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This whole setup is a very MSP kind of compromise. It is not glamorous, but it is consistent, reviewable, and deployable right now. Sometimes “right now and reliable” beats “perfect and someday.”&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Ffighting-the-pup-wave-a-practical-powershell-cleanup-workflow-for-msps%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Weekly Notes: WFH Mode, Olympics Nights, and F1 Is Back (Week 7, 2026)</title>
@@ -2153,7 +2153,7 @@ On the endpoint, the script also writes a transcript log under &lt;code&gt;C:&#9
 &lt;li&gt;Ring’s “Cute” Superbowl Ad wasn’t cute at all! &lt;a href=&quot;https://www.kylereddoch.me/blog/goodbye-ring-im-not-buying-into-your-mass-surveillance/&quot;&gt;Goodbye, Ring. I’m Not Buying Into Your Mass Surveillance&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Adding multiple h-feeds to the same web page: &lt;a href=&quot;https://jamesg.blog/2026/02/13/multiple-h-feeds-same-page&quot; rel=&quot;noopener&quot;&gt;https://jamesg.blog/2026/02/13/multiple-h-feeds-same-page&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2026%2Fweek-07-2026%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Goodbye, Ring. I&#39;m Not Buying Into Your Mass Surveillance.</title>
@@ -2217,7 +2217,7 @@ On the endpoint, the script also writes a transcript log under &lt;code&gt;C:&#9
 &lt;p&gt;Ring is no longer aligned with that idea.&lt;/p&gt;
 &lt;p&gt;So yeah.&lt;/p&gt;
 &lt;p&gt;Goodbye, Ring.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fgoodbye-ring-im-not-buying-into-your-mass-surveillance%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Weekly Notes: Small Upgrades, Loud Lessons (Week 6, 2026)</title>
@@ -2252,7 +2252,7 @@ On the endpoint, the script also writes a transcript log under &lt;code&gt;C:&#9
 &lt;li&gt;I broke down what a SIEM is and how it works in this post: &lt;a href=&quot;https://www.kylereddoch.me/blog/making-siem-useful-how-it-works-what-it-does-and-why-you-should-care/&quot;&gt;Making SIEM Useful: How It Works, What It Does, and Why You Should Care&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;A &lt;a href=&quot;https://infosec.exchange/@skryking&quot; rel=&quot;noopener&quot;&gt;friend of mine&lt;/a&gt; had a question about doing digital forensics on comprised containers. It got me thinking so I wrote up a post about it: &lt;a href=&quot;https://www.kylereddoch.me/blog/digital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it/&quot;&gt;How to Do Forensics on Compromised Containers&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2026%2Fweek-06-2026%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Don’t Do This: How I Accidentally Simulated Attacker Cleanup</title>
@@ -2347,7 +2347,7 @@ On the endpoint, the script also writes a transcript log under &lt;code&gt;C:&#9
 &lt;p&gt;Clearing logs felt like harmless housekeeping when I added it to the script. In practice, it is closer to showing up at a crime scene with a mop.&lt;/p&gt;
 &lt;p&gt;My SOC was right to panic.&lt;/p&gt;
 &lt;p&gt;I just wish they hadn’t been right at 1:15 a.m.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fdont-do-this-how-i-accidentally-simulated-attacker-cleanup%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Making SIEM Useful: How It Works, What It Does, and Why You Should Care</title>
@@ -2614,7 +2614,7 @@ This can be baselining, rare-event scoring, or UEBA-style behavior modeling.&lt;
 &lt;h2 id=&quot;closing-thought&quot;&gt;Closing thought&lt;/h2&gt;
 &lt;p&gt;A SIEM becomes useful when it shrinks the distance between “something weird happened” and “we know what it is, and we’re handling it.”&lt;/p&gt;
 &lt;p&gt;Treat it like a product you operate, not a tool you install.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fmaking-siem-useful-how-it-works-what-it-does-and-why-you-should-care%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Digital Forensics for a Compromised Container: What to Collect and How to Snapshot It</title>
@@ -2947,7 +2947,7 @@ Container stdout/stderr, Kubernetes events, Kubernetes audit logs, node kubelet/
 &lt;p&gt;&lt;strong&gt;Best way to snapshot for digging?&lt;/strong&gt;&lt;br&gt;
 Snapshot &lt;strong&gt;persistent volumes&lt;/strong&gt; (CSI VolumeSnapshots) and snapshot the &lt;strong&gt;node disk/VM&lt;/strong&gt; when you need runtime and overlay filesystem evidence. If it’s Docker, use &lt;a href=&quot;https://docs.docker.com/reference/cli/docker/container/export/&quot; rel=&quot;noopener&quot;&gt;docker container export&lt;/a&gt; and &lt;a href=&quot;https://docs.docker.com/reference/cli/docker/image/save/&quot; rel=&quot;noopener&quot;&gt;docker image save&lt;/a&gt; to preserve filesystem state and image artifacts.&lt;/p&gt;
 &lt;p&gt;If you keep doing container IR, it’s worth turning this into a runbook and automating the “collect and bundle” part. The universe is chaotic, but your evidence collection does not have to be.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fdigital-forensics-for-a-compromised-container-what-to-collect-and-how-to-snapshot-it%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Weekly Notes: Small Upgrades, Big Progress (Week 5, 2026)</title>
@@ -2982,7 +2982,7 @@ Snapshot &lt;strong&gt;persistent volumes&lt;/strong&gt; (CSI VolumeSnapshots) a
 &lt;li&gt;Interesting article from Sam Clemente on how AI might be kicking off on the Mac. &lt;a href=&quot;https://blog.samclemente.me/the-ai-revolution-is-happening-on-the-mac/&quot; rel=&quot;noopener&quot;&gt;The AI Revolution Is Happening…on the Mac?&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Okay this is really geeky. I came across the orginal Apollo 11 Guidance Computer source code. &lt;a href=&quot;https://github.com/chrislgarry/Apollo-11?tab=readme-ov-file&quot; rel=&quot;noopener&quot;&gt;Apollo 11 Guidance Computer Source Code&lt;/a&gt; on Github.&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2026%2Fweek-05-2026%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>How a Blog Post Gets Built in My Corner of the Web</title>
@@ -3053,7 +3053,7 @@ In VS Code, I’m shaping it into something that belongs on my site.&lt;/p&gt;
 &lt;p&gt;That’s the whole assembly line.&lt;/p&gt;
 &lt;p&gt;And the reason I’m writing this down is simple: the workflow is part of the creativity. If the process feels heavy, you avoid it. If it feels friendly, you come back.&lt;/p&gt;
 &lt;p&gt;I want to keep coming back.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fhow-a-blog-post-gets-built-in-my-corner-of-the-web%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Cybersecurity Weekly Roundup: January 24–30, 2026</title>
@@ -3209,7 +3209,7 @@ In VS Code, I’m shaping it into something that belongs on my site.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;closing-notes&quot;&gt;Closing Notes&lt;/h2&gt;
 &lt;p&gt;If you only have time for one thing: patch the actively exploited stuff first and reduce exposure second. That combo saves more weekends than any shiny tool ever will.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fcybersecurity-weekly-roundup-january-24-30-2026%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>I Didn’t Know You Could Do This: The NVRAM Trick That Saved a Mac</title>
@@ -3308,7 +3308,7 @@ Yes, it works.&lt;/p&gt;
 &lt;p&gt;Also, that NVRAM trick was new to me. I knew NVRAM mattered for boot behavior and settings, but using it as a lever to redirect a recovery update catalog felt like discovering a hidden door in a hallway I have walked for years.&lt;/p&gt;
 &lt;p&gt;So if you are staring at a flashing folder icon and a High Sierra reinstall that refuses to talk to the recovery server, hopefully this saves you the same headache.&lt;/p&gt;
 &lt;p&gt;And if you are doing this for a client: get consent, confirm whether data recovery is needed before erasing anything, and document what you changed. Future-you deserves nice things.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fi-didnt-know-you-could-do-this-the-nvram-trick-that-saved-a-mac%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>CybersecKyle Security How-To Series: Everyday Defense Part 4 - Phone hardening you can live with</title>
@@ -3486,7 +3486,7 @@ Yes, it works.&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Quarterly&lt;/strong&gt;: permissions review for the top 10 apps, and confirm find-my still works&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Yearly&lt;/strong&gt;: check carrier account protections and update recovery options&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fcyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Protecting Your Enterprise From “Employee Actions” on Network Devices</title>
@@ -3692,7 +3692,7 @@ Yes, it works.&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Tabletop exercise:&lt;/strong&gt; “fake IT password reset” and “fake invoice change” drills&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;The weird truth of enterprise security: you do not win by trusting people less. You win by designing systems that stay safe even when people have a very human day.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fprotecting-your-enterprise-from-employee-actions-on-network-devices%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Weekly Notes: Snowmageddon Bust, Frozen Pipes, Draft Done (Week 4, 2026)</title>
@@ -3723,7 +3723,7 @@ Yes, it works.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&quot;https://jamesg.blog/2026/01/20/indieauth-email-login-design&quot; rel=&quot;noopener&quot;&gt;Designing a service with IndieAuth and email-based login&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Great article about understanding your failure. &lt;a href=&quot;https://tracydurnell.com/2026/01/21/decoding-failure/&quot; rel=&quot;noopener&quot;&gt;Decoding failure&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2026%2Fweek-04-2026%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>January 2026</title>
@@ -3792,7 +3792,7 @@ Yes, it works.&lt;/p&gt;
 &lt;li&gt;Push the next school deliverables across the finish line without letting them eat my whole week.&lt;/li&gt;
 &lt;li&gt;Keep The Cipher Fellows moving forward, even if it’s a little every day.&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnow%2Fnow-january-2026%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Cybersecurity Weekly Roundup: January 17-24, 2026</title>
@@ -3878,7 +3878,7 @@ Yes, it works.&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Did we reduce exposure, or just update software?&lt;/strong&gt; If management interfaces are still broadly reachable, you’re patching a door while leaving windows open.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Can we restore fast if this week’s patch becomes next week’s incident?&lt;/strong&gt; Backups verified, restore tested, credentials protected, and recovery steps documented.&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fcybersecurity-weekly-roundup-january-17-24-2026%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Bondi Blue in My Pocket</title>
@@ -3912,7 +3912,7 @@ Yes, it works.&lt;/p&gt;
 &lt;p&gt;But I like it. A lot.&lt;/p&gt;
 &lt;p&gt;It makes the device feel less sterile and more personal, which is honestly what I want from most of my tech. Give me tools, sure, but also give me a little warmth. A little weirdness. A little reminder that the internet used to feel like a place you wandered into on purpose.&lt;/p&gt;
 &lt;p&gt;Now my phone is Bondi Blue, and every time I pick it up, I can practically hear the computer lab again.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fbondi-blue-in-my-pocket%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Managing Vulnerabilities in an MSP Environment</title>
@@ -4146,7 +4146,7 @@ Clients do not need fear. They need:&lt;/p&gt;
 &lt;li&gt;Communicate clearly, early, and without theatrics&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Security is not magic. It’s mostly ruthless consistency applied to messy systems run by messy humans. The good news is MSPs are built for consistency, once you stop reinventing the wheel per client.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fmanaging-vulnerabilities-in-an-msp-environment%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>20 Common Network Ports You Must Know (and Secure)</title>
@@ -4393,7 +4393,7 @@ Clients do not need fear. They need:&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Review quarterly&lt;/strong&gt; because “temporary” ports love to become permanent.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;If you secure nothing else, secure the management ports and SMB. Attackers adore the shortest path to credentials and lateral movement, and those doors are basically neon signs when left wide open.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2F20-common-network-ports-you-must-know-and-secure%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Cybersecurity Implications of Cloud Service Models (IaaS, PaaS, CaaS, and SaaS)</title>
@@ -4533,7 +4533,7 @@ Clients do not need fear. They need:&lt;/p&gt;
 &lt;h2 id=&quot;closing-thought&quot;&gt;Closing thought&lt;/h2&gt;
 &lt;p&gt;If you remember only one thing: &lt;strong&gt;cloud service models are not just pricing models, they are responsibility models.&lt;/strong&gt; The security work does not go away as you move from IaaS to SaaS. It migrates into identity, configuration, data governance, and how well you can see what is happening through cloud-native logging and controls.&lt;/p&gt;
 &lt;p&gt;Scalability is the headline. Security is the fine print. And the fine print is where the breaches live.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fcybersecurity-implications-of-cloud-service-models-iaas-paas-caas-and-saas%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Apple Creator Studio Hit My Nerd Buttons and Yes, I’m Genuinely Excited</title>
@@ -4657,7 +4657,7 @@ Clients do not need fear. They need:&lt;/p&gt;
 &lt;li&gt;and it does it at a price that doesn’t make “learning this” feel like a luxury hobby.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;So yeah. I’m excited. Not in a fanboy way. In a “this might actually help me ship more without adding risk” way. And honestly, that’s the only kind of excitement that survives adulthood.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fapple-creator-studio-hit-my-nerd-buttons-and-yes-im-genuinely-excited%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Weekly Notes: Down for the Count (Week 3, 2026)</title>
@@ -4683,7 +4683,7 @@ Clients do not need fear. They need:&lt;/p&gt;
 &lt;li&gt;The CSAM issue in GrokAI is unacceptable. &lt;a href=&quot;https://www.kylereddoch.me/blog/the-unacceptable-failure-grok-csam-and-ai-safety/&quot;&gt;The Unacceptable Failure: Grok, CSAM, and AI Safety&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;I’d still be keeping an eye on your Instagram account for anything suspicious. &lt;a href=&quot;https://www.bleepingcomputer.com/news/security/instagram-denies-breach-amid-claims-of-17-million-account-data-leak/?ref=metacurity.com&quot; rel=&quot;noopener&quot;&gt;Instagram denies breach amid claims of 17 million account data leak&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2026%2Fweek-03-2026%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Weekly Notes: Back to Routines (Week 2, 2026)</title>
@@ -4713,7 +4713,7 @@ Clients do not need fear. They need:&lt;/p&gt;
 &lt;li&gt;ChatGPT is going to connect with Apple Health data soon. &lt;a href=&quot;https://www.kylereddoch.me/blog/apple-health-chatgpt-the-privacy-tradeoff/&quot;&gt;Think privacy&lt;/a&gt; before connecting it!&lt;/li&gt;
 &lt;li&gt;My good friend &lt;a href=&quot;https://www.seerofsouls.com/alternatives-for-logitech-options-for-macos/&quot; rel=&quot;noopener&quot;&gt;Cliff Wade&lt;/a&gt; wrote up a great article about alternatives to Logitech Options for Mac users.&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2026%2Fweek-02-2026%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>The Unacceptable Failure: Grok, CSAM, and AI Safety</title>
@@ -4839,7 +4839,7 @@ Once abuse becomes a crisis, it becomes incident response: logs, timelines, cont
 &lt;p&gt;The scandal is shipping a machine that can industrialize that awfulness, then acting surprised when it happens.&lt;/p&gt;
 &lt;p&gt;Grok is just the headline this week. The real issue is whether we decide, collectively, that child safety is a non-negotiable engineering requirement rather than a regrettable externality.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Because the line is simple:&lt;/strong&gt; If your AI can be used to create CSAM, you don’t have a product problem. You have an emergency.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fthe-unacceptable-failure-grok-csam-and-ai-safety%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Cybersecurity Weekly Roundup: January 2-9, 2026</title>
@@ -4986,7 +4986,7 @@ Once abuse becomes a crisis, it becomes incident response: logs, timelines, cont
 &lt;/ul&gt;
 &lt;h3 id=&quot;🧠-what-im-watching-next-week&quot;&gt;🧠 What I’m watching next week&lt;/h3&gt;
 &lt;p&gt;Identity-adjacent tooling and “management plane” apps keep getting hammered because attackers love central choke points. If you run admin consoles, automation platforms, backup infrastructure, or edge gateways, assume you are on the list and patch accordingly.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fcybersecurity-weekly-roundup-january-2-9-2026%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Apple Health + ChatGPT: The Privacy Tradeoff</title>
@@ -5105,7 +5105,7 @@ Once abuse becomes a crisis, it becomes incident response: logs, timelines, cont
 &lt;p&gt;ChatGPT Health connecting to Apple Health is legitimately useful, and for some people it will be a quality-of-life upgrade. The privacy promise is also stronger than what we usually see for consumer AI features. (&lt;a href=&quot;https://openai.com/index/introducing-chatgpt-health/&quot; rel=&quot;noopener&quot;&gt;OpenAI announcement&lt;/a&gt;, &lt;a href=&quot;https://www.reuters.com/business/healthcare-pharmaceuticals/openai-launches-chatgpt-health-connect-medical-records-wellness-apps-2026-01-07/&quot; rel=&quot;noopener&quot;&gt;Reuters coverage&lt;/a&gt;)&lt;/p&gt;
 &lt;p&gt;But it’s still a measurable increase in privacy and security exposure, because you are centralizing sensitive, durable data in another account, another vendor, and potentially another integration partner chain.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;My cybersec take:&lt;/strong&gt; the “safest” move is to skip connecting health data entirely. If you do use it, harden the account, minimize what you share, and assume the healthcare breach era isn’t taking a break anytime soon.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fapple-health-chatgpt-the-privacy-tradeoff%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Weekly Notes: Easing Into 2026 (Week 1, 2026)</title>
@@ -5146,7 +5146,7 @@ Once abuse becomes a crisis, it becomes incident response: logs, timelines, cont
 &lt;li&gt;This &lt;a href=&quot;https://mastodon.me.uk/@Floppy/115813676158403879&quot; rel=&quot;noopener&quot;&gt;floppy disk coaster&lt;/a&gt; brought back memories.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2026%2Fweek-01-2026%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Parked Domains Have Turned into a Malware Vending Machine</title>
@@ -5202,7 +5202,7 @@ Once abuse becomes a crisis, it becomes incident response: logs, timelines, cont
 &lt;/ol&gt;
 &lt;h2 id=&quot;the-takeaway&quot;&gt;The takeaway&lt;/h2&gt;
 &lt;p&gt;“Domain parking” is no longer just annoying internet billboard spam. It’s become an abuse-friendly on-ramp into malvertising, scams, and opportunistic malware delivery, and it is clever enough to dodge a lot of shallow inspection. The fix is not magical: reduce typos (bookmarks/password manager), tighten DNS controls, and treat “weird redirect + scary popup” as a real security event, not a user being dramatic.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fparked-domains-have-turned-into-a-malware-vending-machine%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Stepping into 2026</title>
@@ -5252,7 +5252,7 @@ Book 2: &lt;strong&gt;The Orchard Protocol&lt;/strong&gt; (future)&lt;/p&gt;
 &lt;li&gt;ship more than I start&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;If you’ve been reading along, thanks for being here. The indie web is small, strange, and stubborn in the best way, and I plan to keep contributing to it.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fstepping-into-2026%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Putting AI to Work in the SOC</title>
@@ -5492,7 +5492,7 @@ Mark which steps are reversible and which require human approval.&lt;/p&gt;
 &lt;li&gt;treat the AI layer as attackable&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Do that, and AI stops being hype and becomes something much rarer in security: a tool that actually makes Tuesday night less terrible.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fputting-ai-to-work-in-the-soc%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Weekly Notes: Short week, full recharge (Week 52, 2025)</title>
@@ -5523,7 +5523,7 @@ Mark which steps are reversible and which require human approval.&lt;/p&gt;
 &lt;li&gt;I’m working on a cybersecurity thriller. Yep, for real. It’s still early, but it’s been a fun side project to tinker with. I’ll share updates on &lt;a href=&quot;https://infosec.exchange/@cyberseckyle&quot; rel=&quot;noopener&quot;&gt;Mastodon&lt;/a&gt; and in these weekly notes as it takes shape.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2025%2Fweek-52-2025%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>My 2025 Year in Review</title>
@@ -5604,7 +5604,7 @@ A series that aims to make security approachable for anyone who wants to learn m
 &lt;p&gt;If you read my posts, shared one, replied with a question, or even just lurked quietly, thank you. The indie web is powered by people who still believe writing and building are worth doing even when there is no algorithm handing out gold stars. That’s how a blog turns into a knowledge base, one breadcrumb at a time.&lt;/p&gt;
 &lt;p&gt;This was my 2025, wrapped by hand.&lt;/p&gt;
 &lt;p&gt;See you in 2026.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fmy-2025-year-in-review%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>CybersecKyle Security How-To Series: Everyday Defense, Part 3 - Browser Hygiene That Actually Sticks</title>
@@ -5855,7 +5855,7 @@ Many Chromium browsers have similar “always use secure connections” settings
 &lt;h2 id=&quot;up-next&quot;&gt;Up next&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Part 4 is phone hardening basics for iOS and Android.&lt;/strong&gt; We will cover the settings that matter, what to turn off, and what to leave alone so your phone stays usable.&lt;/p&gt;
 &lt;p&gt;If you followed Part 1 and Part 2, Part 3 is where everything starts feeling calm. That is the point.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fcyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Weekly Notes: Less chaotic, more grounded (Week 51, 2025)</title>
@@ -5901,7 +5901,7 @@ Many Chromium browsers have similar “always use secure connections” settings
 &lt;li&gt;Make sure to check out the &lt;a href=&quot;https://twit.tv/shows/security-now&quot; rel=&quot;noopener&quot;&gt;Security Now Podcast&lt;/a&gt; for some great content.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2025%2Fweek-51-2025%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Weekly Notes: Week 50, 2025</title>
@@ -5940,7 +5940,7 @@ Many Chromium browsers have similar “always use secure connections” settings
 &lt;li&gt;&lt;a href=&quot;https://github.com/exelban/stats&quot; rel=&quot;noopener&quot;&gt;Stats - Monitor your Mac with ease.&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2025%2Fweek-50-2025%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Moving From Chrome, Edge, or Firefox To Vivaldi’s Built-In Blocklists</title>
@@ -6179,7 +6179,7 @@ There are community projects built specifically for Vivaldi, like the GitHub rep
 &lt;/ol&gt;
 &lt;p&gt;From there, you can iterate: check privacy stats, refine lists, and occasionally prune any source that overlaps too heavily with others.&lt;/p&gt;
 &lt;p&gt;Vivaldi will not magically fix the entire internet, but moving from “extension-only blocking” to “browser-level blocking plus a minimal extension layer” gives you more control, less breakage, and fewer moving parts. For people who care about privacy and spend their day thinking about how much data leaks through the browser, that’s a much better default stance.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fmoving-from-chrome-edge-or-firefox-to-vivaldis-built-in-blocklists%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Cooling Down the Servers by Adding a Little Snow</title>
@@ -6317,7 +6317,7 @@ or
 &lt;li&gt;The GitHub repo with the full README and demo links: &lt;a href=&quot;https://github.com/zachleat/snow-fall&quot; rel=&quot;noopener&quot;&gt;zachleat/snow-fall&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Now your site can be as chill as you pretend you are during year-end change freezes.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fcooling-down-the-servers-by-adding-a-little-snow%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>GRC In The Real World: Making HIPAA, PCI, NIST CSF, FTC Safeguards, and NIS2 Work Together</title>
@@ -6526,7 +6526,7 @@ Put security and compliance on a regular cadence: monthly operational reviews, q
 &lt;/ul&gt;
 &lt;p&gt;You will still have to deal with auditors, questionnaires, and the occasional regulatory curveball. The difference is that you will be doing it from a coherent, governed, risk informed foundation rather than a pile of disconnected checklists.&lt;/p&gt;
 &lt;p&gt;That is where GRC stops being red tape and starts being an actual force multiplier for the rest of your security work.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fgrc-in-the-real-world-making-hipaa-pci-nist-csf-ftc-safeguards-and-nis2-work-together%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Weekly Notes: Week 49, 2025</title>
@@ -6558,7 +6558,7 @@ Put security and compliance on a regular cadence: monthly operational reviews, q
 &lt;li&gt;&lt;a href=&quot;https://www.microsoft.com/en-us/security/blog/2025/12/02/how-to-build-forward-thinking-cybersecurity-teams-for-tomorrow/&quot; rel=&quot;noopener&quot;&gt;How to build forward-thinking cybersecurity teams for tomorrow&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2025%2Fweek-49-2025%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>December 2025</title>
@@ -6584,7 +6584,7 @@ Put security and compliance on a regular cadence: monthly operational reviews, q
 &lt;li&gt;Eleventy Masto Share Plugin: A plugin to make sharing Eleventy posts to Mastodon easier. Still in the early stages, but making progress.&lt;/li&gt;
 &lt;li&gt;NowFolio: A simple /Now page generator for static sites. Thinking of making this a more fleshed out project in 2026.&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnow%2Fnow-december-2025%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>15 Essential Cyberattacks You Should Understand: Your Guide to Digital Safety</title>
@@ -6667,7 +6667,7 @@ Put security and compliance on a regular cadence: monthly operational reviews, q
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;Cyberattacks range from simple phishing emails to sophisticated nation-state campaigns. While the threat landscape seems overwhelming, understanding how these attacks work dramatically improves your ability to defend against them. By implementing practical protection strategies and maintaining security awareness, you transform yourself from a potential target into a hardened defender.&lt;/p&gt;
 &lt;p&gt;Remember, cybersecurity isn’t about achieving perfect protection—attackers are persistent and creative. Instead, it’s about making yourself a harder target than easier alternatives, maintaining good security hygiene, and responding effectively when incidents occur. Start with the basics, stay updated on threats relevant to your circumstances, and build security practices into your daily digital habits.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2F15-essential-cyberattacks-you-should-understand-your-guide-to-digital-safety%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>The Breaking Point: Why Cybersecurity and SOC Professionals Are Burning Out, and What Actually Works</title>
@@ -6772,7 +6772,7 @@ Put security and compliance on a regular cadence: monthly operational reviews, q
 &lt;p&gt;Cybersecurity professionals chose this field because they wanted to defend organizations and infrastructure they cared about. The solution to burnout isn’t convincing them to care less—it’s creating conditions where their expertise can be deployed sustainably without demanding they sacrifice their health and wellbeing in the process.&lt;/p&gt;
 &lt;p&gt;The alternative is predictable: continued talent loss, degraded security outcomes, and an industry that burns through people faster than it can train replacements. Organizations that recognize burnout as the systemic problem it is and invest in sustainable operations will retain expertise, maintain security effectiveness, and build genuinely resilient security teams.&lt;/p&gt;
 &lt;p&gt;The breaking point doesn’t have to be the endpoint. But it requires seeing burnout not as an individual failing to manage stress, but as a design problem in how we’ve structured security operations. Fix the design, and the people follow.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fthe-breaking-point-why-cybersecurity-and-soc-professionals-are-burning-out-and-what-actually-works%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>&quot;Sleeper&quot; Browser Extensions: How a 7-Year Campaign Turned Chrome and Edge into Spyware</title>
@@ -7098,7 +7098,7 @@ For developer workstations or privileged admins, consider staging updates or usi
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fsleeper-browser-extensions-how-a-7-year-campaign-turned-chrome-and-edge-into-spyware%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Your Android TV Box Might Be a Botnet Farm without You Knowing: A Deep Dive</title>
@@ -7415,7 +7415,7 @@ For developer workstations or privileged admins, consider staging updates or usi
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fyour-android-tv-box-might-be-a-botnet-farm-without-you-knowing-a-deep-dive%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Weekly Notes: Week 48, 2025</title>
@@ -7437,7 +7437,7 @@ For developer workstations or privileged admins, consider staging updates or usi
 &lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/the-genesis-mission-puts-ai-in-charge-of-our-science-as-a-security-pro-im-not-sold/&quot;&gt;The Genesis Mission Puts AI in Charge of Our Science. As a Security Pro, I’m Not Sold.&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2025%2Fweek-48-2025%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>The Genesis Mission Puts AI in Charge of Our Science. As a Security Pro, I’m Not Sold.</title>
@@ -7582,7 +7582,7 @@ That is fine as a high-level goal. It is not a plan.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fthe-genesis-mission-puts-ai-in-charge-of-our-science-as-a-security-pro-im-not-sold%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Weekly Notes: Week 47, 2025</title>
@@ -7609,7 +7609,7 @@ Better late than never, I suppose.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2025%2Fweek-47-2025%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Sha1-Hulud: The Second Coming Of The Shai-Hulud NPM Worm</title>
@@ -7917,7 +7917,7 @@ Better late than never, I suppose.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fsha1-hulud-the-second-coming-of-the-shai-hulud-npm-worm%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Cybersecurity Weekly Roundup for November 16-23, 2025</title>
@@ -7982,7 +7982,7 @@ Better late than never, I suppose.&lt;/p&gt;
 &lt;li&gt;TechCrunch on Salesforce and Gainsight — &lt;a href=&quot;https://techcrunch.com/2025/11/20/salesforce-says-some-of-its-customers-data-was-accessed-after-gainsight-breach/&quot; rel=&quot;noopener&quot;&gt;https://techcrunch.com/2025/11/20/salesforce-says-some-of-its-customers-data-was-accessed-after-gainsight-breach/&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;BleepingComputer on Dutch police seizing bulletproof hosting servers — &lt;a href=&quot;https://www.bleepingcomputer.com/news/security/dutch-police-seizes-250-servers-used-by-bulletproof-hosting-service/&quot; rel=&quot;noopener&quot;&gt;https://www.bleepingcomputer.com/news/security/dutch-police-seizes-250-servers-used-by-bulletproof-hosting-service/&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fcybersecurity-weekly-roundup-for-november-16-23-2025%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>CybersecKyle Security How-To Series: Everyday Defense, Part 2 - 2FA Rescue and Recovery</title>
@@ -8094,7 +8094,7 @@ Three sheets: Factors, Hardware Keys, Recovery Contacts.&lt;br&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fcyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Weekly Notes: Week 46, 2025</title>
@@ -8119,7 +8119,7 @@ Three sheets: Factors, Hardware Keys, Recovery Contacts.&lt;br&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2025%2Fweek-46-2025%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Chrome’s New Driver’s License Autofill Is a Terrible Idea</title>
@@ -8358,7 +8358,7 @@ For internal apps that require government IDs, build flows that use dedicated st
 &lt;li&gt;heylogin – &lt;a href=&quot;https://www.heylogin.com/en/post/dom-based-extension-clickjacking&quot; rel=&quot;noopener&quot;&gt;Analysis of DOM-based extension clickjacking&lt;/a&gt; (nice practitioner write-up of the same issue)&lt;/li&gt;
 &lt;li&gt;OneStart – &lt;a href=&quot;https://onestart.ai/blog/browser-autofill-growing-security-threat/&quot; rel=&quot;noopener&quot;&gt;Autofill may be convenient, but it’s also a growing threat&lt;/a&gt; (good general discussion of autofill as an attack surface)&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fchromes-new-drivers-license-autofill-is-a-terrible-idea%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Proton Black Friday 2025 — Why I run on Proton and the best deals to grab</title>
@@ -8413,7 +8413,7 @@ For internal apps that require government IDs, build flows that use dedicated st
 &lt;li&gt;&lt;strong&gt;Drive:&lt;/strong&gt; &lt;a href=&quot;https://go.getproton.me/SH1FB&quot; rel=&quot;noopener&quot;&gt;https://go.getproton.me/SH1FB&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Pass:&lt;/strong&gt; &lt;a href=&quot;https://go.getproton.me/SH1FD&quot; rel=&quot;noopener&quot;&gt;https://go.getproton.me/SH1FD&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fproton-black-friday-2025-%E2%80%94-why-i-run-on-proton-and-the-best-deals-to-grab%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Why You Should Be Wary of Texas SB 2420’s Age-Verification Push</title>
@@ -8497,7 +8497,7 @@ SB 2420 intertwines app stores, age-assurance vendors, and developers. Each addi
 &lt;li&gt;New America — Privacy-preserving age verification overview: &lt;a href=&quot;https://newamerica.org/oti/briefs/exploring-privacy-preserving-age-verification/&quot; rel=&quot;noopener&quot;&gt;https://newamerica.org/oti/briefs/exploring-privacy-preserving-age-verification/&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Bellovin — Privacy-Preserving Age Verification (limitations): &lt;a href=&quot;https://www.cs.columbia.edu/~smb/papers/age-verify.pdf&quot; rel=&quot;noopener&quot;&gt;https://www.cs.columbia.edu/~smb/papers/age-verify.pdf&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fwhy-you-should-be-wary-of-texas-sb-2420s-age-verification-push%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Responding to NIST’s 2025 Password Standard Update (SP 800-63B-4)</title>
@@ -8699,7 +8699,7 @@ They reduce risk when done right, but they are not phishing-resistant. Use phish
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fresponding-to-nists-2025-password-standard-update-sp-800-63b-4%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Weekly Notes: Week 45, 2025</title>
@@ -8722,7 +8722,7 @@ They reduce risk when done right, but they are not phishing-resistant. Use phish
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2025%2Fweek-45-2025%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Introducing my new CybersecKyle Security How-To Series: the full roadmap</title>
@@ -8800,7 +8800,7 @@ They reduce risk when done right, but they are not phishing-resistant. Use phish
 &lt;li&gt;A tangible download every time&lt;/li&gt;
 &lt;li&gt;A quick validation so you know it worked&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fintroducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>CybersecKyle Security How-To Series: Everyday Defense, Part 1 - Password Managers + MFA</title>
@@ -8892,7 +8892,7 @@ Store you master password somewhere safe and secure (I keep mine in Apple Note a
 &lt;li&gt;Password Migration Checklist (PDF): &lt;a href=&quot;https://www.kylereddoch.me/assets/downloads/how-to-series/CybersecKyle_Password_Migration_Checklist.pdf&quot;&gt;Download&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Top Ten Account Security Worksheet (CSV): &lt;a href=&quot;https://www.kylereddoch.me/assets/downloads/how-to-series/Top_Ten_Account_Security_Worksheet.csv&quot;&gt;Download&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fcyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Weekly Notes: Week 44, 2025</title>
@@ -8916,7 +8916,7 @@ Store you master password somewhere safe and secure (I keep mine in Apple Note a
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2025%2Fweek-44-2025%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>WSUS just became an attacker’s dream. Stop publishing your patch pipeline to the internet.</title>
@@ -8959,7 +8959,7 @@ Store you master password somewhere safe and secure (I keep mine in Apple Note a
 &lt;p&gt;Unit 42. (2025, October 28). &lt;em&gt;Microsoft WSUS Remote Code Execution (CVE-2025-59287) actively exploited in the wild&lt;/em&gt; [Threat brief]. &lt;a href=&quot;https://unit42.paloaltonetworks.com/microsoft-cve-2025-59287/&quot; rel=&quot;noopener&quot;&gt;https://unit42.paloaltonetworks.com/microsoft-cve-2025-59287/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;ITPro. (2025, October 27). &lt;em&gt;CISA issues alert after botched Windows Server patch exposes critical flaw&lt;/em&gt;. &lt;a href=&quot;https://www.itpro.com/security/cisa-issues-alert-after-botched-windows-server-patch-exposes-critical-flaw&quot; rel=&quot;noopener&quot;&gt;https://www.itpro.com/security/cisa-issues-alert-after-botched-windows-server-patch-exposes-critical-flaw&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Forbes. (2025, October 26). &lt;em&gt;Act now: Microsoft issues emergency Windows update as attacks begin&lt;/em&gt;. &lt;a href=&quot;https://www.forbes.com/sites/daveywinder/2025/10/26/act-now---microsoft-issues-emergency-windows-update-as-attacks-begin/&quot; rel=&quot;noopener&quot;&gt;https://www.forbes.com/sites/daveywinder/2025/10/26/act-now---microsoft-issues-emergency-windows-update-as-attacks-begin/&lt;/a&gt;&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fwsus-just-became-an-attackers-dream-stop-publishing-your-patch-pipeline-to-the-internet%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Embedding Mastodon Posts in Eleventy: My Journey</title>
@@ -9104,7 +9104,7 @@ eleventyConfig&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;
 &lt;li&gt;Andy Piper — Mastodon oEmbed examples&lt;br&gt;
 &lt;a href=&quot;https://andypiper.org/mastodon-embeds-examples/single-post-oembed.html&quot; rel=&quot;noopener&quot;&gt;https://andypiper.org/mastodon-embeds-examples/single-post-oembed.html&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fembedding-mastodon-posts-in-eleventy-my-journey%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Remove Preinstalled Microsoft Store Apps in Windows 11 (24H2 &amp; 25H2)</title>
@@ -9310,7 +9310,7 @@ No. Pick one channel per device to avoid conflicts.&lt;/p&gt;
 &lt;a href=&quot;https://www.tech2geek.net/how-to-remove-preinstalled-microsoft-store-apps-in-windows-11-24h2-25h2-for-new-user-profiles/&quot; rel=&quot;noopener&quot;&gt;https://www.tech2geek.net/how-to-remove-preinstalled-microsoft-store-apps-in-windows-11-24h2-25h2-for-new-user-profiles/&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fremove-preinstalled-microsoft-store-apps-in-windows-11-24h2-and-25h2%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Weekly Notes: Week 43, 2025</title>
@@ -9333,7 +9333,7 @@ No. Pick one channel per device to avoid conflicts.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2025%2Fweek-43-2025%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>The CybersecKyle Community is live: security and tech, together</title>
@@ -9401,7 +9401,7 @@ No. Pick one channel per device to avoid conflicts.&lt;/p&gt;
 &lt;/ol&gt;
 &lt;h2 id=&quot;a-final-word&quot;&gt;A final word&lt;/h2&gt;
 &lt;p&gt;Security is stronger when it grows beside good engineering. Tech is better when it carries a security mindset from the start. If you want a place where people build, learn, and look out for each other, you will feel at home here. Bring curiosity, bring questions, bring small improvements. We will make steady progress together. &lt;strong&gt;A community is only as strong as its members, and I can’t wait to see what we build.&lt;/strong&gt; You can also help shape this community by inviting others you know who would benefit. Let’s grow together!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fthe-cyberseckyle-community-is-live-security-and-tech-together%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Weekly Notes: Week 42, 2025</title>
@@ -9426,7 +9426,7 @@ No. Pick one channel per device to avoid conflicts.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2025%2Fweek-42-2025%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Sora, Hands-On: thrilling for creators, thorny for privacy</title>
@@ -9500,7 +9500,7 @@ Subscribe to official updates and credible tech press. The MLK pause is not the 
 &lt;/ol&gt;
 &lt;h2 id=&quot;where-this-leaves-us&quot;&gt;Where this leaves us&lt;/h2&gt;
 &lt;p&gt;Sora is a creative rocket and a reputational risk amplifier. The watermark and C2PA story is a meaningful start, not a shield. The cameo system gives consent levers we have not had before in consumer video tools, yet consent still collides with virality. If you create with Sora, build provenance into your workflow and publish with context. If you protect people or brands, assume Sora-quality fakes are already part of your threat model.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fsora-hands-on-thrilling-for-creators-thorny-for-privacy%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Cybersecurity Weekly Roundup for October 11–17, 2025</title>
@@ -9576,7 +9576,7 @@ Subscribe to official updates and credible tech press. The MLK pause is not the 
 &lt;p&gt;Europol-coordinated takedown — 7 arrests, SIM-box infrastructure seized (Oct 10 op, announced Oct 17). &lt;a href=&quot;https://www.europol.europa.eu/media-press/newsroom/news/cybercrime-service-takedown-7-arrested&quot; rel=&quot;noopener&quot;&gt;Europol newsroom item&lt;/a&gt;; coverage: &lt;a href=&quot;https://www.euronews.com/2025/10/17/latvian-police-bust-european-cybercrime-ring-and-arrest-seven-suspects-europol-says&quot; rel=&quot;noopener&quot;&gt;Euronews&lt;/a&gt; and &lt;a href=&quot;https://cyberscoop.com/europol-dismantles-cybercime-network-sim-boxes-fraud/&quot; rel=&quot;noopener&quot;&gt;CyberScoop&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fcybersecurity-weekly-roundup-for-october-11-17-2025%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Weekly Notes: Week 41, 2025</title>
@@ -9604,7 +9604,7 @@ Subscribe to official updates and credible tech press. The MLK pause is not the 
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2025%2Fweek-41-2025%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Cybersecurity Weekly Roundup for October 3–10, 2025</title>
@@ -9651,7 +9651,7 @@ Subscribe to official updates and credible tech press. The MLK pause is not the 
 &lt;li&gt;&lt;a href=&quot;https://csrc.nist.gov/projects/post-quantum-cryptography&quot; rel=&quot;noopener&quot;&gt;NIST PQC Program&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.europol.europa.eu/media-press/newsroom/news/stormedge-phishing-network-dismantled&quot; rel=&quot;noopener&quot;&gt;Europol Press Release – StormEdge Takedown&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fcybersecurity-weekly-roundup-for-october-3-10-2025%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Weekly Notes: Week 40, 2025</title>
@@ -9683,7 +9683,7 @@ Subscribe to official updates and credible tech press. The MLK pause is not the 
 &lt;p&gt;I have been reading &lt;a href=&quot;https://hardcover.app/books/night-watcher/editions/31879302&quot; rel=&quot;noopener&quot;&gt;Night Watcher by Daphne Woolsoncroft&lt;/a&gt;. It has been a slow process but I am really enjoying the book so far. It is a thriller that keeps you on the edge of your seat.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;That is it for this week. I am looking forward to writing more articles and sharing my thoughts and experiences with you all. I hope you have a great week!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2025%2Fweek-40-2025%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>What To Do If You Were Affected By The Discord September 20th Security Incident</title>
@@ -9764,7 +9764,7 @@ Subscribe to official updates and credible tech press. The MLK pause is not the 
 &lt;blockquote&gt;
 &lt;p&gt;Tip for readers: bookmark this page and re‑run the checklist every time a service you use discloses a data incident.&lt;/p&gt;
 &lt;/blockquote&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fwhat-to-do-if-you-were-affected-by-the-discord-september-20th-security-incident%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>The npm ‘Shai-Hulud’ Supply-Chain Meltdown: What It Broke, What It Means, and What We Fix Next</title>
@@ -9869,7 +9869,7 @@ Subscribe to official updates and credible tech press. The MLK pause is not the 
 &lt;li&gt;Tom’s Hardware — Coverage of scale and impact: &lt;a href=&quot;https://www.tomshardware.com/tech-industry/cyber-security/shai-hulud-malware-campaign-dubbed-the-largest-and-most-dangerous-npm-supply-chain-compromise-in-history-hundreds-of-javascript-packages-affected&quot; rel=&quot;noopener&quot;&gt;https://www.tomshardware.com/tech-industry/cyber-security/shai-hulud-malware-campaign-dubbed-the-largest-and-most-dangerous-npm-supply-chain-compromise-in-history-hundreds-of-javascript-packages-affected&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;HIPAA Times — &lt;em&gt;CISA warns of rapidly spreading Shai‑Hulud worm&lt;/em&gt;: &lt;a href=&quot;https://hipaatimes.com/cisa-warns-of-rapidly-spreading-shai-hulud-worm-disrupting-some-software-supply-chains/&quot; rel=&quot;noopener&quot;&gt;https://hipaatimes.com/cisa-warns-of-rapidly-spreading-shai-hulud-worm-disrupting-some-software-supply-chains/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fthe-npm-shai-hulud-supply-chain-meltdown-what-it-broke-what-it-means-and-what-we-fix-next%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Cybersecurity Weekly Roundup for September 27–October 03, 2025</title>
@@ -9975,7 +9975,7 @@ Subscribe to official updates and credible tech press. The MLK pause is not the 
 &lt;a href=&quot;https://www.tenable.com/blog/cybersecurity-snapshot-cybersecurity-awareness-month-arrives-to-find-ai-security-a-hot-mess-as&quot; rel=&quot;noopener&quot;&gt;https://www.tenable.com/blog/cybersecurity-snapshot-cybersecurity-awareness-month-arrives-to-find-ai-security-a-hot-mess-as&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fcybersecurity-weekly-roundup-for-september-27-october-03-2025%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Introducing Brewventy: Your Coffee-Themed Eleventy Starter Kit</title>
@@ -10079,7 +10079,7 @@ Subscribe to official updates and credible tech press. The MLK pause is not the 
 &lt;li&gt;&lt;strong&gt;Roadmap&lt;/strong&gt;: Future enhancements include additional theme variants, improved blog components, and plugin extensions.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Brewventy combines a delightful coffee-inspired UI with the power and flexibility of Eleventy. Clone, customize, and launch your site today—&lt;strong&gt;and enjoy your perfect brew&lt;/strong&gt;! ☕🚀&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fintroducing-brewventy-your-coffee-themed-eleventy-starter-kit%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>How to Check Who Blocked You on Mastodon with Python</title>
@@ -10349,7 +10349,7 @@ YOUR_DOMAIN &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fhow-to-check-who-blocked-you-on-mastodon-with-python%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Cybersecurity Weekly Roundup for September 22–26, 2025</title>
@@ -10470,7 +10470,7 @@ YOUR_DOMAIN &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fcybersecurity-weekly-roundup-for-september-22-26-2025%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Apple’s September Event: What Mattered, What’s Hype, and What I’m Actually Buying</title>
@@ -10592,7 +10592,7 @@ YOUR_DOMAIN &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span
 &lt;p&gt;I’m ordering &lt;strong&gt;iPhone 17 Pro Max (6.9&quot;)&lt;/strong&gt; in Cosmic Orange. This new color just looks amazing. I’m also excited for the new vapor chamber and am interested in seeing how that will impact the cooling. As for the watch, I will probably be waiting a bit still. My Apple Watch Ultra 1 is still okay for now. When I do upgrade, it will be to the &lt;strong&gt;Apple Watch Series 11&lt;/strong&gt; for daily wear. I still want the larger display of the Ultra, but I don’t need the ruggedness or extra battery life for my day-to-day use. I’m also going to wait on the &lt;strong&gt;AirPods Pro 3&lt;/strong&gt; for now. My current AirPods Pro (2nd generation) still work great, and I don’t feel the need to upgrade just yet. The new fit options and heart-rate sensor are nice, but not essential for me at this time.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;em&gt;All product images used above are credited to Apple Newsroom (linked under each section).&lt;/em&gt;&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fapples-september-event-what-mattered-whats-hype-and-what-im-actually-buying%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Review: Redragon WYVERN K689 PRO Mechanical Keyboard: Budget Beast with a Pro Attitude</title>
@@ -10751,7 +10751,7 @@ YOUR_DOMAIN &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span
 &lt;h3 id=&quot;save-10percent-with-my-discount-code&quot;&gt;Save 10% with my Discount Code!&lt;/h3&gt;
 &lt;p&gt;Thanks to the awesome folks over at Redragon for giving me the opportunity to review this product. They have also provided me with a special URL that anyone can use to save a total of 10% off of your entire purchase across their site. So if you’re interested in purchasing the Redragon Predator M612 Pro RGB Gaming Mouse, or any of their products, you can click this link and shop: &lt;a href=&quot;https://www.redragonshop.com/discount/beardedtechguy?ref=weblog.kylereddoch.me&quot; rel=&quot;noopener&quot;&gt;&lt;strong&gt;Save 10% On Your Entire Order&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;If you don’t click the link, you can always manually input &lt;strong&gt;beardedtechguy&lt;/strong&gt; as the code during check out.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Freview-redragon-wyvern-k689-pro-mechanical-keyboard-budget-beast-with-a-pro-attitude%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>From Start to Finish: Moving My Blog to Eleventy + GitHub Pages</title>
@@ -10959,7 +10959,7 @@ Report saved to /opt/kyle/intel/summary-&lt;span class=&quot;token twig language
 &lt;h2 id=&quot;final-thoughts&quot;&gt;Final Thoughts&lt;/h2&gt;
 &lt;p&gt;The move to Eleventy Excellent using GitHub Pages was a bit of a challenge, but it ultimately gave me a clean, blazing-fast, version-controlled blog. I have full control, from custom filters to build helpers, and deployment is 100% automated. With how customizable Eleventy is, I’m excited to keep tweaking and improving my site.&lt;/p&gt;
 &lt;p&gt;With a bit of patience and tweaking, you can get a similar setup going for your own site.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Ffrom-start-to-finish-moving-my-blog-to-eleventy-github-pages%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Cybersecurity Weekly Roundup for July 19–24, 2025</title>
@@ -11004,7 +11004,7 @@ Report saved to /opt/kyle/intel/summary-&lt;span class=&quot;token twig language
 &lt;li&gt;&lt;a href=&quot;https://www.washingtonpost.com/technology/2025/07/ftc-tiktok-employee-privacy-access/&quot; rel=&quot;noopener&quot;&gt;Washington Post – TikTok Insider Threat Investigation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://kubernetes.io/blog/2025/07/container-breakout-ebpf-cve-2025-38541/&quot; rel=&quot;noopener&quot;&gt;Kubernetes Blog – Linux CVE-2025-38541&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fcybersecurity-weekly-roundup-for-july-19-24-2025%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Welcome to the Cybersecurity Weekly Roundup</title>
@@ -11060,7 +11060,7 @@ Report saved to /opt/kyle/intel/summary-&lt;span class=&quot;token twig language
 &lt;li&gt;&lt;a href=&quot;https://www.wired.com/story/quantum-encryption-performance-hit-july2025/&quot; rel=&quot;noopener&quot;&gt;https://www.wired.com/story/quantum-encryption-performance-hit-july2025/&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.fbi.gov/news/press-releases/fbi-cyber-talent-program-july2025&quot; rel=&quot;noopener&quot;&gt;https://www.fbi.gov/news/press-releases/fbi-cyber-talent-program-july2025&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fwelcome-to-the-cybersecurity-weekly-roundup%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Where I&#39;ve Been: A Life Update from BeardedTechGuy (or… CybersecKyle?)</title>
@@ -11088,7 +11088,7 @@ Report saved to /opt/kyle/intel/summary-&lt;span class=&quot;token twig language
 &lt;p&gt;And while &lt;strong&gt;BeardedTechGuy&lt;/strong&gt; might still be the name on this site for now, &lt;strong&gt;CybersecKyle&lt;/strong&gt; is here too — working behind the scenes, slowly getting back to posting more consistently.&lt;/p&gt;
 &lt;p&gt;Talk soon.&lt;/p&gt;
 &lt;p&gt;— BeardedTechGuy (aka CybersecKyle)&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fwhere-ive-been-a-life-update-from-beardedtechguy-or-cyberseckyle%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Why I&#39;m Sharing My Amazon Wish List</title>
@@ -11102,7 +11102,7 @@ Report saved to /opt/kyle/intel/summary-&lt;span class=&quot;token twig language
 &lt;p&gt;👉 &lt;a href=&quot;https://purl.kylereddoch.me/amazon_wishlist&quot; rel=&quot;noopener&quot;&gt;Amazon Wishlist&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;If not, no worries at all—just reading, sharing, or showing support in your own way means a lot.&lt;/p&gt;
 &lt;p&gt;Thanks for reading, and thanks even more for just being here.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fwhy-im-sharing-my-amazon-wish-list%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Review: Redragon Predator M612 Pro RGB Gaming Mouse</title>
@@ -11156,7 +11156,7 @@ Report saved to /opt/kyle/intel/summary-&lt;span class=&quot;token twig language
 &lt;h3 id=&quot;save-10percent-with-my-discount-code&quot;&gt;Save 10% with my Discount Code!&lt;/h3&gt;
 &lt;p&gt;Thanks to the awesome folks over at Redragon for giving me the opportunity to review this product. They have also provided me with a special URL that anyone can use to save a total of 10% off of your entire purchase across their site. So if you’re interested in purchasing the &lt;a href=&quot;https://redragonshop.com/products/predator-m612-pro?variant=45360819437790?ref=weblog.kylereddoch.me&quot; rel=&quot;noopener&quot;&gt;Redragon Predator M612 Pro RGB Gaming Mouse&lt;/a&gt;, or any of their products, you can click this link and shop: &lt;a href=&quot;https://www.redragonshop.com/discount/beardedtechguy?ref=weblog.kylereddoch.me&quot; rel=&quot;noopener&quot;&gt;Save 10% On Your Entire Order&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;If you don’t click the link, you can always manually input, &lt;strong&gt;&lt;em&gt;beardedtechguy&lt;/em&gt;&lt;/strong&gt;, as the code during check out.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Freview-redragon-predator-m612-pro-rgb-gaming-mouse%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Review: Redragon Behemoth K724 Pro - A Feature-Packed Powerhouse</title>
@@ -11236,7 +11236,7 @@ Report saved to /opt/kyle/intel/summary-&lt;span class=&quot;token twig language
 &lt;h3 id=&quot;save-10percent-with-my-discount-code&quot;&gt;&lt;strong&gt;Save 10% with my Discount Code!&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;Thanks to the awesome folks over at Redragon for giving me the opportunity to review this product. They have also provided me with a special URL that anyone can use to save a total of 10% off of your entire purchase across their site. So if you’re interested in purchasing the &lt;a href=&quot;https://redragonshop.com/products/behemoth-k724-pro?_pos=1&amp;amp;_psq=behem&amp;amp;_ss=e&amp;amp;_v=1.0&quot; rel=&quot;noopener&quot;&gt;Behemoth K724 Pro&lt;/a&gt;, or any of their products, you can click this link and shop: &lt;a href=&quot;https://www.redragonshop.com/discount/beardedtechguy?ref=weblog.kylereddoch.me&quot; rel=&quot;noopener&quot;&gt;Save 10% On Your Entire Order&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;If you don’t click the link, you can always manually input, &lt;strong&gt;&lt;em&gt;beardedtechguy&lt;/em&gt;&lt;/strong&gt;, as the code during check out.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Freview-redragon-behemoth-k724-pro-a-feature-packed-powerhouse%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Blog Questions Challenge – TV Shows Edition</title>
@@ -11267,7 +11267,7 @@ Report saved to /opt/kyle/intel/summary-&lt;span class=&quot;token twig language
 &lt;p&gt;TV shows aren’t just entertainment—they have the power to inspire, teach, and shape our perspectives. Whether it’s through characters we admire, stories that make us laugh, or narratives that touch our hearts, certain shows stay with us long after the credits roll.&lt;/p&gt;
 &lt;p&gt;These were my answers to the Blog Questions Challenge! If you love TV as much as I do, I’d love to hear your thoughts—who would be your fictional best friend? Which show would you relive for the first time? And which series changed your outlook on life? Let me know by starting a discussion on Mastodon below!&lt;/p&gt;
 &lt;p&gt;I’m also tagging &lt;a href=&quot;https://basic.bearblog.dev&quot; rel=&quot;noopener&quot;&gt;Jon&lt;/a&gt;, &lt;a href=&quot;https://profile.jarunmb.com&quot; rel=&quot;noopener&quot;&gt;Mb&lt;/a&gt;, &lt;a href=&quot;https://weblog.anniegreens.lol&quot; rel=&quot;noopener&quot;&gt;Annie&lt;/a&gt; to do it!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fblog-questions-challenge-tv-shows-edition%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Enhancing My Terminal Experience</title>
@@ -11362,7 +11362,7 @@ end&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;If you want you can also store your fish config somewhere else and just reference it from the main fish file:&lt;/p&gt;
 &lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;source&lt;/span&gt; ~/Projects/setup/fish/main.fish&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;I often do this, so I can put my config file in a git repository and share it amongst my computers.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fenhancing-my-terminal-experience%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Managing Your Social Media Just Got Easier – A Hands-On Review of Fedica</title>
@@ -11482,7 +11482,7 @@ end&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;em&gt;Disclaimer: This post contains affiliate links. If you choose to sign up through my link, I may earn a commission at no extra cost to you. Rest assured, this review is based on my honest opinion and experience with the platform.&lt;/em&gt;&lt;/p&gt;
 &lt;div align=&quot;center&quot;&gt;
 &lt;p&gt;&lt;a href=&quot;https://fedica.com?_by=beardedtechguy&quot; rel=&quot;noopener&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/blog/managing-your-social-media-just-got-easier-a-hands-on-review-of-fedica/fQqRMNGGr2-650.webp 650w, https://www.kylereddoch.me/blog/managing-your-social-media-just-got-easier-a-hands-on-review-of-fedica/fQqRMNGGr2-960.webp 960w, https://www.kylereddoch.me/blog/managing-your-social-media-just-got-easier-a-hands-on-review-of-fedica/fQqRMNGGr2-1400.webp 1400w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/blog/managing-your-social-media-just-got-easier-a-hands-on-review-of-fedica/fQqRMNGGr2-650.jpeg&quot; alt=&quot;Fedica&quot; width=&quot;1400&quot; height=&quot;375&quot; srcset=&quot;https://www.kylereddoch.me/blog/managing-your-social-media-just-got-easier-a-hands-on-review-of-fedica/fQqRMNGGr2-650.jpeg 650w, https://www.kylereddoch.me/blog/managing-your-social-media-just-got-easier-a-hands-on-review-of-fedica/fQqRMNGGr2-960.jpeg 960w, https://www.kylereddoch.me/blog/managing-your-social-media-just-got-easier-a-hands-on-review-of-fedica/fQqRMNGGr2-1400.jpeg 1400w&quot; sizes=&quot;auto&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
+&lt;/div&gt;&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fmanaging-your-social-media-just-got-easier-a-hands-on-review-of-fedica%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Blog Questions Challenge: Music Edition</title>
@@ -11539,7 +11539,7 @@ end&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;I have always liked a variety of music. I grew up listening to country inspired by my grandparents and parents. My parents also listened to music from the 70s and 80s in the Rock and Pop genre. As I got into my high school years, the Rap genre started to get into the mix but that soon got outlived.&lt;/p&gt;
 &lt;p&gt;Now I listen to pretty much everything BUT Rap. My favorites are 80s, 90s, Alternative, Rock, EDM, and Country.&lt;/p&gt;
 &lt;p&gt;This blog challenge was a hard one for me to complete. I hope &lt;a href=&quot;https://tekphloyd.com&quot; rel=&quot;noopener&quot;&gt;tekphloyd&lt;/a&gt; and &lt;a href=&quot;https://ghall.blog&quot; rel=&quot;noopener&quot;&gt;Graham&lt;/a&gt; have an easier time on it. &lt;strong&gt;TAG&lt;/strong&gt; you’re it!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fblog-questions-challenge-music-edition%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Blog Questions Challenge: Technology Edition</title>
@@ -11559,7 +11559,7 @@ end&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&quot;final-thoughts&quot;&gt;Final Thoughts&lt;/h3&gt;
 &lt;p&gt;Technology has been a constant companion throughout my life, evolving from the bulky desktops of the past to the sleek, powerful devices we use today. It’s a field that never ceases to amaze me with its rapid advancements and the profound impact it has on society. As I continue my journey, personally and professionally, I remain excited about the innovations on the horizon and their potential to transform our world.&lt;/p&gt;
 &lt;p&gt;Tagging &lt;a href=&quot;https://tekphloyd.com/pages/blog&quot; rel=&quot;noopener&quot;&gt;@tekphloyd&lt;/a&gt;, &lt;a href=&quot;https://louplummer.lol/blog/&quot; rel=&quot;noopener&quot;&gt;Lou&lt;/a&gt;, and &lt;a href=&quot;https://basic.bearblog.dev/&quot; rel=&quot;noopener&quot;&gt;Jon&lt;/a&gt; it’s your turn!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fblog-questions-challenge-technology-edition%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Automate Reboot Reminders for Users with This PowerShell Script</title>
@@ -11699,7 +11699,7 @@ end&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&quot;final-thoughts&quot;&gt;Final Thoughts&lt;/h2&gt;
 &lt;p&gt;This script is a great way to &lt;strong&gt;ensure timely reboots&lt;/strong&gt; while giving users some control before enforcing the restart. IT teams can &lt;strong&gt;improve compliance&lt;/strong&gt;, &lt;strong&gt;enhance system stability&lt;/strong&gt;, and &lt;strong&gt;reduce help desk tickets related to pending updates&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;If you found this useful, let me know how it works for you or if you’d like additional features! 🚀&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fautomate-reboot-reminders-for-users-with-this-powershell-script%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Announced vs. Unannounced Cybersecurity Drills - A Balancing Act</title>
@@ -11778,7 +11778,7 @@ end&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;The poll results and community feedback underscore the value of a balanced approach to cybersecurity drills. By integrating both announced and unannounced exercises, organizations can comprehensively evaluate their preparedness, enhance employee training, and strengthen overall security posture.&lt;/p&gt;
 &lt;p&gt;It’s essential to consider organizational culture, the specific objectives of the drills, and the potential impacts on employees when designing and implementing these exercises. By thoughtfully combining both announced and unannounced drills, organizations can create a robust cybersecurity strategy that prepares employees for various scenarios while maintaining trust and morale.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fannounced-vs-unannounced-cybersecurity-drills-a-balancing-act%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Discovering My Favorite Feeds on Surf</title>
@@ -11815,7 +11815,7 @@ end&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;If you’re curious about how Surf stacks up against other platforms, check out my in-depth review &lt;a href=&quot;https://weblog.kylereddoch.me/2025/01/surfing-the-social-wave-a-beta-testers-insight-into-flipboards-surf-app&quot; rel=&quot;noopener&quot;&gt;here&lt;/a&gt;. It breaks down the features, highlights, and what makes Surf stand out in a sea of apps.&lt;/p&gt;
 &lt;p&gt;These feeds represent just a small slice of what’s possible with Surf. Whether you’re curating your own or exploring others’ creations, the app truly feels like a personalized journey through the content you care about. Give these feeds a try, or create your own—you never know what gems you’ll discover!&lt;/p&gt;
 &lt;p&gt;Which feeds are you loving on Surf? Let’s share and inspire each other. Drop a comment below!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fdiscovering-my-favorite-feeds-on-surf%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Best App Subscription for Mac and iOS in 2025: Setapp Review</title>
@@ -11875,7 +11875,7 @@ end&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;em&gt;Disclaimer: This post is sponsored by Setapp. I may earn a commission if you make a purchase through the links provided. However, all opinions and recommendations are based on my own experiences and research.&lt;/em&gt;&lt;/p&gt;
 &lt;div align=&quot;center&quot;&gt;
 &lt;p&gt;&lt;a href=&quot;https://setapp.sjv.io/c/3120092/799683/5114?subId1=best-app-sub-setapp-blog-review&amp;amp;partnerpropertyid=2998784&quot; rel=&quot;noopener&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/3STOY_mACA-650.webp 650w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/3STOY_mACA-650.jpeg&quot; alt=&quot;250+ apps for Mac and iPhone in one subscription&quot; width=&quot;650&quot; height=&quot;80&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
+&lt;/div&gt;&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fbest-app-subscription-for-mac-and-ios-in-2025-setapp-review%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Surfing the Social Wave: A Beta Tester’s Insight into Flipboard’s Surf App</title>
@@ -11927,7 +11927,7 @@ As a beta tester, I’ve been given a limited number of invite codes to share! I
 &lt;p&gt;Don’t wait to experience it for yourself—sign up, grab an invite code, and start surfing the social web in a whole new way!&lt;/p&gt;
 &lt;h3 id=&quot;whats-your-take&quot;&gt;What’s Your Take?&lt;/h3&gt;
 &lt;p&gt;Have you tried Surf yet, or are you considering it? Share your thoughts in the comments below, or reach out to me directly—I’d love to hear your feedback on this exciting new app!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fsurfing-the-social-wave-a-beta-testers-insight-into-flipboards-surf-app%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Blog Question Challenge 2025</title>
@@ -11958,7 +11958,7 @@ As a beta tester, I’ve been given a limited number of invite codes to share! I
 &lt;p&gt;I have done quite a lot of work on weblog to customize it and extend it far beyond what it was meant to be. For now, I am pretty happy where I am, both design-wise and service-wise. Although Adam is working on a brand-new, powerful, feature-rich blogging platform named &lt;a href=&quot;https://neato.pub&quot; rel=&quot;noopener&quot;&gt;Neato&lt;/a&gt; that I will move to when it is ready.&lt;/p&gt;
 &lt;h2 id=&quot;who-will-participate-next&quot;&gt;Who will participate next?&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://rknight.me&quot; rel=&quot;noopener&quot;&gt;Robb&lt;/a&gt; and &lt;a href=&quot;https://gabz.blog&quot; rel=&quot;noopener&quot;&gt;Gabz&lt;/a&gt;…TAG, you’re next!!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fblog-question-challenge-2025%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Catppuccin Mocha UI for Mastodon</title>
@@ -11980,7 +11980,7 @@ As a beta tester, I’ve been given a limited number of invite codes to share! I
 &lt;p&gt;Now, if you like Rolle’s BirdUI, and Jason’s Catppuccin Mocha-inspired colors, but want my modifications (left compose section and slightly narrower columns, at 350px in width) you can now install it.&lt;/p&gt;
 &lt;p&gt;This is the first release so there may still be some bugs. If you come across any, you can open an issue on GitHub or just email me.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/kylereddoch/catpuccin-mocha-ui-mastodon&quot; rel=&quot;noopener&quot;&gt;Install Catppuccin Mocha UI for Mastodon&lt;/a&gt;&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fcatppuccin-mocha-ui-for-mastodon%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>My Goals for 2025</title>
@@ -12003,7 +12003,7 @@ As a beta tester, I’ve been given a limited number of invite codes to share! I
 &lt;li&gt;Get out of debt.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Goals are better when we help each other out! What are your goals? Maybe we can keep each other on track throughout the year.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fmy-goals-for-2025%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>A 365 in 2025 Photo Log Challenge</title>
@@ -12015,7 +12015,7 @@ As a beta tester, I’ve been given a limited number of invite codes to share! I
 &lt;h3 id=&quot;here-is-how-the-challenge-goes&quot;&gt;Here is how the challenge goes&lt;/h3&gt;
 &lt;p&gt;Each day of 2025, post a photo and tag it with &lt;strong&gt;#365in25&lt;/strong&gt; and then share it across on the Fediverse. That photo can be shared on Pixelfed, your website via a photo log, Threads (with activity pub activated), etc. The photos don’t need to be anything special either. You can be in your house cooking dinner, in your yard, on a trip, etc. The goal is to just have some fun this year.&lt;/p&gt;
 &lt;p&gt;I posted my first photo on my &lt;a href=&quot;https://allthingstech.social/@beardedtechguy/113754530980859401&quot; rel=&quot;noopener&quot;&gt;Pixelfed&lt;/a&gt; account. Join in on the fun!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fa-365-in-2025-photo-log-challenge%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Apple Music to Discord</title>
@@ -12060,7 +12060,7 @@ As a beta tester, I’ve been given a limited number of invite codes to share! I
 &lt;h2 id=&quot;the-wrap-up&quot;&gt;The Wrap-Up&lt;/h2&gt;
 &lt;p&gt;Both of these apps have been great while I have been using them. I have run into bumps along the way, for instance, if I have the Windows one running at work but I come home and want to use the Apple one on my MBP, it will sometimes wig out due to the Discord DRC. Discord will still show the music that is paused by my Windows machine at work.&lt;/p&gt;
 &lt;p&gt;That may be specific to me since I span different OSes. I just have to remember to close out the Windows one when I leave work.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fapple-music-to-discord%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Proton Black Friday Deals</title>
@@ -12109,7 +12109,7 @@ As a beta tester, I’ve been given a limited number of invite codes to share! I
 &lt;p&gt;This post is sponsored by Proton Mail.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://go.getproton.me/SH1F4&quot; rel=&quot;noopener&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/mp3HI3JmmH-468.webp 468w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/mp3HI3JmmH-468.jpeg&quot; alt=&quot;Secure Mail from Proton&quot; width=&quot;468&quot; height=&quot;60&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;!-- VPN Black Friday URL --&gt;
-&lt;/div&gt;
+&lt;/div&gt;&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fproton-black-friday-deals%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>My WeblogPoMoAMA</title>
@@ -12163,7 +12163,7 @@ As a beta tester, I’ve been given a limited number of invite codes to share! I
 &lt;p&gt;This post is sponsored by Proton VPN.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://go.getproton.me/SH1F5&quot; rel=&quot;noopener&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://www.kylereddoch.me/img/6X5G4NpTP8-468.webp 468w&quot; sizes=&quot;auto&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://www.kylereddoch.me/img/6X5G4NpTP8-468.jpeg&quot; alt=&quot;Secure VPN from Proton&quot; width=&quot;468&quot; height=&quot;60&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;!-- VPN Black Friday URL --&gt;
-&lt;div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;&lt;/div&gt;&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fmy-weblogpomoama%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>The iPhone Wall Project</title>
@@ -12178,7 +12178,7 @@ As a beta tester, I’ve been given a limited number of invite codes to share! I
 &lt;h2 id=&quot;i-need-your-help&quot;&gt;I need your help&lt;/h2&gt;
 &lt;p&gt;I am reaching out to my fellow Apple community to see if anyone has iPhone boxes spanning any iPhone (3G-now), any color, that would be willing to part with or have no need for anymore. &lt;strong&gt;It would be greatly appreciated!&lt;/strong&gt; This project means a lot to me. In return, I will be making a post of me putting the phone box on the wall in its position and shouting out the person who sent it on my &lt;a href=&quot;https://profiles.kylereddoch.me&quot; rel=&quot;noopener&quot;&gt;socials&lt;/a&gt;. You can even sign at the bottom of the box to make the project more personal and fun!&lt;/p&gt;
 &lt;p&gt;So let’s all make this project a reality. You can reach me at &lt;code&gt;kyle@kylereddoch.com&lt;/code&gt; or on &lt;a href=&quot;https://allthingstech.social/@beardedtechguy&quot; rel=&quot;noopener&quot;&gt;Mastodon&lt;/a&gt;.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fthe-iphone-wall-project%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Welcome to the new Kyle&#39;s Tech Korner</title>
@@ -12193,7 +12193,7 @@ As a beta tester, I’ve been given a limited number of invite codes to share! I
 &lt;p&gt;Some of the subjects I plan to cover include technology, my thoughts on the latest tech trends, cybersecurity news and its impact on society, and various other musings.&lt;/p&gt;
 &lt;p&gt;The design you see now is a work in progress. I have been striving to find the perfect look and feel for my blog, but due to my busy schedule with work, family, and personal commitments, I haven’t been able to dedicate as much time to it as I would like. I have decided to launch it now and will continue to refine it over time.&lt;/p&gt;
 &lt;p&gt;This new chapter is just beginning, so stay tuned for more updates!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fwelcome-to-the-new-kyles-tech-korner%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>New Branding: Welcome to Kyle&#39;s Tech Korner!</title>
@@ -12209,7 +12209,7 @@ As a beta tester, I’ve been given a limited number of invite codes to share! I
 &lt;p&gt;Welcome to Kyle’s Tech Korner! Kyle’s Tech Korner will be dedicated to articles, reviews, experiences, etc. around tech, cybersecurity, infosec, managed services, and more. As I continue my career through this industry, I want to have a place to not only write about my experiences but also hope to help others.&lt;/p&gt;
 &lt;p&gt;I know that this rebrand will cause some of my followers to leave since the focus of my site has changed. I hope that some of you will continue to find my articles, etc. appealing to stay. If not though, I understand. If you have friends that will benefit from my new shift, I would appreciate if you let them know about my site.&lt;/p&gt;
 &lt;p&gt;Thanks, Kyle&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fnew-branding-welcome-to-kyles-tech-korner%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>How to Add a Mastodon Share Button to Your Website</title>
@@ -12283,7 +12283,7 @@ As a beta tester, I’ve been given a limited number of invite codes to share! I
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;I hope this post has helped you create your own Mastodon share button. If you have any questions, feel free to reach out to me on Mastodon at &lt;a href=&quot;https://iosdev.space/@kylewritescode&quot; rel=&quot;noopener&quot;&gt;@kylewritescode&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;If you have enjoyed this post, please consider supporting the site.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fhow-to-add-a-mastodon-share-button-to-your-website%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Using an Alias for Your Mastodon Account with Jekyll and GitHub Pages</title>
@@ -12341,7 +12341,7 @@ As a beta tester, I’ve been given a limited number of invite codes to share! I
 &lt;hr&gt;
 &lt;h4 id=&quot;references&quot;&gt;References&lt;/h4&gt;
 &lt;p&gt;During my research, I found out about this method thanks to the article by &lt;a href=&quot;https://blog.maartenballiauw.be&quot; rel=&quot;noopener&quot;&gt;Maarten Balliauw&lt;/a&gt; called &lt;a href=&quot;https://blog.maartenballiauw.be/post/2022/11/05/mastodon-own-donain-without-hosting-server.html&quot; rel=&quot;noopener&quot;&gt;Mastodon on your own domain without hosting a server&lt;/a&gt;.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fusing-an-alias-for-your-mastodon-account-with-jekyll-and-github-pages%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Adding Mastodon Comments to a Jekyll Blog</title>
@@ -12376,7 +12376,7 @@ As a beta tester, I’ve been given a limited number of invite codes to share! I
   &lt;span class=&quot;token key atrule&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;109325166591243911&lt;/span&gt;  &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Host is the domain of the instance you want to pull comments from (the instance you’re on). Username is the username of the user who created the post (you). Id is the id of the post. You can find the id of the post by going to the post on the instance and looking at the url. The id is the number at the end of the url.&lt;/p&gt;
 &lt;p&gt;And that is all! You should now have comments on your Jekyll site using Mastodon. If you have any questions or comments feel free to reach out to me on Mastodon &lt;a href=&quot;https://iosdev.space/@kylewritescode&quot; rel=&quot;noopener&quot;&gt;@kylewritecode@iosdev.space&lt;/a&gt;.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fadding-mastodon-comments-to-a-jekyll-blog%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Tutorial: Create a Simple npx Business Card</title>
@@ -12434,7 +12434,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; publish&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
 &lt;p&gt;I hope you enjoyed this tutorial. You can find the raw code for this tutorial on &lt;a href=&quot;https://github.com/kylereddoch/npx_card&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;. If you have any questions, please feel free to reach out to me on &lt;a href=&quot;https://twitter.com/kylereddoch&quot; rel=&quot;noopener&quot;&gt;Twitter&lt;/a&gt; or via &lt;a href=&quot;https://www.kylereddoch.me/blog/tutorial-create-a-simple-npx-business-card/kylereddoch@me.com&quot;&gt;Email&lt;/a&gt;.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Ftutorial-create-a-simple-npx-business-card%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Tutorial: Pseudocode and Flowcharts for Coding</title>
@@ -12497,7 +12497,7 @@ final_pay &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span c
 &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;Your weekly pay is &#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; final_pay&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Well folks, that’s it. You have just accomplished creating pseudocode and a flowchart for a program.&lt;/p&gt;
 &lt;p&gt;If you enjoyed this and found it useful, I would appreciate it if you share this with your friends!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Ftutorial-pseudocode-and-flowcharts-for-coding%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Review: Forte - The Better Habit Tracker</title>
@@ -12625,7 +12625,7 @@ final_pay &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span c
 &lt;/ul&gt;
 &lt;p&gt;Collin has really built an amazing app in Forte and it shows. If you are looking for a better habit tracker, I cannot recommend Forte enough.&lt;/p&gt;
 &lt;p&gt;Download it &lt;a href=&quot;https://apps.apple.com/app/id1507681077&quot; rel=&quot;noopener&quot;&gt;here&lt;/a&gt; and give it a go!&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Freview-forte-the-better-habit-tracker%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Review: Working Copy, A Git Client for iPhone and iPad</title>
@@ -12830,7 +12830,7 @@ final_pay &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span c
 &lt;p&gt;While the pro features aren’t cheap (coming in at $20), they aren’t too expensive either. The pro feature is an in-app subscription; when you buy the Pro unlock, you get all features plus any added within the year. After that, you need to buy an upgrade.&lt;/p&gt;
 &lt;p&gt;For me, it is worth it! Finding this app has helped my workflow.&lt;/p&gt;
 &lt;p&gt;So, if you are looking for a full-featured git client to use on your iPhone/iPad, I highly recommend &lt;a href=&quot;https://workingcopy.app&quot; rel=&quot;noopener&quot;&gt;Working Copy&lt;/a&gt;.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Freview-working-copy-a-git-client-for-iphone-and-ipad%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>WakaStats - A Scriptable Script for Your WakaTime Data</title>
@@ -12855,7 +12855,7 @@ final_pay &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span c
 &lt;p&gt;As mentioned above, I have made the script open-source. It is available is on my GitHub account &lt;a href=&quot;https://github.com/kylereddoch/scriptable&quot; rel=&quot;noopener&quot;&gt;here&lt;/a&gt;. There will find instructions on how to download and what you need to chage in the script for it to work.&lt;/p&gt;
 &lt;h3 id=&quot;whats-next&quot;&gt;What’s Next&lt;/h3&gt;
 &lt;p&gt;The next Scriptable script I am working on is one for RescueTime. This one will be more in-depth design wise and will use the large sized widget.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fwakastats-a-scriptable-script-for-your-wakatime-data%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Review: Grid Studio frames beautiful Apple Devices for you to hang</title>
@@ -12922,7 +12922,7 @@ final_pay &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span c
 &lt;p&gt;One thing is sure, Grid Studio considered every possible detail of each device and elegantly framed it all for lasting display. If you are an Apple fan and want to grab a piece of technological history or like to gift it to someone, Grid Studio is the best solution by far.&lt;/p&gt;
 &lt;h3 id=&quot;where-can-i-purchase&quot;&gt;Where can I purchase?&lt;/h3&gt;
 &lt;p&gt;You can go to &lt;a href=&quot;https://shareasale.com/r.cfm?b=1632954&amp;amp;u=3038322&amp;amp;m=101889&amp;amp;urllink=&amp;amp;afftrack=&quot; rel=&quot;noopener&quot;&gt;their website&lt;/a&gt; [Affiliate Link] and browse all the devices available. Some of those available are the iPhone X, OG iPhone SE, iPhone 5, and more. The prices of each vary. They do run sales from time to time (one is coming up near the end of this month), so be sure to check often.&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Freview-grid-studio-frames-beautiful-apple-devices-for-you-to-hang%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>100 Days of Swift...The Journey Begins!</title>
@@ -12960,7 +12960,7 @@ final_pay &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span c
 &lt;li&gt;&lt;a href=&quot;https://www.reddit.com/user/justkyleredd&quot; rel=&quot;noopener&quot;&gt;Reddit&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://twitter.com/winphankyle&quot; rel=&quot;noopener&quot;&gt;Twitter&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2F100-days-of-swiftthe-journey-begins%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Welcome to the beginning...</title>
@@ -12971,7 +12971,7 @@ final_pay &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span c
         &lt;p&gt;First off, let me thank you all for coming. It has taken me way to long to create a place that I can share shortcuts (take a look at my &lt;a href=&quot;https://www.kylereddoch.me/shortcuts-gallery&quot;&gt;Shortcuts Gallery&lt;/a&gt;), tech/news, my journey in coding, and more with those interested. I hope you enjoy.&lt;/p&gt;
 &lt;p&gt;This journey has been a wild, but good one. For this site I decided to do something different. Testing my skills, I went with &lt;a href=&quot;https://jekyllrb.com/&quot; rel=&quot;noopener&quot;&gt;Jekyll&lt;/a&gt; as the backbone of it. The theme comes from &lt;a href=&quot;https://github.com/sylhare&quot; rel=&quot;noopener&quot;&gt;Sylhare&lt;/a&gt; on Github. Then it is being hosted on &lt;a href=&quot;https://github.com/kylereddoch/kylereddoch.github.io&quot; rel=&quot;noopener&quot;&gt;Github Pages&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Have a look at the &lt;a href=&quot;https://www.kylereddoch.me/about&quot;&gt;About&lt;/a&gt; page to get to know a little bit about me. You can also find me at the following places below (social icons).&lt;/p&gt;
-
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fwelcome-to-the-beginning%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry></feed>
 
