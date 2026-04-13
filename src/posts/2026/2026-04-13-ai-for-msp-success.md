@@ -4,7 +4,7 @@ title: AI Is Not the Reason an MSP Succeeds, But It May Decide Which Ones Pull A
 description: AI is starting to separate mature MSPs from messy ones. The firms that win will use it to reduce internal drag, strengthen security operations, and guide clients with more clarity, not just sell another shiny tool.
 featuredImage: /assets/images/soc-workstation-ai.png
 tags: [ai, MSP, cybersecurity, editorials]
-mastodon_url:
+mastodon_url: https://infosec.exchange/@cyberseckyle/116398596444698928
 ---
 
 There is a version of the AI conversation in managed services that already feels worn out.
