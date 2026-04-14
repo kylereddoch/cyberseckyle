@@ -5,7 +5,7 @@ description: Stress is not a badge of honor in cybersecurity and IT. This Stress
 featuredImage: /assets/images/stressed-it-person-office.png
 featuredImageAlt: A tired IT professional sits at a desk late at night, surrounded by glowing monitors filled with security alerts, with coffee cups and devices scattered around the workspace.
 tags: [cybersecurity, IT, workplace, career]
-mastodon_url:
+mastodon_url: https://infosec.exchange/@cyberseckyle/116403710482640105
 ---
 
 > In cybersecurity and IT, stress gets normalized way too easily. That does not make it healthy, and it definitely does not make it sustainable.
