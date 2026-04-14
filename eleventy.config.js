@@ -27,6 +27,7 @@ import {
   getNotes,
   getNowPosts,
   getPosts,
+  getProjects,
   showInSitemap,
   tagList
 } from './src/_config/collections.js';
@@ -131,6 +132,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addLayoutAlias('base', 'base.njk');
   eleventyConfig.addLayoutAlias('page', 'page.njk');
   eleventyConfig.addLayoutAlias('post', 'post.njk');
+  eleventyConfig.addLayoutAlias('project', 'project.njk');
   eleventyConfig.addLayoutAlias('note', 'note.njk');
   eleventyConfig.addLayoutAlias('journal', 'journal.njk');
   eleventyConfig.addLayoutAlias('tags', 'tags.njk');
@@ -161,6 +163,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addCollection('blogEntries', getBlogEntries);
   eleventyConfig.addCollection('notes', getNotes);
   eleventyConfig.addCollection('journal', getJournalPosts);
+  eleventyConfig.addCollection('projects', getProjects);
   eleventyConfig.addCollection('allPosts', getAllPosts);
   eleventyConfig.addCollection('showInSitemap', showInSitemap);
   eleventyConfig.addCollection('tagList', tagList);
@@ -208,6 +211,18 @@ export default async function (eleventyConfig) {
       date: item.date
     }));
 
+    const projectEntries = getProjects(collectionApi).map(item => ({
+      id: item.url,
+      title: item.data?.title || '',
+      description: item.data?.description || item.data?.summary || '',
+      tags: [
+        item.data?.projectType,
+        ...(Array.isArray(item.data?.techStack) ? item.data.techStack : [])
+      ].filter(Boolean),
+      content: getSearchableContent(item),
+      date: item.date
+    }));
+
     const pageEntries = collectionApi
       .getFilteredByGlob('./src/pages/**/*.{md,njk}')
       .filter(item => !item.data?.eleventyExcludeFromCollections && !item.data?.excludeFromSearch)
@@ -221,7 +236,7 @@ export default async function (eleventyConfig) {
       }));
 
     const seen = new Set();
-    return [...contentEntries, ...pageEntries].filter(item => {
+    return [...contentEntries, ...projectEntries, ...pageEntries].filter(item => {
       if (!item.id || seen.has(item.id)) return false;
       seen.add(item.id);
       return true;

@@ -1,4 +1,14 @@
 const sortByNewest = (a, b) => b.date - a.date;
+const sortByProjectOrder = (a, b) => {
+  const orderA = Number.isFinite(Number(a?.data?.projectOrder)) ? Number(a.data.projectOrder) : Number.MAX_SAFE_INTEGER;
+  const orderB = Number.isFinite(Number(b?.data?.projectOrder)) ? Number(b.data.projectOrder) : Number.MAX_SAFE_INTEGER;
+
+  if (orderA !== orderB) {
+    return orderA - orderB;
+  }
+
+  return String(a?.data?.title || '').localeCompare(String(b?.data?.title || ''));
+};
 
 const dedupeByUrl = items => {
   const map = new Map();
@@ -37,6 +47,11 @@ export const getJournalPosts = collection =>
       './src/posts/journal/**/*.md'
     ])
     .sort(sortByNewest);
+
+export const getProjects = collection =>
+  collection
+    .getFilteredByGlob('./src/projects/**/*.md')
+    .sort(sortByProjectOrder);
 
 /** Blog + notes + journal + /now, newest first */
 export const getAllPosts = collection => {

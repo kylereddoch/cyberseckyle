@@ -1,0 +1,90 @@
+---
+layout: base
+---
+
+<a href="/projects/" class="inline-flex items-center text-blue-600 hover:text-blue-800 mb-3">
+  &larr; Back to Projects
+</a>
+
+<nav class="text-sm text-gray-600 dark:text-gray-400 mb-4" aria-label="Breadcrumb">
+  <ol class="flex flex-wrap items-center gap-2">
+    <li><a href="/" class="hover:text-blue-600">Home</a></li>
+    <li aria-hidden="true">/</li>
+    <li><a href="/projects/" class="hover:text-blue-600">Projects</a></li>
+    <li aria-hidden="true">/</li>
+    <li class="text-gray-900 dark:text-gray-100">{{ title }}</li>
+  </ol>
+</nav>
+
+<article class="h-entry mx-auto max-w-4xl">
+  {% set heroImage = featuredImage or featured_image %}
+  {% set heroImageAlt = featuredImageAlt or featured_image_alt or alt or ('Featured image for ' ~ title) %}
+  {% set typeBadgeClasses = badgeClasses or 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200' %}
+  {% set statusBadgeClasses = 'border border-slate-300 bg-slate-100 text-slate-800 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100' %}
+
+  {% if heroImage %}
+    <div class="mb-8 overflow-hidden rounded-2xl border border-gray-200 bg-[var(--surface)] dark:border-gray-800">
+      <img class="u-photo w-full" src="{{ heroImage }}" alt="{{ heroImageAlt }}" />
+    </div>
+  {% endif %}
+
+  <header class="mb-8">
+    <div class="mb-4 flex flex-wrap items-center gap-3">
+      {% if projectType %}
+        <span class="rounded-full px-3 py-1 text-xs font-medium {{ typeBadgeClasses }}">{{ projectType }}</span>
+      {% endif %}
+      {% if projectStatus %}
+        <span class="rounded-full px-3 py-1 text-xs font-medium {{ statusBadgeClasses }}">{{ projectStatus }}</span>
+      {% endif %}
+    </div>
+
+    <h1 class="p-name text-3xl font-bold tracking-tight mb-3">{{ title }}</h1>
+    {% if description %}
+      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl">{{ description }}</p>
+    {% endif %}
+
+    {% if projectLinks and projectLinks.length %}
+      <div class="mt-6 flex flex-wrap gap-3">
+        {% for link in projectLinks %}
+          <a href="{{ link.url }}" class="inline-flex items-center rounded-lg border border-gray-200 px-4 py-2 text-sm font-medium text-blue-600 transition-colors hover:border-blue-300 hover:text-blue-800 dark:border-gray-700 dark:text-blue-400 dark:hover:border-blue-700 dark:hover:text-blue-300">
+            {{ link.label }}
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if techStack and techStack.length %}
+      <ul class="mt-6 flex flex-wrap gap-2">
+        {% for item in techStack %}
+          <li class="rounded-full border border-gray-200 px-3 py-1 text-xs text-gray-600 dark:border-gray-700 dark:text-gray-300">{{ item }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <a class="u-url hidden" href="{{ page.url | url | absoluteUrl(meta.url) }}">Permalink</a>
+  </header>
+
+  <div class="e-content prose max-w-none">
+    {{ content | safe }}
+  </div>
+
+  <section class="mt-10 pt-8 border-t border-gray-200 dark:border-gray-700">
+    <h2 class="text-xl font-semibold mb-2">Share this project</h2>
+    <p class="text-gray-600 dark:text-gray-400 mb-4">Pass it along, save it for later, or leave a little kudos.</p>
+    {% include "partials/share-links.njk" %}
+
+    <div class="mt-6">
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Give this project some kudos.</p>
+      <button class="tinylytics_kudos" data-path="{{ page.url | url }}"></button>
+    </div>
+
+    {% include "partials/webmentions.njk" %}
+  </section>
+
+  <div hidden class="h-entry">
+    <a class="u-url" href="{{ page.url | url | absoluteUrl(meta.url) }}">{{ title }}</a>
+    <a class="p-name u-url" rel="author" href="{{ meta.url }}">{{ meta.author.name }}</a>
+    <a class="u-bridgy-fed" href="https://fed.brid.gy/" hidden="from-humans">Bridge this post to Bridgy Fed</a>
+    <img eleventy:ignore class="u-author h-card" src="{{ meta.author.avatar | url | absoluteUrl(meta.url) }}" alt="{{ meta.author.name }}" />
+  </div>
+</article>

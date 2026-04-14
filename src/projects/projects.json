@@ -1,0 +1,7 @@
+{
+  "layout": "project",
+  "tags": ["projects"],
+  "contentType": "project",
+  "excludeFromFeed": true,
+  "permalink": "/projects/{{ slug or page.fileSlug }}/"
+}
