@@ -6,7 +6,7 @@ featuredImage: /assets/images/openai_codex_security.png
 featuredImageAlt: Abstract cybersecurity-themed image with a dark blue and orange split background, a central glowing shield and padlock, two smaller padlocks on either side, and the OpenAI logo above.
 featuredImageCaption: OpenAI’s Codex Security aims to help defenders cut through the noise and get to real issues faster.
 tags: [openai, cybersecurity, ai, appsec, security-tools]
-mastodon_url:
+mastodon_url: https://infosec.exchange/@cyberseckyle/116410203072852638
 ---
 
 A lot of AI security tooling sounds impressive right up until you picture using it during a real week of cybersecurity work.
