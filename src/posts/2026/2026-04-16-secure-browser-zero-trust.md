@@ -6,7 +6,7 @@ featuredImage: /assets/images/secure-browser-zero-trust.png
 featuredImageAlt: "A laptop on a clean white desk displaying a digital shield and padlock symbol, representing secure browsing and protected online access."
 featuredImageCaption: "Secure browsers can enforce zero trust policies during the live session, not just at login. (Image generated with ChatGPT)"
 tags: [cybersecurity, zero-trust, browser-security, browser-privacy, infosec, MSP]
-mastodon_url:
+mastodon_url: https://infosec.exchange/@cyberseckyle/116415432125817765
 ---
 
 A lot of zero trust talk still feels stuck at the login screen.
