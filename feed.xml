@@ -4,12 +4,126 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-04-23T17:14:33Z</updated>
+  <updated>2026-04-24T17:00:55Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>Vibe Coding Has a Security Problem, and Shipping Code You Do Not Understand Is Not a Strategy</title>
+      <link href="https://www.kylereddoch.me/blog/vibe-coding-has-a-security-problem-and-shipping-code-you-do-not-understand-is-not-a-strategy/" />
+      <updated>2026-04-24T16:30:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/vibe-coding-has-a-security-problem-and-shipping-code-you-do-not-understand-is-not-a-strategy/</id>
+      <content type="html">
+        &lt;p&gt;There is a version of the AI coding conversation that feels way too casual for what is actually at stake.&lt;/p&gt;
+&lt;p&gt;A prompt goes in. A working app comes out. The demo looks clean. The login page loads. The API responds. The build passes. Everyone moves on.&lt;/p&gt;
+&lt;p&gt;That is exactly where I think the trouble starts.&lt;/p&gt;
+&lt;p&gt;“Vibe coding” has become the catch-all phrase for building software mostly through prompts, iterations, and AI-assisted generation instead of line-by-line engineering. Some of that is genuinely useful. I am not anti-AI, and I do not think serious teams should pretend these tools are going away. But I do think a lot of people are getting dangerously comfortable shipping code they do not really understand, on stacks they did not really design, with security assumptions they never actually validated.&lt;/p&gt;
+&lt;p&gt;That is not innovation. That is borrowed confidence.&lt;/p&gt;
+&lt;p&gt;The scale of adoption is real. &lt;a href=&quot;https://survey.stackoverflow.co/2025/&quot; rel=&quot;noopener&quot;&gt;Stack Overflow’s 2025 developer survey&lt;/a&gt; found that 84% of respondents were using or planning to use AI tools in their development process, and &lt;a href=&quot;https://survey.stackoverflow.co/2025/ai&quot; rel=&quot;noopener&quot;&gt;its AI section&lt;/a&gt; showed something just as important: more developers actively distrust the accuracy of AI output than trust it. That gap matters. If people are using the tools constantly while trusting them cautiously, then the missing piece is not speed. It is verification.&lt;/p&gt;
+&lt;p&gt;And right now, verification is where too many teams are falling apart.&lt;/p&gt;
+&lt;h2 id=&quot;the-convenience-is-real-but-so-is-the-blast-radius&quot;&gt;The convenience is real, but so is the blast radius&lt;/h2&gt;
+&lt;p&gt;I get why vibe coding is attractive.&lt;/p&gt;
+&lt;p&gt;It compresses time. It lowers the barrier to building. It helps experienced developers move faster and lets less experienced builders create things they would not have touched a year ago. For internal tools, rough prototypes, automations, and first drafts, that can be a huge win. In the right environment, AI really can be a multiplier.&lt;/p&gt;
+&lt;p&gt;But the same thing I wrote recently about AI in managed services still applies here: &lt;a href=&quot;https://www.kylereddoch.me/blog/ai-is-not-the-reason-an-msp-succeeds-but-it-may-decide-which-ones-pull-ahead/&quot; rel=&quot;noopener&quot;&gt;AI is not going to save an undisciplined operation&lt;/a&gt;. It rewards the teams that already standardize, document, secure, and review well. If the environment is messy, AI usually amplifies the mess.&lt;/p&gt;
+&lt;p&gt;That is the part the sales pitch rarely emphasizes.&lt;/p&gt;
+&lt;p&gt;AI can generate code fast. It can also generate weak access control fast, insecure object references fast, hardcoded secrets fast, sloppy logging fast, and dependency mistakes fast. It can scaffold a whole workflow before anyone has asked basic questions like:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Who should be allowed to access this?&lt;/li&gt;
+&lt;li&gt;What happens if an attacker controls this input?&lt;/li&gt;
+&lt;li&gt;Where are secrets stored?&lt;/li&gt;
+&lt;li&gt;What is the trust boundary here?&lt;/li&gt;
+&lt;li&gt;What happens if this dependency is malicious, fake, or compromised?&lt;/li&gt;
+&lt;li&gt;Who on the team could explain this code under pressure?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If nobody can answer those questions, the application is not done. It is just deployed.&lt;/p&gt;
+&lt;h2 id=&quot;recent-warning-shots-were-not-hypothetical&quot;&gt;Recent warning shots were not hypothetical&lt;/h2&gt;
+&lt;p&gt;This is not a theoretical problem anymore.&lt;/p&gt;
+&lt;p&gt;On July 29, 2025, Wiz disclosed a &lt;a href=&quot;https://www.wiz.io/blog/critical-vulnerability-base44&quot; rel=&quot;noopener&quot;&gt;critical vulnerability in Base44&lt;/a&gt;, an AI-powered vibe coding platform, that allowed unauthorized access to private applications hosted on the platform. Wiz said the issue could expose enterprise apps used for internal chatbots, knowledge bases, and even PII and HR workflows. That is not a harmless edge case. That is a reminder that when people build fast on top of managed AI app platforms, platform-level security mistakes can hit every downstream app at once.&lt;/p&gt;
+&lt;p&gt;Then, on April 20, 2026, Lovable said in its own &lt;a href=&quot;https://lovable.dev/blog/our-response-to-the-april-2026-incident&quot; rel=&quot;noopener&quot;&gt;incident response&lt;/a&gt; that data within public Lovable projects could be accessed by any authenticated user. According to the company, between February 3, 2026 and April 20, 2026, public project chat history and source code could potentially be accessed if someone had a project link. Lovable said private projects and Lovable Cloud were not impacted, but even the public-project scope is a big deal. Source code, prompts, and internal app logic are not trivial exposures. They are often the map an attacker needs.&lt;/p&gt;
+&lt;p&gt;And the problem is not limited to app-builder platforms.&lt;/p&gt;
+&lt;p&gt;On March 18, 2025, Pillar Security published its &lt;a href=&quot;https://www.pillar.security/blog/new-vulnerability-in-github-copilot-and-cursor-how-hackers-can-weaponize-code-agents&quot; rel=&quot;noopener&quot;&gt;Rules File Backdoor research&lt;/a&gt;, showing how attackers could hide malicious instructions inside rule files used by tools like Cursor and GitHub Copilot. The ugly part is not just the trick itself. It is what it says about the trust model. If the assistant can be quietly steered by poisoned context, then the assistant is part of the attack surface. At that point, you are not only reviewing code. You are also reviewing the invisible instructions that shaped it.&lt;/p&gt;
+&lt;p&gt;That lines up with &lt;a href=&quot;https://www.ncsc.gov.uk/blog-post/prompt-injection-is-not-sql-injection&quot; rel=&quot;noopener&quot;&gt;NCSC’s warning that prompt injection is not SQL injection&lt;/a&gt;. Their point is blunt and important: large language models do not enforce a real boundary between instructions and data, which means prompt injection may never be “solved” in the neat, permanent way people like to imagine. That should change how teams think about agent permissions, tool access, and autonomous workflows.&lt;/p&gt;
+&lt;h2 id=&quot;the-real-problem-is-the-illusion-of-correctness&quot;&gt;The real problem is the illusion of correctness&lt;/h2&gt;
+&lt;p&gt;One of the most dangerous things about AI-generated code is that it often looks finished before it is secure.&lt;/p&gt;
+&lt;p&gt;It is readable. It compiles. It feels coherent. It gives people the sense that the hard part is over.&lt;/p&gt;
+&lt;p&gt;That is why I think the biggest security risk around vibe coding is not just bad code. It is the &lt;em&gt;illusion of correctness&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.veracode.com/blog/spring-2026-genai-code-security/&quot; rel=&quot;noopener&quot;&gt;Veracode’s Spring 2026 GenAI update&lt;/a&gt; said AI coding assistants now exceed 95% syntax correctness, while security pass rates remain stuck around 55% when no security guidance is provided. That is a brutal gap. It means the code can look polished, function properly, and still be insecure almost half the time.&lt;/p&gt;
+&lt;p&gt;That same pattern shows up elsewhere too. &lt;a href=&quot;https://www.cc.gatech.edu/news/bad-vibes-ai-generated-code-vulnerable-researchers-warn&quot; rel=&quot;noopener&quot;&gt;Georgia Tech’s coverage of new research&lt;/a&gt; highlighted confirmed real-world cases of AI-introduced vulnerabilities, including command injection, authentication bypass, and server-side request forgery. In other words, the failures are not limited to toy examples or prompt engineering demos. They are turning into real defects with real consequences.&lt;/p&gt;
+&lt;p&gt;Even code review quality takes a hit. &lt;a href=&quot;https://www.coderabbit.ai/blog/state-of-ai-vs-human-code-generation-report&quot; rel=&quot;noopener&quot;&gt;CodeRabbit’s report&lt;/a&gt; found AI-authored pull requests contained about 1.7 times more issues overall, with security issues amplified and logic problems showing up more often. That tracks with what many developers already feel intuitively: AI does not just accelerate output. It accelerates review fatigue too.&lt;/p&gt;
+&lt;p&gt;This is where I think a lot of teams are fooling themselves. They are not replacing engineering effort. They are relocating it downstream, where the cleanup gets more expensive.&lt;/p&gt;
+&lt;h2 id=&quot;what-keeps-going-wrong&quot;&gt;What keeps going wrong&lt;/h2&gt;
+&lt;p&gt;The same classes of security failure show up again and again in AI-assisted code because the model is usually optimizing for “working” before it is optimizing for “defensible.”&lt;/p&gt;
+&lt;div class=&quot;table-wrapper&quot;&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Failure mode&lt;/th&gt;
+        &lt;th&gt;Why vibe coding makes it worse&lt;/th&gt;
+        &lt;th&gt;What teams should do instead&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td data-label=&quot;Failure mode&quot;&gt;Broken access control&lt;/td&gt;
+        &lt;td data-label=&quot;Why vibe coding makes it worse&quot;&gt;The app works for the happy path, but ownership checks, role boundaries, and object-level authorization get skipped or assumed.&lt;/td&gt;
+        &lt;td data-label=&quot;What teams should do instead&quot;&gt;Threat model access early, test for BOLA/IDOR style failures, and require explicit authorization checks in review.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td data-label=&quot;Failure mode&quot;&gt;Prompt-injected or poisoned generation&lt;/td&gt;
+        &lt;td data-label=&quot;Why vibe coding makes it worse&quot;&gt;Agents ingest rules files, issue text, READMEs, and other context that may be attacker-controlled or quietly manipulated.&lt;/td&gt;
+        &lt;td data-label=&quot;What teams should do instead&quot;&gt;Treat AI context as untrusted input, minimize agent permissions, isolate tools, and keep humans in the approval path.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td data-label=&quot;Failure mode&quot;&gt;Secret leakage and unsafe config&lt;/td&gt;
+        &lt;td data-label=&quot;Why vibe coding makes it worse&quot;&gt;Generated code often reaches for convenience, including hardcoded keys, permissive defaults, and verbose logging.&lt;/td&gt;
+        &lt;td data-label=&quot;What teams should do instead&quot;&gt;Use centralized secrets management, run secret scanning by default, and block commits with embedded credentials.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td data-label=&quot;Failure mode&quot;&gt;Dependency and package risk&lt;/td&gt;
+        &lt;td data-label=&quot;Why vibe coding makes it worse&quot;&gt;Models can recommend outdated, unsafe, or even hallucinated packages, especially when speed matters more than provenance.&lt;/td&gt;
+        &lt;td data-label=&quot;What teams should do instead&quot;&gt;Pin dependencies, verify package legitimacy, generate SBOMs, and review provenance before shipping.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td data-label=&quot;Failure mode&quot;&gt;Weak validation and unsafe data handling&lt;/td&gt;
+        &lt;td data-label=&quot;Why vibe coding makes it worse&quot;&gt;The generated app may “work” while still trusting user input too much at the API layer.&lt;/td&gt;
+        &lt;td data-label=&quot;What teams should do instead&quot;&gt;Require validation libraries, secure-by-default frameworks, negative testing, and API-specific security review.&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;To me, that table is the real vibe coding story. Not “AI wrote an app in ten minutes.” The real story is that AI can help create production-looking software before anyone has done the slow, boring work that makes software safe.&lt;/p&gt;
+&lt;p&gt;And boring work still matters.&lt;/p&gt;
+&lt;p&gt;That is true in code. It is true in infrastructure. It is true in the browser too. A lot of these tools run through web sessions and dashboards where &lt;a href=&quot;https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/&quot; rel=&quot;noopener&quot;&gt;the browser is still the front door to most modern compromises&lt;/a&gt;. It is true in operations, where &lt;a href=&quot;https://www.kylereddoch.me/blog/cybersecurity-does-not-have-a-specialization-problem-it-has-a-context-problem/&quot; rel=&quot;noopener&quot;&gt;shared context&lt;/a&gt; is the difference between seeing risk clearly and just moving noise around faster. And it is true in software delivery, where &lt;a href=&quot;https://www.kylereddoch.me/blog/microsofts-wireguard-and-veracrypt-lockout-is-bigger-than-a-support-failure/&quot; rel=&quot;noopener&quot;&gt;modern software trust chains can turn into chokepoints fast&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Vibe coding does not replace those realities. It collides with them.&lt;/p&gt;
+&lt;h2 id=&quot;what-i-think-teams-should-do-right-now&quot;&gt;What I think teams should do right now&lt;/h2&gt;
+&lt;p&gt;I do not think the answer is banning AI coding tools outright.&lt;/p&gt;
+&lt;p&gt;I do think the answer is treating them like power tools instead of magic.&lt;/p&gt;
+&lt;p&gt;If a team is going to use AI heavily for coding, then at minimum it should:&lt;/p&gt;
+&lt;h3 id=&quot;1-treat-generated-code-as-a-draft-not-a-deliverable&quot;&gt;1. Treat generated code as a draft, not a deliverable&lt;/h3&gt;
+&lt;p&gt;Generated code should enter the same review path as any other external input. That means human review, security review where it matters, tests, and approval gates. The output is a starting point.&lt;/p&gt;
+&lt;h3 id=&quot;2-review-the-trust-boundaries-before-the-code-style&quot;&gt;2. Review the trust boundaries before the code style&lt;/h3&gt;
+&lt;p&gt;Pretty code can still be unsafe code. Reviewers need to ask where the data comes from, what the model assumed, and who can influence the context that shaped the output.&lt;/p&gt;
+&lt;h3 id=&quot;3-lock-down-agent-permissions-hard&quot;&gt;3. Lock down agent permissions hard&lt;/h3&gt;
+&lt;p&gt;If an AI agent can access secrets, make network requests, run shell commands, or modify production-adjacent workflows, then it needs least privilege and strong containment. Anything else is asking for trouble.&lt;/p&gt;
+&lt;h3 id=&quot;4-add-security-guidance-to-prompts-and-rules-then-verify-anyway&quot;&gt;4. Add security guidance to prompts and rules, then verify anyway&lt;/h3&gt;
+&lt;p&gt;Yes, prompting for secure coding practices helps. No, that does not remove the need to verify the result. Secure prompts reduce risk. They do not eliminate it.&lt;/p&gt;
+&lt;h3 id=&quot;5-scan-everything-automatically&quot;&gt;5. Scan everything automatically&lt;/h3&gt;
+&lt;p&gt;SAST, dependency scanning, secret scanning, IaC scanning, container scanning, and policy checks need to be part of the default path, not the “if we have time” path.&lt;/p&gt;
+&lt;h3 id=&quot;6-keep-provenance-and-audit-trails&quot;&gt;6. Keep provenance and audit trails&lt;/h3&gt;
+&lt;p&gt;Teams need to know what was AI-generated, what dependencies were introduced, what context shaped the output, and who approved it. Otherwise, incident response turns into guesswork.&lt;/p&gt;
+&lt;h3 id=&quot;7-do-not-let-non-technical-stakeholders-mistake-velocity-for-safety&quot;&gt;7. Do not let non-technical stakeholders mistake velocity for safety&lt;/h3&gt;
+&lt;p&gt;This one matters more than people admit. Faster generation is not the same thing as faster secure delivery. If leadership only sees speed, security debt will pile up quietly until it stops being quiet.&lt;/p&gt;
+&lt;h2 id=&quot;speed-without-review-is-just-faster-risk&quot;&gt;Speed without review is just faster risk&lt;/h2&gt;
+&lt;p&gt;That is really my bottom line.&lt;/p&gt;
+&lt;p&gt;Vibe coding is not inherently reckless. Shipping code you do not understand absolutely is.&lt;/p&gt;
+&lt;p&gt;There is a real place for AI-assisted development. I use AI. I expect serious teams to keep using it. But security people, developers, MSPs, and technical leaders need to get more honest about what these tools are actually doing. They are compressing the time between idea and implementation. They are not compressing the need for judgment.&lt;/p&gt;
+&lt;p&gt;If anything, they make judgment more important.&lt;/p&gt;
+&lt;p&gt;Because once code can be produced this quickly, the bottleneck shifts. It is no longer “can we build it?” It is “can we trust what we just built, can we explain it, and can we defend it when something goes wrong?”&lt;/p&gt;
+&lt;p&gt;That is the part that decides whether vibe coding becomes a force multiplier or just a faster way to ship avoidable security failures.&lt;/p&gt;
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fvibe-coding-has-a-security-problem-and-shipping-code-you-do-not-understand-is-not-a-strategy%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
+      </content>
+    </entry><entry>
       <title>Cybersecurity Does Not Have a Specialization Problem. It Has a Context Problem</title>
       <link href="https://www.kylereddoch.me/blog/cybersecurity-does-not-have-a-specialization-problem-it-has-a-context-problem/" />
       <updated>2026-04-23T17:00:00Z</updated>

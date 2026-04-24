@@ -1,0 +1,817 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      
+        Vibe Coding Has a Security Problem, and Shipping Code You Do Not Understand Is Not a Strategy - CybersecKyle
+      
+    </title>
+
+    
+
+<meta name="description" content="AI-assisted coding is speeding up software development, but it is also making it easier to ship insecure defaults, weak access controls, poisoned dependencies, and code nobody on the team can confidently defend.">
+<meta name="theme-color" content="#1e1e2e" media="(prefers-color-scheme: dark)">
+<!-- Search Engines -->
+<meta name="robots" content="index,follow">
+<meta name="googlebot" content="index,follow">
+<!-- Made with Eleventy! -->
+<meta name="generator" content="Eleventy v3.1.2">
+<!-- Disable automatic detection and formatting of possible phone numbers -->
+<meta name="format-detection" content="telephone=no">
+<meta name="color-scheme" content="light dark">
+<!-- activates page transitions -->
+<meta name="view-transition" content="same-origin">
+<!-- Helps prevent duplicate content issues -->
+<link rel="canonical" href="https://www.kylereddoch.me/blog/vibe-coding-has-a-security-problem-and-shipping-code-you-do-not-understand-is-not-a-strategy/">
+<!-- Links to information about the author(s) of the document -->
+<link rel="author" href="humans.txt">
+
+
+  <!-- Mastodon verified site -->
+  <link rel="me" href="https://infosec.exchange/@cyberseckyle">
+
+
+
+  <!-- fediverse creator tag -->
+  <meta name="fediverse:creator" content="@cyberseckyle@infosec.exchange">
+
+
+
+  <link rel="webmention" href="https://webmention.io/www.kylereddoch.me/webmention">
+  <link rel="pingback" href="https://webmention.io/www.kylereddoch.me/xmlrpc">
+
+
+
+
+
+<!-- Open Graph meta  -->
+<meta property="og:url" content="https://www.kylereddoch.me/blog/vibe-coding-has-a-security-problem-and-shipping-code-you-do-not-understand-is-not-a-strategy/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vibe Coding Has a Security Problem, and Shipping Code You Do Not Understand Is Not a Strategy">
+<meta property="og:image" content="https://www.kylereddoch.me/assets/og-images/vibe-coding-has-a-security-problem-and-shipping-code-you-do-not-understand-is-not-a-strategy-preview.jpeg">
+<meta property="og:image:alt" content="Vibe Coding Has a Security Problem, and Shipping Code You Do Not Understand Is Not a Strategy">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:description" content="AI-assisted coding is speeding up software development, but it is also making it easier to ship insecure defaults, weak access controls, poisoned dependencies, and code nobody on the team can confidently defend.">
+<meta property="og:site_name" content="CybersecKyle">
+<meta property="og:locale" content="en_EN">
+<meta property="article:author" content="Kyle Reddoch">
+
+<!-- Twitter specific head data was removed in v2 -->
+
+<!-- RSS Autodiscovery. Loops over meta.blog.feedLinks -->
+
+  <link rel="alternate" type="application/atom+xml" title="Atom Feed: CybersecKyle" href="/feed.xml">
+
+  <link rel="alternate" type="application/json" title="JSON Feed: CybersecKyle" href="/feed.json">
+
+
+<!-- Favicon: https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+
+    <link rel="stylesheet" href="/assets/starter/build.css">
+    <link rel="stylesheet" href="/assets/starter/cyberseckyle.css">
+    <script>
+      window.Prism = window.Prism || {};
+      window.Prism.manual = true;
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup-templating.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-batch.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markdown.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-powershell.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-scss.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-twig.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js" defer></script>
+
+    <style>
+      .contrast {
+        filter: contrast(1.2) saturate(1.1);
+      }
+
+      .reduce-motion,
+      .reduce-motion * {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+      }
+    </style>
+  </head>
+  <body class="bg-[var(--bg)] text-[var(--text)] min-h-screen flex flex-col">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-black">
+      Skip to content
+    </a>
+
+    <div id="progress-bar" aria-hidden="true"></div>
+
+    
+    
+    
+    
+    
+    
+    
+
+    <header class="bg-[var(--surface)] border-b border-gray-200 dark:border-gray-700">
+      <div class="container mx-auto max-w-7xl px-4 py-3 flex items-center gap-3">
+        <button id="hamburger" aria-label="Toggle menu" aria-controls="primary-nav" aria-expanded="false" class="md:hidden p-2 rounded border border-gray-300 dark:border-gray-600">
+          <span class="bar-1 block w-5 h-0.5 bg-gray-700 dark:bg-gray-200 mb-1 transition-transform"></span>
+          <span class="bar-2 block w-5 h-0.5 bg-gray-700 dark:bg-gray-200 mb-1 transition-opacity"></span>
+          <span class="bar-3 block w-5 h-0.5 bg-gray-700 dark:bg-gray-200 transition-transform"></span>
+        </button>
+
+        <a href="/" class="site-brand no-indicator">
+          <picture><source type="image/webp" srcset="/img/9TFc0M7-EG-40.webp 40w" sizes="auto"><img loading="lazy" decoding="async" src="/img/9TFc0M7-EG-40.jpeg" alt width="40" height="40" class="site-brand__logo"></picture>
+          <span class="site-title text-lg font-semibold tracking-tight">CybersecKyle</span>
+        </a>
+
+        <form role="search" aria-label="Site" action="/search/" method="get" class="ml-auto hidden sm:block">
+          <label for="q" class="sr-only">Search</label>
+          <input id="q" name="q" type="search" placeholder="Search..." autocomplete="off" class="w-64 rounded border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder:text-gray-500 shadow-sm focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 dark:bg-white dark:text-gray-900 dark:placeholder:text-gray-500">
+        </form>
+
+        <div class="flex items-center gap-2 ml-2">
+          <button id="dark-toggle" aria-pressed="false" aria-label="Toggle dark mode" class="px-2 py-1 text-sm border rounded">🌙</button>
+          <div class="relative">
+            <button id="a11y-toggle" aria-expanded="false" aria-controls="a11y-menu" class="px-2 py-1 text-sm border rounded">A11y</button>
+            <div id="a11y-menu" class="absolute right-0 mt-1 bg-[var(--surface)] border rounded p-2 text-sm space-x-2 whitespace-nowrap hidden">
+              <button id="font-dec" class="px-2 py-1 border rounded">A-</button>
+              <button id="font-inc" class="px-2 py-1 border rounded">A+</button>
+              <button id="contrast-toggle" aria-pressed="false" class="px-2 py-1 border rounded">Contrast</button>
+              <button id="motion-toggle" aria-pressed="false" class="px-2 py-1 border rounded">Reduce motion</button>
+              <button id="font-toggle" type="button" aria-pressed="false" class="px-2 py-1 border rounded hidden md:inline-block">System Fonts</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="bg-[var(--surface)] border-b border-gray-200 dark:border-gray-700">
+      <div id="primary-nav" class="container mx-auto max-w-7xl px-4 py-2 hidden md:block">
+        <ul class="flex flex-col md:flex-row text-base md:text-sm space-y-3 md:space-y-0 md:space-x-6">
+          <li><a href="/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">🏠 Home</a></li>
+          <li><a href="/blog/" aria-current="page" class="nav-item block py-2 text-purple-600 dark:text-purple-400 underline font-semibold">✍️ Blog</a></li>
+          <li><a href="/tags/cybersecurity/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">🛡️ Cybersecurity</a></li>
+          <li><a href="/notes/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">📝 Notes</a></li>
+          <li><a href="/about/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">👋 About</a></li>
+          <li><a href="/contact/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">💬 Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-6 max-w-4xl flex-1">
+      <main id="main">
+        
+<a href="/blog/" class="inline-flex items-center text-blue-600 hover:text-blue-800 mb-3">
+  ← Back to Blog
+</a>
+
+<nav aria-label="Breadcrumb" class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+  <ol class="flex flex-wrap items-center gap-2">
+    <li><a href="/" class="hover:text-blue-600">Home</a></li>
+    <li aria-hidden="true">/</li>
+    <li><a href="/blog/" class="hover:text-blue-600">Blog</a></li>
+    <li aria-hidden="true">/</li>
+    <li class="text-gray-900 dark:text-gray-100">Vibe Coding Has a Security Problem, and Shipping Code You Do Not Understand Is Not a Strategy</li>
+  </ol>
+</nav>
+
+<article class="h-entry mx-auto max-w-3xl">
+  
+  
+
+  
+    <div class="mb-8">
+      <picture><source type="image/webp" srcset="/img/ohvTYI7gHs-1536.webp 1536w" sizes="auto"><img loading="lazy" decoding="async" src="/img/ohvTYI7gHs-1536.jpeg" alt="A developer works at a glowing monitor surrounded by abstract code panels and security icons, while a shadowy threat figure lingers in the background to represent the hidden risks of AI-assisted coding." width="1536" height="1024" class="u-photo w-full rounded-lg"></picture>
+      
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-4 text-center">A visual metaphor for the hidden security risks of vibe coding and AI-assisted software development. (Image generated by ChatGPT)</p>
+      
+    </div>
+  
+
+  <header class="mb-6">
+    <h1 class="p-name text-3xl font-bold tracking-tight mb-3">Vibe Coding Has a Security Problem, and Shipping Code You Do Not Understand Is Not a Strategy</h1>
+    
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">AI-assisted coding is speeding up software development, but it is also making it easier to ship insecure defaults, weak access controls, poisoned dependencies, and code nobody on the team can confidently defend.</p>
+    
+
+    <div class="text-sm text-gray-600 dark:text-gray-400">
+      Published on <time datetime="2026-04-24" class="dt-published">April 24, 2026</time>
+      by <span class="p-author h-card">
+        <a href="/about/" class="u-url p-name hover:text-blue-600">Kyle Reddoch</a>
+      </span>
+      <span aria-hidden="true" class="text-gray-400 dark:text-gray-500 mx-1">•</span>
+      <span>8 min read</span>
+    </div>
+
+    <a href="https://www.kylereddoch.me/blog/vibe-coding-has-a-security-problem-and-shipping-code-you-do-not-understand-is-not-a-strategy/" class="u-url hidden">Permalink</a>
+  </header>
+
+  <div class="e-content prose max-w-none">
+    <p>There is a version of the AI coding conversation that feels way too casual for what is actually at stake.</p>
+<p>A prompt goes in. A working app comes out. The demo looks clean. The login page loads. The API responds. The build passes. Everyone moves on.</p>
+<p>That is exactly where I think the trouble starts.</p>
+<p>“Vibe coding” has become the catch-all phrase for building software mostly through prompts, iterations, and AI-assisted generation instead of line-by-line engineering. Some of that is genuinely useful. I am not anti-AI, and I do not think serious teams should pretend these tools are going away. But I do think a lot of people are getting dangerously comfortable shipping code they do not really understand, on stacks they did not really design, with security assumptions they never actually validated.</p>
+<p>That is not innovation. That is borrowed confidence.</p>
+<p>The scale of adoption is real. <a href="https://survey.stackoverflow.co/2025/" rel="noopener">Stack Overflow’s 2025 developer survey</a> found that 84% of respondents were using or planning to use AI tools in their development process, and <a href="https://survey.stackoverflow.co/2025/ai" rel="noopener">its AI section</a> showed something just as important: more developers actively distrust the accuracy of AI output than trust it. That gap matters. If people are using the tools constantly while trusting them cautiously, then the missing piece is not speed. It is verification.</p>
+<p>And right now, verification is where too many teams are falling apart.</p>
+<h2 id="the-convenience-is-real-but-so-is-the-blast-radius">The convenience is real, but so is the blast radius</h2>
+<p>I get why vibe coding is attractive.</p>
+<p>It compresses time. It lowers the barrier to building. It helps experienced developers move faster and lets less experienced builders create things they would not have touched a year ago. For internal tools, rough prototypes, automations, and first drafts, that can be a huge win. In the right environment, AI really can be a multiplier.</p>
+<p>But the same thing I wrote recently about AI in managed services still applies here: <a href="https://www.kylereddoch.me/blog/ai-is-not-the-reason-an-msp-succeeds-but-it-may-decide-which-ones-pull-ahead/" rel="noopener">AI is not going to save an undisciplined operation</a>. It rewards the teams that already standardize, document, secure, and review well. If the environment is messy, AI usually amplifies the mess.</p>
+<p>That is the part the sales pitch rarely emphasizes.</p>
+<p>AI can generate code fast. It can also generate weak access control fast, insecure object references fast, hardcoded secrets fast, sloppy logging fast, and dependency mistakes fast. It can scaffold a whole workflow before anyone has asked basic questions like:</p>
+<ul>
+<li>Who should be allowed to access this?</li>
+<li>What happens if an attacker controls this input?</li>
+<li>Where are secrets stored?</li>
+<li>What is the trust boundary here?</li>
+<li>What happens if this dependency is malicious, fake, or compromised?</li>
+<li>Who on the team could explain this code under pressure?</li>
+</ul>
+<p>If nobody can answer those questions, the application is not done. It is just deployed.</p>
+<h2 id="recent-warning-shots-were-not-hypothetical">Recent warning shots were not hypothetical</h2>
+<p>This is not a theoretical problem anymore.</p>
+<p>On July 29, 2025, Wiz disclosed a <a href="https://www.wiz.io/blog/critical-vulnerability-base44" rel="noopener">critical vulnerability in Base44</a>, an AI-powered vibe coding platform, that allowed unauthorized access to private applications hosted on the platform. Wiz said the issue could expose enterprise apps used for internal chatbots, knowledge bases, and even PII and HR workflows. That is not a harmless edge case. That is a reminder that when people build fast on top of managed AI app platforms, platform-level security mistakes can hit every downstream app at once.</p>
+<p>Then, on April 20, 2026, Lovable said in its own <a href="https://lovable.dev/blog/our-response-to-the-april-2026-incident" rel="noopener">incident response</a> that data within public Lovable projects could be accessed by any authenticated user. According to the company, between February 3, 2026 and April 20, 2026, public project chat history and source code could potentially be accessed if someone had a project link. Lovable said private projects and Lovable Cloud were not impacted, but even the public-project scope is a big deal. Source code, prompts, and internal app logic are not trivial exposures. They are often the map an attacker needs.</p>
+<p>And the problem is not limited to app-builder platforms.</p>
+<p>On March 18, 2025, Pillar Security published its <a href="https://www.pillar.security/blog/new-vulnerability-in-github-copilot-and-cursor-how-hackers-can-weaponize-code-agents" rel="noopener">Rules File Backdoor research</a>, showing how attackers could hide malicious instructions inside rule files used by tools like Cursor and GitHub Copilot. The ugly part is not just the trick itself. It is what it says about the trust model. If the assistant can be quietly steered by poisoned context, then the assistant is part of the attack surface. At that point, you are not only reviewing code. You are also reviewing the invisible instructions that shaped it.</p>
+<p>That lines up with <a href="https://www.ncsc.gov.uk/blog-post/prompt-injection-is-not-sql-injection" rel="noopener">NCSC’s warning that prompt injection is not SQL injection</a>. Their point is blunt and important: large language models do not enforce a real boundary between instructions and data, which means prompt injection may never be “solved” in the neat, permanent way people like to imagine. That should change how teams think about agent permissions, tool access, and autonomous workflows.</p>
+<h2 id="the-real-problem-is-the-illusion-of-correctness">The real problem is the illusion of correctness</h2>
+<p>One of the most dangerous things about AI-generated code is that it often looks finished before it is secure.</p>
+<p>It is readable. It compiles. It feels coherent. It gives people the sense that the hard part is over.</p>
+<p>That is why I think the biggest security risk around vibe coding is not just bad code. It is the <em>illusion of correctness</em>.</p>
+<p><a href="https://www.veracode.com/blog/spring-2026-genai-code-security/" rel="noopener">Veracode’s Spring 2026 GenAI update</a> said AI coding assistants now exceed 95% syntax correctness, while security pass rates remain stuck around 55% when no security guidance is provided. That is a brutal gap. It means the code can look polished, function properly, and still be insecure almost half the time.</p>
+<p>That same pattern shows up elsewhere too. <a href="https://www.cc.gatech.edu/news/bad-vibes-ai-generated-code-vulnerable-researchers-warn" rel="noopener">Georgia Tech’s coverage of new research</a> highlighted confirmed real-world cases of AI-introduced vulnerabilities, including command injection, authentication bypass, and server-side request forgery. In other words, the failures are not limited to toy examples or prompt engineering demos. They are turning into real defects with real consequences.</p>
+<p>Even code review quality takes a hit. <a href="https://www.coderabbit.ai/blog/state-of-ai-vs-human-code-generation-report" rel="noopener">CodeRabbit’s report</a> found AI-authored pull requests contained about 1.7 times more issues overall, with security issues amplified and logic problems showing up more often. That tracks with what many developers already feel intuitively: AI does not just accelerate output. It accelerates review fatigue too.</p>
+<p>This is where I think a lot of teams are fooling themselves. They are not replacing engineering effort. They are relocating it downstream, where the cleanup gets more expensive.</p>
+<h2 id="what-keeps-going-wrong">What keeps going wrong</h2>
+<p>The same classes of security failure show up again and again in AI-assisted code because the model is usually optimizing for “working” before it is optimizing for “defensible.”</p>
+<div class="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>Failure mode</th>
+        <th>Why vibe coding makes it worse</th>
+        <th>What teams should do instead</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="Failure mode">Broken access control</td>
+        <td data-label="Why vibe coding makes it worse">The app works for the happy path, but ownership checks, role boundaries, and object-level authorization get skipped or assumed.</td>
+        <td data-label="What teams should do instead">Threat model access early, test for BOLA/IDOR style failures, and require explicit authorization checks in review.</td>
+      </tr>
+      <tr>
+        <td data-label="Failure mode">Prompt-injected or poisoned generation</td>
+        <td data-label="Why vibe coding makes it worse">Agents ingest rules files, issue text, READMEs, and other context that may be attacker-controlled or quietly manipulated.</td>
+        <td data-label="What teams should do instead">Treat AI context as untrusted input, minimize agent permissions, isolate tools, and keep humans in the approval path.</td>
+      </tr>
+      <tr>
+        <td data-label="Failure mode">Secret leakage and unsafe config</td>
+        <td data-label="Why vibe coding makes it worse">Generated code often reaches for convenience, including hardcoded keys, permissive defaults, and verbose logging.</td>
+        <td data-label="What teams should do instead">Use centralized secrets management, run secret scanning by default, and block commits with embedded credentials.</td>
+      </tr>
+      <tr>
+        <td data-label="Failure mode">Dependency and package risk</td>
+        <td data-label="Why vibe coding makes it worse">Models can recommend outdated, unsafe, or even hallucinated packages, especially when speed matters more than provenance.</td>
+        <td data-label="What teams should do instead">Pin dependencies, verify package legitimacy, generate SBOMs, and review provenance before shipping.</td>
+      </tr>
+      <tr>
+        <td data-label="Failure mode">Weak validation and unsafe data handling</td>
+        <td data-label="Why vibe coding makes it worse">The generated app may “work” while still trusting user input too much at the API layer.</td>
+        <td data-label="What teams should do instead">Require validation libraries, secure-by-default frameworks, negative testing, and API-specific security review.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p>To me, that table is the real vibe coding story. Not “AI wrote an app in ten minutes.” The real story is that AI can help create production-looking software before anyone has done the slow, boring work that makes software safe.</p>
+<p>And boring work still matters.</p>
+<p>That is true in code. It is true in infrastructure. It is true in the browser too. A lot of these tools run through web sessions and dashboards where <a href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/" rel="noopener">the browser is still the front door to most modern compromises</a>. It is true in operations, where <a href="https://www.kylereddoch.me/blog/cybersecurity-does-not-have-a-specialization-problem-it-has-a-context-problem/" rel="noopener">shared context</a> is the difference between seeing risk clearly and just moving noise around faster. And it is true in software delivery, where <a href="https://www.kylereddoch.me/blog/microsofts-wireguard-and-veracrypt-lockout-is-bigger-than-a-support-failure/" rel="noopener">modern software trust chains can turn into chokepoints fast</a>.</p>
+<p>Vibe coding does not replace those realities. It collides with them.</p>
+<h2 id="what-i-think-teams-should-do-right-now">What I think teams should do right now</h2>
+<p>I do not think the answer is banning AI coding tools outright.</p>
+<p>I do think the answer is treating them like power tools instead of magic.</p>
+<p>If a team is going to use AI heavily for coding, then at minimum it should:</p>
+<h3 id="1-treat-generated-code-as-a-draft-not-a-deliverable">1. Treat generated code as a draft, not a deliverable</h3>
+<p>Generated code should enter the same review path as any other external input. That means human review, security review where it matters, tests, and approval gates. The output is a starting point.</p>
+<h3 id="2-review-the-trust-boundaries-before-the-code-style">2. Review the trust boundaries before the code style</h3>
+<p>Pretty code can still be unsafe code. Reviewers need to ask where the data comes from, what the model assumed, and who can influence the context that shaped the output.</p>
+<h3 id="3-lock-down-agent-permissions-hard">3. Lock down agent permissions hard</h3>
+<p>If an AI agent can access secrets, make network requests, run shell commands, or modify production-adjacent workflows, then it needs least privilege and strong containment. Anything else is asking for trouble.</p>
+<h3 id="4-add-security-guidance-to-prompts-and-rules-then-verify-anyway">4. Add security guidance to prompts and rules, then verify anyway</h3>
+<p>Yes, prompting for secure coding practices helps. No, that does not remove the need to verify the result. Secure prompts reduce risk. They do not eliminate it.</p>
+<h3 id="5-scan-everything-automatically">5. Scan everything automatically</h3>
+<p>SAST, dependency scanning, secret scanning, IaC scanning, container scanning, and policy checks need to be part of the default path, not the “if we have time” path.</p>
+<h3 id="6-keep-provenance-and-audit-trails">6. Keep provenance and audit trails</h3>
+<p>Teams need to know what was AI-generated, what dependencies were introduced, what context shaped the output, and who approved it. Otherwise, incident response turns into guesswork.</p>
+<h3 id="7-do-not-let-non-technical-stakeholders-mistake-velocity-for-safety">7. Do not let non-technical stakeholders mistake velocity for safety</h3>
+<p>This one matters more than people admit. Faster generation is not the same thing as faster secure delivery. If leadership only sees speed, security debt will pile up quietly until it stops being quiet.</p>
+<h2 id="speed-without-review-is-just-faster-risk">Speed without review is just faster risk</h2>
+<p>That is really my bottom line.</p>
+<p>Vibe coding is not inherently reckless. Shipping code you do not understand absolutely is.</p>
+<p>There is a real place for AI-assisted development. I use AI. I expect serious teams to keep using it. But security people, developers, MSPs, and technical leaders need to get more honest about what these tools are actually doing. They are compressing the time between idea and implementation. They are not compressing the need for judgment.</p>
+<p>If anything, they make judgment more important.</p>
+<p>Because once code can be produced this quickly, the bottleneck shifts. It is no longer “can we build it?” It is “can we trust what we just built, can we explain it, and can we defend it when something goes wrong?”</p>
+<p>That is the part that decides whether vibe coding becomes a force multiplier or just a faster way to ship avoidable security failures.</p>
+
+  </div>
+
+  
+    <section class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+      <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Tags</h2>
+      <div class="flex flex-wrap gap-2">
+        
+          
+        
+          
+            <a href="/tags/ai/" style="background-color: hsl(232 65% 45%)" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#ai</a>
+          
+        
+          
+            <a href="/tags/cybersecurity/" style="background-color: hsl(329 65% 45%)" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#cybersecurity</a>
+          
+        
+          
+            <a href="/tags/security/" style="background-color: hsl(160 65% 45%)" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#security</a>
+          
+        
+          
+            <a href="/tags/editorials/" style="background-color: hsl(316 65% 45%)" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#editorials</a>
+          
+        
+          
+            <a href="/tags/appsec/" style="background-color: hsl(216 65% 45%)" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#appsec</a>
+          
+        
+      </div>
+    </section>
+  
+
+  
+
+
+  <section class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+    <h2 class="text-xl font-semibold mb-6">Related Posts</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+        <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
+          <h3 class="font-semibold mb-2">
+            <a href="/blog/openais-codex-security-and-gpt-54-cyber-could-be-a-big-deal-for-real-world-defenders/" class="hover:text-blue-600">OpenAI’s Codex Security and GPT-5.4-Cyber Could Be a Big Deal for Real-World Defenders</a>
+          </h3>
+          <time datetime="2026-04-15" class="text-sm text-gray-500 dark:text-gray-400">
+            April 15, 2026
+          </time>
+          
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">OpenAI’s new Codex Security platform and GPT-5.4-Cyber model look less like AI hype and more like tools built around one of security’s biggest pain points: figuring out what is real and what needs fixed first.</p>
+          
+          
+            <div class="mt-3 flex flex-wrap gap-1">
+              
+                
+              
+                
+                  <span style="background-color: hsl(186 65% 45%)" class="text-xs px-2 py-0.5 rounded text-white">#openai</span>
+                
+              
+            </div>
+          
+        </article>
+      
+        <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
+          <h3 class="font-semibold mb-2">
+            <a href="/blog/ai-is-not-the-reason-an-msp-succeeds-but-it-may-decide-which-ones-pull-ahead/" class="hover:text-blue-600">AI Is Not the Reason an MSP Succeeds, But It May Decide Which Ones Pull Ahead</a>
+          </h3>
+          <time datetime="2026-04-13" class="text-sm text-gray-500 dark:text-gray-400">
+            April 13, 2026
+          </time>
+          
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">AI is starting to separate mature MSPs from messy ones. The firms that win will use it to reduce internal drag, strengthen security operations, and guide clients with more clarity, not just sell another shiny tool.</p>
+          
+          
+            <div class="mt-3 flex flex-wrap gap-1">
+              
+                
+              
+                
+                  <span style="background-color: hsl(232 65% 45%)" class="text-xs px-2 py-0.5 rounded text-white">#ai</span>
+                
+              
+            </div>
+          
+        </article>
+      
+        <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
+          <h3 class="font-semibold mb-2">
+            <a href="/blog/apple-health-chatgpt-the-privacy-tradeoff/" class="hover:text-blue-600">Apple Health + ChatGPT: The Privacy Tradeoff</a>
+          </h3>
+          <time datetime="2026-01-08" class="text-sm text-gray-500 dark:text-gray-400">
+            January 8, 2026
+          </time>
+          
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">OpenAI’s new ChatGPT Health feature can connect to Apple Health and medical records for more personalized answers. The upside is real convenience. The downside is a bigger privacy and security blast radius, at a time when healthcare breaches keep hitting “millions affected.”</p>
+          
+          
+            <div class="mt-3 flex flex-wrap gap-1">
+              
+                
+              
+                
+                  <span style="background-color: hsl(248 65% 45%)" class="text-xs px-2 py-0.5 rounded text-white">#privacy</span>
+                
+              
+            </div>
+          
+        </article>
+      
+    </div>
+  </section>
+
+
+
+  <section class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
+      <div class="flex items-start gap-4">
+        <picture><source type="image/webp" srcset="/img/9TFc0M7-EG-180.webp 180w" sizes="auto"><img loading="lazy" decoding="async" src="/img/9TFc0M7-EG-180.jpeg" alt="Kyle Reddoch" width="180" height="180" class="author-card__avatar rounded-full"></picture>
+        <div>
+          <h2 class="font-semibold text-lg">About Kyle Reddoch</h2>
+          <p class="text-gray-600 dark:text-gray-400 mt-1">I am a cybersecurity expert and IT professional who writes as CybersecKyle. I share day-to-day security and MSP work on Mastodon and publish tools and experiments on GitHub.</p>
+          <div class="mt-3 flex flex-wrap gap-4 text-sm">
+            <a href="/about/" class="text-blue-600 hover:text-blue-800">More about me</a>
+            <a href="/donate/" class="text-green-600 hover:text-green-800">Support my work</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+    <h2 class="text-xl font-semibold mb-2">Share or join the conversation</h2>
+    <p class="text-gray-600 dark:text-gray-400 mb-4">Share this post on Mastodon, jump into the thread, or leave a little kudos.</p>
+    
+
+<div class="share-links">
+  <span class="share-links__label text-gray-600 dark:text-gray-400">Share:</span>
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+<div data-masto-query="?text=Vibe%20Coding%20Has%20a%20Security%20Problem%2C%20and%20Shipping%20Code%20You%20Do%20Not%20Understand%20Is%20Not%20a%20Strategy%20-%20AI-assisted%20coding%20is%20speeding%20up%20software%20development%2C%20but%20it%20is%20also%20making%20it%20easier%20to%20ship%20insecure%20defaults%2C%20weak%20access%20controls%2C%20poisoned%20dependencies%2C%20and%20code%20nobody%20on%20the%20team%20can%20confidently%20defend.%0A%0Ahttps%3A%2F%2Fwww.kylereddoch.me%2Fblog%2Fvibe-coding-has-a-security-problem-and-shipping-code-you-do-not-understand-is-not-a-strategy%2F" data-masto-fallback="mastodon.social" class="masto-share">
+  
+  <a href="https://mastodon.social/share?text=Vibe%20Coding%20Has%20a%20Security%20Problem%2C%20and%20Shipping%20Code%20You%20Do%20Not%20Understand%20Is%20Not%20a%20Strategy%20-%20AI-assisted%20coding%20is%20speeding%20up%20software%20development%2C%20but%20it%20is%20also%20making%20it%20easier%20to%20ship%20insecure%20defaults%2C%20weak%20access%20controls%2C%20poisoned%20dependencies%2C%20and%20code%20nobody%20on%20the%20team%20can%20confidently%20defend.%0A%0Ahttps%3A%2F%2Fwww.kylereddoch.me%2Fblog%2Fvibe-coding-has-a-security-problem-and-shipping-code-you-do-not-understand-is-not-a-strategy%2F" data-masto-action="primary-share" class="inline-flex items-center gap-1 text-purple-600 hover:text-purple-800 no-indicator">
+    <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+    <span>Mastodon</span>
+  </a>
+
+  
+  <div class="masto-share__menu">
+    <details data-align="end">
+      <summary class="masto-share__summary inline-flex items-center gap-1 text-purple-600 hover:text-purple-800 no-indicator">
+        <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+        Choose instance
+      </summary>
+
+      <div role="menu" class="masto-share__dropdown">
+  <div class="masto-share__section masto-share__section--saved">
+    <button type="button" role="menuitem" data-masto-action="use-saved">
+      <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+      Use saved instance <small>(<span data-masto-current>none</span>)</small>
+    </button>
+
+    <button type="button" role="menuitem" data-masto-action="set-saved">
+      <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+      Set / change saved instance…
+    </button>
+
+    <button type="button" role="menuitem" data-masto-action="clear-saved">
+      <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+      Clear saved instance
+    </button>
+  </div>
+
+  <hr aria-hidden="true" class="masto-share__divider">
+
+  <div role="group" aria-label="Suggested instances" class="masto-share__section">
+    <button type="button" role="menuitem" data-masto-host="infosec.exchange">
+      <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+      infosec.exchange
+    </button>
+    <button type="button" role="menuitem" data-masto-host="mastodon.social">
+      <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+      mastodon.social
+    </button>
+    <button type="button" role="menuitem" data-masto-host="mas.to">
+      <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+      mas.to
+    </button>
+    <button type="button" role="menuitem" data-masto-host="fosstodon.org">
+      <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+      fosstodon.org
+    </button>
+    <button type="button" role="menuitem" data-masto-host="mastodon.online">
+      <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+      mastodon.online
+    </button>
+  </div>
+</div>
+
+    </details>
+  </div>
+</div>
+
+  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.kylereddoch.me%2Fblog%2Fvibe-coding-has-a-security-problem-and-shipping-code-you-do-not-understand-is-not-a-strategy%2F" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 no-indicator">
+    <i aria-hidden="true" class="fa-brands fa-linkedin-in"></i>
+    <span>LinkedIn</span>
+  </a>
+  <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.kylereddoch.me%2Fblog%2Fvibe-coding-has-a-security-problem-and-shipping-code-you-do-not-understand-is-not-a-strategy%2F&amp;text=Vibe%20Coding%20Has%20a%20Security%20Problem%2C%20and%20Shipping%20Code%20You%20Do%20Not%20Understand%20Is%20Not%20a%20Strategy" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-sky-500 hover:text-sky-700 no-indicator">
+    <i aria-hidden="true" class="fa-brands fa-x-twitter"></i>
+    <span>Twitter</span>
+  </a>
+  <button type="button" data-copy-link="https://www.kylereddoch.me/blog/vibe-coding-has-a-security-problem-and-shipping-code-you-do-not-understand-is-not-a-strategy/" class="share-link--button inline-flex items-center gap-1 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200">
+    <i aria-hidden="true" class="fa-regular fa-copy"></i>
+    <span>Copy Link</span>
+  </button>
+</div>
+
+<script>
+  (function() {
+    const buttons = document.querySelectorAll('[data-copy-link]');
+    buttons.forEach((button) => {
+      if (button.dataset.copyBound === 'true') return;
+      button.dataset.copyBound = 'true';
+      button.addEventListener('click', async () => {
+        const url = button.getAttribute('data-copy-link');
+        try {
+          if (navigator.share) {
+            await navigator.share({ title: document.title, url });
+          } else if (navigator.clipboard) {
+            await navigator.clipboard.writeText(url);
+          }
+          button.querySelector('span').textContent = 'Copied';
+          setTimeout(() => {
+            button.querySelector('span').textContent = 'Copy Link';
+          }, 1800);
+        } catch (error) {
+          if (navigator.clipboard && url) {
+            await navigator.clipboard.writeText(url);
+          }
+        }
+      });
+    });
+  })();
+</script>
+
+
+    
+
+    <div class="mt-6">
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Give this post some kudos.</p>
+      <button data-path="/blog/vibe-coding-has-a-security-problem-and-shipping-code-you-do-not-understand-is-not-a-strategy/" class="tinylytics_kudos"></button>
+    </div>
+
+    
+
+
+
+<section id="webmentions" data-pagefind-ignore data-webmentions-target="https://www.kylereddoch.me/blog/vibe-coding-has-a-security-problem-and-shipping-code-you-do-not-understand-is-not-a-strategy" class="webmentions mt-6">
+  <h2 class="text-xl font-semibold mb-4">Responses</h2>
+  <div id="webmentions-list">
+    
+      <div class="text-center py-8 text-gray-500">
+        <p>No webmentions yet.</p>
+        <p class="text-sm mt-2">Likes, reposts, and replies will show up here when they come in.</p>
+      </div>
+    
+  </div>
+</section>
+
+
+  </section>
+
+  <div hidden class="h-entry">
+    <a href="https://www.kylereddoch.me/blog/vibe-coding-has-a-security-problem-and-shipping-code-you-do-not-understand-is-not-a-strategy/" class="u-url">Vibe Coding Has a Security Problem, and Shipping Code You Do Not Understand Is Not a Strategy</a>
+    <a rel="author" href="https://www.kylereddoch.me" class="p-name u-url">Kyle Reddoch</a>
+    <a href="https://fed.brid.gy/" hidden="from-humans" class="u-bridgy-fed">Bridge this post to Bridgy Fed</a>
+    
+    <img src="https://www.kylereddoch.me/assets/images/logo.png" alt="Kyle Reddoch" class="u-author h-card">
+  </div>
+</article>
+
+      </main>
+    </div>
+
+    <footer class="bg-[var(--surface)] border-t border-gray-200 dark:border-gray-700 mt-12">
+  <div class="container mx-auto px-4 py-8 max-w-4xl">
+    <div class="footer-layout grid grid-cols-1 gap-8 text-sm">
+      <section>
+        <h2 class="font-semibold mb-3 text-base">Webrings</h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-3">This site is part of a few corners of the independent web.</p>
+        <ul class="space-y-3 text-gray-600 dark:text-gray-400">
+          <li class="space-y-1">
+            <p class="font-medium text-gray-900 dark:text-gray-100">
+              <a href="https://fediring.net/" class="hover:text-blue-600">Fediring</a>
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a href="https://fediring.net/previous?host=www.kylereddoch.me" class="hover:text-blue-600">Previous</a>
+              <a href="https://fediring.net/random?host=www.kylereddoch.me" class="hover:text-blue-600">Random</a>
+              <a href="https://fediring.net/next?host=www.kylereddoch.me" class="hover:text-blue-600">Next</a>
+            </div>
+          </li>
+          <li class="space-y-1">
+            <p class="font-medium text-gray-900 dark:text-gray-100">
+              <a href="https://xn--sr8hvo.ws/" class="hover:text-blue-600">IndieWeb Webring</a>
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a href="https://xn--sr8hvo.ws/previous" class="hover:text-blue-600">Previous</a>
+              <a href="https://xn--sr8hvo.ws/random" class="hover:text-blue-600">Random</a>
+              <a href="https://xn--sr8hvo.ws/next" class="hover:text-blue-600">Next</a>
+            </div>
+          </li>
+          <li>
+            <a href="https://tinylytics.app" class="tinylytics_webring hover:text-blue-600">Tinylytics Webring</a>
+          </li>
+        </ul>
+        <p class="mt-4 text-gray-600 dark:text-gray-400">Proud member of <a href="https://darktheme.club" class="hover:text-blue-600">darktheme.club</a></p>
+      </section>
+
+      <section>
+        <h2 class="font-semibold mb-3 text-base">Explore</h2>
+        <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+          
+            <li><a href="/slashes/" class="hover:text-blue-600">Slashes</a></li>
+          
+            <li><a href="/guestbook/" class="hover:text-blue-600">Guestbook</a></li>
+          
+            <li><a href="/tags/" class="hover:text-blue-600">Tags</a></li>
+          
+          <li><a href="/blog/" class="hover:text-blue-600">Blog</a></li>
+          <li><a href="/notes/" class="hover:text-blue-600">Notes</a></li>
+          <li><a href="/listening/" class="hover:text-blue-600">Listening</a></li>
+          <li><a href="/bookshelf/" class="hover:text-blue-600">Bookshelf</a></li>
+          <li><a href="/sitemap/" class="hover:text-blue-600">Site Directory</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="font-semibold mb-3 text-base">Connect</h2>
+
+        <nav aria-label="Platforms" class="platforms flex flex-wrap gap-3 mb-4">
+          <a href="/feed.xml" rel="alternate" type="application/atom+xml" class="hover:text-blue-600">
+            <span class="visually-hidden">Atom Feed</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><title>RSS</title><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
+          </a>
+          
+            
+              <a href="https://github.com/kylereddoch/" rel="me" title="Github" class="hover:text-blue-600">
+                <span class="visually-hidden">Github</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S8.93 17.38 9 18v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+              </a>
+            
+          
+            
+              <a href="https://infosec.exchange/@cyberseckyle" rel="me" title="Mastodon" class="hover:text-blue-600">
+                <span class="visually-hidden">Mastodon</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.887 5.996c-.308-2.314-2.298-4.14-4.655-4.492-.399-.059-1.906-.278-5.398-.278h-.026c-3.495 0-4.243.219-4.642.278-2.295.345-4.387 1.982-4.897 4.326-.242 1.153-.268 2.433-.222 3.606.065 1.684.078 3.361.228 5.039a24 24 0 0 0 .543 3.304c.484 2.009 2.439 3.68 4.355 4.359 2.049.71 4.256.829 6.368.342q.347-.085.69-.193c.513-.165 1.114-.351 1.559-.676q.009-.006.013-.016.006-.01.007-.024v-1.624s0-.013-.007-.02q-.002-.01-.013-.016l-.02-.01h-.019a17.4 17.4 0 0 1-4.132.49c-2.397 0-3.041-1.153-3.224-1.63a5.3 5.3 0 0 1-.281-1.287q0-.01.003-.019.002-.012.013-.017l.02-.01h.023c1.33.325 2.697.491 4.067.491.33 0 .657 0 .987-.01 1.376-.04 2.828-.11 4.184-.378.033-.007.069-.013.098-.02 2.138-.418 4.172-1.724 4.378-5.032.006-.129.026-1.365.026-1.498 0-.461.147-3.258-.023-4.979z"></path><path fill="currentColor" stroke-width="1" d="M6.061 7.288c0-.676.533-1.219 1.193-1.219.661 0 1.193.547 1.193 1.219 0 .673-.532 1.22-1.193 1.22-.66 0-1.193-.547-1.193-1.22Z"></path></svg>
+              </a>
+            
+          
+            
+              <a href="https://www.linkedin.com/in/kylereddoch/" rel="me" title="Linkedin" class="hover:text-blue-600">
+                <span class="visually-hidden">Linkedin</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6M2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>
+              </a>
+            
+          
+            
+              <a href="https://ko-fi.com/kylereddoch" rel="me" title="Kofi" class="hover:text-blue-600">
+                <span class="visually-hidden">Kofi</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M18 3h1c1.06 0 2.078.527 2.828 1.464C22.578 5.402 23 6.674 23 8s-.421 2.598-1.172 3.536C21.078 12.473 20.061 13 19 13h-1M1 3h17v12.461c0 1.47-.512 2.878-1.423 3.917-.91 1.038-2.146 1.622-3.434 1.622H5.857c-1.288 0-2.523-.584-3.434-1.622S1 16.93 1 15.46z"></path><path fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13.288 8.707a2.43 2.43 0 0 0-2.65-.52c-.3.12-.57.3-.8.53l-.34.34-.35-.34a2.43 2.43 0 0 0-3.44 0c-.95.939-1 2.527.2 3.736L9.497 16l3.6-3.547c1.2-1.208 1.14-2.797.19-3.736v-.01Z"></path></svg>
+              </a>
+            
+          
+        </nav>
+
+        <p class="text-gray-600 dark:text-gray-400 mb-2">
+          Made with <span aria-hidden="true">♥</span> and <a href="https://www.11ty.dev/" class="hover:text-blue-600">Eleventy</a>
+        </p>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          Analytics powered by <a href="https://tinylytics.app/public/wgrU27nAtwqvZpx9zZwe" class="hover:text-blue-600">Tinylytics</a>
+        </p>
+
+        <p class="mb-4 text-sm text-gray-500 dark:text-gray-400">
+        © 2026 <span class="font-semibold">CybersecKyle</span>
+        <span aria-hidden="true" class="mx-2">·</span>
+        <a href="/license/" class="hover:text-blue-600">CC BY-NC-SA 4.0</a>
+      </p>
+
+        <a href="https://www.11ty.dev/speedlify/kylereddoch-me/" aria-label="View full results on speedlify.dev" class="inline-flex items-center hover:text-blue-600 no-indicator footer-speedlify">
+          <speedlify-score speedlify-url="https://www.11ty.dev/speedlify/" hash="e33de02c" score></speedlify-score>
+        </a>
+      </section>
+    </div>
+  </div>
+
+  <div class="border-t border-gray-200 dark:border-gray-700 bg-black/5 dark:bg-white/5">
+    <div class="container mx-auto max-w-4xl px-4 py-4">
+      <ul role="list" class="indie-buttons flex flex-wrap gap-2">
+        <li>
+          <a href="https://11ty.dev" class="no-indicator">
+            <img src="/assets/images/buttons/built-with-eleventy.gif" width="88" height="31" alt="Built with Eleventy" loading="lazy">
+          </a>
+        </li>
+        <li>
+          <a href="https://infosec.exchange/@cyberseckyle" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/Ii2PFSzIy8-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/Ii2PFSzIy8-88.jpeg" width="88" height="31" alt="Follow me on Mastodon"></picture>
+          </a>
+        </li>
+        <li>
+          <a href="/coffee/" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/v2EdBgZ88c-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/v2EdBgZ88c-88.jpeg" width="88" height="31" alt="Coffee Powered"></picture>
+          </a>
+        </li>
+        <li>
+          <a href="https://ko-fi.com/s/4662b19f61" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/weqd1DtQRi-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/weqd1DtQRi-88.jpeg" width="88" height="31" alt="Human Content"></picture>
+          </a>
+        </li>
+        <li>
+          <a href="https://powrss.com" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/bk57H3yi5F-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/bk57H3yi5F-88.jpeg" width="88" height="31" alt="I'm on PowRSS"></picture>
+          </a>
+        </li>
+        <li>
+          <a href="https://hillhouse.neocities.org/cliques/library/" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/c-H-zkovIx-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/c-H-zkovIx-88.jpeg" width="88" height="31" alt="Little Pixel Library"></picture>
+          </a>
+        </li>
+        <li>
+          <a href="https://32bit.cafe" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/kUiwyilU_X-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/kUiwyilU_X-88.jpeg" width="88" height="31" alt="32bit Cafe"></picture>
+          </a>
+        </li>
+        <li>
+          <a href="https://people.pledge.party" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/1bL7bfWdZ8-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/1bL7bfWdZ8-88.jpeg" width="88" height="31" alt="People Pledge"></picture>
+          </a>
+        </li>
+        <li>
+          <img src="/assets/images/buttons/cyberseckyle-button.gif" width="88" height="31" alt="CybersecKyle" loading="lazy">
+        </li>
+        <li>
+          <a href="https://zakhary.dev/blog/gbc-web-button" class="no-indicator">
+            <img src="/assets/images/buttons/gameboygif.gif" width="88" height="31" alt="Gameboy" loading="lazy">
+          </a>
+        </li>
+        <li>
+          <a href="https://ko-fi.com/kylereddoch" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/g0MA4zc58b-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/g0MA4zc58b-88.jpeg" width="88" height="31" alt="Buy me a coffee"></picture>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="/assets/starter/main.js" defer></script>
+    <script src="/assets/starter/listening.js" defer></script>
+    <script src="/assets/starter/webmentions.js" defer></script>
+    <script src="/assets/starter/flexsearch.min.js" defer></script>
+    <script src="/assets/starter/search.js" defer></script>
+    <script src="/assets/starter/easter-eggs.js" defer></script>
+    <script src="https://kit.fontawesome.com/fb3ee9d8ef.js" crossorigin="anonymous" defer></script>
+    <script src="https://tinylytics.app/embed/aK6PBymtmDm6DxSXaP2H.js?webring&amp;kudos=%E2%9D%A4%EF%B8%8F" defer></script>
+    <script src="/assets/scripts/components/masto-share.js" defer></script>
+    <script src="/assets/scripts/components/mastodon-post.js" defer></script>
+    <script src="/assets/scripts/components/speedlify-score.js" defer></script>
+  
+
+</body>
+</html>
