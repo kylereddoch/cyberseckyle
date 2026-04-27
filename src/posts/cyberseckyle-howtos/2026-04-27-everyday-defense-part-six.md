@@ -5,7 +5,7 @@ description: Backups are not real until you test them. A practical, in-depth gui
 featuredImage: /assets/images/laptop_ext_hhd.jpg
 featuredImageAlt: Laptop computer with external hard drives and memory cards data is transferred and backed up.
 tags: [cyberseckyle-howto-series, backups, security, how-to, everyday-defense]
-mastodon_url:
+mastodon_url: https://infosec.exchange/@cyberseckyle/116478339183950633
 ---
 
 > I’m back with **Part 6** of the **Everyday Defense** track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/). This time we’re locking in backups that actually restore, building a setup that survives ransomware and failure, and walking through how to verify your backups before you ever have to rely on them.
