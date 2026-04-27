@@ -4,12 +4,49 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-04-24T17:21:23Z</updated>
+  <updated>2026-04-27T17:05:59Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>Reset, Recovery, and Real Life (Weeks 16 &amp; 17, 2026)</title>
+      <link href="https://www.kylereddoch.me/notes/2026/week-16-17-2026/" />
+      <updated>2026-04-27T17:00:00Z</updated>
+      <id>https://www.kylereddoch.me/notes/2026/week-16-17-2026/</id>
+      <content type="html">
+        &lt;blockquote&gt;
+&lt;p&gt;Last week I was really sick for most of the week. I was unable to get my weekly notes out for Week 16 so I decided to combine it with Week 17.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
+&lt;p&gt;A mix of heavy and hopeful. Needed to slow down, reset, and take care of myself, but still found moments that mattered with family and work. Not the kind of productive I usually aim for, but the kind that keeps you going long term.&lt;/p&gt;
+&lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
+&lt;h3 id=&quot;week-16&quot;&gt;Week 16&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🎤 The youngest had a choir concert. It went really well. It was a warm up for an upcoming competition.&lt;/li&gt;
+&lt;li&gt;🌑 I was really bad in terms of my mind. I was in a dark place towards the end of the week. I had to take half of Wednesday and the rest of the week to reset and recover. I hate when that darkness falls, it is hard to get out of it.&lt;/li&gt;
+&lt;li&gt;🧠 Good thing I had my session with my counselor on Friday. That helped a bit.&lt;/li&gt;
+&lt;li&gt;🎓 My oldest had to Ring Ceremony for Texas Tech on the 19th. We went down to Lubbock to attend and then went out to eat.&lt;/li&gt;
+&lt;li&gt;📺 Just continued to watch ER on Hulu. I have been enjoying rewatching it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;week-17&quot;&gt;Week 17&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤒 After my reset I was ready to get back to work. Monday morning was great but then I started to get real sick at work. Felt antsy, sweaty, stomach was upset. I ended up having to have my wife come pick me up. I was out until Thursday.&lt;/li&gt;
+&lt;li&gt;🛡️ Our MSP tool provider updated their AV product and caused the DNS Secure feature to start blocking Cloudflare and Google’s DNS. This was fun to go in and create allow lists for our clients AV policies. That took nearly an entire day!&lt;/li&gt;
+&lt;li&gt;💾 Started the process to transfer our clients backup software to V2. This will be a bit of a process.&lt;/li&gt;
+&lt;li&gt;🎾 This weekend was another tennis tournament for the youngest. She played in the open division but it was another 2 loss tournament for her. She is still doing well and improving but it is hard to see her lose. I am proud of her for competing and trying her best though.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;worth-sharing&quot;&gt;Worth sharing&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;This month is Stress Awareness Month. Managing stress is something that is so important for everyone. I wrote about how Cybersecurity and IT professionals can manage stress in a healthy way here: &lt;a href=&quot;https://www.kylereddoch.me/notes/2026/week-16-17-2026/blog/stress-awareness-month-helping-cybersecurity-and-it-go-from-burnout-to-balance/&quot;&gt;Stress Awareness Month: Helping Cybersecurity and IT Go From Burnout to Balance&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Palo Alto recently wrote a Defender’s Guide about the newest AIs and how they are impacting cybersecurity. It is a good read. &lt;a href=&quot;https://www.paloaltonetworks.com/blog/2026/04/defenders-guide-frontier-ai-impact-cybersecurity/&quot; rel=&quot;noopener&quot;&gt;Defender’s Guide to the Frontier AI Impact on Cybersecurity&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Claude’s recent release of it’s Mythos model, which is a significant advancement in AI capabilities, is brining shock throughout the cybersecurity community. Bruce Schneier wrote about it here: &lt;a href=&quot;https://www.schneier.com/blog/archives/2026/04/mythos-and-cybersecurity.html&quot; rel=&quot;noopener&quot;&gt;Mythos and Cybersecurity&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;I also wrote about how writing code using “vibe coding” is not a security best practice and can lead to vulnerabilities. &lt;a href=&quot;https://www.kylereddoch.me/blog/vibe-coding-has-a-security-problem-and-shipping-code-you-do-not-understand-is-not-a-strategy/&quot;&gt;Vibe Coding Has a Security Problem, and Shipping Code You Do Not Understand Is Not a Strategy&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;✌️ That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2026%2Fweek-16-17-2026%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
+      </content>
+    </entry><entry>
       <title>Vibe Coding Has a Security Problem, and Shipping Code You Do Not Understand Is Not a Strategy</title>
       <link href="https://www.kylereddoch.me/blog/vibe-coding-has-a-security-problem-and-shipping-code-you-do-not-understand-is-not-a-strategy/" />
       <updated>2026-04-24T16:30:00Z</updated>
