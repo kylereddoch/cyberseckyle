@@ -6,7 +6,7 @@ featuredImage: /assets/images/living_off_the_land_attacks.png
 featuredImageAlt: A young plant growing in a field with glowing digital roots spreading beneath the soil, symbolizing hidden cyber threats using trusted system tools.
 featuredImageCaption: A visual metaphor for living off the land attacks, where adversaries operate beneath the surface by abusing trusted tools already present in the environment.
 tags: [cybersecurity, security, incident-response, MSP]
-mastodon_url:
+mastodon_url: https://infosec.exchange/@cyberseckyle/116488653743109824
 ---
 
 The part that makes living off the land attacks so dangerous is not that they are magic. *It is that they are ordinary.*
