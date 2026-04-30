@@ -227,6 +227,7 @@
     const likes = mentions.filter(mention => mention.property === 'like-of');
     const reposts = mentions.filter(mention => mention.property === 'repost-of');
     const bookmarks = mentions.filter(mention => mention.property === 'bookmark-of');
+    const linkedMentions = mentions.filter(mention => mention.property === 'mention-of');
     const comments = mentions
       .filter(mention => mention.property === 'in-reply-to' || mention.property === 'mention-of')
       .sort((a, b) => new Date(a.published || 0).getTime() - new Date(b.published || 0).getTime());
@@ -235,6 +236,7 @@
       renderFacepile(reposts, 'webmentions-reposts-live', `${reposts.length} ${reposts.length === 1 ? 'Repost' : 'Reposts'}`),
       renderFacepile(likes, 'webmentions-likes-live', `${likes.length} ${likes.length === 1 ? 'Like' : 'Likes'}`),
       renderFacepile(bookmarks, 'webmentions-bookmarks-live', `${bookmarks.length} ${bookmarks.length === 1 ? 'Bookmark' : 'Bookmarks'}`),
+      renderFacepile(linkedMentions, 'webmentions-mentions-live', `${linkedMentions.length} ${linkedMentions.length === 1 ? 'Mention' : 'Mentions'}`),
       renderComments(comments)
     ].filter(Boolean);
 
