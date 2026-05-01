@@ -26,6 +26,43 @@
     }
   }
 
+  function normalizeComparableUrl(url) {
+    if (!url) return '';
+
+    try {
+      const parsed = new URL(String(url));
+      parsed.hash = '';
+      parsed.search = '';
+      parsed.pathname = parsed.pathname.replace(/\/+$/, '') || '/';
+      return parsed.toString().replace(/\/+$/, '');
+    } catch {
+      return String(url).trim().replace(/\/+$/, '');
+    }
+  }
+
+  function normalizeMastodonStatusUrl(url) {
+    if (!url) return '';
+
+    try {
+      const parsed = new URL(String(url));
+      parsed.hash = '';
+      parsed.search = '';
+      parsed.pathname = parsed.pathname.replace(/\/+$/, '');
+      return parsed.toString();
+    } catch {
+      return String(url).split('#')[0].split('?')[0].replace(/\/+$/, '');
+    }
+  }
+
+  function isMastodonStatusUrl(url) {
+    try {
+      const parsed = new URL(String(url));
+      return /^\/@[^/]+\/\d+\/?$/.test(parsed.pathname);
+    } catch {
+      return false;
+    }
+  }
+
   function getTargets(section) {
     const explicit = section?.dataset?.webmentionsTarget;
     const canonical = document.querySelector('link[rel="canonical"]')?.href;
@@ -216,9 +253,55 @@
   function renderEmptyState() {
     return `
       <div class="text-center py-8 text-gray-500">
-        <p>No webmentions yet.</p>
-        <p class="text-sm mt-2">Likes, reposts, and replies will show up here when they come in.</p>
+        <p>No responses or mentions yet.</p>
+        <p class="text-sm mt-2">Likes, reposts, replies, and mentions will show up here when they come in.</p>
       </div>
+    `;
+  }
+
+  function findMastodonSyndicationUrl(rawMentions, accountUrl) {
+    const account = normalizeComparableUrl(accountUrl);
+    const candidates = rawMentions.filter(mention => {
+      if (mention?.['wm-property'] !== 'mention-of') return false;
+      return isMastodonStatusUrl(mention.url);
+    });
+
+    if (!candidates.length) return '';
+
+    const ownMention = candidates.find(mention => {
+      if (!account) return true;
+
+      const authorUrl = normalizeComparableUrl(mention.author?.url);
+      const mentionUrl = normalizeComparableUrl(mention.url);
+
+      return authorUrl === account || mentionUrl.startsWith(`${account}/`);
+    });
+
+    return ownMention ? normalizeMastodonStatusUrl(ownMention.url) : '';
+  }
+
+  function renderMastodonDiscussion(rawMentions) {
+    const discussion = document.querySelector('[data-mastodon-discussion]');
+    if (!discussion || discussion.dataset.mastodonCurrent) return;
+
+    const statusUrl = findMastodonSyndicationUrl(rawMentions, discussion.dataset.mastodonAccount || '');
+    if (!statusUrl) return;
+
+    const escapedStatusUrl = escapeHtml(statusUrl);
+    discussion.dataset.mastodonCurrent = statusUrl;
+    discussion.classList.remove('hidden');
+    discussion.innerHTML = `
+      <div class="discuss-mastodon__intro">
+        <div class="discuss-mastodon__mark" aria-hidden="true">
+          <i class="fa-brands fa-mastodon"></i>
+        </div>
+        <div class="discuss-mastodon__copy">
+          <h3>Discuss on Mastodon</h3>
+        </div>
+        <a href="${escapedStatusUrl}" rel="syndication noopener" target="_blank" class="discuss-mastodon__button u-syndication no-indicator">Open thread</a>
+      </div>
+      <mastodon-post url="${escapedStatusUrl}"></mastodon-post>
+      <a hidden class="u-syndication" rel="syndication" href="${escapedStatusUrl}">Syndicated on Mastodon</a>
     `;
   }
 
@@ -273,6 +356,7 @@
       });
 
       container.innerHTML = renderMentions(mentions);
+      renderMastodonDiscussion(mentions);
     } catch (error) {
       console.warn('Failed to load webmentions live:', error);
     }

@@ -714,23 +714,98 @@
 
 .discuss-mastodon {
   margin-top: 1.5rem;
-  border: 1px solid rgb(226 232 240 / 1);
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   overflow: hidden;
-  background: transparent;
+  background:
+    linear-gradient(135deg, rgb(250 247 255 / 0.96), rgb(239 232 255 / 0.96));
+  color: #2f244d;
+  box-shadow: 0 16px 36px rgb(88 28 135 / 0.1);
 }
 
 .dark .discuss-mastodon {
-  border-color: rgb(55 65 81 / 1);
+  background:
+    linear-gradient(135deg, rgb(49 35 82 / 0.96), rgb(35 25 61 / 0.96));
+  color: #f3ecff;
 }
 
 .discuss-mastodon__intro {
-  padding: 1rem 1.25rem 0;
-  font-weight: 600;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.25rem;
 }
 
-.discuss-mastodon__intro a {
-  color: #8b5cf6;
+.discuss-mastodon__mark {
+  display: grid;
+  place-items: center;
+  inline-size: 3rem;
+  block-size: 3rem;
+  border-radius: 999px;
+  background: #8b5cf6;
+  color: #fff;
+  font-size: 1.35rem;
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.32);
+}
+
+.dark .discuss-mastodon__mark {
+  background: #a78bfa;
+  color: #1f1438;
+}
+
+.discuss-mastodon__copy h3 {
+  margin: 0;
+  color: inherit;
+  font-size: 1.125rem;
+  line-height: 1.25;
+}
+
+.discuss-mastodon__copy p {
+  margin: 0.25rem 0 0;
+  color: #5b4b7c;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.dark .discuss-mastodon__copy p {
+  color: #d9ccff;
+}
+
+.discuss-mastodon__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 2.5rem;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid #7c3aed;
+  border-radius: 0.5rem;
+  background: #7c3aed;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.discuss-mastodon__button:hover,
+.discuss-mastodon__button:focus-visible {
+  background: #6d28d9;
+  border-color: #6d28d9;
+  color: #fff;
+}
+
+.dark .discuss-mastodon__button {
+  border-color: #c4b5fd;
+  background: #c4b5fd;
+  color: #24153f;
+}
+
+.dark .discuss-mastodon__button:hover,
+.dark .discuss-mastodon__button:focus-visible {
+  border-color: #ddd6fe;
+  background: #ddd6fe;
+  color: #24153f;
 }
 
 .mastodon-post {
@@ -739,32 +814,40 @@
 
 .mastodon-post-quote {
   margin: 0;
-  padding: 1.25rem;
+  padding: 0.25rem 1.25rem 1.25rem;
   border: 0;
   background: transparent !important;
+  color: inherit;
   max-inline-size: 100% !important;
+}
+
+.mastodon-post-quote p {
+  margin-block: 0 0.75rem;
+}
+
+.mastodon-post-quote p:last-child {
+  margin-bottom: 0;
+}
+
+.mastodon-post-quote a {
+  color: #5b21b6;
+}
+
+.dark .mastodon-post-quote a {
+  color: #ddd6fe;
 }
 
 .mastodon-post__caption {
   position: relative;
   display: block;
-  padding: 1rem 1.25rem 1.25rem;
+  padding: 0 1.25rem 1.25rem;
   background: transparent !important;
-}
-
-.mastodon-post__caption::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 1.25rem;
-  right: 1.25rem;
-  height: 1px;
-  background: rgb(226 232 240 / 1);
 }
 
 .mastodon-post__stats {
   display: flex;
-  gap: 1.25rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
   align-items: center;
   padding: 0;
   margin: 0;
@@ -777,12 +860,33 @@
 }
 
 .mastodon-post__stats a {
+  display: inline-flex;
+  gap: 0.35rem;
+  align-items: center;
+  min-block-size: 2.25rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid rgb(124 58 237 / 0.22);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.54);
   color: inherit;
   text-decoration: none;
 }
 
 .mastodon-post__stats a:hover {
-  color: #8b5cf6;
+  border-color: rgb(124 58 237 / 0.42);
+  background: rgb(255 255 255 / 0.78);
+  color: #5b21b6;
+}
+
+.dark .mastodon-post__stats a {
+  border-color: rgb(196 181 253 / 0.22);
+  background: rgb(255 255 255 / 0.08);
+}
+
+.dark .mastodon-post__stats a:hover {
+  border-color: rgb(221 214 254 / 0.48);
+  background: rgb(255 255 255 / 0.14);
+  color: #ddd6fe;
 }
 
 .footer-speedlify,
@@ -993,6 +1097,15 @@
     width: 100%;
   }
 
+  .discuss-mastodon__intro {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .discuss-mastodon__button {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
   .bookshelf-cover-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.35rem 0.9rem;
@@ -1061,10 +1174,6 @@ pre[class*='language-'] {
     rgb(17 24 39 / 1);
   color: rgb(226 232 240 / 1);
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.03);
-}
-
-.dark .mastodon-post__caption::before {
-  background: rgb(55 65 81 / 1);
 }
 
 .prose pre code,

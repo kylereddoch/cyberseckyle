@@ -19,6 +19,10 @@ layout: base
 <article class="h-entry mx-auto max-w-3xl">
   {% set heroImage = featuredImage or featured_image %}
   {% set heroImageAlt = featuredImageAlt or featured_image_alt or alt or ('Featured image for ' ~ title) %}
+  {% set pageWebmentionTarget = page.url | url | absoluteUrl(meta.url) | webmentionTarget %}
+  {% set pageMentions = webmentions.byTarget | lookup(pageWebmentionTarget) %}
+  {% set mastodonDiscussionUrl = mastodon_url or pageMentions.syndicationUrl %}
+  {% set mastodonAccountUrl = meta.creator.social or meta.author.website %}
 
   <div class="mb-8">
       <img class="u-photo w-full rounded-lg" src="{{ heroImage }}" alt="{{ heroImageAlt }}" />
@@ -58,21 +62,30 @@ layout: base
 
   <section class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
     <h2 class="text-xl font-semibold mb-2">Share or join the conversation</h2>
-    <p class="text-gray-600 dark:text-gray-400 mb-4">Share this note on Mastodon, jump into the thread, or leave a little kudos.</p>
+    <p class="text-gray-600 dark:text-gray-400 mb-4">Share this note, open the Mastodon thread, or leave a little kudos.</p>
     {% include "partials/share-links.njk" %}
 
-    {% if mastodon_url %}
-      <template id="mastodon-post-template">
-        {% include "partials/mastodon-temp.njk" %}
-      </template>
+    <template id="mastodon-post-template">
+      {% include "partials/mastodon-temp.njk" %}
+    </template>
 
-      <div class="discuss-mastodon mt-6">
+    <div class="discuss-mastodon mt-6{% if not mastodonDiscussionUrl %} hidden{% endif %}"
+         data-mastodon-discussion
+         data-mastodon-account="{{ mastodonAccountUrl }}"
+         data-mastodon-current="{{ mastodonDiscussionUrl }}">
+      {% if mastodonDiscussionUrl %}
         <div class="discuss-mastodon__intro">
-          <a href="{{ mastodon_url }}" rel="syndication noopener" target="_blank" class="u-syndication no-indicator">Discuss on Mastodon</a>
+          <div class="discuss-mastodon__mark" aria-hidden="true">
+            <i class="fa-brands fa-mastodon"></i>
+          </div>
+          <div class="discuss-mastodon__copy">
+            <h3>Discuss on Mastodon</h3>
+          </div>
+          <a href="{{ mastodonDiscussionUrl }}" rel="syndication noopener" target="_blank" class="discuss-mastodon__button u-syndication no-indicator">Open thread</a>
         </div>
-        <mastodon-post></mastodon-post>
-      </div>
-    {% endif %}
+        <mastodon-post url="{{ mastodonDiscussionUrl }}"></mastodon-post>
+      {% endif %}
+    </div>
 
     <div class="mt-6">
       <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Give this note some kudos.</p>
@@ -83,7 +96,7 @@ layout: base
   {% include "partials/webmentions.njk" %}
 
   <a class="u-bridgy-fed" href="https://fed.brid.gy/" hidden="from-humans">Bridge this note to Bridgy Fed</a>
-  {% if mastodon_url %}
-    <a hidden class="u-syndication" rel="syndication" href="{{ mastodon_url }}">Syndicated on Mastodon</a>
+  {% if mastodonDiscussionUrl %}
+    <a hidden class="u-syndication" rel="syndication" href="{{ mastodonDiscussionUrl }}">Syndicated on Mastodon</a>
   {% endif %}
 </article>

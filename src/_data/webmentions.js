@@ -2,7 +2,7 @@ import EleventyFetch from '@11ty/eleventy-fetch';
 import dotenv from 'dotenv';
 import sanitizeHtml from 'sanitize-html';
 
-import { domain as siteDomain } from './meta.js';
+import { author as siteAuthor, creator, domain as siteDomain } from './meta.js';
 
 dotenv.config({ path: '.env' });
 
@@ -10,6 +10,13 @@ const API_ORIGIN = 'https://webmention.io/api/mentions.jf2';
 const TOKEN = process.env.WEBMENTION_IO_TOKEN;
 const PAGE_SIZE = 1000;
 const CACHE_DURATION = process.env.ELEVENTY_ENV === 'production' ? '2h' : '15m';
+
+const ownMastodonAccounts = [
+  creator?.social,
+  fediverseHandleToUrl(siteAuthor?.fediverse)
+]
+  .map(normalizeComparableUrl)
+  .filter(Boolean);
 
 const allowedHtml = {
   allowedTags: ['a', 'b', 'br', 'code', 'em', 'i', 'p', 'strong'],
@@ -34,6 +41,71 @@ function normalizeTarget(url) {
       .split('?')[0]
       .replace(/\/+$/, '');
   }
+}
+
+function normalizeComparableUrl(url) {
+  if (!url) return '';
+
+  try {
+    const parsed = new URL(String(url));
+    parsed.hash = '';
+    parsed.search = '';
+    parsed.pathname = parsed.pathname.replace(/\/+$/, '') || '/';
+    return parsed.toString().replace(/\/+$/, '');
+  } catch {
+    return String(url).trim().replace(/\/+$/, '');
+  }
+}
+
+function fediverseHandleToUrl(handle) {
+  if (!handle) return '';
+
+  const parts = String(handle)
+    .trim()
+    .replace(/^@/, '')
+    .split('@')
+    .filter(Boolean);
+
+  if (parts.length !== 2) return '';
+
+  const [username, host] = parts;
+  return `https://${host}/@${username}`;
+}
+
+function normalizeMastodonStatusUrl(url) {
+  if (!url) return '';
+
+  try {
+    const parsed = new URL(String(url));
+    parsed.hash = '';
+    parsed.search = '';
+    parsed.pathname = parsed.pathname.replace(/\/+$/, '');
+    return parsed.toString();
+  } catch {
+    return String(url).split('#')[0].split('?')[0].replace(/\/+$/, '');
+  }
+}
+
+function isMastodonStatusUrl(url) {
+  try {
+    const parsed = new URL(String(url));
+    return /^\/@[^/]+\/\d+\/?$/.test(parsed.pathname);
+  } catch {
+    return false;
+  }
+}
+
+function isOwnMastodonMention(mention) {
+  if (mention?.['wm-property'] !== 'mention-of') return false;
+  if (!isMastodonStatusUrl(mention.url)) return false;
+
+  const mentionAuthorUrl = normalizeComparableUrl(mention.author?.url);
+  if (!ownMastodonAccounts.length) return true;
+
+  return ownMastodonAccounts.some(accountUrl => {
+    if (mentionAuthorUrl === accountUrl) return true;
+    return normalizeComparableUrl(mention.url).startsWith(`${accountUrl}/`);
+  });
 }
 
 function getAliasTargets(url) {
@@ -136,6 +208,7 @@ function emptyBucket() {
     bookmarks: [],
     comments: [],
     mentions: [],
+    syndicationUrl: '',
     total: 0
   };
 }
@@ -198,6 +271,10 @@ export default async function () {
         };
 
         bucket.all.push(normalizedMention);
+
+        if (!bucket.syndicationUrl && isOwnMastodonMention(mention)) {
+          bucket.syndicationUrl = normalizeMastodonStatusUrl(mention.url);
+        }
 
         switch (mention['wm-property']) {
           case 'like-of':

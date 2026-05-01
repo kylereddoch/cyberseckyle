@@ -23,9 +23,28 @@ class MastodonPost extends HTMLElement {
   }
 
   async connectedCallback() {
+    if (this.dataset.mastodonReady === "true") return;
+    this.dataset.mastodonReady = "true";
+
     this.append(this.template);
 
-    const data = { ...(await this.data), ...this.linkData };
+    const statusUrl = this.statusUrl;
+
+    if (!statusUrl) {
+      this.hidden = true;
+      return;
+    }
+
+    this.setStatusLinks(statusUrl);
+
+    let data;
+    try {
+      data = { ...(await this.data), ...this.linkData };
+    } catch (error) {
+      console.warn("Could not load Mastodon post data:", error);
+      this.hidden = true;
+      return;
+    }
 
     this.querySelectorAll("[data-key]").forEach(async el => {
       const { key } = el.dataset;
@@ -55,8 +74,12 @@ class MastodonPost extends HTMLElement {
     return document.getElementById(mastodonPostTemplate.id).content.cloneNode(true);
   }
 
+  get statusUrl() {
+    return this.getAttribute("url") || this.dataset.url || this.querySelector("[data-mastodon-link='status']")?.href || this.querySelector("a[href]")?.href || "";
+  }
+
   get link() {
-    return this.querySelector("a").href;
+    return this.statusUrl;
   }
 
   get linkData() {
@@ -72,6 +95,22 @@ class MastodonPost extends HTMLElement {
 
   get endpoint() {
     return `https://${this.linkData.hostname}/api/v1/statuses/${this.linkData.postId}`;
+  }
+
+  setStatusLinks(statusUrl) {
+    const base = statusUrl.replace(/\/+$/, "");
+
+    this.querySelectorAll("[data-mastodon-link]").forEach(link => {
+      const linkType = link.getAttribute("data-mastodon-link");
+
+      if (linkType === "reblogs") {
+        link.href = `${base}/reblogs/`;
+      } else if (linkType === "favourites") {
+        link.href = `${base}/favourites/`;
+      } else {
+        link.href = base;
+      }
+    });
   }
 
   get data() {

@@ -1,18 +1,19 @@
+{% set mastodonPostUrl = mastodonDiscussionUrl or mastodon_url %}
 <figure class="mastodon-post">
     <blockquote class="mastodon-post-quote" data-key="content"></blockquote>
     <figcaption class="mastodon-post__caption"><!--<cite> — <a data-key="url" rel="me"><span
                     data-key="username"></span>@<span data-key="hostname"></span></a></cite>-->
         <dl class="mastodon-post__stats">
             <div class="mastodon-post__stat">
-                <a href="{{ mastodon_url }}/reblogs/" class="no-indicator"><dt><i class="fa-solid fa-rocket"></i></dt>
+                <a {% if mastodonPostUrl %}href="{{ mastodonPostUrl }}/reblogs/"{% endif %} data-mastodon-link="reblogs" class="no-indicator"><dt><i class="fa-solid fa-rocket"></i></dt>
                 <dd data-key="reblogs_count"></dd></a>
             </div>
             <div class="mastodon-post__stat">
-                <a href="{{ mastodon_url }}/" class="no-indicator"><dt><i class="fa-solid fa-comment"></i></dt>
+                <a {% if mastodonPostUrl %}href="{{ mastodonPostUrl }}/"{% endif %} data-mastodon-link="status" class="no-indicator"><dt><i class="fa-solid fa-comment"></i></dt>
                 <dd data-key="replies_count"></dd></a>
             </div>
             <div class="mastodon-post__stat">
-                <a href="{{ mastodon_url }}/favourites/" class="no-indicator"><dt><i class="fa-solid fa-heart"></i></dt>
+                <a {% if mastodonPostUrl %}href="{{ mastodonPostUrl }}/favourites/"{% endif %} data-mastodon-link="favourites" class="no-indicator"><dt><i class="fa-solid fa-heart"></i></dt>
                 <dd data-key="favourites_count"></dd></a>
             </div>
         </dl>
