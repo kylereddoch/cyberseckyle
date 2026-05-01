@@ -9,6 +9,18 @@
   "description": "CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.",
   "authors": [{ "name": "Kyle Reddoch" }],
   "items": [{
+      "id": "https://www.kylereddoch.me/notes/testing-quick-post-of-notes/",
+      "url": "https://www.kylereddoch.me/notes/testing-quick-post-of-notes/",
+      "title": "Testing quick post of notes",
+      "content_html": "<p>Created a workflow to quickly create notes on website!</p>\n<img src=\"https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2Ftesting-quick-post-of-notes%2F\" alt=\"\" style=\"width:1px;height:1px;border:0;\" />",
+      "date_published": "2026-05-01T18:12:46Z"
+    },{
+      "id": "https://www.kylereddoch.me/notes/testing-quick-post-on-notes/",
+      "url": "https://www.kylereddoch.me/notes/testing-quick-post-on-notes/",
+      "title": "Testing quick post on notes",
+      "content_html": "<p>Created a workflow to quickly post notes on my website!</p>\n<img src=\"https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2Ftesting-quick-post-on-notes%2F\" alt=\"\" style=\"width:1px;height:1px;border:0;\" />",
+      "date_published": "2026-05-01T18:10:42Z"
+    },{
       "id": "https://www.kylereddoch.me/blog/living-off-the-land-attacks-are-a-reminder-that-trust-is-an-attack-surface/",
       "url": "https://www.kylereddoch.me/blog/living-off-the-land-attacks-are-a-reminder-that-trust-is-an-attack-surface/",
       "title": "Living Off the Land Attacks Are a Reminder That Trust Is an Attack Surface",
