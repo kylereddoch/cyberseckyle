@@ -9,6 +9,12 @@
   "description": "CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.",
   "authors": [{ "name": "Kyle Reddoch" }],
   "items": [{
+      "id": "https://www.kylereddoch.me/notes/f1-is-back/",
+      "url": "https://www.kylereddoch.me/notes/f1-is-back/",
+      "title": "F1 is back",
+      "content_html": "<p>Man it feels like it’s been forever since the last race. It was good to watch the practice and sprint qualifying at work. Sshh, don’t tell my boss. LOL.</p>\n<img src=\"https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2Ff1-is-back%2F\" alt=\"\" style=\"width:1px;height:1px;border:0;\" />",
+      "date_published": "2026-05-01T23:39:11Z"
+    },{
       "id": "https://www.kylereddoch.me/notes/testing-quick-post-on-notes/",
       "url": "https://www.kylereddoch.me/notes/testing-quick-post-on-notes/",
       "title": "Testing quick post on notes",

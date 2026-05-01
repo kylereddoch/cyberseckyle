@@ -4,12 +4,21 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-05-01T19:28:26Z</updated>
+  <updated>2026-05-01T23:43:15Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>F1 is back</title>
+      <link href="https://www.kylereddoch.me/notes/f1-is-back/" />
+      <updated>2026-05-01T23:39:11Z</updated>
+      <id>https://www.kylereddoch.me/notes/f1-is-back/</id>
+      <content type="html">
+        &lt;p&gt;Man it feels like it’s been forever since the last race. It was good to watch the practice and sprint qualifying at work. Sshh, don’t tell my boss. LOL.&lt;/p&gt;
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2Ff1-is-back%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
+      </content>
+    </entry><entry>
       <title>Testing quick post on notes</title>
       <link href="https://www.kylereddoch.me/notes/testing-quick-post-on-notes/" />
       <updated>2026-05-01T18:10:42Z</updated>
