@@ -1,0 +1,68 @@
+name: Publish Quick Note
+
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: "Note title"
+        required: true
+        type: string
+      body:
+        description: "Note body in Markdown. For multiline Shortcut posts, use body_base64 instead."
+        required: false
+        type: string
+      body_base64:
+        description: "Optional Base64-encoded Markdown body. Takes priority over body."
+        required: false
+        type: string
+      description:
+        description: "Optional note summary"
+        required: false
+        type: string
+      date:
+        description: "Optional date. Use YYYY-MM-DD or YYYY-MM-DDTHH:mm. Defaults to now."
+        required: false
+        type: string
+      slug:
+        description: "Optional URL slug. Defaults to the title."
+        required: false
+        type: string
+  repository_dispatch:
+    types: [publish-note]
+
+jobs:
+  publish:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    env:
+      TZ: America/Chicago
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: "20"
+
+      - name: Create note
+        id: create
+        run: node scripts/create-note.mjs
+        env:
+          NOTE_TITLE: ${{ github.event_name == 'workflow_dispatch' && inputs.title || github.event.client_payload.title }}
+          NOTE_BODY: ${{ github.event_name == 'workflow_dispatch' && inputs.body || github.event.client_payload.body }}
+          NOTE_BODY_BASE64: ${{ github.event_name == 'workflow_dispatch' && inputs.body_base64 || github.event.client_payload.body_base64 }}
+          NOTE_DESCRIPTION: ${{ github.event_name == 'workflow_dispatch' && inputs.description || github.event.client_payload.description }}
+          NOTE_DATE: ${{ github.event_name == 'workflow_dispatch' && inputs.date || github.event.client_payload.date }}
+          NOTE_SLUG: ${{ github.event_name == 'workflow_dispatch' && inputs.slug || github.event.client_payload.slug }}
+
+      - name: Commit note
+        env:
+          NOTE_TITLE: ${{ github.event_name == 'workflow_dispatch' && inputs.title || github.event.client_payload.title }}
+          NOTE_PATH: ${{ steps.create.outputs.note_path }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "${NOTE_PATH}"
+          git commit -m "Publish note: ${NOTE_TITLE}"
+          git push
