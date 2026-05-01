@@ -4,21 +4,12 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-05-01T18:23:00Z</updated>
+  <updated>2026-05-01T18:32:59Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
-      <title>Testing quick post of notes</title>
-      <link href="https://www.kylereddoch.me/notes/testing-quick-post-of-notes/" />
-      <updated>2026-05-01T18:12:46Z</updated>
-      <id>https://www.kylereddoch.me/notes/testing-quick-post-of-notes/</id>
-      <content type="html">
-        &lt;p&gt;Created a workflow to quickly create notes on website!&lt;/p&gt;
-&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2Ftesting-quick-post-of-notes%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
-      </content>
-    </entry><entry>
       <title>Testing quick post on notes</title>
       <link href="https://www.kylereddoch.me/notes/testing-quick-post-on-notes/" />
       <updated>2026-05-01T18:10:42Z</updated>
