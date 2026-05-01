@@ -1,15 +1,16 @@
 {% set bodyMetaDescription = "" %}
-{% if layout == 'post' or layout == 'note' or layout == 'journal' %}
+{% set isPostLike = layout == 'post' or layout == 'note' or layout == 'journal' %}
+{% if isPostLike %}
   {% set bodyMetaDescription = (page.rawInput or content) | metaDescription %}
 {% endif %}
 
 {% set metaDescription %}
-  {%- if discover.description -%}
-    {{- discover.description -}}
-  {%- elif description -%}
+  {%- if description -%}
     {{- description -}}
-  {%- elif bodyMetaDescription -%}
+  {%- elif isPostLike and bodyMetaDescription -%}
     {{- bodyMetaDescription -}}
+  {%- elif discover.description -%}
+    {{- discover.description -}}
   {%- else -%}
     {{- meta.siteDescription -}}
   {%- endif -%}
