@@ -9,8 +9,6 @@
     {{- description -}}
   {%- elif isPostLike and bodyMetaDescription -%}
     {{- bodyMetaDescription -}}
-  {%- elif discover.description -%}
-    {{- discover.description -}}
   {%- else -%}
     {{- meta.siteDescription -}}
   {%- endif -%}
@@ -56,9 +54,7 @@
 <meta property="og:type" content="website" />
 <meta
   property="og:title"
-  content="{%- if discover.title -%}
-    {{- discover.title -}}
-  {%- elif title -%}
+  content="{%- if title -%}
     {{- title -}}
   {%- else -%}
     {{- meta.siteName -}}
