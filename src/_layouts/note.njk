@@ -57,7 +57,7 @@ layout: base
       <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Tags</h2>
       <div class="flex flex-wrap gap-2">
         {% for tag in tags %}
-          {% if tag != 'notes' and tag != 'posts' and tag != 'journal' %}
+          {% if tag != 'posts' and tag != 'journal' %}
             <a class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity" style="background-color: {{ tag | tagColor }}" href="/tags/{{ tag | slug }}/">#{{ tag }}</a>
           {% endif %}
         {% endfor %}

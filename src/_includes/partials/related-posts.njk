@@ -19,7 +19,7 @@
           {% if post.data.tags %}
             <div class="mt-3 flex flex-wrap gap-1">
               {% for tag in post.data.tags | head(2) %}
-                {% if tag != 'posts' and tag != 'notes' and tag != 'journal' %}
+                {% if tag != 'posts' and tag != 'journal' %}
                   <span class="text-xs px-2 py-0.5 rounded text-white" style="background-color: {{ tag | tagColor }}">#{{ tag }}</span>
                 {% endif %}
               {% endfor %}

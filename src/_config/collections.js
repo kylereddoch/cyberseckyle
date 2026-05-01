@@ -75,7 +75,7 @@ export const showInSitemap = collection => {
 /** All tags from all post-like content, excluding internal collection tags */
 export const tagList = collection => {
   const tagsSet = new Set();
-  const ignored = new Set(['all', 'docs', 'posts', 'notes', 'journal', 'allPosts', 'tagList', 'tags']);
+  const ignored = new Set(['all', 'docs', 'posts', 'journal', 'allPosts', 'tagList', 'tags']);
 
   getAllPosts(collection).forEach(item => {
     if (!Array.isArray(item.data?.tags)) return;

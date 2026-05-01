@@ -80,7 +80,7 @@ description: "Welcome to CybersecKyle, where Kyle Reddoch writes about cybersecu
             {% if entry.data.tags %}
               <div class="flex flex-wrap gap-2">
                 {% for tag in entry.data.tags %}
-                  {% if tag != 'posts' and tag != 'notes' and tag != 'journal' %}
+                  {% if tag != 'posts' and tag != 'journal' %}
                     <a class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity" style="background-color: {{ tag | tagColor }}" href="/tags/{{ tag | slug }}/">#{{ tag }}</a>
                   {% endif %}
                 {% endfor %}
