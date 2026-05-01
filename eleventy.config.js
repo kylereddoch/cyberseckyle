@@ -410,6 +410,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter('readableDate', date => filters.formatDate(date, 'MMMM D, YYYY'));
   eleventyConfig.addFilter('htmlDateString', date => filters.formatDate(date, 'YYYY-MM-DD'));
   eleventyConfig.addFilter('markdownFormat', filters.markdownFormat);
+  eleventyConfig.addFilter('metaDescription', filters.metaDescription);
   eleventyConfig.addFilter('splitlines', filters.splitlines);
   eleventyConfig.addFilter('striptags', filters.striptags);
   eleventyConfig.addFilter('shuffle', filters.shuffleArray);

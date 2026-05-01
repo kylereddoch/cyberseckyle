@@ -1,14 +1,21 @@
+{% set bodyMetaDescription = "" %}
+{% if layout == 'post' or layout == 'note' or layout == 'journal' %}
+  {% set bodyMetaDescription = (page.rawInput or content) | metaDescription %}
+{% endif %}
+
 {% set metaDescription %}
   {%- if discover.description -%}
     {{- discover.description -}}
   {%- elif description -%}
     {{- description -}}
+  {%- elif bodyMetaDescription -%}
+    {{- bodyMetaDescription -}}
   {%- else -%}
     {{- meta.siteDescription -}}
   {%- endif -%}
 {% endset %}
 
-<meta name="description" content="{{ metaDescription }}" />
+<meta name="description" content="{{ metaDescription | trim | escape }}" />
 <meta name="theme-color" content="{{ meta.themeDark }}" media="(prefers-color-scheme: dark)" />
 <!-- Search Engines -->
 <meta name="robots" content="index,follow" />
@@ -78,7 +85,7 @@
 />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:description" content="{{ metaDescription }}" />
+<meta property="og:description" content="{{ metaDescription | trim | escape }}" />
 <meta property="og:site_name" content="{{ meta.siteName }}" />
 <meta property="og:locale" content="{{ meta.locale }}" />
 <meta property="article:author" content="{{ meta.author.name }}" />

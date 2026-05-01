@@ -5,6 +5,7 @@ import {sortAlphabetically} from './filters/sort-alphabetic.js';
 import {splitlines} from './filters/splitlines.js';
 import {striptags} from './filters/striptags.js';
 import {slugifyString} from './filters/slugify.js';
+import {metaDescription} from './filters/meta-description.js';
 
 export default {
   toISOString,
@@ -12,6 +13,7 @@ export default {
   markdownFormat,
   splitlines,
   striptags,
+  metaDescription,
   shuffleArray,
   sortAlphabetically,
   slugifyString
