@@ -189,6 +189,10 @@
 <article class="h-entry mx-auto max-w-3xl">
   
   
+  
+  
+  
+  
 
   
     <div class="mb-8">
@@ -609,7 +613,7 @@ That mindset turns small issues into major losses</p>
 
   <section class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
     <h2 class="text-xl font-semibold mb-2">Share or join the conversation</h2>
-    <p class="text-gray-600 dark:text-gray-400 mb-4">Share this post on Mastodon, jump into the thread, or leave a little kudos.</p>
+    <p class="text-gray-600 dark:text-gray-400 mb-4">Share this post, open the Mastodon thread, or leave a little kudos.</p>
     
 
 <div class="share-links">
@@ -740,37 +744,45 @@ That mindset turns small issues into major losses</p>
 </script>
 
 
-    
-      <template id="mastodon-post-template">
-        <figure class="mastodon-post">
+    <template id="mastodon-post-template">
+      
+<figure class="mastodon-post">
     <blockquote data-key="content" class="mastodon-post-quote"></blockquote>
     <figcaption class="mastodon-post__caption"><!--<cite> — <a data-key="url" rel="me"><span
                     data-key="username"></span>@<span data-key="hostname"></span></a></cite>-->
         <dl class="mastodon-post__stats">
             <div class="mastodon-post__stat">
-                <a href="https://infosec.exchange/@cyberseckyle/116478339183950633/reblogs/" class="no-indicator"><dt><i class="fa-solid fa-rocket"></i></dt>
+                <a href="https://infosec.exchange/@cyberseckyle/116478339183950633/reblogs/" data-mastodon-link="reblogs" class="no-indicator"><dt><i class="fa-solid fa-rocket"></i></dt>
                 <dd data-key="reblogs_count"></dd></a>
             </div>
             <div class="mastodon-post__stat">
-                <a href="https://infosec.exchange/@cyberseckyle/116478339183950633/" class="no-indicator"><dt><i class="fa-solid fa-comment"></i></dt>
+                <a href="https://infosec.exchange/@cyberseckyle/116478339183950633/" data-mastodon-link="status" class="no-indicator"><dt><i class="fa-solid fa-comment"></i></dt>
                 <dd data-key="replies_count"></dd></a>
             </div>
             <div class="mastodon-post__stat">
-                <a href="https://infosec.exchange/@cyberseckyle/116478339183950633/favourites/" class="no-indicator"><dt><i class="fa-solid fa-heart"></i></dt>
+                <a href="https://infosec.exchange/@cyberseckyle/116478339183950633/favourites/" data-mastodon-link="favourites" class="no-indicator"><dt><i class="fa-solid fa-heart"></i></dt>
                 <dd data-key="favourites_count"></dd></a>
             </div>
         </dl>
     </figcaption>
 </figure>
-      </template>
 
-      <div class="discuss-mastodon mt-6">
+    </template>
+
+    <div data-mastodon-discussion data-mastodon-account="https://infosec.exchange/@cyberseckyle" data-mastodon-current="https://infosec.exchange/@cyberseckyle/116478339183950633" class="discuss-mastodon mt-6">
+      
         <div class="discuss-mastodon__intro">
-          <a href="https://infosec.exchange/@cyberseckyle/116478339183950633" rel="syndication noopener" target="_blank" class="u-syndication no-indicator">Discuss on Mastodon</a>
+          <div aria-hidden="true" class="discuss-mastodon__mark">
+            <i class="fa-brands fa-mastodon"></i>
+          </div>
+          <div class="discuss-mastodon__copy">
+            <h3>Discuss on Mastodon</h3>
+          </div>
+          <a href="https://infosec.exchange/@cyberseckyle/116478339183950633" rel="syndication noopener" target="_blank" class="discuss-mastodon__button u-syndication no-indicator">Open thread</a>
         </div>
-        <mastodon-post></mastodon-post>
-      </div>
-    
+        <mastodon-post url="https://infosec.exchange/@cyberseckyle/116478339183950633"></mastodon-post>
+      
+    </div>
 
     <div class="mt-6">
       <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Give this post some kudos.</p>
@@ -782,7 +794,7 @@ That mindset turns small issues into major losses</p>
 
 
 <section id="webmentions" data-pagefind-ignore data-webmentions-target="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-6-backups-that-actually-restore" class="webmentions mt-6">
-  <h2 class="text-xl font-semibold mb-4">Responses</h2>
+  <h2 class="text-xl font-semibold mb-4">Responses and Mentions</h2>
   <div id="webmentions-list">
     
       
@@ -830,7 +842,53 @@ That mindset turns small issues into major losses</p>
       
 
       
+        <section class="webmentions__facepile">
+          <h3 id="webmentions-mentions" class="webmentions__hed">1 Mention</h3>
+          <div aria-labelledby="webmentions-mentions" class="webmentions__faces">
+            
+              <a href="https://lemmy.world/post/46257410" target="_blank" rel="noopener noreferrer" title="Anonymous mentioned this" class="webmentions__face h-card u-url">
+                
+                  <span aria-hidden="true" class="webmentions__face-fallback">A</span>
+                  <span class="visually-hidden">Anonymous</span>
+                
+              </a>
+            
+          </div>
+        </section>
+      
 
+      
+        <details class="webmentions__thread">
+          <summary class="webmentions__summary">
+            <span class="webmentions__hed">1 Comment</span>
+          </summary>
+          <ol class="webmentions__comment-list">
+            
+              <li class="webmentions__comment">
+                <article class="webmentions__comment-card u-comment h-cite">
+                  <div class="webmentions__comment-avatar">
+                    
+                      <span aria-hidden="true" class="webmentions__comment-fallback">A</span>
+                    
+                  </div>
+                  <div class="webmentions__comment-body">
+                    <div class="webmentions__comment-meta">
+                      <a href="https://lemmy.world/post/46257410" target="_blank" rel="noopener noreferrer" class="webmentions__comment-author p-author h-card">Anonymous</a>
+                      <span class="webmentions__comment-action">mentioned this</span>
+                      
+                        <a href="https://lemmy.world/post/46257410" target="_blank" rel="noopener noreferrer" class="webmentions__comment-date u-url">
+                          <time datetime="2026-04-30T18:29:10Z" class="dt-published">Apr 30, 2026</time>
+                        </a>
+                      
+                    </div>
+                    
+                    <a href="https://lemmy.world/post/46257410" target="_blank" rel="noopener noreferrer" class="webmentions__comment-link">View original</a>
+                  </div>
+                </article>
+              </li>
+            
+          </ol>
+        </details>
       
     
   </div>

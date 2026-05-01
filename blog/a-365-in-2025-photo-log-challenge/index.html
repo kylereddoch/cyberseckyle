@@ -189,6 +189,10 @@
 <article class="h-entry mx-auto max-w-3xl">
   
   
+  
+  
+  
+  
 
   
 
@@ -349,7 +353,7 @@
 
   <section class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
     <h2 class="text-xl font-semibold mb-2">Share or join the conversation</h2>
-    <p class="text-gray-600 dark:text-gray-400 mb-4">Share this post on Mastodon, jump into the thread, or leave a little kudos.</p>
+    <p class="text-gray-600 dark:text-gray-400 mb-4">Share this post, open the Mastodon thread, or leave a little kudos.</p>
     
 
 <div class="share-links">
@@ -480,7 +484,34 @@
 </script>
 
 
-    
+    <template id="mastodon-post-template">
+      
+<figure class="mastodon-post">
+    <blockquote data-key="content" class="mastodon-post-quote"></blockquote>
+    <figcaption class="mastodon-post__caption"><!--<cite> — <a data-key="url" rel="me"><span
+                    data-key="username"></span>@<span data-key="hostname"></span></a></cite>-->
+        <dl class="mastodon-post__stats">
+            <div class="mastodon-post__stat">
+                <a data-mastodon-link="reblogs" class="no-indicator"><dt><i class="fa-solid fa-rocket"></i></dt>
+                <dd data-key="reblogs_count"></dd></a>
+            </div>
+            <div class="mastodon-post__stat">
+                <a data-mastodon-link="status" class="no-indicator"><dt><i class="fa-solid fa-comment"></i></dt>
+                <dd data-key="replies_count"></dd></a>
+            </div>
+            <div class="mastodon-post__stat">
+                <a data-mastodon-link="favourites" class="no-indicator"><dt><i class="fa-solid fa-heart"></i></dt>
+                <dd data-key="favourites_count"></dd></a>
+            </div>
+        </dl>
+    </figcaption>
+</figure>
+
+    </template>
+
+    <div data-mastodon-discussion data-mastodon-account="https://infosec.exchange/@cyberseckyle" data-mastodon-current class="discuss-mastodon mt-6 hidden">
+      
+    </div>
 
     <div class="mt-6">
       <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Give this post some kudos.</p>
@@ -492,11 +523,11 @@
 
 
 <section id="webmentions" data-pagefind-ignore data-webmentions-target="https://www.kylereddoch.me/blog/a-365-in-2025-photo-log-challenge" class="webmentions mt-6">
-  <h2 class="text-xl font-semibold mb-4">Responses</h2>
+  <h2 class="text-xl font-semibold mb-4">Responses and Mentions</h2>
   <div id="webmentions-list">
     
       <div class="text-center py-8 text-gray-500">
-        <p>No webmentions yet.</p>
+        <p>No responses or mentions yet.</p>
         <p class="text-sm mt-2">Likes, reposts, replies, and mentions will show up here when they come in.</p>
       </div>
     
