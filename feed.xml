@@ -4,33 +4,15 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-05-02T03:23:43Z</updated>
+  <updated>2026-05-02T03:33:17Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
-      <title>F1 is back</title>
-      <link href="https://www.kylereddoch.me/notes/f1-is-back/" />
-      <updated>2026-05-01T23:39:11Z</updated>
-      <id>https://www.kylereddoch.me/notes/f1-is-back/</id>
-      <content type="html">
-        &lt;p&gt;Man it feels like it’s been forever since the last race. It was good to watch the practice and sprint qualifying at work. Sshh, don’t tell my boss. LOL.&lt;/p&gt;
-&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2Ff1-is-back%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
-      </content>
-    </entry><entry>
-      <title>Testing quick post on notes</title>
-      <link href="https://www.kylereddoch.me/notes/testing-quick-post-on-notes/" />
-      <updated>2026-05-01T18:10:42Z</updated>
-      <id>https://www.kylereddoch.me/notes/testing-quick-post-on-notes/</id>
-      <content type="html">
-        &lt;p&gt;Created a workflow to quickly post notes on my website!&lt;/p&gt;
-&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2Ftesting-quick-post-on-notes%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
-      </content>
-    </entry><entry>
       <title>I Think Apple Finally Made a School Laptop That Makes Sense</title>
       <link href="https://www.kylereddoch.me/blog/i-think-apple-finally-made-a-school-laptop-that-makes-sense/" />
-      <updated>2026-05-01T16:30:00Z</updated>
+      <updated>2026-05-02T01:20:00Z</updated>
       <id>https://www.kylereddoch.me/blog/i-think-apple-finally-made-a-school-laptop-that-makes-sense/</id>
       <content type="html">
         &lt;p&gt;I keep coming back to the same thought with the&lt;a href=&quot;https://www.apple.com/macbook-neo/&quot; rel=&quot;noopener&quot;&gt;MacBook Neo&lt;/a&gt;: this might be the first Apple laptop in a long time that actually makes sense for normal school life.&lt;/p&gt;
@@ -51,6 +33,24 @@
 &lt;p&gt;Because it feels honest.&lt;/p&gt;
 &lt;p&gt;It knows what it is. It knows who it is for. And for students, schools, and teens who just need a laptop that is capable, portable, familiar, and finally priced like Apple remembers the real world exists, this might be the one that makes the most sense.&lt;/p&gt;
 &lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fi-think-apple-finally-made-a-school-laptop-that-makes-sense%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
+      </content>
+    </entry><entry>
+      <title>F1 is back</title>
+      <link href="https://www.kylereddoch.me/notes/f1-is-back/" />
+      <updated>2026-05-01T23:39:11Z</updated>
+      <id>https://www.kylereddoch.me/notes/f1-is-back/</id>
+      <content type="html">
+        &lt;p&gt;Man it feels like it’s been forever since the last race. It was good to watch the practice and sprint qualifying at work. Sshh, don’t tell my boss. LOL.&lt;/p&gt;
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2Ff1-is-back%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
+      </content>
+    </entry><entry>
+      <title>Testing quick post on notes</title>
+      <link href="https://www.kylereddoch.me/notes/testing-quick-post-on-notes/" />
+      <updated>2026-05-01T18:10:42Z</updated>
+      <id>https://www.kylereddoch.me/notes/testing-quick-post-on-notes/</id>
+      <content type="html">
+        &lt;p&gt;Created a workflow to quickly post notes on my website!&lt;/p&gt;
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2Ftesting-quick-post-on-notes%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
       </content>
     </entry><entry>
       <title>Living Off the Land Attacks Are a Reminder That Trust Is an Attack Surface</title>
