@@ -4,12 +4,174 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-05-04T16:44:52Z</updated>
+  <updated>2026-05-04T17:15:32Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>Automating Blog Posts to Mastodon From My Website</title>
+      <link href="https://www.kylereddoch.me/blog/automating-blog-posts-to-mastodon-from-my-website/" />
+      <updated>2026-05-04T16:47:55Z</updated>
+      <id>https://www.kylereddoch.me/blog/automating-blog-posts-to-mastodon-from-my-website/</id>
+      <content type="html">
+        &lt;p&gt;I have been slowly removing little bits of friction from my website.&lt;/p&gt;
+&lt;p&gt;Not the fun friction. I still like writing in Markdown. I still like having the site live in a GitHub repo. I still like that this place is built with Eleventy and plain files instead of being hidden behind a dashboard somewhere.&lt;/p&gt;
+&lt;p&gt;But there are a few parts of the publishing flow that have started to feel a little silly.&lt;/p&gt;
+&lt;p&gt;One of them was Mastodon.&lt;/p&gt;
+&lt;p&gt;For a while, my process looked like this:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Write the article.&lt;/li&gt;
+&lt;li&gt;Commit it to GitHub.&lt;/li&gt;
+&lt;li&gt;Wait for the site to build.&lt;/li&gt;
+&lt;li&gt;Open the finished article.&lt;/li&gt;
+&lt;li&gt;Post it to Mastodon.&lt;/li&gt;
+&lt;li&gt;Copy the Mastodon status URL.&lt;/li&gt;
+&lt;li&gt;Paste that URL back into the article front matter.&lt;/li&gt;
+&lt;li&gt;Commit again.&lt;/li&gt;
+&lt;li&gt;Wait for the site to build again.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;That works.&lt;/p&gt;
+&lt;p&gt;It is also exactly the kind of tiny repetitive workflow that eventually makes me sigh at my own website.&lt;/p&gt;
+&lt;p&gt;So I added a way for the site to handle that loop for me.&lt;/p&gt;
+&lt;h2 id=&quot;what-i-wanted&quot;&gt;What I wanted&lt;/h2&gt;
+&lt;p&gt;I did not want every post to automatically go to Mastodon.&lt;/p&gt;
+&lt;p&gt;Some posts are more personal. Some are drafts that I am still thinking through. Some are small notes that I want to live on the website first without necessarily pushing them into a social feed.&lt;/p&gt;
+&lt;p&gt;So this needed to be opt-in.&lt;/p&gt;
+&lt;p&gt;The front matter I landed on looks like this:&lt;/p&gt;
+&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;mastodon_post&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean important&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;token key atrule&quot;&gt;mastodon_url&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;token key atrule&quot;&gt;mastodon_tags&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;Cybersecurity&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; InfoSec&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That says:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;yes, post this one to Mastodon&lt;/li&gt;
+&lt;li&gt;the Mastodon URL is still blank&lt;/li&gt;
+&lt;li&gt;use these tags in the Mastodon post&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The &lt;code&gt;mastodon_url&lt;/code&gt; field still matters because it becomes the source of truth after the automation runs. Once the post is published to Mastodon, the workflow writes the returned Mastodon status URL back into that field.&lt;/p&gt;
+&lt;p&gt;That means the Discuss on Mastodon section on the article can show up right away after the second build.&lt;/p&gt;
+&lt;h2 id=&quot;the-general-flow&quot;&gt;The general flow&lt;/h2&gt;
+&lt;p&gt;The workflow is basically:&lt;/p&gt;
+&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Commit article
+  -&amp;gt; GitHub Actions builds the site
+  -&amp;gt; GitHub Pages deploys the article
+  -&amp;gt; Action posts the final URL to Mastodon
+  -&amp;gt; Mastodon returns the status URL
+  -&amp;gt; Action writes mastodon_url back into front matter
+  -&amp;gt; Action rebuilds and redeploys the site&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The important part is that the site deploys before the Mastodon post goes out.&lt;/p&gt;
+&lt;p&gt;I wanted the Mastodon post to link to the real article URL, not a URL that might exist in a minute if the build behaves itself. Publishing the site first makes the whole thing feel much safer.&lt;/p&gt;
+&lt;h2 id=&quot;the-mastodon-post-format&quot;&gt;The Mastodon post format&lt;/h2&gt;
+&lt;p&gt;I also wanted the Mastodon post itself to stay simple.&lt;/p&gt;
+&lt;p&gt;Right now, the default format is:&lt;/p&gt;
+&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;New by me: {Title}
+
+{url}
+
+{mastodon tags from front matter}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So a post might look like this:&lt;/p&gt;
+&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;New by me: Automating Blog Posts to Mastodon From My Website
+
+https://www.kylereddoch.me/blog/automating-blog-posts-to-mastodon-from-my-website/
+
+#IndieWeb #Mastodon #Eleventy&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I originally considered including the description too, but it made the Mastodon post feel heavier than I wanted. The title and link are enough. The article can do the article work.&lt;/p&gt;
+&lt;h2 id=&quot;the-script&quot;&gt;The script&lt;/h2&gt;
+&lt;p&gt;The core of this is a small Node script.&lt;/p&gt;
+&lt;p&gt;It scans the Markdown files, reads the front matter, and only does something when it finds:&lt;/p&gt;
+&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;mastodon_post&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean important&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;token key atrule&quot;&gt;mastodon_url&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If &lt;code&gt;mastodon_url&lt;/code&gt; already has a value, the script skips the file. That keeps it from posting the same article again later.&lt;/p&gt;
+&lt;p&gt;The status text is built from the title, URL, and Mastodon-specific tags:&lt;/p&gt;
+&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getStatusText&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;data&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; postUrl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; title &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;title &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;trim&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; description &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;description &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;trim&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; tags &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;formatTags&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;mastodon_tags &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; defaultTags&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; customStatus &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;mastodon_status &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;trim&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;customStatus&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; customStatus
+      &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;replaceAll&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;{title}&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; title&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;replaceAll&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;{description}&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; description&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;replaceAll&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;{url}&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; postUrl&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; heading &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;New by me: &lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;title&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;heading&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; postUrl&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; tags&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;Boolean&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;&#92;n&#92;n&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There is also support for a custom status if I want one:&lt;/p&gt;
+&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;mastodon_status&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;New post: {title}&#92;n&#92;n{url}&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Most of the time I probably will not need that, but I like having the escape hatch.&lt;/p&gt;
+&lt;h2 id=&quot;posting-to-mastodon&quot;&gt;Posting to Mastodon&lt;/h2&gt;
+&lt;p&gt;Mastodon has a clean API endpoint for posting statuses:&lt;/p&gt;
+&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;POST /api/v1/statuses&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The script sends the post using a token stored in GitHub Secrets:&lt;/p&gt;
+&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; response &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;instance&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;/api/v1/statuses&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;POST&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token literal-property property&quot;&gt;Authorization&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;Bearer &lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;token&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string-property property&quot;&gt;&#39;Content-Type&#39;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;application/json&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string-property property&quot;&gt;&#39;Idempotency-Key&#39;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;cyberseckyle-&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;path&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;basename&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;file&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;.md&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    status&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token literal-property property&quot;&gt;visibility&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;public&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token literal-property property&quot;&gt;language&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;en&#39;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;Idempotency-Key&lt;/code&gt; is there to help avoid accidental duplicate posts if something weird happens during the request. I like that little safety rail.&lt;/p&gt;
+&lt;p&gt;The Mastodon API returns a status object, and that response includes the URL I need:&lt;/p&gt;
+&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; mastodonStatus &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; response&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; mastodonUrl &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; mastodonStatus&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;url &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; mastodonStatus&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;uri&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then the script writes it back into the article:&lt;/p&gt;
+&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;mastodon_url&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://infosec.exchange/@cyberseckyle/...&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That is the part that removes the old copy-paste step.&lt;/p&gt;
+&lt;h2 id=&quot;the-github-actions-part&quot;&gt;The GitHub Actions part&lt;/h2&gt;
+&lt;p&gt;The workflow does a two-pass deploy.&lt;/p&gt;
+&lt;p&gt;First it builds and deploys the site like normal:&lt;/p&gt;
+&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Build site
+  &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; npm run build&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;ghpages
+
+&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Deploy to gh&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;pages
+  &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; bash scripts/deploy&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;gh&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;pages.sh &quot;Deploy $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;GITHUB_SHA&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then it posts eligible articles to Mastodon:&lt;/p&gt;
+&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Post eligible articles to Mastodon
+  &lt;span class=&quot;token key atrule&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; post_mastodon
+  &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; node scripts/post&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;to&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;mastodon.mjs
+  &lt;span class=&quot;token key atrule&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;MASTODON_ACCESS_TOKEN&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $
+    &lt;span class=&quot;token key atrule&quot;&gt;MASTODON_INSTANCE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $
+    &lt;span class=&quot;token key atrule&quot;&gt;MASTODON_SITE_URL&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; https&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;//www.kylereddoch.me&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If anything was posted, the workflow commits the updated Markdown file:&lt;/p&gt;
+&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Commit Mastodon URLs
+  &lt;span class=&quot;token key atrule&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $true
+  &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token scalar string&quot;&gt;
+    git add src/posts src/notes
+    git commit -m &quot;Add Mastodon URLs for published posts&quot;
+    git push&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then it rebuilds and deploys again so the live article includes the Mastodon discussion section right away.&lt;/p&gt;
+&lt;p&gt;That second deploy is important because GitHub Actions does not always trigger a fresh workflow from a push made by &lt;code&gt;GITHUB_TOKEN&lt;/code&gt;. Keeping the second build in the same workflow makes the behavior predictable.&lt;/p&gt;
+&lt;h2 id=&quot;the-secrets&quot;&gt;The secrets&lt;/h2&gt;
+&lt;p&gt;The token does not live in the repo.&lt;/p&gt;
+&lt;p&gt;Locally, I can test with a private &lt;code&gt;.env&lt;/code&gt; file if I need to, but GitHub gets the real values from repo secrets:&lt;/p&gt;
+&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;MASTODON_INSTANCE=https://infosec.exchange
+MASTODON_ACCESS_TOKEN=...&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The access token needs permission to write statuses.&lt;/p&gt;
+&lt;p&gt;That is all the workflow needs to post on my behalf.&lt;/p&gt;
+&lt;h2 id=&quot;why-this-feels-right-for-my-site&quot;&gt;Why this feels right for my site&lt;/h2&gt;
+&lt;p&gt;This is one of those small automations that makes the site feel more like a system I actually enjoy using.&lt;/p&gt;
+&lt;p&gt;It does not replace writing.&lt;/p&gt;
+&lt;p&gt;It does not replace the blog.&lt;/p&gt;
+&lt;p&gt;It does not force everything onto Mastodon.&lt;/p&gt;
+&lt;p&gt;It just removes the repetitive part when I already know a post should go there.&lt;/p&gt;
+&lt;p&gt;I still get to decide which articles are shared. I still get to keep the website as the source of truth. I still get the Mastodon discussion section on the article. I just do not have to do the weird little publish-copy-paste-rebuild dance every time.&lt;/p&gt;
+&lt;p&gt;That is the sweet spot I keep chasing with this site.&lt;/p&gt;
+&lt;p&gt;Not automation for its own sake.&lt;/p&gt;
+&lt;p&gt;Automation that makes the human part easier to keep doing.&lt;/p&gt;
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fautomating-blog-posts-to-mastodon-from-my-website%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
+      </content>
+    </entry><entry>
       <title>Adding Quick Notes to My Website</title>
       <link href="https://www.kylereddoch.me/blog/adding-quick-notes-to-my-website/" />
       <updated>2026-05-04T16:00:50Z</updated>
