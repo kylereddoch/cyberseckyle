@@ -4,12 +4,38 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-05-04T17:35:53Z</updated>
+  <updated>2026-05-04T21:27:14Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>A Medal, a Sunburn, and a Bachelor’s Degree (Week 18, 2026)</title>
+      <link href="https://www.kylereddoch.me/notes/2026/week-18-2026/" />
+      <updated>2026-05-04T21:00:00Z</updated>
+      <id>https://www.kylereddoch.me/notes/2026/week-18-2026/</id>
+      <content type="html">
+        &lt;blockquote&gt;
+&lt;p&gt;This week was a bit of a regular week as it would go.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
+&lt;p&gt;A grounded week with a surprisingly big ending. Nothing about it felt flashy, but between family moments, steady progress, and finally finishing my degree, it ended up meaning a lot.&lt;/p&gt;
+&lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;☁️ Tuesday and Wednesday was the Virtual Cloud Security Summit from ISC2. It was a great event with a lot of good content. The next one is &lt;a href=&quot;https://www.isc2.org/insights/2026/04/isc2-spotlight-2026-cloud-security&quot; rel=&quot;noopener&quot;&gt;April 28-29, 2026&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;💻 I worked on adding some few new features to my website, including a way to add &lt;a href=&quot;https://www.kylereddoch.me/notes&quot;&gt;quick notes&lt;/a&gt; to my website without needing my laptop and a code editor.&lt;/li&gt;
+&lt;li&gt;🎾 This past Saturday was also the last school tennis tournament of the season. Our youngest finally medaled in the tournament. She got 3rd overall! We ended up being there all day. It was a great day, but I did end up getting way to much sun.&lt;/li&gt;
+&lt;li&gt;🤒 Sunday I ended up feeling sick due to the sun exposure. Just rested the entire day.&lt;/li&gt;
+&lt;li&gt;🍖 My wife found the new Adobo Dano’s seasoning at Walmart so we had it on some pork chops and potatoes for dinner Sunday. It was really good! We love the Dano’s seasonings.&lt;/li&gt;
+&lt;li&gt;📺 We have reached Season 5 of ER. It is such a great show. I am really enjoying rewatching it. It is always fun to watch older shows like this and see how much the world has changed since they were made.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;OH! And how could I forget? I now hold a Bachelor of Science in Information Technology. I officially graduated April 30th, was conferred. I am so happy to have finally finished this degree. It was a long road, but I am really proud of myself for sticking with it and getting it done. It is a great feeling to have that accomplishment under my belt.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;✌️ That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2026%2Fweek-18-2026%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
+      </content>
+    </entry><entry>
       <title>Automating Blog Posts to Mastodon From My Website</title>
       <link href="https://www.kylereddoch.me/blog/automating-blog-posts-to-mastodon-from-my-website/" />
       <updated>2026-05-04T16:47:55Z</updated>
