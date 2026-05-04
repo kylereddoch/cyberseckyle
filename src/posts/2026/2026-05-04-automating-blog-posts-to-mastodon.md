@@ -4,7 +4,7 @@ title: Automating Blog Posts to Mastodon From My Website
 description: I added an opt-in workflow that can publish new blog posts to Mastodon, save the returned Mastodon URL back into the post front matter, and rebuild the site with the discussion thread already connected.
 tags: [personal, indie-web, mastodon, eleventy]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116517435476556765"
 mastodon_tags: [IndieWeb, Eleventy, Mastodon, Website]
 ---
 
