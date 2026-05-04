@@ -259,25 +259,29 @@
     `;
   }
 
-  function findMastodonSyndicationUrl(rawMentions, accountUrl) {
+  function getOwnMastodonStatusUrl(mention, accountUrl) {
     const account = normalizeComparableUrl(accountUrl);
-    const candidates = rawMentions.filter(mention => {
-      if (mention?.['wm-property'] !== 'mention-of') return false;
-      return isMastodonStatusUrl(mention.url);
-    });
+    if (!isMastodonStatusUrl(mention?.url)) return '';
 
-    if (!candidates.length) return '';
+    if (!account) {
+      return mention?.['wm-property'] === 'mention-of' ? normalizeMastodonStatusUrl(mention.url) : '';
+    }
 
-    const ownMention = candidates.find(mention => {
-      if (!account) return true;
+    const authorUrl = normalizeComparableUrl(mention.author?.url);
+    const mentionUrl = normalizeComparableUrl(mention.url);
+    const isOwnStatus = authorUrl === account || mentionUrl.startsWith(`${account}/`);
 
-      const authorUrl = normalizeComparableUrl(mention.author?.url);
-      const mentionUrl = normalizeComparableUrl(mention.url);
+    return isOwnStatus ? normalizeMastodonStatusUrl(mention.url) : '';
+  }
 
-      return authorUrl === account || mentionUrl.startsWith(`${account}/`);
-    });
+  function findMastodonSyndicationUrl(rawMentions, accountUrl) {
+    for (const mention of rawMentions) {
+      const statusUrl = getOwnMastodonStatusUrl(mention, accountUrl);
 
-    return ownMention ? normalizeMastodonStatusUrl(ownMention.url) : '';
+      if (statusUrl) return statusUrl;
+    }
+
+    return '';
   }
 
   function renderMastodonDiscussion(rawMentions) {
