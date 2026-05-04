@@ -64,6 +64,9 @@ jobs:
           MASTODON_SITE_URL: https://www.kylereddoch.me
           MASTODON_LANGUAGE: en
           MASTODON_VISIBILITY: public
+          MASTODON_WAIT_FOR_PUBLIC_URL: true
+          MASTODON_WAIT_TIMEOUT_SECONDS: 360
+          MASTODON_WAIT_INTERVAL_SECONDS: 10
 
       - name: Commit Mastodon URLs
         id: commit_mastodon

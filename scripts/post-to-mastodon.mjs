@@ -22,6 +22,9 @@ const defaultVisibility = String(process.env.MASTODON_VISIBILITY || 'public').tr
 const defaultLanguage = String(process.env.MASTODON_LANGUAGE || 'en').trim();
 const statusLimit = Number(process.env.MASTODON_STATUS_LIMIT || 500);
 const defaultTags = parseTags(process.env.MASTODON_DEFAULT_TAGS);
+const waitForPublicUrl = String(process.env.MASTODON_WAIT_FOR_PUBLIC_URL || 'true').toLowerCase() !== 'false';
+const waitTimeoutSeconds = Number(process.env.MASTODON_WAIT_TIMEOUT_SECONDS || 360);
+const waitIntervalSeconds = Number(process.env.MASTODON_WAIT_INTERVAL_SECONDS || 10);
 
 function stripTrailingSlash(value) {
   return String(value || '').replace(/\/+$/, '');
@@ -186,6 +189,73 @@ function setGitHubOutput(name, value) {
   fs.appendFileSync(process.env.GITHUB_OUTPUT, `${name}=${String(value).replace(/\r?\n/g, ' ')}\n`);
 }
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function getMetaContent(html, property) {
+  const escapedProperty = property.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const pattern = new RegExp(
+    `<meta\\s+(?=[^>]*(?:property|name)=["']${escapedProperty}["'])(?=[^>]*content=["']([^"']+)["'])[^>]*>`,
+    'i'
+  );
+  const match = html.match(pattern);
+
+  return match?.[1] || '';
+}
+
+async function fetchOk(url) {
+  const response = await fetch(url, { redirect: 'follow' });
+
+  if (!response.ok) {
+    throw new Error(`${url} returned ${response.status}`);
+  }
+
+  return response;
+}
+
+async function waitForPublishedPost(postUrl, relativePath) {
+  if (!waitForPublicUrl) {
+    return;
+  }
+
+  const deadline = Date.now() + waitTimeoutSeconds * 1000;
+  let attempt = 0;
+  let lastError = '';
+
+  while (Date.now() < deadline) {
+    attempt += 1;
+
+    try {
+      const response = await fetchOk(postUrl);
+      const html = await response.text();
+      const ogImage = getMetaContent(html, 'og:image');
+
+      if (!ogImage) {
+        throw new Error(`${postUrl} is live, but no og:image meta tag was found yet`);
+      }
+
+      const ogImageUrl = new URL(ogImage, postUrl).toString();
+      await fetchOk(ogImageUrl);
+
+      console.log(`Confirmed ${relativePath} is live with OG image: ${ogImageUrl}`);
+      return;
+    } catch (error) {
+      lastError = error.message;
+      console.log(
+        `Waiting for ${relativePath} to be live before posting to Mastodon ` +
+          `(attempt ${attempt}): ${lastError}`
+      );
+      await sleep(waitIntervalSeconds * 1000);
+    }
+  }
+
+  throw new Error(
+    `Timed out after ${waitTimeoutSeconds}s waiting for ${relativePath} to be publicly available. ` +
+      `Last check: ${lastError}`
+  );
+}
+
 async function postToMastodon(status, file) {
   if (!instance || !token) {
     throw new Error('MASTODON_INSTANCE and MASTODON_ACCESS_TOKEN are required to post.');
@@ -243,6 +313,8 @@ async function publishFile(file) {
     console.log(status);
     return { file: relativePath, mastodonUrl: 'dry-run', postUrl };
   }
+
+  await waitForPublishedPost(postUrl, relativePath);
 
   const mastodonStatus = await postToMastodon(status, file);
   const mastodonUrl = mastodonStatus.url || mastodonStatus.uri;
