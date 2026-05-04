@@ -39,15 +39,15 @@ Because it feels honest.
 
 It knows what it is. It knows who it is for. And for students, schools, and teens who just need a laptop that is capable, portable, familiar, and finally priced like Apple remembers the real world exists, this might be the one that makes the most sense.
 
-[1]:	https://www.apple.com/macbook-neo/
-[2]:	https://www.apple.com/us-edu/shop/buy-mac/macbook-neo
-[3]:	https://www.apple.com/newsroom/2026/03/say-hello-to-macbook-neo/
-[4]:	https://support.apple.com/en-us/126322
-[5]:	https://support.apple.com/en-us/126322
-[6]:	https://support.apple.com/en-us/126322
-[7]:	https://support.apple.com/en-us/126322
-[8]:	https://support.apple.com/en-us/126322
-[9]:	https://support.apple.com/en-us/126322
-[10]:	https://support.apple.com/en-us/126322
-[11]:	https://support.apple.com/en-us/126322
-[12]:	https://support.apple.com/en-us/126322
+[1]: https://www.apple.com/macbook-neo/
+[2]: https://www.apple.com/us-edu/shop/buy-mac/macbook-neo
+[3]: https://www.apple.com/newsroom/2026/03/say-hello-to-macbook-neo/
+[4]: https://support.apple.com/en-us/126322
+[5]: https://support.apple.com/en-us/126322
+[6]: https://support.apple.com/en-us/126322
+[7]: https://support.apple.com/en-us/126322
+[8]: https://support.apple.com/en-us/126322
+[9]: https://support.apple.com/en-us/126322
+[10]: https://support.apple.com/en-us/126322
+[11]: https://support.apple.com/en-us/126322
+[12]: https://support.apple.com/en-us/126322
