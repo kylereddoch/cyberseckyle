@@ -2,7 +2,7 @@ import EleventyFetch from '@11ty/eleventy-fetch';
 import dotenv from 'dotenv';
 import sanitizeHtml from 'sanitize-html';
 
-import { author as siteAuthor, creator, domain as siteDomain } from './meta.js';
+import { author as siteAuthor, creator, url as siteUrl } from './meta.js';
 
 dotenv.config({ path: '.env' });
 
@@ -10,6 +10,7 @@ const API_ORIGIN = 'https://webmention.io/api/mentions.jf2';
 const TOKEN = process.env.WEBMENTION_IO_TOKEN;
 const PAGE_SIZE = 1000;
 const CACHE_DURATION = process.env.ELEVENTY_ENV === 'production' ? '2h' : '15m';
+const WEBMENTION_DOMAIN = getHostname(siteAuthor?.website || siteUrl);
 
 const ownMastodonAccounts = [
   creator?.social,
@@ -40,6 +41,16 @@ function normalizeTarget(url) {
       .split('#')[0]
       .split('?')[0]
       .replace(/\/+$/, '');
+  }
+}
+
+function getHostname(url) {
+  if (!url) return '';
+
+  try {
+    return new URL(String(url)).hostname;
+  } catch {
+    return '';
   }
 }
 
@@ -95,17 +106,21 @@ function isMastodonStatusUrl(url) {
   }
 }
 
-function isOwnMastodonMention(mention) {
-  if (mention?.['wm-property'] !== 'mention-of') return false;
+function getOwnMastodonStatusUrl(mention) {
   if (!isMastodonStatusUrl(mention.url)) return false;
 
   const mentionAuthorUrl = normalizeComparableUrl(mention.author?.url);
-  if (!ownMastodonAccounts.length) return true;
+  const mentionUrl = normalizeComparableUrl(mention.url);
 
-  return ownMastodonAccounts.some(accountUrl => {
-    if (mentionAuthorUrl === accountUrl) return true;
-    return normalizeComparableUrl(mention.url).startsWith(`${accountUrl}/`);
+  if (!ownMastodonAccounts.length) {
+    return mention?.['wm-property'] === 'mention-of' ? normalizeMastodonStatusUrl(mention.url) : '';
+  }
+
+  const isOwnStatus = ownMastodonAccounts.some(accountUrl => {
+    return mentionAuthorUrl === accountUrl || mentionUrl.startsWith(`${accountUrl}/`);
   });
+
+  return isOwnStatus ? normalizeMastodonStatusUrl(mention.url) : '';
 }
 
 function getAliasTargets(url) {
@@ -164,7 +179,7 @@ function dedupeMentions(items) {
 
 async function fetchMentionPage(page = 0) {
   const url = new URL(API_ORIGIN);
-  url.searchParams.set('domain', siteDomain);
+  url.searchParams.set('domain', WEBMENTION_DOMAIN);
   url.searchParams.set('token', TOKEN);
   url.searchParams.set('per-page', String(PAGE_SIZE));
   url.searchParams.set('page', String(page));
@@ -176,7 +191,7 @@ async function fetchMentionPage(page = 0) {
 }
 
 async function fetchAllMentions() {
-  if (!siteDomain || !TOKEN) {
+  if (!WEBMENTION_DOMAIN || !TOKEN) {
     return [];
   }
 
@@ -272,8 +287,8 @@ export default async function () {
 
         bucket.all.push(normalizedMention);
 
-        if (!bucket.syndicationUrl && isOwnMastodonMention(mention)) {
-          bucket.syndicationUrl = normalizeMastodonStatusUrl(mention.url);
+        if (!bucket.syndicationUrl) {
+          bucket.syndicationUrl = getOwnMastodonStatusUrl(mention);
         }
 
         switch (mention['wm-property']) {

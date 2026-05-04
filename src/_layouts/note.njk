@@ -19,7 +19,8 @@ layout: base
 <article class="h-entry mx-auto max-w-3xl">
   {% set heroImage = featuredImage or featured_image %}
   {% set heroImageAlt = featuredImageAlt or featured_image_alt or alt or ('Featured image for ' ~ title) %}
-  {% set pageWebmentionTarget = page.url | url | absoluteUrl(meta.url) | webmentionTarget %}
+  {% set webmentionBase = meta.author.website or meta.url %}
+  {% set pageWebmentionTarget = page.url | url | absoluteUrl(webmentionBase) | webmentionTarget %}
   {% set pageMentions = webmentions.byTarget | lookup(pageWebmentionTarget) %}
   {% set mastodonDiscussionUrl = mastodon_url or pageMentions.syndicationUrl %}
   {% set mastodonAccountUrl = meta.creator.social or meta.author.website %}
