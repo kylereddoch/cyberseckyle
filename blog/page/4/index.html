@@ -80,23 +80,26 @@
 <link rel="manifest" href="/site.webmanifest">
 
 
-    <link rel="stylesheet" href="/assets/starter/build.css">
-    <link rel="stylesheet" href="/assets/starter/cyberseckyle.css">
     <script>
-      window.Prism = window.Prism || {};
-      window.Prism.manual = true;
+      (function() {
+        try {
+          var savedTheme = localStorage.getItem('theme');
+          var useDark = savedTheme ? savedTheme === 'dark' : true;
+          document.documentElement.classList.toggle('dark', useDark);
+          document.documentElement.classList.toggle('light', !useDark);
+        } catch (error) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        }
+      })();
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup-templating.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-batch.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markdown.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-powershell.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-scss.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-twig.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js" defer></script>
+
+    <link rel="preload" href="/assets/starter/build.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/assets/starter/cyberseckyle.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="/assets/starter/build.css">
+      <link rel="stylesheet" href="/assets/starter/cyberseckyle.css">
+    </noscript>
 
     <style>
       .contrast {
@@ -210,15 +213,15 @@
               
             
               
-                <a href="/tags/privacy/" style="background-color: hsl(248 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#privacy</a>
+                <a href="/tags/privacy/" style="background-color: hsl(248 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#privacy</a>
               
             
               
-                <a href="/tags/smart-home/" style="background-color: hsl(51 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#smart-home</a>
+                <a href="/tags/smart-home/" style="background-color: hsl(51 65% 45%); color: #000000" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#smart-home</a>
               
             
               
-                <a href="/tags/cybersecurity/" style="background-color: hsl(329 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#cybersecurity</a>
+                <a href="/tags/cybersecurity/" style="background-color: hsl(329 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#cybersecurity</a>
               
             
           </div>
@@ -252,23 +255,23 @@
               
             
               
-                <a href="/tags/cybersecurity/" style="background-color: hsl(329 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#cybersecurity</a>
+                <a href="/tags/cybersecurity/" style="background-color: hsl(329 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#cybersecurity</a>
               
             
               
-                <a href="/tags/windows/" style="background-color: hsl(259 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#windows</a>
+                <a href="/tags/windows/" style="background-color: hsl(259 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#windows</a>
               
             
               
-                <a href="/tags/soc/" style="background-color: hsl(295 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#soc</a>
+                <a href="/tags/soc/" style="background-color: hsl(295 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#soc</a>
               
             
               
-                <a href="/tags/msp/" style="background-color: hsl(66 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#MSP</a>
+                <a href="/tags/msp/" style="background-color: hsl(66 65% 45%); color: #000000" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#MSP</a>
               
             
               
-                <a href="/tags/incident-response/" style="background-color: hsl(284 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#incident-response</a>
+                <a href="/tags/incident-response/" style="background-color: hsl(284 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#incident-response</a>
               
             
           </div>
@@ -302,19 +305,19 @@
               
             
               
-                <a href="/tags/cybersecurity/" style="background-color: hsl(329 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#cybersecurity</a>
+                <a href="/tags/cybersecurity/" style="background-color: hsl(329 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#cybersecurity</a>
               
             
               
-                <a href="/tags/soc/" style="background-color: hsl(295 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#soc</a>
+                <a href="/tags/soc/" style="background-color: hsl(295 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#soc</a>
               
             
               
-                <a href="/tags/incident-response/" style="background-color: hsl(284 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#incident-response</a>
+                <a href="/tags/incident-response/" style="background-color: hsl(284 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#incident-response</a>
               
             
               
-                <a href="/tags/endpoint-security/" style="background-color: hsl(184 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#endpoint-security</a>
+                <a href="/tags/endpoint-security/" style="background-color: hsl(184 65% 45%); color: #000000" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#endpoint-security</a>
               
             
           </div>
@@ -348,27 +351,27 @@
               
             
               
-                <a href="/tags/cybersecurity/" style="background-color: hsl(329 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#cybersecurity</a>
+                <a href="/tags/cybersecurity/" style="background-color: hsl(329 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#cybersecurity</a>
               
             
               
-                <a href="/tags/incident-response/" style="background-color: hsl(284 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#incident-response</a>
+                <a href="/tags/incident-response/" style="background-color: hsl(284 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#incident-response</a>
               
             
               
-                <a href="/tags/digital-forensics/" style="background-color: hsl(243 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#digital-forensics</a>
+                <a href="/tags/digital-forensics/" style="background-color: hsl(243 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#digital-forensics</a>
               
             
               
-                <a href="/tags/docker/" style="background-color: hsl(152 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#docker</a>
+                <a href="/tags/docker/" style="background-color: hsl(152 65% 45%); color: #000000" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#docker</a>
               
             
               
-                <a href="/tags/kubernetes/" style="background-color: hsl(350 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#kubernetes</a>
+                <a href="/tags/kubernetes/" style="background-color: hsl(350 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#kubernetes</a>
               
             
               
-                <a href="/tags/devsecops/" style="background-color: hsl(302 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#devsecops</a>
+                <a href="/tags/devsecops/" style="background-color: hsl(302 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#devsecops</a>
               
             
           </div>
@@ -402,19 +405,19 @@
               
             
               
-                <a href="/tags/blogging/" style="background-color: hsl(101 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#blogging</a>
+                <a href="/tags/blogging/" style="background-color: hsl(101 65% 45%); color: #000000" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#blogging</a>
               
             
               
-                <a href="/tags/personal/" style="background-color: #14b8a6" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#personal</a>
+                <a href="/tags/personal/" style="background-color: #14b8a6; color: #000000" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#personal</a>
               
             
               
-                <a href="/tags/indie-web/" style="background-color: hsl(218 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#indie-web</a>
+                <a href="/tags/indie-web/" style="background-color: hsl(218 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#indie-web</a>
               
             
               
-                <a href="/tags/eleventy/" style="background-color: #10b981" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#eleventy</a>
+                <a href="/tags/eleventy/" style="background-color: #10b981; color: #000000" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#eleventy</a>
               
             
           </div>
@@ -448,31 +451,31 @@
               
             
               
-                <a href="/tags/cybersecurity-weekly-roundup/" style="background-color: hsl(297 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#cybersecurity weekly roundup</a>
+                <a href="/tags/cybersecurity-weekly-roundup/" style="background-color: hsl(297 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#cybersecurity weekly roundup</a>
               
             
               
-                <a href="/tags/cybersecurity/" style="background-color: hsl(329 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#cybersecurity</a>
+                <a href="/tags/cybersecurity/" style="background-color: hsl(329 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#cybersecurity</a>
               
             
               
-                <a href="/tags/infosec/" style="background-color: hsl(211 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#infosec</a>
+                <a href="/tags/infosec/" style="background-color: hsl(211 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#infosec</a>
               
             
               
-                <a href="/tags/weekly-roundup/" style="background-color: hsl(333 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#weekly-roundup</a>
+                <a href="/tags/weekly-roundup/" style="background-color: hsl(333 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#weekly-roundup</a>
               
             
               
-                <a href="/tags/vulnerability-management/" style="background-color: hsl(300 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#vulnerability-management</a>
+                <a href="/tags/vulnerability-management/" style="background-color: hsl(300 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#vulnerability-management</a>
               
             
               
-                <a href="/tags/incident-response/" style="background-color: hsl(284 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#incident-response</a>
+                <a href="/tags/incident-response/" style="background-color: hsl(284 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#incident-response</a>
               
             
               
-                <a href="/tags/news/" style="background-color: hsl(355 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#news</a>
+                <a href="/tags/news/" style="background-color: hsl(355 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#news</a>
               
             
           </div>
@@ -506,19 +509,19 @@
               
             
               
-                <a href="/tags/apple/" style="background-color: hsl(170 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#apple</a>
+                <a href="/tags/apple/" style="background-color: hsl(170 65% 45%); color: #000000" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#apple</a>
               
             
               
-                <a href="/tags/macos/" style="background-color: hsl(291 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#macos</a>
+                <a href="/tags/macos/" style="background-color: hsl(291 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#macos</a>
               
             
               
-                <a href="/tags/tutorials/" style="background-color: hsl(245 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#tutorials</a>
+                <a href="/tags/tutorials/" style="background-color: hsl(245 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#tutorials</a>
               
             
               
-                <a href="/tags/how-to/" style="background-color: hsl(336 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#how-to</a>
+                <a href="/tags/how-to/" style="background-color: hsl(336 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#how-to</a>
               
             
           </div>
@@ -552,31 +555,31 @@
               
             
               
-                <a href="/tags/cyberseckyle-howto-series/" style="background-color: hsl(215 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#cyberseckyle-howto-series</a>
+                <a href="/tags/cyberseckyle-howto-series/" style="background-color: hsl(215 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#cyberseckyle-howto-series</a>
               
             
               
-                <a href="/tags/everyday-defense/" style="background-color: hsl(188 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#everyday-defense</a>
+                <a href="/tags/everyday-defense/" style="background-color: hsl(188 65% 45%); color: #000000" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#everyday-defense</a>
               
             
               
-                <a href="/tags/cybersecurity/" style="background-color: hsl(329 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#cybersecurity</a>
+                <a href="/tags/cybersecurity/" style="background-color: hsl(329 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#cybersecurity</a>
               
             
               
-                <a href="/tags/tutorials/" style="background-color: hsl(245 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#tutorials</a>
+                <a href="/tags/tutorials/" style="background-color: hsl(245 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#tutorials</a>
               
             
               
-                <a href="/tags/mobile-security/" style="background-color: hsl(35 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#mobile-security</a>
+                <a href="/tags/mobile-security/" style="background-color: hsl(35 65% 45%); color: #000000" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#mobile-security</a>
               
             
               
-                <a href="/tags/infosecurity/" style="background-color: hsl(262 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#infosecurity</a>
+                <a href="/tags/infosecurity/" style="background-color: hsl(262 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#infosecurity</a>
               
             
               
-                <a href="/tags/how-to/" style="background-color: hsl(336 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#how-to</a>
+                <a href="/tags/how-to/" style="background-color: hsl(336 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#how-to</a>
               
             
           </div>
@@ -610,19 +613,19 @@
               
             
               
-                <a href="/tags/cybersecurity/" style="background-color: hsl(329 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#cybersecurity</a>
+                <a href="/tags/cybersecurity/" style="background-color: hsl(329 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#cybersecurity</a>
               
             
               
-                <a href="/tags/security/" style="background-color: hsl(160 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#security</a>
+                <a href="/tags/security/" style="background-color: hsl(160 65% 45%); color: #000000" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#security</a>
               
             
               
-                <a href="/tags/vulnerability-management/" style="background-color: hsl(300 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#vulnerability-management</a>
+                <a href="/tags/vulnerability-management/" style="background-color: hsl(300 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#vulnerability-management</a>
               
             
               
-                <a href="/tags/endpoint-security/" style="background-color: hsl(184 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#endpoint-security</a>
+                <a href="/tags/endpoint-security/" style="background-color: hsl(184 65% 45%); color: #000000" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#endpoint-security</a>
               
             
           </div>
@@ -654,19 +657,19 @@
           <div class="mt-3 flex flex-wrap gap-2">
             
               
-                <a href="/tags/now/" style="background-color: hsl(190 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#now</a>
+                <a href="/tags/now/" style="background-color: hsl(190 65% 45%); color: #000000" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#now</a>
               
             
               
-                <a href="/tags/life/" style="background-color: hsl(236 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#life</a>
+                <a href="/tags/life/" style="background-color: hsl(236 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#life</a>
               
             
               
-                <a href="/tags/work/" style="background-color: hsl(1 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#work</a>
+                <a href="/tags/work/" style="background-color: hsl(1 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#work</a>
               
             
               
-                <a href="/tags/school/" style="background-color: hsl(348 65% 45%)" class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity">#school</a>
+                <a href="/tags/school/" style="background-color: hsl(348 65% 45%); color: #ffffff" class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity">#school</a>
               
             
           </div>
@@ -787,7 +790,7 @@
           Analytics powered by <a href="https://tinylytics.app/public/wgrU27nAtwqvZpx9zZwe" class="hover:text-blue-600">Tinylytics</a>
         </p>
 
-        <p class="mb-4 text-sm text-gray-500 dark:text-gray-400">
+        <p class="mb-4 text-sm text-gray-600 dark:text-gray-300">
         © 2026 <span class="font-semibold">CybersecKyle</span>
         <span aria-hidden="true" class="mx-2">·</span>
         <a href="/license/" class="hover:text-blue-600">CC BY-NC-SA 4.0</a>
@@ -844,11 +847,17 @@
           </a>
         </li>
         <li>
-          <img src="/assets/images/buttons/cyberseckyle-button.gif" width="88" height="31" alt="CybersecKyle" loading="lazy">
+          <picture>
+            <source srcset="/assets/images/buttons/cyberseckyle-button.webp" type="image/webp">
+            <img eleventy:ignore src="/assets/images/buttons/cyberseckyle-button.gif" width="88" height="31" alt="CybersecKyle" loading="lazy">
+          </picture>
         </li>
         <li>
           <a href="https://zakhary.dev/blog/gbc-web-button" class="no-indicator">
-            <img src="/assets/images/buttons/gameboygif.gif" width="88" height="31" alt="Gameboy" loading="lazy">
+            <picture>
+              <source srcset="/assets/images/buttons/gameboygif.webp" type="image/webp">
+              <img eleventy:ignore src="/assets/images/buttons/gameboygif.gif" width="88" height="31" alt="Gameboy" loading="lazy">
+            </picture>
           </a>
         </li>
         <li>
@@ -865,14 +874,21 @@
     <script src="/assets/starter/main.js" defer></script>
     <script src="/assets/starter/listening.js" defer></script>
     <script src="/assets/starter/webmentions.js" defer></script>
-    <script src="/assets/starter/flexsearch.min.js" defer></script>
     <script src="/assets/starter/search.js" defer></script>
-    <script src="/assets/starter/easter-eggs.js" defer></script>
-    <script src="https://kit.fontawesome.com/fb3ee9d8ef.js" crossorigin="anonymous" defer></script>
     <script src="https://tinylytics.app/embed/aK6PBymtmDm6DxSXaP2H.js?webring&amp;kudos=%E2%9D%A4%EF%B8%8F" defer></script>
     <script src="/assets/scripts/components/masto-share.js" defer></script>
     <script src="/assets/scripts/components/mastodon-post.js" defer></script>
     <script src="/assets/scripts/components/speedlify-score.js" defer></script>
+    <script>
+      (window.requestIdleCallback || function(callback) {
+        return window.setTimeout(callback, 5000);
+      })(function() {
+        var script = document.createElement('script');
+        script.src = '/assets/starter/easter-eggs.js';
+        script.defer = true;
+        document.body.appendChild(script);
+      });
+    </script>
   
 
 </body>

@@ -82,23 +82,26 @@
 <link rel="manifest" href="/site.webmanifest">
 
 
-    <link rel="stylesheet" href="/assets/starter/build.css">
-    <link rel="stylesheet" href="/assets/starter/cyberseckyle.css">
     <script>
-      window.Prism = window.Prism || {};
-      window.Prism.manual = true;
+      (function() {
+        try {
+          var savedTheme = localStorage.getItem('theme');
+          var useDark = savedTheme ? savedTheme === 'dark' : true;
+          document.documentElement.classList.toggle('dark', useDark);
+          document.documentElement.classList.toggle('light', !useDark);
+        } catch (error) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        }
+      })();
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup-templating.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-batch.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markdown.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-powershell.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-scss.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-twig.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js" defer></script>
+
+    <link rel="preload" href="/assets/starter/build.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/assets/starter/cyberseckyle.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="/assets/starter/build.css">
+      <link rel="stylesheet" href="/assets/starter/cyberseckyle.css">
+    </noscript>
 
     <style>
       .contrast {
@@ -431,19 +434,19 @@
           
         
           
-            <a href="/tags/cybersecurity/" style="background-color: hsl(329 65% 45%)" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#cybersecurity</a>
+            <a href="/tags/cybersecurity/" style="background-color: hsl(329 65% 45%); color: #ffffff" class="p-category px-3 py-1 text-sm rounded-full hover:opacity-85 transition-opacity">#cybersecurity</a>
           
         
           
-            <a href="/tags/security/" style="background-color: hsl(160 65% 45%)" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#security</a>
+            <a href="/tags/security/" style="background-color: hsl(160 65% 45%); color: #000000" class="p-category px-3 py-1 text-sm rounded-full hover:opacity-85 transition-opacity">#security</a>
           
         
           
-            <a href="/tags/vulnerability-management/" style="background-color: hsl(300 65% 45%)" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#vulnerability-management</a>
+            <a href="/tags/vulnerability-management/" style="background-color: hsl(300 65% 45%); color: #ffffff" class="p-category px-3 py-1 text-sm rounded-full hover:opacity-85 transition-opacity">#vulnerability-management</a>
           
         
           
-            <a href="/tags/endpoint-security/" style="background-color: hsl(184 65% 45%)" class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity">#endpoint-security</a>
+            <a href="/tags/endpoint-security/" style="background-color: hsl(184 65% 45%); color: #000000" class="p-category px-3 py-1 text-sm rounded-full hover:opacity-85 transition-opacity">#endpoint-security</a>
           
         
       </div>
@@ -648,7 +651,7 @@
   </a>
   <button type="button" data-copy-link="https://www.kylereddoch.me/blog/protecting-your-enterprise-from-employee-actions-on-network-devices/" class="share-link--button inline-flex items-center gap-1 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200">
     <i aria-hidden="true" class="fa-regular fa-copy"></i>
-    <span>Copy Link</span>
+    <span data-copy-label>Copy Link</span>
   </button>
 </div>
 
@@ -666,9 +669,9 @@
           } else if (navigator.clipboard) {
             await navigator.clipboard.writeText(url);
           }
-          button.querySelector('span').textContent = 'Copied';
+          button.querySelector('[data-copy-label]').textContent = 'Copied';
           setTimeout(() => {
-            button.querySelector('span').textContent = 'Copy Link';
+            button.querySelector('[data-copy-label]').textContent = 'Copy Link';
           }, 1800);
         } catch (error) {
           if (navigator.clipboard && url) {
@@ -689,15 +692,15 @@
                     data-key="username"></span>@<span data-key="hostname"></span></a></cite>-->
         <dl class="mastodon-post__stats">
             <div class="mastodon-post__stat">
-                <a href="https://infosec.exchange/@cyberseckyle/115975083410693641/reblogs/" data-mastodon-link="reblogs" class="no-indicator"><dt><i class="fa-solid fa-rocket"></i></dt>
+                <a href="https://infosec.exchange/@cyberseckyle/115975083410693641/reblogs/" data-mastodon-link="reblogs" class="no-indicator"><dt><i aria-label="Boosts" class="fa-solid fa-rocket"></i></dt>
                 <dd data-key="reblogs_count"></dd></a>
             </div>
             <div class="mastodon-post__stat">
-                <a href="https://infosec.exchange/@cyberseckyle/115975083410693641/" data-mastodon-link="status" class="no-indicator"><dt><i class="fa-solid fa-comment"></i></dt>
+                <a href="https://infosec.exchange/@cyberseckyle/115975083410693641/" data-mastodon-link="status" class="no-indicator"><dt><i aria-label="Replies" class="fa-solid fa-comment"></i></dt>
                 <dd data-key="replies_count"></dd></a>
             </div>
             <div class="mastodon-post__stat">
-                <a href="https://infosec.exchange/@cyberseckyle/115975083410693641/favourites/" data-mastodon-link="favourites" class="no-indicator"><dt><i class="fa-solid fa-heart"></i></dt>
+                <a href="https://infosec.exchange/@cyberseckyle/115975083410693641/favourites/" data-mastodon-link="favourites" class="no-indicator"><dt><i aria-label="Favorites" class="fa-solid fa-heart"></i></dt>
                 <dd data-key="favourites_count"></dd></a>
             </div>
         </dl>
@@ -710,7 +713,7 @@
       
         <div class="discuss-mastodon__intro">
           <div aria-hidden="true" class="discuss-mastodon__mark">
-            <i class="fa-brands fa-mastodon"></i>
+            <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
           </div>
           <div class="discuss-mastodon__copy">
             <h3>Discuss on Mastodon</h3>
@@ -857,7 +860,7 @@
           Analytics powered by <a href="https://tinylytics.app/public/wgrU27nAtwqvZpx9zZwe" class="hover:text-blue-600">Tinylytics</a>
         </p>
 
-        <p class="mb-4 text-sm text-gray-500 dark:text-gray-400">
+        <p class="mb-4 text-sm text-gray-600 dark:text-gray-300">
         © 2026 <span class="font-semibold">CybersecKyle</span>
         <span aria-hidden="true" class="mx-2">·</span>
         <a href="/license/" class="hover:text-blue-600">CC BY-NC-SA 4.0</a>
@@ -914,11 +917,17 @@
           </a>
         </li>
         <li>
-          <img src="/assets/images/buttons/cyberseckyle-button.gif" width="88" height="31" alt="CybersecKyle" loading="lazy">
+          <picture>
+            <source srcset="/assets/images/buttons/cyberseckyle-button.webp" type="image/webp">
+            <img eleventy:ignore src="/assets/images/buttons/cyberseckyle-button.gif" width="88" height="31" alt="CybersecKyle" loading="lazy">
+          </picture>
         </li>
         <li>
           <a href="https://zakhary.dev/blog/gbc-web-button" class="no-indicator">
-            <img src="/assets/images/buttons/gameboygif.gif" width="88" height="31" alt="Gameboy" loading="lazy">
+            <picture>
+              <source srcset="/assets/images/buttons/gameboygif.webp" type="image/webp">
+              <img eleventy:ignore src="/assets/images/buttons/gameboygif.gif" width="88" height="31" alt="Gameboy" loading="lazy">
+            </picture>
           </a>
         </li>
         <li>
@@ -935,14 +944,21 @@
     <script src="/assets/starter/main.js" defer></script>
     <script src="/assets/starter/listening.js" defer></script>
     <script src="/assets/starter/webmentions.js" defer></script>
-    <script src="/assets/starter/flexsearch.min.js" defer></script>
     <script src="/assets/starter/search.js" defer></script>
-    <script src="/assets/starter/easter-eggs.js" defer></script>
-    <script src="https://kit.fontawesome.com/fb3ee9d8ef.js" crossorigin="anonymous" defer></script>
     <script src="https://tinylytics.app/embed/aK6PBymtmDm6DxSXaP2H.js?webring&amp;kudos=%E2%9D%A4%EF%B8%8F" defer></script>
     <script src="/assets/scripts/components/masto-share.js" defer></script>
     <script src="/assets/scripts/components/mastodon-post.js" defer></script>
     <script src="/assets/scripts/components/speedlify-score.js" defer></script>
+    <script>
+      (window.requestIdleCallback || function(callback) {
+        return window.setTimeout(callback, 5000);
+      })(function() {
+        var script = document.createElement('script');
+        script.src = '/assets/starter/easter-eggs.js';
+        script.defer = true;
+        document.body.appendChild(script);
+      });
+    </script>
   
 
 </body>

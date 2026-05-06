@@ -297,7 +297,7 @@
     discussion.innerHTML = `
       <div class="discuss-mastodon__intro">
         <div class="discuss-mastodon__mark" aria-hidden="true">
-          <i class="fa-brands fa-mastodon"></i>
+          <i class="fa-brands fa-mastodon" aria-hidden="true"></i>
         </div>
         <div class="discuss-mastodon__copy">
           <h3>Discuss on Mastodon</h3>

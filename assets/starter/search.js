@@ -1,24 +1,34 @@
 (function() {
   let searchIndex = null;
   let flexSearch = null;
+  let searchReady = null;
 
   // Initialize search when DOM is ready
   document.addEventListener('DOMContentLoaded', initializeSearch);
 
-  async function initializeSearch() {
+  function initializeSearch() {
     const searchInput = document.getElementById('q');
     const searchForm = document.querySelector('form[role="search"]');
     let searchResults = document.getElementById('search-results');
     
     if (!searchInput || !searchForm) return;
 
+    if (!searchResults) {
+      searchResults = createSearchResultsContainer(searchForm);
+    }
+
+    setupSearchListeners(searchForm, searchInput, searchResults);
+  }
+
+  async function prepareSearch() {
+    if (searchReady) return searchReady;
+
+    searchReady = (async () => {
     try {
-      // FlexSearch should already be loaded via script tag
       if (typeof FlexSearch === 'undefined') {
-        throw new Error('FlexSearch library not found. Make sure flexsearch.min.js is loaded.');
+        await loadScript('/assets/starter/flexsearch.min.js');
       }
 
-      // Load search index
       const response = await fetch('/search.json');
       if (!response.ok) {
         throw new Error(`Failed to load search index: ${response.status}`);
@@ -46,18 +56,15 @@
         }
       });
 
-      if (!searchResults) {
-        searchResults = createSearchResultsContainer(searchForm);
-      }
-
-      // Set up search event listeners
-      setupSearchListeners(searchForm, searchInput, searchResults);
-      
-      console.log(`Search initialized with ${searchIndex.length} items`);
+      return true;
       
     } catch (error) {
       console.error('Search initialization failed:', error);
+      return false;
     }
+    })();
+
+    return searchReady;
   }
 
   function setupSearchListeners(searchForm, searchInput, searchResults) {
@@ -77,9 +84,9 @@
       }, 300);
     });
 
-    searchInput.addEventListener('focus', (e) => {
+    searchInput.addEventListener('focus', async (e) => {
       if (e.target.value.trim().length >= 2) {
-        performSearch(e.target.value.trim(), searchResults);
+        await performSearch(e.target.value.trim(), searchResults);
       }
     });
 
@@ -117,8 +124,9 @@
     });
   }
 
-  function performSearch(query, searchResults) {
-    if (!flexSearch || !searchIndex) return;
+  async function performSearch(query, searchResults) {
+    const ready = await prepareSearch();
+    if (!ready || !flexSearch || !searchIndex) return;
 
     try {
       const results = flexSearch.search(query, { limit: 8 });

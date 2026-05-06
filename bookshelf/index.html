@@ -80,23 +80,26 @@
 <link rel="manifest" href="/site.webmanifest">
 
 
-    <link rel="stylesheet" href="/assets/starter/build.css">
-    <link rel="stylesheet" href="/assets/starter/cyberseckyle.css">
     <script>
-      window.Prism = window.Prism || {};
-      window.Prism.manual = true;
+      (function() {
+        try {
+          var savedTheme = localStorage.getItem('theme');
+          var useDark = savedTheme ? savedTheme === 'dark' : true;
+          document.documentElement.classList.toggle('dark', useDark);
+          document.documentElement.classList.toggle('light', !useDark);
+        } catch (error) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        }
+      })();
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup-templating.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-batch.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markdown.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-powershell.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-scss.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-twig.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js" defer></script>
+
+    <link rel="preload" href="/assets/starter/build.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/assets/starter/cyberseckyle.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="/assets/starter/build.css">
+      <link rel="stylesheet" href="/assets/starter/cyberseckyle.css">
+    </noscript>
 
     <style>
       .contrast {
@@ -186,422 +189,26 @@
   </p>
 
   
+  <div class="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900/50 dark:bg-red-950/30 dark:text-red-200 mb-8">
+    Hardcover returned an error while building this page: fetch failed
+  </div>
+  
 
   
-  <dl class="bookshelf-stats mb-10">
-    <div>
-      <dt>Currently Reading</dt>
-      <dd>2</dd>
-    </div>
-    <div>
-      <dt>Finished</dt>
-      <dd>8</dd>
-    </div>
-    <div>
-      <dt>Want to Read</dt>
-      <dd>29</dd>
-    </div>
-  </dl>
-
-  <p class="text-sm text-gray-600 dark:text-gray-400 mb-10">
-    Synced from <a href="https://hardcover.app/@beardedtechguy" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">my Hardcover profile</a>.
-  </p>
-
-  <section class="space-y-12">
-    <div>
-      <div class="flex items-center justify-between gap-3 mb-5">
-        <h2 class="text-2xl font-semibold">Reading</h2>
-        <span class="text-sm text-gray-500 dark:text-gray-400">2 books</span>
-      </div>
-      
-      <ul class="bookshelf-reading-list">
-        
-        <li class="bookshelf-reading-item">
-          
-          <picture><source type="image/webp" srcset="/bookshelf/f6lWXNueFG-199.webp 199w" sizes="auto"><img loading="lazy" decoding="async" src="/bookshelf/f6lWXNueFG-199.jpeg" alt width="199" height="266" class="bookshelf-book__cover"></picture>
-          
-          <div class="min-w-0 flex-1">
-            <a href="https://hardcover.app/books/the-silo-saga-omnibus" class="font-medium hover:text-violet-600 dark:hover:text-violet-300">The Silo Saga Omnibus: Wool, Shift, Dust, and Silo Stories</a>
-            
-            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Hugh Howey</p>
-            
-            <div class="mt-3 flex flex-wrap gap-2 text-xs text-gray-500 dark:text-gray-400">
-            <span>1925 pages</span>
-            <span>2012</span>
-            </div>
-          </div>
-        </li>
-        
-        <li class="bookshelf-reading-item">
-          
-          <picture><source type="image/webp" srcset="/bookshelf/FDaI_idX70-128.webp 128w" sizes="auto"><img loading="lazy" decoding="async" src="/bookshelf/FDaI_idX70-128.jpeg" alt width="128" height="193" class="bookshelf-book__cover"></picture>
-          
-          <div class="min-w-0 flex-1">
-            <a href="https://hardcover.app/books/night-watcher" class="font-medium hover:text-violet-600 dark:hover:text-violet-300">Night Watcher</a>
-            
-            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Daphne Woolsoncroft</p>
-            
-            <div class="mt-3 flex flex-wrap gap-2 text-xs text-gray-500 dark:text-gray-400">
-            <span>336 pages</span>
-            <span>2025</span>
-            </div>
-          </div>
-        </li>
-        
-      </ul>
-      
-    </div>
-
-    <div>
-      <div class="flex items-center justify-between gap-3 mb-5">
-        <h2 class="text-2xl font-semibold">Finished</h2>
-        <span class="text-sm text-gray-500 dark:text-gray-400">8 books</span>
-      </div>
-      
-      <ul class="bookshelf-cover-grid">
-        
-        <li class="bookshelf-cover-card">
-          <a href="https://hardcover.app/books/down-range-c797aa81-0163-4f43-9ac5-76154236c671" class="bookshelf-cover-card__media">
-            
-            <picture><source type="image/webp" srcset="/bookshelf/uxfEjl-jmU-329.webp 329w" sizes="auto"><img loading="lazy" decoding="async" src="/bookshelf/uxfEjl-jmU-329.jpeg" alt width="329" height="500" class="bookshelf-book__cover"></picture>
-            
-          </a>
-          <div class="bookshelf-cover-card__body">
-            <a href="https://hardcover.app/books/down-range-c797aa81-0163-4f43-9ac5-76154236c671" class="bookshelf-cover-card__title hover:text-emerald-600 dark:hover:text-emerald-300">Down Range</a>
-            
-            <p class="bookshelf-cover-card__meta">Taylor    Moore</p>
-            
-            
-            <p class="bookshelf-cover-card__meta">Finished March 17, 2025</p>
-            
-          </div>
-        </li>
-        
-        <li class="bookshelf-cover-card">
-          <a href="https://hardcover.app/books/the-terminal-list" class="bookshelf-cover-card__media">
-            
-            <picture><source type="image/webp" srcset="/bookshelf/W68apjG5hf-331.webp 331w" sizes="auto"><img loading="lazy" decoding="async" src="/bookshelf/W68apjG5hf-331.jpeg" alt width="331" height="500" class="bookshelf-book__cover"></picture>
-            
-          </a>
-          <div class="bookshelf-cover-card__body">
-            <a href="https://hardcover.app/books/the-terminal-list" class="bookshelf-cover-card__title hover:text-emerald-600 dark:hover:text-emerald-300">The Terminal List</a>
-            
-            <p class="bookshelf-cover-card__meta">Jack Carr</p>
-            
-            
-            <p class="bookshelf-cover-card__meta">Finished February 28, 2025</p>
-            
-          </div>
-        </li>
-        
-        <li class="bookshelf-cover-card">
-          <a href="https://hardcover.app/books/the-abduction-of-sarah-phillips" class="bookshelf-cover-card__media">
-            
-            <div aria-hidden="true" class="bookshelf-book__cover bookshelf-book__cover--placeholder">📚</div>
-            
-          </a>
-          <div class="bookshelf-cover-card__body">
-            <a href="https://hardcover.app/books/the-abduction-of-sarah-phillips" class="bookshelf-cover-card__title hover:text-emerald-600 dark:hover:text-emerald-300">The Abduction of Sarah Phillips</a>
-            
-            <p class="bookshelf-cover-card__meta">Andrew J. Brandt</p>
-            
-            
-            <p class="bookshelf-cover-card__meta">Finished January 16, 2023</p>
-            
-          </div>
-        </li>
-        
-        <li class="bookshelf-cover-card">
-          <a href="https://hardcover.app/books/the-treehouse-07d1334b-189b-4302-ad97-967dc68420d0" class="bookshelf-cover-card__media">
-            
-            <div aria-hidden="true" class="bookshelf-book__cover bookshelf-book__cover--placeholder">📚</div>
-            
-          </a>
-          <div class="bookshelf-cover-card__body">
-            <a href="https://hardcover.app/books/the-treehouse-07d1334b-189b-4302-ad97-967dc68420d0" class="bookshelf-cover-card__title hover:text-emerald-600 dark:hover:text-emerald-300">The Treehouse</a>
-            
-            <p class="bookshelf-cover-card__meta">Andrew J. Brandt</p>
-            
-            
-            <p class="bookshelf-cover-card__meta">Finished October 30, 2022</p>
-            
-          </div>
-        </li>
-        
-        <li class="bookshelf-cover-card">
-          <a href="https://hardcover.app/books/day-zero-2021" class="bookshelf-cover-card__media">
-            
-            <picture><source type="image/webp" srcset="/bookshelf/xbhG1vNBtd-332.webp 332w" sizes="auto"><img loading="lazy" decoding="async" src="/bookshelf/xbhG1vNBtd-332.jpeg" alt width="332" height="500" class="bookshelf-book__cover"></picture>
-            
-          </a>
-          <div class="bookshelf-cover-card__body">
-            <a href="https://hardcover.app/books/day-zero-2021" class="bookshelf-cover-card__title hover:text-emerald-600 dark:hover:text-emerald-300">Day Zero</a>
-            
-            <p class="bookshelf-cover-card__meta">C. Robert Cargill</p>
-            
-            
-            <p class="bookshelf-cover-card__meta">Finished October 6, 2022</p>
-            
-          </div>
-        </li>
-        
-        <li class="bookshelf-cover-card">
-          <a href="https://hardcover.app/books/diary-of-anne-frank" class="bookshelf-cover-card__media">
-            
-            <picture><source type="image/webp" srcset="/bookshelf/fS1ZFoq8Au-311.webp 311w" sizes="auto"><img loading="lazy" decoding="async" src="/bookshelf/fS1ZFoq8Au-311.jpeg" alt width="311" height="500" class="bookshelf-book__cover"></picture>
-            
-          </a>
-          <div class="bookshelf-cover-card__body">
-            <a href="https://hardcover.app/books/diary-of-anne-frank" class="bookshelf-cover-card__title hover:text-emerald-600 dark:hover:text-emerald-300">diary of Anne Frank: the play</a>
-            
-            <p class="bookshelf-cover-card__meta">Frances Goodrich, Albert Hackett, Anne Frank</p>
-            
-            
-            <p class="bookshelf-cover-card__meta">Finished July 5, 2016</p>
-            
-          </div>
-        </li>
-        
-        <li class="bookshelf-cover-card">
-          <a href="https://hardcover.app/books/steve-jobs" class="bookshelf-cover-card__media">
-            
-            <picture><source type="image/webp" srcset="/bookshelf/2DANmPgPLG-656.webp 656w" sizes="auto"><img loading="lazy" decoding="async" src="/bookshelf/2DANmPgPLG-656.jpeg" alt width="656" height="1000" class="bookshelf-book__cover"></picture>
-            
-          </a>
-          <div class="bookshelf-cover-card__body">
-            <a href="https://hardcover.app/books/steve-jobs" class="bookshelf-cover-card__title hover:text-emerald-600 dark:hover:text-emerald-300">Steve Jobs</a>
-            
-            <p class="bookshelf-cover-card__meta">Walter Isaacson</p>
-            
-            
-            <p class="bookshelf-cover-card__meta">Finished July 5, 2016</p>
-            
-          </div>
-        </li>
-        
-        <li class="bookshelf-cover-card">
-          <a href="https://hardcover.app/books/a-walk-to-remember-1999" class="bookshelf-cover-card__media">
-            
-            <picture><source type="image/webp" srcset="/bookshelf/R8BQo_r7-R-173.webp 173w" sizes="auto"><img loading="lazy" decoding="async" src="/bookshelf/R8BQo_r7-R-173.jpeg" alt width="173" height="280" class="bookshelf-book__cover"></picture>
-            
-          </a>
-          <div class="bookshelf-cover-card__body">
-            <a href="https://hardcover.app/books/a-walk-to-remember-1999" class="bookshelf-cover-card__title hover:text-emerald-600 dark:hover:text-emerald-300">A Walk to Remember</a>
-            
-            <p class="bookshelf-cover-card__meta">Nicholas Sparks</p>
-            
-            
-            <p class="bookshelf-cover-card__meta">Finished July 5, 2016</p>
-            
-          </div>
-        </li>
-        
-      </ul>
-      
-    </div>
-
-    <div>
-      <div class="flex items-center justify-between gap-3 mb-5">
-        <h2 class="text-2xl font-semibold">Want to Read</h2>
-        <span class="text-sm text-gray-500 dark:text-gray-400">29 books</span>
-      </div>
-      
-      <ul class="bookshelf-cover-grid">
-        
-        <li class="bookshelf-cover-card">
-          <a href="https://hardcover.app/books/1984" class="bookshelf-cover-card__media">
-            
-            <picture><source type="image/webp" srcset="/bookshelf/RU5EDK1zHR-291.webp 291w" sizes="auto"><img loading="lazy" decoding="async" src="/bookshelf/RU5EDK1zHR-291.jpeg" alt width="291" height="475" class="bookshelf-book__cover"></picture>
-            
-          </a>
-          <div class="bookshelf-cover-card__body">
-            <a href="https://hardcover.app/books/1984" class="bookshelf-cover-card__title hover:text-amber-600 dark:hover:text-amber-300">1984</a>
-            
-            <p class="bookshelf-cover-card__meta">George Orwell, Peter Hobley Davison, Shepard Fairey</p>
-            
-            <p class="bookshelf-cover-card__meta">
-              <span>336 pages</span>
-              <span> · </span>
-              <span>1948</span>
-            </p>
-          </div>
-        </li>
-        
-        <li class="bookshelf-cover-card">
-          <a href="https://hardcover.app/books/ricochet-2023" class="bookshelf-cover-card__media">
-            
-            <picture><source type="image/webp" srcset="/bookshelf/KUPpoOmeSh-98.webp 98w" sizes="auto"><img loading="lazy" decoding="async" src="/bookshelf/KUPpoOmeSh-98.jpeg" alt width="98" height="148" class="bookshelf-book__cover"></picture>
-            
-          </a>
-          <div class="bookshelf-cover-card__body">
-            <a href="https://hardcover.app/books/ricochet-2023" class="bookshelf-cover-card__title hover:text-amber-600 dark:hover:text-amber-300">Ricochet</a>
-            
-            <p class="bookshelf-cover-card__meta">Taylor Moore</p>
-            
-            <p class="bookshelf-cover-card__meta">
-              
-              
-              <span>2023</span>
-            </p>
-          </div>
-        </li>
-        
-        <li class="bookshelf-cover-card">
-          <a href="https://hardcover.app/books/cold-trail-2024" class="bookshelf-cover-card__media">
-            
-            <picture><source type="image/webp" srcset="/bookshelf/x_8gHDtbdl-128.webp 128w" sizes="auto"><img loading="lazy" decoding="async" src="/bookshelf/x_8gHDtbdl-128.jpeg" alt width="128" height="194" class="bookshelf-book__cover"></picture>
-            
-          </a>
-          <div class="bookshelf-cover-card__body">
-            <a href="https://hardcover.app/books/cold-trail-2024" class="bookshelf-cover-card__title hover:text-amber-600 dark:hover:text-amber-300">Cold Trail</a>
-            
-            <p class="bookshelf-cover-card__meta">Taylor    Moore</p>
-            
-            <p class="bookshelf-cover-card__meta">
-              <span>328 pages</span>
-              <span> · </span>
-              <span>2024</span>
-            </p>
-          </div>
-        </li>
-        
-        <li class="bookshelf-cover-card">
-          <a href="https://hardcover.app/books/the-maze-runner-series" class="bookshelf-cover-card__media">
-            
-            <picture><source type="image/webp" srcset="/bookshelf/dknvVsWN6f-370.webp 370w" sizes="auto"><img loading="lazy" decoding="async" src="/bookshelf/dknvVsWN6f-370.jpeg" alt width="370" height="500" class="bookshelf-book__cover"></picture>
-            
-          </a>
-          <div class="bookshelf-cover-card__body">
-            <a href="https://hardcover.app/books/the-maze-runner-series" class="bookshelf-cover-card__title hover:text-amber-600 dark:hover:text-amber-300">The Maze Runner Series</a>
-            
-            <p class="bookshelf-cover-card__meta">James Dashner</p>
-            
-            <p class="bookshelf-cover-card__meta">
-              <span>1593 pages</span>
-              <span> · </span>
-              <span>2010</span>
-            </p>
-          </div>
-        </li>
-        
-        <li class="bookshelf-cover-card">
-          <a href="https://hardcover.app/books/red-sky-mourning" class="bookshelf-cover-card__media">
-            
-            <picture><source type="image/webp" srcset="/bookshelf/MM4gjU2tBn-98.webp 98w" sizes="auto"><img loading="lazy" decoding="async" src="/bookshelf/MM4gjU2tBn-98.jpeg" alt width="98" height="148" class="bookshelf-book__cover"></picture>
-            
-          </a>
-          <div class="bookshelf-cover-card__body">
-            <a href="https://hardcover.app/books/red-sky-mourning" class="bookshelf-cover-card__title hover:text-amber-600 dark:hover:text-amber-300">Red Sky Mourning</a>
-            
-            <p class="bookshelf-cover-card__meta">Jack Carr</p>
-            
-            <p class="bookshelf-cover-card__meta">
-              <span>448 pages</span>
-              <span> · </span>
-              <span>2024</span>
-            </p>
-          </div>
-        </li>
-        
-        <li class="bookshelf-cover-card">
-          <a href="https://hardcover.app/books/only-the-dead-2023" class="bookshelf-cover-card__media">
-            
-            <picture><source type="image/webp" srcset="/bookshelf/EH79bPuR1N-98.webp 98w" sizes="auto"><img loading="lazy" decoding="async" src="/bookshelf/EH79bPuR1N-98.jpeg" alt width="98" height="149" class="bookshelf-book__cover"></picture>
-            
-          </a>
-          <div class="bookshelf-cover-card__body">
-            <a href="https://hardcover.app/books/only-the-dead-2023" class="bookshelf-cover-card__title hover:text-amber-600 dark:hover:text-amber-300">Only the Dead</a>
-            
-            <p class="bookshelf-cover-card__meta">Jack Carr, Ray Porter</p>
-            
-            <p class="bookshelf-cover-card__meta">
-              
-              
-              <span>2023</span>
-            </p>
-          </div>
-        </li>
-        
-        <li class="bookshelf-cover-card">
-          <a href="https://hardcover.app/books/the-devils-hand" class="bookshelf-cover-card__media">
-            
-            <picture><source type="image/webp" srcset="/bookshelf/UQRiX8tBH0-330.webp 330w" sizes="auto"><img loading="lazy" decoding="async" src="/bookshelf/UQRiX8tBH0-330.jpeg" alt width="330" height="500" class="bookshelf-book__cover"></picture>
-            
-          </a>
-          <div class="bookshelf-cover-card__body">
-            <a href="https://hardcover.app/books/the-devils-hand" class="bookshelf-cover-card__title hover:text-amber-600 dark:hover:text-amber-300">The Devil's Hand</a>
-            
-            <p class="bookshelf-cover-card__meta">Jack Carr</p>
-            
-            <p class="bookshelf-cover-card__meta">
-              <span>544 pages</span>
-              <span> · </span>
-              <span>2021</span>
-            </p>
-          </div>
-        </li>
-        
-        <li class="bookshelf-cover-card">
-          <a href="https://hardcover.app/books/the-last-shadow" class="bookshelf-cover-card__media">
-            
-            <picture><source type="image/webp" srcset="/bookshelf/0kEtezKmXv-329.webp 329w" sizes="auto"><img loading="lazy" decoding="async" src="/bookshelf/0kEtezKmXv-329.jpeg" alt width="329" height="500" class="bookshelf-book__cover"></picture>
-            
-          </a>
-          <div class="bookshelf-cover-card__body">
-            <a href="https://hardcover.app/books/the-last-shadow" class="bookshelf-cover-card__title hover:text-amber-600 dark:hover:text-amber-300">The Last Shadow</a>
-            
-            <p class="bookshelf-cover-card__meta">Orson Scott Card</p>
-            
-            <p class="bookshelf-cover-card__meta">
-              <span>288 pages</span>
-              <span> · </span>
-              <span>2008</span>
-            </p>
-          </div>
-        </li>
-        
-        <li class="bookshelf-cover-card">
-          <a href="https://hardcover.app/books/ender-in-exile" class="bookshelf-cover-card__media">
-            
-            <picture><source type="image/webp" srcset="/bookshelf/57QW-FbDNf-329.webp 329w" sizes="auto"><img loading="lazy" decoding="async" src="/bookshelf/57QW-FbDNf-329.jpeg" alt width="329" height="500" class="bookshelf-book__cover"></picture>
-            
-          </a>
-          <div class="bookshelf-cover-card__body">
-            <a href="https://hardcover.app/books/ender-in-exile" class="bookshelf-cover-card__title hover:text-amber-600 dark:hover:text-amber-300">Ender in Exile</a>
-            
-            <p class="bookshelf-cover-card__meta">Orson Scott Card</p>
-            
-            <p class="bookshelf-cover-card__meta">
-              <span>380 pages</span>
-              <span> · </span>
-              <span>2007</span>
-            </p>
-          </div>
-        </li>
-        
-        <li class="bookshelf-cover-card">
-          <a href="https://hardcover.app/books/children-of-the-mind" class="bookshelf-cover-card__media">
-            
-            <picture><source type="image/webp" srcset="/bookshelf/7tDkap2d33-322.webp 322w" sizes="auto"><img loading="lazy" decoding="async" src="/bookshelf/7tDkap2d33-322.jpeg" alt width="322" height="500" class="bookshelf-book__cover"></picture>
-            
-          </a>
-          <div class="bookshelf-cover-card__body">
-            <a href="https://hardcover.app/books/children-of-the-mind" class="bookshelf-cover-card__title hover:text-amber-600 dark:hover:text-amber-300">Children of the Mind</a>
-            
-            <p class="bookshelf-cover-card__meta">Orson Scott Card</p>
-            
-            <p class="bookshelf-cover-card__meta">
-              <span>284 pages</span>
-              <span> · </span>
-              <span>1996</span>
-            </p>
-          </div>
-        </li>
-        
-      </ul>
-      
-    </div>
-  </section>
+  <div class="border border-slate-200 p-6 dark:border-slate-800">
+    <h2 class="text-xl font-semibold mb-3">Bookshelf Sync Not Configured Yet</h2>
+    <p class="text-gray-600 dark:text-gray-400 mb-4">
+      This page is ready to pull directly from Hardcover once a working `HARDCOVER_TOKEN` is available at build time.
+    </p>
+    
+    <p class="text-sm text-red-600 dark:text-red-300 mb-4">
+      Current build error: fetch failed
+    </p>
+    
+    <p class="text-sm text-gray-600 dark:text-gray-400">
+      Until then, my reading lives over on <a href="https://hardcover.app" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">Hardcover</a>.
+    </p>
+  </div>
   
 </div>
 
@@ -706,7 +313,7 @@
           Analytics powered by <a href="https://tinylytics.app/public/wgrU27nAtwqvZpx9zZwe" class="hover:text-blue-600">Tinylytics</a>
         </p>
 
-        <p class="mb-4 text-sm text-gray-500 dark:text-gray-400">
+        <p class="mb-4 text-sm text-gray-600 dark:text-gray-300">
         © 2026 <span class="font-semibold">CybersecKyle</span>
         <span aria-hidden="true" class="mx-2">·</span>
         <a href="/license/" class="hover:text-blue-600">CC BY-NC-SA 4.0</a>
@@ -763,11 +370,17 @@
           </a>
         </li>
         <li>
-          <img src="/assets/images/buttons/cyberseckyle-button.gif" width="88" height="31" alt="CybersecKyle" loading="lazy">
+          <picture>
+            <source srcset="/assets/images/buttons/cyberseckyle-button.webp" type="image/webp">
+            <img eleventy:ignore src="/assets/images/buttons/cyberseckyle-button.gif" width="88" height="31" alt="CybersecKyle" loading="lazy">
+          </picture>
         </li>
         <li>
           <a href="https://zakhary.dev/blog/gbc-web-button" class="no-indicator">
-            <img src="/assets/images/buttons/gameboygif.gif" width="88" height="31" alt="Gameboy" loading="lazy">
+            <picture>
+              <source srcset="/assets/images/buttons/gameboygif.webp" type="image/webp">
+              <img eleventy:ignore src="/assets/images/buttons/gameboygif.gif" width="88" height="31" alt="Gameboy" loading="lazy">
+            </picture>
           </a>
         </li>
         <li>
@@ -784,14 +397,21 @@
     <script src="/assets/starter/main.js" defer></script>
     <script src="/assets/starter/listening.js" defer></script>
     <script src="/assets/starter/webmentions.js" defer></script>
-    <script src="/assets/starter/flexsearch.min.js" defer></script>
     <script src="/assets/starter/search.js" defer></script>
-    <script src="/assets/starter/easter-eggs.js" defer></script>
-    <script src="https://kit.fontawesome.com/fb3ee9d8ef.js" crossorigin="anonymous" defer></script>
     <script src="https://tinylytics.app/embed/aK6PBymtmDm6DxSXaP2H.js?webring&amp;kudos=%E2%9D%A4%EF%B8%8F" defer></script>
     <script src="/assets/scripts/components/masto-share.js" defer></script>
     <script src="/assets/scripts/components/mastodon-post.js" defer></script>
     <script src="/assets/scripts/components/speedlify-score.js" defer></script>
+    <script>
+      (window.requestIdleCallback || function(callback) {
+        return window.setTimeout(callback, 5000);
+      })(function() {
+        var script = document.createElement('script');
+        script.src = '/assets/starter/easter-eggs.js';
+        script.defer = true;
+        document.body.appendChild(script);
+      });
+    </script>
   
 
 </body>
