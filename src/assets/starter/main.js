@@ -1,4 +1,34 @@
 (function () {
+  const prismScripts = [
+    'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup-templating.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-batch.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markdown.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-powershell.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-scss.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-twig.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js'
+  ];
+
+  const loadScript = (src) => new Promise((resolve, reject) => {
+    const existing = document.querySelector(`script[src="${src}"]`);
+    if (existing) {
+      existing.addEventListener('load', resolve, { once: true });
+      existing.addEventListener('error', reject, { once: true });
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.src = src;
+    script.defer = true;
+    script.onload = resolve;
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
+
   const codeLanguageAliases = {
     cmd: 'batch',
     htm: 'markup',
@@ -52,7 +82,23 @@
     return '';
   };
 
-  const normalizeCodeBlocks = () => {
+  const normalizeCodeBlocks = async () => {
+    if (!document.querySelector('pre code')) return;
+
+    window.Prism = window.Prism || {};
+    window.Prism.manual = true;
+
+    if (!window.Prism.highlightElement) {
+      try {
+        for (const src of prismScripts) {
+          await loadScript(src);
+        }
+      } catch (error) {
+        console.warn('Syntax highlighting failed to load:', error);
+        return;
+      }
+    }
+
     if (!window.Prism || typeof window.Prism.highlightElement !== 'function') return;
 
     document.querySelectorAll('pre code').forEach((code) => {
@@ -89,7 +135,6 @@
   onScroll();
 
   const darkToggle = document.getElementById('dark-toggle');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 
   const setToggleUI = (isDark) => {
     if (!darkToggle) return;
@@ -100,12 +145,13 @@
 
   const applyTheme = (isDark) => {
     document.documentElement.classList.toggle('dark', isDark);
+    document.documentElement.classList.toggle('light', !isDark);
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
     setToggleUI(isDark);
   };
 
   const savedTheme = localStorage.getItem('theme');
-  const initialDark = savedTheme ? savedTheme === 'dark' : prefersDark.matches;
+  const initialDark = savedTheme ? savedTheme === 'dark' : true;
   applyTheme(initialDark);
 
   if (darkToggle) {

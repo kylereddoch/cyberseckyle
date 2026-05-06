@@ -70,7 +70,7 @@ schema: BlogPosting
       <div class="flex flex-wrap gap-2">
         {% for tag in tags %}
           {% if tag != 'posts' %}
-            <a class="p-category px-3 py-1 text-sm rounded-full text-white hover:opacity-85 transition-opacity" style="background-color: {{ tag | tagColor }}" href="/tags/{{ tag | slug }}/">#{{ tag }}</a>
+            <a class="p-category px-3 py-1 text-sm rounded-full hover:opacity-85 transition-opacity" style="background-color: {{ tag | tagColor }}; color: {{ tag | tagTextColor }}" href="/tags/{{ tag | slug }}/">#{{ tag }}</a>
           {% endif %}
         {% endfor %}
       </div>
@@ -111,7 +111,7 @@ schema: BlogPosting
       {% if mastodonDiscussionUrl %}
         <div class="discuss-mastodon__intro">
           <div class="discuss-mastodon__mark" aria-hidden="true">
-            <i class="fa-brands fa-mastodon"></i>
+            <i class="fa-brands fa-mastodon" aria-hidden="true"></i>
           </div>
           <div class="discuss-mastodon__copy">
             <h3>Discuss on Mastodon</h3>

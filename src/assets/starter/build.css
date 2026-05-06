@@ -1961,15 +1961,7 @@ a:hover:not(.nav-item) {
   opacity: 1;
 }
 
-:root {
-  --bg: #fefbff;
-  --text: #1a1625;
-  --surface: #f7f2fa;
-  --accent: #7c3aed;
-  --accent-light: #a855f7;
-  --border: #e9d5ff;
-}
-
+:root,
 .dark {
   --bg: #0f0a1a;
   --text: #f1e8ff;
@@ -1977,6 +1969,15 @@ a:hover:not(.nav-item) {
   --accent: #a855f7;
   --accent-light: #c084fc;
   --border: #4c1d95;
+}
+
+.light {
+  --bg: #fefbff;
+  --text: #1a1625;
+  --surface: #f7f2fa;
+  --accent: #7c3aed;
+  --accent-light: #a855f7;
+  --border: #e9d5ff;
 }
 
 #progress-bar {

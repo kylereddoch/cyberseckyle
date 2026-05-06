@@ -44,7 +44,7 @@ description: "Writing from CybersecKyle, including long-form posts and dated /no
           <div class="mt-3 flex flex-wrap gap-2">
             {% for tag in post.data.tags %}
               {% if tag != 'posts' %}
-                <a class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity" style="background-color: {{ tag | tagColor }}" href="/tags/{{ tag | slug }}/">#{{ tag }}</a>
+                <a class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity" style="background-color: {{ tag | tagColor }}; color: {{ tag | tagTextColor }}" href="/tags/{{ tag | slug }}/">#{{ tag }}</a>
               {% endif %}
             {% endfor %}
           </div>

@@ -71,7 +71,7 @@
           Analytics powered by <a class="hover:text-blue-600" href="https://tinylytics.app/public/{{ meta.analytics.tinylytics.publicId }}">Tinylytics</a>
         </p>
 
-        <p class="mb-4 text-sm text-gray-500 dark:text-gray-400">
+        <p class="mb-4 text-sm text-gray-600 dark:text-gray-300">
         &copy; {% year %} <span class="font-semibold">{{ meta.siteName }}</span>
         <span class="mx-2" aria-hidden="true">&middot;</span>
         <a class="hover:text-blue-600" href="/license/">CC BY-NC-SA 4.0</a>
@@ -128,11 +128,17 @@
           </a>
         </li>
         <li>
-          <img eleventy:ignore src="/assets/images/buttons/cyberseckyle-button.gif" width="88" height="31" alt="CybersecKyle" loading="lazy" />
+          <picture>
+            <source srcset="/assets/images/buttons/cyberseckyle-button.webp" type="image/webp" />
+            <img eleventy:ignore src="/assets/images/buttons/cyberseckyle-button.gif" width="88" height="31" alt="CybersecKyle" loading="lazy" />
+          </picture>
         </li>
         <li>
           <a href="https://zakhary.dev/blog/gbc-web-button" class="no-indicator">
-            <img eleventy:ignore src="/assets/images/buttons/gameboygif.gif" width="88" height="31" alt="Gameboy" loading="lazy" />
+            <picture>
+              <source srcset="/assets/images/buttons/gameboygif.webp" type="image/webp" />
+              <img eleventy:ignore src="/assets/images/buttons/gameboygif.gif" width="88" height="31" alt="Gameboy" loading="lazy" />
+            </picture>
           </a>
         </li>
         <li>

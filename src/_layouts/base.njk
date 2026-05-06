@@ -15,23 +15,26 @@
 
     {% include "head/meta-info.njk" %}
 
-    <link rel="stylesheet" href="/assets/starter/build.css" />
-    <link rel="stylesheet" href="/assets/starter/cyberseckyle.css" />
     <script>
-      window.Prism = window.Prism || {};
-      window.Prism.manual = true;
+      (function() {
+        try {
+          var savedTheme = localStorage.getItem('theme');
+          var useDark = savedTheme ? savedTheme === 'dark' : true;
+          document.documentElement.classList.toggle('dark', useDark);
+          document.documentElement.classList.toggle('light', !useDark);
+        } catch (error) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        }
+      })();
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup-templating.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-batch.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markdown.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-powershell.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-scss.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-twig.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js" defer></script>
+
+    <link rel="preload" href="/assets/starter/build.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="/assets/starter/cyberseckyle.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+      <link rel="stylesheet" href="/assets/starter/build.css" />
+      <link rel="stylesheet" href="/assets/starter/cyberseckyle.css" />
+    </noscript>
 
     <style>
       .contrast {
@@ -126,13 +129,20 @@
     <script src="/assets/starter/main.js" defer></script>
     <script src="/assets/starter/listening.js" defer></script>
     <script src="/assets/starter/webmentions.js" defer></script>
-    <script src="/assets/starter/flexsearch.min.js" defer></script>
     <script src="/assets/starter/search.js" defer></script>
-    <script src="/assets/starter/easter-eggs.js" defer></script>
-    <script src="https://kit.fontawesome.com/fb3ee9d8ef.js" crossorigin="anonymous" defer></script>
     <script src="https://tinylytics.app/embed/{{ meta.analytics.tinylytics.siteCode }}.js?webring&kudos=%E2%9D%A4%EF%B8%8F" defer></script>
     <script src="/assets/scripts/components/masto-share.js" defer></script>
     <script src="/assets/scripts/components/mastodon-post.js" defer></script>
     <script src="/assets/scripts/components/speedlify-score.js" defer></script>
+    <script>
+      (window.requestIdleCallback || function(callback) {
+        return window.setTimeout(callback, 5000);
+      })(function() {
+        var script = document.createElement('script');
+        script.src = '/assets/starter/easter-eggs.js';
+        script.defer = true;
+        document.body.appendChild(script);
+      });
+    </script>
   </body>
 </html>

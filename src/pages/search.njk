@@ -83,6 +83,10 @@ excludeFromSearch: true
     summary.textContent = `Showing results for "${query}"`;
 
     try {
+      if (typeof FlexSearch === 'undefined') {
+        await loadScript('/assets/starter/flexsearch.min.js');
+      }
+
       const response = await fetch('/search.json');
       const searchIndex = await response.json();
 
@@ -121,6 +125,24 @@ excludeFromSearch: true
     } catch (error) {
       console.error('Search page failed:', error);
     }
+  }
+
+  function loadScript(src) {
+    return new Promise((resolve, reject) => {
+      const existing = document.querySelector(`script[src="${src}"]`);
+      if (existing) {
+        existing.addEventListener('load', resolve, { once: true });
+        existing.addEventListener('error', reject, { once: true });
+        return;
+      }
+
+      const script = document.createElement('script');
+      script.src = src;
+      script.defer = true;
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
   }
 
   function updateSearch(query) {

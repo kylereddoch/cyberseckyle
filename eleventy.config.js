@@ -17,6 +17,8 @@ import yaml from 'js-yaml';
 // ✅ NEW: node fs/path for base64 font embedding in SVGs
 import fs from 'node:fs';
 import path from 'node:path';
+import postcss from 'postcss';
+import cssnano from 'cssnano';
 
 //  config import
 import {
@@ -44,6 +46,119 @@ import readingTime from 'eleventy-plugin-reading-time';
 const tagColors = JSON.parse(
   fs.readFileSync(path.join(process.cwd(), 'src/_data/tagColors.json'), 'utf8')
 );
+
+const getTagColor = tag => {
+  if (!tag) return '#6b7280';
+  const key = String(tag).toLowerCase();
+  if (tagColors[key]) return tagColors[key];
+
+  let hash = 0;
+  for (let i = 0; i < key.length; i++) {
+    hash = (hash * 31 + key.charCodeAt(i)) >>> 0;
+  }
+
+  const hue = hash % 360;
+  return `hsl(${hue} 65% 45%)`;
+};
+
+const colorToRgb = color => {
+  const value = String(color || '').trim();
+  const hex = value.match(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i);
+
+  if (hex) {
+    const normalized = hex[1].length === 3
+      ? hex[1].split('').map(char => char + char).join('')
+      : hex[1];
+
+    return {
+      r: parseInt(normalized.slice(0, 2), 16),
+      g: parseInt(normalized.slice(2, 4), 16),
+      b: parseInt(normalized.slice(4, 6), 16)
+    };
+  }
+
+  const hsl = value.match(/^hsl\(\s*([\d.]+)\s+([\d.]+)%\s+([\d.]+)%\s*\)$/i);
+  if (!hsl) return null;
+
+  const h = (Number(hsl[1]) % 360) / 360;
+  const s = Number(hsl[2]) / 100;
+  const l = Number(hsl[3]) / 100;
+  const hueToRgb = (p, q, t) => {
+    let next = t;
+    if (next < 0) next += 1;
+    if (next > 1) next -= 1;
+    if (next < 1 / 6) return p + (q - p) * 6 * next;
+    if (next < 1 / 2) return q;
+    if (next < 2 / 3) return p + (q - p) * (2 / 3 - next) * 6;
+    return p;
+  };
+
+  if (s === 0) {
+    const channel = Math.round(l * 255);
+    return { r: channel, g: channel, b: channel };
+  }
+
+  const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+  const p = 2 * l - q;
+
+  return {
+    r: Math.round(hueToRgb(p, q, h + 1 / 3) * 255),
+    g: Math.round(hueToRgb(p, q, h) * 255),
+    b: Math.round(hueToRgb(p, q, h - 1 / 3) * 255)
+  };
+};
+
+const relativeLuminance = ({ r, g, b }) => {
+  const channels = [r, g, b].map(channel => {
+    const normalized = channel / 255;
+    return normalized <= 0.03928
+      ? normalized / 12.92
+      : ((normalized + 0.055) / 1.055) ** 2.4;
+  });
+
+  return channels[0] * 0.2126 + channels[1] * 0.7152 + channels[2] * 0.0722;
+};
+
+const contrastRatio = (first, second) => {
+  const l1 = relativeLuminance(first);
+  const l2 = relativeLuminance(second);
+  const lighter = Math.max(l1, l2);
+  const darker = Math.min(l1, l2);
+
+  return (lighter + 0.05) / (darker + 0.05);
+};
+
+const readableTagTextColor = tag => {
+  const rgb = colorToRgb(getTagColor(tag));
+  if (!rgb) return '#ffffff';
+
+  const black = { r: 0, g: 0, b: 0 };
+  const white = { r: 255, g: 255, b: 255 };
+
+  return contrastRatio(rgb, black) >= contrastRatio(rgb, white) ? '#000000' : '#ffffff';
+};
+
+const minifyBuiltCss = async () => {
+  if (process.env.ELEVENTY_ENV !== 'production') return;
+
+  const files = [
+    'dist/assets/starter/build.css',
+    'dist/assets/starter/cyberseckyle.css'
+  ];
+
+  await Promise.all(files.map(async file => {
+    const absolutePath = path.join(process.cwd(), file);
+    if (!fs.existsSync(absolutePath)) return;
+
+    const css = fs.readFileSync(absolutePath, 'utf8');
+    const result = await postcss([cssnano({ preset: ['default', { svgo: false }] })]).process(css, {
+      from: absolutePath,
+      to: absolutePath
+    });
+
+    fs.writeFileSync(absolutePath, result.css);
+  }));
+};
 
 const normalizeWebmentionTarget = value => {
   if (!value) return '';
@@ -427,19 +542,8 @@ export default async function (eleventyConfig) {
     if (!Array.isArray(arr)) return arr;
     return n < 0 ? arr.slice(n) : arr.slice(0, n);
   });
-  eleventyConfig.addFilter('tagColor', tag => {
-    if (!tag) return '#6b7280';
-    const key = String(tag).toLowerCase();
-    if (tagColors[key]) return tagColors[key];
-
-    let hash = 0;
-    for (let i = 0; i < key.length; i++) {
-      hash = (hash * 31 + key.charCodeAt(i)) >>> 0;
-    }
-
-    const hue = hash % 360;
-    return `hsl(${hue} 65% 45%)`;
-  });
+  eleventyConfig.addFilter('tagColor', getTagColor);
+  eleventyConfig.addFilter('tagTextColor', readableTagTextColor);
   eleventyConfig.addFilter('relatedEntries', (items, currentUrl, currentTags = [], limit = 3) => {
     if (!Array.isArray(items) || !Array.isArray(currentTags) || currentTags.length === 0) {
       return [];
@@ -495,7 +599,10 @@ export default async function (eleventyConfig) {
   eleventyConfig.addJavaScriptFunction('mastodon', mastodonEmbedShortcode);
 
   // --------------------- Events ---------------------
-  eleventyConfig.on('eleventy.after', events.svgToJpeg);
+  eleventyConfig.on('eleventy.after', async () => {
+    await events.svgToJpeg();
+    await minifyBuiltCss();
+  });
 
   // --------------------- Passthrough File Copy
   ['src/assets/fonts/', 'src/assets/images/template', 'src/assets/og-images'].forEach(path =>

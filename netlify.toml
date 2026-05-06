@@ -5,6 +5,16 @@ package = "netlify-plugin-cache"
 
 
 [[headers]]
+    for = "/assets/*"
+    [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+    for = "/img/*"
+    [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
     for = "/*"
     [headers.values]
     Content-Security-Policy = "upgrade-insecure-requests;"

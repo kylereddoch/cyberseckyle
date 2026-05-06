@@ -21,7 +21,7 @@
   </a>
   <button type="button" class="share-link--button inline-flex items-center gap-1 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" data-copy-link="{{ pageUrl }}">
     <i class="fa-regular fa-copy" aria-hidden="true"></i>
-    <span>Copy Link</span>
+    <span data-copy-label>Copy Link</span>
   </button>
 </div>
 
@@ -39,9 +39,9 @@
           } else if (navigator.clipboard) {
             await navigator.clipboard.writeText(url);
           }
-          button.querySelector('span').textContent = 'Copied';
+          button.querySelector('[data-copy-label]').textContent = 'Copied';
           setTimeout(() => {
-            button.querySelector('span').textContent = 'Copy Link';
+            button.querySelector('[data-copy-label]').textContent = 'Copy Link';
           }, 1800);
         } catch (error) {
           if (navigator.clipboard && url) {

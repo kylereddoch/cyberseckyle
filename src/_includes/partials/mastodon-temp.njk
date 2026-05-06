@@ -5,15 +5,15 @@
                     data-key="username"></span>@<span data-key="hostname"></span></a></cite>-->
         <dl class="mastodon-post__stats">
             <div class="mastodon-post__stat">
-                <a {% if mastodonPostUrl %}href="{{ mastodonPostUrl }}/reblogs/"{% endif %} data-mastodon-link="reblogs" class="no-indicator"><dt><i class="fa-solid fa-rocket"></i></dt>
+                <a {% if mastodonPostUrl %}href="{{ mastodonPostUrl }}/reblogs/"{% endif %} data-mastodon-link="reblogs" class="no-indicator"><dt><i class="fa-solid fa-rocket" aria-label="Boosts"></i></dt>
                 <dd data-key="reblogs_count"></dd></a>
             </div>
             <div class="mastodon-post__stat">
-                <a {% if mastodonPostUrl %}href="{{ mastodonPostUrl }}/"{% endif %} data-mastodon-link="status" class="no-indicator"><dt><i class="fa-solid fa-comment"></i></dt>
+                <a {% if mastodonPostUrl %}href="{{ mastodonPostUrl }}/"{% endif %} data-mastodon-link="status" class="no-indicator"><dt><i class="fa-solid fa-comment" aria-label="Replies"></i></dt>
                 <dd data-key="replies_count"></dd></a>
             </div>
             <div class="mastodon-post__stat">
-                <a {% if mastodonPostUrl %}href="{{ mastodonPostUrl }}/favourites/"{% endif %} data-mastodon-link="favourites" class="no-indicator"><dt><i class="fa-solid fa-heart"></i></dt>
+                <a {% if mastodonPostUrl %}href="{{ mastodonPostUrl }}/favourites/"{% endif %} data-mastodon-link="favourites" class="no-indicator"><dt><i class="fa-solid fa-heart" aria-label="Favorites"></i></dt>
                 <dd data-key="favourites_count"></dd></a>
             </div>
         </dl>

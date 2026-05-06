@@ -81,7 +81,7 @@ description: "Welcome to CybersecKyle, where Kyle Reddoch writes about cybersecu
               <div class="flex flex-wrap gap-2">
                 {% for tag in entry.data.tags %}
                   {% if tag != 'posts' and tag != 'journal' %}
-                    <a class="p-category px-2 py-1 rounded text-white text-xs hover:opacity-80 transition-opacity" style="background-color: {{ tag | tagColor }}" href="/tags/{{ tag | slug }}/">#{{ tag }}</a>
+                    <a class="p-category px-2 py-1 rounded text-xs hover:opacity-80 transition-opacity" style="background-color: {{ tag | tagColor }}; color: {{ tag | tagTextColor }}" href="/tags/{{ tag | slug }}/">#{{ tag }}</a>
                   {% endif %}
                 {% endfor %}
               </div>
@@ -113,7 +113,7 @@ description: "Welcome to CybersecKyle, where Kyle Reddoch writes about cybersecu
     <a href="/notes/" class="block p-4 bg-green-50 dark:bg-green-900/20 rounded-lg hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors">
       <div class="text-2xl mb-2">&#128221;</div>
       <h3 class="font-semibold text-green-800 dark:text-green-200">Weekly notes and smaller posts</h3>
-      <p class="text-sm text-green-600 dark:text-green-300">Shorter updates that still deserve a permalink</p>
+      <p class="text-sm text-green-700 dark:text-green-200">Shorter updates that still deserve a permalink</p>
     </a>
 
     <a href="/sitemap/" class="block p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors">
