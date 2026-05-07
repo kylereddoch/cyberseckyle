@@ -7,7 +7,7 @@ featuredImageAlt: Google Chrome logo centered over a glowing red digital grid ba
 featuredImageCaption:
 tags: [editorials, ai, privacy, browsers, security]
 mastodon_post: true
-mastodon_url: 
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116534321885961705"
 mastodon_tags: [Cybersecurity, InfoSec, Privacy, GoogleChrome, Google, AI, BrowserSecurity, DigitalPrivacy, Surveillance, TechNews]
 ---
 
