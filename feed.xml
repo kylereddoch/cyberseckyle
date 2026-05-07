@@ -4,12 +4,75 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-05-06T19:45:23Z</updated>
+  <updated>2026-05-07T15:52:17Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>Catppuccin Complete UI for Mastodon Now Supports GlitchSoc</title>
+      <link href="https://www.kylereddoch.me/blog/catppuccin-complete-ui-for-mastodon-now-supports-glitchsoc/" />
+      <updated>2026-05-07T15:30:00Z</updated>
+      <id>https://www.kylereddoch.me/blog/catppuccin-complete-ui-for-mastodon-now-supports-glitchsoc/</id>
+      <content type="html">
+        &lt;p&gt;When I released &lt;a href=&quot;https://www.kylereddoch.me/blog/catppuccin-complete-ui-for-mastodon-20/&quot;&gt;Catppuccin Complete UI for Mastodon 2.0&lt;/a&gt;, I felt like the project had finally grown into what I wanted it to be.&lt;/p&gt;
+&lt;p&gt;It was no longer just my own Mocha-flavored tweak of Bird UI. It had become a more complete Catppuccin theme system with multiple flavors, accent choices, fixed CSS exports, and a much cleaner install story.&lt;/p&gt;
+&lt;p&gt;But almost immediately after that, another gap showed up.&lt;/p&gt;
+&lt;p&gt;Not every Mastodon instance is actually running the same front end.&lt;/p&gt;
+&lt;p&gt;My instance offers the GlitchSoc flavor, and once I started testing the theme there more seriously, it became obvious that the standard Mastodon files were not going to be enough. Things looked close in places, but “close” is not really what I want from a theme project like this. Spacing was off, parts of the post layout felt cramped, some controls were not behaving properly, and the Glitch-specific structure introduced enough little differences that the theme needed its own attention.&lt;/p&gt;
+&lt;p&gt;So that is what this release is about.&lt;/p&gt;
+&lt;h2 id=&quot;why-glitchsoc-needed-its-own-version&quot;&gt;Why GlitchSoc needed its own version&lt;/h2&gt;
+&lt;p&gt;GlitchSoc is still Mastodon, but it is not identical to the default web UI.&lt;/p&gt;
+&lt;p&gt;That matters a lot once you start doing heavier interface customization.&lt;/p&gt;
+&lt;p&gt;The more opinionated a theme becomes, the more it depends on the exact layout structure underneath it. In this case, GlitchSoc handles parts of the compose area, multi-column layout, spacing, and action bars differently enough that the regular Catppuccin Complete UI files were never going to be a perfect fit.&lt;/p&gt;
+&lt;p&gt;I could have left it in a “mostly works” state and told people to expect weirdness.&lt;/p&gt;
+&lt;p&gt;I did not want to do that.&lt;/p&gt;
+&lt;p&gt;If I am going to say the project supports something, I want that support to feel intentional rather than accidental.&lt;/p&gt;
+&lt;h2 id=&quot;what-i-added&quot;&gt;What I added&lt;/h2&gt;
+&lt;p&gt;This update introduces a proper GlitchSoc release track for the theme instead of treating it like an afterthought.&lt;/p&gt;
+&lt;p&gt;That now includes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a dedicated &lt;code&gt;catppuccin-complete-ui-glitch.user.css&lt;/code&gt; file for Stylus and similar userstyle managers&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;layout-multiple-columns-glitch.css&lt;/code&gt; and &lt;code&gt;layout-single-column-glitch.css&lt;/code&gt; as fixed CSS downloads&lt;/li&gt;
+&lt;li&gt;organized fixed exports under the &lt;code&gt;themes/glitch-multi-column/&lt;/code&gt; and &lt;code&gt;themes/glitch-single-column/&lt;/code&gt; folders for every Catppuccin flavor and accent combination&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In other words, GlitchSoc is not just getting a compatibility patch. It is getting first-class theme files.&lt;/p&gt;
+&lt;p&gt;That was the right move.&lt;/p&gt;
+&lt;h2 id=&quot;the-part-that-took-more-work-than-i-expected&quot;&gt;The part that took more work than I expected&lt;/h2&gt;
+&lt;p&gt;The trickiest part was not just making GlitchSoc “look better.” It was making it behave correctly.&lt;/p&gt;
+&lt;p&gt;There were a few layout issues that ended up taking real time to chase down. The composer panel width and timeline column width controls were not actually affecting the GlitchSoc layout the way they should have. Some spacing around posts and action bars needed to be adjusted. And once the columns got narrow enough, the relative timestamp area could start getting squeezed until it partially disappeared.&lt;/p&gt;
+&lt;p&gt;Those are the kinds of bugs that sound small until you are trying to make a polished theme feel reliable.&lt;/p&gt;
+&lt;p&gt;They also tend to be the kinds of issues that only show up once you actually live in the UI for a bit instead of just glancing at screenshots.&lt;/p&gt;
+&lt;p&gt;That is why I am glad I pushed on this instead of calling it done too early.&lt;/p&gt;
+&lt;h2 id=&quot;why-i-kept-the-files-separate&quot;&gt;Why I kept the files separate&lt;/h2&gt;
+&lt;p&gt;One thing I did not want to do was cram GlitchSoc support into the standard Mastodon files in a way that made everything harder to reason about.&lt;/p&gt;
+&lt;p&gt;There is always a temptation with theme projects to keep piling more conditionals and more selectors into one giant universal file until it becomes impossible to tell what is targeting what.&lt;/p&gt;
+&lt;p&gt;I would rather avoid that.&lt;/p&gt;
+&lt;p&gt;So the standard Mastodon files are still the standard Mastodon files, and the GlitchSoc files now exist as their own release path.&lt;/p&gt;
+&lt;p&gt;That gives people a clearer install experience, and it also gives me a cleaner way to maintain the project going forward. If GlitchSoc diverges further, I have room to adjust without turning the rest of the theme into a mess.&lt;/p&gt;
+&lt;h2 id=&quot;what-this-means-for-the-project-overall&quot;&gt;What this means for the project overall&lt;/h2&gt;
+&lt;p&gt;This release is not as broad as 2.0 was, but I think it matters for a similar reason.&lt;/p&gt;
+&lt;p&gt;It makes the project more real.&lt;/p&gt;
+&lt;p&gt;Mastodon is not one perfectly uniform target, especially once you start dealing with different instance flavors and interface variants. Supporting GlitchSoc in a dedicated way makes the theme more useful for actual people using actual instances, not just for the narrowest version of the platform.&lt;/p&gt;
+&lt;p&gt;It also reinforces what I want this project to be.&lt;/p&gt;
+&lt;p&gt;I do not want it to just be a personal tweak folder I happen to keep on GitHub. I want it to be a well-kept theme project that people can install with some confidence, whether they are using standard Mastodon or GlitchSoc.&lt;/p&gt;
+&lt;h2 id=&quot;if-you-have-been-following-this-project&quot;&gt;If you have been following this project&lt;/h2&gt;
+&lt;p&gt;This is probably the clearest arc of the project so far:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the original &lt;a href=&quot;https://www.kylereddoch.me/blog/catppuccin-mocha-ui-for-mastodon/&quot;&gt;Catppuccin Mocha UI for Mastodon&lt;/a&gt; release was the first public version of my personal setup&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/catppuccin-complete-ui-for-mastodon-20/&quot;&gt;Catppuccin Complete UI for Mastodon 2.0&lt;/a&gt; turned it into a much more flexible and complete theme system&lt;/li&gt;
+&lt;li&gt;this new GlitchSoc update makes that system work better across the version of Mastodon some of us are actually using every day&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That feels like solid progress to me.&lt;/p&gt;
+&lt;h2 id=&quot;where-to-find-it&quot;&gt;Where to find it&lt;/h2&gt;
+&lt;p&gt;The project is still on GitHub here:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/kylereddoch/catpuccin-mocha-ui-mastodon&quot; rel=&quot;noopener&quot;&gt;Catppuccin Complete UI for Mastodon&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you are on a standard Mastodon web UI, the regular files are still the right place to start.&lt;/p&gt;
+&lt;p&gt;If your instance offers the GlitchSoc flavor, you should now use the dedicated GlitchSoc files instead.&lt;/p&gt;
+&lt;p&gt;This was one of those updates that came directly from real use, real testing, and a bunch of little “that still feels off” moments. Honestly, those are often the best kinds of updates, because they usually mean the project is getting more practical instead of just more complicated.&lt;/p&gt;
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fcatppuccin-complete-ui-for-mastodon-now-supports-glitchsoc%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
+      </content>
+    </entry><entry>
       <title>A Medal, a Sunburn, and a Bachelor’s Degree (Week 18, 2026)</title>
       <link href="https://www.kylereddoch.me/notes/2026/week-18-2026/" />
       <updated>2026-05-04T21:00:00Z</updated>
