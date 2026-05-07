@@ -18,7 +18,7 @@ projectLinks:
   - label: View on GitHub
     url: https://github.com/kylereddoch/catpuccin-mocha-ui-mastodon
   - label: Read the latest update
-    url: /blog/catppuccin-complete-ui-for-mastodon-20/
+    url: /blog/catppuccin-complete-ui-for-mastodon-now-supports-glitchsoc/
 ---
 
 This theme started as a personal customization project and turned into something much bigger once I realized other people wanted a Mastodon interface that felt more intentional too.
