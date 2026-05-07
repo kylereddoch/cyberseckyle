@@ -6,7 +6,7 @@ featuredImage: /assets/images/catppuccin-complete-ui.png
 tags: [mastodon, themes, social media, projects]
 category: projects
 mastodon_post: true
-mastodon_url: 
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116534097586226619"
 mastodon_tags: [Mastodon, Catppuccin, GlitchSoc, OpenSource, Projects]
 ---
 
