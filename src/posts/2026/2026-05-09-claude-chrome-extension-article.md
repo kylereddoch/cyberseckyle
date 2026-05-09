@@ -7,7 +7,7 @@ featuredImageAlt: Claude wordmark with orange starburst icon centered on a light
 featuredImageCaption:
 tags: [ai, cybersecurity, security, browser-security, extensions, MSP]
 mastodon_post: true
-mastodon_url: 
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116545534488759009"
 mastodon_tags: [Cybersecurity, InfoSec, BrowserSecurity, ChromeExtensions, AISecurity, MSP]
 ---
 
