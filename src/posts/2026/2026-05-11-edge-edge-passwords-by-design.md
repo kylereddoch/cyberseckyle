@@ -7,7 +7,7 @@ featuredImageAlt: Close-up of a smartphone displaying the Microsoft Edge logo ag
 featuredImageCaption: 
 tags: [cybersecurity, security, editorials, MSP, browsers]
 mastodon_post: true
-mastodon_url: 
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116557348872061552"
 mastodon_tags: [Cybersecurity, InfoSec, BrowserSecurity, MicrosoftEdge]
 ---
 
