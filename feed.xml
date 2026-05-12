@@ -4,12 +4,38 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-05-12T16:34:34Z</updated>
+  <updated>2026-05-12T19:23:13Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>Heat, Healing, and Home Lab Progress (Week 19, 2026)</title>
+      <link href="https://www.kylereddoch.me/notes/2026/week-19-2026/" />
+      <updated>2026-05-12T19:00:00Z</updated>
+      <id>https://www.kylereddoch.me/notes/2026/week-19-2026/</id>
+      <content type="html">
+        &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
+&lt;p&gt;A slower, slightly worn-down week that still found a little room for rest, tinkering, and small wins.&lt;/p&gt;
+&lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;🥵 Last week was quite warm/hot. This whole winter/spring actually has been pretty warm. I am not looking forward to the Texas summer heat if this is how the spring is.&lt;/li&gt;
+&lt;li&gt;🤒 Well, again, I was sick towards the end of the week. I have had this cough that just will not go away. Then on Wednesday my chest started feeling like it did the last time I had pneumonia. I also started to get a more wet cough. The doctor couldn’t get me in until Friday. I was able to get some antibiotics, they gave me a chest x-ray, and put me on a breathing treatment. Haven’t heard anything back on the x-ray result yet.&lt;/li&gt;
+&lt;li&gt;🛋️ I had Saturday all to myself. My youngest had a trip to Lubbock for orchestra. They had an event there and they went to an amusement park. My wife went along as a chaperone. I stayed home and just relaxed.&lt;/li&gt;
+&lt;li&gt;🖥️ I finally got some time to work on my home lab. I started setting up my Jellyfin server. I am going to be moving off of Plex and onto Jellyfin. I have been using Plex for years but I want to move to something that is open source and that I have more control over.&lt;/li&gt;
+&lt;li&gt;✨ I added some new features to my website.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;worth-sharing&quot;&gt;Worth sharing&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Microsoft Edge loads your password vault in &lt;a href=&quot;https://www.malwarebytes.com/blog/news/2026/05/microsoft-says-edges-plaintext-password-behavior-is-by-design&quot; rel=&quot;noopener&quot;&gt;plaintext on startup&lt;/a&gt;. They say it is by design. I also wrote about, &lt;a href=&quot;https://www.kylereddoch.me/blog/microsoft-says-its-by-design-edges-plaintext-password-behavior-is-still-a-security-problem/&quot;&gt;check out my analysis&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;One Missed Threat Per Week: What 25M Alerts Reveal About Low-Severity Risks. This is a really interesting article about how many alerts are missed and what that means for security teams. &lt;a href=&quot;https://thehackernews.com/2026/05/one-missed-threat-per-week-what-25m.html&quot; rel=&quot;noopener&quot;&gt;One Missed Threat Per Week: What 25M Alerts Reveal About Low-Severity Risks&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Trying to cut down on how many data brokers are buying, selling, and profiling your personal info? This is a solid resource to bookmark.&lt;a href=&quot;https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List&quot; rel=&quot;noopener&quot;&gt;Big-Ass Data Broker Opt-Out List&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;I wrote my take on &lt;a href=&quot;https://www.kylereddoch.me/blog/claudes-chrome-extension-flaw-shows-why-agentic-browsing-needs-real-guardrails/&quot;&gt;Claude’s recent Chrome extension security flaw&lt;/a&gt; that is casuing any other exenstion to take control of its AI.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;✌️ That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2026%2Fweek-19-2026%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
+      </content>
+    </entry><entry>
       <title>Why I Don’t Write About Every Cybersecurity Story That Breaks</title>
       <link href="https://www.kylereddoch.me/blog/why-i-dont-write-about-every-cybersecurity-story-that-breaks/" />
       <updated>2026-05-12T16:15:00Z</updated>
