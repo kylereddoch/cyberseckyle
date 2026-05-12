@@ -7,7 +7,7 @@ featuredImageAlt: A lone desk in a dimly lit office with multiple security headl
 featuredImageCaption: 'Photo by <a href="https://unsplash.com/@andrewtneel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Andrew Neel</a> on <a href="https://unsplash.com/photos/macbook-pro-white-ceramic-mugand-black-smartphone-on-table-cckf4TsHAuw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>'
 tags: [editorial, personal, blogging]
 mastodon_post: true
-mastodon_url: 
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116562570076330216"
 mastodon_tags: [Cybersecurity, Blogging]
 ---
  
