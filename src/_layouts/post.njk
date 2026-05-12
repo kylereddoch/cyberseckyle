@@ -30,7 +30,7 @@ schema: BlogPosting
     <div class="mb-8">
       <img class="u-photo w-full rounded-lg" src="{{ heroImage }}" alt="{{ heroImageAlt }}" />
       {% if featuredImageCaption %}
-        <p class="text-sm text-gray-600 dark:text-gray-400 mt-4 text-center">{{ featuredImageCaption }}</p>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-4 text-center">{{ featuredImageCaption | featuredImageCaptionHtml | safe }}</p>
       {% endif %}
     </div>
   {% endif %}

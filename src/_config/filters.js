@@ -6,6 +6,7 @@ import {splitlines} from './filters/splitlines.js';
 import {striptags} from './filters/striptags.js';
 import {slugifyString} from './filters/slugify.js';
 import {metaDescription} from './filters/meta-description.js';
+import {featuredImageCaptionHtml} from './filters/featured-image-caption.js';
 
 export default {
   toISOString,
@@ -16,5 +17,6 @@ export default {
   metaDescription,
   shuffleArray,
   sortAlphabetically,
-  slugifyString
+  slugifyString,
+  featuredImageCaptionHtml
 };

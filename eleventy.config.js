@@ -528,6 +528,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter('metaDescription', filters.metaDescription);
   eleventyConfig.addFilter('splitlines', filters.splitlines);
   eleventyConfig.addFilter('striptags', filters.striptags);
+  eleventyConfig.addFilter('featuredImageCaptionHtml', filters.featuredImageCaptionHtml);
   eleventyConfig.addFilter('shuffle', filters.shuffleArray);
   eleventyConfig.addFilter('alphabetic', filters.sortAlphabetically);
   eleventyConfig.addFilter('slugify', filters.slugifyString);
