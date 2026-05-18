@@ -186,6 +186,7 @@ For these posts:
 - Keep source links inline in the paragraph where each claim is used.
 - Use `featuredImage: /assets/images/security-signal-weekly.png`.
 - Do not put the old roundup image shortcode in the body.
+- Do not use `featuredImageCaption`.
 - Use `mastodon_post: true`, leave `mastodon_url:` blank, and set useful `mastodon_tags`.
 - Render posts with `node scripts/create-security-signal-weekly.mjs --input path/to/security-signal-weekly.json`.
 - The dedicated Friday workflow may autopublish only `Security Signal Weekly` posts that it creates and verifies. This exception does not grant permission to commit, push, or publish other changes.
