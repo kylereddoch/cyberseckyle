@@ -4,12 +4,40 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-05-18T20:14:55Z</updated>
+  <updated>2026-05-20T17:18:19Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
   </author>
 <entry>
+      <title>A Texas Tech Graduation, Hot Chicken, and a Busy Family Week (Week 20, 2026)</title>
+      <link href="https://www.kylereddoch.me/notes/2026/week-20-2026/" />
+      <updated>2026-05-20T17:00:00Z</updated>
+      <id>https://www.kylereddoch.me/notes/2026/week-20-2026/</id>
+      <content type="html">
+        &lt;blockquote&gt;
+&lt;p&gt;Just another late weekly notes… It was a busy weekend and first of this week, it almost escaped my mind.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
+&lt;p&gt;A full, proud, slightly chaotic family week. Between the college graduation, the party, the choir concert, and the quick Lubbock trip, this one had that “life is moving fast, but in a good way” feeling. Not much writing happened, but honestly, some weeks are for showing up, celebrating people you love, and letting the blog wait a minute.&lt;/p&gt;
+&lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;🎓 Let’s start off with the biggest news of the week: My oldest graduated college! We went down to Lubbock (Texas Tech), to watch her Graduation Ceremony.&lt;/li&gt;
+&lt;li&gt;🍗 I got to try Dave’s Hot Chicken for the first time while I was in Lubbock. Man was it some amazing chicken! If you have a Dave’s Hot Chicken near you, I highly recommend it.&lt;/li&gt;
+&lt;li&gt;🎉 Saturday we had our family over for a little Graduation party for our daughter. It was nothing special, just some food and drinks, but it was nice to see everyone and celebrate her achievement.&lt;/li&gt;
+&lt;li&gt;🎤 Earlier this week was my daughter’s last choir concert. This was the one where they also do a little talent show kind of thing and hand out awards. There were some pretty good singers. The concert went well.&lt;/li&gt;
+&lt;li&gt;✍️ Unfortunately, with how busy it was this week, I didn’t get much time to write the posts I wanted to.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;worth-sharing&quot;&gt;Worth sharing&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;AI-generated fraud and identity spoofing are getting harder to treat as “normal” account fraud. This CyberScoop piece on &lt;a href=&quot;https://cyberscoop.com/ai-generated-fraud-identity-spoofing-defense-strategy/&quot; rel=&quot;noopener&quot;&gt;weaponized AI and identity spoofing&lt;/a&gt; is sponsored, but it still makes a useful point: static identity checks are going to struggle when attackers can scale synthetic identities, deepfake impersonation, and document fraud faster than most organizations can update their controls.&lt;/li&gt;
+&lt;li&gt;Agentic AI is becoming one of those security problems that looks small until you realize how much access these tools can touch. &lt;a href=&quot;https://thehackernews.com/2026/05/why-agentic-ai-is-securitys-next-blind.html&quot; rel=&quot;noopener&quot;&gt;Why Agentic AI Is Security’s Next Blind Spot&lt;/a&gt; is worth reading because it frames AI agents less like “chatbots” and more like systems that can read, act, connect to tools, and create new lateral movement paths if nobody is reviewing permissions, inputs, and workflows.&lt;/li&gt;
+&lt;li&gt;A cyber incident response plan should not be a 100-page binder nobody reads during an actual crisis. This article on the &lt;a href=&quot;https://www.cm-alliance.com/cybersecurity-blog/5-key-components-of-a-cyber-incident-response-plan&quot; rel=&quot;noopener&quot;&gt;5 key components of a cyber incident response plan&lt;/a&gt; is a good reminder that response plans need to be crisp, business-specific, scenario-driven, threat-informed, and tested. For MSPs, that means client-specific playbooks for ransomware, BEC, cloud compromise, and vendor/supply-chain events.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;✌️ That is it for this week. I hope you have a great week and remember to be kind to each other!&lt;/p&gt;
+&lt;img src=&quot;https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2026%2Fweek-20-2026%2F&quot; alt=&quot;&quot; style=&quot;width:1px;height:1px;border:0;&quot; /&gt;
+      </content>
+    </entry><entry>
       <title>Heat, Healing, and Home Lab Progress (Week 19, 2026)</title>
       <link href="https://www.kylereddoch.me/notes/2026/week-19-2026/" />
       <updated>2026-05-12T19:00:00Z</updated>
