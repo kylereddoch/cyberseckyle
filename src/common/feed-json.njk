@@ -16,11 +16,16 @@ excludeFromSitemap: true
   "items": [
     {%- for post in postslist -%}
     {%- set absolutePostUrl = post.url | absoluteUrl(meta.url) -%}
+    {%- set image = post | feedImage(meta) -%}
+    {%- set feedImageMarkup -%}
+<p><img src="{{ image.url }}" alt="{{ image.alt | escape }}" /></p>
+    {%- endset -%}
     {
       "id": "{{ absolutePostUrl }}",
       "url": "{{ absolutePostUrl }}",
       "title": "{{ post.data.title }}",
-      "content_html": {{ post.content | renderTransforms(post.data.page, meta.url) | appendTinylyticsPixel(post.url, meta.analytics.tinylytics.siteCode) | dump | safe }},
+      "image": {{ image.url | dump | safe }},
+      "content_html": {{ (feedImageMarkup ~ (post.content | renderTransforms(post.data.page, meta.url) | appendTinylyticsPixel(post.url, meta.analytics.tinylytics.siteCode))) | dump | safe }},
       "date_published": "{{ post.date | dateToRfc3339 }}"
     }{% if not loop.last %},{% endif %}
     {%- endfor -%}

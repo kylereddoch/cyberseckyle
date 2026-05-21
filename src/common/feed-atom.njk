@@ -4,7 +4,7 @@ eleventyExcludeFromCollections: true
 excludeFromSitemap: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ meta.lang or page.lang }}" xml:base="{{ meta.url }}/">
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="{{ meta.lang or page.lang }}" xml:base="{{ meta.url }}/">
   <title>{{ meta.blog.name }}</title>
   <subtitle>{{ meta.blog.description }}</subtitle>
   <link href="{{ permalink | htmlBaseUrl(meta.url) }}" rel="self" />
@@ -17,13 +17,19 @@ excludeFromSitemap: true
 {% set postslist = collections.feedEntries %}
   {%- for post in postslist -%}
     {%- set absolutePostUrl = post.url | absoluteUrl(meta.url) -%}
+    {%- set image = post | feedImage(meta) -%}
+    {%- set feedImageMarkup -%}
+<p><img src="{{ image.url }}" alt="{{ image.alt | escape }}" /></p>
+    {%- endset -%}
     <entry>
       <title>{{ post.data.title }}</title>
       <link href="{{ absolutePostUrl }}" />
+      <media:thumbnail url="{{ image.url }}" />
+      <media:content url="{{ image.url }}" medium="image" />
       <updated>{{ post.date | dateToRfc3339 }}</updated>
       <id>{{ absolutePostUrl }}</id>
       <content type="html">
-        {{ post.content | renderTransforms(post.data.page, meta.url) | appendTinylyticsPixel(post.url, meta.analytics.tinylytics.siteCode) }}
+        {{ feedImageMarkup }}{{ post.content | renderTransforms(post.data.page, meta.url) | appendTinylyticsPixel(post.url, meta.analytics.tinylytics.siteCode) }}
       </content>
     </entry>
   {%- endfor -%}
