@@ -7,7 +7,7 @@ featuredImageAlt: A glowing artificial intelligence brain hovering in the middle
 featuredImageCaption:
 tags: [ai, cybersecurity, security, MSP]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116614071156406578"
 mastodon_tags: [Cybersecurity, InfoSec, AISecurity, MSP]
 ---
 
