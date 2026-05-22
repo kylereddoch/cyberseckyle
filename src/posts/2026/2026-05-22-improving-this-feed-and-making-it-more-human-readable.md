@@ -4,7 +4,7 @@ title: Improving My RSS Feed and Making It More Human Readable
 description: I cleaned up my site's web feed so feed readers get better post content and images, while humans who open the feed in a browser get something that feels like part of the site.
 tags: [personal, indie-web, eleventy, rss]
 mastodon_post: true
-mastodon_url: 
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116619927331814235"
 mastodon_tags: [IndieWeb, Eleventy, 11ty]
 ---
 
