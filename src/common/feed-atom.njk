@@ -24,8 +24,8 @@ excludeFromSitemap: true
     <entry>
       <title>{{ post.data.title }}</title>
       <link href="{{ absolutePostUrl }}" />
-      <media:thumbnail url="{{ image.url }}" />
-      <media:content url="{{ image.url }}" medium="image" />
+      <media:thumbnail url="{{ image.url | escape }}" />
+      <media:content url="{{ image.url | escape }}" medium="image" />
       <updated>{{ post.date | dateToRfc3339 }}</updated>
       <id>{{ absolutePostUrl }}</id>
       <content type="html">

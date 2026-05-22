@@ -526,7 +526,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter('htmlDateString', date => filters.formatDate(date, 'YYYY-MM-DD'));
   eleventyConfig.addFilter('markdownFormat', filters.markdownFormat);
   eleventyConfig.addFilter('metaDescription', filters.metaDescription);
-  eleventyConfig.addFilter('feedImage', filters.feedImage);
+  eleventyConfig.addAsyncFilter('feedImage', filters.feedImage);
   eleventyConfig.addFilter('splitlines', filters.splitlines);
   eleventyConfig.addFilter('striptags', filters.striptags);
   eleventyConfig.addFilter('featuredImageCaptionHtml', filters.featuredImageCaptionHtml);
