@@ -527,6 +527,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter('markdownFormat', filters.markdownFormat);
   eleventyConfig.addFilter('metaDescription', filters.metaDescription);
   eleventyConfig.addAsyncFilter('feedImage', filters.feedImage);
+  eleventyConfig.addFilter('cdata', filters.cdata);
   eleventyConfig.addFilter('splitlines', filters.splitlines);
   eleventyConfig.addFilter('striptags', filters.striptags);
   eleventyConfig.addFilter('featuredImageCaptionHtml', filters.featuredImageCaptionHtml);
@@ -632,6 +633,10 @@ export default async function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy({
     "src/assets/images/buttons": "assets/images/buttons"
+  });
+
+  eleventyConfig.addPassthroughCopy({
+    "src/assets/images/logo.png": "assets/images/logo.png"
   });
 
 

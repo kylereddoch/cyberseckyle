@@ -4,38 +4,73 @@ eleventyExcludeFromCollections: true
 excludeFromSitemap: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="/feed.xsl"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="{{ meta.lang or page.lang }}" xml:base="{{ meta.url }}/">
-  <title>{{ meta.blog.name }}</title>
-  <subtitle>{{ meta.blog.description }}</subtitle>
-  <link href="{{ permalink | htmlBaseUrl(meta.url) }}" rel="self" />
-  <link href="{{ meta.url | addPathPrefixToFullUrl }}" />
-  <updated>{{ postslist | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
-  <id>{{ meta.url | addPathPrefixToFullUrl }}</id>
-  <author>
-    <name>{{ meta.author.name }}</name>
-  </author>
-{% set postslist = collections.feedEntries %}
-  {%- for post in postslist -%}
+<?xml-stylesheet href="/feed.css" type="text/css"?>
+{% set postslist = collections.feedEntries | head(15) %}
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:media="http://search.yahoo.com/mrss/"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <channel>
+    <title>{{ meta.blog.name }}</title>
+    <link>{{ meta.url | addPathPrefixToFullUrl }}</link>
+    <description>{{ meta.blog.description }}</description>
+    <language>{{ meta.lang or page.lang }}</language>
+    <lastBuildDate>{{ postslist | getNewestCollectionItemDate | dateToRfc822 }}</lastBuildDate>
+    <atom:link href="{{ permalink | htmlBaseUrl(meta.url) }}" rel="self" type="application/rss+xml" />
+    <image>
+      <url>{{ meta.author.avatar | absoluteUrl(meta.url) }}</url>
+      <title>{{ meta.blog.name }}</title>
+      <link>{{ meta.url | addPathPrefixToFullUrl }}</link>
+    </image>
+    <xhtml:header class="site-header">
+      <xhtml:a class="site-brand" href="{{ meta.url | addPathPrefixToFullUrl }}">
+        <xhtml:img class="site-brand-logo" src="{{ meta.author.avatar | absoluteUrl(meta.url) }}" alt="" />
+        <xhtml:span class="site-brand-title">{{ meta.siteName }}</xhtml:span>
+      </xhtml:a>
+      <xhtml:nav class="site-nav" aria-label="Primary">
+        <xhtml:a href="{{ meta.url | addPathPrefixToFullUrl }}">Home</xhtml:a>
+        <xhtml:a href="{{ '/blog/' | absoluteUrl(meta.url) }}">Blog</xhtml:a>
+        <xhtml:a href="{{ '/tags/cybersecurity/' | absoluteUrl(meta.url) }}">Cybersecurity</xhtml:a>
+        <xhtml:a href="{{ '/notes/' | absoluteUrl(meta.url) }}">Notes</xhtml:a>
+        <xhtml:a href="{{ '/about/' | absoluteUrl(meta.url) }}">About</xhtml:a>
+        <xhtml:a href="{{ '/contact/' | absoluteUrl(meta.url) }}">Contact</xhtml:a>
+      </xhtml:nav>
+    </xhtml:header>
+    <xhtml:section class="browser-intro">
+      <xhtml:p>This is a web feed that can be viewed in the browser. Subscribe for free by copying the URL to your RSS reader of choice:</xhtml:p>
+      <xhtml:p><xhtml:a class="feed-url" href="{{ permalink | htmlBaseUrl(meta.url) }}">{{ permalink | htmlBaseUrl(meta.url) }}</xhtml:a></xhtml:p>
+      <xhtml:p>This RSS feed shows the latest 15 entries. <xhtml:a href="{{ '/feed.json' | absoluteUrl(meta.url) }}">JSON Feed</xhtml:a> is also available.</xhtml:p>
+    </xhtml:section>
+    <xhtml:div class="browser-actions">
+      <xhtml:a href="{{ permalink | htmlBaseUrl(meta.url) }}">RSS Feed</xhtml:a>
+      <xhtml:a href="{{ '/feed.json' | absoluteUrl(meta.url) }}">JSON Feed</xhtml:a>
+      <xhtml:a href="{{ '/blog/improving-my-rss-feed-and-making-it-more-human-readable/' | absoluteUrl(meta.url) }}">How I improved this feed</xhtml:a>
+    </xhtml:div>
+  {%- for post in postslist %}
     {%- set absolutePostUrl = post.url | absoluteUrl(meta.url) -%}
     {%- set image = post | feedImage(meta) -%}
     {%- set feedImageMarkup -%}
 <p><img src="{{ image.url }}" alt="{{ image.alt | escape }}" /></p>
     {%- endset -%}
     {%- set feedSummary = post.data.description or (post.content | metaDescription(280)) -%}
-    <entry>
+    {%- set feedContent = feedImageMarkup ~ (post.content | renderTransforms(post.data.page, meta.url) | appendTinylyticsPixel(post.url, meta.analytics.tinylytics.siteCode)) -%}
+    <item>
       <title>{{ post.data.title }}</title>
-      <link href="{{ absolutePostUrl }}" />
+      <link>{{ absolutePostUrl }}</link>
+      <guid isPermaLink="true">{{ absolutePostUrl }}</guid>
+      <pubDate>{{ post.date | dateToRfc822 }}</pubDate>
+      <xhtml:a class="browser-title" href="{{ absolutePostUrl }}">{{ post.data.title }}</xhtml:a>
+      <xhtml:img class="browser-image" src="{{ image.url | escape }}" alt="{{ image.alt | escape }}" />
+      <dc:creator>{{ meta.author.name }}</dc:creator>
+      <description><![CDATA[{{ feedSummary | cdata | safe }}]]></description>
+      <xhtml:a class="browser-read-link" href="{{ absolutePostUrl }}">Read on kylereddoch.me</xhtml:a>
+      <content:encoded><![CDATA[{{ feedContent | cdata | safe }}]]></content:encoded>
+      <enclosure url="{{ image.url | escape }}" type="image/jpeg" length="0" />
       <media:thumbnail url="{{ image.url | escape }}" />
       <media:content url="{{ image.url | escape }}" medium="image" />
-      <updated>{{ post.date | dateToRfc3339 }}</updated>
-      <published>{{ post.date | dateToRfc3339 }}</published>
-      <id>{{ absolutePostUrl }}</id>
-      <summary type="html">{{ feedSummary }}</summary>
-      <content type="html">
-        {{ feedImageMarkup }}{{ post.content | renderTransforms(post.data.page, meta.url) | appendTinylyticsPixel(post.url, meta.analytics.tinylytics.siteCode) }}
-      </content>
-    </entry>
-  {%- endfor -%}
-</feed>
-
+    </item>
+  {%- endfor %}
+  </channel>
+</rss>

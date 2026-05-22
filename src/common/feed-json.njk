@@ -3,16 +3,16 @@ permalink: /feed.json
 eleventyExcludeFromCollections: true
 excludeFromSitemap: true
 ---
-{% set postslist = collections.feedEntries %}
+{% set postslist = collections.feedEntries | head(15) %}
 
 {
   "version": "https://jsonfeed.org/version/1.1",
-  "title": "{{ meta.blog.name }}",
-  "language": "{{ meta.lang or page.lang }}",
+  "title": {{ meta.blog.name | dump | safe }},
+  "language": {{ (meta.lang or page.lang) | dump | safe }},
   "home_page_url": "{{ meta.url | addPathPrefixToFullUrl }}",
   "feed_url": "{{ permalink | htmlBaseUrl(meta.url) }}",
-  "description": "{{ meta.blog.description }}",
-  "authors": [{ "name": "{{ meta.author.name }}" }],
+  "description": {{ meta.blog.description | dump | safe }},
+  "authors": [{ "name": {{ meta.author.name | dump | safe }} }],
   "items": [
     {%- for post in postslist -%}
     {%- set absolutePostUrl = post.url | absoluteUrl(meta.url) -%}
@@ -23,8 +23,9 @@ excludeFromSitemap: true
     {
       "id": "{{ absolutePostUrl }}",
       "url": "{{ absolutePostUrl }}",
-      "title": "{{ post.data.title }}",
+      "title": {{ post.data.title | dump | safe }},
       "image": {{ image.url | dump | safe }},
+      "banner_image": {{ image.url | dump | safe }},
       "content_html": {{ (feedImageMarkup ~ (post.content | renderTransforms(post.data.page, meta.url) | appendTinylyticsPixel(post.url, meta.analytics.tinylytics.siteCode))) | dump | safe }},
       "date_published": "{{ post.date | dateToRfc3339 }}"
     }{% if not loop.last %},{% endif %}

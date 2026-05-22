@@ -8,6 +8,7 @@ import {slugifyString} from './filters/slugify.js';
 import {metaDescription} from './filters/meta-description.js';
 import {featuredImageCaptionHtml} from './filters/featured-image-caption.js';
 import {feedImage} from './filters/feed-image.js';
+import {cdata} from './filters/cdata.js';
 
 export default {
   toISOString,
@@ -17,6 +18,7 @@ export default {
   striptags,
   metaDescription,
   feedImage,
+  cdata,
   shuffleArray,
   sortAlphabetically,
   slugifyString,

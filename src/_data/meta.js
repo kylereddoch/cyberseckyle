@@ -46,9 +46,9 @@ export const blog = {
   // feed links are looped over in the head. You may add more to the array.
   feedLinks: [
     {
-      title: 'Atom Feed',
+      title: 'RSS Feed',
       url: '/feed.xml',
-      type: 'application/atom+xml'
+      type: 'application/rss+xml'
     },
     {
       title: 'JSON Feed',
