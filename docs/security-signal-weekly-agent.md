@@ -110,7 +110,7 @@ Use front matter in this order:
 
 ```yaml
 ---
-date: 2026-05-15T13:00:00-05:00
+date: 2026-05-15T11:30:00-05:00
 title: Security Signal Weekly: May 9-15, 2026
 description: The week's biggest cybersecurity stories, filtered for defender impact, patch urgency, active exploitation, and what IT teams should actually do next.
 featuredImage: /assets/images/security-signal-weekly.png
@@ -124,7 +124,7 @@ mastodon_tags: [Cybersecurity, InfoSec, ThreatIntel, WeeklySecurity]
 
 Notes:
 
-- `date` should include the local offset, usually `-05:00` or the correct current Central time offset.
+- `date` should include the actual local creation time and local offset, usually `-05:00` or the correct current Central time offset. Do not use a fixed placeholder time such as `13:00:00`; if the post is created at 15:24 local time, use a value like `2026-05-22T15:24:00-05:00`.
 - `title` can be unquoted unless YAML needs quotes. If the title has a colon or special character, use quotes to avoid parsing issues.
 - Quote `description` only when punctuation or characters make YAML parsing safer.
 - `tags` are lowercase site taxonomy tags and based on the post's content.

@@ -92,7 +92,11 @@ function normalizeDate(value) {
   }
 
   if (/^\d{4}-\d{2}-\d{2}$/.test(input)) {
-    return localIsoWithOffset(new Date(`${input}T13:00:00`));
+    const now = new Date();
+    const date = new Date(`${input}T00:00:00`);
+    date.setHours(now.getHours(), now.getMinutes(), now.getSeconds(), 0);
+
+    return localIsoWithOffset(date);
   }
 
   if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(input)) {
