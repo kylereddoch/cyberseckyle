@@ -5,7 +5,6 @@ const root = process.cwd();
 const defaultImage = '/assets/images/security-signal-weekly.png';
 const defaultImageAlt =
   'Security Signal Weekly editorial graphic with the series title, signal bars, and cybersecurity alert panels in the CybersecKyle site colors.';
-const defaultImageCaption = 'Image generated with Codex.';
 const defaultTags = [
   'cybersecurity',
   'infosec',
@@ -226,7 +225,6 @@ function renderPost(data, date, dateRange) {
     `description: ${yamlString(description)}`,
     `featuredImage: ${data.featuredImage || defaultImage}`,
     `featuredImageAlt: ${yamlString(data.featuredImageAlt || defaultImageAlt)}`,
-    `featuredImageCaption: ${yamlString(data.featuredImageCaption || defaultImageCaption)}`,
     `tags: ${yamlArray(tags)}`,
     'mastodon_post: true',
     'mastodon_url:',

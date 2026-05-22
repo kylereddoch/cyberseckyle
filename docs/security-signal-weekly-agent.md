@@ -115,7 +115,6 @@ title: Security Signal Weekly: May 9-15, 2026
 description: The week's biggest cybersecurity stories, filtered for defender impact, patch urgency, active exploitation, and what IT teams should actually do next.
 featuredImage: /assets/images/security-signal-weekly.png
 featuredImageAlt: A security operations dashboard showing alert cards, network activity, and a glowing shield representing the week's cybersecurity news.
-featuredImageCaption: Image generated with Codex.
 tags: [cybersecurity, infosec, security-signal-weekly, vulnerability-management, incident-response, threat-intel, news]
 mastodon_post: true
 mastodon_url:

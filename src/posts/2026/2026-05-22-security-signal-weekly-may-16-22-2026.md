@@ -4,7 +4,6 @@ title: "Security Signal Weekly: May 16-22, 2026"
 description: "The week's biggest cybersecurity stories, filtered for defender impact, patch urgency, active exploitation, and what IT teams should actually do next."
 featuredImage: /assets/images/security-signal-weekly.png
 featuredImageAlt: "Security Signal Weekly editorial graphic with the series title, signal bars, and cybersecurity alert panels in the CybersecKyle site colors."
-featuredImageCaption: "Image generated with Codex."
 tags: [cybersecurity, infosec, security-signal-weekly, vulnerability-management, incident-response, threat-intel, news]
 mastodon_post: true
 mastodon_url: "https://infosec.exchange/@cyberseckyle/116620103952634381"
