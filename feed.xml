@@ -4,7 +4,7 @@
   <subtitle>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</subtitle>
   <link href="https://www.kylereddoch.me/feed.xml" rel="self" />
   <link href="https://www.kylereddoch.me/" />
-  <updated>2026-05-21T19:06:40Z</updated>
+  <updated>2026-05-22T14:00:12Z</updated>
   <id>https://www.kylereddoch.me/</id>
   <author>
     <name>Kyle Reddoch</name>
@@ -12,13 +12,13 @@
 <entry>
       <title>Agentic AI Is Security&#39;s Next Blind Spot Because It Can Act</title>
       <link href="https://www.kylereddoch.me/blog/agentic-ai-is-securitys-next-blind-spot-because-it-can-act/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/ai_in_soc.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/ai_in_soc.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/l5cHLG60Sk-800.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/l5cHLG60Sk-800.jpeg" medium="image" />
       <updated>2026-05-21T18:15:00Z</updated>
       <id>https://www.kylereddoch.me/blog/agentic-ai-is-securitys-next-blind-spot-because-it-can-act/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/ai_in_soc.png&quot; alt=&quot;A glowing artificial intelligence brain hovering in the middle of a security operations center while analysts monitor dashboards around it.&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/l5cHLG60Sk-800.jpeg&quot; alt=&quot;A glowing artificial intelligence brain hovering in the middle of a security operations center while analysts monitor dashboards around it.&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
 &lt;p&gt;Agentic AI is not scary because it can write a better paragraph than a chatbot from two years ago. It is scary because it can read, decide, click, call tools, remember context, and take action inside systems we already struggle to secure.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;I have been thinking a lot about a recent piece in &lt;a href=&quot;https://thehackernews.com/2026/05/why-agentic-ai-is-securitys-next-blind.html&quot; rel=&quot;noopener&quot;&gt;The Hacker News&lt;/a&gt; that frames agentic AI as security’s next blind spot. I agree with the core idea, but the part that really sticks with me is not the “AI” part.&lt;/p&gt;
@@ -152,13 +152,13 @@
     </entry><entry>
       <title>A Texas Tech Graduation, Hot Chicken, and a Busy Family Week (Week 20, 2026)</title>
       <link href="https://www.kylereddoch.me/notes/2026/week-20-2026/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2026-05-20T17:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-20-2026/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;A Texas Tech Graduation, Hot Chicken, and a Busy Family Week (Week 20, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;A Texas Tech Graduation, Hot Chicken, and a Busy Family Week (Week 20, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
 &lt;p&gt;Just another late weekly notes… It was a busy weekend and first of this week, it almost escaped my mind.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
@@ -183,13 +183,13 @@
     </entry><entry>
       <title>Heat, Healing, and Home Lab Progress (Week 19, 2026)</title>
       <link href="https://www.kylereddoch.me/notes/2026/week-19-2026/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2026-05-12T19:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-19-2026/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Heat, Healing, and Home Lab Progress (Week 19, 2026)&quot; /&gt;&lt;/p&gt;&lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Heat, Healing, and Home Lab Progress (Week 19, 2026)&quot; /&gt;&lt;/p&gt;&lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
 &lt;p&gt;A slower, slightly worn-down week that still found a little room for rest, tinkering, and small wins.&lt;/p&gt;
 &lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
 &lt;ul&gt;
@@ -212,13 +212,13 @@
     </entry><entry>
       <title>Why I Don’t Write About Every Cybersecurity Story That Breaks</title>
       <link href="https://www.kylereddoch.me/blog/why-i-dont-write-about-every-cybersecurity-story-that-breaks/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/andrew-neel-cckf4TsHAuw-unsplash.jpg" />
-      <media:content url="https://www.kylereddoch.me/assets/images/andrew-neel-cckf4TsHAuw-unsplash.jpg" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/qsyhXHwxjw-1920.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/qsyhXHwxjw-1920.jpeg" medium="image" />
       <updated>2026-05-12T16:15:00Z</updated>
       <id>https://www.kylereddoch.me/blog/why-i-dont-write-about-every-cybersecurity-story-that-breaks/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/andrew-neel-cckf4TsHAuw-unsplash.jpg&quot; alt=&quot;A lone desk in a dimly lit office with multiple security headlines glowing on screens while one screen in the center shows a calm, focused analyst choosing what matters.&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/qsyhXHwxjw-1920.jpeg&quot; alt=&quot;A lone desk in a dimly lit office with multiple security headlines glowing on screens while one screen in the center shows a calm, focused analyst choosing what matters.&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
 &lt;p&gt;I have been getting versions of this question for a while now on Mastodon and elsewhere, so I figured it was finally worth answering in one place.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Every time a major cybersecurity story breaks, there is a rush.&lt;/p&gt;
@@ -341,13 +341,13 @@ Not a “say something before people forget this topic exists” opinion.&lt;/p&
     </entry><entry>
       <title>Microsoft Says It’s “By Design.” Edge’s Plaintext Password Behavior Is Still a Security Problem</title>
       <link href="https://www.kylereddoch.me/blog/microsoft-says-its-by-design-edges-plaintext-password-behavior-is-still-a-security-problem/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/edge_plaintext_passwords_memory.webp" />
-      <media:content url="https://www.kylereddoch.me/assets/images/edge_plaintext_passwords_memory.webp" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/12nknOVvaL-941.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/12nknOVvaL-941.jpeg" medium="image" />
       <updated>2026-05-11T18:15:00Z</updated>
       <id>https://www.kylereddoch.me/blog/microsoft-says-its-by-design-edges-plaintext-password-behavior-is-still-a-security-problem/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/edge_plaintext_passwords_memory.webp&quot; alt=&quot;Close-up of a smartphone displaying the Microsoft Edge logo against a blurred blue and orange background.&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/12nknOVvaL-941.jpeg&quot; alt=&quot;Close-up of a smartphone displaying the Microsoft Edge logo against a blurred blue and orange background.&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
 &lt;p&gt;A browser that decrypts your full saved-password vault at launch and leaves it in process memory is not delivering secure convenience. It is widening the blast radius after compromise, and calling that &lt;em&gt;by design&lt;/em&gt; does not make it a good design.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Last week’s reporting from &lt;a href=&quot;https://www.malwarebytes.com/blog/news/2026/05/microsoft-says-edges-plaintext-password-behavior-is-by-design&quot; rel=&quot;noopener&quot;&gt;Malwarebytes&lt;/a&gt;, &lt;a href=&quot;https://isc.sans.edu/diary/32954&quot; rel=&quot;noopener&quot;&gt;SANS Internet Storm Center&lt;/a&gt;, and &lt;a href=&quot;https://www.darkreading.com/cyber-risk/microsoft-edge-passwords-enterprise-risk&quot; rel=&quot;noopener&quot;&gt;Dark Reading&lt;/a&gt; put a spotlight on a design choice in Microsoft Edge that should make defenders deeply uncomfortable. Researcher Tom Jøran Sønstebyseter Rønning showed that when users save credentials in Edge, the browser loads &lt;strong&gt;all&lt;/strong&gt; of those saved passwords into memory in cleartext when Edge starts, including credentials for sites the user never visits during that session. He later published a proof of concept to demonstrate the issue more directly.&lt;/p&gt;
@@ -398,13 +398,13 @@ Not a “say something before people forget this topic exists” opinion.&lt;/p&
     </entry><entry>
       <title>Claude’s Chrome Extension Flaw Shows Why Agentic Browsing Needs Real Guardrails</title>
       <link href="https://www.kylereddoch.me/blog/claudes-chrome-extension-flaw-shows-why-agentic-browsing-needs-real-guardrails/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/claude.jpg" />
-      <media:content url="https://www.kylereddoch.me/assets/images/claude.jpg" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/w-vOx8vKxy-1200.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/w-vOx8vKxy-1200.jpeg" medium="image" />
       <updated>2026-05-09T16:00:00Z</updated>
       <id>https://www.kylereddoch.me/blog/claudes-chrome-extension-flaw-shows-why-agentic-browsing-needs-real-guardrails/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/claude.jpg&quot; alt=&quot;Claude wordmark with orange starburst icon centered on a light beige background.&quot; /&gt;&lt;/p&gt;&lt;p&gt;Anthropic’s latest Chrome extension issue deserves more attention than a quick “vendor patched a bug” headline. As &lt;a href=&quot;https://cyberscoop.com/claude-chrome-extension-allows-plugins-to-hijack-ai/&quot; rel=&quot;noopener&quot;&gt;CyberScoop reported&lt;/a&gt;, researchers say Claude’s browser extension could be hijacked by another extension, including one with no special permissions. That is not a small bug. That is a warning shot.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/w-vOx8vKxy-1200.jpeg&quot; alt=&quot;Claude wordmark with orange starburst icon centered on a light beige background.&quot; /&gt;&lt;/p&gt;&lt;p&gt;Anthropic’s latest Chrome extension issue deserves more attention than a quick “vendor patched a bug” headline. As &lt;a href=&quot;https://cyberscoop.com/claude-chrome-extension-allows-plugins-to-hijack-ai/&quot; rel=&quot;noopener&quot;&gt;CyberScoop reported&lt;/a&gt;, researchers say Claude’s browser extension could be hijacked by another extension, including one with no special permissions. That is not a small bug. That is a warning shot.&lt;/p&gt;
 &lt;p&gt;The bigger problem is not just Claude. The bigger problem is &lt;strong&gt;agentic AI inside the browser&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Once you give an AI assistant the ability to read pages, click buttons, navigate tabs, summarize inboxes, touch documents, and operate inside your authenticated sessions, you have stopped dealing with a novelty sidebar. You have created a privileged operator that lives inside one of the messiest trust environments in enterprise computing.&lt;/p&gt;
 &lt;p&gt;That should make every security team, every IT admin, and every MSP stop and think.&lt;/p&gt;
@@ -460,13 +460,13 @@ Not a “say something before people forget this topic exists” opinion.&lt;/p&
     </entry><entry>
       <title>Chrome’s Silent Gemini Nano Download Has a Consent Problem</title>
       <link href="https://www.kylereddoch.me/blog/chromes-silent-gemini-nano-download-has-a-consent-problem/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/google_chrome_red_bg.jpg" />
-      <media:content url="https://www.kylereddoch.me/assets/images/google_chrome_red_bg.jpg" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/vMNE1YYogM-1600.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/vMNE1YYogM-1600.jpeg" medium="image" />
       <updated>2026-05-07T16:30:00Z</updated>
       <id>https://www.kylereddoch.me/blog/chromes-silent-gemini-nano-download-has-a-consent-problem/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/google_chrome_red_bg.jpg&quot; alt=&quot;Google Chrome logo centered over a glowing red digital grid background, suggesting browser security, privacy risk, and warning signals.&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/vMNE1YYogM-1600.jpeg&quot; alt=&quot;Google Chrome logo centered over a glowing red digital grid background, suggesting browser security, privacy risk, and warning signals.&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
 &lt;p&gt;The problem is not that Google wants more AI inside Chrome. The problem is that Chrome appears willing to treat users’ computers like rollout infrastructure.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;There is a version of this story that is too simple. It goes something like this: Google is shoving AI onto everyone’s machine, therefore everything about it is automatically spyware. I do not think that is the strongest argument. The better argument, and the one security people should care about, is that &lt;strong&gt;consent, transparency, and control are getting bulldozed in the name of “seamless” AI&lt;/strong&gt;.&lt;/p&gt;
@@ -504,13 +504,13 @@ Not a “say something before people forget this topic exists” opinion.&lt;/p&
     </entry><entry>
       <title>Catppuccin Complete UI for Mastodon Now Supports GlitchSoc</title>
       <link href="https://www.kylereddoch.me/blog/catppuccin-complete-ui-for-mastodon-now-supports-glitchsoc/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/catppuccin-complete-ui.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/catppuccin-complete-ui.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/2i3DWNf31n-1879.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/2i3DWNf31n-1879.jpeg" medium="image" />
       <updated>2026-05-07T15:30:00Z</updated>
       <id>https://www.kylereddoch.me/blog/catppuccin-complete-ui-for-mastodon-now-supports-glitchsoc/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/catppuccin-complete-ui.png&quot; alt=&quot;Catppuccin Complete UI for Mastodon Now Supports GlitchSoc&quot; /&gt;&lt;/p&gt;&lt;p&gt;When I released &lt;a href=&quot;https://www.kylereddoch.me/blog/catppuccin-complete-ui-for-mastodon-20/&quot;&gt;Catppuccin Complete UI for Mastodon 2.0&lt;/a&gt;, I felt like the project had finally grown into what I wanted it to be.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/2i3DWNf31n-1879.jpeg&quot; alt=&quot;Catppuccin Complete UI for Mastodon Now Supports GlitchSoc&quot; /&gt;&lt;/p&gt;&lt;p&gt;When I released &lt;a href=&quot;https://www.kylereddoch.me/blog/catppuccin-complete-ui-for-mastodon-20/&quot;&gt;Catppuccin Complete UI for Mastodon 2.0&lt;/a&gt;, I felt like the project had finally grown into what I wanted it to be.&lt;/p&gt;
 &lt;p&gt;It was no longer just my own Mocha-flavored tweak of Bird UI. It had become a more complete Catppuccin theme system with multiple flavors, accent choices, fixed CSS exports, and a much cleaner install story.&lt;/p&gt;
 &lt;p&gt;But almost immediately after that, another gap showed up.&lt;/p&gt;
 &lt;p&gt;Not every Mastodon instance is actually running the same front end.&lt;/p&gt;
@@ -570,13 +570,13 @@ Not a “say something before people forget this topic exists” opinion.&lt;/p&
     </entry><entry>
       <title>A Medal, a Sunburn, and a Bachelor’s Degree (Week 18, 2026)</title>
       <link href="https://www.kylereddoch.me/notes/2026/week-18-2026/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2026-05-04T21:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-18-2026/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;A Medal, a Sunburn, and a Bachelor’s Degree (Week 18, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;A Medal, a Sunburn, and a Bachelor’s Degree (Week 18, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
 &lt;p&gt;This week was a bit of a regular week as it would go.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
@@ -895,13 +895,13 @@ MASTODON_ACCESS_TOKEN=...&lt;/code&gt;&lt;/pre&gt;
     </entry><entry>
       <title>Living Off the Land Attacks Are a Reminder That Trust Is an Attack Surface</title>
       <link href="https://www.kylereddoch.me/blog/living-off-the-land-attacks-are-a-reminder-that-trust-is-an-attack-surface/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/living_off_the_land_attacks.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/living_off_the_land_attacks.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/BHsJGjm8uM-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/BHsJGjm8uM-1536.jpeg" medium="image" />
       <updated>2026-04-29T15:00:00Z</updated>
       <id>https://www.kylereddoch.me/blog/living-off-the-land-attacks-are-a-reminder-that-trust-is-an-attack-surface/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/living_off_the_land_attacks.png&quot; alt=&quot;A young plant growing in a field with glowing digital roots spreading beneath the soil, symbolizing hidden cyber threats using trusted system tools.&quot; /&gt;&lt;/p&gt;&lt;p&gt;The part that makes living off the land attacks so dangerous is not that they are magic. &lt;em&gt;It is that they are ordinary.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/BHsJGjm8uM-1536.jpeg&quot; alt=&quot;A young plant growing in a field with glowing digital roots spreading beneath the soil, symbolizing hidden cyber threats using trusted system tools.&quot; /&gt;&lt;/p&gt;&lt;p&gt;The part that makes living off the land attacks so dangerous is not that they are magic. &lt;em&gt;It is that they are ordinary.&lt;/em&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;That is the uncomfortable truth. A lot of attacks do not start with some flashy custom malware that screams for attention. They start with a phished credential, an exposed remote access path, an unpatched edge device, or a user clicking through something that looked close enough to normal.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1136,13 +1136,13 @@ Test response.&lt;/p&gt;
     </entry><entry>
       <title>CybersecKyle Security How-To Series: Everyday Defense (Part 6) - Backups That Actually Restore</title>
       <link href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-6-backups-that-actually-restore/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/laptop_ext_hhd.jpg" />
-      <media:content url="https://www.kylereddoch.me/assets/images/laptop_ext_hhd.jpg" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/pn-h5uwXVn-2048.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/pn-h5uwXVn-2048.jpeg" medium="image" />
       <updated>2026-04-27T19:00:00Z</updated>
       <id>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-everyday-defense-part-6-backups-that-actually-restore/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/laptop_ext_hhd.jpg&quot; alt=&quot;Laptop computer with external hard drives and memory cards data is transferred and backed up.&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/pn-h5uwXVn-2048.jpeg&quot; alt=&quot;Laptop computer with external hard drives and memory cards data is transferred and backed up.&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
 &lt;p&gt;I’m back with &lt;strong&gt;Part 6&lt;/strong&gt; of the &lt;strong&gt;Everyday Defense&lt;/strong&gt; track in my &lt;a href=&quot;https://www.kylereddoch.me/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/&quot;&gt;CybersecKyle Security How-To Series&lt;/a&gt;. This time we’re locking in backups that actually restore, building a setup that survives ransomware and failure, and walking through how to verify your backups before you ever have to rely on them.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Backups are one of those things everyone says they have…right up until the moment they need them.&lt;/p&gt;
@@ -1406,13 +1406,13 @@ That mindset turns small issues into major losses&lt;/p&gt;
     </entry><entry>
       <title>Reset, Recovery, and Real Life (Weeks 16 &amp; 17, 2026)</title>
       <link href="https://www.kylereddoch.me/notes/2026/week-16-17-2026/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2026-04-27T17:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-16-17-2026/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Reset, Recovery, and Real Life (Weeks 16 &amp;amp; 17, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Reset, Recovery, and Real Life (Weeks 16 &amp;amp; 17, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
 &lt;p&gt;Last week I was really sick for most of the week. I was unable to get my weekly notes out for Week 16 so I decided to combine it with Week 17.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
@@ -1446,13 +1446,13 @@ That mindset turns small issues into major losses&lt;/p&gt;
     </entry><entry>
       <title>Vibe Coding Has a Security Problem, and Shipping Code You Do Not Understand Is Not a Strategy</title>
       <link href="https://www.kylereddoch.me/blog/vibe-coding-has-a-security-problem-and-shipping-code-you-do-not-understand-is-not-a-strategy/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/vibe_coding_security.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/vibe_coding_security.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/ohvTYI7gHs-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/ohvTYI7gHs-1536.jpeg" medium="image" />
       <updated>2026-04-24T16:30:00Z</updated>
       <id>https://www.kylereddoch.me/blog/vibe-coding-has-a-security-problem-and-shipping-code-you-do-not-understand-is-not-a-strategy/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/vibe_coding_security.png&quot; alt=&quot;A developer works at a glowing monitor surrounded by abstract code panels and security icons, while a shadowy threat figure lingers in the background to represent the hidden risks of AI-assisted coding.&quot; /&gt;&lt;/p&gt;&lt;p&gt;There is a version of the AI coding conversation that feels way too casual for what is actually at stake.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/ohvTYI7gHs-1536.jpeg&quot; alt=&quot;A developer works at a glowing monitor surrounded by abstract code panels and security icons, while a shadowy threat figure lingers in the background to represent the hidden risks of AI-assisted coding.&quot; /&gt;&lt;/p&gt;&lt;p&gt;There is a version of the AI coding conversation that feels way too casual for what is actually at stake.&lt;/p&gt;
 &lt;p&gt;A prompt goes in. A working app comes out. The demo looks clean. The login page loads. The API responds. The build passes. Everyone moves on.&lt;/p&gt;
 &lt;p&gt;That is exactly where I think the trouble starts.&lt;/p&gt;
 &lt;p&gt;“Vibe coding” has become the catch-all phrase for building software mostly through prompts, iterations, and AI-assisted generation instead of line-by-line engineering. Some of that is genuinely useful. I am not anti-AI, and I do not think serious teams should pretend these tools are going away. But I do think a lot of people are getting dangerously comfortable shipping code they do not really understand, on stacks they did not really design, with security assumptions they never actually validated.&lt;/p&gt;
@@ -1563,13 +1563,13 @@ That mindset turns small issues into major losses&lt;/p&gt;
     </entry><entry>
       <title>Cybersecurity Does Not Have a Specialization Problem. It Has a Context Problem</title>
       <link href="https://www.kylereddoch.me/blog/cybersecurity-does-not-have-a-specialization-problem-it-has-a-context-problem/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/cybersecurity_risk_maze.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/cybersecurity_risk_maze.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/Wgg4gCVhRO-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/Wgg4gCVhRO-1536.jpeg" medium="image" />
       <updated>2026-04-23T17:00:00Z</updated>
       <id>https://www.kylereddoch.me/blog/cybersecurity-does-not-have-a-specialization-problem-it-has-a-context-problem/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/cybersecurity_risk_maze.png&quot; alt=&quot;A lone figure stands in a dark maze facing a glowing red warning doorway, with subtle blue security icons lighting the surrounding walls.&quot; /&gt;&lt;/p&gt;&lt;p&gt;Cybersecurity has a bad habit of mistaking specialization for maturity.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/Wgg4gCVhRO-1536.jpeg&quot; alt=&quot;A lone figure stands in a dark maze facing a glowing red warning doorway, with subtle blue security icons lighting the surrounding walls.&quot; /&gt;&lt;/p&gt;&lt;p&gt;Cybersecurity has a bad habit of mistaking specialization for maturity.&lt;/p&gt;
 &lt;p&gt;A recent piece at &lt;a href=&quot;https://thehackernews.com/2026/03/the-hidden-cost-of-cybersecurity.html&quot; rel=&quot;noopener&quot;&gt;The Hacker News&lt;/a&gt; got me thinking about something I see more and more often in real environments: we have more specialized roles, more products, more dashboards, more alerts, and more vendors than ever, yet a lot of teams still struggle with the same basic problems. Risk is not clearly prioritized. Tools are bought before the problem is fully understood. Security concerns are raised in language the business does not connect with. Incidents take too long to untangle because nobody has the full picture.&lt;/p&gt;
 &lt;p&gt;That is not really a specialization problem. It is a context problem.&lt;/p&gt;
 &lt;p&gt;I do not say that as someone who is anti-specialization. Cybersecurity is too broad now for everybody to be equally deep in every area. We need people who live in identity, cloud, networking, endpoint, vulnerability management, detection engineering, compliance, and incident response. That part is normal. The issue starts when specialization becomes so narrow that people know their slice of the stack but lose sight of how the environment actually works as a whole.&lt;/p&gt;
@@ -1608,13 +1608,13 @@ It looks like treating foundational knowledge as something senior teams keep pra
     </entry><entry>
       <title>Secure Browsers Push Zero Trust Past the Login Screen</title>
       <link href="https://www.kylereddoch.me/blog/secure-browsers-push-zero-trust-past-the-login-screen/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/secure-browser-zero-trust.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/secure-browser-zero-trust.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/aKG0Ss62xz-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/aKG0Ss62xz-1536.jpeg" medium="image" />
       <updated>2026-04-16T16:00:00Z</updated>
       <id>https://www.kylereddoch.me/blog/secure-browsers-push-zero-trust-past-the-login-screen/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/secure-browser-zero-trust.png&quot; alt=&quot;A laptop on a clean white desk displaying a digital shield and padlock symbol, representing secure browsing and protected online access.&quot; /&gt;&lt;/p&gt;&lt;p&gt;A lot of zero trust talk still feels stuck at the login screen.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/aKG0Ss62xz-1536.jpeg&quot; alt=&quot;A laptop on a clean white desk displaying a digital shield and padlock symbol, representing secure browsing and protected online access.&quot; /&gt;&lt;/p&gt;&lt;p&gt;A lot of zero trust talk still feels stuck at the login screen.&lt;/p&gt;
 &lt;p&gt;Did the user pass MFA? Did the device check in? Did the identity platform approve the session? Good. All of that matters. But I think a lot of teams still treat that moment like the hard part is over, and I just do not think that holds up anymore.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://www.kylereddoch.me/blog/secure-browsers-push-zero-trust-past-the-login-screen/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/&quot;&gt;Modern work happens in the browser&lt;/a&gt;. That is where people live now. SaaS apps, admin portals, cloud dashboards, documentation, finance tools, support platforms, and AI tools all run through that one surface. So if zero trust is supposed to be about reducing implicit trust and making decisions based on context, then it cannot stop once the user gets signed in. Even &lt;a href=&quot;https://csrc.nist.gov/pubs/sp/800/207/final&quot; rel=&quot;noopener&quot;&gt;NIST’s zero trust architecture guidance&lt;/a&gt; frames zero trust around protecting resources, not just networks, and makes it clear that trust should not be handed out simply because a user or device made it through an initial gate.&lt;/p&gt;
 &lt;p&gt;That is why I think secure browsers deserve a lot more attention than they usually get.&lt;/p&gt;
@@ -1641,13 +1641,13 @@ It looks like treating foundational knowledge as something senior teams keep pra
     </entry><entry>
       <title>OpenAI’s Codex Security and GPT-5.4-Cyber Could Be a Big Deal for Real-World Defenders</title>
       <link href="https://www.kylereddoch.me/blog/openais-codex-security-and-gpt-54-cyber-could-be-a-big-deal-for-real-world-defenders/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/openai_codex_security.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/openai_codex_security.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/QbTvXdVOjr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/QbTvXdVOjr-1536.jpeg" medium="image" />
       <updated>2026-04-15T18:30:00Z</updated>
       <id>https://www.kylereddoch.me/blog/openais-codex-security-and-gpt-54-cyber-could-be-a-big-deal-for-real-world-defenders/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/openai_codex_security.png&quot; alt=&quot;Abstract cybersecurity-themed image with a dark blue and orange split background, a central glowing shield and padlock, two smaller padlocks on either side, and the OpenAI logo above.&quot; /&gt;&lt;/p&gt;&lt;p&gt;A lot of AI security tooling sounds impressive right up until you picture using it during a real week of cybersecurity work.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/QbTvXdVOjr-1536.jpeg&quot; alt=&quot;Abstract cybersecurity-themed image with a dark blue and orange split background, a central glowing shield and padlock, two smaller padlocks on either side, and the OpenAI logo above.&quot; /&gt;&lt;/p&gt;&lt;p&gt;A lot of AI security tooling sounds impressive right up until you picture using it during a real week of cybersecurity work.&lt;/p&gt;
 &lt;p&gt;That is usually where the shine wears off.&lt;/p&gt;
 &lt;p&gt;Most defenders do not need another system that spits out more alerts, more summaries, and more possible issues for already stretched teams to sort through. They need help proving what is real, understanding what actually matters, and getting to remediation faster without piling even more noise onto the day.&lt;/p&gt;
 &lt;p&gt;That is why OpenAI’s new &lt;a href=&quot;https://openai.com/index/codex-security-now-in-research-preview/&quot; rel=&quot;noopener&quot;&gt;Codex Security&lt;/a&gt; rollout caught my attention.&lt;/p&gt;
@@ -1695,13 +1695,13 @@ It looks like treating foundational knowledge as something senior teams keep pra
     </entry><entry>
       <title>Stress Awareness Month: Helping Cybersecurity and IT Go From Burnout to Balance</title>
       <link href="https://www.kylereddoch.me/blog/stress-awareness-month-helping-cybersecurity-and-it-go-from-burnout-to-balance/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/stressed-it-person-office.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/stressed-it-person-office.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/a-4MfhbwJK-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/a-4MfhbwJK-1536.jpeg" medium="image" />
       <updated>2026-04-14T15:00:00Z</updated>
       <id>https://www.kylereddoch.me/blog/stress-awareness-month-helping-cybersecurity-and-it-go-from-burnout-to-balance/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/stressed-it-person-office.png&quot; alt=&quot;A tired IT professional sits at a desk late at night, surrounded by glowing monitors filled with security alerts, with coffee cups and devices scattered around the workspace.&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/a-4MfhbwJK-1536.jpeg&quot; alt=&quot;A tired IT professional sits at a desk late at night, surrounded by glowing monitors filled with security alerts, with coffee cups and devices scattered around the workspace.&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
 &lt;p&gt;In cybersecurity and IT, stress gets normalized way too easily. That does not make it healthy, and it definitely does not make it sustainable.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;April is &lt;a href=&quot;https://stressawarenessmonth.com/&quot; rel=&quot;noopener&quot;&gt;Stress Awareness Month&lt;/a&gt;, and I think that is a good excuse for those of us in cybersecurity and IT to be honest about something our industry still handles poorly. We are very good at talking about uptime, resilience, and risk. We are not always as good at talking about the human cost of constantly operating in that mode.&lt;/p&gt;
@@ -1724,13 +1724,13 @@ It looks like treating foundational knowledge as something senior teams keep pra
     </entry><entry>
       <title>Shipping Fast and Catching My Breath (Week 15, 2026)</title>
       <link href="https://www.kylereddoch.me/notes/2026/week-15-2026/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2026-04-13T17:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-15-2026/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Shipping Fast and Catching My Breath (Week 15, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Shipping Fast and Catching My Breath (Week 15, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
 &lt;p&gt;I went full speed ahead this week.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
@@ -1756,13 +1756,13 @@ It looks like treating foundational knowledge as something senior teams keep pra
     </entry><entry>
       <title>AI Is Not the Reason an MSP Succeeds, But It May Decide Which Ones Pull Ahead</title>
       <link href="https://www.kylereddoch.me/blog/ai-is-not-the-reason-an-msp-succeeds-but-it-may-decide-which-ones-pull-ahead/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/soc-workstation-ai.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/soc-workstation-ai.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/66HJ8oUM5_-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/66HJ8oUM5_-1536.jpeg" medium="image" />
       <updated>2026-04-13T16:30:00Z</updated>
       <id>https://www.kylereddoch.me/blog/ai-is-not-the-reason-an-msp-succeeds-but-it-may-decide-which-ones-pull-ahead/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/soc-workstation-ai.png&quot; alt=&quot;AI Is Not the Reason an MSP Succeeds, But It May Decide Which Ones Pull Ahead&quot; /&gt;&lt;/p&gt;&lt;p&gt;There is a version of the AI conversation in managed services that already feels worn out.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/66HJ8oUM5_-1536.jpeg&quot; alt=&quot;AI Is Not the Reason an MSP Succeeds, But It May Decide Which Ones Pull Ahead&quot; /&gt;&lt;/p&gt;&lt;p&gt;There is a version of the AI conversation in managed services that already feels worn out.&lt;/p&gt;
 &lt;p&gt;It is the version where every vendor demo implies the future MSP is almost autonomous, every workflow is one prompt away from solving itself, and every owner just needs to “embrace AI” before the competition leaves them behind. I do not buy that version of the story. From where I sit, AI is not a replacement for a good MSP. It is a multiplier for the MSP that already knows how to standardize, document, secure, and communicate well. The firms that are going to get real value from AI are not the ones making the loudest noise about it. They are the ones using it to reduce internal drag, tighten service delivery, and free their people up for higher-value work. That is part of why I wanted to include the recent &lt;a href=&quot;https://mspsuccess.com/2026/03/5-ai-trends-defining-success-for-msps-in-2026/&quot; rel=&quot;noopener&quot;&gt;MSP Success piece on five AI trends defining success for MSPs in 2026&lt;/a&gt;. It makes a point I think a lot of providers need to hear: the MSPs getting traction with AI did not start with the sales pitch. They started by using it on themselves first.&lt;/p&gt;
 &lt;h2 id=&quot;the-first-win-is-usually-internal&quot;&gt;The first win is usually internal&lt;/h2&gt;
 &lt;p&gt;That feels right to me.&lt;/p&gt;
@@ -1808,13 +1808,13 @@ It looks like treating foundational knowledge as something senior teams keep pra
     </entry><entry>
       <title>Catppuccin Complete UI for Mastodon 2.0</title>
       <link href="https://www.kylereddoch.me/blog/catppuccin-complete-ui-for-mastodon-20/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/catppuccin-complete-ui.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/catppuccin-complete-ui.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/2i3DWNf31n-1879.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/2i3DWNf31n-1879.jpeg" medium="image" />
       <updated>2026-04-10T19:30:00Z</updated>
       <id>https://www.kylereddoch.me/blog/catppuccin-complete-ui-for-mastodon-20/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/catppuccin-complete-ui.png&quot; alt=&quot;Catppuccin Complete UI for Mastodon 2.0&quot; /&gt;&lt;/p&gt;&lt;p&gt;When I first shared my Catppuccin Mastodon theme, it was a pretty personal project.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/2i3DWNf31n-1879.jpeg&quot; alt=&quot;Catppuccin Complete UI for Mastodon 2.0&quot; /&gt;&lt;/p&gt;&lt;p&gt;When I first shared my Catppuccin Mastodon theme, it was a pretty personal project.&lt;/p&gt;
 &lt;p&gt;I wanted Mastodon’s web UI to feel more comfortable for me, more intentional, and more in line with the kind of design language I already liked. That first version was focused mainly on a Catppuccin Mocha look and my preferred advanced web layout, especially with the composer moved over to the left.&lt;/p&gt;
 &lt;p&gt;If you missed that earlier post, you can read it here: &lt;a href=&quot;https://www.kylereddoch.me/blog/catppuccin-mocha-ui-for-mastodon/&quot;&gt;Catppuccin Mocha UI for Mastodon&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;This new release is a much bigger step forward.&lt;/p&gt;
@@ -1889,13 +1889,13 @@ It looks like treating foundational knowledge as something senior teams keep pra
     </entry><entry>
       <title>Microsoft’s WireGuard and VeraCrypt Lockout Is Bigger Than a Support Failure</title>
       <link href="https://www.kylereddoch.me/blog/microsofts-wireguard-and-veracrypt-lockout-is-bigger-than-a-support-failure/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/msft-wireguard-veracrypt.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/msft-wireguard-veracrypt.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/pHJez9UXox-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/pHJez9UXox-1536.jpeg" medium="image" />
       <updated>2026-04-10T14:00:00Z</updated>
       <id>https://www.kylereddoch.me/blog/microsofts-wireguard-and-veracrypt-lockout-is-bigger-than-a-support-failure/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/msft-wireguard-veracrypt.png&quot; alt=&quot;Microsoft’s WireGuard and VeraCrypt Lockout Is Bigger Than a Support Failure&quot; /&gt;&lt;/p&gt;&lt;p&gt;A friend on Mastodon, &lt;a href=&quot;https://mstdn.social/@cjerrington/116377293389901114&quot; rel=&quot;noopener&quot;&gt;CJ Errington&lt;/a&gt;, put this story on my radar after &lt;a href=&quot;https://www.neowin.net/news/microsoft-pulls-developer-accounts-of-wireguard-and-veracrypt/&quot; rel=&quot;noopener&quot;&gt;Neowin reported&lt;/a&gt; that Microsoft had pulled the developer accounts tied to WireGuard and VeraCrypt. The headline is attention-grabbing on its own, but the part that really matters to me is not the drama. It is what this says about how fragile software trust and update pipelines can become when one company sits in the middle of them.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/pHJez9UXox-1536.jpeg&quot; alt=&quot;Microsoft’s WireGuard and VeraCrypt Lockout Is Bigger Than a Support Failure&quot; /&gt;&lt;/p&gt;&lt;p&gt;A friend on Mastodon, &lt;a href=&quot;https://mstdn.social/@cjerrington/116377293389901114&quot; rel=&quot;noopener&quot;&gt;CJ Errington&lt;/a&gt;, put this story on my radar after &lt;a href=&quot;https://www.neowin.net/news/microsoft-pulls-developer-accounts-of-wireguard-and-veracrypt/&quot; rel=&quot;noopener&quot;&gt;Neowin reported&lt;/a&gt; that Microsoft had pulled the developer accounts tied to WireGuard and VeraCrypt. The headline is attention-grabbing on its own, but the part that really matters to me is not the drama. It is what this says about how fragile software trust and update pipelines can become when one company sits in the middle of them.&lt;/p&gt;
 &lt;p&gt;From the reporting that followed, this was not just a weird hiccup affecting one niche utility. Multiple outlets reported that the suspended accounts blocked maintainers from publishing Windows builds, signing drivers, or otherwise getting updates to users. That list grew beyond WireGuard and VeraCrypt to include projects like &lt;a href=&quot;https://www.bleepingcomputer.com/news/microsoft/microsoft-suspends-dev-accounts-for-high-profile-open-source-projects/&quot; rel=&quot;noopener&quot;&gt;Windscribe and MemTest86&lt;/a&gt;. In other words, this was not a tiny paperwork annoyance with no downstream impact. It directly touched software distribution and patch delivery on Windows.&lt;/p&gt;
 &lt;p&gt;That is the part I think security people, MSPs, and IT admins should focus on. If a trusted security or privacy tool suddenly loses the ability to ship updates, the risk is not only reputational. The risk is operational. WireGuard creator Jason Donenfeld said the account lockout meant he could not sign drivers or ship updates, and he raised the obvious concern: if there had been a critical vulnerability that needed an immediate fix, users would have been stuck waiting. He was careful to note that this was hypothetical, not an active WireGuard emergency, and that distinction matters. Still, the point stands. A broken update path is a security problem even when the software itself is sound, as &lt;a href=&quot;https://techcrunch.com/2026/04/08/wireguard-vpn-developer-cant-ship-software-updates-after-microsoft-locks-account/&quot; rel=&quot;noopener&quot;&gt;TechCrunch reported&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;VeraCrypt’s situation may be even more uncomfortable because of the timing. &lt;a href=&quot;https://techcrunch.com/2026/04/08/veracrypt-encryption-software-windows-microsoft-lock-boot-issues/&quot; rel=&quot;noopener&quot;&gt;TechCrunch reported&lt;/a&gt; that VeraCrypt developer Mounir Idrassi said affected users do not need to panic right now and that there are no current security issues identified, but he also warned that some systems using VeraCrypt full-disk encryption could face boot issues after July 2026 if the signing problem is not resolved. That warning lines up with &lt;a href=&quot;https://learn.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot-cert-requirements&quot; rel=&quot;noopener&quot;&gt;Microsoft’s own Secure Boot certificate transition timeline&lt;/a&gt;, which says key Secure Boot certificates start expiring in June 2026 and that updated trust chains are required to maintain continuity and protection.&lt;/p&gt;
@@ -1909,13 +1909,13 @@ It looks like treating foundational knowledge as something senior teams keep pra
     </entry><entry>
       <title>Introducing Retro Garden, My New Eleventy Starter Theme</title>
       <link href="https://www.kylereddoch.me/blog/introducing-retro-garden-my-new-eleventy-starter-theme/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/retro-garden-demo.webp" />
-      <media:content url="https://www.kylereddoch.me/assets/images/retro-garden-demo.webp" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/-nBdnUzxIS-4936.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/-nBdnUzxIS-4936.jpeg" medium="image" />
       <updated>2026-04-09T18:15:00Z</updated>
       <id>https://www.kylereddoch.me/blog/introducing-retro-garden-my-new-eleventy-starter-theme/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/retro-garden-demo.webp&quot; alt=&quot;Introducing Retro Garden, My New Eleventy Starter Theme&quot; /&gt;&lt;/p&gt;&lt;p&gt;I have been wanting to build a starter theme for a while that feels more like the kind of web I actually enjoy using.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/-nBdnUzxIS-4936.jpeg&quot; alt=&quot;Introducing Retro Garden, My New Eleventy Starter Theme&quot; /&gt;&lt;/p&gt;&lt;p&gt;I have been wanting to build a starter theme for a while that feels more like the kind of web I actually enjoy using.&lt;/p&gt;
 &lt;p&gt;Not sterile. Not overly polished. Not trying to look like every SaaS landing page on the internet.&lt;/p&gt;
 &lt;p&gt;That idea turned into &lt;strong&gt;Retro Garden&lt;/strong&gt;, my new &lt;strong&gt;Eleventy starter theme&lt;/strong&gt;. It is built for personal websites, blogs, and small indie spaces that want some retro personality without giving up the things that still matter, like accessibility, maintainability, and a solid publishing workflow.&lt;/p&gt;
 &lt;h2 id=&quot;why-i-made-it&quot;&gt;Why I made it&lt;/h2&gt;
@@ -2059,13 +2059,13 @@ It looks like treating foundational knowledge as something senior teams keep pra
     </entry><entry>
       <title>Why I’m Building More Intentionally Online, and I’d Love to Have You Along</title>
       <link href="https://www.kylereddoch.me/blog/why-im-building-more-intentionally-online-and-id-love-to-have-you-along/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/laptop-coffee-desk.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/laptop-coffee-desk.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/Qm6j8sSOuP-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/Qm6j8sSOuP-1536.jpeg" medium="image" />
       <updated>2026-04-08T20:00:00Z</updated>
       <id>https://www.kylereddoch.me/blog/why-im-building-more-intentionally-online-and-id-love-to-have-you-along/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/laptop-coffee-desk.png&quot; alt=&quot;Why I’m Building More Intentionally Online, and I’d Love to Have You Along&quot; /&gt;&lt;/p&gt;&lt;p&gt;I spent some time recently rebuilding my sponsorship and membership pages across &lt;a href=&quot;https://github.com/sponsors/kylereddoch&quot; rel=&quot;noopener&quot;&gt;GitHub Sponsors&lt;/a&gt;, &lt;a href=&quot;https://ko-fi.com/kylereddoch&quot; rel=&quot;noopener&quot;&gt;Ko-fi&lt;/a&gt;, and &lt;a href=&quot;https://buymeacoffee.com/kylereddoch&quot; rel=&quot;noopener&quot;&gt;Buy Me a Coffee&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/Qm6j8sSOuP-1536.jpeg&quot; alt=&quot;Why I’m Building More Intentionally Online, and I’d Love to Have You Along&quot; /&gt;&lt;/p&gt;&lt;p&gt;I spent some time recently rebuilding my sponsorship and membership pages across &lt;a href=&quot;https://github.com/sponsors/kylereddoch&quot; rel=&quot;noopener&quot;&gt;GitHub Sponsors&lt;/a&gt;, &lt;a href=&quot;https://ko-fi.com/kylereddoch&quot; rel=&quot;noopener&quot;&gt;Ko-fi&lt;/a&gt;, and &lt;a href=&quot;https://buymeacoffee.com/kylereddoch&quot; rel=&quot;noopener&quot;&gt;Buy Me a Coffee&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;On the surface, that probably looks like a small housekeeping task. Update some wording. Clean up some old perks. Swap out a few links. Done.&lt;/p&gt;
 &lt;p&gt;But honestly, it felt bigger than that.&lt;/p&gt;
 &lt;p&gt;It felt like finally admitting that my focus has changed, my work has changed, and the way I want to show up online has changed too.&lt;/p&gt;
@@ -2151,13 +2151,13 @@ It looks like treating foundational knowledge as something senior teams keep pra
     </entry><entry>
       <title>Russia’s Router Campaign Should Be a Wake-Up Call for Every Office</title>
       <link href="https://www.kylereddoch.me/blog/russias-router-campaign-should-be-a-wake-up-call-for-every-office/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/russia-router-hack.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/russia-router-hack.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/ukpnX3rSxO-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/ukpnX3rSxO-1536.jpeg" medium="image" />
       <updated>2026-04-08T16:00:00Z</updated>
       <id>https://www.kylereddoch.me/blog/russias-router-campaign-should-be-a-wake-up-call-for-every-office/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/russia-router-hack.png&quot; alt=&quot;Russia’s Router Campaign Should Be a Wake-Up Call for Every Office&quot; /&gt;&lt;/p&gt;&lt;p&gt;One of the biggest mistakes I see in small business IT and even in some larger environments is that routers are still treated like background equipment. I have been circling this theme for a while in posts like &lt;a href=&quot;https://www.kylereddoch.me/blog/the-fccs-router-crackdown-shouldnt-surprise-anyone-in-cybersecurity/&quot;&gt;The FCC’s Router Crackdown Shouldn’t Surprise Anyone in Cybersecurity&lt;/a&gt; and &lt;a href=&quot;https://www.kylereddoch.me/blog/the-network-edge-cleanup-most-teams-cannot-keep-putting-off/&quot;&gt;The Network Edge Cleanup Most Teams Cannot Keep Putting Off&lt;/a&gt;, and this campaign is exactly why.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/ukpnX3rSxO-1536.jpeg&quot; alt=&quot;Russia’s Router Campaign Should Be a Wake-Up Call for Every Office&quot; /&gt;&lt;/p&gt;&lt;p&gt;One of the biggest mistakes I see in small business IT and even in some larger environments is that routers are still treated like background equipment. I have been circling this theme for a while in posts like &lt;a href=&quot;https://www.kylereddoch.me/blog/the-fccs-router-crackdown-shouldnt-surprise-anyone-in-cybersecurity/&quot;&gt;The FCC’s Router Crackdown Shouldn’t Surprise Anyone in Cybersecurity&lt;/a&gt; and &lt;a href=&quot;https://www.kylereddoch.me/blog/the-network-edge-cleanup-most-teams-cannot-keep-putting-off/&quot;&gt;The Network Edge Cleanup Most Teams Cannot Keep Putting Off&lt;/a&gt;, and this campaign is exactly why.&lt;/p&gt;
 &lt;p&gt;They get installed, they blink, they pass traffic, and as long as the internet “works,” nobody wants to think about them again. The attention goes to endpoints, MFA, email filtering, backups, and cloud security. Those things matter a lot, obviously, but the newest reporting on Russia-linked router compromises is a reminder that the edge still matters more than many people want to admit. It is the same reason I keep arguing that &lt;a href=&quot;https://www.kylereddoch.me/blog/the-biggest-cybersecurity-risk-for-smbs-still-isnt-the-fancy-stuff/&quot;&gt;the biggest cybersecurity risk for SMBs still is not the fancy stuff&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;According to &lt;a href=&quot;https://krebsonsecurity.com/2026/04/russia-hacked-routers-to-steal-microsoft-office-tokens/&quot; rel=&quot;noopener&quot;&gt;KrebsOnSecurity&lt;/a&gt;, &lt;a href=&quot;https://www.microsoft.com/en-us/security/blog/2026/04/07/soho-router-compromise-leads-to-dns-hijacking-and-adversary-in-the-middle-attacks/&quot; rel=&quot;noopener&quot;&gt;Microsoft Threat Intelligence&lt;/a&gt;, the &lt;a href=&quot;https://www.ncsc.gov.uk/news/apt28-exploit-routers-to-enable-dns-hijacking-operations&quot; rel=&quot;noopener&quot;&gt;U.K. National Cyber Security Centre&lt;/a&gt;, and the &lt;a href=&quot;https://www.ic3.gov/PSA/2026/PSA260407&quot; rel=&quot;noopener&quot;&gt;FBI/IC3 public warning&lt;/a&gt;, the Russian state-linked group APT28, also tracked as Forest Blizzard and Fancy Bear, has been exploiting vulnerable small office and home office routers to overwrite DHCP and DNS settings. That let the attackers redirect traffic through infrastructure they controlled, selectively intercept requests, and steal passwords, OAuth tokens, and other credentials tied to web and email services. Microsoft also said the activity supported adversary-in-the-middle attacks against Transport Layer Security connections tied to Outlook on the web.&lt;/p&gt;
 &lt;h2 id=&quot;this-is-bigger-than-a-microsoft-story&quot;&gt;This Is Bigger Than a Microsoft Story&lt;/h2&gt;
@@ -2215,13 +2215,13 @@ It looks like treating foundational knowledge as something senior teams keep pra
     </entry><entry>
       <title>I Built an Eleventy Plugin for Sharing Posts to Mastodon</title>
       <link href="https://www.kylereddoch.me/blog/i-built-an-eleventy-plugin-for-sharing-posts-to-mastodon/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/eleventy-masto-share-img.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/eleventy-masto-share-img.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/gSK7mpIjoE-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/gSK7mpIjoE-1536.jpeg" medium="image" />
       <updated>2026-04-07T18:00:00Z</updated>
       <id>https://www.kylereddoch.me/blog/i-built-an-eleventy-plugin-for-sharing-posts-to-mastodon/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/eleventy-masto-share-img.png&quot; alt=&quot;I Built an Eleventy Plugin for Sharing Posts to Mastodon&quot; /&gt;&lt;/p&gt;&lt;p&gt;I am happy to share a new open source project I have been working on: &lt;code&gt;@kylereddoch/eleventy-plugin-mastodon-share&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/gSK7mpIjoE-1536.jpeg&quot; alt=&quot;I Built an Eleventy Plugin for Sharing Posts to Mastodon&quot; /&gt;&lt;/p&gt;&lt;p&gt;I am happy to share a new open source project I have been working on: &lt;code&gt;@kylereddoch/eleventy-plugin-mastodon-share&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;You can browse the source on &lt;a href=&quot;https://github.com/kylereddoch/eleventy-plugin-mastodon-share&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt; and try the &lt;a href=&quot;https://eleventy-plugin-mastodon-share.vercel.app/&quot; rel=&quot;noopener&quot;&gt;live demo&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;It is a small Eleventy plugin that makes it easier for people to share posts from your site to Mastodon.&lt;/p&gt;
 &lt;p&gt;If you have ever tried to add Mastodon sharing to a website, you already know the awkward part: there is no single universal destination the way there is with some other social platforms. People need to post through their own Mastodon instance, which means a simple “share this post” button is usually not enough.&lt;/p&gt;
@@ -2329,13 +2329,13 @@ It looks like treating foundational knowledge as something senior teams keep pra
     </entry><entry>
       <title>A New Look, a Quiet Weekend, and a Full Heart (Week 14, 2026)</title>
       <link href="https://www.kylereddoch.me/notes/2026/week-14-2026/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2026-04-07T15:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-14-2026/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;A New Look, a Quiet Weekend, and a Full Heart (Week 14, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;A New Look, a Quiet Weekend, and a Full Heart (Week 14, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
 &lt;p&gt;Coming in a day late with this one again but it is for a good reason. I was busy launching my new design yesterday.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
@@ -2360,13 +2360,13 @@ It looks like treating foundational knowledge as something senior teams keep pra
     </entry><entry>
       <title>Why CybersecKyle Has a New Look</title>
       <link href="https://www.kylereddoch.me/blog/why-cyberseckyle-has-a-new-look/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/time-for-change.jpg" />
-      <media:content url="https://www.kylereddoch.me/assets/images/time-for-change.jpg" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/MRW0Xipz54-1280.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/MRW0Xipz54-1280.jpeg" medium="image" />
       <updated>2026-04-06T21:30:00Z</updated>
       <id>https://www.kylereddoch.me/blog/why-cyberseckyle-has-a-new-look/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/time-for-change.jpg&quot; alt=&quot;Why CybersecKyle Has a New Look&quot; /&gt;&lt;/p&gt;&lt;p&gt;If you are coming here to read this post, you probably notice that CybersecKyle looks a little different now.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/MRW0Xipz54-1280.jpeg&quot; alt=&quot;Why CybersecKyle Has a New Look&quot; /&gt;&lt;/p&gt;&lt;p&gt;If you are coming here to read this post, you probably notice that CybersecKyle looks a little different now.&lt;/p&gt;
 &lt;p&gt;Actually, a lot different.&lt;/p&gt;
 &lt;p&gt;I finally launched a redesign that has been bouncing around in my head for a while, and I wanted to write a proper post about &lt;strong&gt;why&lt;/strong&gt; I changed it, &lt;strong&gt;what&lt;/strong&gt; changed, and &lt;strong&gt;what I was trying to improve&lt;/strong&gt; instead of just quietly swapping themes and moving on. A lot of the thinking behind it overlaps with something else I wrote recently about &lt;a href=&quot;https://www.kylereddoch.me/blog/i-believe-in-human-websites-i-still-care-about-polish/&quot;&gt;human websites and polish&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;why-i-wanted-to-redesign-it&quot;&gt;Why I wanted to redesign it&lt;/h2&gt;
@@ -2556,13 +2556,13 @@ It looks like treating foundational knowledge as something senior teams keep pra
     </entry><entry>
       <title>Clearer Views, Unexpected Turns (Week 13, 2026)</title>
       <link href="https://www.kylereddoch.me/notes/2026/week-13-2026/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2026-03-31T15:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-13-2026/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Clearer Views, Unexpected Turns (Week 13, 2026)&quot; /&gt;&lt;/p&gt;&lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Clearer Views, Unexpected Turns (Week 13, 2026)&quot; /&gt;&lt;/p&gt;&lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
 &lt;p&gt;A grounded weekly note with a little whiplash. Mostly everyday family life, then suddenly a wild neighborhood story that shifts the whole mood.&lt;/p&gt;
 &lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
 &lt;ul&gt;
@@ -2738,13 +2738,13 @@ It looks like treating foundational knowledge as something senior teams keep pra
     </entry><entry>
       <title>New Glasses, New Network, Final Stretch (Week 12, 2026)</title>
       <link href="https://www.kylereddoch.me/notes/2026/week-12-2026/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2026-03-23T21:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-12-2026/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;New Glasses, New Network, Final Stretch (Week 12, 2026)&quot; /&gt;&lt;/p&gt;&lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;New Glasses, New Network, Final Stretch (Week 12, 2026)&quot; /&gt;&lt;/p&gt;&lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
 &lt;p&gt;Life maintenance and finish-line energy.&lt;/p&gt;
 &lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
 &lt;ul&gt;
@@ -3017,13 +3017,13 @@ It looks like treating foundational knowledge as something senior teams keep pra
     </entry><entry>
       <title>New Contacts and New Corners (Week 11, 2026)</title>
       <link href="https://www.kylereddoch.me/notes/2026/week-11-2026/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2026-03-17T21:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-11-2026/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;New Contacts and New Corners (Week 11, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;New Contacts and New Corners (Week 11, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
 &lt;p&gt;Another week coming in late with this one.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
@@ -3309,13 +3309,13 @@ It is “Can our current MFA model be socially engineered in real time?”&lt;/p
     </entry><entry>
       <title>F1 Returns, Lego Additions, and a Rough Reflux Week (Week 10, 2026)</title>
       <link href="https://www.kylereddoch.me/notes/2026/week-10-2026/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2026-03-10T21:30:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-10-2026/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;F1 Returns, Lego Additions, and a Rough Reflux Week (Week 10, 2026)&quot; /&gt;&lt;/p&gt;&lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;F1 Returns, Lego Additions, and a Rough Reflux Week (Week 10, 2026)&quot; /&gt;&lt;/p&gt;&lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
 &lt;p&gt;Motivated by the return of racing while navigating a few rough nights and a busy week of security work.&lt;/p&gt;
 &lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
 &lt;ul&gt;
@@ -3479,13 +3479,13 @@ It is “Can our current MFA model be socially engineered in real time?”&lt;/p
     </entry><entry>
       <title>Weekly Notes: Tennis Starts, Migraine Friday, Fraud Flag Sunday (Week 9, 2026)</title>
       <link href="https://www.kylereddoch.me/notes/2026/week-09-2026/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2026-03-02T21:30:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-09-2026/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Weekly Notes: Tennis Starts, Migraine Friday, Fraud Flag Sunday (Week 9, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Weekly Notes: Tennis Starts, Migraine Friday, Fraud Flag Sunday (Week 9, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
 &lt;p&gt;These past few weeks have been pretty rough for me, as you might have seen. &lt;a href=&quot;https://infosec.exchange/@cyberseckyle/116131496602643142&quot; rel=&quot;noopener&quot;&gt;I recently just haven’t felt like myself.&lt;/a&gt; Haven’t felt like getting on the internet much at all. As a result of that, I haven’t been writing much articles/posts on the blog. I have been trying to get back into the groove of things, but it has been a struggle.&lt;/p&gt;
 &lt;p&gt;Now onto what last week was like.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3512,13 +3512,13 @@ It is “Can our current MFA model be socially engineered in real time?”&lt;/p
     </entry><entry>
       <title>Weekly Notes: Big Comfort Upgrades and a Useful Little Script (Week 8, 2026)</title>
       <link href="https://www.kylereddoch.me/notes/2026/week-08-2026/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2026-02-25T14:30:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-08-2026/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Weekly Notes: Big Comfort Upgrades and a Useful Little Script (Week 8, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Weekly Notes: Big Comfort Upgrades and a Useful Little Script (Week 8, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
 &lt;p&gt;Sorry for another late post. It has been a busy week again plus I have just been taking a break from the internet. As a result, I haven’t been writing as much.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
@@ -3922,13 +3922,13 @@ On the endpoint, the script also writes a transcript log under &lt;code&gt;C:&#9
     </entry><entry>
       <title>Weekly Notes: WFH Mode, Olympics Nights, and F1 Is Back (Week 7, 2026)</title>
       <link href="https://www.kylereddoch.me/notes/2026/week-07-2026/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2026-02-17T18:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-07-2026/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Weekly Notes: WFH Mode, Olympics Nights, and F1 Is Back (Week 7, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Weekly Notes: WFH Mode, Olympics Nights, and F1 Is Back (Week 7, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
 &lt;p&gt;Yesterday was a busy Monday so yet again, I am writing these notes on Tuesday. But hey, better late than never, right? Let’s dive into the weekly notes for week 7 of 2026!&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
@@ -4024,13 +4024,13 @@ On the endpoint, the script also writes a transcript log under &lt;code&gt;C:&#9
     </entry><entry>
       <title>Weekly Notes: Small Upgrades, Loud Lessons (Week 6, 2026)</title>
       <link href="https://www.kylereddoch.me/notes/2026/week-06-2026/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2026-02-09T16:30:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-06-2026/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Weekly Notes: Small Upgrades, Loud Lessons (Week 6, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Weekly Notes: Small Upgrades, Loud Lessons (Week 6, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
 &lt;p&gt;Let me preface this by saying… Let’s GO SUPER BOWL CHAMPS! 🏆🏈 My Seahawks did it! We got the revenge we’ve been waiting for. Okay now for the weekly notes. LOL&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
@@ -4766,13 +4766,13 @@ Snapshot &lt;strong&gt;persistent volumes&lt;/strong&gt; (CSI VolumeSnapshots) a
     </entry><entry>
       <title>Weekly Notes: Small Upgrades, Big Progress (Week 5, 2026)</title>
       <link href="https://www.kylereddoch.me/notes/2026/week-05-2026/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2026-02-03T14:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-05-2026/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Weekly Notes: Small Upgrades, Big Progress (Week 5, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Weekly Notes: Small Upgrades, Big Progress (Week 5, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
 &lt;p&gt;I really need to start keeping some sort of daily log so I can remember what the heck I did throughout the week. My memory is terrible.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
@@ -5529,13 +5529,13 @@ Yes, it works.&lt;/p&gt;
     </entry><entry>
       <title>Weekly Notes: Snowmageddon Bust, Frozen Pipes, Draft Done (Week 4, 2026)</title>
       <link href="https://www.kylereddoch.me/notes/2026/week-04-2026/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2026-01-27T19:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-04-2026/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Weekly Notes: Snowmageddon Bust, Frozen Pipes, Draft Done (Week 4, 2026)&quot; /&gt;&lt;/p&gt;&lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Weekly Notes: Snowmageddon Bust, Frozen Pipes, Draft Done (Week 4, 2026)&quot; /&gt;&lt;/p&gt;&lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
 &lt;p&gt;A fake-apocalypse snow week that still managed to bite, held together with space heaters, nostalgia dopamine, and the sheer satisfaction of typing “draft complete.”&lt;/p&gt;
 &lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
 &lt;ul&gt;
@@ -6518,13 +6518,13 @@ Clients do not need fear. They need:&lt;/p&gt;
     </entry><entry>
       <title>Weekly Notes: Down for the Count (Week 3, 2026)</title>
       <link href="https://www.kylereddoch.me/notes/2026/week-03-2026/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2026-01-19T21:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-03-2026/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Weekly Notes: Down for the Count (Week 3, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Weekly Notes: Down for the Count (Week 3, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Recap:&lt;/strong&gt; This past week wasn’t what I hoped for. I got sick right after Monday and ended up staying home the rest of the week. I didn’t get anything productive done. I mostly just slept.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
@@ -6547,13 +6547,13 @@ Clients do not need fear. They need:&lt;/p&gt;
     </entry><entry>
       <title>Weekly Notes: Back to Routines (Week 2, 2026)</title>
       <link href="https://www.kylereddoch.me/notes/2026/week-02-2026/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2026-01-12T19:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-02-2026/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Weekly Notes: Back to Routines (Week 2, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Weekly Notes: Back to Routines (Week 2, 2026)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Recap:&lt;/strong&gt; A mostly quiet back-to-routine week: school kicked off again, early tennis mornings returned, I binged some solid TV, and work was the usual security grind with one real troubleshooting headache.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
@@ -6981,13 +6981,13 @@ Once abuse becomes a crisis, it becomes incident response: logs, timelines, cont
     </entry><entry>
       <title>Weekly Notes: Easing Into 2026 (Week 1, 2026)</title>
       <link href="https://www.kylereddoch.me/notes/2026/week-01-2026/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2026-01-06T15:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2026/week-01-2026/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Weekly Notes: Easing Into 2026 (Week 1, 2026)&quot; /&gt;&lt;/p&gt;&lt;p&gt;This week’s notes cover the tail end of 2025 and the first few days of 2026. It was another short week with New Year’s Day off on Thursday, then right back to work on Friday.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Weekly Notes: Easing Into 2026 (Week 1, 2026)&quot; /&gt;&lt;/p&gt;&lt;p&gt;This week’s notes cover the tail end of 2025 and the first few days of 2026. It was another short week with New Year’s Day off on Thursday, then right back to work on Friday.&lt;/p&gt;
 &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
 &lt;p&gt;Late 2025 stayed about as quiet as it gets. Mostly calm and steady, with a few quick spikes of anxiety mixed in.&lt;/p&gt;
 &lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
@@ -7380,13 +7380,13 @@ Mark which steps are reversible and which require human approval.&lt;/p&gt;
     </entry><entry>
       <title>Weekly Notes: Short week, full recharge (Week 52, 2025)</title>
       <link href="https://www.kylereddoch.me/notes/2025/week-52-2025/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2025-12-29T15:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2025/week-52-2025/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Weekly Notes: Short week, full recharge (Week 52, 2025)&quot; /&gt;&lt;/p&gt;&lt;p&gt;TThis week’s note is shorter than usual since it was a holiday week and everything ran on “short week” mode.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Weekly Notes: Short week, full recharge (Week 52, 2025)&quot; /&gt;&lt;/p&gt;&lt;p&gt;TThis week’s note is shorter than usual since it was a holiday week and everything ran on “short week” mode.&lt;/p&gt;
 &lt;h2 id=&quot;the-vibe&quot;&gt;The vibe&lt;/h2&gt;
 &lt;p&gt;Last week was steady in the best way. I only worked through Wednesday, and work stayed mostly quiet outside of the usual alerts and the occasional support call. Personally, I did what I’ve needed for a while: relaxed, watched a bunch of movies, and took it easy. No regrets.&lt;/p&gt;
 &lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
@@ -7752,13 +7752,13 @@ Many Chromium browsers have similar “always use secure connections” settings
     </entry><entry>
       <title>Weekly Notes: Less chaotic, more grounded (Week 51, 2025)</title>
       <link href="https://www.kylereddoch.me/notes/2025/week-51-2025/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2025-12-23T15:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2025/week-51-2025/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Weekly Notes: Less chaotic, more grounded (Week 51, 2025)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Weekly Notes: Less chaotic, more grounded (Week 51, 2025)&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
 &lt;p&gt;I am trying out a new format for these posts. Let me know what you think!&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Yesterday was a busy day, I got a call before I was even to work. The day didn’t stop after that. I wasn’t able to write this post yesterday so here is to posting it with a delay. Hopefully, it doesn’t become a pattern but no promises.&lt;/p&gt;
@@ -7801,13 +7801,13 @@ Many Chromium browsers have similar “always use secure connections” settings
     </entry><entry>
       <title>Weekly Notes: Week 50, 2025</title>
       <link href="https://www.kylereddoch.me/notes/2025/week-50-2025/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2025-12-15T15:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2025/week-50-2025/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Weekly Notes: Week 50, 2025&quot; /&gt;&lt;/p&gt;&lt;p&gt;Last week was a mixed bag, leaning heavier on the rough stuff than the wins. But that’s how it goes sometimes. You take the hits, appreciate the bright spots where you can, and keep moving forward.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Weekly Notes: Week 50, 2025&quot; /&gt;&lt;/p&gt;&lt;p&gt;Last week was a mixed bag, leaning heavier on the rough stuff than the wins. But that’s how it goes sometimes. You take the hits, appreciate the bright spots where you can, and keep moving forward.&lt;/p&gt;
 &lt;p&gt;So I’m going to knock out the bad first, then end on the good.&lt;/p&gt;
 &lt;h3 id=&quot;the-bad-😞&quot;&gt;The Bad 😞&lt;/h3&gt;
 &lt;p&gt;Early in the week, my right ear started hurting. It felt like I had a scab or something stuck inside my ear canal. Then it got worse. The swelling kicked in, and the pain started radiating into my jaw. And let me tell you, that pain was no joke.&lt;/p&gt;
@@ -8438,13 +8438,13 @@ Put security and compliance on a regular cadence: monthly operational reviews, q
     </entry><entry>
       <title>Weekly Notes: Week 49, 2025</title>
       <link href="https://www.kylereddoch.me/notes/2025/week-49-2025/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2025-12-09T15:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2025/week-49-2025/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Weekly Notes: Week 49, 2025&quot; /&gt;&lt;/p&gt;&lt;p&gt;Last week was a blend of the usual work hustle, which was the normal working the latest alert tickets, and the personal side of life that kept me grounded at times. Here’s a quick rundown of what went down last week.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Weekly Notes: Week 49, 2025&quot; /&gt;&lt;/p&gt;&lt;p&gt;Last week was a blend of the usual work hustle, which was the normal working the latest alert tickets, and the personal side of life that kept me grounded at times. Here’s a quick rundown of what went down last week.&lt;/p&gt;
 &lt;h3 id=&quot;the-💻-work-grind&quot;&gt;The 💻 Work Grind&lt;/h3&gt;
 &lt;p&gt;Nothing different happened at work this past week. It was a pretty standard week of handling tickets, monitoring systems, and keeping things running smoothly for our clients. The usual grind of an MSP tech. The constant alerts to monitor and respond to are something to keep an eye on. With what is called, &lt;a href=&quot;https://www.kylereddoch.me/blog/the-breaking-point-why-cybersecurity-and-soc-professionals-are-burning-out-and-what-actually-works/&quot;&gt;“alert fatigue”&lt;/a&gt;, it can be easy to miss something important if you are not careful. So staying focused and organized is key. I have setup automations to help with some of the alert noise, but there still seems to be a lot to handle at times.&lt;/p&gt;
 &lt;h3 id=&quot;the-personal-things-🙂&quot;&gt;The Personal Things 🙂&lt;/h3&gt;
@@ -9345,13 +9345,13 @@ For developer workstations or privileged admins, consider staging updates or usi
     </entry><entry>
       <title>Weekly Notes: Week 48, 2025</title>
       <link href="https://www.kylereddoch.me/notes/2025/week-48-2025/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2025-12-01T15:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2025/week-48-2025/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Weekly Notes: Week 48, 2025&quot; /&gt;&lt;/p&gt;&lt;p&gt;Due to the Thanksgiving holiday here in the US, it was a short week which was very welcomed. Here’s a quick rundown of what went down last week.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Weekly Notes: Week 48, 2025&quot; /&gt;&lt;/p&gt;&lt;p&gt;Due to the Thanksgiving holiday here in the US, it was a short week which was very welcomed. Here’s a quick rundown of what went down last week.&lt;/p&gt;
 &lt;h3 id=&quot;💻-good-ol-work&quot;&gt;💻 Good ’ol Work&lt;/h3&gt;
 &lt;p&gt;Nothing much happened at work last week. It was a pretty quiet week overall, which was nice. Since I stepped back from doing as much of the hands-on IT work; the work that takes lifting, moving, installing, etc. of hardware, servers, printers, etc. my days have been less hectic. I am now more focused on the MSP side of things, which is more about monitoring, managing, and maintaining client systems remotely. More of a strategic, overview role rather than a tactical one.&lt;/p&gt;
 &lt;h3 id=&quot;🙂-personal-life&quot;&gt;🙂 Personal Life&lt;/h3&gt;
@@ -9518,13 +9518,13 @@ That is fine as a high-level goal. It is not a plan.&lt;/p&gt;
     </entry><entry>
       <title>Weekly Notes: Week 47, 2025</title>
       <link href="https://www.kylereddoch.me/notes/2025/week-47-2025/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2025-11-25T15:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2025/week-47-2025/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Weekly Notes: Week 47, 2025&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Weekly Notes: Week 47, 2025&quot; /&gt;&lt;/p&gt;&lt;blockquote&gt;
 &lt;p&gt;I almost forgot to publish these weekly notes! I got busy yesterday with actually working. 😃&lt;br&gt;
 Better late than never, I suppose.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -10042,13 +10042,13 @@ Three sheets: Factors, Hardware Keys, Recovery Contacts.&lt;br&gt;
     </entry><entry>
       <title>Weekly Notes: Week 46, 2025</title>
       <link href="https://www.kylereddoch.me/notes/2025/week-46-2025/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2025-11-17T19:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2025/week-46-2025/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Weekly Notes: Week 46, 2025&quot; /&gt;&lt;/p&gt;&lt;p&gt;This past week wasn’t too bad. Work was steady and not too hectic, which is always a nice thing. This keeps my stress and anxiety at a manageable level. Personally, things were pretty good too. I choose to relax and focus on me and my family. I took a break from the couple of personal projects I have going on to just clear my head.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Weekly Notes: Week 46, 2025&quot; /&gt;&lt;/p&gt;&lt;p&gt;This past week wasn’t too bad. Work was steady and not too hectic, which is always a nice thing. This keeps my stress and anxiety at a manageable level. Personally, things were pretty good too. I choose to relax and focus on me and my family. I took a break from the couple of personal projects I have going on to just clear my head.&lt;/p&gt;
 &lt;h3 id=&quot;💻-catching-up-on-alerts&quot;&gt;💻 Catching up on alerts&lt;/h3&gt;
 &lt;p&gt;I have been a little behind on our EDR alerts and log reviews for the past couple of weeks. This past week I started getting caught up on those. It is going to take a couple more weeks to get fully caught up, but I am making good progress. I also did some research on a few new security tools that we might want to try out in our environment. Overall, work was productive and I feel like I made good progress on my tasks.&lt;/p&gt;
 &lt;h3 id=&quot;😎-focusing-on-family&quot;&gt;😎 Focusing on family&lt;/h3&gt;
@@ -10662,13 +10662,13 @@ They reduce risk when done right, but they are not phishing-resistant. Use phish
     </entry><entry>
       <title>Weekly Notes: Week 45, 2025</title>
       <link href="https://www.kylereddoch.me/notes/2025/week-45-2025/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2025-11-10T19:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2025/week-45-2025/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Weekly Notes: Week 45, 2025&quot; /&gt;&lt;/p&gt;&lt;p&gt;Last week had a bit of everything. Work stayed calm, I carved out time to tune up my site, and my back and neck reminded me who’s boss. That part was not fun.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Weekly Notes: Week 45, 2025&quot; /&gt;&lt;/p&gt;&lt;p&gt;Last week had a bit of everything. Work stayed calm, I carved out time to tune up my site, and my back and neck reminded me who’s boss. That part was not fun.&lt;/p&gt;
 &lt;h3 id=&quot;💻-work&quot;&gt;💻 Work&lt;/h3&gt;
 &lt;p&gt;Quiet week overall, which let me chip away at schoolwork during the day and save evenings for family. I also started a small facelift for the site. More on that below.&lt;/p&gt;
 &lt;p&gt;Friday picked up when we signed a new MSP client. I spent the afternoon getting them onboarded into our stack. It was not chaotic, just steady. The RMM onboarding scripts did their job and kept things smooth. There is always one odd edge case to chase, but nothing critical.&lt;/p&gt;
@@ -10864,13 +10864,13 @@ Store you master password somewhere safe and secure (I keep mine in Apple Note a
     </entry><entry>
       <title>Weekly Notes: Week 44, 2025</title>
       <link href="https://www.kylereddoch.me/notes/2025/week-44-2025/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2025-11-03T19:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2025/week-44-2025/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Weekly Notes: Week 44, 2025&quot; /&gt;&lt;/p&gt;&lt;p&gt;Last week was a nice week. It was not too eventful at work, had a easy time around the house. On and the weather was just perfect. Here are my notes for the week.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Weekly Notes: Week 44, 2025&quot; /&gt;&lt;/p&gt;&lt;p&gt;Last week was a nice week. It was not too eventful at work, had a easy time around the house. On and the weather was just perfect. Here are my notes for the week.&lt;/p&gt;
 &lt;h3 id=&quot;💻-work&quot;&gt;💻 Work&lt;/h3&gt;
 &lt;p&gt;Work was quiet last week. Nothing major happened which is always nice, but it also gives me some weariness about what might be coming. 😄 I was able to get some schoolwork done in between work (don’t tell my boss, LOL).&lt;/p&gt;
 &lt;p&gt;We also had some meetings with a vendor of ours about some possible new additions to the toolset we already use with them. I am also looking into some new training options for the team as well. I will probably be getting busy in the near future with those things.&lt;/p&gt;
@@ -11294,13 +11294,13 @@ No. Pick one channel per device to avoid conflicts.&lt;/p&gt;
     </entry><entry>
       <title>Weekly Notes: Week 43, 2025</title>
       <link href="https://www.kylereddoch.me/notes/2025/week-43-2025/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2025-10-27T19:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2025/week-43-2025/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Weekly Notes: Week 43, 2025&quot; /&gt;&lt;/p&gt;&lt;p&gt;Last week was a crazy ride in my personal life. Here are my notes for the week.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Weekly Notes: Week 43, 2025&quot; /&gt;&lt;/p&gt;&lt;p&gt;Last week was a crazy ride in my personal life. Here are my notes for the week.&lt;/p&gt;
 &lt;h3 id=&quot;💻-work&quot;&gt;💻 Work&lt;/h3&gt;
 &lt;p&gt;I only worked two days. I took Wednesday through Friday off to handle personal matters (more on that below). The short week in the office was calm for a change, which I appreciated after the chaos before. I cleared out emails and knocked out a stack of small tasks that had been waiting.&lt;/p&gt;
 &lt;h3 id=&quot;😎-personal&quot;&gt;😎 Personal&lt;/h3&gt;
@@ -11391,13 +11391,13 @@ No. Pick one channel per device to avoid conflicts.&lt;/p&gt;
     </entry><entry>
       <title>Weekly Notes: Week 42, 2025</title>
       <link href="https://www.kylereddoch.me/notes/2025/week-42-2025/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2025-10-20T19:00:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2025/week-42-2025/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Weekly Notes: Week 42, 2025&quot; /&gt;&lt;/p&gt;&lt;p&gt;Last week was one heck of a week at work. Very stressful which bleed into my personal life which I never like. Add all this up and this was a week that I am glad is over. Here are my notes for the week.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Weekly Notes: Week 42, 2025&quot; /&gt;&lt;/p&gt;&lt;p&gt;Last week was one heck of a week at work. Very stressful which bleed into my personal life which I never like. Add all this up and this was a week that I am glad is over. Here are my notes for the week.&lt;/p&gt;
 &lt;h3 id=&quot;💻-work&quot;&gt;💻 Work&lt;/h3&gt;
 &lt;p&gt;Let’s start off with work since that was the most stressful part of my week. I won’t go into too much of the detail or rewrite it all, you can find the full story on my Mastodon post &lt;a href=&quot;https://infosec.exchange/@cyberseckyle/115381230745324239&quot; rel=&quot;noopener&quot;&gt;here&lt;/a&gt;. But, long story short, a third-party vendor one of our clients use for their dealership that connects their printers to the vendors DMS system, rermoved all of the printers from both of the clients locations. They were unable to print anything from this system. This was a huge problem since this system is used to print all of the paperwork for the vehicles they sell. This included everything from the buyer’s order, to the title work, to the registration forms, to the financing documents, and more.&lt;/p&gt;
 &lt;p&gt;In total, I spent about 3 days getting this set all back up and running. It was a total nightmare.&lt;/p&gt;
@@ -11575,13 +11575,13 @@ Subscribe to official updates and credible tech press. The MLK pause is not the 
     </entry><entry>
       <title>Weekly Notes: Week 41, 2025</title>
       <link href="https://www.kylereddoch.me/notes/2025/week-41-2025/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2025-10-13T15:15:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2025/week-41-2025/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Weekly Notes: Week 41, 2025&quot; /&gt;&lt;/p&gt;&lt;p&gt;Last week was a fairly normal week. I worked on a few articles, did some reading, and spent time with my family. Here are some highlights from the week:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Weekly Notes: Week 41, 2025&quot; /&gt;&lt;/p&gt;&lt;p&gt;Last week was a fairly normal week. I worked on a few articles, did some reading, and spent time with my family. Here are some highlights from the week:&lt;/p&gt;
 &lt;h3 id=&quot;😎-personal&quot;&gt;😎 Personal&lt;/h3&gt;
 &lt;p&gt;This week there was no F1 race which made the weekend a bit slow. I didn’t get my usual boost of adrenaline as I do from watching the races. I did get to watch a few movies with my wife which was nice. We watched “Kiss the Girls” and “Along Came a Spider”. Both of course which are great movies. We also are still continuing out binging of Criminal Minds. We just starting season 13. Most of our shows are coming back on so we will be busy watching those as well.&lt;/p&gt;
 &lt;p&gt;I also got to spend some time with the sole remaining daughter left at home which is always a highlight of my week.&lt;/p&gt;
@@ -11656,13 +11656,13 @@ Subscribe to official updates and credible tech press. The MLK pause is not the 
     </entry><entry>
       <title>Weekly Notes: Week 40, 2025</title>
       <link href="https://www.kylereddoch.me/notes/2025/week-40-2025/" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" />
-      <media:content url="https://www.kylereddoch.me/assets/images/weeklynotes-hero.png" medium="image" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
       <updated>2025-10-08T15:15:00Z</updated>
       <id>https://www.kylereddoch.me/notes/2025/week-40-2025/</id>
       <content type="html">
         
-&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/assets/images/weeklynotes-hero.png&quot; alt=&quot;Weekly Notes: Week 40, 2025&quot; /&gt;&lt;/p&gt;&lt;p&gt;I am trying something new on my blog. I am going to start posting weekly notes. These will be a mix of personal and professional updates, as well as links to articles I have written or found interesting. I am hoping this will be a good way to keep my blog active and also share some of my thoughts and experiences with my readers.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg&quot; alt=&quot;Weekly Notes: Week 40, 2025&quot; /&gt;&lt;/p&gt;&lt;p&gt;I am trying something new on my blog. I am going to start posting weekly notes. These will be a mix of personal and professional updates, as well as links to articles I have written or found interesting. I am hoping this will be a good way to keep my blog active and also share some of my thoughts and experiences with my readers.&lt;/p&gt;
 &lt;p&gt;I have seen other bloggers do this (some of them are &lt;a href=&quot;https://www.seerofsouls.com/my-first-adventure-into-the-weekly-notes-blog-posts/&quot; rel=&quot;noopener&quot;&gt;Cliff&lt;/a&gt;, &lt;a href=&quot;https://joelchrono.xyz&quot; rel=&quot;noopener&quot;&gt;Joel&lt;/a&gt;, and &lt;a href=&quot;https://rknight.me&quot; rel=&quot;noopener&quot;&gt;Robb Knight&lt;/a&gt;), and I think it is finally time I give it a try. I am going to aim for posting these weekly notes every Sunday evening or Monday morning. Hopefully I can stick to that schedule.&lt;/p&gt;
 &lt;p&gt;Last week was a fairly normal week. I worked on a few articles, did some reading, and spent time with my family. Here are some highlights from the week:&lt;/p&gt;
 &lt;h2 id=&quot;articles&quot;&gt;Articles&lt;/h2&gt;
