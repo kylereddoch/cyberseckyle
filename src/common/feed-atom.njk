@@ -4,6 +4,7 @@ eleventyExcludeFromCollections: true
 excludeFromSitemap: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="/feed.xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="{{ meta.lang or page.lang }}" xml:base="{{ meta.url }}/">
   <title>{{ meta.blog.name }}</title>
   <subtitle>{{ meta.blog.description }}</subtitle>
@@ -21,13 +22,16 @@ excludeFromSitemap: true
     {%- set feedImageMarkup -%}
 <p><img src="{{ image.url }}" alt="{{ image.alt | escape }}" /></p>
     {%- endset -%}
+    {%- set feedSummary = post.data.description or (post.content | metaDescription(280)) -%}
     <entry>
       <title>{{ post.data.title }}</title>
       <link href="{{ absolutePostUrl }}" />
       <media:thumbnail url="{{ image.url | escape }}" />
       <media:content url="{{ image.url | escape }}" medium="image" />
       <updated>{{ post.date | dateToRfc3339 }}</updated>
+      <published>{{ post.date | dateToRfc3339 }}</published>
       <id>{{ absolutePostUrl }}</id>
+      <summary type="html">{{ feedSummary }}</summary>
       <content type="html">
         {{ feedImageMarkup }}{{ post.content | renderTransforms(post.data.page, meta.url) | appendTinylyticsPixel(post.url, meta.analytics.tinylytics.siteCode) }}
       </content>
