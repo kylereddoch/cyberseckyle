@@ -7,7 +7,7 @@ featuredImageAlt: "Security Signal Weekly editorial graphic with the series titl
 featuredImageCaption: "Image generated with Codex."
 tags: [cybersecurity, infosec, security-signal-weekly, vulnerability-management, incident-response, threat-intel, news]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116620103952634381"
 mastodon_tags: [Cybersecurity, InfoSec, ThreatIntel, WeeklySecurity]
 ---
 
