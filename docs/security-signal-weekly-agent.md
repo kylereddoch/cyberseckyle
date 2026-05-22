@@ -20,6 +20,39 @@ The exception is narrow:
 
 If the automation is running in draft mode, create the post and report it for review without committing or pushing.
 
+## Repository Sync
+
+Before creating the post, sync the local checkout with `origin/main`:
+
+```bash
+git fetch origin main
+git pull --ff-only origin main
+```
+
+If the pull cannot fast-forward cleanly, do not publish. Report the sync blocker instead of creating a merge commit or pushing from a stale checkout.
+
+Because a weekly research run can take a while, check the remote again immediately before committing:
+
+```bash
+git fetch origin main
+```
+
+If `origin/main` advanced after the post was generated, preserve only the generated weekly post, fast-forward from `origin/main`, restore the generated post, rerun `npm run build:11ty`, and publish only if verification still passes. Do not commit the weekly post until the checkout is synced with the remote.
+
+A safe pattern is:
+
+```bash
+git fetch origin main
+if [ "$(git rev-list --count HEAD..origin/main)" -ne 0 ]; then
+  git stash push --include-untracked -m security-signal-weekly-generated-post -- "$GENERATED_POST"
+  git pull --ff-only origin main
+  git stash pop
+  npm run build:11ty
+fi
+```
+
+`$GENERATED_POST` should be the single Markdown file created by `scripts/create-security-signal-weekly.mjs`.
+
 ## Schedule
 
 Target cadence: Friday during the day in Kyle's local timezone.
