@@ -100,7 +100,7 @@ excludeFromSearch: true
 
       searchIndex.forEach((item, index) => {
         if (item && item.title) {
-          const searchText = `${item.title} ${item.description || ''} ${item.content || ''} ${(item.tags || []).join(' ')}`;
+          const searchText = `${item.title} ${item.seoTitle || ''} ${item.description || ''} ${item.searchIntent || ''} ${item.content || ''} ${(item.tags || []).join(' ')}`;
           flexSearch.add(index, searchText);
         }
       });

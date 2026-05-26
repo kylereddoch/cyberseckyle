@@ -5,6 +5,8 @@
 {% set logoUrl = meta.author.avatar | absoluteUrl(meta.url) %}
 {% set isPostLike = layout == 'post' or layout == 'note' or layout == 'journal' %}
 {% set isTopicHub = layout == 'topic-hub' or pageType == 'topic-hub' %}
+{% set pageName = seoTitle or title or meta.siteName %}
+{% set modifiedDate = lastModified or lastUpdated or updated or modified or page.date %}
 {% set socialProfiles = [] %}
 {% if personal.platforms.github %}
   {% set socialProfiles = (socialProfiles.push(personal.platforms.github), socialProfiles) %}
@@ -45,7 +47,7 @@
   '@type': 'WebPage',
   '@id': pageId,
   'url': pageUrl,
-  'name': title or meta.siteName,
+  'name': pageName,
   'description': metaDescription | trim,
   'isPartOf': { '@id': websiteId },
   'about': { '@id': personId },
@@ -70,12 +72,18 @@
     'description': metaDescription | trim,
     'image': [articleImage],
     'datePublished': page.date | toIsoString,
-    'dateModified': (lastUpdated or updated or modified or page.date) | toIsoString,
+    'dateModified': modifiedDate | toIsoString,
     'author': { '@id': personId },
     'publisher': { '@id': personId },
     'url': pageUrl,
     'inLanguage': meta.lang
   } %}
+  {% if seoTitle and seoTitle != title %}
+    {% set articleNode = articleNode | merge({ 'alternativeHeadline': seoTitle }) %}
+  {% endif %}
+  {% if searchIntent %}
+    {% set articleNode = articleNode | merge({ 'abstract': searchIntent }) %}
+  {% endif %}
   {% if tags and tags.length %}
     {% set keywords = [] %}
     {% for tag in tags %}

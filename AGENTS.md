@@ -101,11 +101,14 @@ Standard blog post front matter is YAML between `---` fences. Keep the field ord
 ---
 date: 2026-05-13T10:00:00-05:00
 title: Example Post Title
+seoTitle: Example Search-Friendly Post Title
 description: A concise summary that works for feeds, previews, and metadata.
+searchIntent: A plain-language note describing the reader problem or search query this post should satisfy.
 featuredImage: /assets/images/example-image.jpg
 featuredImageAlt: Clear alt text describing the image.
 featuredImageCaption: 'Photo by <a href="https://example.com">Name</a> on <a href="https://example.com">Source</a>'
 tags: [cybersecurity, privacy, browsers]
+lastModified: 2026-05-13T10:00:00-05:00
 mastodon_post: true
 mastodon_url:
 mastodon_tags: [Cybersecurity, InfoSec, Privacy]
@@ -115,8 +118,12 @@ mastodon_tags: [Cybersecurity, InfoSec, Privacy]
 Notes:
 
 - `date` should include the local offset, usually `-05:00` or the correct current Central time offset.
+- Article publish and modified times are displayed on posts, so keep meaningful local times in both `date` and `lastModified`.
 - `title` can be unquoted unless YAML needs quotes. If the title has a colon or special character, use quotes to avoid parsing issues.
+- Use `seoTitle` when the visible title is personal, clever, or vague and a clearer search-result title would help. Keep it natural, specific, and roughly 55-65 characters when possible. Do not keyword-stuff it or add it when the normal title already works well.
 - Quote `description` only when punctuation or characters make YAML parsing safer.
+- Use `searchIntent` for posts and articles as a private editorial note describing the reader problem, question, or search query the post should satisfy. Keep it one sentence, useful, and specific. It supports internal search and structured metadata, but should not replace the public `description`.
+- Use `lastModified` when materially updating an existing article after publication. Use the current Central time offset. Omit it for brand-new posts unless the post was revised after the original publish time.
 - `featuredImage`, `featuredImageAlt`, and `featuredImageCaption` are optional, but use them together when a post has a hero image.
 - `tags` are lowercase site taxonomy tags and based on the post's content.
 - `mastodon_tags` are Fediverse hashtags without the `#`, usually TitleCase or community-standard casing.

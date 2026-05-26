@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% set documentTitle = seoTitle or title %}
     <title>
       {% if page.url == '/' %}
         {{ meta.siteName }}
-      {% elseif title %}
-        {{ title }} - {{ meta.siteName }}
+      {% elseif documentTitle %}
+        {{ documentTitle }} - {{ meta.siteName }}
       {% else %}
         {{ meta.siteName }}
       {% endif %}

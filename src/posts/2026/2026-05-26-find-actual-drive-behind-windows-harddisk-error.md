@@ -1,11 +1,14 @@
 ---
 date: 2026-05-26T11:30:00-05:00
 title: 'Finding the Real Drive Behind a Windows \Device\HarddiskX\DRX Alert'
+seoTitle: 'Map Windows \Device\HarddiskX\DRX Alerts to the Real Drive'
 slug: find-actual-drive-behind-windows-harddisk-error
 description: "A quick, easy way to map obscure Windows disk controller errors back to the real physical drive, volume, and drive letter."
+searchIntent: "Help Windows admins and MSP techs map \\Device\\HarddiskX\\DRX controller errors to the actual disk, volume, drive letter, model, and serial number."
 featuredImage: /assets/images/windows-disk-controller-error.png
 featuredImageAlt: A hard drive sitting on a desk in front of a blurred computer monitor showing a red warning icon and disk health dashboard.
 tags: [windows, powershell, MSP, tutorials]
+lastModified: 2026-05-26T16:26:27-05:00
 mastodon_post: true
 mastodon_url: "https://infosec.exchange/@cyberseckyle/116641981140627952"
 mastodon_tags: [Windows, Powershell]

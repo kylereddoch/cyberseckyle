@@ -320,7 +320,9 @@ export default async function (eleventyConfig) {
     const contentEntries = getAllPosts(collectionApi).map(item => ({
       id: item.url,
       title: item.data?.title || '',
+      seoTitle: item.data?.seoTitle || '',
       description: item.data?.description || '',
+      searchIntent: item.data?.searchIntent || '',
       tags: Array.isArray(item.data?.tags) ? item.data.tags.filter(tag => !['posts', 'notes', 'journal'].includes(tag)) : [],
       content: getSearchableContent(item),
       date: item.date
@@ -329,7 +331,9 @@ export default async function (eleventyConfig) {
     const projectEntries = getProjects(collectionApi).map(item => ({
       id: item.url,
       title: item.data?.title || '',
+      seoTitle: item.data?.seoTitle || '',
       description: item.data?.description || item.data?.summary || '',
+      searchIntent: item.data?.searchIntent || '',
       tags: [
         item.data?.projectType,
         ...(Array.isArray(item.data?.techStack) ? item.data.techStack : [])
@@ -344,7 +348,9 @@ export default async function (eleventyConfig) {
       .map(item => ({
         id: item.url,
         title: item.data?.title || '',
+        seoTitle: item.data?.seoTitle || '',
         description: item.data?.description || '',
+        searchIntent: item.data?.searchIntent || '',
         tags: [],
         content: getSearchableContent(item),
         date: item.date
@@ -523,6 +529,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter('toIsoString', filters.toISOString);
   eleventyConfig.addFilter('formatDate', filters.formatDate);
   eleventyConfig.addFilter('readableDate', date => filters.formatDate(date, 'MMMM D, YYYY'));
+  eleventyConfig.addFilter('readableDateTime', filters.formatArticleDateTime);
   eleventyConfig.addFilter('htmlDateString', date => filters.formatDate(date, 'YYYY-MM-DD'));
   eleventyConfig.addFilter('markdownFormat', filters.markdownFormat);
   eleventyConfig.addFilter('metaDescription', filters.metaDescription);

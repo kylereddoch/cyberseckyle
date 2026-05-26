@@ -1,5 +1,7 @@
 {% set bodyMetaDescription = "" %}
 {% set isPostLike = layout == 'post' or layout == 'note' or layout == 'journal' %}
+{% set metaTitle = seoTitle or title or meta.siteName %}
+{% set modifiedDate = lastModified or lastUpdated or updated or modified or page.date %}
 {% if isPostLike %}
   {% set bodyMetaDescription = (page.rawInput or content) | metaDescription %}
 {% endif %}
@@ -54,11 +56,7 @@
 <meta property="og:type" content="{% if layout == 'post' or layout == 'note' or layout == 'journal' %}article{% else %}website{% endif %}" />
 <meta
   property="og:title"
-  content="{%- if title -%}
-    {{- title -}}
-  {%- else -%}
-    {{- meta.siteName -}}
-  {%- endif -%}"
+  content="{{ metaTitle }}"
 />
 <meta
   property="og:image"
@@ -88,7 +86,7 @@
 <meta property="article:author" content="{{ meta.author.name }}" />
 {% if layout == 'post' or layout == 'note' or layout == 'journal' %}
   <meta property="article:published_time" content="{{ page.date | toIsoString }}" />
-  <meta property="article:modified_time" content="{{ (lastUpdated or updated or modified or page.date) | toIsoString }}" />
+  <meta property="article:modified_time" content="{{ modifiedDate | toIsoString }}" />
   {% if tags and tags.length %}
     {% for tag in tags %}
       {% if tag != 'posts' and tag != 'notes' and tag != 'journal' %}
