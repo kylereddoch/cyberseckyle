@@ -7,7 +7,7 @@ featuredImage: /assets/images/windows-disk-controller-error.png
 featuredImageAlt: A hard drive sitting on a desk in front of a blurred computer monitor showing a red warning icon and disk health dashboard.
 tags: [windows, powershell, MSP, tutorials]
 mastodon_post: true
-mastodon_url: 
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116641981140627952"
 mastodon_tags: [Windows, Powershell]
 ---
 
