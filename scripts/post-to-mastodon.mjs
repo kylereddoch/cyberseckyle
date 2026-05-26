@@ -42,6 +42,10 @@ function slugifyTitle(value) {
   });
 }
 
+function normalizeSlug(value) {
+  return String(value || '').trim().replace(/^\/+|\/+$/g, '');
+}
+
 function parseTags(value) {
   if (Array.isArray(value)) {
     return value;
@@ -146,7 +150,7 @@ function getPostUrl(file, data) {
     return `${siteUrl}/notes/${path.basename(file, '.md')}/`;
   }
 
-  return `${siteUrl}/blog/${slugifyTitle(data.title)}/`;
+  return `${siteUrl}/blog/${normalizeSlug(data.slug) || slugifyTitle(data.title)}/`;
 }
 
 function getStatusText(data, postUrl) {
