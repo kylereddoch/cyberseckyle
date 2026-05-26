@@ -1,0 +1,119 @@
+---
+layout: base
+pageType: topic-hub
+pagination:
+  data: topicHubs
+  size: 1
+  alias: topic
+  addAllPagesToCollections: true
+permalink: /topics/{{ topic.slug }}/
+eleventyComputed:
+  title: "{{ topic.name }}"
+  description: "{{ topic.description }}"
+---
+
+{% set topicPosts = [] %}
+{% for post in collections.homeEntries %}
+  {% set matchesTopic = false %}
+  {% if post.data.tags %}
+    {% for tag in post.data.tags %}
+      {% if tag in topic.matchTags %}
+        {% set matchesTopic = true %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  {% if matchesTopic %}
+    {% set topicPosts = (topicPosts.push(post), topicPosts) %}
+  {% endif %}
+{% endfor %}
+
+{% set starterPost = false %}
+{% for starterUrl in topic.featuredUrls %}
+  {% for post in topicPosts %}
+    {% if post.url == starterUrl and not starterPost %}
+      {% set starterPost = post %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+{% if not starterPost and topicPosts.length %}
+  {% set starterPost = topicPosts[0] %}
+{% endif %}
+
+<div class="topic-page" style="--topic-accent: {{ topic.accentColor }};">
+  <nav class="topic-breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a href="/topics/">Topics</a></li>
+      <li aria-hidden="true">/</li>
+      <li>{{ topic.name }}</li>
+    </ol>
+  </nav>
+
+  <header class="topic-hero">
+    <p class="topic-kicker">Topic Hub</p>
+    <h1>
+      <span aria-hidden="true">{{ topic.icon | safe }}</span>
+      <span>{{ topic.name }}</span>
+    </h1>
+    <p>{{ topic.intro }}</p>
+  </header>
+
+  {% if starterPost %}
+    <section class="topic-start-card">
+      <p class="topic-kicker">Start Here</p>
+      <h2>
+        <a href="{{ starterPost.url }}">{{ starterPost.data.title }}</a>
+      </h2>
+      {% if starterPost.data.description %}
+        <p>{{ starterPost.data.description }}</p>
+      {% endif %}
+      <time datetime="{{ starterPost.date | htmlDateString }}">{{ starterPost.date | readableDate }}</time>
+    </section>
+  {% endif %}
+
+  <section class="topic-section">
+    <div class="topic-section__header">
+      <div>
+        <h2>Latest in {{ topic.name }}</h2>
+        <p>{{ topicPosts.length }} post{% if topicPosts.length != 1 %}s{% endif %} currently match this topic.</p>
+      </div>
+    </div>
+
+    {% if topicPosts.length %}
+      <div class="topic-post-list">
+        {% for post in topicPosts | head(12) %}
+          <article class="topic-post-card">
+            <h3>
+              <a href="{{ post.url }}">{{ post.data.title }}</a>
+            </h3>
+            <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+            {% if post.data.description %}
+              <p>{{ post.data.description }}</p>
+            {% endif %}
+            {% if post.data.tags %}
+              <div class="topic-tags">
+                {% for tag in post.data.tags | head(5) %}
+                  {% if tag != 'posts' and tag != 'journal' %}
+                    <a style="background-color: {{ tag | tagColor }}; color: {{ tag | tagTextColor }}" href="/tags/{{ tag | slug }}/">#{{ tag }}</a>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="topic-empty">No posts match this topic yet.</p>
+    {% endif %}
+  </section>
+
+  <section class="topic-match-card">
+    <h2>Matching Tags</h2>
+    <div class="topic-tags">
+      {% for tag in topic.matchTags %}
+        <a style="background-color: {{ tag | tagColor }}; color: {{ tag | tagTextColor }}" href="/tags/{{ tag | slug }}/">#{{ tag }}</a>
+      {% endfor %}
+    </div>
+  </section>
+</div>

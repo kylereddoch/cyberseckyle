@@ -1,0 +1,31 @@
+---
+layout: base
+title: Topics
+permalink: /topics/
+description: "Start with curated topic hubs for cybersecurity and infosec, MSP work, IT, Windows troubleshooting, browser security, AI, and everyday defense."
+---
+
+<div class="topics-page">
+  <header class="topics-page__header">
+    <h1>
+      <span aria-hidden="true">&#128506;&#65039;</span>
+      <span>Topics</span>
+    </h1>
+    <p>
+      Start here when you want a focused path through the site instead of a reverse-chronological archive.
+    </p>
+  </header>
+
+  <div class="topics-grid">
+    {% for topic in topicHubs %}
+      <article class="topic-card" style="--topic-accent: {{ topic.accentColor }};">
+        <h2 class="topic-card__title">
+          <span aria-hidden="true">{{ topic.icon | safe }}</span>
+          <a href="/topics/{{ topic.slug }}/">{{ topic.name }}</a>
+        </h2>
+        <p class="topic-card__description">{{ topic.description }}</p>
+        <a class="topic-card__link" href="/topics/{{ topic.slug }}/">Browse {{ topic.name }}</a>
+      </article>
+    {% endfor %}
+  </div>
+</div>

@@ -19,7 +19,13 @@ This is the landing slash page for all my /slash pages. Feel free to take a look
 
 **/defaults** - This is the list of apps I use daily for various tasks, etc.
 
+**[/blogroll](/blogroll)** - Sites, writers, and independent web corners I like keeping up with.
+
+**[/bookshelf](/bookshelf)** - Books I am reading, have read, or want to remember.
+
 **/interests** - These are the things that I am interested in or excite me.
+
+**[/listening](/listening)** - Music I have been listening to lately.
 
 **[/now](/now)** - What I am up to now. I am trying to keep this updated regularly.
 

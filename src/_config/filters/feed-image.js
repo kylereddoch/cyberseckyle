@@ -45,7 +45,7 @@ export const feedImage = async (post, meta = {}) => {
 
   if (data.title) {
     return {
-      url: absoluteUrl(`/assets/og-images/${slugifyString(String(data.title))}-preview.jpeg`, meta.url),
+      url: absoluteUrl(`/assets/og-images/${data.slug || slugifyString(String(data.title))}-preview.jpeg`, meta.url),
       alt: data.title
     };
   }

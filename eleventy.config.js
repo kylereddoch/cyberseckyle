@@ -540,6 +540,10 @@ export default async function (eleventyConfig) {
     if (!obj || typeof obj !== 'object') return undefined;
     return obj[key];
   });
+  eleventyConfig.addFilter('merge', (obj, next) => ({
+    ...(obj && typeof obj === 'object' ? obj : {}),
+    ...(next && typeof next === 'object' ? next : {})
+  }));
   eleventyConfig.addFilter('json', (value, spaces = 0) => JSON.stringify(value, null, spaces));
   eleventyConfig.addFilter('head', (arr, n) => {
     if (!Array.isArray(arr)) return arr;

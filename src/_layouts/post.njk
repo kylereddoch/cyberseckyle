@@ -50,6 +50,16 @@ schema: BlogPosting
       <span>{{ content | readTime }}</span>
     </div>
 
+    {% set updatedDate = lastUpdated or updated or modified %}
+    {% if updatedDate %}
+      <div class="mt-3 text-sm text-gray-600 dark:text-gray-300">
+        <span class="inline-flex items-center gap-1 rounded-md bg-gray-100 px-2 py-1 text-gray-700 dark:bg-gray-800 dark:text-gray-300">
+          <span class="font-medium">Last updated</span>
+          <time class="dt-updated" datetime="{{ updatedDate | toIsoString }}">{{ updatedDate | readableDate }}</time>
+        </span>
+      </div>
+    {% endif %}
+
     <a class="u-url hidden" href="{{ page.url | url | absoluteUrl(meta.url) }}">Permalink</a>
   </header>
 

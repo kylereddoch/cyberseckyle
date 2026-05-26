@@ -51,7 +51,7 @@
 
 <!-- Open Graph meta  -->
 <meta property="og:url" content="{{ meta.url }}{{ page.url }}" />
-<meta property="og:type" content="website" />
+<meta property="og:type" content="{% if layout == 'post' or layout == 'note' or layout == 'journal' %}article{% else %}website{% endif %}" />
 <meta
   property="og:title"
   content="{%- if title -%}
@@ -86,6 +86,17 @@
 <meta property="og:site_name" content="{{ meta.siteName }}" />
 <meta property="og:locale" content="{{ meta.locale }}" />
 <meta property="article:author" content="{{ meta.author.name }}" />
+{% if layout == 'post' or layout == 'note' or layout == 'journal' %}
+  <meta property="article:published_time" content="{{ page.date | toIsoString }}" />
+  <meta property="article:modified_time" content="{{ (lastUpdated or updated or modified or page.date) | toIsoString }}" />
+  {% if tags and tags.length %}
+    {% for tag in tags %}
+      {% if tag != 'posts' and tag != 'notes' and tag != 'journal' %}
+        <meta property="article:tag" content="{{ tag }}" />
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endif %}
 
 <!-- Twitter specific head data was removed in v2 -->
 
@@ -98,6 +109,8 @@
     href="{{ feedLink.url }}"
   />
 {% endfor %}
+
+{% include "head/structured-data.njk" %}
 
 <!-- Favicon: https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs -->
 <link rel="icon" href="{{ '/favicon.ico' | url }}" sizes="any" />

@@ -10,7 +10,7 @@ export default {
     },
     {
       text: 'Cybersecurity',
-      url: '/tags/cybersecurity/'
+      url: '/topics/cybersecurity/'
     },
     {
       text: 'Weekly Notes',

@@ -1,0 +1,157 @@
+{% set pageUrl = page.url | url | absoluteUrl(meta.url) %}
+{% set personId = meta.url ~ '/#person' %}
+{% set websiteId = meta.url ~ '/#website' %}
+{% set pageId = pageUrl ~ '#webpage' %}
+{% set logoUrl = meta.author.avatar | absoluteUrl(meta.url) %}
+{% set isPostLike = layout == 'post' or layout == 'note' or layout == 'journal' %}
+{% set isTopicHub = layout == 'topic-hub' or pageType == 'topic-hub' %}
+{% set socialProfiles = [] %}
+{% if personal.platforms.github %}
+  {% set socialProfiles = (socialProfiles.push(personal.platforms.github), socialProfiles) %}
+{% endif %}
+{% if personal.platforms.mastodon %}
+  {% set socialProfiles = (socialProfiles.push(personal.platforms.mastodon), socialProfiles) %}
+{% endif %}
+{% if personal.platforms.linkedin %}
+  {% set socialProfiles = (socialProfiles.push(personal.platforms.linkedin), socialProfiles) %}
+{% endif %}
+
+{% set graph = [] %}
+{% set personNode = {
+  '@type': 'Person',
+  '@id': personId,
+  'name': meta.author.name,
+  'url': meta.author.website or meta.url,
+  'image': logoUrl,
+  'email': meta.author.email,
+  'sameAs': socialProfiles
+} %}
+{% set websiteNode = {
+  '@type': 'WebSite',
+  '@id': websiteId,
+  'url': meta.url ~ '/',
+  'name': meta.siteName,
+  'description': meta.siteDescription,
+  'publisher': { '@id': personId },
+  'author': { '@id': personId },
+  'inLanguage': meta.lang,
+  'potentialAction': {
+    '@type': 'SearchAction',
+    'target': meta.url ~ '/search/?q={search_term_string}',
+    'query-input': 'required name=search_term_string'
+  }
+} %}
+{% set webPageNode = {
+  '@type': 'WebPage',
+  '@id': pageId,
+  'url': pageUrl,
+  'name': title or meta.siteName,
+  'description': metaDescription | trim,
+  'isPartOf': { '@id': websiteId },
+  'about': { '@id': personId },
+  'inLanguage': meta.lang
+} %}
+{% set graph = (graph.push(personNode), graph) %}
+{% set graph = (graph.push(websiteNode), graph) %}
+
+{% if isPostLike %}
+  {% set graph = (graph.push(webPageNode), graph) %}
+  {% set articleImage = '' %}
+  {% if featuredImage or featured_image %}
+    {% set articleImage = (featuredImage or featured_image) | absoluteUrl(meta.url) %}
+  {% else %}
+    {% set articleImage = meta.url ~ '/assets/og-images/' ~ (slug or title | slugify) ~ '-preview.jpeg' %}
+  {% endif %}
+  {% set articleNode = {
+    '@type': schema or 'BlogPosting',
+    '@id': pageUrl ~ '#article',
+    'mainEntityOfPage': { '@id': pageId },
+    'headline': title,
+    'description': metaDescription | trim,
+    'image': [articleImage],
+    'datePublished': page.date | toIsoString,
+    'dateModified': (lastUpdated or updated or modified or page.date) | toIsoString,
+    'author': { '@id': personId },
+    'publisher': { '@id': personId },
+    'url': pageUrl,
+    'inLanguage': meta.lang
+  } %}
+  {% if tags and tags.length %}
+    {% set keywords = [] %}
+    {% for tag in tags %}
+      {% if tag != 'posts' and tag != 'notes' and tag != 'journal' %}
+        {% set keywords = (keywords.push(tag), keywords) %}
+      {% endif %}
+    {% endfor %}
+    {% set articleNode = articleNode | merge({ 'keywords': keywords }) %}
+  {% endif %}
+  {% set graph = (graph.push(articleNode), graph) %}
+{% elseif isTopicHub %}
+  {% set collectionNode = {
+    '@type': 'CollectionPage',
+    '@id': pageId,
+    'url': pageUrl,
+    'name': title,
+    'description': metaDescription | trim,
+    'isPartOf': { '@id': websiteId },
+    'about': topic.name,
+    'inLanguage': meta.lang
+  } %}
+  {% set graph = (graph.push(collectionNode), graph) %}
+{% else %}
+  {% set graph = (graph.push(webPageNode), graph) %}
+{% endif %}
+
+{% if page.url != '/' %}
+  {% set breadcrumbItems = [
+    {
+      '@type': 'ListItem',
+      'position': 1,
+      'name': 'Home',
+      'item': meta.url ~ '/'
+    }
+  ] %}
+  {% if '/blog/' in page.url and layout == 'post' %}
+    {% set breadcrumbItems = (breadcrumbItems.push({
+      '@type': 'ListItem',
+      'position': 2,
+      'name': 'Blog',
+      'item': meta.url ~ '/blog/'
+    }), breadcrumbItems) %}
+    {% set breadcrumbPosition = 3 %}
+  {% elseif '/notes/' in page.url and layout == 'note' %}
+    {% set breadcrumbItems = (breadcrumbItems.push({
+      '@type': 'ListItem',
+      'position': 2,
+      'name': 'Notes',
+      'item': meta.url ~ '/notes/'
+    }), breadcrumbItems) %}
+    {% set breadcrumbPosition = 3 %}
+  {% elseif '/topics/' in page.url %}
+    {% set breadcrumbItems = (breadcrumbItems.push({
+      '@type': 'ListItem',
+      'position': 2,
+      'name': 'Topics',
+      'item': meta.url ~ '/topics/'
+    }), breadcrumbItems) %}
+    {% set breadcrumbPosition = 3 %}
+  {% else %}
+    {% set breadcrumbPosition = 2 %}
+  {% endif %}
+  {% set breadcrumbItems = (breadcrumbItems.push({
+    '@type': 'ListItem',
+    'position': breadcrumbPosition,
+    'name': title or meta.siteName,
+    'item': pageUrl
+  }), breadcrumbItems) %}
+  {% set breadcrumbNode = {
+    '@type': 'BreadcrumbList',
+    '@id': pageUrl ~ '#breadcrumb',
+    'itemListElement': breadcrumbItems
+  } %}
+  {% set graph = (graph.push(breadcrumbNode), graph) %}
+{% endif %}
+
+<script type="application/ld+json">
+{{ { '@context': 'https://schema.org', '@graph': graph } | json(2) | safe }}
+</script>
