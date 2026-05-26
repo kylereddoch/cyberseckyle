@@ -1,0 +1,1004 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      
+        Finding the Real Drive Behind a Windows \Device\HarddiskX\DRX Alert - CybersecKyle
+      
+    </title>
+
+    
+
+
+  
+
+
+
+
+<meta name="description" content="A quick, easy way to map obscure Windows disk controller errors back to the real physical drive, volume, and drive letter.">
+<meta name="theme-color" content="#1e1e2e" media="(prefers-color-scheme: dark)">
+<!-- Search Engines -->
+<meta name="robots" content="index,follow">
+<meta name="googlebot" content="index,follow">
+<!-- Made with Eleventy! -->
+<meta name="generator" content="Eleventy v3.1.2">
+<!-- Disable automatic detection and formatting of possible phone numbers -->
+<meta name="format-detection" content="telephone=no">
+<meta name="color-scheme" content="dark light">
+<!-- activates page transitions -->
+<meta name="view-transition" content="same-origin">
+<!-- Helps prevent duplicate content issues -->
+<link rel="canonical" href="https://www.kylereddoch.me/blog/find-actual-drive-behind-windows-harddisk-error/">
+<!-- Links to information about the author(s) of the document -->
+<link rel="author" href="humans.txt">
+
+
+  <!-- Mastodon verified site -->
+  <link rel="me" href="https://infosec.exchange/@cyberseckyle">
+
+
+
+  <!-- fediverse creator tag -->
+  <meta name="fediverse:creator" content="@cyberseckyle@infosec.exchange">
+
+
+
+  <link rel="webmention" href="https://webmention.io/www.kylereddoch.me/webmention">
+  <link rel="pingback" href="https://webmention.io/www.kylereddoch.me/xmlrpc">
+
+
+
+
+
+<!-- Open Graph meta  -->
+<meta property="og:url" content="https://www.kylereddoch.me/blog/find-actual-drive-behind-windows-harddisk-error/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Finding the Real Drive Behind a Windows \Device\HarddiskX\DRX Alert">
+<meta property="og:image" content="https://www.kylereddoch.me/assets/og-images/find-actual-drive-behind-windows-harddisk-error-preview.jpeg">
+<meta property="og:image:alt" content="Finding the Real Drive Behind a Windows \Device\HarddiskX\DRX Alert">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:description" content="A quick, easy way to map obscure Windows disk controller errors back to the real physical drive, volume, and drive letter.">
+<meta property="og:site_name" content="CybersecKyle">
+<meta property="og:locale" content="en_EN">
+<meta property="article:author" content="Kyle Reddoch">
+
+<!-- Twitter specific head data was removed in v2 -->
+
+<!-- RSS Autodiscovery. Loops over meta.blog.feedLinks -->
+
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed: CybersecKyle" href="/feed.xml">
+
+  <link rel="alternate" type="application/json" title="JSON Feed: CybersecKyle" href="/feed.json">
+
+
+<!-- Favicon: https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+
+    <script>
+      (function() {
+        try {
+          var savedTheme = localStorage.getItem('theme');
+          var useDark = savedTheme ? savedTheme === 'dark' : true;
+          document.documentElement.classList.toggle('dark', useDark);
+          document.documentElement.classList.toggle('light', !useDark);
+        } catch (error) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        }
+      })();
+    </script>
+
+    <link rel="preload" href="/assets/starter/build.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/assets/starter/cyberseckyle.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="/assets/starter/build.css">
+      <link rel="stylesheet" href="/assets/starter/cyberseckyle.css">
+    </noscript>
+
+    <style>
+      .contrast {
+        filter: contrast(1.2) saturate(1.1);
+      }
+
+      .reduce-motion,
+      .reduce-motion * {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+      }
+    </style>
+  </head>
+  <body class="bg-[var(--bg)] text-[var(--text)] min-h-screen flex flex-col">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-black">
+      Skip to content
+    </a>
+
+    <div id="progress-bar" aria-hidden="true"></div>
+
+    
+    
+    
+    
+    
+    
+    
+
+    <header class="bg-[var(--surface)] border-b border-gray-200 dark:border-gray-700">
+      <div class="container mx-auto max-w-7xl px-4 py-3 flex items-center gap-3">
+        <button id="hamburger" aria-label="Toggle menu" aria-controls="primary-nav" aria-expanded="false" class="md:hidden p-2 rounded border border-gray-300 dark:border-gray-600">
+          <span class="bar-1 block w-5 h-0.5 bg-gray-700 dark:bg-gray-200 mb-1 transition-transform"></span>
+          <span class="bar-2 block w-5 h-0.5 bg-gray-700 dark:bg-gray-200 mb-1 transition-opacity"></span>
+          <span class="bar-3 block w-5 h-0.5 bg-gray-700 dark:bg-gray-200 transition-transform"></span>
+        </button>
+
+        <a href="/" class="site-brand no-indicator">
+          <picture><source type="image/webp" srcset="/img/9TFc0M7-EG-40.webp 40w" sizes="auto"><img loading="lazy" decoding="async" src="/img/9TFc0M7-EG-40.jpeg" alt width="40" height="40" class="site-brand__logo"></picture>
+          <span class="site-title text-lg font-semibold tracking-tight">CybersecKyle</span>
+        </a>
+
+        <form role="search" aria-label="Site" action="/search/" method="get" class="ml-auto hidden sm:block">
+          <label for="q" class="sr-only">Search</label>
+          <input id="q" name="q" type="search" placeholder="Search..." autocomplete="off" class="w-64 rounded border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder:text-gray-500 shadow-sm focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 dark:bg-white dark:text-gray-900 dark:placeholder:text-gray-500">
+        </form>
+
+        <div class="flex items-center gap-2 ml-2">
+          <button id="dark-toggle" aria-pressed="false" aria-label="Toggle dark mode" class="px-2 py-1 text-sm border rounded">🌙</button>
+          <div class="relative">
+            <button id="a11y-toggle" aria-expanded="false" aria-controls="a11y-menu" class="px-2 py-1 text-sm border rounded">A11y</button>
+            <div id="a11y-menu" class="absolute right-0 mt-1 bg-[var(--surface)] border rounded p-2 text-sm space-x-2 whitespace-nowrap hidden">
+              <button id="font-dec" class="px-2 py-1 border rounded">A-</button>
+              <button id="font-inc" class="px-2 py-1 border rounded">A+</button>
+              <button id="contrast-toggle" aria-pressed="false" class="px-2 py-1 border rounded">Contrast</button>
+              <button id="motion-toggle" aria-pressed="false" class="px-2 py-1 border rounded">Reduce motion</button>
+              <button id="font-toggle" type="button" aria-pressed="false" class="px-2 py-1 border rounded hidden md:inline-block">System Fonts</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="bg-[var(--surface)] border-b border-gray-200 dark:border-gray-700">
+      <div id="primary-nav" class="container mx-auto max-w-7xl px-4 py-2 hidden md:block">
+        <ul class="flex flex-col md:flex-row text-base md:text-sm space-y-3 md:space-y-0 md:space-x-6">
+          <li><a href="/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">🏠 Home</a></li>
+          <li><a href="/blog/" aria-current="page" class="nav-item block py-2 text-purple-600 dark:text-purple-400 underline font-semibold">✍️ Blog</a></li>
+          <li><a href="/tags/cybersecurity/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">🛡️ Cybersecurity</a></li>
+          <li><a href="/notes/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">📝 Notes</a></li>
+          <li><a href="/about/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">👋 About</a></li>
+          <li><a href="/contact/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">💬 Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-6 max-w-4xl flex-1">
+      <main id="main">
+        
+<a href="/blog/" class="inline-flex items-center text-blue-600 hover:text-blue-800 mb-3">
+  ← Back to Blog
+</a>
+
+<nav aria-label="Breadcrumb" class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+  <ol class="flex flex-wrap items-center gap-2">
+    <li><a href="/" class="hover:text-blue-600">Home</a></li>
+    <li aria-hidden="true">/</li>
+    <li><a href="/blog/" class="hover:text-blue-600">Blog</a></li>
+    <li aria-hidden="true">/</li>
+    <li class="text-gray-900 dark:text-gray-100">Finding the Real Drive Behind a Windows \Device\HarddiskX\DRX Alert</li>
+  </ol>
+</nav>
+
+<article class="h-entry mx-auto max-w-3xl">
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <div class="mb-8">
+      <picture><source type="image/webp" srcset="/img/59-mBqTgcT-1536.webp 1536w" sizes="auto"><img loading="lazy" decoding="async" src="/img/59-mBqTgcT-1536.jpeg" alt="A hard drive sitting on a desk in front of a blurred computer monitor showing a red warning icon and disk health dashboard." width="1536" height="1024" class="u-photo w-full rounded-lg"></picture>
+      
+    </div>
+  
+
+  <header class="mb-6">
+    <h1 class="p-name text-3xl font-bold tracking-tight mb-3">Finding the Real Drive Behind a Windows \Device\HarddiskX\DRX Alert</h1>
+    
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">A quick, easy way to map obscure Windows disk controller errors back to the real physical drive, volume, and drive letter.</p>
+    
+
+    <div class="text-sm text-gray-600 dark:text-gray-400">
+      Published on <time datetime="2026-05-26" class="dt-published">May 26, 2026</time>
+      by <span class="p-author h-card">
+        <a href="/about/" class="u-url p-name hover:text-blue-600">Kyle Reddoch</a>
+      </span>
+      <span aria-hidden="true" class="text-gray-400 dark:text-gray-500 mx-1">•</span>
+      <span>8 min read</span>
+    </div>
+
+    <a href="https://www.kylereddoch.me/blog/find-actual-drive-behind-windows-harddisk-error/" class="u-url hidden">Permalink</a>
+  </header>
+
+  <div class="e-content prose max-w-none">
+    <p>I recently had one of those RMM alerts that looks simple at first, but immediately turns into a small rabbit hole.</p>
+<p>The alert was for a potential disk failure, and the important part of the event log message looked like this:</p>
+<pre class="language-text"><code class="language-text">The driver detected a controller error on \Device\Harddisk3\DR3.</code></pre>
+<p>That sounds helpful until you actually try to answer the obvious question:</p>
+<p><strong>Which drive is Harddisk3?</strong></p>
+<p>Windows did not say “C: drive.” It did not say “Samsung SSD.” It did not say “external USB drive.” It gave me a device path that is useful to Windows, but not immediately useful to a technician trying to figure out whether a workstation has a failing disk, a bad USB device, a docking station issue, or something else entirely.</p>
+<p>This post is the quick way I use to map a Windows <code>\Device\HarddiskX\DRX</code> event back to the actual drive.</p>
+<h2 id="the-important-part-harddisk3-usually-means-disk-3">The important part: Harddisk3 usually means Disk 3</h2>
+<p>In this type of event:</p>
+<pre class="language-text"><code class="language-text">\Device\Harddisk3\DR3</code></pre>
+<p>The <code>Harddisk3</code> portion is usually the part you care about first. In most cases, that maps closely to <strong>Disk 3</strong> as Windows sees it.</p>
+<p>That does <strong>not</strong> mean the D: drive.</p>
+<p>That does <strong>not</strong> mean the third drive letter.</p>
+<p>That does <strong>not</strong> automatically mean the main internal SSD.</p>
+<p>It means Windows is referencing a physical disk object. Microsoft’s <a href="https://learn.microsoft.com/en-us/powershell/module/storage/get-disk" rel="noopener"><code>Get-Disk</code></a> cmdlet shows disks visible to the operating system, and the older WMI/CIM <a href="https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/win32-diskdrive" rel="noopener"><code>Win32_DiskDrive</code></a> class represents physical disk drives as Windows sees them.</p>
+<p>So the fast workflow is:</p>
+<ol>
+<li>Pull the disk number out of the event.</li>
+<li>Use PowerShell to find that disk.</li>
+<li>Map it to the model, serial number, bus type, partition, and drive letter.</li>
+<li>Decide whether it is a real disk problem, an external device issue, a controller/driver issue, or something you need to watch.</li>
+</ol>
+<h2 id="step-1-list-the-disks-windows-can-see">Step 1: List the disks Windows can see</h2>
+<p>Open PowerShell as administrator and run:</p>
+<pre class="language-powershell"><code class="language-powershell"><span class="token function">Get-Disk</span> <span class="token punctuation">|</span> <span class="token function">Sort-Object</span> Number <span class="token punctuation">|</span> <span class="token function">Format-Table</span> Number<span class="token punctuation">,</span> FriendlyName<span class="token punctuation">,</span> SerialNumber<span class="token punctuation">,</span> BusType<span class="token punctuation">,</span> HealthStatus<span class="token punctuation">,</span> OperationalStatus<span class="token punctuation">,</span> Size <span class="token operator">-</span>Auto</code></pre>
+<p>That gives you a quick inventory of the physical disks Windows currently sees.</p>
+<p>You are looking for the disk number from the alert. In my example, the alert said:</p>
+<pre class="language-text"><code class="language-text">\Device\Harddisk3\DR3</code></pre>
+<p>So I would look for:</p>
+<pre class="language-text"><code class="language-text">Disk 3</code></pre>
+<p>The output may show something obvious, like an internal NVMe SSD. It may also show something less obvious, like a USB storage device, card reader, docking station storage controller, or removable device.</p>
+<p>That is why I do not like closing these alerts just because the machine “seems fine.” The endpoint may be fine today, but the event is still telling you Windows had a problem talking to some storage device or controller.</p>
+<h2 id="step-2-pull-details-for-that-exact-disk">Step 2: Pull details for that exact disk</h2>
+<p>Change the number below to match your alert.</p>
+<pre class="language-powershell"><code class="language-powershell"><span class="token variable">$DiskNumber</span> = 3
+
+<span class="token function">Get-Disk</span> <span class="token operator">-</span>Number <span class="token variable">$DiskNumber</span> <span class="token punctuation">|</span> <span class="token function">Format-List</span> `
+    Number<span class="token punctuation">,</span>
+    FriendlyName<span class="token punctuation">,</span>
+    SerialNumber<span class="token punctuation">,</span>
+    BusType<span class="token punctuation">,</span>
+    PartitionStyle<span class="token punctuation">,</span>
+    HealthStatus<span class="token punctuation">,</span>
+    OperationalStatus<span class="token punctuation">,</span>
+    Size</code></pre>
+<p>This gives you the basic identity of the disk.</p>
+<p>The fields I care about most are:</p>
+<ul>
+<li><code>FriendlyName</code></li>
+<li><code>SerialNumber</code></li>
+<li><code>BusType</code></li>
+<li><code>HealthStatus</code></li>
+<li><code>OperationalStatus</code></li>
+<li><code>Size</code></li>
+</ul>
+<p>If the bus type says USB, that changes the conversation. It may be an external drive, dock, adapter, card reader, or some other removable storage device.</p>
+<p>If the bus type says NVMe, SATA, RAID, or SAS, I am going to take the alert a lot more seriously, especially if it belongs to the boot drive or a production workload.</p>
+<h2 id="step-3-map-the-disk-to-partitions-and-drive-letters">Step 3: Map the disk to partitions and drive letters</h2>
+<p>Finding the disk is good, but usually I want to know what drive letter or volume is sitting on it.</p>
+<p>Run this:</p>
+<pre class="language-powershell"><code class="language-powershell"><span class="token variable">$DiskNumber</span> = 3
+
+<span class="token function">Get-Partition</span> <span class="token operator">-</span>DiskNumber <span class="token variable">$DiskNumber</span> <span class="token punctuation">|</span> <span class="token function">ForEach-Object</span> <span class="token punctuation">{</span>
+    <span class="token variable">$Partition</span> = <span class="token variable">$_</span>
+    <span class="token variable">$Volume</span> = <span class="token variable">$Partition</span> <span class="token punctuation">|</span> <span class="token function">Get-Volume</span> <span class="token operator">-</span>ErrorAction SilentlyContinue
+
+    <span class="token namespace">[PSCustomObject]</span>@<span class="token punctuation">{</span>
+        DiskNumber      = <span class="token variable">$DiskNumber</span>
+        PartitionNumber = <span class="token variable">$Partition</span><span class="token punctuation">.</span>PartitionNumber
+        DriveLetter     = <span class="token variable">$Partition</span><span class="token punctuation">.</span>DriveLetter
+        VolumeLabel     = <span class="token variable">$Volume</span><span class="token punctuation">.</span>FileSystemLabel
+        FileSystem      = <span class="token variable">$Volume</span><span class="token punctuation">.</span>FileSystem
+        PartitionType   = <span class="token variable">$Partition</span><span class="token punctuation">.</span><span class="token function">Type</span>
+        SizeGB          = <span class="token namespace">[math]</span>::Round<span class="token punctuation">(</span><span class="token variable">$Partition</span><span class="token punctuation">.</span>Size <span class="token operator">/</span> 1GB<span class="token punctuation">,</span> 2<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token punctuation">|</span> <span class="token function">Format-Table</span> <span class="token operator">-</span>Auto</code></pre>
+<p>This helps answer the question everyone actually cares about:</p>
+<p><strong>What does this disk belong to?</strong></p>
+<p>You may find that Disk 3 maps to a normal drive letter, such as <code>D:</code> or <code>E:</code>. You may also find that it has no drive letter at all. That can happen with recovery partitions, hidden system partitions, offline disks, removable devices, or storage devices Windows can see but has not mounted as a normal volume.</p>
+<h2 id="step-4-use-cim/wmi-if-you-want-the-older-windows-view">Step 4: Use CIM/WMI if you want the older Windows view</h2>
+<p>Sometimes I like checking the CIM/WMI view too, especially when I am comparing the PowerShell output to an RMM inventory, hardware inventory, or event log entry.</p>
+<pre class="language-powershell"><code class="language-powershell"><span class="token variable">$DiskNumber</span> = 3
+
+<span class="token variable">$Drive</span> = <span class="token function">Get-CimInstance</span> Win32_DiskDrive <span class="token punctuation">|</span> <span class="token function">Where-Object</span> <span class="token punctuation">{</span>
+    <span class="token variable">$_</span><span class="token punctuation">.</span>Index <span class="token operator">-eq</span> <span class="token variable">$DiskNumber</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$Drive</span> <span class="token punctuation">|</span> <span class="token function">Select-Object</span> `
+    Index<span class="token punctuation">,</span>
+    DeviceID<span class="token punctuation">,</span>
+    Model<span class="token punctuation">,</span>
+    SerialNumber<span class="token punctuation">,</span>
+    InterfaceType<span class="token punctuation">,</span>
+    MediaType<span class="token punctuation">,</span>
+    @<span class="token punctuation">{</span>Name=<span class="token string">'SizeGB'</span><span class="token punctuation">;</span>Expression=<span class="token punctuation">{</span><span class="token namespace">[math]</span>::Round<span class="token punctuation">(</span><span class="token variable">$_</span><span class="token punctuation">.</span>Size <span class="token operator">/</span> 1GB<span class="token punctuation">,</span> 2<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token punctuation">|</span>
+    <span class="token function">Format-List</span></code></pre>
+<p>This should show something like:</p>
+<pre class="language-text"><code class="language-text">Index      : 3
+DeviceID   : \\.\PHYSICALDRIVE3
+Model      : Example SSD Model
+SerialNumber : 123456789
+InterfaceType : USB
+MediaType  : Fixed hard disk media
+SizeGB     : 931.51</code></pre>
+<p>That <code>\\.\PHYSICALDRIVE3</code> value is another strong clue that you are looking at the same physical disk Windows referenced as <code>Harddisk3</code>.</p>
+<h2 id="step-5-map-the-cim-disk-to-logical-drive-letters">Step 5: Map the CIM disk to logical drive letters</h2>
+<p>If you want to go one layer deeper, this will show the partitions and logical disks associated with that physical disk.</p>
+<pre class="language-powershell"><code class="language-powershell"><span class="token variable">$DiskNumber</span> = 3
+
+<span class="token variable">$Drive</span> = <span class="token function">Get-CimInstance</span> Win32_DiskDrive <span class="token punctuation">|</span> <span class="token function">Where-Object</span> <span class="token punctuation">{</span>
+    <span class="token variable">$_</span><span class="token punctuation">.</span>Index <span class="token operator">-eq</span> <span class="token variable">$DiskNumber</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$Partitions</span> = <span class="token function">Get-CimAssociatedInstance</span> `
+    <span class="token operator">-</span>InputObject <span class="token variable">$Drive</span> `
+    <span class="token operator">-</span>Association Win32_DiskDriveToDiskPartition
+
+<span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$Partition</span> in <span class="token variable">$Partitions</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">Get-CimAssociatedInstance</span> `
+        <span class="token operator">-</span>InputObject <span class="token variable">$Partition</span> `
+        <span class="token operator">-</span>Association Win32_LogicalDiskToPartition <span class="token punctuation">|</span>
+        <span class="token function">Select-Object</span> `
+            @<span class="token punctuation">{</span>Name=<span class="token string">'DiskIndex'</span><span class="token punctuation">;</span>Expression=<span class="token punctuation">{</span><span class="token variable">$Drive</span><span class="token punctuation">.</span>Index<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            DeviceID<span class="token punctuation">,</span>
+            VolumeName<span class="token punctuation">,</span>
+            FileSystem<span class="token punctuation">,</span>
+            @<span class="token punctuation">{</span>Name=<span class="token string">'SizeGB'</span><span class="token punctuation">;</span>Expression=<span class="token punctuation">{</span><span class="token namespace">[math]</span>::Round<span class="token punctuation">(</span><span class="token variable">$_</span><span class="token punctuation">.</span>Size <span class="token operator">/</span> 1GB<span class="token punctuation">,</span> 2<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            @<span class="token punctuation">{</span>Name=<span class="token string">'FreeGB'</span><span class="token punctuation">;</span>Expression=<span class="token punctuation">{</span><span class="token namespace">[math]</span>::Round<span class="token punctuation">(</span><span class="token variable">$_</span><span class="token punctuation">.</span>FreeSpace <span class="token operator">/</span> 1GB<span class="token punctuation">,</span> 2<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>Microsoft documents <a href="https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/win32-diskdrivetodiskpartition" rel="noopener"><code>Win32_DiskDriveToDiskPartition</code></a> as the association between a disk drive and the partitions on it, which makes it useful when you need to walk from physical disk to partition to logical disk.</p>
+<h2 id="the-quick-rmm-friendly-version">The quick RMM-friendly version</h2>
+<p>If I needed a quick command to run from an RMM tool, I would keep it simple:</p>
+<pre class="language-powershell"><code class="language-powershell"><span class="token variable">$DiskNumber</span> = 3
+
+<span class="token function">Write-Host</span> <span class="token string">"=== Disk Details ==="</span>
+<span class="token function">Get-Disk</span> <span class="token operator">-</span>Number <span class="token variable">$DiskNumber</span> <span class="token punctuation">|</span>
+    <span class="token function">Select-Object</span> Number<span class="token punctuation">,</span> FriendlyName<span class="token punctuation">,</span> SerialNumber<span class="token punctuation">,</span> BusType<span class="token punctuation">,</span> HealthStatus<span class="token punctuation">,</span> OperationalStatus<span class="token punctuation">,</span> Size <span class="token punctuation">|</span>
+    <span class="token function">Format-List</span>
+
+<span class="token function">Write-Host</span> <span class="token string">"=== Partitions / Volumes ==="</span>
+<span class="token function">Get-Partition</span> <span class="token operator">-</span>DiskNumber <span class="token variable">$DiskNumber</span> <span class="token punctuation">|</span> <span class="token function">ForEach-Object</span> <span class="token punctuation">{</span>
+    <span class="token variable">$Partition</span> = <span class="token variable">$_</span>
+    <span class="token variable">$Volume</span> = <span class="token variable">$Partition</span> <span class="token punctuation">|</span> <span class="token function">Get-Volume</span> <span class="token operator">-</span>ErrorAction SilentlyContinue
+
+    <span class="token namespace">[PSCustomObject]</span>@<span class="token punctuation">{</span>
+        DiskNumber      = <span class="token variable">$DiskNumber</span>
+        PartitionNumber = <span class="token variable">$Partition</span><span class="token punctuation">.</span>PartitionNumber
+        DriveLetter     = <span class="token variable">$Partition</span><span class="token punctuation">.</span>DriveLetter
+        VolumeLabel     = <span class="token variable">$Volume</span><span class="token punctuation">.</span>FileSystemLabel
+        FileSystem      = <span class="token variable">$Volume</span><span class="token punctuation">.</span>FileSystem
+        PartitionType   = <span class="token variable">$Partition</span><span class="token punctuation">.</span><span class="token function">Type</span>
+        SizeGB          = <span class="token namespace">[math]</span>::Round<span class="token punctuation">(</span><span class="token variable">$Partition</span><span class="token punctuation">.</span>Size <span class="token operator">/</span> 1GB<span class="token punctuation">,</span> 2<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token punctuation">|</span> <span class="token function">Format-Table</span> <span class="token operator">-</span>Auto</code></pre>
+<p>Change <code>$DiskNumber = 3</code> to whatever number appears in your event.</p>
+<p>For example:</p>
+<pre class="language-text"><code class="language-text">\Device\Harddisk5\DR5</code></pre>
+<p>would become:</p>
+<pre class="language-powershell"><code class="language-powershell"><span class="token variable">$DiskNumber</span> = 5</code></pre>
+<h2 id="pull-the-matching-disk-events-from-the-local-event-log">Pull the matching disk events from the local event log</h2>
+<p>You can also pull recent disk events directly from PowerShell:</p>
+<pre class="language-powershell"><code class="language-powershell"><span class="token function">Get-WinEvent</span> <span class="token operator">-</span>FilterHashtable @<span class="token punctuation">{</span>
+    LogName      = <span class="token string">'System'</span>
+    ProviderName = <span class="token string">'disk'</span>
+    Id           = 11
+<span class="token punctuation">}</span> <span class="token operator">-</span>MaxEvents 20 <span class="token punctuation">|</span>
+<span class="token function">Select-Object</span> TimeCreated<span class="token punctuation">,</span> Id<span class="token punctuation">,</span> ProviderName<span class="token punctuation">,</span> Message <span class="token punctuation">|</span>
+<span class="token function">Format-List</span></code></pre>
+<p>This helps confirm whether the event was a one-time issue or something repeating over time.</p>
+<p>One disk controller error may not always mean a drive is dying. Repeated disk controller errors are a different story.</p>
+<p>Microsoft’s <a href="https://learn.microsoft.com/en-us/troubleshoot/windows-server/backup-and-storage/troubleshoot-disk-and-file-system-issues" rel="noopener">Windows troubleshooting guidance for disk and file system issues</a> warns that storage problems can lead to inaccessible drives, corruption, application problems, downtime, and data loss if they are not addressed. That does not mean every event is catastrophic, but it does mean these alerts deserve more than a lazy “it looks fine” response.</p>
+<h2 id="watch-out-for-harddiskvolume-vs-harddisk">Watch out for HarddiskVolume vs Harddisk</h2>
+<p>This is where Windows naming can get annoying.</p>
+<p>There is a difference between:</p>
+<pre class="language-text"><code class="language-text">\Device\Harddisk3\DR3</code></pre>
+<p>and something like:</p>
+<pre class="language-text"><code class="language-text">\Device\HarddiskVolume3</code></pre>
+<p><code>Harddisk3</code> is usually pointing you toward a physical disk number.</p>
+<p><code>HarddiskVolume3</code> is pointing you toward a volume object.</p>
+<p>Those are not the same thing.</p>
+<p>A good article from <a href="https://www.windowsdigitals.com/device-hard-disk-volume-3-4-5-windows/" rel="noopener">WindowsDigitals</a> shows a method for mapping <code>\Device\HarddiskVolume3</code>, <code>\Device\HarddiskVolume4</code>, and similar volume paths back to drive letters. That is useful when your alert references a volume path. In this case, though, the RMM alert was referencing a disk/controller path, so I wanted the physical disk first.</p>
+<h2 id="what-i-do-after-identifying-the-drive">What I do after identifying the drive</h2>
+<p>Once I know which disk Windows is complaining about, I usually move through this checklist.</p>
+<h3 id="1-confirm-backups-first">1. Confirm backups first</h3>
+<p>Before doing anything aggressive, confirm whether the endpoint or server is protected.</p>
+<p>If this is a workstation, check whether important user folders are redirected, synced, or backed up. If this is a server, check the backup chain before you start poking at storage.</p>
+<p>A disk alert is not the time to discover that backups have been assumed instead of verified.</p>
+<h3 id="2-check-whether-it-is-internal-or-removable">2. Check whether it is internal or removable</h3>
+<p>The <code>BusType</code> field matters.</p>
+<p>If it is USB, I look for:</p>
+<ul>
+<li>External drives</li>
+<li>USB hubs</li>
+<li>Docking stations</li>
+<li>Card readers</li>
+<li>Old backup drives</li>
+<li>Random devices plugged into the workstation</li>
+</ul>
+<p>If it is NVMe, SATA, RAID, SAS, or anything tied to internal storage, I treat it with more urgency.</p>
+<h3 id="3-look-for-repeated-events">3. Look for repeated events</h3>
+<p>A single event can happen because of a brief disconnect, sleep/wake issue, flaky USB connection, driver hiccup, or docking station weirdness.</p>
+<p>Repeated events are a stronger signal.</p>
+<p>Especially repeated events with symptoms like:</p>
+<ul>
+<li>Freezing</li>
+<li>Slow logins</li>
+<li>File copy failures</li>
+<li>Application crashes</li>
+<li>Backup failures</li>
+<li>Disk warnings in the RMM</li>
+<li>SMART or health status warnings</li>
+</ul>
+<h3 id="4-check-the-physical-drive-health">4. Check the physical drive health</h3>
+<p>PowerShell is good for mapping the disk, but I still like checking drive health with the vendor tool when possible.</p>
+<p>For example:</p>
+<ul>
+<li>Dell, HP, or Lenovo hardware diagnostics</li>
+<li>SSD vendor utilities</li>
+<li>RAID controller tools</li>
+<li>SMART data tools</li>
+<li>RMM hardware health inventory</li>
+</ul>
+<p>PowerShell tells me what Windows sees. Vendor diagnostics often tell me what the hardware is actually reporting.</p>
+<h3 id="5-replace-the-drive-if-the-evidence-points-that-way">5. Replace the drive if the evidence points that way</h3>
+<p>This is where I have a strong opinion.</p>
+<p>If the disk is important, the error repeats, and health data starts looking suspicious, do not spend days trying to spiritually negotiate with a failing drive.</p>
+<p>Back it up, replace it, and move on.</p>
+<p>Storage is cheap compared to downtime, data loss, and a user who suddenly cannot work.</p>
+<h2 id="why-this-matters-in-an-msp-environment">Why this matters in an MSP environment</h2>
+<p>In an MSP environment, these alerts are easy to overlook because they are not always loud.</p>
+<p>The machine may still be online. The user may not have reported anything. The RMM alert may only fire once. The event path may look obscure enough that it gets pushed aside.</p>
+<p>That is exactly why I like having a fast workflow.</p>
+<p>When an alert says:</p>
+<pre class="language-text"><code class="language-text">The driver detected a controller error on \Device\Harddisk3\DR3.</code></pre>
+<p>I want to quickly answer:</p>
+<ul>
+<li>What physical disk is Disk 3?</li>
+<li>Is it internal or external?</li>
+<li>Does it have a drive letter?</li>
+<li>Is it tied to user data?</li>
+<li>Is the event repeating?</li>
+<li>Is the disk health clean?</li>
+<li>Do I need to replace something?</li>
+</ul>
+<p>That turns a vague Windows event into a real troubleshooting path.</p>
+<h2 id="final-thought">Final thought</h2>
+<p>The biggest lesson here is that Windows disk events are often written for Windows, not for humans.</p>
+<p><code>\Device\Harddisk3\DR3</code> is not friendly. It does not tell you the drive letter, model, serial number, or whether the disk is an internal SSD or some random USB device.</p>
+<p>But with a few PowerShell commands, you can usually map the event back to the real disk quickly.</p>
+<p>That is the difference between staring at an obscure alert and actually knowing what piece of hardware needs attention.</p>
+
+  </div>
+
+  
+    <section class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+      <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Tags</h2>
+      <div class="flex flex-wrap gap-2">
+        
+          
+        
+          
+            <a href="/tags/windows/" style="background-color: hsl(259 65% 45%); color: #ffffff" class="p-category px-3 py-1 text-sm rounded-full hover:opacity-85 transition-opacity">#windows</a>
+          
+        
+          
+            <a href="/tags/powershell/" style="background-color: hsl(235 65% 45%); color: #ffffff" class="p-category px-3 py-1 text-sm rounded-full hover:opacity-85 transition-opacity">#powershell</a>
+          
+        
+          
+            <a href="/tags/msp/" style="background-color: hsl(66 65% 45%); color: #000000" class="p-category px-3 py-1 text-sm rounded-full hover:opacity-85 transition-opacity">#MSP</a>
+          
+        
+          
+            <a href="/tags/tutorials/" style="background-color: hsl(245 65% 45%); color: #ffffff" class="p-category px-3 py-1 text-sm rounded-full hover:opacity-85 transition-opacity">#tutorials</a>
+          
+        
+      </div>
+    </section>
+  
+
+  
+
+
+  <section class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+    <h2 class="text-xl font-semibold mb-6">Related Posts</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+        <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
+          <h3 class="font-semibold mb-2">
+            <a href="/blog/remove-preinstalled-microsoft-store-apps-in-windows-11-24h2-and-25h2/" class="hover:text-blue-600">Remove Preinstalled Microsoft Store Apps in Windows 11 (24H2 &amp; 25H2)</a>
+          </h3>
+          <time datetime="2025-10-28" class="text-sm text-gray-500 dark:text-gray-400">
+            October 28, 2025
+          </time>
+          
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">A practical tutorial for removing Microsoft Store apps for existing users, future profiles, and at scale with Intune/GPO on Windows 11 Enterprise &amp; Education.</p>
+          
+          
+            <div class="mt-3 flex flex-wrap gap-1">
+              
+                
+              
+                
+                  <span style="background-color: hsl(162 65% 45%)" class="text-xs px-2 py-0.5 rounded text-white">#windows-11</span>
+                
+              
+            </div>
+          
+        </article>
+      
+        <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
+          <h3 class="font-semibold mb-2">
+            <a href="/blog/fighting-the-pup-wave-a-practical-powershell-cleanup-workflow-for-msps/" class="hover:text-blue-600">Fighting the PUP Wave: A Practical PowerShell Cleanup Workflow for MSPs</a>
+          </h3>
+          <time datetime="2026-02-20" class="text-sm text-gray-500 dark:text-gray-400">
+            February 20, 2026
+          </time>
+          
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">When unwanted apps keep sneaking onto client endpoints and allowlisting is not in the budget, a repeatable uninstall script plus RMM automation can still move the needle.</p>
+          
+          
+            <div class="mt-3 flex flex-wrap gap-1">
+              
+                
+              
+                
+                  <span style="background-color: hsl(66 65% 45%)" class="text-xs px-2 py-0.5 rounded text-white">#MSP</span>
+                
+              
+            </div>
+          
+        </article>
+      
+        <article class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow">
+          <h3 class="font-semibold mb-2">
+            <a href="/blog/dont-do-this-how-i-accidentally-simulated-attacker-cleanup/" class="hover:text-blue-600">Don’t Do This: How I Accidentally Simulated Attacker Cleanup</a>
+          </h3>
+          <time datetime="2026-02-09" class="text-sm text-gray-500 dark:text-gray-400">
+            February 9, 2026
+          </time>
+          
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">I accidentally triggered the classic “attacker covering tracks” signal across our fleet. Here’s why that matters, what you lose, and the safer alternatives.</p>
+          
+          
+            <div class="mt-3 flex flex-wrap gap-1">
+              
+                
+              
+                
+                  <span style="background-color: hsl(329 65% 45%)" class="text-xs px-2 py-0.5 rounded text-white">#cybersecurity</span>
+                
+              
+            </div>
+          
+        </article>
+      
+    </div>
+  </section>
+
+
+
+  <section class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
+      <div class="flex items-start gap-4">
+        <picture><source type="image/webp" srcset="/img/9TFc0M7-EG-180.webp 180w" sizes="auto"><img loading="lazy" decoding="async" src="/img/9TFc0M7-EG-180.jpeg" alt="Kyle Reddoch" width="180" height="180" class="author-card__avatar rounded-full"></picture>
+        <div>
+          <h2 class="font-semibold text-lg">About Kyle Reddoch</h2>
+          <p class="text-gray-600 dark:text-gray-400 mt-1">I am a cybersecurity expert and IT professional who writes as CybersecKyle. I share day-to-day security and MSP work on Mastodon and publish tools and experiments on GitHub.</p>
+          <div class="mt-3 flex flex-wrap gap-4 text-sm">
+            <a href="/about/" class="text-blue-600 hover:text-blue-800">More about me</a>
+            <a href="/donate/" class="text-green-600 hover:text-green-800">Support my work</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+    <h2 class="text-xl font-semibold mb-2">Share or join the conversation</h2>
+    <p class="text-gray-600 dark:text-gray-400 mb-4">Share this post, open the Mastodon thread, or leave a little kudos.</p>
+    
+
+<div class="share-links">
+  <span class="share-links__label text-gray-600 dark:text-gray-400">Share:</span>
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+<div data-masto-query="?text=Finding%20the%20Real%20Drive%20Behind%20a%20Windows%20%5CDevice%5CHarddiskX%5CDRX%20Alert%20-%20A%20quick%2C%20easy%20way%20to%20map%20obscure%20Windows%20disk%20controller%20errors%20back%20to%20the%20real%20physical%20drive%2C%20volume%2C%20and%20drive%20letter.%0A%0Ahttps%3A%2F%2Fwww.kylereddoch.me%2Fblog%2Ffind-actual-drive-behind-windows-harddisk-error%2F" data-masto-fallback="mastodon.social" class="masto-share">
+  
+  <a href="https://mastodon.social/share?text=Finding%20the%20Real%20Drive%20Behind%20a%20Windows%20%5CDevice%5CHarddiskX%5CDRX%20Alert%20-%20A%20quick%2C%20easy%20way%20to%20map%20obscure%20Windows%20disk%20controller%20errors%20back%20to%20the%20real%20physical%20drive%2C%20volume%2C%20and%20drive%20letter.%0A%0Ahttps%3A%2F%2Fwww.kylereddoch.me%2Fblog%2Ffind-actual-drive-behind-windows-harddisk-error%2F" data-masto-action="primary-share" class="inline-flex items-center gap-1 text-purple-600 hover:text-purple-800 no-indicator">
+    <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+    <span>Mastodon</span>
+  </a>
+
+  
+  <div class="masto-share__menu">
+    <details data-align="end">
+      <summary class="masto-share__summary inline-flex items-center gap-1 text-purple-600 hover:text-purple-800 no-indicator">
+        <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+        Choose instance
+      </summary>
+
+      <div role="menu" class="masto-share__dropdown">
+  <div class="masto-share__section masto-share__section--saved">
+    <button type="button" role="menuitem" data-masto-action="use-saved">
+      <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+      Use saved instance <small>(<span data-masto-current>none</span>)</small>
+    </button>
+
+    <button type="button" role="menuitem" data-masto-action="set-saved">
+      <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+      Set / change saved instance…
+    </button>
+
+    <button type="button" role="menuitem" data-masto-action="clear-saved">
+      <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+      Clear saved instance
+    </button>
+  </div>
+
+  <hr aria-hidden="true" class="masto-share__divider">
+
+  <div role="group" aria-label="Suggested instances" class="masto-share__section">
+    <button type="button" role="menuitem" data-masto-host="infosec.exchange">
+      <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+      infosec.exchange
+    </button>
+    <button type="button" role="menuitem" data-masto-host="mastodon.social">
+      <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+      mastodon.social
+    </button>
+    <button type="button" role="menuitem" data-masto-host="mas.to">
+      <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+      mas.to
+    </button>
+    <button type="button" role="menuitem" data-masto-host="fosstodon.org">
+      <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+      fosstodon.org
+    </button>
+    <button type="button" role="menuitem" data-masto-host="mastodon.online">
+      <i aria-hidden="true" class="fa-brands fa-mastodon"></i>
+      mastodon.online
+    </button>
+  </div>
+</div>
+
+    </details>
+  </div>
+</div>
+
+  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.kylereddoch.me%2Fblog%2Ffind-actual-drive-behind-windows-harddisk-error%2F" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 no-indicator">
+    <i aria-hidden="true" class="fa-brands fa-linkedin-in"></i>
+    <span>LinkedIn</span>
+  </a>
+  <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.kylereddoch.me%2Fblog%2Ffind-actual-drive-behind-windows-harddisk-error%2F&amp;text=Finding%20the%20Real%20Drive%20Behind%20a%20Windows%20%5CDevice%5CHarddiskX%5CDRX%20Alert" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-sky-500 hover:text-sky-700 no-indicator">
+    <i aria-hidden="true" class="fa-brands fa-x-twitter"></i>
+    <span>Twitter</span>
+  </a>
+  <button type="button" data-copy-link="https://www.kylereddoch.me/blog/find-actual-drive-behind-windows-harddisk-error/" class="share-link--button inline-flex items-center gap-1 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200">
+    <i aria-hidden="true" class="fa-regular fa-copy"></i>
+    <span data-copy-label>Copy Link</span>
+  </button>
+</div>
+
+<script>
+  (function() {
+    const buttons = document.querySelectorAll('[data-copy-link]');
+    buttons.forEach((button) => {
+      if (button.dataset.copyBound === 'true') return;
+      button.dataset.copyBound = 'true';
+      button.addEventListener('click', async () => {
+        const url = button.getAttribute('data-copy-link');
+        try {
+          if (navigator.share) {
+            await navigator.share({ title: document.title, url });
+          } else if (navigator.clipboard) {
+            await navigator.clipboard.writeText(url);
+          }
+          button.querySelector('[data-copy-label]').textContent = 'Copied';
+          setTimeout(() => {
+            button.querySelector('[data-copy-label]').textContent = 'Copy Link';
+          }, 1800);
+        } catch (error) {
+          if (navigator.clipboard && url) {
+            await navigator.clipboard.writeText(url);
+          }
+        }
+      });
+    });
+  })();
+</script>
+
+
+    <template id="mastodon-post-template">
+      
+<figure class="mastodon-post">
+    <blockquote data-key="content" class="mastodon-post-quote"></blockquote>
+    <figcaption class="mastodon-post__caption"><!--<cite> — <a data-key="url" rel="me"><span
+                    data-key="username"></span>@<span data-key="hostname"></span></a></cite>-->
+        <dl class="mastodon-post__stats">
+            <div class="mastodon-post__stat">
+                <a data-mastodon-link="reblogs" class="no-indicator"><dt><i aria-label="Boosts" class="fa-solid fa-rocket"></i></dt>
+                <dd data-key="reblogs_count"></dd></a>
+            </div>
+            <div class="mastodon-post__stat">
+                <a data-mastodon-link="status" class="no-indicator"><dt><i aria-label="Replies" class="fa-solid fa-comment"></i></dt>
+                <dd data-key="replies_count"></dd></a>
+            </div>
+            <div class="mastodon-post__stat">
+                <a data-mastodon-link="favourites" class="no-indicator"><dt><i aria-label="Favorites" class="fa-solid fa-heart"></i></dt>
+                <dd data-key="favourites_count"></dd></a>
+            </div>
+        </dl>
+    </figcaption>
+</figure>
+
+    </template>
+
+    <div data-mastodon-discussion data-mastodon-account="https://infosec.exchange/@cyberseckyle" data-mastodon-current class="discuss-mastodon mt-6 hidden">
+      
+    </div>
+
+    <div class="mt-6">
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Give this post some kudos.</p>
+      <button data-path="/blog/find-actual-drive-behind-windows-harddisk-error/" class="tinylytics_kudos"></button>
+    </div>
+
+    
+
+
+
+<section id="webmentions" data-pagefind-ignore data-webmentions-target="https://www.kylereddoch.me/blog/find-actual-drive-behind-windows-harddisk-error" class="webmentions mt-6">
+  <h2 class="text-xl font-semibold mb-4">Responses and Mentions</h2>
+  <div id="webmentions-list">
+    
+      <div class="text-center py-8 text-gray-500">
+        <p>No responses or mentions yet.</p>
+        <p class="text-sm mt-2">Likes, reposts, replies, and mentions will show up here when they come in.</p>
+      </div>
+    
+  </div>
+</section>
+
+
+  </section>
+
+  <div hidden class="h-entry">
+    <a href="https://www.kylereddoch.me/blog/find-actual-drive-behind-windows-harddisk-error/" class="u-url">Finding the Real Drive Behind a Windows \Device\HarddiskX\DRX Alert</a>
+    <a rel="author" href="https://www.kylereddoch.me" class="p-name u-url">Kyle Reddoch</a>
+    <a href="https://fed.brid.gy/" hidden="from-humans" class="u-bridgy-fed">Bridge this post to Bridgy Fed</a>
+    
+    <img src="https://www.kylereddoch.me/assets/images/logo.png" alt="Kyle Reddoch" class="u-author h-card">
+  </div>
+</article>
+
+      </main>
+    </div>
+
+    <footer class="bg-[var(--surface)] border-t border-gray-200 dark:border-gray-700 mt-12">
+  <div class="container mx-auto px-4 py-8 max-w-4xl">
+    <div class="footer-layout grid grid-cols-1 gap-8 text-sm">
+      <section>
+        <h2 class="font-semibold mb-3 text-base">Webrings</h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-3">This site is part of a few corners of the independent web.</p>
+        <ul class="space-y-3 text-gray-600 dark:text-gray-400">
+          <li class="space-y-1">
+            <p class="font-medium text-gray-900 dark:text-gray-100">
+              <a href="https://fediring.net/" class="hover:text-blue-600">Fediring</a>
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a href="https://fediring.net/previous?host=www.kylereddoch.me" class="hover:text-blue-600">Previous</a>
+              <a href="https://fediring.net/random?host=www.kylereddoch.me" class="hover:text-blue-600">Random</a>
+              <a href="https://fediring.net/next?host=www.kylereddoch.me" class="hover:text-blue-600">Next</a>
+            </div>
+          </li>
+          <li class="space-y-1">
+            <p class="font-medium text-gray-900 dark:text-gray-100">
+              <a href="https://xn--sr8hvo.ws/" class="hover:text-blue-600">IndieWeb Webring</a>
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a href="https://xn--sr8hvo.ws/previous" class="hover:text-blue-600">Previous</a>
+              <a href="https://xn--sr8hvo.ws/random" class="hover:text-blue-600">Random</a>
+              <a href="https://xn--sr8hvo.ws/next" class="hover:text-blue-600">Next</a>
+            </div>
+          </li>
+          <li>
+            <a href="https://tinylytics.app" class="tinylytics_webring hover:text-blue-600">Tinylytics Webring</a>
+          </li>
+        </ul>
+        <p class="mt-4 text-gray-600 dark:text-gray-400">Proud member of <a href="https://darktheme.club" class="hover:text-blue-600">darktheme.club</a></p>
+      </section>
+
+      <section>
+        <h2 class="font-semibold mb-3 text-base">Explore</h2>
+        <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+          
+            <li><a href="/slashes/" class="hover:text-blue-600">Slashes</a></li>
+          
+            <li><a href="/guestbook/" class="hover:text-blue-600">Guestbook</a></li>
+          
+            <li><a href="/tags/" class="hover:text-blue-600">Tags</a></li>
+          
+          <li><a href="/blog/" class="hover:text-blue-600">Blog</a></li>
+          <li><a href="/notes/" class="hover:text-blue-600">Notes</a></li>
+          <li><a href="/listening/" class="hover:text-blue-600">Listening</a></li>
+          <li><a href="/bookshelf/" class="hover:text-blue-600">Bookshelf</a></li>
+          <li><a href="/sitemap/" class="hover:text-blue-600">Site Directory</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="font-semibold mb-3 text-base">Connect</h2>
+
+        <nav aria-label="Platforms" class="platforms flex flex-wrap gap-3 mb-4">
+          <a href="/feed.xml" rel="alternate" type="application/rss+xml" class="hover:text-blue-600">
+            <span class="visually-hidden">RSS Feed</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><title>RSS</title><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
+          </a>
+          
+            
+              <a href="https://github.com/kylereddoch/" rel="me" title="Github" class="hover:text-blue-600">
+                <span class="visually-hidden">Github</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S8.93 17.38 9 18v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+              </a>
+            
+          
+            
+              <a href="https://infosec.exchange/@cyberseckyle" rel="me" title="Mastodon" class="hover:text-blue-600">
+                <span class="visually-hidden">Mastodon</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.887 5.996c-.308-2.314-2.298-4.14-4.655-4.492-.399-.059-1.906-.278-5.398-.278h-.026c-3.495 0-4.243.219-4.642.278-2.295.345-4.387 1.982-4.897 4.326-.242 1.153-.268 2.433-.222 3.606.065 1.684.078 3.361.228 5.039a24 24 0 0 0 .543 3.304c.484 2.009 2.439 3.68 4.355 4.359 2.049.71 4.256.829 6.368.342q.347-.085.69-.193c.513-.165 1.114-.351 1.559-.676q.009-.006.013-.016.006-.01.007-.024v-1.624s0-.013-.007-.02q-.002-.01-.013-.016l-.02-.01h-.019a17.4 17.4 0 0 1-4.132.49c-2.397 0-3.041-1.153-3.224-1.63a5.3 5.3 0 0 1-.281-1.287q0-.01.003-.019.002-.012.013-.017l.02-.01h.023c1.33.325 2.697.491 4.067.491.33 0 .657 0 .987-.01 1.376-.04 2.828-.11 4.184-.378.033-.007.069-.013.098-.02 2.138-.418 4.172-1.724 4.378-5.032.006-.129.026-1.365.026-1.498 0-.461.147-3.258-.023-4.979z"></path><path fill="currentColor" stroke-width="1" d="M6.061 7.288c0-.676.533-1.219 1.193-1.219.661 0 1.193.547 1.193 1.219 0 .673-.532 1.22-1.193 1.22-.66 0-1.193-.547-1.193-1.22Z"></path></svg>
+              </a>
+            
+          
+            
+              <a href="https://www.linkedin.com/in/kylereddoch/" rel="me" title="Linkedin" class="hover:text-blue-600">
+                <span class="visually-hidden">Linkedin</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6M2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>
+              </a>
+            
+          
+            
+              <a href="https://ko-fi.com/kylereddoch" rel="me" title="Kofi" class="hover:text-blue-600">
+                <span class="visually-hidden">Kofi</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M18 3h1c1.06 0 2.078.527 2.828 1.464C22.578 5.402 23 6.674 23 8s-.421 2.598-1.172 3.536C21.078 12.473 20.061 13 19 13h-1M1 3h17v12.461c0 1.47-.512 2.878-1.423 3.917-.91 1.038-2.146 1.622-3.434 1.622H5.857c-1.288 0-2.523-.584-3.434-1.622S1 16.93 1 15.46z"></path><path fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13.288 8.707a2.43 2.43 0 0 0-2.65-.52c-.3.12-.57.3-.8.53l-.34.34-.35-.34a2.43 2.43 0 0 0-3.44 0c-.95.939-1 2.527.2 3.736L9.497 16l3.6-3.547c1.2-1.208 1.14-2.797.19-3.736v-.01Z"></path></svg>
+              </a>
+            
+          
+        </nav>
+
+        <p class="text-gray-600 dark:text-gray-400 mb-2">
+          Made with <span aria-hidden="true">♥</span> and <a href="https://www.11ty.dev/" class="hover:text-blue-600">Eleventy</a>
+        </p>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          Analytics powered by <a href="https://tinylytics.app" class="hover:text-blue-600">Tinylytics</a>
+        </p>
+
+        <p class="mb-4 text-sm text-gray-600 dark:text-gray-300">
+        © 2026 <span class="font-semibold">CybersecKyle</span>
+        <span aria-hidden="true" class="mx-2">·</span>
+        <a href="/license/" class="hover:text-blue-600">CC BY-NC-SA 4.0</a>
+      </p>
+      </section>
+    </div>
+  </div>
+
+  <div class="border-t border-gray-200 dark:border-gray-700 bg-black/5 dark:bg-white/5">
+    <div class="container mx-auto max-w-4xl px-4 py-4">
+      <ul role="list" class="indie-buttons flex flex-wrap gap-2">
+        <li>
+          <a href="https://11ty.dev" class="no-indicator">
+            <img src="/assets/images/buttons/built-with-eleventy.gif" width="88" height="31" alt="Built with Eleventy" loading="lazy">
+          </a>
+        </li>
+        <li>
+          <a href="https://infosec.exchange/@cyberseckyle" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/Ii2PFSzIy8-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/Ii2PFSzIy8-88.jpeg" width="88" height="31" alt="Follow me on Mastodon"></picture>
+          </a>
+        </li>
+        <li>
+          <a href="/coffee/" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/v2EdBgZ88c-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/v2EdBgZ88c-88.jpeg" width="88" height="31" alt="Coffee Powered"></picture>
+          </a>
+        </li>
+        <li>
+          <a href="https://ko-fi.com/s/4662b19f61" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/weqd1DtQRi-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/weqd1DtQRi-88.jpeg" width="88" height="31" alt="Human Content"></picture>
+          </a>
+        </li>
+        <li>
+          <a href="https://powrss.com" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/bk57H3yi5F-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/bk57H3yi5F-88.jpeg" width="88" height="31" alt="I'm on PowRSS"></picture>
+          </a>
+        </li>
+        <li>
+          <a href="https://hillhouse.neocities.org/cliques/library/" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/c-H-zkovIx-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/c-H-zkovIx-88.jpeg" width="88" height="31" alt="Little Pixel Library"></picture>
+          </a>
+        </li>
+        <li>
+          <a href="https://32bit.cafe" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/kUiwyilU_X-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/kUiwyilU_X-88.jpeg" width="88" height="31" alt="32bit Cafe"></picture>
+          </a>
+        </li>
+        <li>
+          <a href="https://people.pledge.party" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/1bL7bfWdZ8-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/1bL7bfWdZ8-88.jpeg" width="88" height="31" alt="People Pledge"></picture>
+          </a>
+        </li>
+        <li>
+          <picture>
+            <source srcset="/assets/images/buttons/cyberseckyle-button.webp" type="image/webp">
+            <img eleventy:ignore src="/assets/images/buttons/cyberseckyle-button.gif" width="88" height="31" alt="CybersecKyle" loading="lazy">
+          </picture>
+        </li>
+        <li>
+          <a href="https://zakhary.dev/blog/gbc-web-button" class="no-indicator">
+            <picture>
+              <source srcset="/assets/images/buttons/gameboygif.webp" type="image/webp">
+              <img eleventy:ignore src="/assets/images/buttons/gameboygif.gif" width="88" height="31" alt="Gameboy" loading="lazy">
+            </picture>
+          </a>
+        </li>
+        <li>
+          <a href="https://ko-fi.com/kylereddoch" class="no-indicator">
+            <picture><source type="image/webp" srcset="/img/g0MA4zc58b-88.webp 88w" sizes="auto"><img loading="lazy" decoding="async" src="/img/g0MA4zc58b-88.jpeg" width="88" height="31" alt="Buy me a coffee"></picture>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="/assets/starter/main.js" defer></script>
+    <script src="/assets/starter/listening.js" defer></script>
+    <script src="/assets/starter/webmentions.js" defer></script>
+    <script src="/assets/starter/search.js" defer></script>
+    <script src="https://tinylytics.app/embed/aK6PBymtmDm6DxSXaP2H.js?webring&amp;kudos=%E2%9D%A4%EF%B8%8F" defer></script>
+    <script src="/assets/scripts/components/masto-share.js" defer></script>
+    <script src="/assets/scripts/components/mastodon-post.js" defer></script>
+    <script>
+      (window.requestIdleCallback || function(callback) {
+        return window.setTimeout(callback, 5000);
+      })(function() {
+        var script = document.createElement('script');
+        script.src = '/assets/starter/easter-eggs.js';
+        script.defer = true;
+        document.body.appendChild(script);
+      });
+    </script>
+  
+
+</body>
+</html>

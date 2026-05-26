@@ -12,7 +12,7 @@
     <link>https://www.kylereddoch.me/</link>
     <description>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</description>
     <language>en</language>
-    <lastBuildDate>Fri, 22 May 2026 13:00:00 CDT</lastBuildDate>
+    <lastBuildDate>Tue, 26 May 2026 11:30:00 CDT</lastBuildDate>
     <atom:link href="https://www.kylereddoch.me/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://www.kylereddoch.me/assets/images/logo.png</url>
@@ -43,6 +43,271 @@
       <xhtml:a href="https://www.kylereddoch.me/feed.json">JSON Feed</xhtml:a>
       <xhtml:a href="https://www.kylereddoch.me/blog/improving-my-rss-feed-and-making-it-more-human-readable/">How I improved this feed</xhtml:a>
     </xhtml:div><item>
+      <title>Finding the Real Drive Behind a Windows &#92;Device&#92;HarddiskX&#92;DRX Alert</title>
+      <link>https://www.kylereddoch.me/blog/find-actual-drive-behind-windows-harddisk-error/</link>
+      <guid isPermaLink="true">https://www.kylereddoch.me/blog/find-actual-drive-behind-windows-harddisk-error/</guid>
+      <pubDate>Tue, 26 May 2026 11:30:00 CDT</pubDate>
+      <xhtml:a class="browser-title" href="https://www.kylereddoch.me/blog/find-actual-drive-behind-windows-harddisk-error/">Finding the Real Drive Behind a Windows &#92;Device&#92;HarddiskX&#92;DRX Alert</xhtml:a>
+      <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/59-mBqTgcT-1536.jpeg" alt="A hard drive sitting on a desk in front of a blurred computer monitor showing a red warning icon and disk health dashboard." />
+      <dc:creator>Kyle Reddoch</dc:creator>
+      <description><![CDATA[A quick, easy way to map obscure Windows disk controller errors back to the real physical drive, volume, and drive letter.]]></description>
+      <xhtml:a class="browser-read-link" href="https://www.kylereddoch.me/blog/find-actual-drive-behind-windows-harddisk-error/">Read on kylereddoch.me</xhtml:a>
+      <content:encoded><![CDATA[
+<p><img src="https://www.kylereddoch.me/img/59-mBqTgcT-1536.jpeg" alt="A hard drive sitting on a desk in front of a blurred computer monitor showing a red warning icon and disk health dashboard." /></p><p>I recently had one of those RMM alerts that looks simple at first, but immediately turns into a small rabbit hole.</p>
+<p>The alert was for a potential disk failure, and the important part of the event log message looked like this:</p>
+<pre class="language-text"><code class="language-text">The driver detected a controller error on \Device\Harddisk3\DR3.</code></pre>
+<p>That sounds helpful until you actually try to answer the obvious question:</p>
+<p><strong>Which drive is Harddisk3?</strong></p>
+<p>Windows did not say “C: drive.” It did not say “Samsung SSD.” It did not say “external USB drive.” It gave me a device path that is useful to Windows, but not immediately useful to a technician trying to figure out whether a workstation has a failing disk, a bad USB device, a docking station issue, or something else entirely.</p>
+<p>This post is the quick way I use to map a Windows <code>\Device\HarddiskX\DRX</code> event back to the actual drive.</p>
+<h2 id="the-important-part-harddisk3-usually-means-disk-3">The important part: Harddisk3 usually means Disk 3</h2>
+<p>In this type of event:</p>
+<pre class="language-text"><code class="language-text">\Device\Harddisk3\DR3</code></pre>
+<p>The <code>Harddisk3</code> portion is usually the part you care about first. In most cases, that maps closely to <strong>Disk 3</strong> as Windows sees it.</p>
+<p>That does <strong>not</strong> mean the D: drive.</p>
+<p>That does <strong>not</strong> mean the third drive letter.</p>
+<p>That does <strong>not</strong> automatically mean the main internal SSD.</p>
+<p>It means Windows is referencing a physical disk object. Microsoft’s <a href="https://learn.microsoft.com/en-us/powershell/module/storage/get-disk" rel="noopener"><code>Get-Disk</code></a> cmdlet shows disks visible to the operating system, and the older WMI/CIM <a href="https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/win32-diskdrive" rel="noopener"><code>Win32_DiskDrive</code></a> class represents physical disk drives as Windows sees them.</p>
+<p>So the fast workflow is:</p>
+<ol>
+<li>Pull the disk number out of the event.</li>
+<li>Use PowerShell to find that disk.</li>
+<li>Map it to the model, serial number, bus type, partition, and drive letter.</li>
+<li>Decide whether it is a real disk problem, an external device issue, a controller/driver issue, or something you need to watch.</li>
+</ol>
+<h2 id="step-1-list-the-disks-windows-can-see">Step 1: List the disks Windows can see</h2>
+<p>Open PowerShell as administrator and run:</p>
+<pre class="language-powershell"><code class="language-powershell"><span class="token function">Get-Disk</span> <span class="token punctuation">|</span> <span class="token function">Sort-Object</span> Number <span class="token punctuation">|</span> <span class="token function">Format-Table</span> Number<span class="token punctuation">,</span> FriendlyName<span class="token punctuation">,</span> SerialNumber<span class="token punctuation">,</span> BusType<span class="token punctuation">,</span> HealthStatus<span class="token punctuation">,</span> OperationalStatus<span class="token punctuation">,</span> Size <span class="token operator">-</span>Auto</code></pre>
+<p>That gives you a quick inventory of the physical disks Windows currently sees.</p>
+<p>You are looking for the disk number from the alert. In my example, the alert said:</p>
+<pre class="language-text"><code class="language-text">\Device\Harddisk3\DR3</code></pre>
+<p>So I would look for:</p>
+<pre class="language-text"><code class="language-text">Disk 3</code></pre>
+<p>The output may show something obvious, like an internal NVMe SSD. It may also show something less obvious, like a USB storage device, card reader, docking station storage controller, or removable device.</p>
+<p>That is why I do not like closing these alerts just because the machine “seems fine.” The endpoint may be fine today, but the event is still telling you Windows had a problem talking to some storage device or controller.</p>
+<h2 id="step-2-pull-details-for-that-exact-disk">Step 2: Pull details for that exact disk</h2>
+<p>Change the number below to match your alert.</p>
+<pre class="language-powershell"><code class="language-powershell"><span class="token variable">$DiskNumber</span> = 3
+
+<span class="token function">Get-Disk</span> <span class="token operator">-</span>Number <span class="token variable">$DiskNumber</span> <span class="token punctuation">|</span> <span class="token function">Format-List</span> `
+    Number<span class="token punctuation">,</span>
+    FriendlyName<span class="token punctuation">,</span>
+    SerialNumber<span class="token punctuation">,</span>
+    BusType<span class="token punctuation">,</span>
+    PartitionStyle<span class="token punctuation">,</span>
+    HealthStatus<span class="token punctuation">,</span>
+    OperationalStatus<span class="token punctuation">,</span>
+    Size</code></pre>
+<p>This gives you the basic identity of the disk.</p>
+<p>The fields I care about most are:</p>
+<ul>
+<li><code>FriendlyName</code></li>
+<li><code>SerialNumber</code></li>
+<li><code>BusType</code></li>
+<li><code>HealthStatus</code></li>
+<li><code>OperationalStatus</code></li>
+<li><code>Size</code></li>
+</ul>
+<p>If the bus type says USB, that changes the conversation. It may be an external drive, dock, adapter, card reader, or some other removable storage device.</p>
+<p>If the bus type says NVMe, SATA, RAID, or SAS, I am going to take the alert a lot more seriously, especially if it belongs to the boot drive or a production workload.</p>
+<h2 id="step-3-map-the-disk-to-partitions-and-drive-letters">Step 3: Map the disk to partitions and drive letters</h2>
+<p>Finding the disk is good, but usually I want to know what drive letter or volume is sitting on it.</p>
+<p>Run this:</p>
+<pre class="language-powershell"><code class="language-powershell"><span class="token variable">$DiskNumber</span> = 3
+
+<span class="token function">Get-Partition</span> <span class="token operator">-</span>DiskNumber <span class="token variable">$DiskNumber</span> <span class="token punctuation">|</span> <span class="token function">ForEach-Object</span> <span class="token punctuation">{</span>
+    <span class="token variable">$Partition</span> = <span class="token variable">$_</span>
+    <span class="token variable">$Volume</span> = <span class="token variable">$Partition</span> <span class="token punctuation">|</span> <span class="token function">Get-Volume</span> <span class="token operator">-</span>ErrorAction SilentlyContinue
+
+    <span class="token namespace">[PSCustomObject]</span>@<span class="token punctuation">{</span>
+        DiskNumber      = <span class="token variable">$DiskNumber</span>
+        PartitionNumber = <span class="token variable">$Partition</span><span class="token punctuation">.</span>PartitionNumber
+        DriveLetter     = <span class="token variable">$Partition</span><span class="token punctuation">.</span>DriveLetter
+        VolumeLabel     = <span class="token variable">$Volume</span><span class="token punctuation">.</span>FileSystemLabel
+        FileSystem      = <span class="token variable">$Volume</span><span class="token punctuation">.</span>FileSystem
+        PartitionType   = <span class="token variable">$Partition</span><span class="token punctuation">.</span><span class="token function">Type</span>
+        SizeGB          = <span class="token namespace">[math]</span>::Round<span class="token punctuation">(</span><span class="token variable">$Partition</span><span class="token punctuation">.</span>Size <span class="token operator">/</span> 1GB<span class="token punctuation">,</span> 2<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token punctuation">|</span> <span class="token function">Format-Table</span> <span class="token operator">-</span>Auto</code></pre>
+<p>This helps answer the question everyone actually cares about:</p>
+<p><strong>What does this disk belong to?</strong></p>
+<p>You may find that Disk 3 maps to a normal drive letter, such as <code>D:</code> or <code>E:</code>. You may also find that it has no drive letter at all. That can happen with recovery partitions, hidden system partitions, offline disks, removable devices, or storage devices Windows can see but has not mounted as a normal volume.</p>
+<h2 id="step-4-use-cim/wmi-if-you-want-the-older-windows-view">Step 4: Use CIM/WMI if you want the older Windows view</h2>
+<p>Sometimes I like checking the CIM/WMI view too, especially when I am comparing the PowerShell output to an RMM inventory, hardware inventory, or event log entry.</p>
+<pre class="language-powershell"><code class="language-powershell"><span class="token variable">$DiskNumber</span> = 3
+
+<span class="token variable">$Drive</span> = <span class="token function">Get-CimInstance</span> Win32_DiskDrive <span class="token punctuation">|</span> <span class="token function">Where-Object</span> <span class="token punctuation">{</span>
+    <span class="token variable">$_</span><span class="token punctuation">.</span>Index <span class="token operator">-eq</span> <span class="token variable">$DiskNumber</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$Drive</span> <span class="token punctuation">|</span> <span class="token function">Select-Object</span> `
+    Index<span class="token punctuation">,</span>
+    DeviceID<span class="token punctuation">,</span>
+    Model<span class="token punctuation">,</span>
+    SerialNumber<span class="token punctuation">,</span>
+    InterfaceType<span class="token punctuation">,</span>
+    MediaType<span class="token punctuation">,</span>
+    @<span class="token punctuation">{</span>Name=<span class="token string">'SizeGB'</span><span class="token punctuation">;</span>Expression=<span class="token punctuation">{</span><span class="token namespace">[math]</span>::Round<span class="token punctuation">(</span><span class="token variable">$_</span><span class="token punctuation">.</span>Size <span class="token operator">/</span> 1GB<span class="token punctuation">,</span> 2<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token punctuation">|</span>
+    <span class="token function">Format-List</span></code></pre>
+<p>This should show something like:</p>
+<pre class="language-text"><code class="language-text">Index      : 3
+DeviceID   : \\.\PHYSICALDRIVE3
+Model      : Example SSD Model
+SerialNumber : 123456789
+InterfaceType : USB
+MediaType  : Fixed hard disk media
+SizeGB     : 931.51</code></pre>
+<p>That <code>\\.\PHYSICALDRIVE3</code> value is another strong clue that you are looking at the same physical disk Windows referenced as <code>Harddisk3</code>.</p>
+<h2 id="step-5-map-the-cim-disk-to-logical-drive-letters">Step 5: Map the CIM disk to logical drive letters</h2>
+<p>If you want to go one layer deeper, this will show the partitions and logical disks associated with that physical disk.</p>
+<pre class="language-powershell"><code class="language-powershell"><span class="token variable">$DiskNumber</span> = 3
+
+<span class="token variable">$Drive</span> = <span class="token function">Get-CimInstance</span> Win32_DiskDrive <span class="token punctuation">|</span> <span class="token function">Where-Object</span> <span class="token punctuation">{</span>
+    <span class="token variable">$_</span><span class="token punctuation">.</span>Index <span class="token operator">-eq</span> <span class="token variable">$DiskNumber</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$Partitions</span> = <span class="token function">Get-CimAssociatedInstance</span> `
+    <span class="token operator">-</span>InputObject <span class="token variable">$Drive</span> `
+    <span class="token operator">-</span>Association Win32_DiskDriveToDiskPartition
+
+<span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$Partition</span> in <span class="token variable">$Partitions</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">Get-CimAssociatedInstance</span> `
+        <span class="token operator">-</span>InputObject <span class="token variable">$Partition</span> `
+        <span class="token operator">-</span>Association Win32_LogicalDiskToPartition <span class="token punctuation">|</span>
+        <span class="token function">Select-Object</span> `
+            @<span class="token punctuation">{</span>Name=<span class="token string">'DiskIndex'</span><span class="token punctuation">;</span>Expression=<span class="token punctuation">{</span><span class="token variable">$Drive</span><span class="token punctuation">.</span>Index<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            DeviceID<span class="token punctuation">,</span>
+            VolumeName<span class="token punctuation">,</span>
+            FileSystem<span class="token punctuation">,</span>
+            @<span class="token punctuation">{</span>Name=<span class="token string">'SizeGB'</span><span class="token punctuation">;</span>Expression=<span class="token punctuation">{</span><span class="token namespace">[math]</span>::Round<span class="token punctuation">(</span><span class="token variable">$_</span><span class="token punctuation">.</span>Size <span class="token operator">/</span> 1GB<span class="token punctuation">,</span> 2<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            @<span class="token punctuation">{</span>Name=<span class="token string">'FreeGB'</span><span class="token punctuation">;</span>Expression=<span class="token punctuation">{</span><span class="token namespace">[math]</span>::Round<span class="token punctuation">(</span><span class="token variable">$_</span><span class="token punctuation">.</span>FreeSpace <span class="token operator">/</span> 1GB<span class="token punctuation">,</span> 2<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>Microsoft documents <a href="https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/win32-diskdrivetodiskpartition" rel="noopener"><code>Win32_DiskDriveToDiskPartition</code></a> as the association between a disk drive and the partitions on it, which makes it useful when you need to walk from physical disk to partition to logical disk.</p>
+<h2 id="the-quick-rmm-friendly-version">The quick RMM-friendly version</h2>
+<p>If I needed a quick command to run from an RMM tool, I would keep it simple:</p>
+<pre class="language-powershell"><code class="language-powershell"><span class="token variable">$DiskNumber</span> = 3
+
+<span class="token function">Write-Host</span> <span class="token string">"=== Disk Details ==="</span>
+<span class="token function">Get-Disk</span> <span class="token operator">-</span>Number <span class="token variable">$DiskNumber</span> <span class="token punctuation">|</span>
+    <span class="token function">Select-Object</span> Number<span class="token punctuation">,</span> FriendlyName<span class="token punctuation">,</span> SerialNumber<span class="token punctuation">,</span> BusType<span class="token punctuation">,</span> HealthStatus<span class="token punctuation">,</span> OperationalStatus<span class="token punctuation">,</span> Size <span class="token punctuation">|</span>
+    <span class="token function">Format-List</span>
+
+<span class="token function">Write-Host</span> <span class="token string">"=== Partitions / Volumes ==="</span>
+<span class="token function">Get-Partition</span> <span class="token operator">-</span>DiskNumber <span class="token variable">$DiskNumber</span> <span class="token punctuation">|</span> <span class="token function">ForEach-Object</span> <span class="token punctuation">{</span>
+    <span class="token variable">$Partition</span> = <span class="token variable">$_</span>
+    <span class="token variable">$Volume</span> = <span class="token variable">$Partition</span> <span class="token punctuation">|</span> <span class="token function">Get-Volume</span> <span class="token operator">-</span>ErrorAction SilentlyContinue
+
+    <span class="token namespace">[PSCustomObject]</span>@<span class="token punctuation">{</span>
+        DiskNumber      = <span class="token variable">$DiskNumber</span>
+        PartitionNumber = <span class="token variable">$Partition</span><span class="token punctuation">.</span>PartitionNumber
+        DriveLetter     = <span class="token variable">$Partition</span><span class="token punctuation">.</span>DriveLetter
+        VolumeLabel     = <span class="token variable">$Volume</span><span class="token punctuation">.</span>FileSystemLabel
+        FileSystem      = <span class="token variable">$Volume</span><span class="token punctuation">.</span>FileSystem
+        PartitionType   = <span class="token variable">$Partition</span><span class="token punctuation">.</span><span class="token function">Type</span>
+        SizeGB          = <span class="token namespace">[math]</span>::Round<span class="token punctuation">(</span><span class="token variable">$Partition</span><span class="token punctuation">.</span>Size <span class="token operator">/</span> 1GB<span class="token punctuation">,</span> 2<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token punctuation">|</span> <span class="token function">Format-Table</span> <span class="token operator">-</span>Auto</code></pre>
+<p>Change <code>$DiskNumber = 3</code> to whatever number appears in your event.</p>
+<p>For example:</p>
+<pre class="language-text"><code class="language-text">\Device\Harddisk5\DR5</code></pre>
+<p>would become:</p>
+<pre class="language-powershell"><code class="language-powershell"><span class="token variable">$DiskNumber</span> = 5</code></pre>
+<h2 id="pull-the-matching-disk-events-from-the-local-event-log">Pull the matching disk events from the local event log</h2>
+<p>You can also pull recent disk events directly from PowerShell:</p>
+<pre class="language-powershell"><code class="language-powershell"><span class="token function">Get-WinEvent</span> <span class="token operator">-</span>FilterHashtable @<span class="token punctuation">{</span>
+    LogName      = <span class="token string">'System'</span>
+    ProviderName = <span class="token string">'disk'</span>
+    Id           = 11
+<span class="token punctuation">}</span> <span class="token operator">-</span>MaxEvents 20 <span class="token punctuation">|</span>
+<span class="token function">Select-Object</span> TimeCreated<span class="token punctuation">,</span> Id<span class="token punctuation">,</span> ProviderName<span class="token punctuation">,</span> Message <span class="token punctuation">|</span>
+<span class="token function">Format-List</span></code></pre>
+<p>This helps confirm whether the event was a one-time issue or something repeating over time.</p>
+<p>One disk controller error may not always mean a drive is dying. Repeated disk controller errors are a different story.</p>
+<p>Microsoft’s <a href="https://learn.microsoft.com/en-us/troubleshoot/windows-server/backup-and-storage/troubleshoot-disk-and-file-system-issues" rel="noopener">Windows troubleshooting guidance for disk and file system issues</a> warns that storage problems can lead to inaccessible drives, corruption, application problems, downtime, and data loss if they are not addressed. That does not mean every event is catastrophic, but it does mean these alerts deserve more than a lazy “it looks fine” response.</p>
+<h2 id="watch-out-for-harddiskvolume-vs-harddisk">Watch out for HarddiskVolume vs Harddisk</h2>
+<p>This is where Windows naming can get annoying.</p>
+<p>There is a difference between:</p>
+<pre class="language-text"><code class="language-text">\Device\Harddisk3\DR3</code></pre>
+<p>and something like:</p>
+<pre class="language-text"><code class="language-text">\Device\HarddiskVolume3</code></pre>
+<p><code>Harddisk3</code> is usually pointing you toward a physical disk number.</p>
+<p><code>HarddiskVolume3</code> is pointing you toward a volume object.</p>
+<p>Those are not the same thing.</p>
+<p>A good article from <a href="https://www.windowsdigitals.com/device-hard-disk-volume-3-4-5-windows/" rel="noopener">WindowsDigitals</a> shows a method for mapping <code>\Device\HarddiskVolume3</code>, <code>\Device\HarddiskVolume4</code>, and similar volume paths back to drive letters. That is useful when your alert references a volume path. In this case, though, the RMM alert was referencing a disk/controller path, so I wanted the physical disk first.</p>
+<h2 id="what-i-do-after-identifying-the-drive">What I do after identifying the drive</h2>
+<p>Once I know which disk Windows is complaining about, I usually move through this checklist.</p>
+<h3 id="1-confirm-backups-first">1. Confirm backups first</h3>
+<p>Before doing anything aggressive, confirm whether the endpoint or server is protected.</p>
+<p>If this is a workstation, check whether important user folders are redirected, synced, or backed up. If this is a server, check the backup chain before you start poking at storage.</p>
+<p>A disk alert is not the time to discover that backups have been assumed instead of verified.</p>
+<h3 id="2-check-whether-it-is-internal-or-removable">2. Check whether it is internal or removable</h3>
+<p>The <code>BusType</code> field matters.</p>
+<p>If it is USB, I look for:</p>
+<ul>
+<li>External drives</li>
+<li>USB hubs</li>
+<li>Docking stations</li>
+<li>Card readers</li>
+<li>Old backup drives</li>
+<li>Random devices plugged into the workstation</li>
+</ul>
+<p>If it is NVMe, SATA, RAID, SAS, or anything tied to internal storage, I treat it with more urgency.</p>
+<h3 id="3-look-for-repeated-events">3. Look for repeated events</h3>
+<p>A single event can happen because of a brief disconnect, sleep/wake issue, flaky USB connection, driver hiccup, or docking station weirdness.</p>
+<p>Repeated events are a stronger signal.</p>
+<p>Especially repeated events with symptoms like:</p>
+<ul>
+<li>Freezing</li>
+<li>Slow logins</li>
+<li>File copy failures</li>
+<li>Application crashes</li>
+<li>Backup failures</li>
+<li>Disk warnings in the RMM</li>
+<li>SMART or health status warnings</li>
+</ul>
+<h3 id="4-check-the-physical-drive-health">4. Check the physical drive health</h3>
+<p>PowerShell is good for mapping the disk, but I still like checking drive health with the vendor tool when possible.</p>
+<p>For example:</p>
+<ul>
+<li>Dell, HP, or Lenovo hardware diagnostics</li>
+<li>SSD vendor utilities</li>
+<li>RAID controller tools</li>
+<li>SMART data tools</li>
+<li>RMM hardware health inventory</li>
+</ul>
+<p>PowerShell tells me what Windows sees. Vendor diagnostics often tell me what the hardware is actually reporting.</p>
+<h3 id="5-replace-the-drive-if-the-evidence-points-that-way">5. Replace the drive if the evidence points that way</h3>
+<p>This is where I have a strong opinion.</p>
+<p>If the disk is important, the error repeats, and health data starts looking suspicious, do not spend days trying to spiritually negotiate with a failing drive.</p>
+<p>Back it up, replace it, and move on.</p>
+<p>Storage is cheap compared to downtime, data loss, and a user who suddenly cannot work.</p>
+<h2 id="why-this-matters-in-an-msp-environment">Why this matters in an MSP environment</h2>
+<p>In an MSP environment, these alerts are easy to overlook because they are not always loud.</p>
+<p>The machine may still be online. The user may not have reported anything. The RMM alert may only fire once. The event path may look obscure enough that it gets pushed aside.</p>
+<p>That is exactly why I like having a fast workflow.</p>
+<p>When an alert says:</p>
+<pre class="language-text"><code class="language-text">The driver detected a controller error on \Device\Harddisk3\DR3.</code></pre>
+<p>I want to quickly answer:</p>
+<ul>
+<li>What physical disk is Disk 3?</li>
+<li>Is it internal or external?</li>
+<li>Does it have a drive letter?</li>
+<li>Is it tied to user data?</li>
+<li>Is the event repeating?</li>
+<li>Is the disk health clean?</li>
+<li>Do I need to replace something?</li>
+</ul>
+<p>That turns a vague Windows event into a real troubleshooting path.</p>
+<h2 id="final-thought">Final thought</h2>
+<p>The biggest lesson here is that Windows disk events are often written for Windows, not for humans.</p>
+<p><code>\Device\Harddisk3\DR3</code> is not friendly. It does not tell you the drive letter, model, serial number, or whether the disk is an internal SSD or some random USB device.</p>
+<p>But with a few PowerShell commands, you can usually map the event back to the real disk quickly.</p>
+<p>That is the difference between staring at an obscure alert and actually knowing what piece of hardware needs attention.</p>
+<img src="https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Ffind-actual-drive-behind-windows-harddisk-error%2F" alt="" style="width:1px;height:1px;border:0;" />]]></content:encoded>
+      <enclosure url="https://www.kylereddoch.me/img/59-mBqTgcT-1536.jpeg" type="image/jpeg" length="0" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/59-mBqTgcT-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/59-mBqTgcT-1536.jpeg" medium="image" />
+    </item><item>
       <title>Security Signal Weekly: May 16-22, 2026</title>
       <link>https://www.kylereddoch.me/blog/security-signal-weekly-may-16-22-2026/</link>
       <guid isPermaLink="true">https://www.kylereddoch.me/blog/security-signal-weekly-may-16-22-2026/</guid>
@@ -1138,38 +1403,6 @@ MASTODON_ACCESS_TOKEN=...</code></pre>
       <enclosure url="https://www.kylereddoch.me/assets/og-images/i-got-way-too-much-sun-saturday-preview.jpeg" type="image/jpeg" length="0" />
       <media:thumbnail url="https://www.kylereddoch.me/assets/og-images/i-got-way-too-much-sun-saturday-preview.jpeg" />
       <media:content url="https://www.kylereddoch.me/assets/og-images/i-got-way-too-much-sun-saturday-preview.jpeg" medium="image" />
-    </item><item>
-      <title>I Think Apple Finally Made a School Laptop That Makes Sense</title>
-      <link>https://www.kylereddoch.me/blog/i-think-apple-finally-made-a-school-laptop-that-makes-sense/</link>
-      <guid isPermaLink="true">https://www.kylereddoch.me/blog/i-think-apple-finally-made-a-school-laptop-that-makes-sense/</guid>
-      <pubDate>Fri, 01 May 2026 20:20:00 CDT</pubDate>
-      <xhtml:a class="browser-title" href="https://www.kylereddoch.me/blog/i-think-apple-finally-made-a-school-laptop-that-makes-sense/">I Think Apple Finally Made a School Laptop That Makes Sense</xhtml:a>
-      <xhtml:img class="browser-image" src="https://www.kylereddoch.me/assets/og-images/i-think-apple-finally-made-a-school-laptop-that-makes-sense-preview.jpeg" alt="I Think Apple Finally Made a School Laptop That Makes Sense" />
-      <dc:creator>Kyle Reddoch</dc:creator>
-      <description><![CDATA[The MacBook Neo is not the most powerful Mac, and that is exactly why it feels so right for students and teens. The price, battery life, portability, and everyday practicality make it one of Apple’s smartest laptop moves in years.]]></description>
-      <xhtml:a class="browser-read-link" href="https://www.kylereddoch.me/blog/i-think-apple-finally-made-a-school-laptop-that-makes-sense/">Read on kylereddoch.me</xhtml:a>
-      <content:encoded><![CDATA[
-<p><img src="https://www.kylereddoch.me/assets/og-images/i-think-apple-finally-made-a-school-laptop-that-makes-sense-preview.jpeg" alt="I Think Apple Finally Made a School Laptop That Makes Sense" /></p><p>I keep coming back to the same thought with the<a href="https://www.apple.com/macbook-neo/" rel="noopener">MacBook Neo</a>: this might be the first Apple laptop in a long time that actually makes sense for normal school life.</p>
-<p>Not fantasy school life. Not “my parents bought me a fully loaded MacBook Pro” school life. Real school life. Homework. Google Docs. Research tabs everywhere. Canva. YouTube. FaceTime. Writing papers at the last minute. Carrying it from class to class. Hoping the battery survives the day. That is where this thing feels surprisingly well aimed. Apple says the MacBook Neo starts at <a href="https://www.apple.com/us-edu/shop/buy-mac/macbook-neo" rel="noopener">$599, or $499 for education</a>, and for once the conversation starts with a number that does not immediately knock most students and families out.</p>
-<p>That price is the whole reason I think this product matters.</p>
-<p>Apple can talk about colors, Apple Intelligence, and all the usual launch buzz, but the real headline is that this is now <a href="https://www.apple.com/newsroom/2026/03/say-hello-to-macbook-neo/" rel="noopener">Apple’s most affordable laptop ever</a>. That changes the tone immediately. A MacBook has usually felt like the “nice, but expensive” option. The MacBook Neo feels like Apple finally noticed that a lot of students do not need the best laptop. They need a laptop that is good, reliable, light, and not financially ridiculous. I think there is a huge difference between those two things, and Apple finally landed on the right side of it here.</p>
-<p>What I like most is that Apple did not get to that lower price by making it feel like a throwaway machine. According to Apple, the MacBook Neo still has a <a href="https://support.apple.com/en-us/126322" rel="noopener">13-inch Liquid Retina display</a>, a durable aluminum body, a <a href="https://support.apple.com/en-us/126322" rel="noopener">1080p FaceTime HD camera</a>, dual mics, and up to <a href="https://support.apple.com/en-us/126322" rel="noopener">16 hours of video streaming battery life</a>. It also weighs <a href="https://support.apple.com/en-us/126322" rel="noopener">2.7 pounds</a>, which matters more than people admit when the laptop is going in and out of a backpack all week. That is the kind of stuff schools and teens will actually feel every day. Not benchmark charts. Not spec sheet bragging. Just whether the laptop feels solid, travels well, and gets through the day without becoming annoying.</p>
-<p>I also think teens are exactly the right audience for a machine like this.</p>
-<p>A lot of teenagers do not need a laptop that is built for massive video exports, serious 3D work, or professional-grade dev workflows. They need something that can handle school platforms, writing, web apps, media, messaging, light editing, and the messy mix of everything else that ends up happening on a personal laptop. The MacBook Neo looks built for that lane. Apple says it is powered by the <a href="https://support.apple.com/en-us/126322" rel="noopener">A18 Pro chip</a>, and the company specifically positions it around everyday tasks like web browsing, streaming, photo editing, and creative hobbies. That sounds about right to me. For a teen’s first “real” laptop, that is a strong fit.</p>
-<p>Another thing I think schools could appreciate is that it is still a Mac, which means students are getting the full desktop experience instead of something that feels halfway between a tablet and a laptop. The Neo ships with <a href="https://support.apple.com/en-us/126322" rel="noopener">macOS and built-in apps like Pages, Numbers, Keynote, Notes, Safari, Passwords, and Time Machine</a>. That matters. It means a student can write papers, build presentations, manage files, back up work, and use a real desktop browser without immediately running into weird limitations. For a lot of people, that is the difference between a device that feels fine for a semester and one that still feels useful a couple years later.</p>
-<p>That said, I do not think the MacBook Neo is perfect, and honestly, that is part of why I like it.</p>
-<p>The compromises are very obvious, which makes the product easier to understand. The base model comes with <a href="https://support.apple.com/en-us/126322" rel="noopener">8GB of unified memory and 256GB of SSD storage</a>. It has <a href="https://support.apple.com/en-us/126322" rel="noopener">one USB 3 port, one USB 2 port, and a headphone jack</a>, and it supports <a href="https://support.apple.com/en-us/126322" rel="noopener">one external display up to 4K at 60Hz</a>. In other words, this is not the MacBook for the kid who wants to do heavy video production, advanced local AI tinkering, or keep fifty giant apps open forever. It is not trying to be that laptop. And I actually respect that. Apple seems to know exactly where this machine belongs.</p>
-<p>If anything, that is why I think it works so well for schools.</p>
-<p>A school laptop does not need to be overpowered. It needs to be dependable. It needs to boot up fast, last through the day, survive being carried around, and not make basic schoolwork feel miserable. The MacBook Neo seems built around those priorities first. The aluminum body helps. The lighter weight helps. The battery helps. The 1080p camera helps in a world where remote check-ins, online tutoring, and video calls are still part of school life. Even the lower entry price helps frame it differently. This feels less like a status-symbol MacBook and more like a practical one.</p>
-<p>I also think parents might look at this and see something a little more balanced than the usual choices. Cheap laptops can be frustrating in ways that never show up on the box. Expensive laptops can be overkill for what a teenager actually does. The MacBook Neo looks like it lands in the middle. Not bargain-bin cheap, but not absurd either. Not top-tier, but not disposable. That is probably the sweet spot a lot of families have been waiting for, especially if they already live in the Apple ecosystem and want something that will play nicely with an iPhone. Apple is clearly leaning into that wider accessibility angle with this launch, and for once I think the pitch lines up with the real use case.</p>
-<p>So no, I do not think the MacBook Neo is the best MacBook for everyone.</p>
-<p>I do think it might be one of the smartest MacBooks Apple has made in years.</p>
-<p>Because it feels honest.</p>
-<p>It knows what it is. It knows who it is for. And for students, schools, and teens who just need a laptop that is capable, portable, familiar, and finally priced like Apple remembers the real world exists, this might be the one that makes the most sense.</p>
-<img src="https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fi-think-apple-finally-made-a-school-laptop-that-makes-sense%2F" alt="" style="width:1px;height:1px;border:0;" />]]></content:encoded>
-      <enclosure url="https://www.kylereddoch.me/assets/og-images/i-think-apple-finally-made-a-school-laptop-that-makes-sense-preview.jpeg" type="image/jpeg" length="0" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/og-images/i-think-apple-finally-made-a-school-laptop-that-makes-sense-preview.jpeg" />
-      <media:content url="https://www.kylereddoch.me/assets/og-images/i-think-apple-finally-made-a-school-laptop-that-makes-sense-preview.jpeg" medium="image" />
     </item>
   </channel>
 </rss>
