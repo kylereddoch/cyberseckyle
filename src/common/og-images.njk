@@ -9,7 +9,7 @@ pagination:
   data: collections.allPosts
   size: 1
   alias: post
-permalink: "/assets/og-images/{{ post.data.title | slugify }}-preview.svg"
+permalink: "/assets/og-images/{{ post.data.slug or post.data.title | slugify }}-preview.svg"
 eleventyExcludeFromCollections: true
 
 ---

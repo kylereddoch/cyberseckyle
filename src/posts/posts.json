@@ -2,5 +2,5 @@
   "layout": "post",
   "tags": "posts",
   "contentType": "post",
-  "permalink": "/blog/{{ title | slugify }}/index.html"
+  "permalink": "/blog/{{ slug or title | slugify }}/index.html"
 }
