@@ -63,6 +63,7 @@
 <meta property="og:locale" content="en_EN">
 <meta property="article:author" content="Kyle Reddoch">
 
+
 <!-- Twitter specific head data was removed in v2 -->
 
 <!-- RSS Autodiscovery. Loops over meta.blog.feedLinks -->
@@ -70,6 +71,118 @@
   <link rel="alternate" type="application/rss+xml" title="RSS Feed: CybersecKyle" href="/feed.xml">
 
   <link rel="alternate" type="application/json" title="JSON Feed: CybersecKyle" href="/feed.json">
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    
+  
+  
+  
+  
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.kylereddoch.me/#person",
+      "name": "Kyle Reddoch",
+      "url": "https://www.kylereddoch.me",
+      "image": "https://www.kylereddoch.me/assets/images/logo.png",
+      "email": "kyle@kylereddoch.me",
+      "sameAs": [
+        "https://github.com/kylereddoch/",
+        "https://infosec.exchange/@cyberseckyle",
+        "https://www.linkedin.com/in/kylereddoch/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.kylereddoch.me/#website",
+      "url": "https://www.kylereddoch.me/",
+      "name": "CybersecKyle",
+      "description": "CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.",
+      "publisher": {
+        "@id": "https://www.kylereddoch.me/#person"
+      },
+      "author": {
+        "@id": "https://www.kylereddoch.me/#person"
+      },
+      "inLanguage": "en",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.kylereddoch.me/search/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.kylereddoch.me/tags/pseudocode/#webpage",
+      "url": "https://www.kylereddoch.me/tags/pseudocode/",
+      "name": "Tagged: pseudocode",
+      "description": "CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.",
+      "isPartOf": {
+        "@id": "https://www.kylereddoch.me/#website"
+      },
+      "about": {
+        "@id": "https://www.kylereddoch.me/#person"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.kylereddoch.me/tags/pseudocode/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.kylereddoch.me/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tagged: pseudocode",
+          "item": "https://www.kylereddoch.me/tags/pseudocode/"
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 
 <!-- Favicon: https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs -->
@@ -168,7 +281,7 @@
         <ul class="flex flex-col md:flex-row text-base md:text-sm space-y-3 md:space-y-0 md:space-x-6">
           <li><a href="/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">🏠 Home</a></li>
           <li><a href="/blog/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">✍️ Blog</a></li>
-          <li><a href="/tags/cybersecurity/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">🛡️ Cybersecurity</a></li>
+          <li><a href="/topics/cybersecurity/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">🛡️ Cybersecurity</a></li>
           <li><a href="/notes/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">📝 Notes</a></li>
           <li><a href="/about/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">👋 About</a></li>
           <li><a href="/contact/" class="nav-item block py-2 text-purple-600 dark:text-purple-400">💬 Contact</a></li>
@@ -2877,17 +2990,13 @@
       <section>
         <h2 class="font-semibold mb-3 text-base">Explore</h2>
         <ul class="space-y-2 text-gray-600 dark:text-gray-400">
-          
-            <li><a href="/slashes/" class="hover:text-blue-600">Slashes</a></li>
-          
-            <li><a href="/guestbook/" class="hover:text-blue-600">Guestbook</a></li>
-          
-            <li><a href="/tags/" class="hover:text-blue-600">Tags</a></li>
-          
+          <li><a href="/topics/" class="hover:text-blue-600">Topics</a></li>
+          <li><a href="/projects/" class="hover:text-blue-600">Projects</a></li>
+          <li><a href="/slashes/" class="hover:text-blue-600">Slashes</a></li>
           <li><a href="/blog/" class="hover:text-blue-600">Blog</a></li>
           <li><a href="/notes/" class="hover:text-blue-600">Notes</a></li>
-          <li><a href="/listening/" class="hover:text-blue-600">Listening</a></li>
-          <li><a href="/bookshelf/" class="hover:text-blue-600">Bookshelf</a></li>
+          <li><a href="/donate/" class="hover:text-blue-600">Support</a></li>
+          <li><a href="/tags/" class="hover:text-blue-600">Tags</a></li>
           <li><a href="/sitemap/" class="hover:text-blue-600">Site Directory</a></li>
         </ul>
       </section>
