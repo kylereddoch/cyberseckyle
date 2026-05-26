@@ -1,5 +1,6 @@
 ---
 date: 2026-05-22T10:19:43-05:00
+lastUpdated: 2026-05-26T10:30:00-05:00
 title: Improving My RSS Feed and Making It More Human Readable
 description: I cleaned up my site's web feed so feed readers get better post content and images, while humans who open the feed in a browser get something that feels like part of the site.
 tags: [personal, indie-web, eleventy, rss]
