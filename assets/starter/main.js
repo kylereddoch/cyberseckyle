@@ -118,21 +118,23 @@
   };
 
   const bar = document.getElementById('progress-bar');
-  let scrollTimeout;
+  let progressFrame;
 
-  const onScroll = () => {
+  const updateProgress = () => {
     if (!bar) return;
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      bar.style.width = progress + '%';
-    }, 10);
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? window.scrollY / docHeight : 0;
+    bar.style.transform = `scaleX(${Math.min(1, Math.max(0, progress))})`;
+    progressFrame = null;
   };
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  const scheduleProgressUpdate = () => {
+    if (!bar || progressFrame) return;
+    progressFrame = requestAnimationFrame(updateProgress);
+  };
+
+  window.addEventListener('scroll', scheduleProgressUpdate, { passive: true });
+  window.addEventListener('resize', scheduleProgressUpdate, { passive: true });
 
   const darkToggle = document.getElementById('dark-toggle');
 
