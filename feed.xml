@@ -12,7 +12,7 @@
     <link>https://www.kylereddoch.me/</link>
     <description>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</description>
     <language>en</language>
-    <lastBuildDate>Tue, 26 May 2026 11:30:00 CDT</lastBuildDate>
+    <lastBuildDate>Wed, 27 May 2026 14:30:00 CDT</lastBuildDate>
     <atom:link href="https://www.kylereddoch.me/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://www.kylereddoch.me/assets/images/logo.png</url>
@@ -43,6 +43,21 @@
       <xhtml:a href="https://www.kylereddoch.me/feed.json">JSON Feed</xhtml:a>
       <xhtml:a href="https://www.kylereddoch.me/blog/improving-my-rss-feed-and-making-it-more-human-readable/">How I improved this feed</xhtml:a>
     </xhtml:div><item>
+      <title>Tennis Tryouts, Security Signals, and a Canadian Grand Prix (Week 21, 2026)</title>
+      <link>https://www.kylereddoch.me/notes/2026/week-21-2026/</link>
+      <guid isPermaLink="true">https://www.kylereddoch.me/notes/2026/week-21-2026/</guid>
+      <pubDate>Wed, 27 May 2026 14:30:00 CDT</pubDate>
+      <xhtml:a class="browser-title" href="https://www.kylereddoch.me/notes/2026/week-21-2026/">Tennis Tryouts, Security Signals, and a Canadian Grand Prix (Week 21, 2026)</xhtml:a>
+      <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" alt="Tennis Tryouts, Security Signals, and a Canadian Grand Prix (Week 21, 2026)" />
+      <dc:creator>Kyle Reddoch</dc:creator>
+      <description><![CDATA[Tennis tryouts, school awards, focused MSP work, F1 in Canada, RSS improvements, and the relaunch of Security Signal Weekly made Week 21 a full but good one.]]></description>
+      <xhtml:a class="browser-read-link" href="https://www.kylereddoch.me/notes/2026/week-21-2026/">Read on kylereddoch.me</xhtml:a>
+      <content:encoded><![CDATA[
+<p><img src="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" alt="Tennis Tryouts, Security Signals, and a Canadian Grand Prix (Week 21, 2026)" /></p><h2 id="the-vibe">The vibe</h2><p>This week had a little bit of everything: proud dad moments, focused work, website tinkering, Formula 1, and the return of my weekly cybersecurity roundup. It felt busy, but in the good kind of way where several things actually moved forward.</p><h2 id="highlights">Highlights</h2><ul><li>🎾 My youngest had her tennis tryouts for next year. It was two days after school. I attended both days to support her. They did a lot of drills, etc. She ended up making the team again. In fact, everyone who tried out made the team this year.</li><li>🏅 The youngest also had her awards ceremony for the school year. It is the end of the school year, so there were plenty of recognitions. She got an award for A/B honor roll and was also recognized for both orchestra and choir. One proud dad here!</li><li>💼 Work this week was focused! I got quite a bit done on various MSP projects and tasks. I also had a good meeting with my Account Manager at Kaseya to discuss some of the new things coming in the pipeline.</li><li>🏎️ F1 was back with the Canadian Grand Prix. It is always a great week when there is an F1 race. While McLaren did not have that great of a weekend, it was still fun to watch. What about Kimi and Mercedes?</li><li>📰 I spent time updating my RSS feed to make it more human readable and to fix some image issues. I wrote about that in a <a href="https://www.kylereddoch.me/blog/improving-my-rss-feed-and-making-it-more-human-readable/">post</a>, if you want to check it out.</li><li>🛡️ I also re-re-launched my weekly cybersecurity news roundup article series. I have changed the name of it to <strong>Security Signal Weekly</strong> and the format is a bit different. <a href="https://www.kylereddoch.me/blog/security-signal-weekly-may-16-22-2026/">Friday was the first of the new format</a>, and I am looking forward to doing it every week. If you have any feedback on the format or suggestions for content, please let me know.</li></ul><p>✌️ That is it for this week. I hope you have a great week and remember to be kind to each other!</p><img src="https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2026%2Fweek-21-2026%2F" alt="" style="width:1px;height:1px;border:0;" />]]></content:encoded>
+      <enclosure url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" type="image/jpeg" length="0" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
+    </item><item>
       <title>Finding the Real Drive Behind a Windows &#92;Device&#92;HarddiskX&#92;DRX Alert</title>
       <link>https://www.kylereddoch.me/blog/find-actual-drive-behind-windows-harddisk-error/</link>
       <guid isPermaLink="true">https://www.kylereddoch.me/blog/find-actual-drive-behind-windows-harddisk-error/</guid>
@@ -448,21 +463,6 @@ MASTODON_ACCESS_TOKEN=...</code></pre><p>The access token needs permission to wr
       <enclosure url="https://www.kylereddoch.me/assets/og-images/adding-quick-notes-to-my-website-preview.jpeg" type="image/jpeg" length="0" />
       <media:thumbnail url="https://www.kylereddoch.me/assets/og-images/adding-quick-notes-to-my-website-preview.jpeg" />
       <media:content url="https://www.kylereddoch.me/assets/og-images/adding-quick-notes-to-my-website-preview.jpeg" medium="image" />
-    </item><item>
-      <title>I got way too much sun Saturday</title>
-      <link>https://www.kylereddoch.me/notes/i-got-way-too-much-sun-saturday/</link>
-      <guid isPermaLink="true">https://www.kylereddoch.me/notes/i-got-way-too-much-sun-saturday/</guid>
-      <pubDate>Sun, 03 May 2026 18:58:48 CDT</pubDate>
-      <xhtml:a class="browser-title" href="https://www.kylereddoch.me/notes/i-got-way-too-much-sun-saturday/">I got way too much sun Saturday</xhtml:a>
-      <xhtml:img class="browser-image" src="https://www.kylereddoch.me/assets/og-images/i-got-way-too-much-sun-saturday-preview.jpeg" alt="I got way too much sun Saturday" />
-      <dc:creator>Kyle Reddoch</dc:creator>
-      <description><![CDATA[So my daughter had her final tennis tournament this past Saturday and it was a sunny day. She did very well this time around and ended up placing 3rd overall! With that though, we were there the entire tournament. Dummy me, I didn’t bring a hat. I look like a lobster. LOL.]]></description>
-      <xhtml:a class="browser-read-link" href="https://www.kylereddoch.me/notes/i-got-way-too-much-sun-saturday/">Read on kylereddoch.me</xhtml:a>
-      <content:encoded><![CDATA[
-<p><img src="https://www.kylereddoch.me/assets/og-images/i-got-way-too-much-sun-saturday-preview.jpeg" alt="I got way too much sun Saturday" /></p><p>So my daughter had her final tennis tournament this past Saturday and it was a sunny day. She did very well this time around and ended up placing 3rd overall! With that though, we were there the entire tournament. Dummy me, I didn’t bring a hat. I look like a lobster. LOL.</p><img src="https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2Fi-got-way-too-much-sun-saturday%2F" alt="" style="width:1px;height:1px;border:0;" />]]></content:encoded>
-      <enclosure url="https://www.kylereddoch.me/assets/og-images/i-got-way-too-much-sun-saturday-preview.jpeg" type="image/jpeg" length="0" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/og-images/i-got-way-too-much-sun-saturday-preview.jpeg" />
-      <media:content url="https://www.kylereddoch.me/assets/og-images/i-got-way-too-much-sun-saturday-preview.jpeg" medium="image" />
     </item>
   </channel>
 </rss>
