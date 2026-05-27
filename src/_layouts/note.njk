@@ -40,7 +40,7 @@ layout: base
       <p class="text-lg text-gray-600 dark:text-gray-400 mb-3">{{ description }}</p>
     {% endif %}
     <div class="text-sm text-gray-600 dark:text-gray-400">
-      Published on <time class="dt-published" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+      Published on <time class="dt-published" datetime="{{ page.date | toIsoString }}">{{ page.date | readableDateTime }}</time>
       by <span class="p-author h-card">
         <a class="u-url p-name hover:text-blue-600" href="/about/">{{ meta.author.name }}</a>
       </span>

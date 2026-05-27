@@ -20,7 +20,7 @@ layout: base
   <header class="mb-5">
     <h1 class="p-name text-3xl font-bold tracking-tight mb-2">{{ title }}</h1>
     <div class="text-sm text-gray-600 dark:text-gray-400">
-      <time class="dt-published" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+      <time class="dt-published" datetime="{{ page.date | toIsoString }}">{{ page.date | readableDateTime }}</time>
       <a class="u-url hidden" href="{{ page.url | url | absoluteUrl(meta.url) }}">Permalink</a>
     </div>
   </header>
