@@ -30,12 +30,8 @@
       })();
     </script>
 
-    <link rel="preload" href="/assets/starter/build.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <link rel="preload" href="/assets/starter/cyberseckyle.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript>
-      <link rel="stylesheet" href="/assets/starter/build.css" />
-      <link rel="stylesheet" href="/assets/starter/cyberseckyle.css" />
-    </noscript>
+    <link rel="stylesheet" href="/assets/starter/build.min.css" />
+    <link rel="stylesheet" href="/assets/starter/cyberseckyle.min.css" />
 
     <style>
       .contrast {
@@ -127,19 +123,19 @@
 
     {% include "partials/footer.njk" %}
 
-    <script src="/assets/starter/main.js" defer></script>
-    <script src="/assets/starter/listening.js" defer></script>
-    <script src="/assets/starter/webmentions.js" defer></script>
-    <script src="/assets/starter/search.js" defer></script>
+    <script src="/assets/starter/main.min.js" defer></script>
+    <script src="/assets/starter/listening.min.js" defer></script>
+    <script src="/assets/starter/webmentions.min.js" defer></script>
+    <script src="/assets/starter/search.min.js" defer></script>
     <script src="https://tinylytics.app/embed/{{ meta.analytics.tinylytics.siteCode }}.js?webring&kudos=%E2%9D%A4%EF%B8%8F" defer></script>
-    <script src="/assets/scripts/components/masto-share.js" defer></script>
-    <script src="/assets/scripts/components/mastodon-post.js" defer></script>
+    <script src="/assets/scripts/components/masto-share.min.js" defer></script>
+    <script src="/assets/scripts/components/mastodon-post.min.js" defer></script>
     <script>
       (window.requestIdleCallback || function(callback) {
         return window.setTimeout(callback, 5000);
       })(function() {
         var script = document.createElement('script');
-        script.src = '/assets/starter/easter-eggs.js';
+        script.src = '/assets/starter/easter-eggs.min.js';
         script.defer = true;
         document.body.appendChild(script);
       });

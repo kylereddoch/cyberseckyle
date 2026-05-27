@@ -51,8 +51,8 @@
           display: block;
         }
       </style>
-      <link rel="stylesheet" href="/assets/components/lite-yt-embed.css" />
-      <script type="module" src="/assets/components/lite-yt-embed.js"></script>
+      <link rel="stylesheet" href="/assets/components/lite-yt-embed.min.css" />
+      <script type="module" src="/assets/components/lite-yt-embed.min.js"></script>
     </template>
   </is-land>
 </custom-youtube>

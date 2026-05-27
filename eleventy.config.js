@@ -19,6 +19,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import postcss from 'postcss';
 import cssnano from 'cssnano';
+import esbuild from 'esbuild';
 
 //  config import
 import {
@@ -138,25 +139,52 @@ const readableTagTextColor = tag => {
   return contrastRatio(rgb, black) >= contrastRatio(rgb, white) ? '#000000' : '#ffffff';
 };
 
-const minifyBuiltCss = async () => {
-  if (process.env.ELEVENTY_ENV !== 'production') return;
+const getBuiltAssetFiles = dir => {
+  if (!fs.existsSync(dir)) return [];
 
-  const files = [
-    'dist/assets/starter/build.css',
-    'dist/assets/starter/cyberseckyle.css'
-  ];
+  return fs.readdirSync(dir, { withFileTypes: true }).flatMap(entry => {
+    const absolutePath = path.join(dir, entry.name);
+
+    if (entry.isDirectory()) {
+      return getBuiltAssetFiles(absolutePath);
+    }
+
+    if (!entry.isFile()) return [];
+    if (!/\.(css|js)$/i.test(entry.name)) return [];
+    if (/\.min\.(css|js)$/i.test(entry.name)) return [];
+
+    return [absolutePath];
+  });
+};
+
+const getMinifiedAssetPath = file => file.replace(/\.(css|js)$/i, '.min.$1');
+
+const minifyBuiltAssets = async () => {
+  const outputDir = path.join(process.cwd(), 'dist');
+  const files = getBuiltAssetFiles(outputDir);
 
   await Promise.all(files.map(async file => {
-    const absolutePath = path.join(process.cwd(), file);
-    if (!fs.existsSync(absolutePath)) return;
+    const minifiedPath = getMinifiedAssetPath(file);
+    const source = fs.readFileSync(file, 'utf8');
 
-    const css = fs.readFileSync(absolutePath, 'utf8');
-    const result = await postcss([cssnano({ preset: ['default', { svgo: false }] })]).process(css, {
-      from: absolutePath,
-      to: absolutePath
+    if (file.endsWith('.css')) {
+      const result = await postcss([cssnano({ preset: ['default', { svgo: false }] })]).process(source, {
+        from: file,
+        to: minifiedPath
+      });
+
+      fs.writeFileSync(minifiedPath, result.css);
+      return;
+    }
+
+    const result = await esbuild.transform(source, {
+      legalComments: 'none',
+      loader: 'js',
+      minify: true,
+      target: 'es2020'
     });
 
-    fs.writeFileSync(absolutePath, result.css);
+    fs.writeFileSync(minifiedPath, result.code);
   }));
 };
 
@@ -615,7 +643,7 @@ export default async function (eleventyConfig) {
   // --------------------- Events ---------------------
   eleventyConfig.on('eleventy.after', async () => {
     await events.svgToJpeg();
-    await minifyBuiltCss();
+    await minifyBuiltAssets();
   });
 
   // --------------------- Passthrough File Copy
