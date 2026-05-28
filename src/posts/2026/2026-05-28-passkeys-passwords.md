@@ -9,7 +9,7 @@ featuredImageAlt: A glowing digital key protecting a locked account while a dim 
 featuredImageCaption: Passkeys are a major upgrade, but the weakest recovery path can still decide the outcome.
 tags: [cybersecurity, passkeys, mfa, security]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116652806015844084"
 mastodon_tags: [Cybersecurity, InfoSec, Passkeys, IdentitySecurity, MFA]
 ---
 
