@@ -42,7 +42,7 @@ Make home gear sane and predictable. Keep risky gadgets in their lane.
 
 Planned parts:
 
-1. Router sanity check and guest Wi-Fi
+1. Router sanity check and guest Wi-Fi [[Live now](/blog/cyberseckyle-security-how-to-series-home-network-and-devices-part-1-router-sanity-check-and-guest-wi-fi/)]
 2. Windows 11 and macOS baselines you can live with
 3. Safe file storage with encryption and snapshots
 4. IoT quarantine and DNS choices
