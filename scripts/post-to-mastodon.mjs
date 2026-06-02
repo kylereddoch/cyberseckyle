@@ -25,9 +25,17 @@ const defaultTags = parseTags(process.env.MASTODON_DEFAULT_TAGS);
 const waitForPublicUrl = String(process.env.MASTODON_WAIT_FOR_PUBLIC_URL || 'true').toLowerCase() !== 'false';
 const waitTimeoutSeconds = Number(process.env.MASTODON_WAIT_TIMEOUT_SECONDS || 360);
 const waitIntervalSeconds = Number(process.env.MASTODON_WAIT_INTERVAL_SECONDS || 10);
+const postMaxAttempts = Math.max(1, Math.floor(parseNumber(process.env.MASTODON_POST_MAX_ATTEMPTS, 3)));
+const postRetryDelaySeconds = Math.max(0, parseNumber(process.env.MASTODON_POST_RETRY_DELAY_SECONDS, 10));
 
 function stripTrailingSlash(value) {
   return String(value || '').replace(/\/+$/, '');
+}
+
+function parseNumber(value, fallback) {
+  const number = Number(value);
+
+  return Number.isFinite(number) ? number : fallback;
 }
 
 function normalizePath(value) {
@@ -260,12 +268,122 @@ async function waitForPublishedPost(postUrl, relativePath) {
   );
 }
 
-async function postToMastodon(status, file) {
+function summarizeResponseBody(value, maxLength = 500) {
+  const body = String(value || '').replace(/\s+/g, ' ').trim();
+
+  if (body.length <= maxLength) {
+    return body;
+  }
+
+  return `${body.slice(0, maxLength)}...`;
+}
+
+function isRetryableMastodonStatus(status) {
+  return status === 429 || status >= 500;
+}
+
+function getMastodonRetryDelayMs(response) {
+  const retryAfter = response.headers.get('retry-after');
+  const retryAfterSeconds = Number(retryAfter);
+  const retryAfterDate = Date.parse(retryAfter);
+  let delayMs = postRetryDelaySeconds * 1000;
+
+  if (retryAfter !== null && Number.isFinite(retryAfterSeconds)) {
+    delayMs = retryAfterSeconds * 1000;
+  } else if (Number.isFinite(retryAfterDate)) {
+    delayMs = Math.max(0, retryAfterDate - Date.now());
+  }
+
+  return Math.min(delayMs, 60_000);
+}
+
+function getMastodonApiError(response, body) {
+  const contentType = response.headers.get('content-type') || '(not provided)';
+  const summary = summarizeResponseBody(body) || '(empty response body)';
+  const htmlHint = contentType.includes('text/html')
+    ? ' The server returned HTML instead of JSON, which usually indicates an instance or upstream proxy error page.'
+    : '';
+
+  return (
+    `Mastodon API request failed: HTTP ${response.status} ${response.statusText || '(no status text)'}.` +
+    `${htmlHint}\nEndpoint: ${response.url}\nContent-Type: ${contentType}\nResponse body: ${summary}`
+  );
+}
+
+async function findExistingMastodonStatus(postUrl) {
+  const headers = {
+    Authorization: `Bearer ${token}`
+  };
+
+  try {
+    const accountResponse = await fetch(`${instance}/api/v1/accounts/verify_credentials`, {
+      headers
+    });
+
+    if (!accountResponse.ok) {
+      console.log(
+        `Could not check for an existing Mastodon status: ` +
+          `verify_credentials returned HTTP ${accountResponse.status}.`
+      );
+      return null;
+    }
+
+    const account = await accountResponse.json();
+
+    if (!account.id) {
+      console.log('Could not check for an existing Mastodon status: account ID was missing.');
+      return null;
+    }
+
+    const statusesResponse = await fetch(
+      `${instance}/api/v1/accounts/${encodeURIComponent(account.id)}/statuses?limit=40&exclude_replies=true`,
+      { headers }
+    );
+
+    if (!statusesResponse.ok) {
+      console.log(
+        `Could not check for an existing Mastodon status: ` +
+          `account statuses returned HTTP ${statusesResponse.status}.`
+      );
+      return null;
+    }
+
+    const statuses = await statusesResponse.json();
+    const existingStatus = statuses.find(status => String(status.content || '').includes(postUrl));
+
+    if (existingStatus) {
+      console.log(
+        `Found an existing Mastodon status for ${postUrl}: ` +
+          `${existingStatus.url || existingStatus.uri}`
+      );
+    }
+
+    return existingStatus || null;
+  } catch (error) {
+    console.log(`Could not check for an existing Mastodon status: ${error.message}`);
+    return null;
+  }
+}
+
+async function findExistingMastodonStatusAfterDelay(postUrl, delayMs) {
+  await sleep(delayMs);
+
+  return findExistingMastodonStatus(postUrl);
+}
+
+async function postToMastodon(status, file, postUrl) {
   if (!instance || !token) {
     throw new Error('MASTODON_INSTANCE and MASTODON_ACCESS_TOKEN are required to post.');
   }
 
-  const response = await fetch(`${instance}/api/v1/statuses`, {
+  const existingStatus = await findExistingMastodonStatus(postUrl);
+
+  if (existingStatus) {
+    return existingStatus;
+  }
+
+  const endpoint = `${instance}/api/v1/statuses`;
+  const options = {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -277,13 +395,88 @@ async function postToMastodon(status, file) {
       visibility: defaultVisibility,
       language: defaultLanguage
     })
-  });
+  };
 
-  if (!response.ok) {
-    throw new Error(await response.text());
+  for (let attempt = 1; attempt <= postMaxAttempts; attempt += 1) {
+    let response;
+
+    try {
+      response = await fetch(endpoint, options);
+    } catch (error) {
+      const retryDelayMs = postRetryDelaySeconds * 1000;
+
+      if (attempt === postMaxAttempts) {
+        console.log(
+          `Mastodon API request failed before receiving a response. ` +
+            `Checking recent account statuses in ${postRetryDelaySeconds}s before failing: ${error.message}`
+        );
+      } else {
+        console.log(
+          `Mastodon API request failed before receiving a response. ` +
+            `Retrying in ${postRetryDelaySeconds}s (attempt ${attempt}/${postMaxAttempts}): ${error.message}`
+        );
+      }
+
+      const recoveredStatus = await findExistingMastodonStatusAfterDelay(postUrl, retryDelayMs);
+
+      if (recoveredStatus) {
+        return recoveredStatus;
+      }
+
+      if (attempt === postMaxAttempts) {
+        throw new Error(`Mastodon API request failed for ${endpoint}: ${error.message}`);
+      }
+
+      continue;
+    }
+
+    const responseBody = await response.text();
+
+    if (response.ok) {
+      try {
+        return JSON.parse(responseBody);
+      } catch {
+        throw new Error(
+          `Mastodon API returned HTTP ${response.status}, but the response was not valid JSON.\n` +
+            `Endpoint: ${response.url}\n` +
+            `Content-Type: ${response.headers.get('content-type') || '(not provided)'}\n` +
+            `Response body: ${summarizeResponseBody(responseBody) || '(empty response body)'}`
+        );
+      }
+    }
+
+    const errorMessage = getMastodonApiError(response, responseBody);
+
+    if (!isRetryableMastodonStatus(response.status)) {
+      throw new Error(errorMessage);
+    }
+
+    const retryDelayMs = getMastodonRetryDelayMs(response);
+
+    if (attempt === postMaxAttempts) {
+      console.log(
+        `${errorMessage}\nChecking recent account statuses in ${retryDelayMs / 1000}s before failing.`
+      );
+
+      const recoveredStatus = await findExistingMastodonStatusAfterDelay(postUrl, retryDelayMs);
+
+      if (recoveredStatus) {
+        return recoveredStatus;
+      }
+
+      throw new Error(errorMessage);
+    }
+
+    console.log(
+      `${errorMessage}\nRetrying in ${retryDelayMs / 1000}s ` +
+        `(attempt ${attempt}/${postMaxAttempts}).`
+    );
+    const recoveredStatus = await findExistingMastodonStatusAfterDelay(postUrl, retryDelayMs);
+
+    if (recoveredStatus) {
+      return recoveredStatus;
+    }
   }
-
-  return response.json();
 }
 
 async function publishFile(file) {
@@ -320,7 +513,7 @@ async function publishFile(file) {
 
   await waitForPublishedPost(postUrl, relativePath);
 
-  const mastodonStatus = await postToMastodon(status, file);
+  const mastodonStatus = await postToMastodon(status, file, postUrl);
   const mastodonUrl = mastodonStatus.url || mastodonStatus.uri;
 
   if (!mastodonUrl) {

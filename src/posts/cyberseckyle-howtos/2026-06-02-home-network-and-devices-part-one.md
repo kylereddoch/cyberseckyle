@@ -10,7 +10,7 @@ featuredImageAlt: A home Wi-Fi router on a cozy dark desk with a laptop, phone, 
 featuredImageCaption: A sane home network is not about paranoia. It is about keeping the wrong devices from wandering into the wrong places.
 tags: [cyberseckyle-howto-series, cybersecurity, security, networking, networking-security, home-networking, routerstutorials, how-to]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116681365900459706"
 mastodon_tags: [Cybersecurity, InfoSec, Networking, WiFi, RouterSecurity, CybersecKyle, CyberseckyleHowToSeries]
 ---
 
