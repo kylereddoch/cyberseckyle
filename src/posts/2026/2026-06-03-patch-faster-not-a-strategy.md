@@ -9,7 +9,7 @@ featuredImageAlt: A person standing in a dark cybersecurity maze facing a glowin
 featuredImageCaption: "Modern vulnerability response is less about patching everything at once and more about finding the path that reduces real exposure first."
 tags: [cybersecurity, vulnerability-management, patch-management, MSP, ai, risk-management]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116688182213597752"
 mastodon_tags: [Cybersecurity, InfoSec, VulnerabilityManagement, PatchManagement, MSP]
 ---
 
