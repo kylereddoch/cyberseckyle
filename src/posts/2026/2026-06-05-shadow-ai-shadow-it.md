@@ -9,7 +9,7 @@ featuredImageAlt: A futuristic AI robot with a glowing brain standing in front o
 featuredImageCaption: "Shadow AI is not just an AI problem. It is a visibility, data, identity, and workflow problem."
 tags: [cybersecurity, ai, IT, MSP]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116698708143283118"
 mastodon_tags: [Cybersecurity, InfoSec, AISecurity, ShadowAI, MSP]
 ---
 
