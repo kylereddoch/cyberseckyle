@@ -4,7 +4,7 @@ title: 'Introducing my new CybersecKyle Security How-To Series: the full roadmap
 description: "A living roadmap for five seasons of hands-on security guides, from Everyday Defense to Blue Team fundamentals."
 tags: [cyberseckyle-howto-series, cybersecurity, tutorials, security]
 mastodon_url: https://infosec.exchange/@cyberseckyle/115492350638217573
-lastModified: 2026-06-02T10:45:00-05:00
+lastModified: 2026-06-08T10:07:43-05:00
 ---
 
 ![CybersecKyle Security How-To Series](/assets/images/cyberseckyle_security-howto_hero.png){loading="eager" eleventy:widths="auto"}
@@ -43,7 +43,7 @@ Make home gear sane and predictable. Keep risky gadgets in their lane.
 Planned parts:
 
 1. Router sanity check and guest Wi-Fi [[Live now](/blog/cyberseckyle-security-how-to-series-home-network-and-devices-part-1-router-sanity-check-and-guest-wi-fi/)]
-2. Windows 11 and macOS baselines you can live with
+2. Windows 11 and macOS baselines you can live with [[Live now](/blog/cyberseckyle-security-how-to-series-home-network-and-devices-part-2-windows-11-and-macos-baselines-you-can-live-with/)]
 3. Safe file storage with encryption and snapshots
 4. IoT quarantine and DNS choices
 5. Passwordless sign in with passkeys and keys
