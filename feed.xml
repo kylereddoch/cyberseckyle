@@ -12,7 +12,7 @@
     <link>https://www.kylereddoch.me/</link>
     <description>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 08 Jun 2026 11:04:43 CDT</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jun 2026 16:00:22 CDT</lastBuildDate>
     <atom:link href="https://www.kylereddoch.me/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://www.kylereddoch.me/assets/images/logo.png</url>
@@ -43,6 +43,21 @@
       <xhtml:a href="https://www.kylereddoch.me/feed.json">JSON Feed</xhtml:a>
       <xhtml:a href="https://www.kylereddoch.me/blog/improving-my-rss-feed-and-making-it-more-human-readable/">How I improved this feed</xhtml:a>
     </xhtml:div><item>
+      <title>The macOS 27 Golden Gate wallpaper looks so good</title>
+      <link>https://www.kylereddoch.me/notes/macos-27-golden-gate-wallpaper/</link>
+      <guid isPermaLink="true">https://www.kylereddoch.me/notes/macos-27-golden-gate-wallpaper/</guid>
+      <pubDate>Mon, 08 Jun 2026 16:00:22 CDT</pubDate>
+      <xhtml:a class="browser-title" href="https://www.kylereddoch.me/notes/macos-27-golden-gate-wallpaper/">The macOS 27 Golden Gate wallpaper looks so good</xhtml:a>
+      <xhtml:img class="browser-image" src="https://www.kylereddoch.me/assets/og-images/the-macos-27-golden-gate-wallpaper-looks-so-good-preview.jpeg" alt="The macOS 27 Golden Gate wallpaper looks so good" />
+      <dc:creator>Kyle Reddoch</dc:creator>
+      <description><![CDATA[Apple's new Golden Gate wallpaper might be one of my favorite things to come out of WWDC26.]]></description>
+      <xhtml:a class="browser-read-link" href="https://www.kylereddoch.me/notes/macos-27-golden-gate-wallpaper/">Read on kylereddoch.me</xhtml:a>
+      <content:encoded><![CDATA[
+<p><img src="https://www.kylereddoch.me/assets/og-images/the-macos-27-golden-gate-wallpaper-looks-so-good-preview.jpeg" alt="The macOS 27 Golden Gate wallpaper looks so good" /></p><p>I am a sucker for a good default wallpaper, and the new one for macOS 27 Golden Gate looks so good.</p><p>It is simple, colorful, and instantly feels like a Mac wallpaper. Honestly, it might be one of my favorite things to come out of WWDC26 so far. Sometimes all it takes is a new wallpaper to make your current computer feel new again. LOL.</p><p>Stephen Hackett has the <a href="https://512pixels.net/2026/06/wwdc26-macos-27-golden-gate-wallpaper/" rel="noopener">full-resolution Golden Gate wallpaper available to download</a>. He also pointed out that, unlike the wallpapers from the last several versions of macOS, this one is a single image instead of having separate light and dark versions. I always use my Mac in dark mode, so I am curious to see how this one looks in both modes. I have a feeling it will look great in either.</p><p>Basic Apple Guy also has a couple of great WWDC26 options. He created <a href="https://basicappleguy.com/haberdashery/wwdc26" rel="noopener">his own WWDC26 wallpaper</a> from Apple’s early event artwork, and he has archived <a href="https://basicappleguy.com/basicappleblog/wwdc26wallpapers" rel="noopener">Apple’s official WWDC26 wallpapers</a> for the Mac, iPad, and iPhone. I have always liked his wallpapers, so I will probably end up rotating through those too.</p><p>I already know this one is going on my Mac.</p><img src="https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2Fmacos-27-golden-gate-wallpaper%2F" alt="" style="width:1px;height:1px;border:0;" />]]></content:encoded>
+      <enclosure url="https://www.kylereddoch.me/assets/og-images/the-macos-27-golden-gate-wallpaper-looks-so-good-preview.jpeg" type="image/jpeg" length="0" />
+      <media:thumbnail url="https://www.kylereddoch.me/assets/og-images/the-macos-27-golden-gate-wallpaper-looks-so-good-preview.jpeg" />
+      <media:content url="https://www.kylereddoch.me/assets/og-images/the-macos-27-golden-gate-wallpaper-looks-so-good-preview.jpeg" medium="image" />
+    </item><item>
       <title>CybersecKyle Security How-To Series: Home Network and Devices, Part 2 - Windows 11 and macOS Baselines You Can Live With</title>
       <link>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-home-network-and-devices-part-2-windows-11-and-macos-baselines-you-can-live-with/</link>
       <guid isPermaLink="true">https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-home-network-and-devices-part-2-windows-11-and-macos-baselines-you-can-live-with/</guid>
@@ -545,21 +560,6 @@ SizeGB     : 931.51</code></pre><p>That <code>\\.\PHYSICALDRIVE3</code> value is
       <enclosure url="https://www.kylereddoch.me/img/l5cHLG60Sk-800.jpeg" type="image/jpeg" length="0" />
       <media:thumbnail url="https://www.kylereddoch.me/img/l5cHLG60Sk-800.jpeg" />
       <media:content url="https://www.kylereddoch.me/img/l5cHLG60Sk-800.jpeg" medium="image" />
-    </item><item>
-      <title>A Texas Tech Graduation, Hot Chicken, and a Busy Family Week (Week 20, 2026)</title>
-      <link>https://www.kylereddoch.me/notes/2026/week-20-2026/</link>
-      <guid isPermaLink="true">https://www.kylereddoch.me/notes/2026/week-20-2026/</guid>
-      <pubDate>Wed, 20 May 2026 12:00:00 CDT</pubDate>
-      <xhtml:a class="browser-title" href="https://www.kylereddoch.me/notes/2026/week-20-2026/">A Texas Tech Graduation, Hot Chicken, and a Busy Family Week (Week 20, 2026)</xhtml:a>
-      <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" alt="A Texas Tech Graduation, Hot Chicken, and a Busy Family Week (Week 20, 2026)" />
-      <dc:creator>Kyle Reddoch</dc:creator>
-      <description><![CDATA[A busy family week full of graduation celebrations, a trip to Lubbock, Dave’s Hot Chicken, one last choir concert, and not quite enough time to write.]]></description>
-      <xhtml:a class="browser-read-link" href="https://www.kylereddoch.me/notes/2026/week-20-2026/">Read on kylereddoch.me</xhtml:a>
-      <content:encoded><![CDATA[
-<p><img src="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" alt="A Texas Tech Graduation, Hot Chicken, and a Busy Family Week (Week 20, 2026)" /></p><blockquote><p>Just another late weekly notes… It was a busy weekend and first of this week, it almost escaped my mind.</p></blockquote><h2 id="the-vibe">The vibe</h2><p>A full, proud, slightly chaotic family week. Between the college graduation, the party, the choir concert, and the quick Lubbock trip, this one had that “life is moving fast, but in a good way” feeling. Not much writing happened, but honestly, some weeks are for showing up, celebrating people you love, and letting the blog wait a minute.</p><h2 id="highlights">Highlights</h2><ul><li>🎓 Let’s start off with the biggest news of the week: My oldest graduated college! We went down to Lubbock (Texas Tech), to watch her Graduation Ceremony.</li><li>🍗 I got to try Dave’s Hot Chicken for the first time while I was in Lubbock. Man was it some amazing chicken! If you have a Dave’s Hot Chicken near you, I highly recommend it.</li><li>🎉 Saturday we had our family over for a little Graduation party for our daughter. It was nothing special, just some food and drinks, but it was nice to see everyone and celebrate her achievement.</li><li>🎤 Earlier this week was my daughter’s last choir concert. This was the one where they also do a little talent show kind of thing and hand out awards. There were some pretty good singers. The concert went well.</li><li>✍️ Unfortunately, with how busy it was this week, I didn’t get much time to write the posts I wanted to.</li></ul><h2 id="worth-sharing">Worth sharing</h2><ul><li>AI-generated fraud and identity spoofing are getting harder to treat as “normal” account fraud. This CyberScoop piece on <a href="https://cyberscoop.com/ai-generated-fraud-identity-spoofing-defense-strategy/" rel="noopener">weaponized AI and identity spoofing</a> is sponsored, but it still makes a useful point: static identity checks are going to struggle when attackers can scale synthetic identities, deepfake impersonation, and document fraud faster than most organizations can update their controls.</li><li>Agentic AI is becoming one of those security problems that looks small until you realize how much access these tools can touch. <a href="https://thehackernews.com/2026/05/why-agentic-ai-is-securitys-next-blind.html" rel="noopener">Why Agentic AI Is Security’s Next Blind Spot</a> is worth reading because it frames AI agents less like “chatbots” and more like systems that can read, act, connect to tools, and create new lateral movement paths if nobody is reviewing permissions, inputs, and workflows.</li><li>A cyber incident response plan should not be a 100-page binder nobody reads during an actual crisis. This article on the <a href="https://www.cm-alliance.com/cybersecurity-blog/5-key-components-of-a-cyber-incident-response-plan" rel="noopener">5 key components of a cyber incident response plan</a> is a good reminder that response plans need to be crisp, business-specific, scenario-driven, threat-informed, and tested. For MSPs, that means client-specific playbooks for ransomware, BEC, cloud compromise, and vendor/supply-chain events.</li></ul><p>✌️ That is it for this week. I hope you have a great week and remember to be kind to each other!</p><img src="https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2026%2Fweek-20-2026%2F" alt="" style="width:1px;height:1px;border:0;" />]]></content:encoded>
-      <enclosure url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" type="image/jpeg" length="0" />
-      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
-      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
     </item>
   </channel>
 </rss>
