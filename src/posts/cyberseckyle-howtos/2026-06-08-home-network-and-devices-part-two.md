@@ -9,7 +9,7 @@ featuredImageAlt: CybersecKyle Security How-To Series artwork representing pract
 featuredImageCaption: A useful computer security baseline should survive contact with daily life.
 tags: [cyberseckyle-howto-series, cybersecurity, security, windows, macos, endpoint-security, home-networking, how-to]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116715367400299830"
 mastodon_tags: [Cybersecurity, InfoSec, Windows, macOS, EndpointSecurity, CybersecKyleHowTo]
 ---
 
