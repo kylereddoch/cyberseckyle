@@ -10,7 +10,7 @@ featuredImageCaption: A useful computer security baseline should survive contact
 tags: [cyberseckyle-howto-series, cybersecurity, security, windows, macos, endpoint-security, home-networking, how-to]
 mastodon_post: true
 mastodon_url:
-mastodon_tags: [Cybersecurity, InfoSec, Windows11, macOS, EndpointSecurity, CybersecKyleHowTo]
+mastodon_tags: [Cybersecurity, InfoSec, Windows, macOS, EndpointSecurity, CybersecKyleHowTo]
 ---
 
 > I’m back with Season 2, Part 2 of the Home Network and Devices track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/). This time we’re building practical Windows 11 and macOS security baselines: strong enough to stop common problems, calm enough to leave turned on, and simple enough to validate when you are done.
