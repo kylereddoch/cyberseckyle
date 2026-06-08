@@ -9,7 +9,7 @@ featuredImageAlt: Apple's Passwords app automatically signing in to accounts and
 featuredImageCaption: 'Image: <a href="https://www.apple.com/newsroom/2026/06/apple-intelligence-brings-powerful-ai-capabilities-into-everyday-experiences/">Apple</a>'
 tags: [cybersecurity, ai, apple, passwords, identity-security]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116716785576361292"
 mastodon_tags: [Cybersecurity, InfoSec, AppleIntelligence, AISecurity, Passwords]
 ---
 
