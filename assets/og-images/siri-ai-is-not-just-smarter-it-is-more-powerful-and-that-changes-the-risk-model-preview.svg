@@ -1,0 +1,190 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg
+  width="1200"
+  height="630"
+  viewBox="0 0 1200 630"
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+  <rect id="bg-base" width="100%" height="100%" opacity="1" fill="#0f0a1a" />
+  <rect id="bg-overlay" width="100%" height="100%" opacity="1" fill="rgb(88 28 135 / 0.2)" />
+
+  <!-- date -->
+  <text
+    font-family="-apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, sans-serif, sans-serif"
+    font-size="22"
+    font-weight="500"
+    fill="rgb(216 180 254)"
+    letter-spacing="-1"
+  >
+    <tspan x="160" y="179.66666666666669">
+      06 / 09 / 2026
+    </tspan>
+  </text>
+
+  <!-- title -->
+  <text
+    id="text"
+    font-family="-apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, sans-serif, sans-serif"
+    font-size="66.66666666666667"
+    font-weight="700"
+    fill="rgb(216 180 254)"
+    letter-spacing="-2.5"
+  >
+    
+      <tspan x="160" y="271.6666666666667">
+        Siri AI Is Not Just
+      </tspan>
+    
+      <tspan x="160" y="343">
+        Smarter. It Is More
+      </tspan>
+    
+      <tspan x="160" y="414.33333333333337">
+        Powerful, and That
+      </tspan>
+    
+      <tspan x="160" y="485.66666666666674">
+        Changes the Risk Model
+      </tspan>
+    
+  </text>
+
+  <!-- url -->
+  <text
+    font-family="-apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, sans-serif, sans-serif"
+    font-size="22"
+    font-weight="500"
+    fill="rgb(216 180 254)"
+    letter-spacing="-0.5"
+  >
+    <tspan x="160" y="580">kylereddoch.me</tspan>
+  </text>
+
+  <!-- sitename -->
+  <text
+    font-family="-apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, sans-serif, sans-serif"
+    font-size="20"
+    font-weight="600"
+    fill="rgb(216 180 254)"
+    letter-spacing="-0.5"
+  >
+    <tspan x="950" y="580">CYBERSECKYLE</tspan>
+  </text>
+</svg>
