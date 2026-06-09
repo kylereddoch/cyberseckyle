@@ -139,6 +139,15 @@ function parseFrontMatter(raw, file) {
   };
 }
 
+function isFutureDated(data) {
+  if (!data.date) {
+    return false;
+  }
+
+  const publishDate = new Date(data.date);
+  return !Number.isNaN(publishDate.getTime()) && publishDate > new Date();
+}
+
 function getPostUrl(file, data) {
   const relativePath = normalizePath(path.relative(root, file));
 
@@ -490,7 +499,12 @@ async function publishFile(file) {
   const data = parsed.data;
   const relativePath = normalizePath(path.relative(root, file));
 
-  if (data.draft || data.mastodon_post !== true || String(data.mastodon_url || '').trim()) {
+  if (
+    data.draft ||
+    isFutureDated(data) ||
+    data.mastodon_post !== true ||
+    String(data.mastodon_url || '').trim()
+  ) {
     return null;
   }
 

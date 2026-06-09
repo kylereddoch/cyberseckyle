@@ -110,7 +110,7 @@
   {% set graph = (graph.push(webPageNode), graph) %}
 {% endif %}
 
-{% if page.url != '/' %}
+{% if page.url and page.url != '/' %}
   {% set breadcrumbItems = [
     {
       '@type': 'ListItem',
@@ -119,7 +119,7 @@
       'item': meta.url ~ '/'
     }
   ] %}
-  {% if '/blog/' in page.url and layout == 'post' %}
+  {% if page.url and '/blog/' in page.url and layout == 'post' %}
     {% set breadcrumbItems = (breadcrumbItems.push({
       '@type': 'ListItem',
       'position': 2,
@@ -127,7 +127,7 @@
       'item': meta.url ~ '/blog/'
     }), breadcrumbItems) %}
     {% set breadcrumbPosition = 3 %}
-  {% elseif '/notes/' in page.url and layout == 'note' %}
+  {% elseif page.url and '/notes/' in page.url and layout == 'note' %}
     {% set breadcrumbItems = (breadcrumbItems.push({
       '@type': 'ListItem',
       'position': 2,
@@ -135,7 +135,7 @@
       'item': meta.url ~ '/notes/'
     }), breadcrumbItems) %}
     {% set breadcrumbPosition = 3 %}
-  {% elseif '/topics/' in page.url %}
+  {% elseif page.url and '/topics/' in page.url %}
     {% set breadcrumbItems = (breadcrumbItems.push({
       '@type': 'ListItem',
       'position': 2,
