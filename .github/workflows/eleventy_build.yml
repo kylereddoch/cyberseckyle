@@ -3,8 +3,12 @@ name: Deploy to GitHub Pages
 on:
   workflow_dispatch:
   schedule:
-    # 10:15 a.m. Central during daylight saving time.
+    # GitHub schedules are best-effort, so use fallback windows in case a run
+    # is delayed or dropped. These are 10:15, 10:45, and 11:15 a.m. Central
+    # during daylight saving time.
     - cron: "15 15 * * *"
+    - cron: "45 15 * * *"
+    - cron: "15 16 * * *"
   workflow_run:
     workflows: ["Publish Quick Note"]
     types: [completed]
