@@ -9,7 +9,7 @@ featuredImageAlt: A security operations workstation using artificial intelligenc
 featuredImageCaption: "AI can accelerate security operations, but it cannot repair weak ownership, disconnected processes, or untested recovery."
 tags: [cybersecurity, MSP, ai, security-operations, risk-management]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116732863599632984"
 mastodon_tags: [Cybersecurity, InfoSec, MSP, AISecurity, SecurityOperations]
 ---
 
