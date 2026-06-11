@@ -9,7 +9,7 @@ featuredImageAlt: Siri AI using personal context to create a travel plan display
 featuredImageCaption: 'Image: <a href="https://www.apple.com/newsroom/2026/06/apple-unveils-next-generation-of-apple-intelligence-siri-ai-and-more/">Apple</a>'
 tags: [ai, apple, privacy, cybersecurity]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116732325115151767"
 mastodon_tags: [Cybersecurity, InfoSec, AppleIntelligence, SiriAI, AISecurity]
 ---
 
