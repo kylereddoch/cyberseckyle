@@ -8,7 +8,7 @@ featuredImageAlt: EmojiCodec logo showing an emoji converting to and from encode
 tags: [open-source, projects]
 category: projects
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116738180543951399"
 mastodon_tags: [VSCode, OpenSource, Emoji, DeveloperTools]
 ---
 
