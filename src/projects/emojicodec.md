@@ -15,6 +15,8 @@ techStack:
   - Unicode
   - Open Source
 projectLinks:
+  - label: Install from the VS Code Marketplace
+    url: https://marketplace.visualstudio.com/items?itemName=KyleReddoch.emojicodec
   - label: View on GitHub
     url: https://github.com/kylereddoch/EmojiCodec
   - label: Read the introduction
@@ -24,6 +26,8 @@ projectLinks:
 EmojiCodec grew out of a small annoyance I kept running into while writing and working in VS Code: an emoji looks simple on screen, but the format I actually need can change depending on where I am putting it.
 
 Sometimes I need the native emoji. Other times I need a hexadecimal value, an HTML entity, a Unicode escape, or a readable Markdown shortcode. EmojiCodec keeps that conversion inside the editor instead of sending me to a lookup website every time.
+
+You can [install EmojiCodec from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=KyleReddoch.emojicodec).
 
 ## What it converts
 

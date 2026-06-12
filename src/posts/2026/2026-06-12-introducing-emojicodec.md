@@ -22,7 +22,7 @@ That is a lot of interruption for a tiny conversion.
 
 So I built **EmojiCodec**, a VS Code extension that converts emoji and encoded emoji representations without making me leave the editor.
 
-You can view the source and follow the project on [GitHub](https://github.com/kylereddoch/EmojiCodec). I also added a shorter [EmojiCodec project page](/projects/emojicodec/) here on the site.
+You can [install EmojiCodec from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=KyleReddoch.emojicodec), view the source and follow the project on [GitHub](https://github.com/kylereddoch/EmojiCodec), or visit the shorter [EmojiCodec project page](/projects/emojicodec/) here on the site.
 
 ## What EmojiCodec does
 
@@ -93,4 +93,4 @@ EmojiCodec is not trying to reinvent how anyone writes code. It solves one speci
 
 That is usually my favorite kind of project to build. The useful part is not that the conversion itself is flashy. The useful part is removing a small, repeated interruption and making the safer workflow the easier one.
 
-The source is available now in the [EmojiCodec GitHub repository](https://github.com/kylereddoch/EmojiCodec), along with its tests, security notes, and development instructions. The Visual Studio Marketplace listing is the next part of the publishing path.
+You can [install EmojiCodec from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=KyleReddoch.emojicodec). The source is also available in the [EmojiCodec GitHub repository](https://github.com/kylereddoch/EmojiCodec), along with its tests, security notes, and development instructions.
