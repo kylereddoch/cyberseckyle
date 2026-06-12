@@ -3,7 +3,7 @@ title: Catppuccin Mocha UI for Mastodon
 description: My Catppuccin Mastodon theme reworks the web interface with richer colors, cleaner spacing, and a more customized browsing experience.
 summary: An advanced Mastodon web UI theme inspired by Twitter, but styled around the Catppuccin Mocha palette for a richer, darker interface.
 date: 2026-04-10T14:30:00-05:00
-projectOrder: 4
+projectOrder: 5
 projectType: UI Theme
 projectStatus: Active
 badgeClasses: bg-violet-100 text-violet-800 dark:bg-violet-900/30 dark:text-violet-200

@@ -3,7 +3,7 @@ title: Eleventy Plugin Mastodon Share
 description: This plugin makes sharing Eleventy posts to Mastodon less awkward by adding an instance-aware flow, a saved instance option, and cleaner share helpers.
 summary: A drop-in plugin for adding a better Share on Mastodon flow to Eleventy sites, including an instance picker and a smoother publishing experience.
 date: 2026-04-07T13:00:00-05:00
-projectOrder: 3
+projectOrder: 4
 projectType: Eleventy Plugin
 projectStatus: Active
 badgeClasses: bg-fuchsia-100 text-fuchsia-800 dark:bg-fuchsia-900/30 dark:text-fuchsia-200

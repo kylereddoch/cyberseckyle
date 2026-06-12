@@ -3,7 +3,7 @@ title: Brewventy
 description: Brewventy is a coffee-inspired Eleventy starter that gives people a polished starting point with theming, responsive layouts, and a friendlier out-of-the-box setup.
 summary: A coffee-themed Eleventy starter I built for people who want a polished launch point without having to wire up the whole stack from scratch.
 date: 2025-10-01T11:00:00-05:00
-projectOrder: 2
+projectOrder: 3
 projectType: Eleventy Theme
 projectStatus: Active
 badgeClasses: bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-200

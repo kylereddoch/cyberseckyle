@@ -3,7 +3,7 @@ title: Scriptable
 description: My Scriptable repo collects small iOS scripts that surface useful information, automate little routines, and make the phone feel a bit more personal.
 summary: A collection of JavaScript scripts for Scriptable on iOS, built to surface useful information and automate little pieces of everyday life.
 date: 2021-12-05T10:00:00-05:00
-projectOrder: 5
+projectOrder: 6
 projectType: iOS Scripts
 projectStatus: Active
 badgeClasses: bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-200
