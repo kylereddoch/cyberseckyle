@@ -190,6 +190,7 @@ For these posts:
 - Use titles like `Security Signal Weekly: May 9-15, 2026`.
 - Pick the top 10 stories from the week, not every interesting story.
 - Prioritize active exploitation, CISA/vendor urgency, patch impact, defender usefulness, SMB/MSP relevance, supply chain risk, identity/browser/cloud risk, and stories Kyle can add practical context to.
+- Also include articles from sites like Bleeping Computer, The Hacker News, CyberScoop, CM-Alliance Blog, Krebs on Security, and others that are relevant to defenders and MSPs even if they do not have a CVE or patch.
 - Keep source links inline in the paragraph where each claim is used.
 - Use `featuredImage: /assets/images/security-signal-weekly.png`.
 - Do not put the old roundup image shortcode in the body.
