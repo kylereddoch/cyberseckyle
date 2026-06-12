@@ -9,7 +9,7 @@ featuredImageAlt: Apple's Phone app surfacing flight confirmation details during
 featuredImageCaption: 'Image: <a href="https://www.apple.com/newsroom/2026/06/apple-intelligence-brings-powerful-ai-capabilities-into-everyday-experiences/">Apple</a>'
 tags: [ai, apple, cybersecurity, social-engineering]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116737898418699854"
 mastodon_tags: [Cybersecurity, InfoSec, AppleIntelligence, SiriAI, AISecurity]
 ---
 
