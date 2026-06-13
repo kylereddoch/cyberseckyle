@@ -9,7 +9,7 @@ featuredImageAlt: Claude wordmark with orange starburst icon centered on a light
 featuredImageCaption:
 tags: [ai, cybersecurity, national-security, vulnerability-management, policy]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116745314655440340"
 mastodon_tags: [Cybersecurity, InfoSec, AISecurity, Anthropic, NationalSecurity]
 ---
 
