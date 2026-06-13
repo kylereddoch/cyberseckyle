@@ -9,7 +9,7 @@ featuredImageAlt: Apple Intelligence creating a Calendar event from a natural-la
 featuredImageCaption: 'Image: <a href="https://www.apple.com/newsroom/2026/06/apple-intelligence-brings-powerful-ai-capabilities-into-everyday-experiences/">Apple</a>'
 tags: [ai, apple, cybersecurity, appsec]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116743824716745617"
 mastodon_tags: [Cybersecurity, InfoSec, AppleIntelligence, SiriAI, AISecurity]
 ---
 
