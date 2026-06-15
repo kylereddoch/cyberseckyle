@@ -9,7 +9,7 @@ featuredImageAlt: Siri AI using an iPhone camera to analyze objects and informat
 featuredImageCaption: 'Image: <a href="https://www.apple.com/newsroom/2026/06/apple-unveils-next-generation-of-apple-intelligence-siri-ai-and-more/">Apple</a>'
 tags: [ai, apple, privacy, cybersecurity]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116754890126724748"
 mastodon_tags: [Cybersecurity, InfoSec, AppleIntelligence, SiriAI, AISecurity]
 ---
 
