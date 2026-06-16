@@ -1,5 +1,5 @@
 ---
-date: 2026-06-16T10:00:00-05:00
+date: 2026-06-16T12:15:00-05:00
 title: "Private Cloud Compute Is Impressive, but It Still Needs Real Security Scrutiny"
 seoTitle: Why Apple's Private Cloud Compute Needs Scrutiny
 description: "Apple’s Private Cloud Compute architecture is one of the stronger privacy designs in consumer AI, but privacy claims, cloud expansion, attestation, and agentic workloads still deserve scrutiny."
