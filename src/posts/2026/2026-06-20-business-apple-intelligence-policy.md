@@ -9,7 +9,7 @@ featuredImageAlt: A lineup of Apple devices representing the operating systems r
 featuredImageCaption: 'Image: <a href="https://www.apple.com/newsroom/2026/06/apple-unveils-next-generation-of-apple-intelligence-siri-ai-and-more/">Apple</a>'
 tags: [ai, apple, cybersecurity, MSP]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116783335189247957"
 mastodon_tags: [Cybersecurity, InfoSec, AppleIntelligence, SiriAI, AISecurity]
 ---
 
