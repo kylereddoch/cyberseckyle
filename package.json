@@ -14,6 +14,8 @@
     "favicons": "node ./src/_config/setup/generate-favicons.js",
     "colors": "node ./src/_config/setup/create-colors.js",
     "screenshots": "node ./src/_config/setup/generate-screenshots.js",
+    "og:generate": "cross-env ELEVENTY_ENV=production OG_IMAGE_WRITE_SOURCE=true eleventy",
+    "og:generate:future": "cross-env ELEVENTY_ENV=production BUILD_FUTURE=true OG_IMAGE_WRITE_SOURCE=true eleventy",
     "dev:11ty": "cross-env ELEVENTY_ENV=development eleventy --serve",
     "dev:future": "cross-env ELEVENTY_ENV=development BUILD_DRAFTS=true BUILD_FUTURE=true eleventy --serve",
     "build:11ty": "cross-env ELEVENTY_ENV=production eleventy",
