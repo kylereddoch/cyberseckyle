@@ -10,6 +10,55 @@
   color-scheme: dark;
 }
 
+.dark .prose,
+:root:not(.light) .prose,
+.dark .prose h1,
+:root:not(.light) .prose h1,
+.dark .prose h2,
+:root:not(.light) .prose h2,
+.dark .prose h3,
+:root:not(.light) .prose h3,
+.dark .prose h4,
+:root:not(.light) .prose h4,
+.dark .prose h5,
+:root:not(.light) .prose h5,
+.dark .prose h6,
+:root:not(.light) .prose h6,
+.dark .prose strong,
+:root:not(.light) .prose strong {
+  color: #f3f4f6;
+}
+
+.dark .dark\:text-gray-100,
+:root:not(.light) .dark\:text-gray-100 {
+  color: #f3f4f6;
+}
+
+.dark .dark\:text-gray-300,
+:root:not(.light) .dark\:text-gray-300 {
+  color: #d1d5db;
+}
+
+.dark .dark\:text-gray-400,
+:root:not(.light) .dark\:text-gray-400 {
+  color: #9ca3af;
+}
+
+.dark .dark\:text-gray-500,
+:root:not(.light) .dark\:text-gray-500 {
+  color: #6b7280;
+}
+
+.dark .dark\:bg-gray-800,
+:root:not(.light) .dark\:bg-gray-800 {
+  background-color: #1f2937;
+}
+
+.dark .dark\:border-gray-700,
+:root:not(.light) .dark\:border-gray-700 {
+  border-color: #374151;
+}
+
 .fa-brands,
 .fa-regular,
 .fa-solid,
