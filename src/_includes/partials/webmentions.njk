@@ -17,7 +17,7 @@
             {% for mention in mentions.reposts %}
               <a class="webmentions__face h-card u-url" href="{{ mention.url or mention.author.url }}" target="_blank" rel="noopener noreferrer" title="{{ mention.author.name }}">
                 {% if mention.author.photo %}
-                  <img class="u-photo" src="{{ mention.author.photo }}" alt="{{ mention.author.name }}" loading="lazy" decoding="async" />
+                  <img class="u-photo" src="{{ mention.author.photo }}" alt="{{ mention.author.name }}" loading="lazy" decoding="async" eleventy:ignore />
                 {% else %}
                   <span class="webmentions__face-fallback" aria-hidden="true">{{ mention.author.name[0] | upper }}</span>
                   <span class="visually-hidden">{{ mention.author.name }}</span>
@@ -35,7 +35,7 @@
             {% for mention in mentions.likes %}
               <a class="webmentions__face h-card u-url" href="{{ mention.url or mention.author.url }}" target="_blank" rel="noopener noreferrer" title="{{ mention.author.name }}">
                 {% if mention.author.photo %}
-                  <img class="u-photo" src="{{ mention.author.photo }}" alt="{{ mention.author.name }}" loading="lazy" decoding="async" />
+                  <img class="u-photo" src="{{ mention.author.photo }}" alt="{{ mention.author.name }}" loading="lazy" decoding="async" eleventy:ignore />
                 {% else %}
                   <span class="webmentions__face-fallback" aria-hidden="true">{{ mention.author.name[0] | upper }}</span>
                   <span class="visually-hidden">{{ mention.author.name }}</span>
@@ -53,7 +53,7 @@
             {% for mention in mentions.bookmarks %}
               <a class="webmentions__face h-card u-url" href="{{ mention.url or mention.author.url }}" target="_blank" rel="noopener noreferrer" title="{{ mention.author.name }}">
                 {% if mention.author.photo %}
-                  <img class="u-photo" src="{{ mention.author.photo }}" alt="{{ mention.author.name }}" loading="lazy" decoding="async" />
+                  <img class="u-photo" src="{{ mention.author.photo }}" alt="{{ mention.author.name }}" loading="lazy" decoding="async" eleventy:ignore />
                 {% else %}
                   <span class="webmentions__face-fallback" aria-hidden="true">{{ mention.author.name[0] | upper }}</span>
                   <span class="visually-hidden">{{ mention.author.name }}</span>
@@ -71,7 +71,7 @@
             {% for mention in mentions.mentions %}
               <a class="webmentions__face h-card u-url" href="{{ mention.url or mention.author.url }}" target="_blank" rel="noopener noreferrer" title="{{ mention.author.name }} mentioned this">
                 {% if mention.author.photo %}
-                  <img class="u-photo" src="{{ mention.author.photo }}" alt="{{ mention.author.name }}" loading="lazy" decoding="async" />
+                  <img class="u-photo" src="{{ mention.author.photo }}" alt="{{ mention.author.name }}" loading="lazy" decoding="async" eleventy:ignore />
                 {% else %}
                   <span class="webmentions__face-fallback" aria-hidden="true">{{ mention.author.name[0] | upper }}</span>
                   <span class="visually-hidden">{{ mention.author.name }}</span>
@@ -93,7 +93,7 @@
                 <article class="webmentions__comment-card u-comment h-cite">
                   <div class="webmentions__comment-avatar">
                     {% if mention.author.photo %}
-                      <img class="u-photo" src="{{ mention.author.photo }}" alt="{{ mention.author.name }}" loading="lazy" decoding="async" />
+                      <img class="u-photo" src="{{ mention.author.photo }}" alt="{{ mention.author.name }}" loading="lazy" decoding="async" eleventy:ignore />
                     {% else %}
                       <span class="webmentions__comment-fallback" aria-hidden="true">{{ mention.author.name[0] | upper }}</span>
                     {% endif %}

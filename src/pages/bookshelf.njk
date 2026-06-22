@@ -51,7 +51,7 @@ description: "A living reading list powered by Hardcover, showing what I am read
         {% for book in bookshelf.reading %}
         <li class="bookshelf-reading-item">
           {% if book.image %}
-          <img src="{{ book.image }}" alt="" class="bookshelf-book__cover" loading="lazy" />
+          <img src="{{ book.image }}" alt="" class="bookshelf-book__cover" loading="lazy" eleventy:ignore />
           {% else %}
           <div class="bookshelf-book__cover bookshelf-book__cover--placeholder" aria-hidden="true">&#128218;</div>
           {% endif %}
@@ -84,7 +84,7 @@ description: "A living reading list powered by Hardcover, showing what I am read
         <li class="bookshelf-cover-card">
           <a href="{{ book.url }}" class="bookshelf-cover-card__media">
             {% if book.image %}
-            <img src="{{ book.image }}" alt="" class="bookshelf-book__cover" loading="lazy" />
+            <img src="{{ book.image }}" alt="" class="bookshelf-book__cover" loading="lazy" eleventy:ignore />
             {% else %}
             <div class="bookshelf-book__cover bookshelf-book__cover--placeholder" aria-hidden="true">&#128218;</div>
             {% endif %}
@@ -117,7 +117,7 @@ description: "A living reading list powered by Hardcover, showing what I am read
         <li class="bookshelf-cover-card">
           <a href="{{ book.url }}" class="bookshelf-cover-card__media">
             {% if book.image %}
-            <img src="{{ book.image }}" alt="" class="bookshelf-book__cover" loading="lazy" />
+            <img src="{{ book.image }}" alt="" class="bookshelf-book__cover" loading="lazy" eleventy:ignore />
             {% else %}
             <div class="bookshelf-book__cover bookshelf-book__cover--placeholder" aria-hidden="true">&#128218;</div>
             {% endif %}

@@ -36,6 +36,7 @@ description: "A running log of what I am listening to, powered by Last.fm."
         alt=""
         class="listening-now__cover{% if listening.nowPlaying and listening.nowPlaying.image %}{% else %} hidden{% endif %}"
         loading="lazy"
+        eleventy:ignore
         data-listening-now-cover
       />
     </div>
@@ -53,7 +54,7 @@ description: "A running log of what I am listening to, powered by Last.fm."
       <li class="listening-track">
         <div class="listening-card__top">
           {% if track.image %}
-          <img src="{{ track.image }}" alt="" class="listening-card__cover" loading="lazy" />
+          <img src="{{ track.image }}" alt="" class="listening-card__cover" loading="lazy" eleventy:ignore />
           {% endif %}
           <div class="min-w-0 flex-1">
             <div class="flex flex-wrap items-center gap-2">
