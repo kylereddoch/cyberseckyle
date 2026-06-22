@@ -4,7 +4,7 @@ title: 'Introducing my new CybersecKyle Security How-To Series: the full roadmap
 description: "A living roadmap for five seasons of hands-on security guides, from Everyday Defense to Blue Team fundamentals."
 tags: [cyberseckyle-howto-series, cybersecurity, tutorials, security]
 mastodon_url: https://infosec.exchange/@cyberseckyle/115492350638217573
-lastModified: 2026-06-08T10:07:43-05:00
+lastModified: 2026-06-22T11:27:27-05:00
 ---
 
 ![CybersecKyle Security How-To Series](/assets/images/cyberseckyle_security-howto_hero.png){loading="eager" eleventy:widths="auto"}

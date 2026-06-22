@@ -4,8 +4,8 @@ title: 'CybersecKyle Security How-To Series: Home Network and Devices, Part 2 - 
 seoTitle: Practical Windows 11 and macOS Security Baselines
 description: 'A practical Windows 11 and macOS security baseline you can keep turned on: updates, encryption, built-in protections, firewalls, safer accounts, trusted apps, backups, and quick validation drills.'
 searchIntent: Help home users and power users secure Windows 11 and macOS with practical built-in controls that meaningfully reduce risk without making their computers miserable to use.
-featuredImage: /assets/images/cyberseckyle_security-howto_hero.png
-featuredImageAlt: CybersecKyle Security How-To Series artwork representing practical, approachable cybersecurity guidance.
+featuredImage: /assets/images/workspace-laptop.jpg
+featuredImageAlt: Laptop workspace representing practical Windows and macOS security baseline work.
 featuredImageCaption: A useful computer security baseline should survive contact with daily life.
 tags: [cyberseckyle-howto-series, cybersecurity, security, windows, macos, endpoint-security, home-networking, how-to]
 mastodon_post: true
