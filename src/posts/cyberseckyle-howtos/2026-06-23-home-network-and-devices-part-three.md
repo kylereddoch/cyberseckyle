@@ -9,7 +9,7 @@ featuredImageAlt: Laptop with external hard drives and storage devices connected
 featuredImageCaption: Safe storage is not just where your files live. It is whether you can trust, recover, and control them.
 tags: [cyberseckyle-howto-series, cybersecurity, security, backups, privacy, home-networking, how-to]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116800447369627991"
 mastodon_tags: [Cybersecurity, InfoSec, Backups, Privacy, CybersecKyleHowTo]
 ---
 
