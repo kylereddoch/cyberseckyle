@@ -6,7 +6,7 @@ description: "IT and cybersecurity hiring often says it wants people who can lea
 searchIntent: Help job seekers, hiring managers, and IT leaders understand how overly narrow IT and cybersecurity requirements create artificial barriers, frustration, and weaker hiring pipelines.
 tags: [cybersecurity, IT, career, workplace]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116805792284034618"
 mastodon_tags: [Cybersecurity, InfoSec, ITCareer, Hiring, Career]
 ---
 
