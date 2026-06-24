@@ -5,7 +5,7 @@ description: "I get asked fairly often why I do not post about every cybersecuri
 featuredImage: /assets/images/andrew-neel-cckf4TsHAuw-unsplash.jpg
 featuredImageAlt: A lone desk in a dimly lit office with multiple security headlines glowing on screens while one screen in the center shows a calm, focused analyst choosing what matters.
 featuredImageCaption: 'Photo by <a href="https://unsplash.com/@andrewtneel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Andrew Neel</a> on <a href="https://unsplash.com/photos/macbook-pro-white-ceramic-mugand-black-smartphone-on-table-cckf4TsHAuw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>'
-tags: [editorial, personal, blogging]
+tags: [editorials, personal, blogging]
 mastodon_post: true
 mastodon_url: "https://infosec.exchange/@cyberseckyle/116562570076330216"
 mastodon_tags: [Cybersecurity, Blogging]
