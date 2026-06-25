@@ -9,7 +9,7 @@ featuredImageAlt: Network security themed image representing protected devices a
 featuredImageCaption: Smart devices are useful. That does not mean they need the same trust as your laptop.
 tags: [cyberseckyle-howto-series, cybersecurity, security, networking, network-security, smart-home, home-networking, how-to]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116811929848742699"
 mastodon_tags: [Cybersecurity, InfoSec, SmartHome, Networking, CybersecKyleHowTo]
 ---
 
