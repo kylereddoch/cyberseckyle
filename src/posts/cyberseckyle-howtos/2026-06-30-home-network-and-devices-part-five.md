@@ -7,7 +7,7 @@ searchIntent: Help home users and small teams adopt passkeys and hardware securi
 featuredImage: /assets/images/passkeys-not-silver-bullet.png
 featuredImageAlt: Passkey security artwork representing passwordless sign-in and identity protection.
 featuredImageCaption: Passwordless is great when recovery is planned before the password disappears.
-tags: [cyberseckyle-howto-series, cybersecurity, security, passkeys, passwords, mfa, identity-security, how-to]
+tags: [cyberseckyle-howto-series, cybersecurity, passkeys, passwords, mfa, identity-security, how-to]
 mastodon_post: true
 mastodon_url: "https://infosec.exchange/@cyberseckyle/116840209481505698"
 mastodon_tags: [Cybersecurity, InfoSec, Passkeys, MFA, CybersecKyleHowTo]
@@ -59,6 +59,24 @@ Use the device you already trust to prove it is you.
 ```
 
 That can be safer and less annoying when set up well.
+
+## What changed recently
+
+The passkey ecosystem is moving fast enough that I would not treat any one setup guide as permanent.
+
+The biggest recent improvement is portability. The [FIDO Alliance's Credential Exchange specifications](https://fidoalliance.org/specifications-credential-exchange-specifications/) define a standard way for credential managers to transfer credentials, including passkeys, more safely. That matters because one of the most annoying passkey problems has been lock-in: create a passkey in one ecosystem, then discover later that moving to another password manager is awkward or manual.
+
+That is starting to change. [Android Authority reported from Google's June 2026 Play services notes](https://www.androidauthority.com/google-password-manager-import-export-support-3673351/) that Google Password Manager is adding import and export support for passwords and passkeys with third-party password managers through the Credential Exchange standard. [Apple's current passkey overview](https://developer.apple.com/passkeys/) also points to automatic passkey upgrades, management endpoints, and secure import/export between password managers.
+
+That is good news, but I would still treat it as a rollout, not a universal guarantee. Your phone, browser, operating system, password manager, and the specific website all have to support the same practical flow before "I can move this later" becomes true for your account.
+
+The other recent signal is that weak recovery methods are getting squeezed. [Microsoft says it is phasing out SMS as an authentication and account recovery method for personal Microsoft accounts](https://support.microsoft.com/en-us/accounts-billing/manage/microsoft-to-stop-sending-sms-codes-for-personal-accounts), pushing people toward passkeys and verified email instead. That is directionally right because SMS is a messy recovery channel, but it also means you need to know your backup path before a provider changes what it accepts.
+
+So the practical advice has not changed:
+
+```txt
+Adopt passkeys, but document recovery before you depend on them.
+```
 
 ## Where to start
 
@@ -151,11 +169,15 @@ For the highest-value accounts, I like hardware security keys because they creat
 
 One security key is better than none until it becomes the thing you lost.
 
+If your password manager now offers passkey import or export, test that process with a low-risk account before assuming it will save you during a real emergency. Portability is improving, but "supported somewhere" is not the same thing as "tested with my devices and accounts."
+
 ## Step 4: Decide what still needs a password
 
 Passwordless does not always mean passwords vanish immediately.
 
 Some services let you add a passkey while keeping the password. Some let you remove the password. Some still require passwords for recovery. Some support passkeys only on certain browsers or devices.
+
+Some services are also changing their fallback methods. If SMS is still part of your recovery plan, treat it as temporary and weaker than the rest of your setup. Replace it with a better option where the service allows it, and make sure the recovery email or verified email address is protected with strong MFA too.
 
 Do not rush to remove passwords everywhere.
 
@@ -165,6 +187,8 @@ For each account, ask:
 * Are there backup passkeys or keys?
 * Does my family or team need emergency access?
 * Does the service still require the password for older apps?
+* Is SMS still enabled for sign-in or recovery?
+* Can I move or recreate my passkeys if I change password managers?
 * Do I understand how to revoke a lost device?
 
 If the answer is unclear, keep the strong unique password in your password manager while you learn.
@@ -185,6 +209,8 @@ Secure it with:
 This is the part people skip because passkeys feel automatic.
 
 Automatic is nice. Account recovery still matters.
+
+If your password manager starts offering automatic passkey upgrades, treat that as a helpful prompt, not a reason to skip the recovery map. Auto-upgraded credentials are still credentials you need to inventory, name clearly when possible, and understand before deleting the old path.
 
 ## Step 6: Remove stale passkeys and devices
 
@@ -262,6 +288,7 @@ Inventory
 [ ] Current MFA methods listed
 [ ] Recovery email and phone verified
 [ ] Backup codes stored safely
+[ ] SMS recovery reviewed and removed where better options exist
 
 Setup
 [ ] First passkey created on low-risk account
@@ -269,6 +296,7 @@ Setup
 [ ] Important accounts prioritized
 [ ] Passkeys named clearly where possible
 [ ] Password manager or platform account secured
+[ ] Passkey import/export tested with a low-risk account if available
 
 Backup access
 [ ] Second trusted device tested
