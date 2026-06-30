@@ -9,7 +9,7 @@ featuredImageAlt: Passkey security artwork representing passwordless sign-in and
 featuredImageCaption: Passwordless is great when recovery is planned before the password disappears.
 tags: [cyberseckyle-howto-series, cybersecurity, security, passkeys, passwords, mfa, identity-security, how-to]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116840209481505698"
 mastodon_tags: [Cybersecurity, InfoSec, Passkeys, MFA, CybersecKyleHowTo]
 ---
 
