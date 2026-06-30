@@ -43,5 +43,5 @@ export const formatArticleDateTime = date => {
   const minute = getDateTimePart(parts, 'minute');
   const dayPeriod = getDateTimePart(parts, 'dayPeriod').toLowerCase();
 
-  return `${month} ${day}, ${year}, ${hour}:${minute}${dayPeriod}`;
+  return `${month} ${day}, ${year} at ${hour}:${minute}${dayPeriod}`;
 };
