@@ -16,6 +16,7 @@ description: "Writing from CybersecKyle, including long-form posts and dated /no
 
   <div class="space-y-8">
     {% for post in entries %}
+      {% set publishedDate = post | publishedDate %}
       {% if '/now/' in post.url %}
         {% set entryIcon = '&#128205;' %}
         {% set entryLabel = 'Now' %}
@@ -34,7 +35,7 @@ description: "Writing from CybersecKyle, including long-form posts and dated /no
         <h2 class="p-name text-xl font-semibold">
           <a class="u-url hover:text-blue-600" href="{{ post.url }}">{{ post.data.title }}</a>
         </h2>
-        <time class="dt-published text-sm text-gray-500 dark:text-gray-400 block mt-1" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+        <time class="dt-published text-sm text-gray-500 dark:text-gray-400 block mt-1" datetime="{{ publishedDate | htmlDateString }}">{{ publishedDate | readableDate }}</time>
 
         {% if post.data.description %}
           <div class="p-summary mt-3 text-gray-700 dark:text-gray-300">{{ post.data.description }}</div>

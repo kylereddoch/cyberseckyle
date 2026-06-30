@@ -39,6 +39,7 @@ description: "Welcome to CybersecKyle, where Kyle Reddoch writes about cybersecu
     {% if recent | length > 0 %}
       <div class="space-y-8">
         {% for entry in recent | head(5) %}
+          {% set publishedDate = entry | publishedDate %}
           {% set entryType = entry.data.contentType or 'post' %}
           {% if '/now/' in entry.url %}
             {% set entryType = 'now' %}
@@ -62,8 +63,8 @@ description: "Welcome to CybersecKyle, where Kyle Reddoch writes about cybersecu
                 <span class="entry-type-badge__icon" aria-hidden="true">{{ entryIcon | safe }}</span>
                 <span class="entry-type-badge__label">{{ entryLabel }}</span>
               </span>
-              {% if entry.date %}
-                <time class="dt-published text-sm text-gray-500 dark:text-gray-400" datetime="{{ entry.date | htmlDateString }}">{{ entry.date | readableDate }}</time>
+              {% if publishedDate %}
+                <time class="dt-published text-sm text-gray-500 dark:text-gray-400" datetime="{{ publishedDate | htmlDateString }}">{{ publishedDate | readableDate }}</time>
               {% endif %}
             </div>
 

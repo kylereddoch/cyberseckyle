@@ -1,7 +1,8 @@
 {% set bodyMetaDescription = "" %}
 {% set isPostLike = layout == 'post' or layout == 'note' or layout == 'journal' %}
 {% set metaTitle = seoTitle or title or meta.siteName %}
-{% set modifiedDate = lastModified or lastUpdated or updated or modified or page.date %}
+{% set publishedDate = publishedAt or published_at or actualPublishedAt or actual_published_at or page.date %}
+{% set modifiedDate = lastModified or lastUpdated or updated or modified or publishedDate %}
 {% if isPostLike %}
   {% set bodyMetaDescription = (page.rawInput or content) | metaDescription %}
 {% endif %}
@@ -85,7 +86,7 @@
 <meta property="og:locale" content="{{ meta.locale }}" />
 <meta property="article:author" content="{{ meta.author.name }}" />
 {% if layout == 'post' or layout == 'note' or layout == 'journal' %}
-  <meta property="article:published_time" content="{{ page.date | toIsoString }}" />
+  <meta property="article:published_time" content="{{ publishedDate | toIsoString }}" />
   <meta property="article:modified_time" content="{{ modifiedDate | toIsoString }}" />
   {% if tags and tags.length %}
     {% for tag in tags %}

@@ -2,6 +2,19 @@ import dayjs from 'dayjs';
 
 const SITE_TIME_ZONE = 'America/Chicago';
 
+export const getPublishedDate = item => {
+  const candidate =
+    item?.data?.publishedAt ||
+    item?.data?.published_at ||
+    item?.data?.actualPublishedAt ||
+    item?.data?.actual_published_at ||
+    item?.date ||
+    item;
+  const date = new Date(candidate);
+
+  return Number.isNaN(date.getTime()) ? item?.date : date;
+};
+
 const dateTimeParts = date => new Intl.DateTimeFormat('en-US', {
   timeZone: SITE_TIME_ZONE,
   month: 'long',
@@ -22,7 +35,7 @@ export const formatDate = (date, format) => dayjs(date).format(format);
 
 /** Formats article dates with Central time, for example: May 26, 2026, 11:30am. */
 export const formatArticleDateTime = date => {
-  const parts = dateTimeParts(date);
+  const parts = dateTimeParts(getPublishedDate(date));
   const month = getDateTimePart(parts, 'month');
   const day = getDateTimePart(parts, 'day');
   const year = getDateTimePart(parts, 'year');

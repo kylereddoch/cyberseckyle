@@ -24,6 +24,7 @@ layout: base
   {% set pageMentions = webmentions.byTarget | lookup(pageWebmentionTarget) %}
   {% set mastodonDiscussionUrl = mastodon_url or pageMentions.syndicationUrl %}
   {% set mastodonAccountUrl = meta.creator.social or meta.author.website %}
+  {% set publishedDate = publishedAt or published_at or actualPublishedAt or actual_published_at or page.date %}
 
     {% if heroImage %}
     <div class="mb-8">
@@ -40,7 +41,7 @@ layout: base
       <p class="text-lg text-gray-600 dark:text-gray-400 mb-3">{{ description }}</p>
     {% endif %}
     <div class="text-sm text-gray-600 dark:text-gray-400">
-      Published on <time class="dt-published" datetime="{{ page.date | toIsoString }}">{{ page.date | readableDateTime }}</time>
+      Published on <time class="dt-published" datetime="{{ publishedDate | toIsoString }}">{{ publishedDate | readableDateTime }}</time>
       by <span class="p-author h-card">
         <a class="u-url p-name hover:text-blue-600" href="/about/">{{ meta.author.name }}</a>
       </span>

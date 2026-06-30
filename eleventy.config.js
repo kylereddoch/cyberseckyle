@@ -24,6 +24,7 @@ import esbuild from 'esbuild';
 //  config import
 import {
   categoryList,
+  getPublishedDate,
   getAllPosts,
   getBlogEntries,
   getJournalPosts,
@@ -329,7 +330,7 @@ export default async function (eleventyConfig) {
       byUrl.set(item.url, item);
     }
 
-    return [...byUrl.values()].sort((a, b) => b.date - a.date);
+    return [...byUrl.values()].sort((a, b) => getPublishedDate(b) - getPublishedDate(a));
   });
 
   eleventyConfig.addCollection('homeEntries', collectionApi => {
@@ -353,7 +354,7 @@ export default async function (eleventyConfig) {
       searchIntent: item.data?.searchIntent || '',
       tags: Array.isArray(item.data?.tags) ? item.data.tags.filter(tag => !['posts', 'notes', 'journal'].includes(tag)) : [],
       content: getSearchableContent(item),
-      date: item.date
+      date: getPublishedDate(item)
     }));
 
     const projectEntries = getProjects(collectionApi).map(item => ({
@@ -367,7 +368,7 @@ export default async function (eleventyConfig) {
         ...(Array.isArray(item.data?.techStack) ? item.data.techStack : [])
       ].filter(Boolean),
       content: getSearchableContent(item),
-      date: item.date
+      date: getPublishedDate(item)
     }));
 
     const pageEntries = collectionApi
@@ -381,7 +382,7 @@ export default async function (eleventyConfig) {
         searchIntent: item.data?.searchIntent || '',
         tags: [],
         content: getSearchableContent(item),
-        date: item.date
+        date: getPublishedDate(item)
       }));
 
     const seen = new Set();
@@ -556,6 +557,7 @@ export default async function (eleventyConfig) {
 
   eleventyConfig.addFilter('toIsoString', filters.toISOString);
   eleventyConfig.addFilter('formatDate', filters.formatDate);
+  eleventyConfig.addFilter('publishedDate', filters.getPublishedDate);
   eleventyConfig.addFilter('readableDate', date => filters.formatDate(date, 'MMMM D, YYYY'));
   eleventyConfig.addFilter('readableDateTime', filters.formatArticleDateTime);
   eleventyConfig.addFilter('htmlDateString', date => filters.formatDate(date, 'YYYY-MM-DD'));
@@ -599,7 +601,7 @@ export default async function (eleventyConfig) {
         return { item, score };
       })
       .filter(entry => entry.score > 0)
-      .sort((a, b) => b.score - a.score || b.item.date - a.item.date)
+      .sort((a, b) => b.score - a.score || getPublishedDate(b.item) - getPublishedDate(a.item))
       .slice(0, limit)
       .map(entry => entry.item);
   });

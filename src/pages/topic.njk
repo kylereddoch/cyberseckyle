@@ -60,6 +60,7 @@ eleventyComputed:
   </header>
 
   {% if starterPost %}
+    {% set starterPublishedDate = starterPost | publishedDate %}
     <section class="topic-start-card">
       <p class="topic-kicker">Start Here</p>
       <h2>
@@ -68,7 +69,7 @@ eleventyComputed:
       {% if starterPost.data.description %}
         <p>{{ starterPost.data.description }}</p>
       {% endif %}
-      <time datetime="{{ starterPost.date | htmlDateString }}">{{ starterPost.date | readableDate }}</time>
+      <time datetime="{{ starterPublishedDate | htmlDateString }}">{{ starterPublishedDate | readableDate }}</time>
     </section>
   {% endif %}
 
@@ -83,11 +84,12 @@ eleventyComputed:
     {% if topicPosts.length %}
       <div class="topic-post-list">
         {% for post in topicPosts | head(12) %}
+          {% set publishedDate = post | publishedDate %}
           <article class="topic-post-card">
             <h3>
               <a href="{{ post.url }}">{{ post.data.title }}</a>
             </h3>
-            <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+            <time datetime="{{ publishedDate | htmlDateString }}">{{ publishedDate | readableDate }}</time>
             {% if post.data.description %}
               <p>{{ post.data.description }}</p>
             {% endif %}

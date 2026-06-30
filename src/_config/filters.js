@@ -1,4 +1,4 @@
-import {toISOString, formatDate, formatArticleDateTime} from './filters/dates.js';
+import {toISOString, formatDate, formatArticleDateTime, getPublishedDate} from './filters/dates.js';
 import {markdownFormat} from './filters/markdown-format.js';
 import {shuffleArray} from './filters/sort-random.js';
 import {sortAlphabetically} from './filters/sort-alphabetic.js';
@@ -13,6 +13,7 @@ import {cdata} from './filters/cdata.js';
 export default {
   toISOString,
   formatDate,
+  getPublishedDate,
   formatArticleDateTime,
   markdownFormat,
   splitlines,

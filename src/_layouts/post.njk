@@ -25,6 +25,7 @@ schema: BlogPosting
   {% set pageMentions = webmentions.byTarget | lookup(pageWebmentionTarget) %}
   {% set mastodonDiscussionUrl = mastodon_url or pageMentions.syndicationUrl %}
   {% set mastodonAccountUrl = meta.creator.social or meta.author.website %}
+  {% set publishedDate = publishedAt or published_at or actualPublishedAt or actual_published_at or page.date %}
 
   {% if heroImage %}
     <div class="mb-8">
@@ -42,7 +43,7 @@ schema: BlogPosting
     {% endif %}
 
     <div class="text-sm text-gray-600 dark:text-gray-400">
-      Published on <time class="dt-published" datetime="{{ page.date | toIsoString }}">{{ page.date | readableDateTime }}</time>
+      Published on <time class="dt-published" datetime="{{ publishedDate | toIsoString }}">{{ publishedDate | readableDateTime }}</time>
       by <span class="p-author h-card">
         <a class="u-url p-name hover:text-blue-600" href="/about/">{{ meta.author.name }}</a>
       </span>
@@ -63,13 +64,13 @@ schema: BlogPosting
     <a class="u-url hidden" href="{{ page.url | url | absoluteUrl(meta.url) }}">Permalink</a>
   </header>
 
-  {%- set isOldPost -%}{{ page.date | isOldPost }}{%- endset -%}
+  {%- set isOldPost -%}{{ publishedDate | isOldPost }}{%- endset -%}
   {% if isOldPost == "true" %}
     <aside class="old-post-warning mb-8" aria-label="Older post notice">
       <span class="old-post-warning__icon" aria-hidden="true">&#9888;&#65039;</span>
       <div class="old-post-warning__body">
         <p>
-          <strong>Heads up:</strong> This post is over {{ page.date | diffInYears }} years old, so some details and opinions may be out of date. The takes are still fire though.
+          <strong>Heads up:</strong> This post is over {{ publishedDate | diffInYears }} years old, so some details and opinions may be out of date. The takes are still fire though.
         </p>
       </div>
     </aside>

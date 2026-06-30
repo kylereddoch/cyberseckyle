@@ -24,11 +24,12 @@ excludeFromSearch: true
   {% if catPosts.length > 0 %}
     <div class="space-y-6">
       {% for post in catPosts %}
+        {% set publishedDate = post | publishedDate %}
         <article class="border-b border-gray-200 dark:border-gray-700 pb-6">
           <h2 class="text-xl font-semibold">
             <a href="{{ post.url }}" class="hover:text-blue-600">{{ post.data.title }}</a>
           </h2>
-          <time class="text-sm text-gray-500" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+          <time class="text-sm text-gray-500" datetime="{{ publishedDate | htmlDateString }}">{{ publishedDate | readableDate }}</time>
           {% if post.data.description %}
             <p class="mt-2 text-gray-700 dark:text-gray-300">{{ post.data.description }}</p>
           {% endif %}

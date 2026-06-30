@@ -8,8 +8,16 @@ excludeFromSitemap: true
   {% for page in collections.showInSitemap %}
     {% if page.url and page.data.excludeFromSitemap != true %}
 
-      {% if page.data.lastUpdated %}
+      {% if page.data.lastModified %}
+        {% set lastmod = page.data.lastModified %}
+      {% elseif page.data.lastUpdated %}
         {% set lastmod = page.data.lastUpdated %}
+      {% elseif page.data.updated %}
+        {% set lastmod = page.data.updated %}
+      {% elseif page.data.modified %}
+        {% set lastmod = page.data.modified %}
+      {% elseif page.data.publishedAt %}
+        {% set lastmod = page.data.publishedAt %}
       {% else %}
         {% set lastmod = page.date %}
       {% endif %}

@@ -18,12 +18,13 @@ permalink: "/notes/{% if pagination.pageNumber > 0 %}page-{{ pagination.pageNumb
   {% else %}
     <section class="space-y-6">
       {% for item in items %}
+        {% set publishedDate = item | publishedDate %}
         <article class="border-b border-gray-200 dark:border-gray-700 pb-4 h-entry">
           <h2 class="text-xl font-semibold">
             <a class="u-url hover:text-blue-600" href="{{ item.url }}">{{ item.data.title or 'Untitled' }}</a>
           </h2>
-          {% if item.date %}
-            <time class="text-xs text-gray-500 dt-published" datetime="{{ item.date | htmlDateString }}">{{ item.date | readableDate }}</time>
+          {% if publishedDate %}
+            <time class="text-xs text-gray-500 dt-published" datetime="{{ publishedDate | htmlDateString }}">{{ publishedDate | readableDate }}</time>
           {% endif %}
           {% if item.data.description %}
             <p class="mt-2 text-gray-700 dark:text-gray-300 p-summary">{{ item.data.description }}</p>

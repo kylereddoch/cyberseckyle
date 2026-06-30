@@ -188,17 +188,19 @@ function getStatusText(data, postUrl) {
   return [heading, postUrl, tags].filter(Boolean).join('\n\n');
 }
 
-function setFrontMatterValue(raw, parsed, key, value) {
+function setFrontMatterValues(raw, parsed, values) {
   const eol = parsed.lineEnding;
-  const valueLine = `${key}: ${yamlQuote(value)}`;
-  const headerPattern = new RegExp(`^${key}:.*$`, 'm');
-
   let header = parsed.header;
 
-  if (headerPattern.test(header)) {
-    header = header.replace(headerPattern, valueLine);
-  } else {
-    header = `${header}${eol}${valueLine}`;
+  for (const [key, value] of Object.entries(values)) {
+    const valueLine = `${key}: ${yamlQuote(value)}`;
+    const headerPattern = new RegExp(`^${key}:.*$`, 'm');
+
+    if (headerPattern.test(header)) {
+      header = header.replace(headerPattern, valueLine);
+    } else {
+      header = `${header}${eol}${valueLine}`;
+    }
   }
 
   return `---${eol}${header}${eol}---${eol}${parsed.body}`;
@@ -534,7 +536,16 @@ async function publishFile(file) {
     throw new Error(`Mastodon did not return a status URL for ${relativePath}.`);
   }
 
-  fs.writeFileSync(file, setFrontMatterValue(raw, parsed, 'mastodon_url', mastodonUrl), 'utf8');
+  const publishedAt = data.publishedAt || data.published_at || mastodonStatus.created_at || new Date().toISOString();
+
+  fs.writeFileSync(
+    file,
+    setFrontMatterValues(raw, parsed, {
+      mastodon_url: mastodonUrl,
+      publishedAt
+    }),
+    'utf8'
+  );
 
   console.log(`Posted ${relativePath} to Mastodon: ${mastodonUrl}`);
 

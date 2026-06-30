@@ -6,7 +6,8 @@
 {% set isPostLike = layout == 'post' or layout == 'note' or layout == 'journal' %}
 {% set isTopicHub = layout == 'topic-hub' or pageType == 'topic-hub' %}
 {% set pageName = seoTitle or title or meta.siteName %}
-{% set modifiedDate = lastModified or lastUpdated or updated or modified or page.date %}
+{% set publishedDate = publishedAt or published_at or actualPublishedAt or actual_published_at or page.date %}
+{% set modifiedDate = lastModified or lastUpdated or updated or modified or publishedDate %}
 {% set socialProfiles = [] %}
 {% if personal.platforms.github %}
   {% set socialProfiles = (socialProfiles.push(personal.platforms.github), socialProfiles) %}
@@ -71,7 +72,7 @@
     'headline': title,
     'description': metaDescription | trim,
     'image': [articleImage],
-    'datePublished': page.date | toIsoString,
+    'datePublished': publishedDate | toIsoString,
     'dateModified': modifiedDate | toIsoString,
     'author': { '@id': personId },
     'publisher': { '@id': personId },

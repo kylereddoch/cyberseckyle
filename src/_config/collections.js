@@ -1,4 +1,16 @@
-const sortByNewest = (a, b) => b.date - a.date;
+export const getPublishedDate = item => {
+  const candidate =
+    item?.data?.publishedAt ||
+    item?.data?.published_at ||
+    item?.data?.actualPublishedAt ||
+    item?.data?.actual_published_at ||
+    item?.date;
+  const date = new Date(candidate);
+
+  return Number.isNaN(date.getTime()) ? item?.date : date;
+};
+
+const sortByNewest = (a, b) => getPublishedDate(b) - getPublishedDate(a);
 const sortByProjectOrder = (a, b) => {
   const orderA = Number.isFinite(Number(a?.data?.projectOrder)) ? Number(a.data.projectOrder) : Number.MAX_SAFE_INTEGER;
   const orderB = Number.isFinite(Number(b?.data?.projectOrder)) ? Number(b.data.projectOrder) : Number.MAX_SAFE_INTEGER;

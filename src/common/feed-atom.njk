@@ -6,6 +6,7 @@ excludeFromSitemap: true
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet href="/feed.min.css" type="text/css"?>
 {% set postslist = collections.feedEntries | head(15) %}
+{% set feedBuildDate = postslist | first | publishedDate %}
 <rss version="2.0"
   xmlns:atom="http://www.w3.org/2005/Atom"
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -17,7 +18,7 @@ excludeFromSitemap: true
     <link>{{ meta.url | addPathPrefixToFullUrl }}</link>
     <description>{{ meta.blog.description }}</description>
     <language>{{ meta.lang or page.lang }}</language>
-    <lastBuildDate>{{ postslist | getNewestCollectionItemDate | dateToRfc822 }}</lastBuildDate>
+    <lastBuildDate>{{ feedBuildDate | dateToRfc822 }}</lastBuildDate>
     <atom:link href="{{ permalink | htmlBaseUrl(meta.url) }}" rel="self" type="application/rss+xml" />
     <image>
       <url>{{ meta.author.avatar | absoluteUrl(meta.url) }}</url>
@@ -51,6 +52,7 @@ excludeFromSitemap: true
   {%- for post in postslist %}
     {%- set absolutePostUrl = post.url | absoluteUrl(meta.url) -%}
     {%- set image = post | feedImage(meta) -%}
+    {%- set publishedDate = post | publishedDate -%}
     {%- set feedImageMarkup -%}
 <p><img src="{{ image.url }}" alt="{{ image.alt | escape }}" /></p>
     {%- endset -%}
@@ -60,7 +62,7 @@ excludeFromSitemap: true
       <title>{{ post.data.title }}</title>
       <link>{{ absolutePostUrl }}</link>
       <guid isPermaLink="true">{{ absolutePostUrl }}</guid>
-      <pubDate>{{ post.date | dateToRfc822 }}</pubDate>
+      <pubDate>{{ publishedDate | dateToRfc822 }}</pubDate>
       <xhtml:a class="browser-title" href="{{ absolutePostUrl }}">{{ post.data.title }}</xhtml:a>
       <xhtml:img class="browser-image" src="{{ image.url | escape }}" alt="{{ image.alt | escape }}" />
       <dc:creator>{{ meta.author.name }}</dc:creator>

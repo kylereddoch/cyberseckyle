@@ -155,7 +155,7 @@ eleventyExcludeFromCollections: true
     letter-spacing="-1"
   >
     <tspan x="160" y="{{ dateY }}">
-      {{ post.date | formatDate('MM / DD / YYYY') }}
+      {{ post | publishedDate | formatDate('MM / DD / YYYY') }}
     </tspan>
   </text>
 
