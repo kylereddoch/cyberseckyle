@@ -8,6 +8,7 @@ featuredImage: /assets/images/apple-newsroom-business-policy-featured.jpg
 featuredImageAlt: A lineup of Apple devices representing the operating systems receiving Apple Intelligence and Siri AI features.
 featuredImageCaption: 'Image: <a href="https://www.apple.com/newsroom/2026/06/apple-unveils-next-generation-of-apple-intelligence-siri-ai-and-more/">Apple</a>'
 tags: [ai, apple, cybersecurity, MSP]
+lastModified: 2026-07-01T14:06:08-05:00
 mastodon_post: true
 mastodon_url: "https://infosec.exchange/@cyberseckyle/116783335189247957"
 mastodon_tags: [Cybersecurity, InfoSec, AppleIntelligence, SiriAI, AISecurity]
@@ -26,7 +27,7 @@ Before.
 
 Apple’s WWDC26 announcements make it clear that Apple Intelligence and Siri AI are becoming deeply integrated across iPhone, iPad, Mac, Apple Watch, and Vision Pro. Siri AI can use personal context, search across messages, emails, photos, and more, answer questions using screen context or web knowledge, and take action in apps. Apple Intelligence also brings AI into Safari, Mail, Messages, Calendar, Shortcuts, Photos, Image Playground, the Home app, and developer-facing App Intents.
 
-That is not a single feature. That is a platform shift.
+This is not a single feature. It is a platform shift.
 
 ## Why MSPs should care
 
@@ -36,7 +37,7 @@ They will get it through OS updates.
 
 Employees will enable features because they are helpful. Owners will ask why their phone can do something cool. Someone will use Siri AI to summarize a client email. Someone will use Writing Tools on a sensitive message. Someone will ask Siri to find a file. Someone will create a Shortcut. Someone will use Visual Intelligence on a document. Someone will ask an AI-generated reply to sound more professional.
 
-That is how shadow AI happens now. Not always through random browser tools, but through features built into trusted platforms.
+Shadow AI increasingly arrives this way: not always through random browser tools, but through features built into trusted platforms.
 
 For MSPs, this is exactly where we need to be proactive. We do not need to be dramatic. We do need to help clients make decisions before the defaults make decisions for them.
 
@@ -46,7 +47,7 @@ The good news is that Apple is not pretending management does not matter.
 
 Apple’s [device management restrictions documentation](https://support.apple.com/guide/deployment/review-device-management-restrictions-dep739685973/web) includes controls for Apple Intelligence reports, Safari summaries, Mail smart replies, Notes transcription and summaries, Visual Intelligence summarization, external intelligence integrations, Writing Tools, Image Playground, Genmoji, Image Wand, Xcode coding assistant external integrations, and managed versus unmanaged document flow.
 
-That is a real starting point.
+That gives admins a real starting point.
 
 The bad news is that many small businesses either do not manage Apple devices at all or manage them lightly.
 
@@ -64,7 +65,7 @@ For company-owned devices, the business can use MDM, supervision, managed apps, 
 
 The worst setup is pretending BYOD is company-owned or pretending company-owned devices are personal.
 
-That is how data gets tangled.
+Data gets tangled before anyone writes a policy.
 
 ## Define acceptable AI use
 
@@ -87,7 +88,7 @@ A law office, medical clinic, retail shop, construction company, church, and MSP
 
 ## Separate “drafting” from “doing”
 
-This is one of my strongest opinions on AI at work: drafting and doing are different risk categories.
+One of my strongest opinions on AI at work is that drafting and doing are different risk categories.
 
 Using AI to draft a better-worded email is one thing. Letting AI send it without review is another.
 
@@ -106,11 +107,11 @@ A simple model:
 - **Restricted:** Regulated data, passwords, MFA codes, financial approvals, legal documents, HR data, customer records.
 - **Not allowed without approval:** Automations that send, delete, share, purchase, approve, or change permissions.
 
-That is practical and easy to explain.
+That distinction is practical and easy to explain.
 
 ## Managed and unmanaged data flow matters
 
-This is one of the most overlooked Apple management topics.
+Managed and unmanaged data flow is one of the most overlooked Apple management topics.
 
 If company data can freely move into personal apps, personal iCloud, personal Notes, personal Messages, or unmanaged AI workflows, then policy becomes a suggestion.
 
@@ -120,7 +121,7 @@ This is not only an AI issue. AI just makes the old data boundary problem more o
 
 ## External intelligence integrations need a decision
 
-Apple’s documentation includes controls for external intelligence integrations and workspace IDs. That matters because not every AI request is necessarily handled the same way, and businesses may have different comfort levels with external services.
+Apple’s documentation includes controls for external intelligence integrations and workspace IDs. Not every AI request is necessarily handled the same way, and businesses may have different comfort levels with external services.
 
 A reasonable starting point for many SMBs:
 
@@ -162,7 +163,7 @@ For an MSP, I would turn this into a repeatable checklist:
 9. Train users.
 10. Revisit after OS updates and vendor app changes.
 
-This is the kind of service MSPs should be offering, because most clients will not do it on their own.
+MSPs should be offering this kind of service, because most clients will not do it on their own.
 
 ## Do not wait for perfect guidance
 
@@ -170,7 +171,7 @@ There will be more details, more updates, more vendor guidance, and more real-wo
 
 The first version of the policy can be simple. It can evolve.
 
-What matters is creating a default stance before employees create their own defaults.
+Create a default stance before employees create their own defaults.
 
 ## The bottom line
 

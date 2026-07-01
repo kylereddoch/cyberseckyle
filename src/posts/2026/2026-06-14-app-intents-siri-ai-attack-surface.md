@@ -8,6 +8,7 @@ featuredImage: /assets/images/apple-newsroom-app-intents-featured.jpg
 featuredImageAlt: Apple Intelligence presenting suggested actions based on the context of a conversation in Messages.
 featuredImageCaption: 'Image: <a href="https://www.apple.com/newsroom/2026/06/apple-intelligence-brings-powerful-ai-capabilities-into-everyday-experiences/">Apple</a>'
 tags: [ai, apple, appsec, cybersecurity]
+lastModified: 2026-07-01T14:06:08-05:00
 mastodon_post: true
 mastodon_url: "https://infosec.exchange/@cyberseckyle/116749495774572513"
 mastodon_tags: [Cybersecurity, InfoSec, AppleIntelligence, SiriAI, AISecurity]
@@ -16,13 +17,13 @@ mastodon_tags: [Cybersecurity, InfoSec, AppleIntelligence, SiriAI, AISecurity]
 
 App Intents used to feel like one of those Apple developer topics most normal users would never think about.
 
-That is changing.
+Siri AI changes that role.
 
 With Siri AI, App Intents become part of the security boundary between the assistant, the user, and third-party apps. If Siri AI is going to help users act naturally across apps, then the way apps expose content and actions matters a lot.
 
 Apple’s [WWDC26 Apple Intelligence developer guide](https://developer.apple.com/wwdc26/guides/apple-intelligence/) says the App Intents framework connects apps to Apple Intelligence and Siri AI. Apple says entity schemas can contribute app content to the Spotlight semantic index for personal context understanding, while intent schemas let people take action on that content naturally.
 
-That is powerful.
+Powerful, yes, but it pushes app security into places users may never see.
 
 It also means every app that integrates deeply with Siri AI can expand what the assistant can see and do.
 
@@ -38,11 +39,11 @@ Those should not all have the same friction.
 
 The old mobile permission model taught users to think about access to camera, microphone, contacts, photos, and location. App Intents adds a more operational question: what actions can this app make available to the system assistant?
 
-That is a different level of risk.
+That moves the risk from passive information retrieval into delegated action.
 
 ## Discoverability can become exposure
 
-Apple says entity schemas can contribute app content to the Spotlight semantic index. That is useful because it helps Siri AI understand and find the user’s content with attribution back to the app.
+Apple says entity schemas can contribute app content to the Spotlight semantic index. That helps Siri AI understand and find the user’s content with attribution back to the app.
 
 But discoverability is not automatically harmless.
 
@@ -57,13 +58,13 @@ Examples:
 - A finance app exposes invoice details.
 - A messaging app exposes private group names or attachments.
 
-The assistant may not be bypassing permissions. It may be using the access the app intentionally provided. That is why app developers need to treat intent and entity design as security design.
+The assistant may not be bypassing permissions. It may be using the access the app intentionally provided. App developers need to treat intent and entity design as security design.
 
 ## Natural language raises the ambiguity problem
 
 Apple’s developer guide says intent schemas let people take action naturally, with no specific phrases to define as Siri’s language understanding evolves.
 
-That is good UX. It is also tricky for security.
+That creates good UX, but it is tricky for security.
 
 When actions can be invoked through natural language, ambiguity matters. “Send this to John” sounds easy until there are three Johns, two accounts, one shared file, and one personal contact. “Archive these” depends on what “these” means. “Cancel that order” depends on which order. “Share the latest report” depends on which report and with whom.
 
@@ -108,7 +109,7 @@ High-risk actions:
 
 High-risk actions should require clear confirmation. Not a generic “Are you sure?” The confirmation should show the object, recipient, destination, amount, permission, account, and expected result.
 
-This is where [OWASP’s Excessive Agency guidance](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/) applies. If an LLM-based system has too much functionality, too many permissions, or too much autonomy, the impact can span confidentiality, integrity, and availability. App Intents are one of the places where those permissions become real.
+[OWASP’s Excessive Agency guidance](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/) applies directly here. If an LLM-based system has too much functionality, too many permissions, or too much autonomy, the impact can span confidentiality, integrity, and availability. App Intents are one of the places where those permissions become real.
 
 ## Third-party app quality will vary
 
@@ -116,7 +117,7 @@ Apple can design a strong framework. That does not mean every developer will use
 
 Some apps will implement thoughtful scopes and confirmations. Others will chase convenience. Some will expose broad actions because users asked for them. Some will have vague entity names, sloppy permissions, or weak separation between roles. Some will add AI integration late in the release cycle because marketing wants the feature.
 
-That is not a shot at developers. It is reality.
+That is not a shot at developers. It is the normal spread of quality in a large app ecosystem.
 
 Security maturity varies across the app ecosystem. Siri AI raises the stakes because weak app integration can become weak assistant behavior.
 
@@ -147,7 +148,7 @@ But broad MDM controls are not enough for every app-specific risk.
 
 If a business wants to allow Siri AI for low-risk actions but block high-risk actions in a specific app, the app vendor may need to provide that control. Otherwise, admins are forced into all-or-nothing decisions.
 
-That is usually bad security. It either blocks useful features or allows too much.
+That usually creates bad security: either useful features are blocked outright, or too much is allowed because the controls are too blunt.
 
 ## What app developers should do
 
@@ -189,7 +190,7 @@ For managed Apple environments:
 - Update acceptable use policies.
 - Train users on AI-assisted actions.
 
-The goal is not to block innovation. The goal is to avoid invisible action surfaces.
+The goal is not to block innovation. Avoid invisible action surfaces.
 
 ## The bottom line
 

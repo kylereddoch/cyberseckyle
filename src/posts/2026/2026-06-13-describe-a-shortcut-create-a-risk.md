@@ -8,6 +8,7 @@ featuredImage: /assets/images/apple-newsroom-shortcuts-featured.jpg
 featuredImageAlt: Apple Intelligence creating a Calendar event from a natural-language description on an iPhone.
 featuredImageCaption: 'Image: <a href="https://www.apple.com/newsroom/2026/06/apple-intelligence-brings-powerful-ai-capabilities-into-everyday-experiences/">Apple</a>'
 tags: [ai, apple, cybersecurity, appsec]
+lastModified: 2026-07-01T14:06:08-05:00
 mastodon_post: true
 mastodon_url: "https://infosec.exchange/@cyberseckyle/116743824716745617"
 mastodon_tags: [Cybersecurity, InfoSec, AppleIntelligence, SiriAI, AISecurity]
@@ -24,7 +25,7 @@ That sounds great. Shortcuts has always been powerful, but a lot of people never
 
 AI removes that barrier.
 
-That is the upside. The downside is that removing technical friction also removes some of the natural review that used to happen when people had to build workflows step by step.
+The upside is obvious. The downside is that removing technical friction also removes some of the natural review that used to happen when people had to build workflows step by step.
 
 ## This is vibe coding for personal automation
 
@@ -34,15 +35,15 @@ AI-built Shortcuts are basically vibe coding for the Apple ecosystem. A user des
 
 That can be incredibly useful. It can also create workflows users do not fully understand.
 
-The security risk is not that every AI-built Shortcut is dangerous. The risk is that users may approve automations that touch sensitive data, send information, move files, trigger smart home devices, interact with third-party apps, or create recurring actions without understanding every step.
+Not every AI-built Shortcut is dangerous. The risk is that users may approve automations that touch sensitive data, send information, move files, trigger smart home devices, interact with third-party apps, or create recurring actions without understanding every step.
 
-This is the same pattern we are seeing with AI-generated code. The output may work. That does not mean the user can defend it.
+The pattern is similar to AI-generated code: the output may work, but that does not mean the user can defend it.
 
 ## Automation risk is action risk
 
 Shortcuts is not just a note-taking tool. It can automate real actions.
 
-Depending on the apps involved and permissions granted, automations can interact with messages, files, calendar events, reminders, URLs, clipboard content, photos, home devices, focus modes, notifications, and third-party apps. That is why AI-built Shortcuts need to be reviewed like small pieces of operational logic, not cute productivity tips.
+Depending on the apps involved and permissions granted, automations can interact with messages, files, calendar events, reminders, URLs, clipboard content, photos, home devices, focus modes, notifications, and third-party apps. AI-built Shortcuts need to be reviewed like small pieces of operational logic, not cute productivity tips.
 
 [OWASP’s Excessive Agency guidance](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/) is useful here. It says the root causes of excessive agency are excessive functionality, excessive permissions, and excessive autonomy. A Shortcut can hit all three if it has broad app access, runs automatically, and performs actions that affect data or devices.
 
@@ -75,11 +76,11 @@ The most concerning Shortcuts are the ones triggered by content the user does no
 
 Email, Messages, notifications, websites, QR codes, calendar invites, and app data can all be messy. If a Shortcut reacts to those inputs, it needs guardrails. Otherwise, an attacker may be able to influence the automation simply by sending the right message or creating the right content.
 
-That is prompt injection thinking applied to automation.
+Think of it as prompt injection applied to automation: the bad input is not trying to produce a weird paragraph. It is trying to influence what runs next.
 
 If a malicious message can cause a Shortcut to file, forward, reply, open, unlock, notify, or send something, then the automation is not just convenient. It is an attack surface.
 
-This is where users need to be careful with natural-language automation. “When I get a delivery notification, turn on the porch lights” sounds safe. But what counts as a delivery notification? Which app? Which sender? Which keyword? What if a spoofed notification contains the same phrase?
+Natural-language automation needs this kind of skepticism. "When I get a delivery notification, turn on the porch lights" sounds safe. But what counts as a delivery notification? Which app? Which sender? Which keyword? What if a spoofed notification contains the same phrase?
 
 Specific triggers are safer than vague triggers.
 
@@ -91,7 +92,7 @@ Someone discovers Describe a Shortcut. They build automations to save invoices, 
 
 Then six months later, someone leaves the company, changes phones, loses a device, or a client asks why their information ended up in the wrong place.
 
-That is not an Apple problem. That is an operations problem.
+This is less an Apple problem than an operations problem.
 
 For MSPs, this is where we need to be practical. You do not need to ban Shortcuts in every environment. But you do need to treat business automations as business assets.
 
@@ -160,7 +161,7 @@ Describe a Shortcut could be fantastic. It will help normal users build automati
 
 But the easier automation becomes, the easier it is to create a workflow nobody understands.
 
-That is the security lesson.
+That security lesson is going to matter more as natural-language automation gets easier.
 
 AI-built automations need the same basic discipline as scripts, RMM policies, PowerShell snippets, and low-code workflows: know what they touch, know when they run, know who owns them, and know how to turn them off.
 

@@ -8,6 +8,7 @@ featuredImage: /assets/images/apple-newsroom-call-context-featured.jpg
 featuredImageAlt: Apple's Phone app surfacing flight confirmation details during a call using Call Context.
 featuredImageCaption: 'Image: <a href="https://www.apple.com/newsroom/2026/06/apple-intelligence-brings-powerful-ai-capabilities-into-everyday-experiences/">Apple</a>'
 tags: [ai, apple, cybersecurity, social-engineering]
+lastModified: 2026-07-01T14:06:08-05:00
 mastodon_post: true
 mastodon_url: "https://infosec.exchange/@cyberseckyle/116737898418699854"
 mastodon_tags: [Cybersecurity, InfoSec, AppleIntelligence, SiriAI, AISecurity]
@@ -34,11 +35,11 @@ Apple’s [Apple Intelligence announcement](https://www.apple.com/newsroom/2026/
 
 I can see why people will like it.
 
-The problem is that phone scams also depend on the user being in motion, under pressure, and willing to retrieve information quickly.
+Phone scams also depend on the user being in motion, under pressure, and willing to retrieve information quickly.
 
 ## Scammers do not need the feature to be insecure
 
-This is an important point.
+That distinction matters.
 
 Call Context does not have to be technically broken to create risk. The feature may work exactly as designed. It may run entirely on device. It may not share anything with Apple. The phone call may not be analyzed.
 
@@ -46,11 +47,11 @@ The scammer does not need to break any of that.
 
 They only need to manipulate the person.
 
-Social engineering attacks are built around pressure. “We need to verify your account.” “Your reservation will be canceled.” “Your payment failed.” “Your Apple ID has been locked.” “Your bank transfer is pending.” “This is IT support.” “We need the code to finish securing your account.”
+Social engineering attacks are built around pressure. "We need to verify your account." "Your reservation will be canceled." "Your payment failed." "Your Apple ID has been locked." "Your bank transfer is pending." "This is IT support." "We need the code to finish securing your account."
 
 Now imagine that during one of those calls, the phone helpfully surfaces the exact confirmation number, reservation code, or email context the scammer wants the user to read aloud.
 
-That is the risk.
+A smoother scam is the risk, not a broken assistant.
 
 Not a data breach. A human breach.
 
@@ -62,7 +63,7 @@ Good friction gives the user time to think. It slows down high-risk actions. It 
 
 Call Context could unintentionally make the scammer’s job easier by making sensitive information feel “officially relevant.” If the phone found it, users may assume it is safe to share.
 
-That is not always true.
+Real calls are messier than that.
 
 The phone can know that a number relates to the business being called. It cannot know that the person on the other end is trustworthy. Caller ID can be spoofed. Users can call numbers from poisoned search results or scam websites. A malicious email can include a fake support number. A compromised account can send a convincing message.
 
@@ -88,7 +89,7 @@ For an MSP, I would especially care about:
 
 A scammer pretending to be a vendor does not need full access to the device if they can talk an employee into retrieving the right context.
 
-This is where policy matters. Employees should know that AI-surfaced information is not automatically safe to disclose. They should verify callers through known trusted numbers, not phone numbers from random emails, pop-ups, ads, or search results.
+Policy matters here because employees should know that AI-surfaced information is not automatically safe to disclose. They should verify callers through known trusted numbers, not phone numbers from random emails, pop-ups, ads, or search results.
 
 ## Confirmation codes are a special category
 
@@ -106,7 +107,7 @@ Reservation numbers and ticket IDs are lower risk, but even those can be abused 
 
 ## Apple should make the UX security-aware
 
-This is the kind of feature where small UX choices matter.
+Small UX choices matter for this kind of feature.
 
 Apple should avoid making surfaced context look like a recommendation to share. The Phone app should make it clear that the information is for the user’s convenience, not proof the caller is legitimate. If the surfaced item looks like a security code, the warning should be stronger.
 
@@ -130,7 +131,7 @@ A short training message could be:
 
 “Your phone may help you find relevant information during calls. That does not mean the caller is legitimate. Never share MFA codes, password reset codes, recovery codes, or security verification codes. If a call involves money, account access, passwords, or urgent changes, hang up and call back using a known trusted number.”
 
-That is simple. It is also the kind of message people need before the first scam call happens.
+Simple guidance like that is worth giving before the first scam call happens.
 
 ## What users should do
 
@@ -166,4 +167,4 @@ But privacy and social engineering are different problems.
 
 A feature can protect data from Apple and still help a scammer pressure a user into reading sensitive details out loud.
 
-That is the real lesson here: AI assistants will increasingly put the right information in front of us at the right time. Attackers will try to make sure they are on the other end of the conversation when that happens.
+The real lesson is that AI assistants will increasingly put the right information in front of us at the right time. Attackers will try to make sure they are on the other end of the conversation when that happens.
