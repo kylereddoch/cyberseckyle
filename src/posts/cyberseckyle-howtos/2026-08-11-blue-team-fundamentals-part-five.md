@@ -55,7 +55,7 @@ Screenshots saved:
 Money or data involved:
 ```
 
-This is not paperwork for paperwork's sake. It keeps the story from changing every five minutes.
+The template keeps the story from changing every five minutes, which matters when people are stressed and details are moving fast.
 
 Take screenshots. Save suspicious emails. Do not click more links to "check."
 

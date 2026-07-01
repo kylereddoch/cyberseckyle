@@ -23,7 +23,7 @@ The practical truth is calmer.
 
 macOS has strong built-in security layers, but those layers still need ownership. Updates need to happen. FileVault needs to be confirmed. Privacy permissions need review. Admin access needs restraint. Profiles need to be understood. Logs need to answer basic questions.
 
-That is the baseline.
+I would want that baseline in place before getting fancy.
 
 ## What you are building
 
@@ -185,7 +185,7 @@ Also review login items:
 System Settings -> General -> Login Items & Extensions
 ```
 
-The point is not to memorize commands. The point is to learn what normal looks like on your Mac so weird stands out later.
+Do not worry about memorizing every command. The real value is learning what normal looks like on your Mac so weird stands out later.
 
 ## Validation drills: prove the baseline works
 

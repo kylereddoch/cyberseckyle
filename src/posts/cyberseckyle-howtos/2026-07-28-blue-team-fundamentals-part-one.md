@@ -38,7 +38,7 @@ By the end of this guide, you should have:
 * Local admin sprawl reviewed
 * A validation checklist you can repeat
 
-This is not a full CIS benchmark. It is a starter baseline you can understand.
+Treat this as a starter baseline you can understand, not a full CIS benchmark.
 
 ## Step 1: Confirm the boring foundation
 
@@ -112,7 +112,7 @@ Review:
 
 For most workstations, these should be on.
 
-The goal is not to stop every bad thing. The goal is to add speed bumps where users are most likely to run untrusted downloads, fake installers, and sketchy utilities.
+You will not stop every bad thing with these controls, but you can add speed bumps where users are most likely to run untrusted downloads, fake installers, and sketchy utilities.
 
 ## Step 5: Plan ASR rules before enforcing them
 
@@ -131,7 +131,7 @@ Common ASR areas include:
 * Blocking process creations from PSExec and WMI
 * Blocking abuse of vulnerable signed drivers
 
-Do not blindly enable every rule across every machine on a Friday afternoon. That is how you learn new vocabulary from coworkers.
+Do not blindly enable every rule across every machine on a Friday afternoon unless you want to learn new vocabulary from coworkers.
 
 ## Step 6: Decide on Controlled Folder Access
 
@@ -262,4 +262,4 @@ Patch it. Encrypt it. Back it up. Keep Defender healthy. Leave the firewall on. 
 
 Then test the machine like someone still has to use it tomorrow.
 
-That is the difference between hardening and creating a support incident with a security label on it.
+That gap is the difference between hardening and creating a support incident with a security label on it.

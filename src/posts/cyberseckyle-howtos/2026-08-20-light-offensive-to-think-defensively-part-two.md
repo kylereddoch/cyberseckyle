@@ -15,11 +15,9 @@ mastodon_tags: [Cybersecurity, InfoSec, Phishing, IdentitySecurity, CybersecKyle
 
 > I am back with Season 5, Part 2 of the Light Offensive to Think Defensively track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/). This time we are using a phishing simulation to study prompts and controls, not to embarrass people or collect real credentials.
 
-Phishing simulations can be useful.
+Phishing simulations can teach defenders a lot, or they can become mean, lazy, and useless.
 
-They can also be mean, lazy, and useless.
-
-If the goal is to trick people and shame them, you are not building security. You are building resentment. The better goal is to understand where prompts fail, where reporting works, where MFA helps, where email controls catch the message, and where users need a better path.
+If the exercise exists to trick people and shame them, it is building resentment instead of security. A better exercise shows where prompts fail, where reporting works, where MFA helps, where email controls catch the message, and where users need a better path.
 
 This guide is defensive and controlled.
 
@@ -50,7 +48,7 @@ You can run a phishing simulation with a commercial platform, but for a lab or s
 * **Security admin portals** for Microsoft 365, Google Workspace, or your email provider
 * **MXToolbox**, provider dashboards, or header analyzers for SPF, DKIM, and DMARC checks
 
-The goal is not to become a phishing operator. The goal is to learn how the message travels, which controls inspect it, what users see, and what defenders receive when someone reports it.
+You are not trying to become a phishing operator. You are learning how the message travels, which controls inspect it, what users see, and what defenders receive when someone reports it.
 
 ## Step 1: Define the purpose
 
@@ -131,7 +129,7 @@ It should not collect:
 
 The page should explain the simulation after the click and provide a calm teaching moment.
 
-Do not build a fake login page that harvests credentials. That is not needed for this learning goal.
+Do not build a fake login page that harvests credentials. You do not need real secrets to learn the control path.
 
 ## Step 4: Inspect the email headers
 
@@ -199,7 +197,7 @@ Track defensive questions:
 
 Clicks are only one signal.
 
-If ten people click but the report button is invisible, training alone is not the fix. If nobody reports because they do not know where to report, that is a process problem. If the email gateway misses an obvious spoof, that is a control problem.
+If ten people click but the report button is invisible, training alone is not the fix. If nobody reports because they do not know where to report, the process failed. If the email gateway misses an obvious spoof, the control failed.
 
 ## Step 7: Validate the report path
 
@@ -326,6 +324,4 @@ People are part of that system, but they are not the only control and they shoul
 
 Study prompts. Test reporting. Validate MFA. Improve email controls. Teach calmly.
 
-The point is not to catch people.
-
-The point is to make the next real phish less likely to work.
+Do not use this work to catch people. Use it to make the next real phish less likely to work.

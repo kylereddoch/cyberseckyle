@@ -19,7 +19,7 @@ Travel changes the risk math.
 
 Your laptop leaves the house. Your phone becomes your boarding pass, wallet, camera, MFA device, map, hotspot, and lifeline. You connect to unfamiliar networks. You charge in weird places. You get tired. You get rushed. You make decisions in airports, hotels, conferences, rental cars, and crowded lines.
 
-That is exactly when "I will deal with it later" becomes expensive.
+"I will deal with it later" gets expensive at exactly that moment.
 
 Travel mode is not about paranoia. It is about reducing what can go wrong while your devices are outside their usual comfort zone.
 
@@ -267,4 +267,4 @@ You do not need a dramatic spy setup for normal travel.
 
 You need updated devices, encrypted storage, working backups, recovery that survives a lost phone, and a habit of cleaning up when you get home.
 
-That is boring. It is also exactly the kind of boring that saves a trip.
+Boring preparation is what saves the trip when something goes sideways.

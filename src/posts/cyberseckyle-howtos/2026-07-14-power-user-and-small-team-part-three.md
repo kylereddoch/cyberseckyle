@@ -25,7 +25,7 @@ Secrets management sounds enterprise, but the beginner version is simple:
 
 Do not hard-code secrets. Do not commit secrets. Store them somewhere designed for secrets. Rotate them when exposed. Limit what they can do.
 
-That is enough to avoid a lot of pain.
+Those basics avoid a surprising amount of pain.
 
 ## What counts as a secret
 

@@ -21,7 +21,7 @@ Neither is helpful.
 
 Most people do not need a dramatic privacy reset. They need a repeatable tune up that trims obvious exposure, cleans up old access, reduces tracking where practical, and makes their devices a little quieter.
 
-That is the goal here.
+For this tune up, practical beats dramatic.
 
 You are not trying to become invisible. You are trying to stop giving away more than the situation requires.
 
@@ -87,7 +87,7 @@ Data download available:
 Deletion or deactivation path known:
 ```
 
-This is not glamorous. It is effective.
+Not glamorous, but it removes the stale access people usually forget about.
 
 ## Step 2: Review app permissions
 
@@ -175,7 +175,7 @@ Ask:
 * Do I still want this sharing enabled?
 * Would approximate location be enough?
 
-If the answer is "I forgot that was on," that is the tune up doing its job.
+If the answer is "I forgot that was on," the tune up is already doing its job.
 
 ## Step 5: Check smart home privacy
 
@@ -215,7 +215,7 @@ Remove anything you do not recognize or use.
 
 Old integrations are a quiet way for access to stick around after the original reason is gone.
 
-If removing an integration breaks something, you can reconnect it deliberately. That is better than letting stale access exist forever.
+If removing an integration breaks something, you can reconnect it deliberately. I would rather make that choice on purpose than let stale access live forever.
 
 ## Step 7: Reduce public profile leakage
 

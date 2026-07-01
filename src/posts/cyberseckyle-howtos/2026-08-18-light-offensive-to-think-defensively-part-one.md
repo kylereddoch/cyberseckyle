@@ -15,9 +15,7 @@ mastodon_tags: [Cybersecurity, InfoSec, Lab, BlueTeam, CybersecKyleHowTo]
 
 > I am back with Season 5, Part 1 of the Light Offensive to Think Defensively track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/). This time we are building a safe lab with snapshots, because the first rule of learning attack paths is not accidentally attacking something you do not own.
 
-Offensive security concepts are useful for defenders.
-
-They help you understand how small mistakes chain together, why controls matter, and what attackers are actually trying to accomplish. But the learning environment matters.
+Offensive security concepts help defenders understand how small mistakes chain together, why controls matter, and what attackers are actually trying to accomplish. The learning environment matters, though.
 
 You do not practice on random systems. You do not scan networks you do not own. You do not run tools against production because a tutorial made it look easy.
 
@@ -37,7 +35,7 @@ By the end of this guide, you should have:
 * A reset procedure
 * Lab rules written down
 
-This is not about building the fanciest setup. It is about building a safe one.
+Skip the fanciest setup at first. Build a safe one.
 
 ## The tool stack I would actually start with
 

@@ -21,9 +21,9 @@ You run a dashboard. Then a notes app. Then a file tool. Then a media server. Th
 
 I like self-hosting. I also like knowing what is exposed.
 
-A reverse proxy is not magic security dust, but it gives you a clean front door. Instead of opening random ports for every service, you publish a smaller number of entry points, route traffic by hostname, manage TLS, and put access controls in front of things that should not be public.
+A reverse proxy gives you a clean front door, but it is not magic security dust. Instead of opening random ports for every service, you publish a smaller number of entry points, route traffic by hostname, manage TLS, and put access controls in front of things that should not be public.
 
-That is the mission here.
+The mission here is intentional exposure, not accidental internet plumbing.
 
 ## What you are building
 

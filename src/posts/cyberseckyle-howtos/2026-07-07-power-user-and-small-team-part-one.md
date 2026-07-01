@@ -19,9 +19,7 @@ Small environments have a funny way of collecting access.
 
 A side project starts with one login. Then a friend helps. Then a contractor needs temporary access. Then a family member gets added. Then a tool asks for admin permissions. Six months later nobody knows who can do what, which email owns the account, or whether the person who helped "just for the weekend" can still delete everything.
 
-That is not a technology problem first.
-
-It is an ownership problem.
+The first problem is ownership, not technology.
 
 Account inventory and least privilege are the boring controls that make access understandable again. You do not need enterprise identity governance to do this well. You need a list, a review habit, and the willingness to remove access that no longer has a job.
 
@@ -37,7 +35,7 @@ By the end of this guide, you should have:
 * A quarterly access review checklist
 * A validation drill that proves a non-admin user cannot do admin things
 
-The goal is not bureaucracy. The goal is being able to answer, "Who can change this?"
+This should not feel like bureaucracy. It should give you a fast answer when something breaks or looks suspicious: "Who can change this?"
 
 ## Start with the accounts that can hurt you
 
@@ -108,7 +106,7 @@ Admins can usually:
 * Add integrations
 * Transfer ownership
 
-That is not daily access. That is power.
+That kind of access is power, not daily access.
 
 Most people need normal access for normal work. If a person only posts content, they do not need billing admin. If they only view reports, they do not need user management. If they only help with one project, they do not need organization-wide control.
 

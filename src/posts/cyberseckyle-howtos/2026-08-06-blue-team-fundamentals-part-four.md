@@ -26,11 +26,11 @@ What are we going to do about it?
 Did we do enough?
 ```
 
-That is it.
+Those questions are enough to get started.
 
 You can use formal frameworks, and they can be great. But for a small website, side project, home lab, newsletter workflow, or small business process, the most important thing is not the framework name.
 
-The important thing is slowing down long enough to see the risky assumptions.
+For small environments, the useful move is slowing down long enough to see the risky assumptions.
 
 ## What you are building
 
@@ -185,7 +185,7 @@ Avoid fantasy mitigations.
 
 Not every risk gets fixed immediately.
 
-That is normal.
+Normal risk work includes choosing what gets fixed now, what gets tracked, and what everyone knowingly accepts.
 
 Track:
 
@@ -282,6 +282,4 @@ It is about making better security decisions before reality forces the issue.
 
 Pick a small target. Map the flow. Ask what can go wrong. Choose fixes that match the risk. Write down what you are accepting.
 
-That is structured curiosity.
-
-And in security, structured curiosity is a very useful habit.
+Structured curiosity is a security habit worth practicing.

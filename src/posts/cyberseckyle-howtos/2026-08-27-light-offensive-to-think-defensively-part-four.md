@@ -21,7 +21,7 @@ It is the handoff.
 
 If your report is vague, dramatic, or impossible to act on, the finding may sit forever. If it has clear evidence, realistic impact, practical remediation, and a validation step, it can become actual risk reduction.
 
-That is the point of this final article in the series.
+This final article in the series is about turning technical findings into fixes people can actually complete.
 
 Not "look what I found."
 
@@ -183,7 +183,7 @@ Avoid recommendations like:
 Improve security.
 ```
 
-That is not a fix. That is a wish.
+A sentence like that is a wish, not a fix.
 
 ## Step 6: Assign priority with context
 
@@ -241,7 +241,7 @@ For a vulnerability finding:
 Patch exposed admin service on lab-web-01 and verify version no longer appears in scan
 ```
 
-Keep the ticket boring and actionable. That is a compliment.
+Keep the ticket boring and actionable. In remediation work, that is a compliment.
 
 ## Step 8: Add validation steps
 
@@ -382,6 +382,4 @@ It is the one that helps someone make the system safer.
 
 Clear evidence. Honest impact. Realistic fix. Validation.
 
-That is the bridge from learning how attacks work to actually improving defense.
-
-And that is a pretty good place to end the series.
+That bridge from learning how attacks work to improving defense is a pretty good place to end the series.

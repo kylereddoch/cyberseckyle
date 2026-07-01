@@ -19,7 +19,7 @@ Vulnerability scanning can make people feel productive while nothing gets safer.
 
 Run tool. Export giant PDF. Panic at criticals. Ignore the medium findings. Argue about false positives. Repeat next month.
 
-That is not vulnerability management.
+That routine turns the scanner into a chore instead of a risk-reduction tool.
 
 A scan is just input. Triage is where the useful work starts.
 
@@ -33,7 +33,7 @@ The real questions are:
 * Who owns the fix?
 * When will we verify it is gone?
 
-That is the work.
+The work starts when you turn those questions into owners, dates, and verification.
 
 ## What you are building
 
@@ -250,4 +250,4 @@ Do not worship the PDF. Do not ignore it either.
 
 Scope carefully, scan safely, triage with context, assign owners, validate fixes, and keep going.
 
-That is vulnerability management. The scanner is just the flashlight.
+Vulnerability management lives in that loop. The scanner is just the flashlight.

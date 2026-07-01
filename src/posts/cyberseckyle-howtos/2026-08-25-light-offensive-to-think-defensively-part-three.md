@@ -19,7 +19,7 @@ This guide has a hard boundary:
 
 Do this in your lab, against systems you own or have explicit permission to test.
 
-Reconnaissance and password attack concepts are useful for defenders because they show how attackers find weak spots before the loud part starts. They look for names, services, exposed login pages, reused passwords, default credentials, missing lockouts, and leaked information.
+Reconnaissance and password attack concepts show defenders how attackers find weak spots before the loud part starts. They look for names, services, exposed login pages, reused passwords, default credentials, missing lockouts, and leaked information.
 
 You do not need to become reckless to learn from that.
 
@@ -61,7 +61,7 @@ For password defense learning with fake data:
 * Application logs to observe failed sign-ins and lockouts
 * Identity provider audit logs if your lab uses one
 
-The goal is not "crack real passwords." The goal is to see why weak passwords, exposed login surfaces, missing MFA, and bad lockout settings are a defender problem.
+You are not here to "crack real passwords." You are here to see why weak passwords, exposed login surfaces, missing MFA, and bad lockout settings are a defender problem.
 
 ## Step 1: Build the fake target profile
 
@@ -193,7 +193,7 @@ Your defensive controls are:
 * Alerting on unusual sign-in behavior
 * Removing default accounts
 
-The goal is to understand why each control exists.
+The exercise works when you understand why each control exists.
 
 ## Step 6: Build a toy password audit
 
@@ -349,8 +349,6 @@ Recon and password attacks work because small pieces of information and weak hab
 
 Defenders need to understand that stack.
 
-Learn it safely. Use fake targets. Stay inside the lab. Watch what the system reveals. Test how it slows abuse. Add controls that make the attack path less useful.
+Learn it safely. Use fake targets. Stay inside the lab. Watch what the system reveals. Test how it slows abuse. Add controls that make the attack path harder to use.
 
-The point is not to guess passwords.
-
-The point is to make guessing them a waste of time.
+You are not learning this to guess passwords. You are learning how to make guessing them a waste of time.

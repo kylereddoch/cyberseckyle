@@ -15,9 +15,7 @@ mastodon_tags: [Cybersecurity, InfoSec, SecurityOperations, ThreatDetection, Cyb
 
 > I am back with Season 3, Part 5 of the Power User and Small Team track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/). This time we are building security logging at home without pretending your living room needs a full enterprise SOC.
 
-Logs can be incredibly useful.
-
-They can also become a noisy pile of nothing.
+Logs can answer important questions. They can also become a noisy pile of nothing.
 
 The mistake I see all the time is starting with tools instead of questions. Someone spins up a dashboard, ships every log they can find, stares at it twice, and then ignores it forever because it is noisy, confusing, and has no job.
 
@@ -30,7 +28,7 @@ Home security logging should answer a few practical questions:
 * Did backups fail?
 * Did an exposed service start getting hammered?
 
-That is enough to be useful.
+For a home lab or small team, answering those questions is a good starting point.
 
 ## What you are building
 
@@ -111,7 +109,7 @@ If you use NextDNS, Control D, Pi-hole, AdGuard Home, or a similar tool, review:
 * Recently blocked domains
 * Repeated security-category hits
 
-Do not build a surveillance machine for your family. The goal is security and troubleshooting, not being creepy.
+Do not build a surveillance machine for your family. Keep the purpose limited to security and troubleshooting.
 
 ## Step 4: Check device protection dashboards
 
@@ -127,9 +125,9 @@ Monthly, check:
 * Disk encryption status
 * Pending restarts
 
-This is not log collection in the classic sense, but it is security visibility.
+It is lighter than classic log collection, but it still gives you security visibility where small teams usually have blind spots.
 
-If a dashboard has been red for three months and nobody looks at it, that is not a dashboard. That is wallpaper.
+If a dashboard has been red for three months and nobody looks at it, it is wallpaper.
 
 ## Step 5: Keep self-hosted logs focused
 
@@ -246,7 +244,7 @@ Habit
 
 The point of logging is not to collect everything.
 
-The point is to notice the things you care about soon enough to do something useful.
+Useful logging helps you notice the handful of events you care about while there is still time to act.
 
 For a home or small team, that means account alerts, device changes, DNS blocks, backup failures, and exposed service problems.
 

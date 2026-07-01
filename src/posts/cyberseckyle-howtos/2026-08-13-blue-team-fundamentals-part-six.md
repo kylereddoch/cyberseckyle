@@ -19,7 +19,7 @@ SIEM projects fail when they start with appetite instead of purpose.
 
 Collect all the logs. Store all the things. Alert on everything. Build a dashboard. Add colors. Declare victory. Ignore it by week three.
 
-That is not detection. That is expensive wallpaper.
+Dashboards that no one watches become expensive wallpaper, not detection.
 
 SIEM-lite starts smaller:
 
@@ -142,7 +142,7 @@ A practical starter set:
 7. DNS malware block repeated from one device
 8. Public service authentication failures spike
 
-That is already plenty.
+Eight good alerts are already plenty.
 
 Get those right before adding twenty more.
 
