@@ -346,6 +346,18 @@ export default async function (eleventyConfig) {
         .trim();
     };
 
+    const getExplicitSearchDate = item => {
+      const candidate =
+        item?.data?.publishedAt ||
+        item?.data?.published_at ||
+        item?.data?.actualPublishedAt ||
+        item?.data?.actual_published_at ||
+        item?.data?.date;
+      const date = new Date(candidate);
+
+      return Number.isNaN(date.getTime()) ? undefined : date;
+    };
+
     const contentEntries = getAllPosts(collectionApi).map(item => ({
       id: item.url,
       title: item.data?.title || '',
@@ -354,7 +366,7 @@ export default async function (eleventyConfig) {
       searchIntent: item.data?.searchIntent || '',
       tags: Array.isArray(item.data?.tags) ? item.data.tags.filter(tag => !['posts', 'notes', 'journal'].includes(tag)) : [],
       content: getSearchableContent(item),
-      date: getPublishedDate(item)
+      date: getExplicitSearchDate(item)
     }));
 
     const projectEntries = getProjects(collectionApi).map(item => ({
@@ -368,7 +380,7 @@ export default async function (eleventyConfig) {
         ...(Array.isArray(item.data?.techStack) ? item.data.techStack : [])
       ].filter(Boolean),
       content: getSearchableContent(item),
-      date: getPublishedDate(item)
+      date: getExplicitSearchDate(item)
     }));
 
     const pageEntries = collectionApi
@@ -382,7 +394,7 @@ export default async function (eleventyConfig) {
         searchIntent: item.data?.searchIntent || '',
         tags: [],
         content: getSearchableContent(item),
-        date: getPublishedDate(item)
+        date: getExplicitSearchDate(item)
       }));
 
     const seen = new Set();

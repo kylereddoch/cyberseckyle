@@ -8,23 +8,13 @@ excludeFromSitemap: true
   {% for page in collections.showInSitemap %}
     {% if page.url and page.data.excludeFromSitemap != true %}
 
-      {% if page.data.lastModified %}
-        {% set lastmod = page.data.lastModified %}
-      {% elseif page.data.lastUpdated %}
-        {% set lastmod = page.data.lastUpdated %}
-      {% elseif page.data.updated %}
-        {% set lastmod = page.data.updated %}
-      {% elseif page.data.modified %}
-        {% set lastmod = page.data.modified %}
-      {% elseif page.data.publishedAt %}
-        {% set lastmod = page.data.publishedAt %}
-      {% else %}
-        {% set lastmod = page.date %}
-      {% endif %}
+      {% set lastmod = page.data.lastModified or page.data.lastUpdated or page.data.updated or page.data.modified or page.data.publishedAt or page.data.published_at or page.data.date %}
 
       <url>
         <loc>{{ meta.url }}{{ page.url }}</loc>
+        {% if lastmod %}
         <lastmod>{{ lastmod | toIsoString }}</lastmod>
+        {% endif %}
         <changefreq>{{ page.data.changeFreq if page.data.changeFreq else "monthly" }}</changefreq>
     </url>
     {% endif %}
