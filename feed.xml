@@ -13,7 +13,7 @@
     <link>https://www.kylereddoch.me/</link>
     <description>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 02 Jul 2026 13:09:59 CDT</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2026 10:25:16 CDT</lastBuildDate>
     <atom:link href="https://www.kylereddoch.me/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://www.kylereddoch.me/assets/images/logo.png</url>
@@ -44,10 +44,25 @@
       <xhtml:a href="https://www.kylereddoch.me/feed.json">JSON Feed</xhtml:a>
       <xhtml:a href="https://www.kylereddoch.me/blog/improving-my-rss-feed-and-making-it-more-human-readable/">How I improved this feed</xhtml:a>
     </xhtml:div><item>
+      <title>The small stuff still counts</title>
+      <link>https://www.kylereddoch.me/notes/the-small-stuff-still-counts/</link>
+      <guid isPermaLink="true">https://www.kylereddoch.me/notes/the-small-stuff-still-counts/</guid>
+      <pubDate>Thu, 02 Jul 2026 10:25:16 CDT</pubDate>
+      <xhtml:a class="browser-title" href="https://www.kylereddoch.me/notes/the-small-stuff-still-counts/">The small stuff still counts</xhtml:a>
+      <xhtml:img class="browser-image" src="https://www.kylereddoch.me/assets/og-images/the-small-stuff-still-counts-preview.jpeg" alt="The small stuff still counts" />
+      <dc:creator>Kyle Reddoch</dc:creator>
+      <description><![CDATA[A quick personal note about a heavier stretch, small bits of momentum, and letting a note just be a note.]]></description>
+      <xhtml:a class="browser-read-link" href="https://www.kylereddoch.me/notes/the-small-stuff-still-counts/">Read on kylereddoch.me</xhtml:a>
+      <content:encoded><![CDATA[
+<p><img src="https://www.kylereddoch.me/assets/og-images/the-small-stuff-still-counts-preview.jpeg" alt="The small stuff still counts" /></p><p>Things have felt heavier than I expected lately, and I have caught myself being more quiet than usual. Not in a dramatic way. Just one of those stretches where my brain feels a little slower to warm up, and the things that usually sound fun take a bit more effort.</p><p>I am trying to count the small momentum where I can: getting words onto the site, cleaning up the rough edges, poking around macOS 27, and giving myself permission for a note to just be a note.</p><p>That feels like enough for today.</p><img src="https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2Fthe-small-stuff-still-counts%2F" alt="" style="width:1px;height:1px;border:0;" />]]></content:encoded>
+      <enclosure url="https://www.kylereddoch.me/assets/og-images/the-small-stuff-still-counts-preview.jpeg" type="image/jpeg" length="0" />
+      <media:thumbnail url="https://www.kylereddoch.me/assets/og-images/the-small-stuff-still-counts-preview.jpeg" />
+      <media:content url="https://www.kylereddoch.me/assets/og-images/the-small-stuff-still-counts-preview.jpeg" medium="image" />
+    </item><item>
       <title>CybersecKyle Security How-To Series: Home Network and Devices, Part 6 - Privacy Tune Up That Is Not Tedious</title>
       <link>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-home-network-and-devices-part-6-privacy-tune-up-that-is-not-tedious/</link>
       <guid isPermaLink="true">https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-home-network-and-devices-part-6-privacy-tune-up-that-is-not-tedious/</guid>
-      <pubDate>Thu, 02 Jul 2026 13:09:59 CDT</pubDate>
+      <pubDate>Thu, 02 Jul 2026 10:00:00 CDT</pubDate>
       <xhtml:a class="browser-title" href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-home-network-and-devices-part-6-privacy-tune-up-that-is-not-tedious/">CybersecKyle Security How-To Series: Home Network and Devices, Part 6 - Privacy Tune Up That Is Not Tedious</xhtml:a>
       <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/RU88PaQUE2-950.jpeg" alt="Browser privacy controls and tracker blocking settings shown as part of a practical privacy tune up." />
       <dc:creator>Kyle Reddoch</dc:creator>
@@ -113,21 +128,6 @@ Public exposure
       <enclosure url="https://www.kylereddoch.me/img/RU88PaQUE2-950.jpeg" type="image/jpeg" length="0" />
       <media:thumbnail url="https://www.kylereddoch.me/img/RU88PaQUE2-950.jpeg" />
       <media:content url="https://www.kylereddoch.me/img/RU88PaQUE2-950.jpeg" medium="image" />
-    </item><item>
-      <title>The small stuff still counts</title>
-      <link>https://www.kylereddoch.me/notes/the-small-stuff-still-counts/</link>
-      <guid isPermaLink="true">https://www.kylereddoch.me/notes/the-small-stuff-still-counts/</guid>
-      <pubDate>Thu, 02 Jul 2026 10:25:16 CDT</pubDate>
-      <xhtml:a class="browser-title" href="https://www.kylereddoch.me/notes/the-small-stuff-still-counts/">The small stuff still counts</xhtml:a>
-      <xhtml:img class="browser-image" src="https://www.kylereddoch.me/assets/og-images/the-small-stuff-still-counts-preview.jpeg" alt="The small stuff still counts" />
-      <dc:creator>Kyle Reddoch</dc:creator>
-      <description><![CDATA[A quick personal note about a heavier stretch, small bits of momentum, and letting a note just be a note.]]></description>
-      <xhtml:a class="browser-read-link" href="https://www.kylereddoch.me/notes/the-small-stuff-still-counts/">Read on kylereddoch.me</xhtml:a>
-      <content:encoded><![CDATA[
-<p><img src="https://www.kylereddoch.me/assets/og-images/the-small-stuff-still-counts-preview.jpeg" alt="The small stuff still counts" /></p><p>Things have felt heavier than I expected lately, and I have caught myself being more quiet than usual. Not in a dramatic way. Just one of those stretches where my brain feels a little slower to warm up, and the things that usually sound fun take a bit more effort.</p><p>I am trying to count the small momentum where I can: getting words onto the site, cleaning up the rough edges, poking around macOS 27, and giving myself permission for a note to just be a note.</p><p>That feels like enough for today.</p><img src="https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2Fthe-small-stuff-still-counts%2F" alt="" style="width:1px;height:1px;border:0;" />]]></content:encoded>
-      <enclosure url="https://www.kylereddoch.me/assets/og-images/the-small-stuff-still-counts-preview.jpeg" type="image/jpeg" length="0" />
-      <media:thumbnail url="https://www.kylereddoch.me/assets/og-images/the-small-stuff-still-counts-preview.jpeg" />
-      <media:content url="https://www.kylereddoch.me/assets/og-images/the-small-stuff-still-counts-preview.jpeg" medium="image" />
     </item><item>
       <title>CybersecKyle Security How-To Series: Home Network and Devices, Part 5 - Passwordless Sign In with Passkeys and Keys</title>
       <link>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-home-network-and-devices-part-5-passwordless-sign-in-with-passkeys-and-keys/</link>
