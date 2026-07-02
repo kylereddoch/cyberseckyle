@@ -9,8 +9,9 @@ featuredImageAlt: Browser privacy controls and tracker blocking settings shown a
 featuredImageCaption: Privacy gets easier when the review is small enough to repeat.
 tags: [cyberseckyle-howto-series, cybersecurity, security, privacy, digital-safety, browser-privacy, how-to]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116851723458535097"
 mastodon_tags: [Cybersecurity, InfoSec, Privacy, DigitalSafety, CybersecKyleHowTo]
+publishedAt: "2026-07-02T18:09:59.846Z"
 ---
 
 > I am back with Season 2, Part 6 of the Home Network and Devices track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/). This time we are doing a privacy tune up that reduces unnecessary exposure without turning your weekend into an audit spreadsheet.
