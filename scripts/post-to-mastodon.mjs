@@ -275,7 +275,8 @@ async function waitForPublishedPost(postUrl, relativePath) {
 
   throw new Error(
     `Timed out after ${waitTimeoutSeconds}s waiting for ${relativePath} to be publicly available. ` +
-      `Last check: ${lastError}`
+      `Checked URL: ${postUrl}. Last check: ${lastError}. ` +
+      `The article must be live on GitHub Pages before it is posted to Mastodon.`
   );
 }
 
