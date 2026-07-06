@@ -6,8 +6,9 @@ description: Most people now run a small personal technology environment without
 searchIntent: Help readers understand why personal technology now needs light administration across accounts, devices, backups, subscriptions, recovery, and family access.
 tags: [IT, tech, editorials]
 mastodon_post: true
-mastodon_url: 
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116873632712907948"
 mastodon_tags: [PersonalTech, HomeIT, Cybersecurity, DigitalSafety, Tech]
+publishedAt: "2026-07-06T15:01:48.540Z"
 ---
 
 At some point, my personal tech stopped feeling like a handful of apps and started feeling like a tiny environment I was responsible for maintaining.
