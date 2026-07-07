@@ -9,8 +9,9 @@ featuredImageAlt: Person working through a checklist on a laptop, representing a
 featuredImageCaption: Access gets risky when nobody remembers why it exists.
 tags: [cyberseckyle-howto-series, cybersecurity, security, identity-security, risk-management, how-to]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116879882769076356"
 mastodon_tags: [Cybersecurity, InfoSec, IdentitySecurity, SmallBusiness, CybersecKyleHowTo]
+publishedAt: "2026-07-07T17:31:16.825Z"
 ---
 
 > I am back with Season 3, Part 1 of the Power User and Small Team track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/). This time we are treating accounts like assets: inventory them, remove stale access, and stop handing out admin rights like candy.
