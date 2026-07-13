@@ -1,0 +1,165 @@
+---
+layout: base
+permalink: /watching/
+title: Watching
+description: "A running look at the movies and TV shows I have watched, powered by Trakt."
+---
+
+<div class="max-w-4xl watching-page">
+  <h1 class="media-page-title text-3xl font-bold flex items-center gap-2">
+    <span aria-hidden="true">&#127916;</span>
+    <span>Watching</span>
+  </h1>
+  <p class="media-page-intro text-gray-600 dark:text-gray-400">
+    A running look at the movies and TV shows I have watched, powered by Trakt.
+  </p>
+
+  {% if trakt.error %}
+  <div class="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900/50 dark:bg-red-950/30 dark:text-red-200 mb-8">
+    Trakt returned an error while building this page: {{ trakt.error }}
+  </div>
+  {% endif %}
+
+  {% if trakt.configured %}
+  <dl class="watching-stats mb-10">
+    <div>
+      <dt>Movies Watched</dt>
+      <dd>{{ trakt.stats.movies }}</dd>
+    </div>
+    <div>
+      <dt>Shows Watched</dt>
+      <dd>{{ trakt.stats.shows }}</dd>
+    </div>
+    <div>
+      <dt>Episodes Watched</dt>
+      <dd>{{ trakt.stats.episodes }}</dd>
+    </div>
+  </dl>
+
+  <div class="watching-sync-note">
+    <p class="text-sm text-gray-600 dark:text-gray-400">
+      Synced from <a href="{{ trakt.profileUrl }}" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">my Trakt profile</a>{% if trakt.posterConfigured %}, with poster artwork from TMDb{% endif %}.
+    </p>
+    {% if trakt.posterConfigured %}
+    <p class="text-xs text-gray-500 dark:text-gray-400">
+      This product uses the TMDB API but is not endorsed or certified by TMDB.
+    </p>
+    {% endif %}
+  </div>
+
+  <section class="watching-section">
+    <div class="watching-section-heading">
+      <div class="listening-section-heading__copy">
+        <h2 class="text-2xl font-semibold">Recent Watches</h2>
+        <p class="text-sm text-gray-600 dark:text-gray-400">The latest movies and episodes synced from Trakt.</p>
+      </div>
+      <span class="text-sm text-gray-500 dark:text-gray-400">{{ trakt.recentActivity | length }} items</span>
+    </div>
+
+    {% if trakt.recentActivity | length > 0 %}
+    <ul class="watching-recent-grid">
+      {% for item in trakt.recentActivity %}
+      <li class="watching-recent-card">
+        <a href="{{ item.url }}" class="watching-recent-card__poster">
+          {% if item.poster %}
+          <img src="{{ item.poster }}" alt="" loading="lazy" eleventy:ignore />
+          {% else %}
+          <span aria-hidden="true">{% if item.kind == 'movie' %}&#127916;{% else %}&#128250;{% endif %}</span>
+          {% endif %}
+        </a>
+        <div class="min-w-0 flex-1">
+          <div class="watching-recent-card__header">
+            <span class="watching-kind-badge">{{ item.label }}</span>
+            {% if item.watchedAt %}<span>{{ item.watchedAt | readableDate }}</span>{% endif %}
+          </div>
+          <a href="{{ item.url }}" class="watching-recent-card__title hover:text-rose-600 dark:hover:text-rose-300">{{ item.title }}</a>
+          {% if item.subtitle %}
+          <p class="watching-recent-card__meta">{{ item.subtitle }}</p>
+          {% endif %}
+          {% if item.year %}
+          <p class="watching-recent-card__meta">{{ item.year }}</p>
+          {% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="text-sm text-gray-600 dark:text-gray-400">No recent watch history was returned.</p>
+    {% endif %}
+  </section>
+
+  <section class="watching-sections">
+    <div>
+      <div class="watching-section-heading">
+        <h2 class="text-2xl font-semibold">Movies</h2>
+        <span class="text-sm text-gray-500 dark:text-gray-400">{{ trakt.movies | length }} synced</span>
+      </div>
+      {% if trakt.movies | length > 0 %}
+      <ul class="watching-poster-grid">
+        {% for item in trakt.movies | head(12) %}
+        <li class="watching-poster-card">
+          <a href="{{ item.url }}" class="watching-poster-card__media">
+            {% if item.poster %}
+            <img src="{{ item.poster }}" alt="" loading="lazy" eleventy:ignore />
+            {% else %}
+            <span aria-hidden="true">&#127916;</span>
+            {% endif %}
+          </a>
+          <div class="watching-poster-card__body">
+            <a href="{{ item.url }}" class="watching-poster-card__title hover:text-rose-600 dark:hover:text-rose-300">{{ item.title }}</a>
+            <p class="watching-poster-card__meta">
+              {% if item.watchedAt %}{{ item.watchedAt | readableDate }}{% endif %}
+              {% if item.year %}{% if item.watchedAt %}<span> &middot; </span>{% endif %}<span>{{ item.year }}</span>{% endif %}
+            </p>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p class="text-sm text-gray-600 dark:text-gray-400">No watched movies have been synced yet.</p>
+      {% endif %}
+    </div>
+
+    <div>
+      <div class="watching-section-heading">
+        <h2 class="text-2xl font-semibold">TV Shows</h2>
+        <span class="text-sm text-gray-500 dark:text-gray-400">{{ trakt.shows | length }} synced</span>
+      </div>
+      {% if trakt.shows | length > 0 %}
+      <ul class="watching-poster-grid">
+        {% for item in trakt.shows | head(12) %}
+        <li class="watching-poster-card">
+          <a href="{{ item.url }}" class="watching-poster-card__media">
+            {% if item.poster %}
+            <img src="{{ item.poster }}" alt="" loading="lazy" eleventy:ignore />
+            {% else %}
+            <span aria-hidden="true">&#128250;</span>
+            {% endif %}
+          </a>
+          <div class="watching-poster-card__body">
+            <a href="{{ item.url }}" class="watching-poster-card__title hover:text-sky-600 dark:hover:text-sky-300">{{ item.title }}</a>
+            <p class="watching-poster-card__meta">
+              {% if item.watchedAt %}Last watched {{ item.watchedAt | readableDate }}{% endif %}
+              {% if item.year %}{% if item.watchedAt %}<span> &middot; </span>{% endif %}<span>{{ item.year }}</span>{% endif %}
+            </p>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p class="text-sm text-gray-600 dark:text-gray-400">No watched shows have been synced yet.</p>
+      {% endif %}
+    </div>
+  </section>
+  {% else %}
+  <div class="border border-slate-200 p-6 dark:border-slate-800">
+    <h2 class="text-xl font-semibold mb-3">Watching Sync Not Configured Yet</h2>
+    <p class="text-gray-600 dark:text-gray-400 mb-4">
+      This page is ready to pull from Trakt once `TRAKT_CLIENT_ID` and `TRAKT_USERNAME` are available at build time.
+    </p>
+    <p class="text-sm text-gray-600 dark:text-gray-400">
+      Add `TMDB_API_KEY` or `TMDB_READ_ACCESS_TOKEN` too if you want poster artwork in the grids.
+    </p>
+  </div>
+  {% endif %}
+</div>
