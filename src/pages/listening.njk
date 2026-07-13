@@ -9,11 +9,11 @@ description: "A running log of what I am listening to, powered by Last.fm."
   class="max-w-4xl listening-page"
   {% if listening.configured and listening.clientApiKey and listening.username %}data-lastfm-api-key="{{ listening.clientApiKey }}" data-lastfm-username="{{ listening.username }}"{% endif %}
 >
-  <h1 class="text-3xl font-bold mb-2 flex items-center gap-2">
+  <h1 class="media-page-title text-3xl font-bold flex items-center gap-2">
     <span aria-hidden="true">&#127925;</span>
     <span>Listening</span>
   </h1>
-  <p class="text-gray-600 dark:text-gray-400 mb-8">
+  <p class="media-page-intro text-gray-600 dark:text-gray-400">
     A running look at what has been in rotation lately, powered by Last.fm.
   </p>
 
@@ -42,9 +42,12 @@ description: "A running log of what I am listening to, powered by Last.fm."
     </div>
   </section>
 
-  <section class="mb-12">
-    <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
-      <h2 class="text-2xl font-semibold">Recent Listening</h2>
+  <section class="listening-recent-section">
+    <div class="listening-section-heading">
+      <div class="listening-section-heading__copy">
+        <h2 class="text-2xl font-semibold">Recent Listening</h2>
+        <p class="text-sm text-gray-600 dark:text-gray-400">The latest tracks scrobbled from Last.fm.</p>
+      </div>
       <a href="{{ listening.profileUrl }}" class="text-sm text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">View my Last.fm profile</a>
     </div>
 
@@ -74,7 +77,7 @@ description: "A running log of what I am listening to, powered by Last.fm."
           </div>
         </div>
         {% if track.listenedAt and not track.nowPlaying %}
-        <p class="mt-3 text-xs text-gray-500 dark:text-gray-400">{{ track.listenedAt }}</p>
+        <p class="listening-track__time text-xs text-gray-500 dark:text-gray-400">{{ track.listenedAt }}</p>
         {% endif %}
       </li>
       {% endfor %}

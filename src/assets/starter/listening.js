@@ -50,7 +50,7 @@
       ? '<span class="rounded-full border border-fuchsia-200 px-2 py-0.5 text-xs text-fuchsia-700 dark:border-fuchsia-800 dark:text-fuchsia-300">Now</span>'
       : '';
     const listenedAt = track.listenedAt && !track.nowPlaying
-      ? `<p class="mt-3 text-xs text-gray-500 dark:text-gray-400">${escapeHtml(track.listenedAt)}</p>`
+      ? `<p class="listening-track__time text-xs text-gray-500 dark:text-gray-400">${escapeHtml(track.listenedAt)}</p>`
       : '';
 
     return `
