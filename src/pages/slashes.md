@@ -9,6 +9,8 @@ This is the landing slash page for all my /slash pages. Feel free to take a look
 
 >[Slash pages](https://slashpages.net/) are common pages you can add to your website, usually with a standard, root-level slug-like /now, /about, or /uses. They tend to describe the individual behind the site and are distinguishing characteristics of the IndieWeb.
 
+**[/ai](/ai)** - What I do and don't use AI for on this site.
+
 **[/about](/about)** - This is pretty self-explanatory. It's the about me, who I am, obligatory page. There might be some interesting stuff in there. Who knows?
 
 **[/carry](/carry)** - These are my EDC (Everyday Carry) items. I don't leave the house without them.
@@ -38,3 +40,5 @@ This is the landing slash page for all my /slash pages. Feel free to take a look
 **/usermanual** -
 
 **[/uses](/uses)** - This is a collection of products and services that work best for me and I recommend.
+
+**[/watching](/watching)** - Movies and TV shows I have watched, powered by Trakt.
