@@ -4,7 +4,7 @@ title: 'Introducing my new CybersecKyle Security How-To Series: the full roadmap
 description: "A living roadmap for five seasons of hands-on security guides, from Everyday Defense to Blue Team fundamentals."
 tags: [cyberseckyle-howto-series, cybersecurity, tutorials, security]
 mastodon_url: https://infosec.exchange/@cyberseckyle/115492350638217573
-lastModified: 2026-06-23T11:27:27-05:00
+lastModified: 2026-07-13T13:49:46-05:00
 ---
 
 ![CybersecKyle Security How-To Series](/assets/images/cyberseckyle_security-howto_hero.png){loading="eager" eleventy:widths="auto"}
@@ -45,9 +45,9 @@ Planned parts:
 1. Router sanity check and guest Wi-Fi [[Live now](/blog/cyberseckyle-security-how-to-series-home-network-and-devices-part-1-router-sanity-check-and-guest-wi-fi/)]
 2. Windows 11 and macOS baselines you can live with [[Live now](/blog/cyberseckyle-security-how-to-series-home-network-and-devices-part-2-windows-11-and-macos-baselines-you-can-live-with/)]
 3. Safe file storage with encryption and snapshots [[Live now](/blog/cyberseckyle-security-how-to-series-home-network-and-devices-part-3-safe-file-storage-with-encryption-and-snapshots/)]
-4. IoT quarantine and DNS choices
-5. Passwordless sign in with passkeys and keys
-6. Privacy tune up that is not tedious
+4. IoT quarantine and DNS choices [[Live now](/blog/cyberseckyle-security-how-to-series-home-network-and-devices-part-4-iot-quarantine-and-dns-choices/)]
+5. Passwordless sign in with passkeys and keys [[Live now](/blog/cyberseckyle-security-how-to-series-home-network-and-devices-part-5-passwordless-sign-in-with-passkeys-and-keys/)]
+6. Privacy tune up that is not tedious [[Live now](/blog/cyberseckyle-security-how-to-series-home-network-and-devices-part-6-privacy-tune-up-that-is-not-tedious/)]
 
 ## Season 3 · Power User and Small Team (Intermediate)
 
@@ -55,8 +55,8 @@ Treat a household or small shop like a tiny org. Less drama, more control.
 
 Planned parts:
 
-1. Account inventory and least privilege
-2. Email security with SPF, DKIM, DMARC
+1. Account inventory and least privilege [[Live now](/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-1-account-inventory-and-least-privilege/)]
+2. Email security with SPF, DKIM, DMARC [[Live now](/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-2-email-security-with-spf-dkim-and-dmarc/)]
 3. Secrets management 101 for side projects
 4. Light self hosting behind a reverse proxy
 5. Security logging at home
