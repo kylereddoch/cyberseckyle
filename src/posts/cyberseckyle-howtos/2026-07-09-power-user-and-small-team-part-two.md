@@ -9,8 +9,9 @@ featuredImageAlt: Laptop workspace representing domain email configuration and s
 featuredImageCaption: Email authentication works best when you know who is allowed to send as you.
 tags: [cyberseckyle-howto-series, cybersecurity, security, email, identity-security, how-to]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116891210382575424"
 mastodon_tags: [Cybersecurity, InfoSec, EmailSecurity, DMARC, CybersecKyleHowTo]
+publishedAt: "2026-07-09T17:32:02.491Z"
 ---
 
 > I am back with Season 3, Part 2 of the Power User and Small Team track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/). This time we are making domain email harder to spoof with SPF, DKIM, and DMARC, without turning DNS into a self-inflicted outage.
