@@ -9,8 +9,9 @@ featuredImageAlt: A phone showing a route map and location pin beside a shield a
 featuredImageCaption: "Navigation apps turn ordinary trips into sensitive location patterns. (Image generated using ChatGPT.)"
 tags: [cybersecurity, privacy, apps, digital-safety]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116913435509642354"
 mastodon_tags: [Cybersecurity, Privacy, InfoSec, DigitalSafety]
+publishedAt: "2026-07-13T15:44:11.018Z"
 ---
 
 Waze is one of those apps that we use without thinking twice about the implications.
