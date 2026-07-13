@@ -41,4 +41,4 @@ This is the landing slash page for all my /slash pages. Feel free to take a look
 
 **[/uses](/uses)** - This is a collection of products and services that work best for me and I recommend.
 
-**[/watching](/watching)** - Movies and TV shows I have watched, powered by Trakt.
+**/watching** - Movies and TV shows I have watched, powered by Trakt.
