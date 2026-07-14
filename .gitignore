@@ -13,6 +13,8 @@ src/_includes/scripts
 
 # secret data
 .env
+.dev.vars*
+.wrangler
 .DS_Store
 .vscode/*
 src/.DS_Store

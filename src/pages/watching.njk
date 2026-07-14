@@ -5,7 +5,12 @@ title: Watching
 description: "A running look at the movies and TV shows I have watched, powered by Trakt."
 ---
 
-<div class="max-w-4xl watching-page">
+{% set watchingEnabled = trakt.configured or watchingApi.url %}
+
+<div
+  class="max-w-4xl watching-page"
+  {% if watchingApi.url %}data-watching-api-url="{{ watchingApi.url }}"{% endif %}
+>
   <h1 class="media-page-title text-3xl font-bold flex items-center gap-2">
     <span aria-hidden="true">&#127916;</span>
     <span>Watching</span>
@@ -15,35 +20,36 @@ description: "A running look at the movies and TV shows I have watched, powered 
   </p>
 
   {% if trakt.error %}
-  <div class="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900/50 dark:bg-red-950/30 dark:text-red-200 mb-8">
+  <div class="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900/50 dark:bg-red-950/30 dark:text-red-200 mb-8" data-watching-build-error>
     Trakt returned an error while building this page: {{ trakt.error }}
   </div>
   {% endif %}
 
-  {% if trakt.configured %}
+  {% if watchingEnabled %}
   <dl class="watching-stats mb-10">
     <div>
       <dt>Movies Watched</dt>
-      <dd>{{ trakt.stats.movies }}</dd>
+      <dd data-watching-stat="movies">{{ trakt.stats.movies }}</dd>
     </div>
     <div>
       <dt>Shows Watched</dt>
-      <dd>{{ trakt.stats.shows }}</dd>
+      <dd data-watching-stat="shows">{{ trakt.stats.shows }}</dd>
     </div>
     <div>
       <dt>Episodes Watched</dt>
-      <dd>{{ trakt.stats.episodes }}</dd>
+      <dd data-watching-stat="episodes">{{ trakt.stats.episodes }}</dd>
     </div>
   </dl>
 
   <div class="watching-sync-note">
     <p class="text-sm text-gray-600 dark:text-gray-400">
-      Synced from <a href="{{ trakt.profileUrl }}" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">my Trakt profile</a>{% if trakt.posterConfigured %}, with poster artwork from TMDb{% endif %}.
+      Synced from <a href="{{ trakt.profileUrl }}" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300" data-watching-profile-link>my Trakt profile</a><span{% if not trakt.posterConfigured %} class="hidden"{% endif %} data-watching-poster-credit>, with poster artwork from TMDb</span>.
     </p>
-    {% if trakt.posterConfigured %}
-    <p class="text-xs text-gray-500 dark:text-gray-400">
+    <p class="text-xs text-gray-500 dark:text-gray-400{% if not trakt.posterConfigured %} hidden{% endif %}" data-watching-tmdb-attribution>
       This product uses the TMDB API but is not endorsed or certified by TMDB.
     </p>
+    {% if watchingApi.url %}
+    <p class="text-xs text-gray-500 dark:text-gray-400" data-watching-refresh-status>Checking for newer Trakt data.</p>
     {% endif %}
   </div>
 
@@ -53,11 +59,10 @@ description: "A running look at the movies and TV shows I have watched, powered 
         <h2 class="text-2xl font-semibold">Recent Watches</h2>
         <p class="text-sm text-gray-600 dark:text-gray-400">The latest movies and episodes synced from Trakt.</p>
       </div>
-      <span class="text-sm text-gray-500 dark:text-gray-400">{{ trakt.recentActivity | length }} items</span>
+      <span class="text-sm text-gray-500 dark:text-gray-400" data-watching-count="recent">{{ trakt.recentActivity | length }} items</span>
     </div>
 
-    {% if trakt.recentActivity | length > 0 %}
-    <ul class="watching-recent-grid">
+    <ul class="watching-recent-grid{% if trakt.recentActivity | length == 0 %} hidden{% endif %}" id="watching-recent-list">
       {% for item in trakt.recentActivity %}
       <li class="watching-recent-card">
         <a href="{{ item.url }}" class="watching-recent-card__poster">
@@ -83,19 +88,16 @@ description: "A running look at the movies and TV shows I have watched, powered 
       </li>
       {% endfor %}
     </ul>
-    {% else %}
-    <p class="text-sm text-gray-600 dark:text-gray-400">No recent watch history was returned.</p>
-    {% endif %}
+    <p class="text-sm text-gray-600 dark:text-gray-400{% if trakt.recentActivity | length > 0 %} hidden{% endif %}" data-watching-empty="recent">No recent watch history was returned.</p>
   </section>
 
   <section class="watching-sections">
     <div>
       <div class="watching-section-heading">
         <h2 class="text-2xl font-semibold">Movies</h2>
-        <span class="text-sm text-gray-500 dark:text-gray-400">{{ trakt.movies | length }} synced</span>
+        <span class="text-sm text-gray-500 dark:text-gray-400" data-watching-count="movies">{{ trakt.movies | length }} synced</span>
       </div>
-      {% if trakt.movies | length > 0 %}
-      <ul class="watching-poster-grid">
+      <ul class="watching-poster-grid{% if trakt.movies | length == 0 %} hidden{% endif %}" id="watching-movies-list">
         {% for item in trakt.movies | head(12) %}
         <li class="watching-poster-card">
           <a href="{{ item.url }}" class="watching-poster-card__media">
@@ -115,18 +117,15 @@ description: "A running look at the movies and TV shows I have watched, powered 
         </li>
         {% endfor %}
       </ul>
-      {% else %}
-      <p class="text-sm text-gray-600 dark:text-gray-400">No watched movies have been synced yet.</p>
-      {% endif %}
+      <p class="text-sm text-gray-600 dark:text-gray-400{% if trakt.movies | length > 0 %} hidden{% endif %}" data-watching-empty="movies">No watched movies have been synced yet.</p>
     </div>
 
     <div>
       <div class="watching-section-heading">
         <h2 class="text-2xl font-semibold">TV Shows</h2>
-        <span class="text-sm text-gray-500 dark:text-gray-400">{{ trakt.shows | length }} synced</span>
+        <span class="text-sm text-gray-500 dark:text-gray-400" data-watching-count="shows">{{ trakt.shows | length }} synced</span>
       </div>
-      {% if trakt.shows | length > 0 %}
-      <ul class="watching-poster-grid">
+      <ul class="watching-poster-grid{% if trakt.shows | length == 0 %} hidden{% endif %}" id="watching-shows-list">
         {% for item in trakt.shows | head(12) %}
         <li class="watching-poster-card">
           <a href="{{ item.url }}" class="watching-poster-card__media">
@@ -146,9 +145,7 @@ description: "A running look at the movies and TV shows I have watched, powered 
         </li>
         {% endfor %}
       </ul>
-      {% else %}
-      <p class="text-sm text-gray-600 dark:text-gray-400">No watched shows have been synced yet.</p>
-      {% endif %}
+      <p class="text-sm text-gray-600 dark:text-gray-400{% if trakt.shows | length > 0 %} hidden{% endif %}" data-watching-empty="shows">No watched shows have been synced yet.</p>
     </div>
   </section>
   {% else %}

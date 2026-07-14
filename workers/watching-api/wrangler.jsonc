@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cyberseckyle-watching-api",
+  "main": "src/index.js",
+  "compatibility_date": "2026-07-14",
+  "workers_dev": true,
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "TRAKT_USERNAME": "kylereddoch",
+    "SITE_ORIGIN": "https://www.kylereddoch.me"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "WATCHING_DATA"
+    }
+  ],
+  "triggers": {
+    "crons": ["*/30 * * * *"]
+  }
+}
