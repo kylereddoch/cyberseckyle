@@ -2,304 +2,166 @@
 date: 2026-07-14T10:00:00-05:00
 title: 'CybersecKyle Security How-To Series: Power User and Small Team, Part 3 - Secrets Management 101 for Side Projects'
 seoTitle: Secrets Management 101 for Side Projects
-description: 'A practical secrets management guide for side projects and small teams: stop committing keys, use environment variables and secret stores, rotate exposed credentials, and validate that secrets stay out of Git.'
+description: 'A working secrets-management baseline for side projects: keep credentials out of Git, scope production access, scan before pushing, and respond correctly when a key leaks.'
 searchIntent: Help developers, creators, and small teams store API keys, tokens, and credentials safely for side projects without overbuilding an enterprise secrets program.
 featuredImage: /assets/images/vs-code-screenshot.png
 featuredImageAlt: Code editor workspace representing side project configuration and safer handling of secrets.
-featuredImageCaption: A secret in Git is not a secret. It is a delayed incident.
-tags: [cyberseckyle-howto-series, cybersecurity, security, devsecops, appsec, how-to]
+featuredImageCaption: Configuration can name a required credential without storing its value in source code.
+tags: [cyberseckyle-howto-series, cybersecurity, devsecops, appsec, how-to]
+lastModified: 2026-07-14T12:13:06-05:00
 mastodon_post: true
 mastodon_url: "https://infosec.exchange/@cyberseckyle/116919193056760618"
 mastodon_tags: [Cybersecurity, InfoSec, DevSecOps, AppSec, CybersecKyleHowTo]
 publishedAt: "2026-07-14T16:08:24.214Z"
 ---
 
-> I am back with Season 3, Part 3 of the Power User and Small Team track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/). This time we are cleaning up secrets for side projects: API keys, tokens, credentials, environment files, and the bad habit of letting private things drift into public places.
+> Part 3 of the Power User and Small Team track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/) deals with the credentials that accumulate around side projects: API keys, deployment tokens, database passwords, webhook secrets, and the local files used to hold them.
 
-Side projects collect secrets fast.
+A side project rarely gets a secrets-management plan on day one. It gets an API key copied from a provider dashboard so a feature can be tested. That key lands in a configuration file, the application works, and attention moves to the next problem.
 
-One API key for a test. One token for a deploy. One webhook secret. One database URL. One `.env` file copied from a tutorial. One quick commit at 1:00am.
+The risk changes when the repository leaves one computer. Git preserves history, CI systems copy values into build environments, and a token created for a small experiment may have access to an entire account. Deleting the visible line later does not revoke the credential or remove it from earlier commits.
 
-Then the repository goes public, the key gets indexed, and the "tiny project" suddenly has a very adult security problem.
+A workable baseline for a small project consists of an inventory, storage outside source control, narrowly scoped access, and a tested response for the day one credential leaks.
 
-Secrets management sounds enterprise, but the beginner version is simple:
+## Map the credentials and their dependencies
 
-Do not hard-code secrets. Do not commit secrets. Store them somewhere designed for secrets. Rotate them when exposed. Limit what they can do.
+A secret is a value that grants access or proves identity: an API key, personal access token, database password, private key, OAuth client secret, webhook signing key, or cloud credential. A service URL or public client identifier may be configuration without being secret. Mixing the two leads either to exposed credentials or to a repository full of harmless values treated as classified material.
 
-Those basics avoid a surprising amount of pain.
-
-## What counts as a secret
-
-A secret is anything that lets someone authenticate, authorize, decrypt, impersonate, or trigger something sensitive.
-
-Examples:
-
-* API keys
-* Personal access tokens
-* Database URLs
-* Webhook signing secrets
-* OAuth client secrets
-* Private keys
-* SSH keys
-* Encryption keys
-* Session secrets
-* Cloud credentials
-* Service account JSON files
-* Password manager exports
-
-If posting it in a public chat would make you nervous, treat it like a secret.
-
-## What you are building
-
-By the end of this guide, you should have:
-
-* A list of secrets used by your project
-* Secrets removed from source code
-* `.env` files ignored by Git
-* Example environment files that do not contain real values
-* Production secrets stored in your hosting provider or secret manager
-* Exposed credentials rotated
-* A validation check that confirms secrets are not committed
-
-We are not building a huge enterprise vault. We are building sane side-project hygiene.
-
-## Step 1: Inventory project secrets
-
-For each project, create a short inventory.
-
-```txt
-Project:
-Repository:
-Hosting provider:
-Database:
-Third-party APIs:
-Deploy tokens:
-Webhook secrets:
-Local .env file:
-Production secret location:
-Owner:
-Last rotation:
-```
-
-Then list each secret:
+Before moving anything, record the information needed to manage each real secret:
 
 ```txt
 Name:
-Purpose:
-Where stored locally:
-Where stored in production:
-Permission scope:
-Can rotate:
-Last rotated:
+Application or workflow that uses it:
+Development, test, or production:
+Provider that issued it:
+Where the value is stored:
+What it can access:
+Owner:
+Expiration date:
+Revocation or rotation procedure:
 ```
 
-Do not put the secret value in the inventory. Put the name and location.
+This inventory must never contain the value itself. It should tell a maintainer where the credential comes from, what will break if it changes, and how to disable it. The [OWASP Secrets Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html) treats creation, rotation, revocation, and expiration as one lifecycle; a folder full of keys is storage, not lifecycle management.
 
-## Step 2: Remove secrets from code
+Pay close attention to credentials reused across projects. A token shared by three applications turns one exposed repository into three cleanup jobs and makes the source of suspicious activity harder to identify.
 
-Hard-coded secrets usually look like:
+## Remove the value without hiding the dependency
+
+Source code should name the configuration it expects while the credential stays outside it. In a Node.js project, a hard-coded value like this:
 
 ```js
-const apiKey = "abc123-secret-value";
+const apiKey = "real-provider-key";
 ```
 
-Replace that with environment reads:
+can become an environment read with a failure that points to the missing setup:
 
 ```js
 const apiKey = process.env.EXAMPLE_API_KEY;
+
+if (!apiKey) {
+  throw new Error("EXAMPLE_API_KEY is required");
+}
 ```
 
-Then keep real values in local `.env` files or provider secret settings.
+For local development, many projects load those values from an `.env` file. Ignore the real files while deliberately allowing example files:
 
-Add `.env` to `.gitignore`:
-
-```txt
+```gitignore
 .env
-.env.local
-.env.*.local
+.env.*
+!.env.example
+!.env.*.example
 ```
 
-Do not ignore `.env.example`. That file should be committed with safe placeholder values:
+Then commit an `.env.example` containing names and unmistakably fake placeholders:
 
-```txt
-EXAMPLE_API_KEY=replace-me
-DATABASE_URL=replace-me
-WEBHOOK_SECRET=replace-me
+```dotenv
+EXAMPLE_API_KEY=replace-with-provider-key
+DATABASE_URL=postgresql://user:password@host:5432/database
+WEBHOOK_SECRET=replace-with-webhook-secret
 ```
 
-The example file teaches setup without leaking credentials.
+An example file is setup documentation. It should show required names and safe shapes without containing a working development credential copied over for convenience.
 
-## Step 3: Store production secrets outside the repo
-
-Most hosting platforms, CI systems, and deployment tools have secret storage.
-
-Use that for production:
-
-* GitHub Actions secrets
-* Vercel environment variables
-* Netlify environment variables
-* Cloudflare secrets
-* AWS Secrets Manager or Parameter Store
-* Azure Key Vault
-* Google Secret Manager
-* Docker or platform-specific secret storage
-
-The exact provider matters less than this rule:
-
-```txt
-Production secrets should not live in source code, screenshots, issue comments, or random notes.
-```
-
-If a secret is needed by a deploy workflow, store it in the workflow's secret store. If it is needed by the app runtime, store it in the runtime environment.
-
-## Step 4: Limit secret permissions
-
-A secret should only do the job it needs to do.
-
-Prefer:
-
-* Read-only tokens when write is not needed
-* Project-scoped tokens over account-wide tokens
-* Short-lived tokens where supported
-* Separate dev and production credentials
-* Separate tokens per integration
-
-Avoid:
-
-* Personal admin tokens for automation
-* One token reused across every project
-* Cloud credentials with full account access
-* Tokens named `test` that run production
-
-Least privilege applies to secrets too.
-
-## Step 5: Rotate anything that was exposed
-
-If a secret was committed, pasted in a public issue, sent to the wrong place, or stored in an exposed log, assume it is compromised.
-
-Do not just delete the line and move on.
-
-Rotate it:
-
-1. Revoke the exposed secret.
-2. Create a new one.
-3. Update local and production storage.
-4. Redeploy or restart the app if needed.
-5. Check logs for misuse.
-6. Remove the secret from Git history if the exposure requires it.
-
-Deleting from the latest commit does not erase copies from history, forks, caches, or bots that already saw it.
-
-## Step 6: Add a preflight check
-
-Before pushing, run a secrets scan.
-
-Options include:
-
-* GitHub secret scanning for supported repositories
-* `gitleaks`
-* `trufflehog`
-* Provider-specific scanners
-* IDE extensions or pre-commit hooks
-
-You do not need ten tools. Pick one that fits your workflow and actually run it.
-
-Also use the simple human check:
-
-```txt
-git diff
-```
-
-Look at what you are about to push. It catches more than people think.
-
-## Validation drills: prove secrets are not leaking
-
-### Drill 1: Git ignore test
-
-Create or confirm a local `.env` file, then run:
+`.gitignore` has a firm boundary: it keeps untracked files untracked but does not retroactively protect a file that has already been committed. The [Git documentation](https://git-scm.com/docs/gitignore) calls this out directly. Check both conditions:
 
 ```bash
-git status
+git check-ignore -v .env
+git ls-files -- '.env*'
 ```
 
-Expected result:
-
-```txt
-The real .env file is not staged or tracked.
-```
-
-### Drill 2: Example file check
-
-Open `.env.example`.
-
-Expected result:
-
-```txt
-The file contains names and placeholders, not real secret values.
-```
-
-### Drill 3: Repo search
-
-Search the repo for likely secret names:
+The first command should identify the ignore rule. The second should list only example or template files that were intentionally committed, never a file containing real values. If `.env` is tracked, remove it from the index while leaving the local file in place:
 
 ```bash
-rg "API_KEY|TOKEN|SECRET|PRIVATE_KEY|DATABASE_URL"
+git rm --cached .env
 ```
 
-Expected result:
+If that file ever reached a shared repository, stop treating this as housekeeping. Rotate every credential it contained before doing anything else.
+
+## Put each production secret where it is used
+
+Production credentials belong in the secret facility provided by the system consuming them: a repository or environment secret for a CI workflow, a protected environment variable for a hosting platform, or a cloud secret manager for an application running in that cloud.
+
+The storage decision should follow the execution boundary. A deployment workflow does not need a credential copied into a developer's `.env`, and an application runtime does not need an account-wide token simply because that token was easy to create. GitHub, for example, supports secrets at repository, organization, and environment scope, and its own [Actions guidance recommends granting the minimum permissions and repository access required](https://docs.github.com/en/enterprise-cloud@latest/actions/concepts/security/secrets).
+
+For each credential:
+
+- Separate development and production values.
+- Use a project or service identity instead of a person's administrator token.
+- Grant read-only access when the job only reads.
+- Limit the token to the repositories, services, or resources it actually uses.
+- Prefer an expiration date or short-lived credential when the provider supports one.
+- Give separate integrations separate credentials so one can be revoked without breaking the others.
+
+A secret store reduces accidental exposure at rest. It does not make an overpowered token safe, and it cannot prevent an application from printing the value into a log. Review debug output, error handling, build artifacts, and screenshots with that in mind.
+
+## Review staged changes and scan the repository
+
+Review the exact staged patch before committing:
+
+```bash
+git diff --cached
+```
+
+That catches an unexpected `.env` file, a copied provider response, or a token pasted into a test fixture. Automated scanning covers credential patterns a manual review may miss. Searching for names such as `API_KEY` is unreliable because those names belong in source while an unfamiliar credential value may evade the search entirely.
+
+[Gitleaks](https://github.com/gitleaks/gitleaks) can scan the current repository and its Git history with:
+
+```bash
+gitleaks git --redact
+```
+
+Run it locally or as a pre-commit/CI control. On GitHub, [push protection](https://docs.github.com/en/code-security/concepts/secret-security/push-protection) can block supported credential patterns before they land in a repository. Neither control recognizes every secret, so a clean result is evidence that the checks ran, not proof that the repository contains nothing sensitive.
+
+False positives need review rather than automatic suppression. If a test value repeatedly trips a rule, document a narrow exception. Broad ignore rules make the scanner quiet by teaching it not to look.
+
+## When a secret reaches Git
+
+Treat a committed credential as exposed even if the repository was private or the commit was quickly deleted. Other users, automation, logs, caches, and forks may already have a copy.
+
+Contain the access in this order:
+
+1. Revoke the exposed credential or rotate it at the issuing provider.
+2. Identify its permissions, every application that used it, and the environments where it was installed.
+3. Create a replacement with the smallest practical scope, update the legitimate consumers, and redeploy or restart them.
+4. Review provider and application logs from the exposure window for unfamiliar use.
+5. Remove the value from the current branch and add the prevention that was missing: an ignore rule, scanner, narrower token, or safer deployment path.
+6. Decide whether repository history must be rewritten, then coordinate that work with every collaborator.
+
+GitHub's [guidance for removing sensitive data](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository) also puts revocation or rotation first. History rewriting changes commit hashes, can disrupt collaborators, and does not erase copies held in existing clones or forks. That cleanup may still be necessary after the exposed access has been contained.
+
+## A short validation pass
+
+Use this before the next push and after any change to how the project receives credentials:
 
 ```txt
-Code references environment variable names, not real secret values.
+[ ] Every secret has an owner, scope, storage location, and revocation path
+[ ] Real .env files are ignored and absent from git ls-files output
+[ ] .env.example contains placeholders only
+[ ] Development and production use different credentials
+[ ] Production credentials live in the consuming platform's secret store
+[ ] Tokens have the minimum useful permissions and a practical expiration
+[ ] git diff --cached has been reviewed
+[ ] A repository and history scan has completed without unexplained findings
 ```
 
-### Drill 4: Rotation test
-
-Rotate one low-risk development token.
-
-Expected result:
-
-```txt
-You understand the rotation path before a real incident forces it.
-```
-
-## Secrets checklist
-
-```txt
-Secrets Management Checklist
-
-Inventory
-[ ] Project secrets listed by name and purpose
-[ ] Secret values not stored in the inventory
-[ ] Owners assigned
-[ ] Production storage location recorded
-
-Local development
-[ ] Real .env files ignored by Git
-[ ] .env.example committed with placeholders
-[ ] Secrets read from environment variables
-[ ] Local secrets stored in password manager or protected files
-
-Production
-[ ] Production secrets stored in hosting or CI secret store
-[ ] Dev and production credentials separated
-[ ] Tokens scoped to minimum permissions
-[ ] Old tokens removed
-
-Validation
-[ ] git status confirms .env is not tracked
-[ ] repo search finds no real secrets
-[ ] scanner run where practical
-[ ] rotation process tested
-```
-
-## Final thought
-
-Secrets problems usually do not start dramatically.
-
-They start with "just for now."
-
-Just hard-code it for testing. Just paste it in the issue. Just commit the `.env` because the deploy is being annoying. Just reuse the admin token because it works.
-
-Then the project grows, the repo moves, the key leaks, and the shortcut becomes the incident.
-
-Keep secrets out of code. Scope them tightly. Rotate what leaks. Make the safe path the normal path.
+The useful test is whether another maintainer could replace one credential without searching through source files, guessing which systems use it, or granting the replacement more access than it needs. If the inventory and storage setup support that response, the project has moved beyond hiding strings and into actual secrets management.
