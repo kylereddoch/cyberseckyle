@@ -9,8 +9,9 @@ featuredImageAlt: Code editor workspace representing side project configuration 
 featuredImageCaption: A secret in Git is not a secret. It is a delayed incident.
 tags: [cyberseckyle-howto-series, cybersecurity, security, devsecops, appsec, how-to]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116919193056760618"
 mastodon_tags: [Cybersecurity, InfoSec, DevSecOps, AppSec, CybersecKyleHowTo]
+publishedAt: "2026-07-14T16:08:24.214Z"
 ---
 
 > I am back with Season 3, Part 3 of the Power User and Small Team track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/). This time we are cleaning up secrets for side projects: API keys, tokens, credentials, environment files, and the bad habit of letting private things drift into public places.
