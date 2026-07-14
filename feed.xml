@@ -13,7 +13,7 @@
     <link>https://www.kylereddoch.me/</link>
     <description>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</description>
     <language>en</language>
-    <lastBuildDate>Tue, 14 Jul 2026 10:00:00 CDT</lastBuildDate>
+    <lastBuildDate>Tue, 14 Jul 2026 11:08:24 CDT</lastBuildDate>
     <atom:link href="https://www.kylereddoch.me/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://www.kylereddoch.me/assets/images/logo.png</url>
@@ -47,7 +47,7 @@
       <title>CybersecKyle Security How-To Series: Power User and Small Team, Part 3 - Secrets Management 101 for Side Projects</title>
       <link>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-3-secrets-management-101-for-side-projects/</link>
       <guid isPermaLink="true">https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-3-secrets-management-101-for-side-projects/</guid>
-      <pubDate>Tue, 14 Jul 2026 10:00:00 CDT</pubDate>
+      <pubDate>Tue, 14 Jul 2026 11:08:24 CDT</pubDate>
       <xhtml:a class="browser-title" href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-3-secrets-management-101-for-side-projects/">CybersecKyle Security How-To Series: Power User and Small Team, Part 3 - Secrets Management 101 for Side Projects</xhtml:a>
       <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/mpQwRdysBG-3456.jpeg" alt="Code editor workspace representing side project configuration and safer handling of secrets." />
       <dc:creator>Kyle Reddoch</dc:creator>
