@@ -9,8 +9,9 @@ featuredImageAlt: Server room image representing self-hosted services, infrastru
 featuredImageCaption: Publishing a service is easy. Owning the exposure is the real work.
 tags: [cyberseckyle-howto-series, cybersecurity, security, networking, network-security, how-to]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116930664158208554"
 mastodon_tags: [Cybersecurity, InfoSec, SelfHosting, Networking, CybersecKyleHowTo]
+publishedAt: "2026-07-16T16:45:39.332Z"
 ---
 
 > I am back with Season 3, Part 4 of the Power User and Small Team track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/). This time we are talking about light self-hosting behind a reverse proxy: useful, fun, and much safer when exposure is intentional.
