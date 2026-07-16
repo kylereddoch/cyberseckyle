@@ -13,346 +13,115 @@ mastodon_url:
 mastodon_tags: [Cybersecurity, InfoSec, Lab, BlueTeam, CybersecKyleHowTo]
 ---
 
-> I am back with Season 5, Part 1 of the Light Offensive to Think Defensively track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/). This time we are building a safe lab with snapshots, because the first rule of learning attack paths is not accidentally attacking something you do not own.
+> Part 1 of the Light Offensive to Think Defensively track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/) builds the boundary every later exercise depends on: a lab target that is isolated, disposable, observable, and unquestionably authorized.
 
-Offensive security concepts help defenders understand how small mistakes chain together, why controls matter, and what attackers are actually trying to accomplish. The learning environment matters, though.
+Offensive techniques are useful to defenders when they reveal an attack path, the evidence it creates, and the control that interrupts it. The same tools become a problem when the target is a neighbor's device, a workplace system outside an approved test, or an intentionally vulnerable application accidentally bound to a real network interface.
 
-You do not practice on random systems. You do not scan networks you do not own. You do not run tools against production because a tutorial made it look easy.
+The first lab does not need a cluster. It needs one analysis system, one target, an explicit network design, and a reset that has been tested.
 
-You build a lab.
+## Write rules that survive curiosity
 
-A good lab gives you room to break things, reset quickly, observe behavior, and learn without creating real-world harm.
-
-## What you are building
-
-By the end of this guide, you should have:
-
-* A defined lab purpose
-* One or more virtual machines
-* Isolated or controlled networking
-* Snapshots before experiments
-* Test accounts and fake data
-* A reset procedure
-* Lab rules written down
-
-Skip the fanciest setup at first. Build a safe one.
-
-## The tool stack I would actually start with
-
-Season 5 should feel more hands-on, so here is the starter stack I would use for this lab.
-
-For virtualization:
-
-* **VirtualBox** if you want free and cross-platform
-* **UTM** if you are on macOS and want a Mac-friendly VM experience
-* **Hyper-V** if you are on Windows Pro and already have it available
-* **VMware Workstation or Fusion** if you already prefer that workflow
-
-For targets:
-
-* **OWASP Juice Shop** for web application practice
-* **DVWA** for deliberately vulnerable web app basics
-* **Metasploitable** only inside an isolated lab, never bridged to your home network
-* A normal Windows or Linux VM that you harden, scan, and monitor yourself
-
-For defender visibility:
-
-* **Wireshark** to see network traffic
-* **tcpdump** for quick packet capture on Linux
-* **Nmap** to confirm what the lab target exposes
-* **Windows Event Viewer** or **Sysmon** for Windows activity
-* **journalctl** and application logs for Linux activity
-* **Zeek** later, if you want richer network telemetry
-
-I would not install every tool on day one. Start with a hypervisor, one target, one analysis VM, Nmap, and Wireshark. Add more only when the exercise needs it.
-
-## Step 1: Write the lab rules first
-
-Before installing tools, write the rules.
+Put the lab charter beside the notes for every exercise:
 
 ```txt
-Lab purpose:
-Allowed targets:
-Disallowed targets:
-Network mode:
-Internet access allowed:
-Real accounts allowed:
-Real customer or family data allowed:
-Snapshot requirement:
-Reset procedure:
+Learning objective:
+Systems I own and may test:
+Systems and networks that are out of scope:
+Network mode and allowed internet access:
+Real accounts or data allowed: none
+Snapshot and reset procedure:
+Where packet captures and logs are stored:
+Stop condition:
 ```
 
-My recommended rules:
+The authorization rule is straightforward: test only systems you own or systems for which you have explicit permission and a defined scope. A public IP address, bug-bounty program, or workplace login is not blanket permission. Read the actual policy before sending a probe.
 
-* Only test systems you own or have explicit permission to test
-* Use fake data
-* Use test accounts
-* Snapshot before experiments
-* Keep vulnerable machines isolated
-* Do not expose intentionally vulnerable services to the public internet
-* Document what you changed
+Use fake users, email addresses, documents, tokens, and passwords. Lab exports and packet captures are easy to forget or share; real data creates a consequence the exercise does not need.
 
-Rules are not there to make the lab boring. They are there to keep the fun from becoming a problem.
+## Start with two systems and one private network
 
-## Step 2: Pick a simple lab platform
-
-Common options:
-
-* VirtualBox
-* VMware Workstation or Fusion
-* UTM on macOS
-* Hyper-V on Windows Pro
-* Proxmox for a bigger home lab
-* Docker for container-focused testing
-
-Start with whatever you can maintain.
-
-For a first lab, one attacker/analysis VM and one target VM is enough.
-
-Example:
+VirtualBox, Hyper-V, VMware Workstation or Fusion, and UTM can all support a small lab. Choose the platform you can patch, snapshot, and troubleshoot. A useful first layout is:
 
 ```txt
-Analysis VM: Linux workstation for tools and notes
-Target VM: Intentionally vulnerable app or test server
-Network: Host-only or isolated where practical
+Host computer
+  |
+  +-- Analysis VM: browser, Nmap, Wireshark, notes
+  |
+  +-- Target VM: intentionally vulnerable application
+
+Lab network: internal or host-only
+Public exposure: none
 ```
 
-Do not build a cluster before you understand snapshots.
+Network labels differ by hypervisor, so verify behavior rather than trusting the name. In VirtualBox, [internal networking](https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html) keeps communication among VMs on the named internal network, while host-only networking also creates a path between the host and those VMs. NAT commonly permits outbound access through the host. Bridged mode places the guest on the physical network and is a poor default for an intentionally vulnerable target.
 
-## Step 3: Build one vulnerable web target
+If the target needs updates, take a snapshot, temporarily attach only the access required, update, then return it to the isolated network. Do not leave a second adapter enabled because it was convenient once.
 
-For a first practical target, I like OWASP Juice Shop because it is intentionally vulnerable, well documented, and easy to reset.
+## Run one target without publishing it
 
-If you use Docker inside a lab VM, a simple local start looks like this:
+[OWASP Juice Shop](https://devguide.owasp.org/en/07-training-education/01-vulnerable-apps/01-juice-shop/) is intentionally insecure and documented for training. One safe pattern is to run Docker inside the target VM and bind the application to that VM's loopback interface:
 
 ```bash
 docker pull bkimminich/juice-shop
-docker run --rm -p 3000:3000 bkimminich/juice-shop
+docker run --rm --name juice-shop-lab -p 127.0.0.1:3000:3000 bkimminich/juice-shop
 ```
 
-Then open the app from the lab browser:
+That binding makes the application available only inside the target VM at `http://127.0.0.1:3000`. If the analysis VM must reach it, bind the container to the target VM's isolated-lab address instead and confirm the host firewall allows only the lab subnet. The common shorthand `-p 3000:3000` can publish on every host interface, which is not the boundary this exercise needs.
 
-```txt
-http://127.0.0.1:3000
-```
+Record the image tag or digest. Pulling an unspecified `latest` image months later may produce a different target and different challenge behavior. Reproducible exercises need a known version as well as a snapshot.
 
-If you want the analysis VM to reach it, bind it only on the isolated lab network and document the lab IP.
+## Establish the normal state
 
-Do not publish Juice Shop to the public internet. It is supposed to be vulnerable.
-
-## Step 4: Choose network isolation deliberately
-
-Networking is where labs accidentally get messy.
-
-Common modes:
-
-* NAT: VMs can often reach the internet through the host
-* Host-only: VMs talk to host and each other, not the wider network
-* Internal network: VMs talk only to other VMs on that internal network
-* Bridged: VM appears directly on your real network
-
-For vulnerable targets, avoid bridged networking unless you have a specific reason and understand the exposure.
-
-Use host-only or internal networking for intentionally vulnerable systems. Add internet access only when the exercise requires it.
-
-If a vulnerable VM needs updates, snapshot first, temporarily allow internet if needed, update, then return to the safer network mode.
-
-## Step 5: Take a baseline network scan
-
-Once the target is running inside the lab, scan only the lab target.
-
-Example:
+Before changing or attacking anything, collect a small baseline from inside the lab. Find the target's isolated address, then scan only that address:
 
 ```bash
 nmap -sV -oA lab-baseline 192.168.56.20
 ```
 
-What those flags mean:
+Replace the example address with the target VM. `-sV` requests service detection, and `-oA` saves normal, XML, and grepable output under the chosen name. Check that the target address is correct before pressing Enter.
 
-* `-sV` asks Nmap to identify service versions
-* `-oA lab-baseline` saves output in multiple formats
-* `192.168.56.20` should be your lab target, not a random system
-
-Your goal is to answer:
+Save:
 
 ```txt
-What ports are open?
-What services are visible?
-What versions are exposed?
-Is anything exposed that I did not expect?
+VM names and isolated addresses
+Open ports and identified services
+Target application version
+Network mode and attached adapters
+Host firewall rule, if one was required
+Snapshot name
 ```
 
-Save the output with your lab notes. This becomes your before picture.
+Next, capture one normal browser session with Wireshark or `tcpdump`: open the target, use a fake account, and stop the capture. Identify the DNS request if one exists, TCP connection, HTTP request, and source/destination addresses. This is the before picture for later exercises. Without it, every packet and log line looks equally unusual.
 
-## Step 6: Capture one packet trace
+Packet captures can contain credentials and session tokens even in a lab. Use fake values, restrict access to the files, and delete them when they no longer support the lesson.
 
-Open Wireshark on the analysis VM or host interface connected to the lab network.
+## Use snapshots for reset and backups for survival
 
-Then:
-
-1. Start capture.
-2. Browse to the lab target.
-3. Log in with fake credentials if the lab app supports it.
-4. Stop capture.
-5. Save the capture as `juice-shop-first-visit.pcapng`.
-
-Now look for:
-
-* DNS queries
-* TCP handshake
-* HTTP requests
-* TLS if configured
-* Source and destination addresses
-
-You are not trying to become a packet wizard in one sitting. You are learning what normal lab traffic looks like before you start changing things.
-
-## Step 7: Snapshot before experiments
-
-Snapshots are what make a lab forgiving.
-
-Create snapshots:
-
-* Clean install
-* After updates
-* Before each exercise
-* Before risky configuration changes
-* After building a known-good vulnerable state
-
-Name snapshots clearly:
+Create snapshots at states that have operational meaning:
 
 ```txt
-clean-install-2026-08-18
-patched-before-web-test
-before-phishing-lab
-known-vulnerable-login-demo
+clean-os-and-tools
+target-installed-known-version
+before-authentication-exercise
+before-control-change
 ```
 
-Do not rely on memory. Future-you will not remember what "snapshot 3" means.
+Then prove the reset. Create a harmless file or change a visible setting, restore the snapshot, and verify that the change disappeared and the target still starts.
 
-## Step 8: Use fake data and test accounts
+A snapshot is not a backup of the lab. It often depends on the original VM disk and hypervisor metadata. Export the lab definition, notes, configuration, and any irreplaceable capture separately if rebuilding the host would matter.
 
-Never put real customer, family, banking, or production secrets into a learning lab.
-
-Use:
-
-* Fake names
-* Fake emails
-* Fake passwords
-* Fake API keys
-* Fake documents
-* Test domains
-* Throwaway accounts where needed
-
-If a lab gets compromised, rolled back, exported, or shared, fake data keeps the blast radius low.
-
-## Step 9: Keep notes like a defender
-
-For each exercise, record:
+## Prove the boundary from inside and outside
 
 ```txt
-Goal:
-Starting snapshot:
-Target:
-Commands or actions:
-What changed:
-Logs generated:
-Detection opportunity:
-Fix or mitigation:
-Ending snapshot or rollback:
+[ ] The target and analysis VM are the only systems in scope
+[ ] Vulnerable services do not answer on the host's home or work interface
+[ ] The target cannot reach private home or work devices
+[ ] Any temporary internet adapter has been removed
+[ ] The Nmap output contains only the intended lab address
+[ ] A normal packet capture and target log are saved
+[ ] A snapshot restore returns the target to the known state
+[ ] Lab files contain no real accounts, tokens, or personal data
+[ ] The target image version and lab network design are documented
 ```
 
-This is the defender value.
-
-You are not just learning that an attack works. You are learning what it looks like, what logs it creates, and what control would have stopped or detected it.
-
-## Validation drills: prove the lab is safe
-
-### Drill 1: Isolation check
-
-From the target VM, try to reach a device on your real network.
-
-Expected result:
-
-```txt
-The vulnerable target cannot reach private home or work devices.
-```
-
-### Drill 2: Snapshot restore
-
-Make a harmless change, then restore the snapshot.
-
-Expected result:
-
-```txt
-The VM returns to the known state.
-```
-
-### Drill 3: Fake data check
-
-Search the lab for real names, real tokens, or production secrets.
-
-Expected result:
-
-```txt
-The lab contains only fake data and test credentials.
-```
-
-### Drill 4: Rule review
-
-Read the lab rules before an exercise.
-
-Expected result:
-
-```txt
-The exercise target is clearly allowed.
-```
-
-## Safe lab checklist
-
-```txt
-Safe Lab Checklist
-
-Rules
-[ ] Lab purpose defined
-[ ] Allowed targets listed
-[ ] Disallowed targets listed
-[ ] Real data banned
-[ ] Permission boundary written
-
-Platform
-[ ] Virtualization platform selected
-[ ] Analysis VM created
-[ ] Target VM created
-[ ] OWASP Juice Shop or another lab-safe target installed
-[ ] Tools installed only where needed
-[ ] Updates applied where appropriate
-
-Networking
-[ ] Vulnerable targets isolated
-[ ] Bridged networking avoided unless justified
-[ ] Internet access controlled
-[ ] Public exposure checked
-[ ] Baseline Nmap output saved
-[ ] First Wireshark capture saved
-
-Snapshots
-[ ] Clean snapshot created
-[ ] Pre-exercise snapshot created
-[ ] Snapshot names clear
-[ ] Restore tested
-
-Notes
-[ ] Exercise notes template created
-[ ] Logs location known
-[ ] Fix or detection notes captured
-```
-
-## Final thought
-
-A safe lab is the permission slip for curiosity.
-
-It lets you break things, observe things, reset things, and learn why defensive controls matter without dragging the real world into your experiment.
-
-Build the boundaries first.
-
-Then go learn.
+Do the isolation check after every network change, not just during initial setup. The safe lab is not defined by the presence of a vulnerable VM; it is defined by the verified boundary that keeps the VM, its traffic, and the later exercises away from systems that never agreed to participate.

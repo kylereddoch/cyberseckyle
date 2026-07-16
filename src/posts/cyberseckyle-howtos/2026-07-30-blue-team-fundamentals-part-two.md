@@ -13,267 +13,104 @@ mastodon_url:
 mastodon_tags: [Cybersecurity, InfoSec, macOS, BlueTeam, CybersecKyleHowTo]
 ---
 
-> I am back with Season 4, Part 2 of the Blue Team Fundamentals track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/). This time we are building a macOS baseline with FileVault, updates, privacy controls, profiles, and a few audit habits that make the machine easier to trust.
+> Part 2 of the Blue Team Fundamentals track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/) applies the same evidence-first baseline to macOS: updates, encryption, network exposure, powerful permissions, management, and recovery.
 
-macOS security conversations get weird fast.
+The platform already includes Gatekeeper, XProtect, System Integrity Protection, signed system volumes on current macOS releases, privacy controls, and hardware-backed protections on supported Macs. A baseline does not replace those layers or claim they make the machine immune. It establishes whether the controls that require an owner—FileVault recovery, update behavior, firewall policy, local administrators, profiles, extensions, and backups—are in the expected state.
 
-Some people act like Macs are magically safe. Other people treat every Mac like it needs to become a locked lab appliance.
+Personal Macs and managed Macs need different administration. Do not remove a work profile, endpoint extension, certificate, or management component because its purpose is unfamiliar. Identify the owner and policy first.
 
-The practical truth is calmer.
+## Capture a dated state
 
-macOS has strong built-in security layers, but those layers still need ownership. Updates need to happen. FileVault needs to be confirmed. Privacy permissions need review. Admin access needs restraint. Profiles need to be understood. Logs need to answer basic questions.
-
-I would want that baseline in place before getting fancy.
-
-## What you are building
-
-By the end of this guide, you should have:
-
-* macOS updates enabled and checked
-* FileVault confirmed
-* Firewall decision documented
-* Gatekeeper and XProtect assumptions understood
-* Privacy permissions reviewed
-* Local admins reviewed
-* Configuration profiles inventoried
-* Basic audit commands tested
-
-This is defender-level macOS hygiene without pretending every home Mac is a managed enterprise fleet.
-
-## Step 1: Confirm updates and security responses
-
-Go to:
+Record the hardware, operating system, owner, management status, and recovery dependencies:
 
 ```txt
-System Settings -> General -> Software Update
+Mac model and serial reference:
+macOS version and build:
+Device owner:
+Managed or personal:
+FileVault state and recovery-key custodian:
+Firewall state:
+Local administrators:
+Configuration profiles:
+System and network extensions:
+Backup method and last restore:
 ```
 
-Enable automatic checks and security updates where appropriate. Install available updates, restart, and check again.
-
-For managed environments, document how updates are enforced. For personal or small-team machines, make sure "I will click later forever" is not the update policy.
-
-## Step 2: Confirm FileVault
-
-Go to:
-
-```txt
-System Settings -> Privacy & Security -> FileVault
-```
-
-FileVault should be on for laptops and any Mac that holds sensitive data.
-
-Then confirm recovery:
-
-```bash
-fdesetup status
-```
-
-Do not stop at "FileVault is on." Know where the recovery key or recovery method lives. Encryption without recovery planning is a locked door you might someday be on the wrong side of.
-
-## Step 3: Review firewall and sharing
-
-Go to:
-
-```txt
-System Settings -> Network -> Firewall
-System Settings -> General -> Sharing
-```
-
-Turn on the firewall unless you have a documented reason not to. Review sharing services:
-
-* File Sharing
-* Screen Sharing
-* Remote Login
-* Remote Management
-* Bluetooth Sharing
-* Media Sharing
-* Printer Sharing
-
-For each enabled service, write down why it is enabled.
-
-If nobody knows, turn it off and see what complains.
-
-## Step 4: Review privacy permissions
-
-Go to:
-
-```txt
-System Settings -> Privacy & Security
-```
-
-Review:
-
-* Location Services
-* Contacts
-* Calendars
-* Photos
-* Bluetooth
-* Microphone
-* Camera
-* Accessibility
-* Full Disk Access
-* Files and Folders
-* Screen & System Audio Recording
-* Developer Tools
-
-Accessibility, Full Disk Access, and screen recording deserve extra attention. Those are powerful permissions. Old apps should not keep them forever because they once needed help.
-
-Remove access that no longer has a current purpose.
-
-## Step 5: Inventory profiles and management
-
-Configuration profiles can enforce settings, install certificates, configure VPN, manage restrictions, and connect a Mac to MDM.
-
-Check:
-
-```txt
-System Settings -> General -> Device Management
-```
-
-Or:
-
-```bash
-profiles list
-```
-
-For each profile:
-
-```txt
-Profile name:
-Installed by:
-Purpose:
-Managed by:
-Removable:
-Still needed:
-```
-
-If this is a personal Mac and you find an unexpected management profile, investigate immediately. If this is a work Mac, do not remove management profiles without authorization. Ownership matters.
-
-## Step 6: Review users and admin access
-
-Go to:
-
-```txt
-System Settings -> Users & Groups
-```
-
-List admins:
-
-```bash
-dscl . -read /Groups/admin GroupMembership
-```
-
-Remove stale admin access. Use standard accounts where practical. For managed fleets, document who gets admin rights and how temporary elevation works.
-
-Admin prompts should mean something.
-
-## Step 7: Run basic audit checks
-
-These commands are not a full audit, but they help you inspect reality.
+These commands provide useful evidence without changing settings:
 
 ```bash
 sw_vers
 fdesetup status
-profiles list
+/usr/libexec/ApplicationFirewall/socketfilterfw --getglobalstate
+profiles status -type enrollment
+system_profiler SPConfigurationProfileDataType
 systemextensionsctl list
-launchctl print-disabled system
+dscl . -read /Groups/admin GroupMembership
 ```
 
-Also review login items:
+Some output can be lengthy or require elevated access. Save only what is needed, and protect the inventory because it names users, management systems, installed controls, and recovery posture.
+
+## Verify updates and FileVault recovery
+
+Review **System Settings → General → Software Update** and make sure the update policy covers both normal operating-system releases and security responses. A managed environment should document the enforcement and deferral window. A personal machine needs a regular installation habit, not an automatic-download setting followed by months of postponed restarts.
+
+After updating and restarting, run `sw_vers` again and open the applications that matter. The version record should reflect the device after the change, not the version you intended to install.
+
+FileVault should be enabled on a laptop and any Mac that stores sensitive data. `fdesetup status` confirms the local state, but the operational question is whether an authorized person can recover the volume. On a personal Mac, verify the chosen account or protected recovery-key location. On a managed Mac, verify that the personal recovery key is escrowed and retrievable through the device-management service according to policy. Apple's [FileVault deployment overview](https://support.apple.com/en-euro/guide/deployment/dep82064ec40/web) explains the relationship between FileVault, user credentials, and volume protection on current Mac hardware.
+
+Do not paste a recovery key into a general ticket or baseline document. Record the custodian and retrieval test instead.
+
+## Review listening services before firewall exceptions
+
+Turn on the application firewall unless the environment has a documented alternative. Apple's [firewall management reference](https://support.apple.com/guide/deployment/firewall-payload-settings-dep8d306275f/1/web/1.0) shows that managed policy can control the firewall, incoming application rules, stealth mode, and logging; the exact options available depend on the macOS version and management service.
+
+Then review **System Settings → General → Sharing**. File Sharing, Screen Sharing, Remote Login, Remote Management, Media Sharing, Printer Sharing, and content caching all create service exposure. For every enabled service, capture the business or personal need, allowed users, expected networks, and owner.
+
+Do not disable an unknown work service to see who complains. On a managed Mac, find the responsible profile or administrator. On a personal Mac, disable an unneeded service deliberately and verify that normal work continues.
+
+The firewall is not a reason to leave unnecessary listeners enabled. Removing the service reduces exposure and future maintenance; allowing it through the firewall preserves both.
+
+## Audit privacy permissions as high-trust access
+
+Under **System Settings → Privacy & Security**, review Camera, Microphone, Screen & System Audio Recording, Accessibility, Full Disk Access, Files and Folders, Location Services, Bluetooth, Contacts, and Calendars.
+
+Accessibility, Full Disk Access, and screen recording deserve individual justification because they can expose input, files, or visible activity far beyond one document. Record the application, publisher, owner, reason, and review date. Remove permission from an application that is gone or no longer needs the function, then test the workflow that once depended on it.
+
+An application appearing in a privacy list does not necessarily mean it currently has access; read the current toggle and management state. Some entries are controlled by a profile and cannot be changed by the user, which is evidence to trace back to device management rather than a setting to fight locally.
+
+## Account for profiles, extensions, and login persistence
+
+Configuration profiles can install certificates, configure network access, enforce restrictions, approve extensions, and connect the Mac to device management. Compare **System Settings → General → Device Management** with `profiles status -type enrollment` and `system_profiler SPConfigurationProfileDataType`.
+
+For each profile, record:
 
 ```txt
-System Settings -> General -> Login Items & Extensions
+Identifier and display name:
+Source or management service:
+Payload purpose:
+Expected device scope:
+Removal authority:
+Owner:
 ```
 
-Do not worry about memorizing every command. The real value is learning what normal looks like on your Mac so weird stands out later.
+Also review **System Settings → General → Login Items & Extensions** and the output of `systemextensionsctl list`. System extensions from endpoint security, VPN, content filtering, or storage products may be legitimate and necessary, but abandoned extensions and background items should not remain trusted indefinitely.
 
-## Validation drills: prove the baseline works
+Finally, compare the local administrator group with the approved access list. A standard daily account can reduce accidental system-wide changes, but demoting users on a managed FileVault Mac requires planning around Secure Token, volume ownership, and support. Make that change through the management process, not as a one-line hardening trick.
 
-### Drill 1: FileVault check
-
-Run:
-
-```bash
-fdesetup status
-```
-
-Expected result:
+## Keep the validation record
 
 ```txt
-FileVault is on, and recovery is understood.
+[ ] macOS version and update policy are recorded
+[ ] FileVault is active and authorized recovery has been verified
+[ ] Current backup can restore a test file
+[ ] Firewall state matches the documented policy
+[ ] Every enabled Sharing service has a current purpose and owner
+[ ] Accessibility, Full Disk Access, and screen-recording grants are justified
+[ ] Enrollment and configuration profiles are expected
+[ ] System extensions and login items have been reviewed
+[ ] Local administrators match the approved list
+[ ] A removed permission or service was tested against normal work
+[ ] Exceptions and next review date are stored with the baseline
 ```
 
-### Drill 2: Permission review
-
-Remove one stale permission from Accessibility, Full Disk Access, or Screen Recording.
-
-Expected result:
-
-```txt
-Only current trusted apps keep powerful permissions.
-```
-
-### Drill 3: Profile inventory
-
-List profiles and identify each one.
-
-Expected result:
-
-```txt
-Every profile is expected, owned, and understood.
-```
-
-### Drill 4: Sharing check
-
-Disable one unneeded sharing service.
-
-Expected result:
-
-```txt
-The Mac exposes fewer services without breaking normal use.
-```
-
-## macOS baseline checklist
-
-```txt
-macOS Baseline Checklist
-
-Foundation
-[ ] macOS updated
-[ ] Automatic security updates reviewed
-[ ] FileVault enabled
-[ ] Recovery method confirmed
-[ ] Backup configured
-[ ] Restore tested
-
-Network and sharing
-[ ] Firewall enabled or decision documented
-[ ] Sharing services reviewed
-[ ] Remote Login reviewed
-[ ] Screen Sharing reviewed
-
-Privacy and apps
-[ ] Location permissions reviewed
-[ ] Camera and microphone permissions reviewed
-[ ] Accessibility permissions reviewed
-[ ] Full Disk Access reviewed
-[ ] Screen recording permissions reviewed
-[ ] Login items reviewed
-
-Management and audit
-[ ] Profiles listed
-[ ] Unknown profiles investigated
-[ ] Admin users reviewed
-[ ] System extensions reviewed
-[ ] Baseline notes saved
-```
-
-## Final thought
-
-macOS security is strongest when you respect both sides of the truth.
-
-The platform gives you solid built-in protections. You still have to manage updates, encryption, permissions, users, profiles, and recovery.
-
-Defaults are a starting point.
-
-Ownership is the baseline.
+The baseline is useful when a later review can identify drift: a new administrator, a profile that arrived from an unexpected source, a backup that stopped completing, or a powerful permission that outlived the application that requested it. The green status in System Settings is only the current view; the dated record makes change visible.

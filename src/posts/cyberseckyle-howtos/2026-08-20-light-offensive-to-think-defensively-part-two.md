@@ -13,315 +13,122 @@ mastodon_url:
 mastodon_tags: [Cybersecurity, InfoSec, Phishing, IdentitySecurity, CybersecKyleHowTo]
 ---
 
-> I am back with Season 5, Part 2 of the Light Offensive to Think Defensively track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/). This time we are using a phishing simulation to study prompts and controls, not to embarrass people or collect real credentials.
+> Part 2 of the Light Offensive to Think Defensively track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/) uses a controlled message to test email authentication, filtering, reporting, and response without collecting a real credential or turning coworkers into targets.
 
-Phishing simulations can teach defenders a lot, or they can become mean, lazy, and useless.
+A click rate by itself says very little. A recipient may recognize the exercise after opening the message, a gateway may rewrite the link, an automated scanner may visit it, or the reporting button may be too hard to find. The more useful questions are whether the message was authenticated and filtered as expected, whether the report preserved the headers, whether anybody received that report, and whether a stolen password would still be enough to reach the account.
 
-If the exercise exists to trick people and shame them, it is building resentment instead of security. A better exercise shows where prompts fail, where reporting works, where MFA helps, where email controls catch the message, and where users need a better path.
+Keep the first exercise inside the lab from Part 1. A workplace campaign requires written authorization, a defined audience, privacy and labor review where applicable, help-desk coordination, and an approved communication plan. Defensive intent does not remove the need for consent and authority.
 
-This guide is defensive and controlled.
+## Define the lesson and the data boundary
 
-No real credentials. No surprise humiliation. No testing people without authorization. No sending fake emergencies to people who did not agree to the exercise.
-
-## What you are building
-
-By the end of this guide, you should have:
-
-* A written simulation purpose
-* Permission and scope
-* A safe landing page that does not collect passwords
-* A reporting path
-* Email control checks
-* MFA and sign-in prompt observations
-* A debrief focused on controls, not shame
-
-For a personal lab, this can be entirely self-contained. For a workplace, get approval.
-
-## The tools that make this useful
-
-You can run a phishing simulation with a commercial platform, but for a lab or small internal exercise, these are the kinds of tools and controls worth understanding:
-
-* **GoPhish** for building a controlled campaign and tracking safe clicks
-* **MailHog** or a test mailbox for capturing messages in a lab without sending to real people
-* **Canarytokens** for safe detection-style links or documents, when approved
-* **Microsoft Report Message** or equivalent report-phishing buttons for real user reporting
-* **Security admin portals** for Microsoft 365, Google Workspace, or your email provider
-* **MXToolbox**, provider dashboards, or header analyzers for SPF, DKIM, and DMARC checks
-
-You are not trying to become a phishing operator. You are learning how the message travels, which controls inspect it, what users see, and what defenders receive when someone reports it.
-
-## Step 1: Define the purpose
-
-Pick one learning goal.
-
-Examples:
-
-* Can users identify a suspicious login prompt?
-* Does the report-phishing button work?
-* Do email controls flag obvious impersonation?
-* Does MFA stop password-only compromise?
-* Are people trained to verify payment or gift-card requests out of band?
-* Does the help desk know how to respond?
-
-Write:
+Choose one learning objective:
 
 ```txt
-Purpose:
-Audience:
-Approval:
-Allowed senders:
+Can a user find and use the report-phishing control?
+Do reports reach a monitored queue with original headers?
+Does the mail system identify a sender-domain mismatch?
+Does the help desk follow the documented triage path?
+Would MFA or a passkey stop password-only access?
+```
+
+Then write the campaign boundary:
+
+```txt
+Owner and written approval:
+Recipients and excluded groups:
+Sending system and domain:
+Message theme:
 Landing page:
-Data collected:
-What will not be collected:
-Debrief plan:
+Fields collected:
+Fields explicitly not collected:
+Retention and deletion date:
+Who can see individual results:
+Stop condition:
+Debrief and support path:
 ```
 
-The "what will not be collected" line matters.
+Do not collect passwords, MFA codes, recovery answers, payment data, or personal information. Avoid fake medical news, layoffs, legal threats, family emergencies, or other scenarios that create harm unrelated to the control being tested.
 
-Do not collect real passwords.
+## Build the first message in a closed mail path
 
-## Step 2: Build a lab-only simulation with GoPhish
+GoPhish can organize templates, landing pages, groups, and campaign events. A lab mail catcher such as MailHog can receive the message without sending it to a real mailbox. Create one fictional recipient under a reserved test domain, such as `alex@example.test`, and keep both the sender and receiver inside the lab.
 
-If you use GoPhish, keep it scoped and boring.
+The landing page should explain the exercise and provide the lesson. GoPhish landing pages can be configured to capture submitted data, so review the page and campaign settings carefully and leave credential capture disabled. The project's [landing-page documentation](https://docs.getgophish.com/user-guide/documentation/landing-pages) describes those options; do not copy or import a real sign-in page when a plain educational page will test the same report and click path.
 
-For a lab:
-
-1. Install GoPhish on a local VM.
-2. Create one fake recipient, such as `alex@example.test`.
-3. Use a local mail catcher or a test mailbox you control.
-4. Build a landing page that explains the exercise.
-5. Disable or avoid credential capture.
-6. Send only to the fake recipient first.
-
-The useful fields to document:
+Use a unique campaign identifier rather than personal data. A safe event record may contain:
 
 ```txt
-Campaign name:
-Sending profile:
-Landing page:
-Recipient group:
-What is tracked:
-What is not tracked:
-Report path:
-Debrief link:
+Campaign ID
+Fictional recipient ID
+Sent, delivered, reported, or landing-page visit event
+Timestamp
 ```
 
-For a real small-team exercise, do not skip approval. A phishing simulation is still a social engineering exercise, even when the intent is defensive.
+Even a visit can reveal an IP address and browser details, so collect only fields needed for the stated objective and delete them on schedule.
 
-## Step 3: Keep the landing page safe
+## Inspect how the message was handled
 
-If you use a landing page, make it educational.
-
-It can record:
-
-* Visit count
-* Timestamp
-* Test campaign ID
-* Generic browser information if needed
-
-It should not collect:
-
-* Real passwords
-* MFA codes
-* Sensitive personal information
-* Payment data
-* Anything you would regret storing
-
-The page should explain the simulation after the click and provide a calm teaching moment.
-
-Do not build a fake login page that harvests credentials. You do not need real secrets to learn the control path.
-
-## Step 4: Inspect the email headers
-
-After sending a test message, inspect the headers.
-
-Look for:
+Read the raw headers from the received test message:
 
 ```txt
-SPF:
-DKIM:
-DMARC:
-Return-Path:
-From:
-Reply-To:
-Received:
-Message-ID:
+From
+Reply-To
+Return-Path
+Received
+Authentication-Results
+Message-ID
 ```
 
-You are trying to learn whether the message authenticated correctly, where it traveled, and whether the visible sender matches the infrastructure that sent it.
+Identify the visible sender, envelope sender, systems that relayed the message, and the SPF, DKIM, and DMARC results. Part 2 of the Power User track explains [how those three controls align a message with the visible domain](/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-2-email-security-with-spf-dkim-and-dmarc/).
 
-This connects directly back to the Season 3 guide on [email security with SPF, DKIM, and DMARC](/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-2-email-security-with-spf-dkim-and-dmarc/). Phishing defense is not just user training. It is also mail authentication, filtering, reporting, and response.
+In a real approved environment, compare delivery to the expected mail policy. Did the gateway quarantine it, add a banner, rewrite the link, or deliver it normally? Preserve the reason from the provider rather than grading the result only as inbox or spam. A well-authenticated test message may legitimately pass checks designed to identify spoofing; that does not mean the gateway endorses the content.
 
-## Step 5: Design the message around the lesson
+## Design the prompt around a control
 
-A good simulation prompt should be realistic enough to teach, not cruel enough to traumatize.
+Use a routine scenario that supports the learning objective: a shared document, calendar invitation, password-expiration notice, invoice review, or shipping update. Include a small number of deliberate clues such as a mismatched sender domain, unexpected attachment, link target that differs from its label, request to bypass a normal process, or request for a password.
 
-Avoid:
-
-* Fake layoffs
-* Fake medical emergencies
-* Fake legal threats
-* Fake personal crises
-* Financial panic with no support plan
-
-Use safer examples:
-
-* Shared document request
-* Password expiration notice
-* Invoice review prompt
-* Shipping update
-* Calendar invite
-* Security notification
-
-Include clues you want people to notice:
-
-* Sender mismatch
-* Odd domain
-* Urgent language
-* Unexpected attachment
-* Link text mismatch
-* Request for credentials
-* Request to bypass normal process
-
-## Step 6: Test controls, not just clicks
-
-Track defensive questions:
-
-* Did SPF, DKIM, and DMARC behave as expected?
-* Did the message land in inbox, spam, or quarantine?
-* Did link protection rewrite or warn?
-* Did endpoint/browser protection warn?
-* Did users report the message?
-* Did help desk or mailbox rules catch it?
-* Did MFA block account abuse in a related sign-in test?
-
-Clicks are only one signal.
-
-If ten people click but the report button is invisible, training alone is not the fix. If nobody reports because they do not know where to report, the process failed. If the email gateway misses an obvious spoof, the control failed.
-
-## Step 7: Validate the report path
-
-This is the part I care about most.
-
-Send the test message to yourself and use the normal report path:
-
-* Report Message add-in
-* Report phishing button
-* Forward as attachment to a security mailbox
-* Help desk ticket
-* Dedicated abuse or security address
-
-Then confirm:
+Document each clue and the control expected to respond:
 
 ```txt
-Who received it:
-What metadata arrived:
-Whether headers were preserved:
-Whether a ticket or alert was created:
-Who is responsible for triage:
+Clue: Visible sender and actual domain differ
+User action: Inspect the sender and report the message
+Technical control: Impersonation or domain policy
+Response control: Report arrives with headers and opens a triage task
 ```
 
-If a user reports a real phish and nobody sees it, the reporting button is just decoration.
+This keeps the exercise from becoming an arbitrary trick. If the organization taught users to trust an exact banner or button that the simulation omits, the result may measure inconsistent design rather than user judgment.
 
-## Step 8: Debrief without shame
+## Test the reporting path end to end
 
-The debrief should answer:
+Use the same path people are expected to use for a real message: the provider's report-phishing button, forwarding as an attachment to a monitored security mailbox, or a help-desk workflow.
 
-* What was the scenario?
-* What clues mattered?
-* What controls helped?
-* What controls failed?
-* How should people report next time?
-* What will be improved?
-
-Do not publish a leaderboard of who clicked.
-
-That teaches people to fear security, not practice it.
-
-## Validation drills: prove the simulation is safe
-
-### Drill 1: No credential collection
-
-Review the landing page and forms.
-
-Expected result:
+Verify:
 
 ```txt
-No real passwords, MFA codes, or sensitive information can be submitted.
+Who received the report
+Whether original headers and message content survived
+Whether a ticket or alert was created
+Which person owns first review
+What that person checks
+How the sender, link, or attachment would be contained
+How the reporter receives feedback
 ```
 
-### Drill 2: Scope check
+A button that deletes the message locally but sends nothing to a reviewed queue is not a reporting control. A queue without an owner is not much better.
 
-Read the approved audience and sender list.
+If the exercise includes authentication, use a separate lab identity and a fake password known only to the exercise. Do not ask a participant to enter an actual password. Observe whether MFA, passkeys, device conditions, and sign-in alerts would interrupt password-only access without attempting to defeat them.
 
-Expected result:
+## Debrief the system, not the individual
 
-```txt
-The simulation only reaches people and systems in scope.
-```
+Report what each layer showed:
 
-### Drill 3: Reporting path test
+- Message authentication and gateway handling
+- Visibility and quality of the user prompt
+- Reporting-path delivery and preserved evidence
+- Help-desk or security response time
+- Identity controls that limit password-only compromise
+- Changes assigned to an owner
 
-Send a test message to yourself and report it through the intended path.
+Do not publish a leaderboard or treat a click as proof that somebody is careless. Automated systems, accessibility needs, job context, and prompt design all affect the result. Individual data should be visible only to the people named in the approved plan and retained only as long as that plan requires.
 
-Expected result:
-
-```txt
-The report reaches the right mailbox, tool, or person.
-```
-
-### Drill 4: Debrief review
-
-Read the debrief before sending.
-
-Expected result:
-
-```txt
-The debrief teaches without shaming.
-```
-
-## Phishing simulation checklist
-
-```txt
-Phishing Simulation Checklist
-
-Scope
-[ ] Purpose defined
-[ ] Approval obtained
-[ ] Audience listed
-[ ] Sender/domain approved
-[ ] Out-of-scope groups excluded
-
-Safety
-[ ] No real credentials collected
-[ ] No MFA codes collected
-[ ] No sensitive personal data collected
-[ ] Landing page educational
-[ ] Data retention decided
-
-Controls
-[ ] Email authentication checked
-[ ] Gateway behavior observed
-[ ] Link protection observed
-[ ] Reporting path tested
-[ ] MFA lesson included where appropriate
-[ ] Email headers reviewed
-[ ] Triage owner confirmed
-
-Debrief
-[ ] Clues explained
-[ ] Reporting instructions included
-[ ] Control improvements listed
-[ ] No shame-based reporting
-[ ] Follow-up tasks assigned
-```
-
-## Final thought
-
-A phishing simulation should make the whole system better.
-
-People are part of that system, but they are not the only control and they should not be treated like the weakest link for sport.
-
-Study prompts. Test reporting. Validate MFA. Improve email controls. Teach calmly.
-
-Do not use this work to catch people. Use it to make the next real phish less likely to work.
+The exercise is ready to close when no real secret could have been submitted, every event stayed inside the authorized scope, the report reached a person who could act, and the debrief produced a change to the prompt, mail control, report path, identity policy, or response procedure.

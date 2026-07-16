@@ -13,342 +13,128 @@ mastodon_url:
 mastodon_tags: [Cybersecurity, InfoSec, Passwords, IdentitySecurity, CybersecKyleHowTo]
 ---
 
-> I am back with Season 5, Part 3 of the Light Offensive to Think Defensively track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/). This time we are studying recon and password attack theory inside the lab so we can improve defenses without pointing tools at systems we do not own.
+> Part 3 of the Light Offensive to Think Defensively track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/) examines what a lab target reveals before authentication and how its identity controls respond to a small, authorized set of failed sign-ins.
 
-This guide has a hard boundary:
+This exercise stays inside the isolated lab from Part 1. The target, users, passwords, logs, and test traffic must all be yours. Do not transfer the commands or test cases to public services, workplace systems, or accounts that were not included in written authorization.
 
-Do this in your lab, against systems you own or have explicit permission to test.
+The defender's question is not, "How many passwords can this machine guess?" It is, "Which exposed facts make account abuse easier, which control slows it down, and which event tells us it happened?"
 
-Reconnaissance and password attack concepts show defenders how attackers find weak spots before the loud part starts. They look for names, services, exposed login pages, reused passwords, default credentials, missing lockouts, and leaked information.
+## Establish a fake identity set
 
-You do not need to become reckless to learn from that.
-
-You need a safe lab, fake accounts, and a defensive question:
+Create a few fictional users whose roles make the authorization boundary obvious:
 
 ```txt
-What would make this harder to abuse?
+alex.admin@example.test
+sam.billing@example.test
+jordan.support@example.test
+taylor.reader@example.test
 ```
 
-## What you are building
+Give the lab different control states: one disabled account, one normal user, one administrator with MFA if the target supports it, and one account used to observe throttling. Use generated fake passwords that do not resemble your real patterns. Never import a breach corpus or real username list into this exercise.
 
-By the end of this guide, you should have:
-
-* A lab-only target
-* Fake users and fake passwords
-* A list of exposed services
-* Password policy observations
-* Lockout or rate-limit behavior tested safely
-* Defensive fixes documented
-* A short report of what you learned
-
-This is theory and controlled validation, not a recipe for attacking real systems.
-
-## The tools for this lab
-
-This is the article where tool usage matters most, but the boundary matters too. Use these only against your own lab target or an explicitly authorized environment.
-
-For recon:
-
-* **Nmap** for service discovery
-* **WhatWeb** or **Wappalyzer** for web technology fingerprinting
-* **curl** for checking headers and responses
-* **OWASP ZAP** or **Burp Suite Community** for observing web requests
-
-For password defense learning with fake data:
-
-* **KeePassXC** or your password manager to generate strong test passwords
-* **John the Ripper** or **hashcat** against toy hashes you created yourself
-* Application logs to observe failed sign-ins and lockouts
-* Identity provider audit logs if your lab uses one
-
-You are not here to "crack real passwords." You are here to see why weak passwords, exposed login surfaces, missing MFA, and bad lockout settings are a defender problem.
-
-## Step 1: Build the fake target profile
-
-Inside your lab, create fake users:
+Record the expected state before testing:
 
 ```txt
-alex.admin
-sam.finance
-jordan.helpdesk
-taylor.sales
+Account enabled:
+Role:
+MFA or passkey required:
+Failed-attempt policy:
+User notification:
+Administrator alert:
+Relevant log source:
 ```
 
-Use fake email addresses and fake data.
+## Map only the lab target
 
-Then create a few intentionally different password situations:
-
-* One strong unique password
-* One weak but not real password
-* One disabled account
-* One account with MFA if your lab supports it
-* One account with lockout policy
-
-Do not use your real password patterns. Do not use real usernames from your workplace or family.
-
-## Step 2: Map exposed services with Nmap
-
-Start with a basic scan of the lab target.
-
-```bash
-nmap -sV -oA recon-baseline 192.168.56.20
-```
-
-Then, if the target is a web app, add a safer script scan against the lab host:
+Confirm the isolated target address from the lab inventory, then compare it with the baseline from Part 1:
 
 ```bash
 nmap -sV --script http-title,http-headers -oA recon-web 192.168.56.20
 ```
 
-Do not aim this at the internet. Do not aim it at your workplace without approval. This is lab reconnaissance.
+The example address must be replaced with the target VM. The two named scripts retrieve ordinary page-title and header information; they are not permission to scan another network.
 
-Write down:
+Review the output for open ports, service names, version banners, page titles, and unexpected listeners. Follow with ordinary requests to the lab web service:
 
-```txt
-Open ports:
-Service versions:
-HTTP titles:
-Server headers:
-Unexpected services:
+```bash
+curl -I http://192.168.56.20:3000/
+curl -sS http://192.168.56.20:3000/robots.txt
 ```
 
-Then ask the defensive question:
+The `robots.txt` file is a crawler instruction, not an access-control list. A path named there remains public if the web server serves it.
+
+For every observation, write the defensive consequence:
 
 ```txt
-Would I want this exposed on a real network?
+Observation: Development server listens on every interface
+Consequence: A bridged or misconfigured VM could expose it beyond the lab
+Change: Bind to loopback or the isolated lab address and restrict the host firewall
+Validation: Repeat the scan from the lab and from the real network boundary
 ```
 
-## Step 3: Map exposed information
+A version banner is not automatically a vulnerability, and hiding a banner does not patch the software. It can still reveal unnecessary implementation detail, but version and configuration must be verified before treating it as a finding.
 
-Recon starts with what is visible.
+## Compare authentication responses without harvesting credentials
 
-For your lab target, list:
+Use the browser developer tools, OWASP ZAP, or Burp Suite Community as a local proxy while signing in to the lab application with fake accounts. Capture the request and response for:
 
-* Hostnames
-* Login pages
-* Open services
-* Version banners
-* Public documentation
-* Error messages
-* Usernames visible in pages or logs
-* Password reset behavior
+- A valid username with a wrong fake password
+- A nonexistent username
+- A disabled fake account
+- A password-reset request for an existing and nonexistent fake address
 
-The defensive question:
+Compare status codes, response body, redirects, headers, and obvious timing differences. A generic message in the page is not enough if the HTTP status or response shape still reveals which account exists. The [OWASP Authentication Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html) recommends generic authentication and recovery responses and explains how response discrepancies enable account enumeration.
+
+The fix is not always to make every internal event identical. The application can record a precise reason for defenders while returning a consistent public response to the requester. Test both sides: the user-facing behavior should avoid unnecessary disclosure, and the audit log should retain enough identity and outcome detail to investigate abuse.
+
+## Separate online guessing from offline password exposure
+
+Online password attacks interact with the real authentication service and can be slowed by rate limits, lockouts, MFA, device checks, and detection. Offline attacks begin after an attacker obtains password hashes and are constrained by the password strength and how the verifier salted and hashed them, not by the website's login limit.
+
+That distinction changes the lab work. Do not run a high-volume guessing tool against the application. Use a small manual sequence with the designated fake account to observe:
 
 ```txt
-What information helps an attacker make a better guess?
+Number and timing of allowed failures
+Whether delay increases
+Whether the account is temporarily locked
+Whether another source can continue attempts
+What the user sees
+What the administrator sees
+How recovery works
 ```
 
-Examples:
+Stop when the documented threshold is reached. Confirm that the control does not make it trivial for anyone to permanently deny service to another user.
 
-* Login page confirms whether a user exists
-* Error page exposes software version
-* Public docs list admin email
-* Default service page is still visible
-* Password reset reveals account status
+For offline theory, generate a tiny set of toy passwords and hashes that exist only in the lab. The lesson is the relative effect of predictable versus long, randomly generated values and the importance of the application's storage method. Do not copy production hashes, real passwords, or breach data. [NIST's current password guidance](https://pages.nist.gov/800-63-4/sp800-63b/passwords/) emphasizes length, blocklists for common or compromised choices, secure hashed storage, and rate limiting instead of arbitrary composition rules.
 
-## Step 4: Use ZAP or Burp as a defensive observer
+Password policy is only part of the defense. Unique password-manager-generated credentials limit credential stuffing, while MFA or passkeys reduce what a stolen password can accomplish. Passwords themselves are not phishing-resistant.
 
-Open OWASP ZAP or Burp Suite Community and proxy your browser through it while using the lab app.
+## Correlate the activity with defender evidence
 
-Watch:
-
-* Login requests
-* Password reset requests
-* Session cookies
-* Response codes
-* Error messages
-* Redirects
-* Headers
-
-You are not trying to exploit everything you see. You are learning what the application leaks during normal interaction.
-
-For example:
+Place the scan, web requests, failed sign-ins, lockout, successful login, and control changes on one timeline. Check whether the target records:
 
 ```txt
-Known user reset response: "We sent you an email."
-Unknown user reset response: "No account found."
+Timestamp and timezone
+Account identifier without recording the password
+Success or failure outcome
+Source address or session context
+MFA result
+Lockout or throttling action
+Administrator or recovery change
 ```
 
-That difference is a user-enumeration issue. The defensive fix is usually a generic response.
+Do not log submitted passwords, reset tokens, MFA codes, or session secrets. Logging a secret turns the detection layer into another credential store.
 
-## Step 5: Study password attack paths conceptually
-
-Common password attack patterns include:
-
-* Password spraying: trying a few common passwords across many users
-* Credential stuffing: trying known leaked username/password pairs
-* Brute force: trying many guesses against one account
-* Default credential use: trying vendor defaults
-* Password reset abuse: taking over recovery paths
-
-Your defensive controls are:
-
-* MFA or passkeys
-* Unique passwords
-* Account lockout or throttling
-* Password manager adoption
-* Breached password detection
-* Clear recovery process
-* Alerting on unusual sign-in behavior
-* Removing default accounts
-
-The exercise works when you understand why each control exists.
-
-## Step 6: Build a toy password audit
-
-Create a tiny fake wordlist and fake hashes. Do not use real passwords.
-
-Example fake password list:
+Finish with a short before-and-after record:
 
 ```txt
-Summer2026!
-Password123!
-coffee-window-river-signal-47
-CorrectHorseBatteryStapleButDifferent
+[ ] Only the authorized lab target was scanned
+[ ] Unexpected listeners and public metadata were reviewed
+[ ] Existing and nonexistent accounts return consistent public responses
+[ ] Failed-attempt behavior was tested at low volume with a fake account
+[ ] MFA or passkeys protect the lab administrator where supported
+[ ] Authentication events are visible without storing secrets
+[ ] Each observation has a control owner and a repeatable validation step
 ```
 
-Your lesson is simple:
-
-* Short predictable passwords fall quickly
-* Long unique passphrases change the economics
-* MFA and passkeys matter because password-only controls fail
-* Lockout and throttling make online guessing harder
-
-If you use John or hashcat, keep it to toy hashes you generated for the lab. Document the result as a defender:
-
-```txt
-Which fake passwords were weak:
-Why they were weak:
-What policy or training would improve them:
-What MFA/passkey control would reduce the impact:
-```
-
-## Step 7: Test lockout and rate limits safely
-
-In the lab, test a harmless lockout behavior with fake accounts.
-
-Document:
-
-```txt
-How many failed attempts before lockout:
-Lockout duration:
-Admin alert:
-User notification:
-Reset process:
-Logs generated:
-```
-
-Do not run high-volume guessing tools against real services. You do not need that for this lesson.
-
-The defensive value is learning whether the system slows down abuse and whether anyone would notice.
-
-## Step 8: Turn observations into fixes
-
-For each observation, write a fix.
-
-Examples:
-
-```txt
-Observation: Login page reveals whether username exists.
-Fix: Use generic error messages.
-
-Observation: No alert after repeated failed logins.
-Fix: Add alert for repeated failures and failure-followed-by-success.
-
-Observation: Default admin account exists.
-Fix: Disable or rename default account where supported and create named admin users.
-
-Observation: No MFA on admin account.
-Fix: Require MFA or passkeys for admins.
-```
-
-Keep it practical.
-
-## Validation drills: prove defenses improved
-
-### Drill 1: Information exposure review
-
-Open the login and reset flows.
-
-Expected result:
-
-```txt
-The app does not casually reveal more identity information than needed.
-```
-
-### Drill 2: Lockout test
-
-Use a fake account to trigger failed sign-ins.
-
-Expected result:
-
-```txt
-Lockout, throttling, or alerts behave as documented.
-```
-
-### Drill 3: MFA check
-
-Confirm admin accounts require MFA or passkeys where possible.
-
-Expected result:
-
-```txt
-Password-only access is not enough for high-value accounts.
-```
-
-### Drill 4: Alert review
-
-Find the logs generated by the test.
-
-Expected result:
-
-```txt
-Failed sign-ins are visible enough for investigation.
-```
-
-## Recon and password defense checklist
-
-```txt
-Recon and Password Defense Checklist
-
-Lab safety
-[ ] Target is owned or explicitly permitted
-[ ] Fake users created
-[ ] Fake passwords used
-[ ] No real credentials used
-[ ] Lab rules reviewed
-
-Recon review
-[ ] Login pages listed
-[ ] Open services listed
-[ ] Nmap baseline saved
-[ ] Web headers reviewed
-[ ] Version leaks checked
-[ ] User enumeration checked
-[ ] Password reset behavior reviewed
-
-Password defenses
-[ ] MFA or passkeys enabled for admins
-[ ] Lockout or throttling tested
-[ ] Default accounts reviewed
-[ ] Password policy reviewed
-[ ] Toy password audit completed with fake data
-[ ] Breached password controls considered
-
-Detection
-[ ] Failed login logs identified
-[ ] Repeated failure alert considered
-[ ] Failure-followed-by-success alert considered
-[ ] Findings turned into fixes
-```
-
-## Final thought
-
-Recon and password attacks work because small pieces of information and weak habits stack together.
-
-Defenders need to understand that stack.
-
-Learn it safely. Use fake targets. Stay inside the lab. Watch what the system reveals. Test how it slows abuse. Add controls that make the attack path harder to use.
-
-You are not learning this to guess passwords. You are learning how to make guessing them a waste of time.
+The exercise has done its job when the exposed service is smaller, the public authentication response leaks less, password-only access has less authority, and the failed attempts leave evidence a defender can recognize.

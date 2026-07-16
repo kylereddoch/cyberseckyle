@@ -13,253 +13,97 @@ mastodon_url:
 mastodon_tags: [Cybersecurity, InfoSec, IncidentResponse, DigitalSafety, CybersecKyleHowTo]
 ---
 
-> I am back with Season 4, Part 5 of the Blue Team Fundamentals track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/). This time we are building a first-response plan for home and small-team incidents, because the worst time to invent a process is when your stomach has already dropped.
+> Part 5 of the Blue Team Fundamentals track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/) is the first page to open when a device, account, payment, or public service may be compromised.
 
-Security incidents do not arrive politely.
+An incident rarely arrives with a reliable label. It begins with a login notification, a missing phone, an unexpected bank transfer, a browser redirect, a client asking about a message you did not send, or an endpoint alert nobody recognizes. The first response should reduce harm while preserving enough fact to make the next decision.
 
-You see a weird login alert. A bank text shows up. A laptop starts acting strange. A family member clicks a scam link. A password manager reports a breach. A phone disappears. A website gets defaced. A client says they received a suspicious email from you.
+NIST's current [incident-response recommendations](https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-61r3.pdf) emphasize recording actions and protecting the confidentiality and integrity of those records. That discipline scales down: keep a timeline, use a trusted device for recovery, and do not let ten unrecorded changes erase the sequence you are trying to understand.
 
-That moment is loud.
+This is a home and small-team first-response plan, not forensic or legal advice. A managed business device, regulated data, significant financial theft, personal safety issue, or possible crime needs the organization's incident process and appropriate professional or law-enforcement help.
 
-The goal of first response is to slow the moment down. Preserve what matters. Contain what you can. Protect accounts. Avoid making the problem worse.
+## Open a timeline before opening more links
 
-You do not need to become a full incident response team. You need a calm first page.
-
-## What you are building
-
-By the end of this guide, you should have:
-
-* A simple first-response checklist
-* Emergency contacts listed
-* Account recovery paths known
-* Device isolation steps understood
-* Evidence capture habits
-* Communication notes
-* Recovery and follow-up steps
-
-This is for homes, creators, side projects, and small teams.
-
-## Step 1: Pause and write down what happened
-
-Before changing everything, capture the basics.
+Write what is known without guessing at the cause:
 
 ```txt
-Date/time:
-Who noticed:
-What happened:
-Device or account involved:
-Alert or message text:
-Links or sender:
+Date, time, and timezone:
+Person who noticed:
+Exact alert, symptom, or transaction:
+Account, device, or service involved:
+Where the message or alert appeared:
 Actions already taken:
-Screenshots saved:
-Money or data involved:
+Screenshots, email, or logs preserved:
+Money, personal data, work data, or other people possibly affected:
+Current contact and decision owner:
 ```
 
-The template keeps the story from changing every five minutes, which matters when people are stressed and details are moving fast.
+Save the original suspicious email as an attachment or raw message when possible so headers remain intact. Capture screenshots and provider alert IDs. Do not click the suspicious link again to recreate the experience, forward an active link casually, or paste secrets into the response note.
 
-Take screenshots. Save suspicious emails. Do not click more links to "check."
+Record every containment and recovery action with a timestamp. That includes password changes, session revocations, devices disconnected, support calls, scans, and messages sent to other people.
 
-## Step 2: Contain without destroying evidence
+## Choose containment for the incident you have
 
-Containment depends on the situation.
+Containment is not one universal button.
 
-For a suspicious device:
+**For a suspicious computer:** disconnect network access if the device may be communicating with an attacker or damaging other systems. Stop using it for email, banking, or password changes. Do not begin deleting files or installing a collection of cleanup tools. Whether to leave it powered on depends on ongoing harm, the value of volatile evidence, encryption, and access to qualified help. If ransomware is actively spreading or personal safety and financial harm are increasing, stopping the harm takes priority over preserving an ideal forensic state.
 
-* Disconnect Wi-Fi or unplug network
-* Do not wipe immediately
-* Do not keep using it for banking or passwords
-* Leave it powered on if you may need live evidence and know what you are doing
-* Power down if safety, privacy, or ongoing damage matters more than forensics
+**For an account takeover:** use a known-clean device and navigate directly to the provider. Change the password, revoke active sessions, inspect MFA and passkeys, remove unknown recovery methods, app passwords, forwarding rules, filters, connected applications, and API tokens. Preserve the provider's recent activity before it ages out.
 
-For an account takeover:
+**For a lost phone or laptop:** use the official lost-device portal, contact the carrier or organization, and review accounts that were signed in on the device. Remote lock, location, and erase have different consequences. Follow the sensitivity of the data and organizational policy rather than erasing automatically and losing a chance to locate the device.
 
-* Change password from a clean device
-* Revoke sessions
-* Reset MFA if needed
-* Check recovery email and phone
-* Review forwarding rules
-* Review connected apps
+**For fraud or a scam payment:** contact the bank, card issuer, payment platform, or carrier through a known number immediately. Financial institutions can sometimes stop or recall transactions when contacted quickly. Preserve transaction IDs, messages, phone numbers, and receipts. Do not continue negotiating with the suspected scammer.
 
-For a scam payment:
+**For a compromised public service:** restrict the affected entry point, revoke exposed credentials, preserve proxy and application logs, and switch to a known-good maintenance or recovery path. Do not redeploy from the same unverified workstation or CI credential that may have caused the compromise.
 
-* Contact the bank or payment provider immediately
-* Preserve messages and transaction details
-* Report through the relevant fraud path
+## Protect the accounts that control the others
 
-The perfect forensic answer and the practical safety answer are not always the same. For home response, stopping harm usually wins.
+Recovery usually depends on a small control set:
 
-## Step 3: Protect the control accounts first
+1. Primary email
+2. Password manager
+3. Mobile carrier and phone platform account
+4. Banking and payment accounts
+5. Domain registrar and DNS
+6. Cloud storage, code hosting, and publishing services
 
-Some accounts control recovery for everything else.
+Check those first when they are relevant to the incident. A compromised primary email can reset downstream passwords; a carrier takeover can intercept some recovery flows; an exposed domain account can redirect the site and email.
 
-Prioritize:
+Do not change every password in a panic. Secure the controlling accounts from a clean device, revoke sessions, then work through confirmed or plausibly affected services. Give each new password a unique value in the password manager and use MFA or passkeys. Keep the timeline so a later alert can be compared with the recovery sequence.
 
-* Primary email
-* Password manager
-* Phone account
-* Apple/Google/Microsoft account
-* Banking
-* Domain/DNS provider
-* Cloud storage
+## Communicate confirmed facts and protective action
 
-If the primary email is compromised, password resets for other accounts may be compromised too.
-
-Check:
-
-* Password changed
-* MFA enabled or reset
-* Recovery methods current
-* Sessions revoked
-* Forwarding rules removed
-* App passwords removed if unknown
-* Connected apps reviewed
-
-## Step 4: Communicate carefully
-
-If other people may be affected, tell them enough to protect themselves without guessing.
-
-Good message:
+Tell affected people what they need to do without declaring a root cause you have not established:
 
 ```txt
-My email/account may have sent suspicious messages today. Do not click links or open attachments from unexpected messages that appear to come from me. I am investigating and will follow up when I know more.
+Messages sent from my account between [time] and [time] may not have been mine.
+Do not open unexpected attachments or use links from those messages.
+If you entered a password, change it directly through the real service and contact [support/security path].
+I have secured the account and will update this notice if the affected window changes.
 ```
 
-Bad message:
+For a small team, identify one person who owns external updates. Preserve copies of the notice and recipient list. If personal, customer, health, financial, or regulated data may be involved, get legal and compliance guidance before making claims about exposure or notification duties.
+
+## Recover from a known state
+
+Recovery is more than making the alert disappear. For an affected device, decide whether the evidence supports cleaning, restoring a known-good image or backup, or replacing the system. Patch the operating system and applications, restore only necessary data, and rotate credentials that were present on the device when compromise is plausible.
+
+For an account, verify the email address, recovery methods, MFA, sessions, forwarding, connected apps, administrator roles, and recent activity after the password change. For a self-hosted service, verify the source code or image, deployment credentials, configuration, data integrity, DNS, certificates, and logs before returning it to normal access.
+
+Monitor the affected accounts and payment methods for follow-on activity. Attackers often change recovery paths or create persistence rather than immediately using the obvious feature.
+
+## Prepare the page before the incident
 
 ```txt
-I got hacked, everything is bad, maybe ignore all my emails forever.
+[ ] Bank, carrier, identity provider, registrar, and hosting support paths are saved
+[ ] A clean recovery device or trusted helper is identified
+[ ] Primary email and password-manager recovery work without one lost phone
+[ ] Lost-device portals show the correct hardware
+[ ] Important logs and provider activity pages are known
+[ ] Backups can restore a test file or service
+[ ] Work, legal, insurer, and law-enforcement escalation criteria are written
+[ ] A timeline template is available offline
 ```
 
-Keep it clear. Keep it factual. Do not overstate what you do not know.
+Run a tabletop drill instead of creating a real incident. Pick a lost phone or suspicious email, walk through who notices, which portal opens, which account is secured first, what evidence is retained, and who must be told. The useful outcome is a corrected phone number, a recovered backup code, or a clarified decision—not a dramatic simulation.
 
-## Step 5: Recover from clean ground
-
-Use a clean, trusted device for recovery.
-
-If you suspect the laptop is compromised, do not use that laptop to change every password.
-
-Recovery steps:
-
-1. Secure primary email.
-2. Secure password manager.
-3. Secure financial accounts.
-4. Secure cloud storage.
-5. Secure social and publishing accounts.
-6. Patch and scan affected devices.
-7. Restore from known-good backup if needed.
-8. Monitor for follow-up activity.
-
-Change passwords only where needed and do it from a trusted device. Randomly changing 200 passwords during panic can create new confusion.
-
-## Step 6: Write the after-action note
-
-After the immediate fire is out, write:
-
-```txt
-What happened:
-Root cause or likely cause:
-What worked:
-What failed:
-Data or money impact:
-Accounts affected:
-Devices affected:
-Actions taken:
-Follow-up tasks:
-Prevention changes:
-```
-
-This turns a bad day into better defenses.
-
-## Validation drills: practice before panic
-
-### Drill 1: Lost phone drill
-
-Pretend your phone is gone.
-
-Expected result:
-
-```txt
-You can access primary email and password manager recovery without the phone.
-```
-
-### Drill 2: Account alert drill
-
-Find where recent sign-in alerts appear for primary email.
-
-Expected result:
-
-```txt
-You know where to review and revoke sessions.
-```
-
-### Drill 3: Suspicious email capture
-
-Practice saving an email as an attachment or screenshot without clicking links.
-
-Expected result:
-
-```txt
-You can preserve evidence safely.
-```
-
-### Drill 4: Emergency contact check
-
-Confirm bank, carrier, domain registrar, and password manager support paths.
-
-Expected result:
-
-```txt
-Critical contact paths are available before you need them.
-```
-
-## First response checklist
-
-```txt
-First Response Checklist
-
-Initial capture
-[ ] Date and time recorded
-[ ] What happened recorded
-[ ] Screenshots saved
-[ ] Suspicious messages preserved
-[ ] Actions already taken listed
-
-Containment
-[ ] Affected device isolated if needed
-[ ] Clean device identified
-[ ] Primary email secured
-[ ] Password manager secured
-[ ] Sessions revoked where needed
-[ ] MFA and recovery methods reviewed
-
-Impact
-[ ] Money movement checked
-[ ] Sensitive data exposure considered
-[ ] Other people affected identified
-[ ] Communication drafted if needed
-
-Recovery
-[ ] Passwords changed from clean device
-[ ] Connected apps reviewed
-[ ] Forwarding rules checked
-[ ] Device patched or rebuilt if needed
-[ ] Backup restored if needed
-
-After-action
-[ ] Root cause noted
-[ ] Follow-up tasks assigned
-[ ] Controls improved
-[ ] Lessons saved
-```
-
-## Final thought
-
-The first few minutes of an incident are not about heroics.
-
-They are about not making it worse.
-
-Slow down. Capture the facts. Contain what you can. Protect the accounts that control recovery. Communicate clearly. Recover from clean ground.
-
-Panic wants speed.
-
-Response needs sequence.
+After recovery, write what happened, what was confirmed, which controls worked, which assumptions failed, and who owns the follow-up. That note turns an improvised response into a better plan for the next alert.

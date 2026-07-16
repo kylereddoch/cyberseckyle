@@ -13,241 +13,122 @@ mastodon_url:
 mastodon_tags: [Cybersecurity, InfoSec, SecurityOperations, ThreatDetection, CybersecKyleHowTo]
 ---
 
-> I am back with Season 3, Part 5 of the Power User and Small Team track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/). This time we are building security logging at home without pretending your living room needs a full enterprise SOC.
+> Part 5 of the Power User and Small Team track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/) turns the accounts, devices, and self-hosted services from the earlier guides into a small monitoring routine.
 
-Logs can answer important questions. They can also become a noisy pile of nothing.
+The fastest way to make home security logging useless is to collect everything first and decide why later. A dashboard fills with router chatter, DNS queries, web requests, and routine sign-ins. Nothing has an owner, normal activity has never been defined, and the whole project becomes something to ignore.
 
-The mistake I see all the time is starting with tools instead of questions. Someone spins up a dashboard, ships every log they can find, stares at it twice, and then ignores it forever because it is noisy, confusing, and has no job.
+Logging should begin with an investigation question. If the question is, "Was a new administrator added to my domain account?" then the identity provider's audit event is useful. If the question is, "Did my backup stop working?" then an application backup result is more useful than a month of firewall denies.
 
-Home security logging should answer a few practical questions:
+[NIST describes log management](https://csrc.nist.gov/Projects/log-management) as the full process of generating, transmitting, storing, accessing, and disposing of log data. Even in a small environment, collection is only one part of the job. You also need reliable time, a retention decision, protected access, and a reason to look at the record.
 
-* Did someone sign in who should not have?
-* Did a device join the network unexpectedly?
-* Did a service go down?
-* Did DNS filtering block something worth checking?
-* Did backups fail?
-* Did an exposed service start getting hammered?
+## Write the questions before choosing a platform
 
-For a home lab or small team, answering those questions is a good starting point.
-
-## What you are building
-
-By the end of this guide, you should have:
-
-* Account security alerts enabled
-* Router or network device events reviewed
-* DNS or filtering logs checked where available
-* Device security dashboards reviewed
-* Self-hosted service logs identified
-* A short weekly review habit
-* A validation drill that confirms alerts reach you
-
-This is logging for humans with lives.
-
-## Step 1: Start with account alerts
-
-Your most useful logs may not be in your network at all.
-
-Turn on alerts for:
-
-* New sign-ins
-* MFA changes
-* Password changes
-* Recovery method changes
-* New devices
-* Suspicious login attempts
-* Admin role changes
-* Payment or billing changes
-
-Start with:
+Start with five or six questions whose answers would change what you do:
 
 ```txt
-Primary email
-Password manager
-Apple/Google/Microsoft account
-Domain registrar
-DNS provider
-GitHub or code hosting
-Cloud storage
-Banking/payment tools
+Did a critical account sign in from a new device or location?
+Was MFA, recovery information, or an administrator role changed?
+Did an unfamiliar device join the network?
+Did endpoint protection or automatic updating stop working?
+Did a public service begin failing authentication repeatedly?
+Did a backup, certificate renewal, or service health check fail?
 ```
 
-Make sure alerts go somewhere you actually see. A security alert sent to an abandoned inbox is just decorative logging.
-
-## Step 2: Review router and network events
-
-Most home routers have limited logs, but they can still help.
-
-Look for:
-
-* New devices joining
-* Failed admin logins
-* Firmware update events
-* Port forward changes
-* WAN IP changes
-* Security blocks
-* DHCP leases
-
-If your router can notify you when new devices join, enable it if the noise is manageable.
-
-Do not panic at every weird device name. Randomized MAC addresses create strange names. Use logging as a prompt to investigate, not as an excuse to spiral.
-
-## Step 3: Use DNS logs carefully
-
-DNS logs can show blocked malware domains, phishing attempts, typo domains, and noisy devices.
-
-They can also show a lot about household browsing behavior.
-
-So treat DNS logs as sensitive.
-
-If you use NextDNS, Control D, Pi-hole, AdGuard Home, or a similar tool, review:
-
-* Top blocked domains
-* Devices with unusual volume
-* New devices
-* Recently allowed domains
-* Recently blocked domains
-* Repeated security-category hits
-
-Do not build a surveillance machine for your family. Keep the purpose limited to security and troubleshooting.
-
-## Step 4: Check device protection dashboards
-
-Windows Security, macOS settings, password managers, and browsers all surface useful signals.
-
-Monthly, check:
-
-* Windows Security warnings
-* macOS firewall and update status
-* Browser extension list
-* Password manager security reports
-* Backup status
-* Disk encryption status
-* Pending restarts
-
-It is lighter than classic log collection, but it still gives you security visibility where small teams usually have blind spots.
-
-If a dashboard has been red for three months and nobody looks at it, it is wallpaper.
-
-## Step 5: Keep self-hosted logs focused
-
-For self-hosted services, track:
-
-* Reverse proxy access and error logs
-* Authentication failures
-* Admin logins
-* Container restarts
-* Disk usage
-* Certificate renewal
-* Backup success or failure
-* Uptime checks
-
-Do not ship every debug log forever unless you have a reason and retention plan.
-
-Logs can contain IP addresses, tokens, email addresses, paths, user agents, and other sensitive details. Protect them.
-
-## Step 6: Create a weekly review habit
-
-Keep the review small.
-
-Weekly:
+For each question, identify the source, how quickly you need the answer, and the response:
 
 ```txt
-[ ] Check account security alerts
-[ ] Check router new-device list
-[ ] Check DNS security blocks
-[ ] Check backup status
-[ ] Check self-hosted uptime or service alerts
-[ ] Write down anything that needs follow-up
+Question:
+Event source:
+Where the record is stored:
+Notification path:
+First action:
+Owner:
+Retention needed:
+Sensitive fields:
 ```
 
-If the review takes more than 15 minutes every time, it will not survive.
+This exercise prevents a common mismatch: retaining detailed data that nobody can interpret while failing to enable the provider alert that would have reached you immediately.
 
-## Validation drills: prove alerts reach you
+## Begin with the accounts that control recovery
 
-### Drill 1: Account alert test
+Primary email, the password manager, Apple or Google accounts, Microsoft accounts, the mobile carrier, domain registrar, DNS host, code host, and payment services already keep security events. Enable their notifications for the events that matter:
 
-Sign in to one major account from a new browser or device.
+- Successful sign-in from a new device or unusual location
+- Password, MFA, passkey, or recovery-method changes
+- New API tokens, connected applications, or app passwords
+- Administrator, owner, or billing-role changes
+- Session revocation and account recovery
 
-Expected result:
+Send those alerts to an inbox or device you monitor, but do not create a recovery loop. If the primary email account is compromised, an alert sent only to that same inbox may disappear with it. High-value accounts should have an independent recovery path and, where the provider supports it, another trusted contact.
+
+Test one event. A new-browser sign-in to a noncritical account is safer than changing MFA merely to create an alert. Record when the event appeared, where it arrived, and whether it included enough detail to decide if the activity was yours.
+
+## Use network and DNS records with restraint
+
+Home routers vary widely. Useful records may include new DHCP leases, new wireless clients, configuration changes, firmware updates, WAN changes, port-forward edits, and failed administrator logins. Export or forward the log only if the router supports it reliably; otherwise, a monthly configuration and connected-device review may be more honest than pretending the short local log is a forensic archive.
+
+Device names are weak identifiers. Modern phones and laptops can randomize their MAC address, and inexpensive smart devices often present a generic vendor label. Maintain a small device inventory with the name you recognize, expected network, and owner. Investigate an unfamiliar entry, but do not treat every changed identifier as an intrusion.
+
+DNS filtering services such as NextDNS, Control D, Pi-hole, and AdGuard Home can show repeated lookups to a blocked malware category or a compromised device calling the same unusual domain. They can also reveal household browsing patterns. Limit access, choose a retention period, and make the monitoring purpose clear to the people whose activity appears there. A home security control should not quietly become household surveillance.
+
+The useful review is narrow:
 
 ```txt
-You receive a new sign-in alert in a place you actually monitor.
+Repeated security-category blocks from one device
+Newly observed devices with unexpected query volume
+Recent allow-list changes
+Lookups that line up with an account or endpoint alert
 ```
 
-### Drill 2: Router new-device test
+A blocked advertising domain by itself is not an incident. Context from the device, time, and related activity is what makes a DNS event actionable.
 
-Connect a guest device to the network.
+## Capture health failures as well as attacks
 
-Expected result:
+In a small environment, control failure is often a better signal than a speculative threat alert. Review or notify on:
+
+- Endpoint protection disabled or unhealthy
+- Operating-system updates repeatedly failing
+- Disk encryption disabled
+- Backup jobs failing or aging past the expected interval
+- Reverse-proxy certificate renewal errors
+- Self-hosted services restarting or exhausting disk space
+- Administrator logins and repeated failed authentication on public services
+
+For the reverse-proxy setup from [Part 4](/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-4-light-self-hosting-behind-a-reverse-proxy/), retain access and error logs long enough to investigate a reported problem, but avoid indefinite debug logging. Query strings, IP addresses, email identifiers, and application errors can contain more private information than expected.
+
+Make sure systems agree on time. If the router says an event happened at 14:03, the application uses UTC, and the laptop clock is several minutes off, reconstructing a sequence becomes guesswork. Automatic time synchronization and a note about each source's timezone are small improvements with a large payoff during an investigation.
+
+## Keep the review short and leave a record
+
+A weekly review should take about ten minutes in a quiet week:
 
 ```txt
-The router shows the device, and notification behavior is understood.
+[ ] Read unresolved account-security alerts
+[ ] Compare unfamiliar network devices with the inventory
+[ ] Review repeated DNS security blocks, not the entire browsing log
+[ ] Confirm endpoint protection and update health
+[ ] Confirm the newest backup completed
+[ ] Review public-service health and authentication alerts
+[ ] Record anything that needs follow-up
 ```
 
-### Drill 3: DNS block test
+Keep a small review note with the date, reviewer, exceptions found, and the next action. "No unexplained events" is a useful result. It proves somebody looked and gives the next review a reference point.
 
-Use your DNS provider's safe test block domain if available.
+Do not increase collection every time the review is quiet. Add a source when there is a question you cannot answer, and remove or shorten retention for data that has no job.
 
-Expected result:
+## Prove the notification path
+
+Test one safe event from each important layer:
 
 ```txt
-The block appears in logs without breaking normal browsing.
+[ ] A new-browser account sign-in reaches the monitored destination
+[ ] A guest device appears in the router inventory
+[ ] A provider-supplied DNS test domain appears as blocked, if available
+[ ] A stopped test service or failed health check creates the expected notice
+[ ] The location and age of the most recent successful backup are visible
+[ ] Event timestamps can be placed in one coherent sequence
 ```
 
-### Drill 4: Backup failure thought exercise
+Do not intentionally disable endpoint protection or weaken an account to test monitoring. Use provider-supported test events, a lab service, or a noncritical account.
 
-Find where backup failures would appear.
-
-Expected result:
-
-```txt
-You know how you would learn that backups stopped working.
-```
-
-## Home logging checklist
-
-```txt
-Security Logging at Home Checklist
-
-Accounts
-[ ] New sign-in alerts enabled
-[ ] MFA change alerts enabled where available
-[ ] Password/recovery alerts enabled
-[ ] Alerts route to monitored inbox or device
-
-Network
-[ ] Router device list reviewed
-[ ] New-device notification considered
-[ ] Port forwards reviewed
-[ ] Firmware update status checked
-
-DNS
-[ ] DNS logs location known
-[ ] Security blocks reviewed
-[ ] Noisy devices identified
-[ ] Logs treated as sensitive
-
-Devices and services
-[ ] Windows/macOS security dashboards reviewed
-[ ] Password manager health report reviewed
-[ ] Self-hosted service logs identified
-[ ] Uptime or backup alerts configured where useful
-
-Habit
-[ ] Weekly review checklist created
-[ ] One alert tested
-[ ] Follow-up notes captured
-```
-
-## Final thought
-
-The point of logging is not to collect everything.
-
-Useful logging helps you notice the handful of events you care about while there is still time to act.
-
-For a home or small team, that means account alerts, device changes, DNS blocks, backup failures, and exposed service problems.
-
-Start small. Review regularly. Keep the signal human-sized.
-
-Logs should make you calmer, not buried.
+The result should be a modest set of records that answer known questions and a notification path that has been exercised. Part 6 of the Blue Team track will take this idea further into SIEM-lite. At home, the better stopping point is reached when the signals are understandable, private enough for the environment, and reviewed often enough to catch a real change.

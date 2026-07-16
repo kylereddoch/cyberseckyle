@@ -13,253 +13,99 @@ mastodon_url:
 mastodon_tags: [Cybersecurity, InfoSec, Windows, Defender, BlueTeam, CybersecKyleHowTo]
 ---
 
-> I am back with Season 4, Part 1 of the Blue Team Fundamentals track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/). This time we are building a Windows workstation baseline with Microsoft Defender, BitLocker, firewall settings, and Attack Surface Reduction rules that you test before you brag about.
+> Part 1 of the Blue Team Fundamentals track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/) moves from personal-device hygiene to a Windows baseline that can be measured, piloted, and supported.
 
-Windows security has a reputation problem because people treat it like two extremes.
+Hardening a workstation is not a contest to enable the largest number of settings. A control earns its place when it closes a relevant attack path, produces evidence that it is working, and does not break the work the device exists to perform. That last requirement is why copying an enterprise script onto one production laptop is a poor baseline method.
 
-Either they leave defaults alone forever, or they paste an enterprise hardening script into a machine they still need to use tomorrow.
+Use a test device or a small pilot group first. Record the current state, the desired setting, how it will be deployed, the event or status that proves it worked, and the rollback. Microsoft changes names and management paths across Windows editions and management products; build around the control and evidence rather than one screenshot.
 
-Neither is the goal.
+## Record the foundation before adding hardening
 
-A good workstation baseline should reduce common attack paths, make risky behavior harder, preserve recovery, and remain supportable. If nobody can explain the setting or reverse the change, it is not a baseline. It is a future ticket.
-
-This guide moves beyond the Season 2 personal device baseline and into defender territory. We are still staying practical, but the bar is higher now.
-
-## What you are building
-
-By the end of this guide, you should have:
-
-* BitLocker or Device Encryption confirmed
-* Microsoft Defender Antivirus healthy
-* Defender Firewall enabled
-* SmartScreen and reputation protection reviewed
-* Attack Surface Reduction rules planned and tested
-* Controlled Folder Access decision documented
-* Local admin sprawl reviewed
-* A validation checklist you can repeat
-
-Treat this as a starter baseline you can understand, not a full CIS benchmark.
-
-## Step 1: Confirm the boring foundation
-
-Before ASR rules or fancy dashboards, check the foundation.
+Capture these facts for each workstation:
 
 ```txt
-Windows version:
-Patch status:
-Device encryption:
-Recovery key location:
-Defender AV status:
-Firewall status:
-Primary user admin or standard:
-Backup method:
-Last restore test:
+Windows edition and version:
+Last successful update:
+Device owner:
+Daily account type:
+Microsoft Defender Antivirus state:
+Firewall profile state:
+BitLocker or Device Encryption state:
+Recovery key custody:
+Backup and last restore test:
+Management method:
 ```
 
-If the device is unpatched, unencrypted, unbacked up, and used daily as local admin, do not start with advanced controls. Fix the floor first.
-
-## Step 2: Check Windows Security health
-
-Open:
-
-```txt
-Windows Security
-```
-
-Review:
-
-* Virus & threat protection
-* Firewall & network protection
-* App & browser control
-* Device security
-* Protection history
-
-You want no unexplained red or yellow warnings.
-
-Defender should be active, current, and able to run a quick scan. If a third-party product is installed, make sure you know which tool is responsible for antivirus and what Defender mode is in.
-
-Security tools that nobody understands are not comforting. They are fog.
-
-## Step 3: Turn on the firewall for every profile
-
-Defender Firewall should be on for:
-
-* Domain
-* Private
-* Public
-
-Public should be the default for untrusted networks. Private should be reserved for networks you actually trust.
-
-Review inbound rules. Remove old app rules, especially for tools you no longer use.
-
-Be careful with one-click fixes that say "disable firewall." If an app needs access, understand the port, profile, and source before allowing it broadly.
-
-## Step 4: Review SmartScreen and reputation protection
-
-Open:
-
-```txt
-Windows Security -> App & browser control -> Reputation-based protection
-```
-
-Review:
-
-* Check apps and files
-* SmartScreen for Microsoft Edge
-* Phishing protection
-* Potentially unwanted app blocking
-* SmartScreen for Microsoft Store apps
-
-For most workstations, these should be on.
-
-You will not stop every bad thing with these controls, but you can add speed bumps where users are most likely to run untrusted downloads, fake installers, and sketchy utilities.
-
-## Step 5: Plan ASR rules before enforcing them
-
-Attack Surface Reduction rules can block common Office, script, credential theft, and malware behaviors.
-
-They are powerful. They can also break real workflows.
-
-Start in audit mode when possible. Watch what would be blocked. Then move rules to block mode deliberately.
-
-Common ASR areas include:
-
-* Blocking Office from creating child processes
-* Blocking executable content from email and webmail
-* Blocking credential stealing from LSASS
-* Blocking JavaScript or VBScript from launching downloaded executables
-* Blocking process creations from PSExec and WMI
-* Blocking abuse of vulnerable signed drivers
-
-Do not blindly enable every rule across every machine on a Friday afternoon unless you want to learn new vocabulary from coworkers.
-
-## Step 6: Decide on Controlled Folder Access
-
-Controlled Folder Access can reduce ransomware impact by limiting which apps can modify protected folders.
-
-It can also block legitimate apps until you allow them.
-
-My approach:
-
-1. Test on one machine.
-2. Protect common folders first.
-3. Review blocks.
-4. Allow known-good apps deliberately.
-5. Document the decision.
-
-If you cannot monitor or troubleshoot the blocks, consider leaving it as a later hardening step.
-
-## Step 7: Reduce local admin access
-
-Local admin access turns small mistakes into bigger ones.
-
-Review:
-
-```txt
-Computer Management -> Local Users and Groups -> Groups -> Administrators
-```
-
-Or use PowerShell:
+PowerShell can provide a useful starting record:
 
 ```powershell
-Get-LocalGroupMember Administrators
+Get-ComputerInfo | Select-Object WindowsProductName, WindowsVersion, OsBuildNumber
+Get-MpComputerStatus
+Get-NetFirewallProfile | Select-Object Name, Enabled, DefaultInboundAction
+Get-BitLockerVolume
+Get-LocalGroupMember -Group Administrators
 ```
 
-Remove stale accounts. Use standard accounts for daily work where practical. If admin access is needed, make it deliberate.
+Some commands require an elevated session, and some properties vary by Windows edition. Save the relevant output with a date instead of pasting it into a ticket without review; security status can expose device and account details.
 
-For small teams, consider a local admin password solution or managed approach instead of one shared admin password everywhere.
+Resolve missing updates, failed protection updates, absent backups, unknown local administrators, and missing recovery keys before experimenting with ASR. Advanced rules do not compensate for an unpatched or unrecoverable device.
 
-## Validation drills: prove the baseline works
+## Establish the built-in protection state
 
-### Drill 1: Defender health check
+In Windows Security, review Virus & threat protection, Firewall & network protection, App & browser control, Device security, and Protection history. Determine whether Microsoft Defender Antivirus is active, passive because another antivirus product is responsible, or disabled unexpectedly. A dashboard that says two products are installed is not proof that either one is healthy.
 
-Open Windows Security and run a quick scan.
+Keep real-time and cloud-delivered protection enabled where the environment supports them, protect the settings from casual changes, and make sure protection intelligence updates. Run a quick scan as a functional check, then verify the result in Protection history or management reporting.
 
-Expected result:
+The firewall should be enabled for Domain, Private, and Public profiles. Treat unfamiliar networks as Public, and review inbound allow rules for applications that are gone or rules scoped to every profile when only one was needed. If an application requires inbound access, document the program or port, source scope, profile, owner, and removal condition. "The app would not work" is the beginning of that investigation, not the final rule description.
+
+Under App & browser control, review reputation-based protection, SmartScreen, phishing protection, and potentially unwanted app blocking. These controls add reputation and origin checks around common download and credential-entry paths. They do not justify ignoring a warning or running an unknown installer after another browser downloads it successfully.
+
+## Deploy ASR rules as a controlled change
+
+Attack Surface Reduction rules target behaviors commonly used by malicious documents, scripts, credential theft, lateral movement, and vulnerable drivers. They are behavior controls, so legitimate administration and automation can collide with them.
+
+Build the deployment in this order:
+
+1. Inventory Office macros, line-of-business scripts, software deployment tools, remote administration, developer workflows, and accessibility software.
+2. Select rules that address the actual software and attack paths on the pilot devices.
+3. Apply the selected rules in Audit mode.
+4. Review audit events for long enough to include normal work, updates, and maintenance.
+5. Investigate each proposed exclusion and scope it to the smallest rule, file, path, or certificate boundary the management method supports.
+6. Move one rule or coherent group to Warn or Block, validate user workflows, and expand gradually.
+
+Microsoft's [ASR deployment guidance](https://learn.microsoft.com/en-us/defender-endpoint/attack-surface-reduction-rules-deployment-plan) explicitly centers planning and testing, and its [Event Viewer reference](https://learn.microsoft.com/en-us/defender-endpoint/attack-surface-reduction-windows-events) identifies the Windows Defender Operational log and the events produced in audit and enforcement modes.
+
+An exclusion is a security decision, not a fix for inconvenient telemetry. Record which rule it affects, the application owner, the evidence that the file is legitimate, and a review date. Broad path exclusions can create a place where the blocked behavior is allowed again.
+
+## Make a separate decision about Controlled Folder Access
+
+Controlled Folder Access limits untrusted applications' ability to change protected folders. It can reduce the reach of ransomware, but applications that legitimately write to those folders may need review or an allow decision.
+
+Pilot it in Audit mode, include the folders that hold valuable user or team data, and test backup, sync, creative, development, and document workflows. Review the corresponding Defender Operational events before enforcement. [Microsoft describes Controlled Folder Access](https://learn.microsoft.com/en-us/defender-business/mdb-asr) as allowing trusted applications to access protected folders; it does not replace tested backups or recovery.
+
+If the small team cannot see or respond to blocks, document that limitation rather than claiming the control is deployed. A postponed control with an owner is safer than an enforced control everyone learns to disable.
+
+## Reduce permanent administrator access
+
+Compare the local Administrators group with the account inventory from Season 3. Remove stale users and unexplained service accounts. Use a standard account for routine work where practical and a separate, named administrative path for elevation.
+
+Small teams should not reuse one local administrator password across every workstation. Use a managed local password solution such as Windows LAPS when the environment supports it, or another process that provides unique credentials, controlled retrieval, and rotation. Keep recovery access from becoming a second unmanaged shared password.
+
+## Validate the baseline as a user and a defender
 
 ```txt
-Defender reports healthy protection and completes the scan.
+[ ] Windows and protection intelligence are current
+[ ] Defender Antivirus state and responsible security product are known
+[ ] A quick scan completes and its result is visible
+[ ] Domain, Private, and Public firewall profiles are enabled
+[ ] Inbound exceptions have an owner and narrow scope
+[ ] BitLocker or Device Encryption is active and recovery is available
+[ ] Local Administrators membership matches the approved list
+[ ] Selected ASR rules produced audit evidence during normal work
+[ ] Enforced rules were tested against business and support workflows
+[ ] Controlled Folder Access has a tested decision, not an assumed setting
+[ ] Backup restoration succeeds after the hardening change
+[ ] Deployment and rollback notes are stored with the baseline
 ```
 
-### Drill 2: Firewall profile check
-
-Confirm firewall is enabled for domain, private, and public profiles.
-
-Expected result:
-
-```txt
-All profiles are protected, and exceptions are understood.
-```
-
-### Drill 3: Encryption check
-
-Run:
-
-```powershell
-manage-bde -status
-```
-
-Expected result:
-
-```txt
-The operating system drive is encrypted and the recovery key is available.
-```
-
-### Drill 4: ASR audit review
-
-Enable selected rules in audit mode and review events or reporting.
-
-Expected result:
-
-```txt
-You know what would be blocked before enforcing.
-```
-
-## Windows baseline checklist
-
-```txt
-Windows Workstation Baseline Checklist
-
-Foundation
-[ ] Windows updated
-[ ] BitLocker or Device Encryption enabled
-[ ] Recovery key stored safely
-[ ] Backup configured
-[ ] Restore tested
-
-Defender
-[ ] Defender Antivirus healthy
-[ ] Protection updates current
-[ ] Quick scan completed
-[ ] Protection history reviewed
-[ ] Tamper protection reviewed
-
-Firewall and reputation
-[ ] Firewall enabled for all profiles
-[ ] Inbound rules reviewed
-[ ] SmartScreen enabled
-[ ] Potentially unwanted app blocking enabled
-[ ] Phishing protection reviewed
-
-Hardening
-[ ] Local admins reviewed
-[ ] ASR rules selected
-[ ] ASR audit mode tested
-[ ] Controlled Folder Access decision documented
-[ ] Exceptions documented
-
-Validation
-[ ] Health checks recorded
-[ ] User workflow tested
-[ ] Rollback notes captured
-```
-
-## Final thought
-
-A Windows baseline is not a pile of settings. It is a set of decisions you can defend.
-
-Patch it. Encrypt it. Back it up. Keep Defender healthy. Leave the firewall on. Add ASR rules carefully. Reduce admin access.
-
-Then test the machine like someone still has to use it tomorrow.
-
-That gap is the difference between hardening and creating a support incident with a security label on it.
+The artifact to keep is the dated baseline and its exceptions, not a screenshot of green icons. A repeatable check can show when the workstation drifts, why an exception exists, and whether a future Windows or application update changed the impact of a rule.

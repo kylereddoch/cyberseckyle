@@ -8,257 +8,133 @@ featuredImage: /assets/images/server-room.png
 featuredImageAlt: Server room image representing self-hosted services, infrastructure, and controlled exposure.
 featuredImageCaption: Publishing a service is easy. Owning the exposure is the real work.
 tags: [cyberseckyle-howto-series, cybersecurity, security, networking, network-security, how-to]
+lastModified: 2026-07-16T12:16:16-05:00
 mastodon_post: true
 mastodon_url: "https://infosec.exchange/@cyberseckyle/116930664158208554"
 mastodon_tags: [Cybersecurity, InfoSec, SelfHosting, Networking, CybersecKyleHowTo]
 publishedAt: "2026-07-16T16:45:39.332Z"
 ---
 
-> I am back with Season 3, Part 4 of the Power User and Small Team track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/). This time we are talking about light self-hosting behind a reverse proxy: useful, fun, and much safer when exposure is intentional.
+> Part 4 of the Power User and Small Team track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/) is about the point where a useful local service becomes an internet-facing system you are responsible for operating.
 
-Self-hosting is one of those hobbies that starts innocently.
+A self-hosted notes app or dashboard usually begins as a process listening on a local port. The risky step comes later: a router forward is added for convenience, an admin page is exposed along with the application, and nobody writes down which component renews the certificate or where the data is backed up.
 
-You run a dashboard. Then a notes app. Then a file tool. Then a media server. Then a status page. Then suddenly your home network has a tiny production environment sitting under the desk, and the internet can see more than you meant to publish.
+A reverse proxy improves that design by giving web traffic one managed entry point. It can terminate TLS and route `notes.example.com` to one internal service and `status.example.com` to another. It does not patch either application, strengthen their login systems, or make a public admin panel private. Those remain separate jobs.
 
-I like self-hosting. I also like knowing what is exposed.
+This guide is for a few services that one person or a small team can reasonably maintain. If the service handles regulated data, money, customer production workloads, or an availability commitment, the design needs more than a homelab checklist.
 
-A reverse proxy gives you a clean front door, but it is not magic security dust. Instead of opening random ports for every service, you publish a smaller number of entry points, route traffic by hostname, manage TLS, and put access controls in front of things that should not be public.
+## Decide what is allowed to be public
 
-The mission here is intentional exposure, not accidental internet plumbing.
-
-## What you are building
-
-By the end of this guide, you should have:
-
-* A list of self-hosted services
-* Only intentional services exposed
-* A reverse proxy handling hostnames and TLS
-* Admin interfaces kept private
-* Basic authentication or SSO where useful
-* Updates and backups documented
-* A validation check from outside your network
-
-This guide is for light self-hosting. If you are running critical business systems, you need a deeper design.
-
-## Step 1: Inventory what is running
-
-Before touching DNS or ports, list services.
+Inventory the current environment before changing DNS or the router:
 
 ```txt
 Service:
-Purpose:
-Host:
-Internal port:
-External hostname:
-Needs public internet access:
-Authentication:
-Admin interface:
-Backup method:
-Update method:
 Owner:
+Host and internal port:
+Public hostname:
+Data handled:
+Authentication:
+Admin path:
+Update method:
+Backup and restore method:
+Required exposure: public / private remote / local only
 ```
 
-Then sort each service:
+The final field is the important one. A public status page may need anonymous internet access. A family document service may need remote access but only through a VPN or identity-aware gateway. A container dashboard, database, hypervisor, NAS console, router interface, or Docker socket should stay on a management network or local host unless there is a carefully designed reason otherwise.
 
-* Public: meant for the internet
-* Private remote: reachable only through VPN, tunnel, or access gateway
-* Local only: should never be exposed
+Review the router while this list is open. Remove stale forwards rather than assuming every existing rule still supports something. For a conventional public web setup, the expected inbound surface is normally TCP 443 and, when the certificate flow or HTTP redirect requires it, TCP 80. [Let's Encrypt recommends keeping port 80 available for general web servers](https://letsencrypt.org/docs/allow-port-80/) and redirecting requests to HTTPS; DNS-01 or TLS-ALPN-01 are alternatives when port 80 cannot be used.
 
-If you cannot explain why a service must be public, it probably should not be public.
+Do not forward each application's internal port. The reverse proxy should be the only public web listener, and the applications should accept connections only from the proxy or the private network.
 
-## Step 2: Reduce exposed ports
+## Put a named front door in front of each service
 
-Port forwarding is easy to create and easy to forget.
-
-Review your router and remove old forwards.
-
-For web services, aim for:
+Create a DNS name for every service that is intentionally public:
 
 ```txt
-80/tcp -> reverse proxy for HTTP challenge or redirect
-443/tcp -> reverse proxy for HTTPS
-```
-
-That does not mean every service becomes public. It means the reverse proxy becomes the controlled front door for services you intentionally publish.
-
-Avoid exposing:
-
-* Admin panels
-* Databases
-* SSH to the world
-* Docker socket
-* NAS management pages
-* Router admin
-* Development servers
-
-If you need remote admin access, use a VPN, zero-trust access gateway, or a tightly controlled management path.
-
-## Step 3: Use hostnames and TLS
-
-Give each public service a clear hostname:
-
-```txt
-photos.example.com
-status.example.com
 notes.example.com
+status.example.com
+photos.example.com
 ```
 
-Use HTTPS. Modern reverse proxies can request and renew certificates automatically through Let's Encrypt or a provider integration.
+Caddy, Nginx, Nginx Proxy Manager, and Traefik can all fill the reverse-proxy role. The choice matters less than being able to read the configuration, update the software, and restore it. A minimal Caddy configuration for a service listening only on the same host might look like this:
 
-Common reverse proxy options include:
+```caddyfile
+notes.example.com {
+  reverse_proxy 127.0.0.1:3000
+}
+```
 
-* Caddy
-* Nginx Proxy Manager
-* Traefik
-* Nginx
-* Cloudflare Tunnel for a different exposure model
+With working public DNS and the required ports reaching Caddy, its [automatic HTTPS flow](https://caddyserver.com/docs/quick-starts/reverse-proxy) can obtain and renew the certificate. Other proxies need their own certificate configuration. In either case, confirm renewal rather than treating the first successful certificate as permanent.
 
-Pick the tool you can understand and maintain.
+Binding the application to `127.0.0.1:3000` in this example prevents it from becoming a second network entry point on the host. If the proxy and application run in separate containers or machines, restrict the backend port with the container network or host firewall so only the proxy can reach it.
 
-The best reverse proxy is the one you can safely update, troubleshoot, and restore.
+## Keep administration on a different path
 
-## Step 4: Put authentication in front of private-ish things
+An application's public page and its administration surface do not deserve the same exposure. Prefer one of these patterns for management:
 
-Some services are not secret enough to hide completely, but not public enough to leave open.
+- Connect through a VPN and administer the service on its private address.
+- Put the admin hostname behind an identity-aware access gateway with MFA.
+- Restrict the admin listener to a management network and use a named administrator account.
+- If the application cannot separate public and admin access, reconsider whether it belongs on the public internet.
 
-Examples:
+Built-in authentication remains necessary even when a proxy performs an extra authentication check. A proxy login can protect a dashboard, but it cannot repair weak session handling or an overpowered shared administrator inside the application. Also verify how the proxy sets client IP and forwarded headers; trusting those headers from arbitrary sources can make application logging and access rules misleading.
 
-* Dashboards
-* Internal docs
-* Monitoring pages
-* Admin-lite tools
-* Family apps
+URLs are not controls. An unlinked admin path can appear in browser history, logs, source maps, documentation, and automated scans.
 
-Use built-in authentication, reverse-proxy authentication, SSO, or an access gateway.
+## Operate the whole service, not only the container
 
-For anything sensitive, require MFA where practical.
-
-Do not rely on "nobody knows the URL." URLs leak through browser history, logs, screenshots, referrers, bookmarks, and good old-fashioned sharing.
-
-Obscurity is not access control.
-
-## Step 5: Patch and back up the boring parts
-
-Self-hosted services need maintenance.
-
-Track:
+A container image is replaceable. The state around it is what makes recovery difficult:
 
 ```txt
-Operating system updates:
-Container image updates:
-Application updates:
-Reverse proxy updates:
-Certificate renewal:
-Database backups:
-Config backups:
-Restore test:
+Application version and image tag
+Reverse-proxy configuration
+Compose or service definition
+Environment variable names
+Secret storage location
+Database and uploaded data
+Certificate method
+DNS records
+Firewall and router rules
 ```
 
-Back up configuration as well as data. A database backup is helpful. The reverse proxy config, environment variables, compose files, and volume mappings are what help you rebuild without archaeology.
+Back up the configuration and data, then restore both to a test location. A successful backup job only proves that files were written somewhere. A restore proves that the files are usable and that the rebuild instructions contain enough information.
 
-Also keep secrets out of Git, like we covered in [Secrets Management 101 for Side Projects](/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-3-secrets-management-101-for-side-projects/).
+Keep the host operating system, reverse proxy, application, database, and container runtime on an update schedule. Pinning a container to `latest` does not create an update process; it only makes the next pull less predictable. Record the currently deployed version, review release notes, take a backup, update, and test the public and administrative workflows.
 
-## Step 6: Log enough to notice obvious trouble
+Secrets should stay out of Compose files and Git history. Part 3 covers the [credential inventory, secret storage, and rotation path](/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-3-secrets-management-101-for-side-projects/) in more detail.
 
-You do not need a full SOC for a homelab.
+## Collect enough evidence to troubleshoot and respond
 
-You do need enough visibility to answer:
+At minimum, keep access and error logs from the proxy, authentication events from the application, update history, backup results, certificate-renewal failures, disk usage, and service restarts. Decide how long each log is useful and protect it accordingly; URLs, addresses, email identifiers, and session details can make logs sensitive.
 
-* Is the service up?
-* Are certificates renewing?
-* Are logins failing repeatedly?
-* Did a container restart constantly?
-* Did disk fill up?
-* Did backups fail?
+The alerts should correspond to actions you will take. A certificate renewal failure needs attention before expiration. Repeated failed logins deserve review. A full disk or restart loop needs an operational response. A stream of ordinary `200` responses does not need to wake anyone.
 
-Basic logs plus uptime monitoring are enough to start.
+Part 5 will build a small review routine around these signals. For now, make sure each important failure has a place where you would actually see it.
 
-If a service matters, alert on the boring failures before they become weekend projects.
+## Validate from both sides of the boundary
 
-## Validation drills: prove exposure is intentional
-
-### Drill 1: External port check
-
-From outside your network, scan or check your public IP/domain for open ports you expect.
-
-Expected result:
+Run the checks from a connection outside the home or office network; testing only from inside can hide router, DNS, and certificate problems.
 
 ```txt
-Only intentional public ports are reachable.
+[ ] Public DNS resolves to the intended entry point
+[ ] HTTP redirects to HTTPS where port 80 is used
+[ ] Each hostname presents a valid certificate for that name
+[ ] Each hostname routes to the intended application
+[ ] Unknown hostnames do not reveal another internal service
+[ ] Only intended public ports answer from the internet
+[ ] Backend application ports do not answer directly
+[ ] Admin interfaces require the private management path or stronger gateway
+[ ] A failed login appears in the expected application or proxy log
+[ ] Configuration and application data have been restored to a test location
 ```
 
-### Drill 2: Hostname routing test
+Use `curl` to inspect routing and headers without relying only on the browser:
 
-Open each public hostname.
-
-Expected result:
-
-```txt
-Each hostname routes to the correct service over HTTPS.
+```bash
+curl -I http://notes.example.com
+curl -I https://notes.example.com
 ```
 
-### Drill 3: Admin isolation test
+The first request should redirect when HTTP is enabled. The second should reach the expected service without a certificate warning. Follow that with an external port check limited to the address you own and the ports you intend to expose.
 
-Try to reach admin interfaces from the public internet.
-
-Expected result:
-
-```txt
-Admin interfaces are blocked, private, or protected by strong access control.
-```
-
-### Drill 4: Backup restore test
-
-Restore one config file and one application data item to a test location.
-
-Expected result:
-
-```txt
-You can rebuild more than just the container image.
-```
-
-## Light self-hosting checklist
-
-```txt
-Self-Hosting Checklist
-
-Inventory
-[ ] Services listed
-[ ] Public/private/local classification assigned
-[ ] Owners listed
-[ ] Backup and update methods recorded
-
-Exposure
-[ ] Router port forwards reviewed
-[ ] Old forwards removed
-[ ] Reverse proxy handles public web traffic
-[ ] Admin interfaces not publicly exposed
-[ ] DNS records documented
-
-Security
-[ ] HTTPS enabled
-[ ] Certificates renew automatically
-[ ] Authentication enabled for non-public services
-[ ] MFA enabled where practical
-[ ] Secrets stored outside the repo
-
-Operations
-[ ] OS updates planned
-[ ] App/container updates planned
-[ ] Config backed up
-[ ] Data backed up
-[ ] Restore tested
-[ ] Basic monitoring enabled
-```
-
-## Final thought
-
-Self-hosting is rewarding because you get control.
-
-Security is the part where you prove you can handle that control.
-
-Do not expose services by accident. Do not publish admin pages because it was easier than setting up remote access properly. Do not assume a reverse proxy fixes weak authentication or abandoned updates.
-
-Keep the front door small, the private things private, and the restore path real.
-
-Then enjoy the fun part.
+The useful result is not simply that the application loads. It is that the public surface matches the inventory, the management surface stays private, and the system can be rebuilt when the host or storage fails.
