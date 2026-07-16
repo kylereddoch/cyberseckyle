@@ -9,8 +9,9 @@ featuredImageAlt: One person points to a laptop displaying a shield and chat ico
 featuredImageCaption: "Patient support helps people understand what to trust and what to do next. (Image generated using ChatGPT.)"
 tags: [IT, tech, digital-safety, editorials]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116930753052269396"
 mastodon_tags: [TechSupport, DigitalSafety, Cybersecurity, InfoSec, IT]
+publishedAt: "2026-07-16T17:08:15.748Z"
 ---
 
 Most of the tech support I have done for family, friends, and everyday users starts before I touch the device.
