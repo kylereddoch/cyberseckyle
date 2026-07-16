@@ -13,7 +13,7 @@
     <link>https://www.kylereddoch.me/</link>
     <description>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 16 Jul 2026 10:00:00 CDT</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jul 2026 11:45:39 CDT</lastBuildDate>
     <atom:link href="https://www.kylereddoch.me/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://www.kylereddoch.me/assets/images/logo.png</url>
@@ -47,7 +47,7 @@
       <title>CybersecKyle Security How-To Series: Power User and Small Team, Part 4 - Light Self Hosting Behind a Reverse Proxy</title>
       <link>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-4-light-self-hosting-behind-a-reverse-proxy/</link>
       <guid isPermaLink="true">https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-4-light-self-hosting-behind-a-reverse-proxy/</guid>
-      <pubDate>Thu, 16 Jul 2026 10:00:00 CDT</pubDate>
+      <pubDate>Thu, 16 Jul 2026 11:45:39 CDT</pubDate>
       <xhtml:a class="browser-title" href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-4-light-self-hosting-behind-a-reverse-proxy/">CybersecKyle Security How-To Series: Power User and Small Team, Part 4 - Light Self Hosting Behind a Reverse Proxy</xhtml:a>
       <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/bWGS28ubOM-1536.jpeg" alt="Server room image representing self-hosted services, infrastructure, and controlled exposure." />
       <dc:creator>Kyle Reddoch</dc:creator>
