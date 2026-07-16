@@ -13,7 +13,7 @@
     <link>https://www.kylereddoch.me/</link>
     <description>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</description>
     <language>en</language>
-    <lastBuildDate>Tue, 14 Jul 2026 14:32:05 CDT</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jul 2026 10:00:00 CDT</lastBuildDate>
     <atom:link href="https://www.kylereddoch.me/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://www.kylereddoch.me/assets/images/logo.png</url>
@@ -44,6 +44,69 @@
       <xhtml:a href="https://www.kylereddoch.me/feed.json">JSON Feed</xhtml:a>
       <xhtml:a href="https://www.kylereddoch.me/blog/improving-my-rss-feed-and-making-it-more-human-readable/">How I improved this feed</xhtml:a>
     </xhtml:div><item>
+      <title>CybersecKyle Security How-To Series: Power User and Small Team, Part 4 - Light Self Hosting Behind a Reverse Proxy</title>
+      <link>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-4-light-self-hosting-behind-a-reverse-proxy/</link>
+      <guid isPermaLink="true">https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-4-light-self-hosting-behind-a-reverse-proxy/</guid>
+      <pubDate>Thu, 16 Jul 2026 10:00:00 CDT</pubDate>
+      <xhtml:a class="browser-title" href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-4-light-self-hosting-behind-a-reverse-proxy/">CybersecKyle Security How-To Series: Power User and Small Team, Part 4 - Light Self Hosting Behind a Reverse Proxy</xhtml:a>
+      <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/bWGS28ubOM-1536.jpeg" alt="Server room image representing self-hosted services, infrastructure, and controlled exposure." />
+      <dc:creator>Kyle Reddoch</dc:creator>
+      <description><![CDATA[A practical guide to safer light self-hosting: use a reverse proxy, TLS, limited exposure, patching, backups, access control, and a validation checklist before putting services on the internet.]]></description>
+      <xhtml:a class="browser-read-link" href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-4-light-self-hosting-behind-a-reverse-proxy/">Read on kylereddoch.me</xhtml:a>
+      <content:encoded><![CDATA[
+<p><img src="https://www.kylereddoch.me/img/bWGS28ubOM-1536.jpeg" alt="Server room image representing self-hosted services, infrastructure, and controlled exposure." /></p><blockquote><p>I am back with Season 3, Part 4 of the Power User and Small Team track in my <a href="https://www.kylereddoch.me/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/">CybersecKyle Security How-To Series</a>. This time we are talking about light self-hosting behind a reverse proxy: useful, fun, and much safer when exposure is intentional.</p></blockquote><p>Self-hosting is one of those hobbies that starts innocently.</p><p>You run a dashboard. Then a notes app. Then a file tool. Then a media server. Then a status page. Then suddenly your home network has a tiny production environment sitting under the desk, and the internet can see more than you meant to publish.</p><p>I like self-hosting. I also like knowing what is exposed.</p><p>A reverse proxy gives you a clean front door, but it is not magic security dust. Instead of opening random ports for every service, you publish a smaller number of entry points, route traffic by hostname, manage TLS, and put access controls in front of things that should not be public.</p><p>The mission here is intentional exposure, not accidental internet plumbing.</p><h2 id="what-you-are-building">What you are building</h2><p>By the end of this guide, you should have:</p><ul><li>A list of self-hosted services</li><li>Only intentional services exposed</li><li>A reverse proxy handling hostnames and TLS</li><li>Admin interfaces kept private</li><li>Basic authentication or SSO where useful</li><li>Updates and backups documented</li><li>A validation check from outside your network</li></ul><p>This guide is for light self-hosting. If you are running critical business systems, you need a deeper design.</p><h2 id="step-1-inventory-what-is-running">Step 1: Inventory what is running</h2><p>Before touching DNS or ports, list services.</p><pre class="language-text"><code class="language-text">Service:
+Purpose:
+Host:
+Internal port:
+External hostname:
+Needs public internet access:
+Authentication:
+Admin interface:
+Backup method:
+Update method:
+Owner:</code></pre><p>Then sort each service:</p><ul><li>Public: meant for the internet</li><li>Private remote: reachable only through VPN, tunnel, or access gateway</li><li>Local only: should never be exposed</li></ul><p>If you cannot explain why a service must be public, it probably should not be public.</p><h2 id="step-2-reduce-exposed-ports">Step 2: Reduce exposed ports</h2><p>Port forwarding is easy to create and easy to forget.</p><p>Review your router and remove old forwards.</p><p>For web services, aim for:</p><pre class="language-text"><code class="language-text">80/tcp -&gt; reverse proxy for HTTP challenge or redirect
+443/tcp -&gt; reverse proxy for HTTPS</code></pre><p>That does not mean every service becomes public. It means the reverse proxy becomes the controlled front door for services you intentionally publish.</p><p>Avoid exposing:</p><ul><li>Admin panels</li><li>Databases</li><li>SSH to the world</li><li>Docker socket</li><li>NAS management pages</li><li>Router admin</li><li>Development servers</li></ul><p>If you need remote admin access, use a VPN, zero-trust access gateway, or a tightly controlled management path.</p><h2 id="step-3-use-hostnames-and-tls">Step 3: Use hostnames and TLS</h2><p>Give each public service a clear hostname:</p><pre class="language-text"><code class="language-text">photos.example.com
+status.example.com
+notes.example.com</code></pre><p>Use HTTPS. Modern reverse proxies can request and renew certificates automatically through Let’s Encrypt or a provider integration.</p><p>Common reverse proxy options include:</p><ul><li>Caddy</li><li>Nginx Proxy Manager</li><li>Traefik</li><li>Nginx</li><li>Cloudflare Tunnel for a different exposure model</li></ul><p>Pick the tool you can understand and maintain.</p><p>The best reverse proxy is the one you can safely update, troubleshoot, and restore.</p><h2 id="step-4-put-authentication-in-front-of-private-ish-things">Step 4: Put authentication in front of private-ish things</h2><p>Some services are not secret enough to hide completely, but not public enough to leave open.</p><p>Examples:</p><ul><li>Dashboards</li><li>Internal docs</li><li>Monitoring pages</li><li>Admin-lite tools</li><li>Family apps</li></ul><p>Use built-in authentication, reverse-proxy authentication, SSO, or an access gateway.</p><p>For anything sensitive, require MFA where practical.</p><p>Do not rely on “nobody knows the URL.” URLs leak through browser history, logs, screenshots, referrers, bookmarks, and good old-fashioned sharing.</p><p>Obscurity is not access control.</p><h2 id="step-5-patch-and-back-up-the-boring-parts">Step 5: Patch and back up the boring parts</h2><p>Self-hosted services need maintenance.</p><p>Track:</p><pre class="language-text"><code class="language-text">Operating system updates:
+Container image updates:
+Application updates:
+Reverse proxy updates:
+Certificate renewal:
+Database backups:
+Config backups:
+Restore test:</code></pre><p>Back up configuration as well as data. A database backup is helpful. The reverse proxy config, environment variables, compose files, and volume mappings are what help you rebuild without archaeology.</p><p>Also keep secrets out of Git, like we covered in <a href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-3-secrets-management-101-for-side-projects/">Secrets Management 101 for Side Projects</a>.</p><h2 id="step-6-log-enough-to-notice-obvious-trouble">Step 6: Log enough to notice obvious trouble</h2><p>You do not need a full SOC for a homelab.</p><p>You do need enough visibility to answer:</p><ul><li>Is the service up?</li><li>Are certificates renewing?</li><li>Are logins failing repeatedly?</li><li>Did a container restart constantly?</li><li>Did disk fill up?</li><li>Did backups fail?</li></ul><p>Basic logs plus uptime monitoring are enough to start.</p><p>If a service matters, alert on the boring failures before they become weekend projects.</p><h2 id="validation-drills-prove-exposure-is-intentional">Validation drills: prove exposure is intentional</h2><h3 id="drill-1-external-port-check">Drill 1: External port check</h3><p>From outside your network, scan or check your public IP/domain for open ports you expect.</p><p>Expected result:</p><pre class="language-text"><code class="language-text">Only intentional public ports are reachable.</code></pre><h3 id="drill-2-hostname-routing-test">Drill 2: Hostname routing test</h3><p>Open each public hostname.</p><p>Expected result:</p><pre class="language-text"><code class="language-text">Each hostname routes to the correct service over HTTPS.</code></pre><h3 id="drill-3-admin-isolation-test">Drill 3: Admin isolation test</h3><p>Try to reach admin interfaces from the public internet.</p><p>Expected result:</p><pre class="language-text"><code class="language-text">Admin interfaces are blocked, private, or protected by strong access control.</code></pre><h3 id="drill-4-backup-restore-test">Drill 4: Backup restore test</h3><p>Restore one config file and one application data item to a test location.</p><p>Expected result:</p><pre class="language-text"><code class="language-text">You can rebuild more than just the container image.</code></pre><h2 id="light-self-hosting-checklist">Light self-hosting checklist</h2><pre class="language-text"><code class="language-text">Self-Hosting Checklist
+
+Inventory
+[ ] Services listed
+[ ] Public/private/local classification assigned
+[ ] Owners listed
+[ ] Backup and update methods recorded
+
+Exposure
+[ ] Router port forwards reviewed
+[ ] Old forwards removed
+[ ] Reverse proxy handles public web traffic
+[ ] Admin interfaces not publicly exposed
+[ ] DNS records documented
+
+Security
+[ ] HTTPS enabled
+[ ] Certificates renew automatically
+[ ] Authentication enabled for non-public services
+[ ] MFA enabled where practical
+[ ] Secrets stored outside the repo
+
+Operations
+[ ] OS updates planned
+[ ] App/container updates planned
+[ ] Config backed up
+[ ] Data backed up
+[ ] Restore tested
+[ ] Basic monitoring enabled</code></pre><h2 id="final-thought">Final thought</h2><p>Self-hosting is rewarding because you get control.</p><p>Security is the part where you prove you can handle that control.</p><p>Do not expose services by accident. Do not publish admin pages because it was easier than setting up remote access properly. Do not assume a reverse proxy fixes weak authentication or abandoned updates.</p><p>Keep the front door small, the private things private, and the restore path real.</p><p>Then enjoy the fun part.</p><img src="https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fcyberseckyle-security-how-to-series-power-user-and-small-team-part-4-light-self-hosting-behind-a-reverse-proxy%2F" alt="" style="width:1px;height:1px;border:0;" />]]></content:encoded>
+      <enclosure url="https://www.kylereddoch.me/img/bWGS28ubOM-1536.jpeg" type="image/jpeg" length="0" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/bWGS28ubOM-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/bWGS28ubOM-1536.jpeg" medium="image" />
+    </item><item>
       <title>A Quiet, Hot Week (Week 28, 2026)</title>
       <link>https://www.kylereddoch.me/notes/2026/week-28-2026/</link>
       <guid isPermaLink="true">https://www.kylereddoch.me/notes/2026/week-28-2026/</guid>
@@ -483,21 +546,6 @@ Maintenance
       <enclosure url="https://www.kylereddoch.me/img/uEt7It2_D5-1536.jpeg" type="image/jpeg" length="0" />
       <media:thumbnail url="https://www.kylereddoch.me/img/uEt7It2_D5-1536.jpeg" />
       <media:content url="https://www.kylereddoch.me/img/uEt7It2_D5-1536.jpeg" medium="image" />
-    </item><item>
-      <title>Keeping Things Moving, Even When the Week Felt Heavy (Week 26, 2026)</title>
-      <link>https://www.kylereddoch.me/notes/2026/week-26-2026/</link>
-      <guid isPermaLink="true">https://www.kylereddoch.me/notes/2026/week-26-2026/</guid>
-      <pubDate>Mon, 29 Jun 2026 10:50:00 CDT</pubDate>
-      <xhtml:a class="browser-title" href="https://www.kylereddoch.me/notes/2026/week-26-2026/">Keeping Things Moving, Even When the Week Felt Heavy (Week 26, 2026)</xhtml:a>
-      <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" alt="Keeping Things Moving, Even When the Week Felt Heavy (Week 26, 2026)" />
-      <dc:creator>Kyle Reddoch</dc:creator>
-      <description><![CDATA[A heavier week personally, but still one with site polish, privacy page work, practical security how-to posts, hiring thoughts, AI liability writing, and a little macOS 27 beta weirdness.]]></description>
-      <xhtml:a class="browser-read-link" href="https://www.kylereddoch.me/notes/2026/week-26-2026/">Read on kylereddoch.me</xhtml:a>
-      <content:encoded><![CDATA[
-<p><img src="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" alt="Keeping Things Moving, Even When the Week Felt Heavy (Week 26, 2026)" /></p><h2 id="the-vibe">The vibe</h2><p>This week still felt heavy in a lot of ways. I was not really feeling like myself for part of it, and the stress and anxiety from everything going on has definitely been hanging around. At the same time, I kept trying to move things forward where I could: writing, site cleanup, the how-to series, and a few small quality-of-life fixes around the site.</p><p>Sometimes that is what a week looks like. Not amazing. Not terrible. Just trying to keep going.</p><h2 id="highlights">Highlights</h2><ul><li>🧠 I shared a little on Mastodon about not feeling like myself lately. I have been more withdrawn, less interested in the things I usually enjoy, and just not in the best frame of mind. I am trying to give myself some grace, but it has been a tough stretch.</li><li>🛡️ I kept the <strong>CybersecKyle Security How-To Series</strong> moving. This included roadmap and scheduling work, preview image work, and publishing two more Home Network and Devices posts: one on safer file storage with encryption and snapshots, and another on IoT quarantine and DNS choices.</li><li>🌙 I did some dark mode and readability polish on the site after a follower pointed out an issue. It was a good reminder that the little details matter, especially when people are actually reading the site in different themes and contexts. It ended up being a small issue with Javascript.</li><li>🔐 I added a dedicated <a href="https://www.kylereddoch.me/privacy/">Privacy</a> page and linked it from the footer and site directory. It covers the usual site privacy details, Tinylytics, guestbook messages, Webmentions, and gives me a reusable privacy-policy URL for future apps or projects.</li><li>📝 I wrote about the gatekeeping problem in IT and cybersecurity hiring. That one came from thinking about how often the industry says it wants learners and problem solvers, then filters people out with very specific tool names, titles, and experience requirements.</li><li>⚖️ I also wrote about AI security liability and the uncomfortable reality that if an AI tool makes the wrong security decision, the company still has to own the outcome.</li><li>🖥️ I am still poking around the macOS 27 beta, and the <a href="https://infosec.exchange/@cyberseckyle/116829850636671173" rel="noopener">default menu bar spacing</a> has been throwing me off. It is a tiny thing, but apparently tiny UI spacing issues are exactly the kind of thing my brain likes to latch onto. LOL.</li></ul><h2 id="worth-sharing">Worth sharing</h2><ul><li>I wrote about how IT and cybersecurity hiring often talks about wanting adaptable people, then screens candidates through narrow tool and title requirements in <a href="https://www.kylereddoch.me/blog/the-gatekeeping-problem-in-it-and-cybersecurity-hiring/">The Gatekeeping Problem in IT and Cybersecurity Hiring</a>.</li><li>I also wrote about why accountability does not disappear when AI is involved in a security decision in <a href="https://www.kylereddoch.me/blog/ai-made-the-call-but-your-company-still-owns-the-failure/">AI Made the Call, but Your Company Still Owns the Failure</a>.</li><li>On Mastodon, I shared the latest two posts in the Home Network and Devices track: <a href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-home-network-and-devices-part-3-safe-file-storage-with-encryption-and-snapshots/">Safe File Storage with Encryption and Snapshots</a> and <a href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-home-network-and-devices-part-4-iot-quarantine-and-dns-choices/">IoT Quarantine and DNS Choices</a>.</li><li>I also boosted Cliff’s post about <a href="https://infosec.exchange/@cliffwade/116796506365476377" rel="noopener">Britt’s custom 3D fidget toys</a>. It was a nice little reminder of what good small-business care can look like when someone actually pays attention to the people buying from them.</li><li>And yes, I complained about macOS 27 beta menu bar spacing. Very important public service announcement, obviously.</li></ul><p>✌️ That is it for this week. I hope you have a great week and remember to be kind to each other!</p><img src="https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2026%2Fweek-26-2026%2F" alt="" style="width:1px;height:1px;border:0;" />]]></content:encoded>
-      <enclosure url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" type="image/jpeg" length="0" />
-      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
-      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
     </item>
   </channel>
 </rss>
