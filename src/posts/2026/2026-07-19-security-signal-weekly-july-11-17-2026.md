@@ -1,5 +1,5 @@
 ---
-date: 2026-07-19T09:12:00-05:00
+date: 2026-07-19T09:08:00-05:00
 title: "Security Signal Weekly: July 11-17, 2026"
 description: "The week's biggest cybersecurity stories, filtered for defender impact, patch urgency, active exploitation, and what IT teams should actually do next."
 featuredImage: /assets/images/security-signal-weekly.png
