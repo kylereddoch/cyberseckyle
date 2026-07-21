@@ -11,9 +11,10 @@ Here is a collection of the hardware, software, and services that I use day to d
 
 ## Hardware
 
-- MacBook Pro 14" (M1, 2021) - my main laptop. I use this for just about everything.
+- MacBook Pro 16" (M5 Pro, 1TB SSD, 48GB RAM) - my main laptop. I use this for just about everything.
+- iPad Air 13" (M5, 256GB) - my main tablet. I use this for reading, note taking, and light work.
 - iPhone 17 Pro Max
-- Apple Watch Ultra (1st Gen)
+- Apple Watch Ultra 3
 
 ### For Work (at home)
 

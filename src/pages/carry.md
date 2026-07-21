@@ -10,8 +10,9 @@ These are the things that I carry every day. I usually don't leave the house wit
 ### Tech
 
 - **Phone**: iPhone 17 Pro Max (Cosmic Orange) - 512gb
-- **Watch**: Apple Watch Ultra (with black Nike sport loop band)
-- **Laptop**: 14" MacBook Pro M1 Pro - 512GB, 16gb RAM
+- **Watch**: Apple Watch Ultra 3 (with black trail loop)
+- **Laptop**: 16" MacBook Pro M5 Pro - 1TB, 48GB RAM
+- **Tablet**: 13" iPad Air (M5) - 256GB, with Magic Keyboard
 - **Earbuds**: Apple Airpods Pro (2nd Generation)
 - **Headphones**: JBL Tune 510BT
 
