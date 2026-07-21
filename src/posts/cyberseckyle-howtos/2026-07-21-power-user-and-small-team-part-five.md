@@ -9,8 +9,9 @@ featuredImageAlt: Security logs on a workstation screen representing home and sm
 featuredImageCaption: Logs are useful only when they answer questions you will actually ask.
 tags: [cyberseckyle-howto-series, cybersecurity, security, security-operations, threat-detection, how-to]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116958725587764517"
 mastodon_tags: [Cybersecurity, InfoSec, SecurityOperations, ThreatDetection, CybersecKyleHowTo]
+publishedAt: "2026-07-21T15:42:02.766Z"
 ---
 
 > Part 5 of the Power User and Small Team track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/) turns the accounts, devices, and self-hosted services from the earlier guides into a small monitoring routine.
