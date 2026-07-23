@@ -9,8 +9,9 @@ featuredImageAlt: Laptop on a travel-ready desk setup representing practical dev
 featuredImageCaption: Travel mode is mostly deciding what does not need to come with you.
 tags: [cyberseckyle-howto-series, cybersecurity, security, privacy, endpoint-security, how-to]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116970323558520046"
 mastodon_tags: [Cybersecurity, InfoSec, Privacy, TravelSecurity, CybersecKyleHowTo]
+publishedAt: "2026-07-23T16:51:33.751Z"
 ---
 
 > Part 6 of the Power User and Small Team track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/) is a travel routine for the laptop and phone that leave the controlled environment built in the previous guides.
