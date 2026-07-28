@@ -9,8 +9,9 @@ featuredImageAlt: Windows security logs on a workstation representing endpoint b
 featuredImageCaption: A Windows baseline should make risky behavior harder without turning support into a bonfire.
 tags: [cyberseckyle-howto-series, cybersecurity, security, windows, endpoint-security, security-operations, how-to]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/116998657171868892"
 mastodon_tags: [Cybersecurity, InfoSec, Windows, Defender, BlueTeam, CybersecKyleHowTo]
+publishedAt: "2026-07-28T16:57:10.385Z"
 ---
 
 > Part 1 of the Blue Team Fundamentals track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/) moves from personal-device hygiene to a Windows baseline that can be measured, piloted, and supported.
