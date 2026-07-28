@@ -13,7 +13,7 @@
     <link>https://www.kylereddoch.me/</link>
     <description>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</description>
     <language>en</language>
-    <lastBuildDate>Tue, 28 Jul 2026 10:00:00 CDT</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jul 2026 11:57:10 CDT</lastBuildDate>
     <atom:link href="https://www.kylereddoch.me/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://www.kylereddoch.me/assets/images/logo.png</url>
@@ -47,7 +47,7 @@
       <title>CybersecKyle Security How-To Series: Blue Team Fundamentals, Part 1 - Windows Workstation Baseline with Defender and ASR Rules</title>
       <link>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-1-windows-workstation-baseline-with-defender-and-asr-rules/</link>
       <guid isPermaLink="true">https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-1-windows-workstation-baseline-with-defender-and-asr-rules/</guid>
-      <pubDate>Tue, 28 Jul 2026 10:00:00 CDT</pubDate>
+      <pubDate>Tue, 28 Jul 2026 11:57:10 CDT</pubDate>
       <xhtml:a class="browser-title" href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-1-windows-workstation-baseline-with-defender-and-asr-rules/">CybersecKyle Security How-To Series: Blue Team Fundamentals, Part 1 - Windows Workstation Baseline with Defender and ASR Rules</xhtml:a>
       <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/o7nn-zLUq6-1536.jpeg" alt="Windows security logs on a workstation representing endpoint baseline validation." />
       <dc:creator>Kyle Reddoch</dc:creator>
