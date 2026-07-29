@@ -13,7 +13,7 @@
     <link>https://www.kylereddoch.me/</link>
     <description>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</description>
     <language>en</language>
-    <lastBuildDate>Tue, 28 Jul 2026 11:57:10 CDT</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2026 14:00:00 CDT</lastBuildDate>
     <atom:link href="https://www.kylereddoch.me/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://www.kylereddoch.me/assets/images/logo.png</url>
@@ -44,6 +44,21 @@
       <xhtml:a href="https://www.kylereddoch.me/feed.json">JSON Feed</xhtml:a>
       <xhtml:a href="https://www.kylereddoch.me/blog/improving-my-rss-feed-and-making-it-more-human-readable/">How I improved this feed</xhtml:a>
     </xhtml:div><item>
+      <title>Walking the Stage and a Full San Antonio Trip (Week 30, 2026)</title>
+      <link>https://www.kylereddoch.me/notes/2026/week-30-2026/</link>
+      <guid isPermaLink="true">https://www.kylereddoch.me/notes/2026/week-30-2026/</guid>
+      <pubDate>Wed, 29 Jul 2026 14:00:00 CDT</pubDate>
+      <xhtml:a class="browser-title" href="https://www.kylereddoch.me/notes/2026/week-30-2026/">Walking the Stage and a Full San Antonio Trip (Week 30, 2026)</xhtml:a>
+      <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" alt="Walking the Stage and a Full San Antonio Trip (Week 30, 2026)" />
+      <dc:creator>Kyle Reddoch</dc:creator>
+      <description><![CDATA[Finally walking the stage for my University of Phoenix graduation, a packed family vacation in San Antonio, plenty of good food, and a much-needed recovery day afterward.]]></description>
+      <xhtml:a class="browser-read-link" href="https://www.kylereddoch.me/notes/2026/week-30-2026/">Read on kylereddoch.me</xhtml:a>
+      <content:encoded><![CDATA[
+<p><img src="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" alt="Walking the Stage and a Full San Antonio Trip (Week 30, 2026)" /></p><blockquote><p>This one is a little late. We were on vacation through Monday, and once we got home, I needed a day to recover before I could even think about getting back to my usual schedule.</p></blockquote><h2 id="the-vibe">The vibe</h2><p>Proud, happy, and completely worn out.</p><h2 id="highlights">Highlights</h2><ul><li>🎓 The biggest reason for the trip was to finally “walk the stage” for my University of Phoenix graduation. I officially finished my Bachelor of Science in Information Technology back in April, but getting to take part in the ceremony made it feel like the proper finish to that long road.</li><li>🧳 We made a family vacation out of the trip to San Antonio and packed quite a bit into the time we were there. It was a lot of fun, but we definitely did not take it easy.</li><li>🦒 We went to the San Antonio Zoo and the Witte Museum, then visited SEA LIFE and LEGOLAND Discovery Center. Of course, we also had to stop by the Alamo.</li><li>🚢 We finished our activities with a river cruise. It was a nice way to wrap up the trip after all the walking we had already done.</li><li>🍕 We ate at some nice places too, including Hard Rock Cafe, Rainforest Cafe, and Capo’s Pizza. I wanted to go to Fogo de Chão, but my daughter is a bit picky, so that one did not happen. Maybe next time. 😦</li><li>🛋️ By the time we got home, I was extremely worn out and sore. Tuesday became a full rest day because I could not think of doing much of anything else. LOL.</li><li>📷 I am putting together a Flickr album with photos from the trip, and I will link it here once it is ready.</li></ul><h2 id="worth-sharing">Worth sharing</h2><ul><li>Before leaving, I wrote about building a small monitoring routine without collecting a mountain of logs nobody will review in <a href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-5-security-logging-at-home/">Security Logging at Home</a>.</li><li>I also published <a href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-6-travel-mode-for-laptops-and-phones/">Travel Mode for Laptops and Phones</a>, which was fitting timing for a week when I was getting ready to leave town.</li></ul><p>✌️ That is it for this week. I hope you have a great week and remember to be kind to each other!</p><img src="https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2026%2Fweek-30-2026%2F" alt="" style="width:1px;height:1px;border:0;" />]]></content:encoded>
+      <enclosure url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" type="image/jpeg" length="0" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
+    </item><item>
       <title>CybersecKyle Security How-To Series: Blue Team Fundamentals, Part 1 - Windows Workstation Baseline with Defender and ASR Rules</title>
       <link>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-1-windows-workstation-baseline-with-defender-and-asr-rules/</link>
       <guid isPermaLink="true">https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-1-windows-workstation-baseline-with-defender-and-asr-rules/</guid>
@@ -444,70 +459,6 @@ Validation
       <enclosure url="https://www.kylereddoch.me/img/QvAKP-x3c3-1920.jpeg" type="image/jpeg" length="0" />
       <media:thumbnail url="https://www.kylereddoch.me/img/QvAKP-x3c3-1920.jpeg" />
       <media:content url="https://www.kylereddoch.me/img/QvAKP-x3c3-1920.jpeg" medium="image" />
-    </item><item>
-      <title>CybersecKyle Security How-To Series: Power User and Small Team, Part 1 - Account Inventory and Least Privilege</title>
-      <link>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-1-account-inventory-and-least-privilege/</link>
-      <guid isPermaLink="true">https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-1-account-inventory-and-least-privilege/</guid>
-      <pubDate>Tue, 07 Jul 2026 12:31:16 CDT</pubDate>
-      <xhtml:a class="browser-title" href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-1-account-inventory-and-least-privilege/">CybersecKyle Security How-To Series: Power User and Small Team, Part 1 - Account Inventory and Least Privilege</xhtml:a>
-      <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/-Q3uXje-eE-5160.jpeg" alt="Person working through a checklist on a laptop, representing account inventory and access review." />
-      <dc:creator>Kyle Reddoch</dc:creator>
-      <description><![CDATA[A practical guide for households, creators, side projects, and small teams to inventory accounts, remove stale access, reduce admin sprawl, and validate that least privilege is actually working.]]></description>
-      <xhtml:a class="browser-read-link" href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-1-account-inventory-and-least-privilege/">Read on kylereddoch.me</xhtml:a>
-      <content:encoded><![CDATA[
-<p><img src="https://www.kylereddoch.me/img/-Q3uXje-eE-5160.jpeg" alt="Person working through a checklist on a laptop, representing account inventory and access review." /></p><blockquote><p>I am back with Season 3, Part 1 of the Power User and Small Team track in my <a href="https://www.kylereddoch.me/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/">CybersecKyle Security How-To Series</a>. This time we are treating accounts like assets: inventory them, remove stale access, and stop handing out admin rights like candy.</p></blockquote><p>Small environments have a funny way of collecting access.</p><p>A side project starts with one login. Then a friend helps. Then a contractor needs temporary access. Then a family member gets added. Then a tool asks for admin permissions. Six months later nobody knows who can do what, which email owns the account, or whether the person who helped “just for the weekend” can still delete everything.</p><p>The first problem is ownership, not technology.</p><p>Account inventory and least privilege are the boring controls that make access understandable again. You do not need enterprise identity governance to do this well. You need a list, a review habit, and the willingness to remove access that no longer has a job.</p><h2 id="what-you-are-building">What you are building</h2><p>By the end of this guide, you should have:</p><ul><li>A simple inventory of important accounts</li><li>Named owners for each account</li><li>Admin access reduced to the people who need it</li><li>Stale users removed</li><li>Shared accounts identified and cleaned up where possible</li><li>A quarterly access review checklist</li><li>A validation drill that proves a non-admin user cannot do admin things</li></ul><p>This should not feel like bureaucracy. It should give you a fast answer when something breaks or looks suspicious: “Who can change this?”</p><h2 id="start-with-the-accounts-that-can-hurt-you">Start with the accounts that can hurt you</h2><p>Do not inventory every newsletter login first.</p><p>Start with accounts that control money, identity, publishing, infrastructure, or recovery:</p><pre class="language-text"><code class="language-text">Primary email:
-Password manager:
-Domain registrar:
-DNS provider:
-Website hosting:
-GitHub or code hosting:
-Cloud storage:
-Payment processor:
-Banking or accounting:
-Social media:
-Newsletter platform:
-Home router or security system:</code></pre><p>For each account, capture:</p><pre class="language-text"><code class="language-text">Account name:
-Owner:
-Backup owner:
-Login email:
-MFA enabled:
-Admins:
-Standard users:
-Shared credentials:
-Recovery methods:
-Last access review:
-Notes:</code></pre><p>Do not store passwords in this sheet unless it lives inside your password manager or another protected vault. The inventory should point to where access is managed, not become a new pile of secrets.</p><h2 id="step-1-name-an-owner">Step 1: Name an owner</h2><p>Every important account needs an owner.</p><p>The owner is not always the only admin. The owner is the person responsible for knowing:</p><ul><li>Who has access</li><li>How recovery works</li><li>What the account controls</li><li>When access should be removed</li><li>Where documentation lives</li></ul><p>For a personal setup, the owner is probably you. For a household, it might be you plus a backup person. For a side project, it might be the project lead. For a small team, it might be whoever owns operations or IT.</p><p>“Everybody kind of knows” is not ownership.</p><h2 id="step-2-split-admin-and-normal-access">Step 2: Split admin and normal access</h2><p>Admin access should be boringly rare.</p><p>Admins can usually:</p><ul><li>Change billing</li><li>Add and remove users</li><li>Delete data</li><li>Change security settings</li><li>Disable MFA</li><li>Add integrations</li><li>Transfer ownership</li></ul><p>That kind of access is power, not daily access.</p><p>Most people need normal access for normal work. If a person only posts content, they do not need billing admin. If they only view reports, they do not need user management. If they only help with one project, they do not need organization-wide control.</p><p>The practical move:</p><ol><li>List current admins.</li><li>Ask what each admin actually does.</li><li>Downgrade anyone who does not need admin rights.</li><li>Keep at least two recovery paths for critical accounts.</li></ol><p>Do not reduce admin access so aggressively that one lost phone locks everyone out. Least privilege still needs survivability.</p><h2 id="step-3-stop-using-shared-accounts-when-you-can">Step 3: Stop using shared accounts when you can</h2><p>Shared accounts are convenient until something goes wrong.</p><p>Problems with shared accounts:</p><ul><li>Nobody knows who made a change</li><li>Offboarding becomes password rotation</li><li>MFA becomes awkward</li><li>Recovery depends on one person’s phone or inbox</li><li>Permissions cannot be narrowed per person</li></ul><p>Use named users wherever the service supports it. Keep shared accounts only when there is no better option, and document why they exist.</p><p>For unavoidable shared accounts:</p><ul><li>Store the password in a password manager shared vault</li><li>Enable MFA with a shared, managed method if possible</li><li>Limit where the credentials can be used</li><li>Rotate access when someone leaves the project</li><li>Review it more often than named access</li></ul><p>Shared access is sometimes reality. It should not be invisible reality.</p><h2 id="step-4-remove-stale-users-and-integrations">Step 4: Remove stale users and integrations</h2><p>Access has a shelf life.</p><p>Remove:</p><ul><li>Former team members</li><li>Old contractors</li><li>Dormant collaborators</li><li>Test accounts</li><li>Unknown admins</li><li>Old OAuth apps</li><li>API tokens nobody recognizes</li><li>Personal email addresses that should be role accounts</li></ul><p>Do this slowly enough that you do not break production, but firmly enough that “just in case” does not become permanent.</p><p>If someone needs access again, you can re-add them deliberately.</p><h2 id="step-5-create-role-accounts-where-they-help">Step 5: Create role accounts where they help</h2><p>Some accounts should not be tied only to one person’s personal inbox.</p><p>Examples:</p><ul><li>Domain registrar</li><li>DNS provider</li><li>Website hosting</li><li>Newsletter platform</li><li>Billing inbox</li><li>Security alerts</li></ul><p>Use a role inbox or alias where it makes sense:</p><pre class="language-text"><code class="language-text">admin@example.com
-billing@example.com
-security@example.com
-domains@example.com</code></pre><p>Protect those accounts like real accounts. A role inbox with a bad password is not an improvement.</p><h2 id="validation-drills-prove-least-privilege-works">Validation drills: prove least privilege works</h2><h3 id="drill-1-admin-list-review">Drill 1: Admin list review</h3><p>Open one critical account and list every admin.</p><p>Expected result:</p><pre class="language-text"><code class="language-text">Every admin has a current reason to be an admin.</code></pre><h3 id="drill-2-downgrade-test">Drill 2: Downgrade test</h3><p>Pick one person or test account and reduce access to the lowest role that still works.</p><p>Expected result:</p><pre class="language-text"><code class="language-text">Normal work still works without admin rights.</code></pre><h3 id="drill-3-non-admin-boundary-test">Drill 3: Non-admin boundary test</h3><p>Sign in as a non-admin or ask a standard user to check whether they can reach billing, user management, or security settings.</p><p>Expected result:</p><pre class="language-text"><code class="language-text">Non-admin users cannot change high-risk settings.</code></pre><h3 id="drill-4-recovery-sanity-check">Drill 4: Recovery sanity check</h3><p>Confirm two trusted recovery paths for critical accounts.</p><p>Expected result:</p><pre class="language-text"><code class="language-text">Reduced admin access does not create a single-person lockout risk.</code></pre><h2 id="account-inventory-checklist">Account inventory checklist</h2><pre class="language-text"><code class="language-text">Account Inventory and Least Privilege Checklist
-
-Inventory
-[ ] Critical accounts listed
-[ ] Owner assigned to each account
-[ ] Backup owner assigned where needed
-[ ] Login email recorded
-[ ] Recovery methods recorded
-
-Access
-[ ] Admin users reviewed
-[ ] Unnecessary admins downgraded
-[ ] Standard users reviewed
-[ ] Former users removed
-[ ] Shared accounts identified
-
-Integrations
-[ ] OAuth apps reviewed
-[ ] API tokens reviewed
-[ ] Unknown integrations removed
-[ ] Role inboxes created where useful
-
-Validation
-[ ] Non-admin boundary tested
-[ ] Recovery paths confirmed
-[ ] Quarterly access review reminder created</code></pre><h2 id="final-thought">Final thought</h2><p>Least privilege is not about making everyone ask permission for everything.</p><p>It is about matching access to actual need.</p><p>Small teams and power users get into trouble when trust becomes permanent access, and permanent access becomes invisible risk.</p><p>Make the list. Name the owners. Remove the stale stuff. Keep recovery alive.</p><p>Then repeat it before the access pile gets weird again.</p><img src="https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fcyberseckyle-security-how-to-series-power-user-and-small-team-part-1-account-inventory-and-least-privilege%2F" alt="" style="width:1px;height:1px;border:0;" />]]></content:encoded>
-      <enclosure url="https://www.kylereddoch.me/img/-Q3uXje-eE-5160.jpeg" type="image/jpeg" length="0" />
-      <media:thumbnail url="https://www.kylereddoch.me/img/-Q3uXje-eE-5160.jpeg" />
-      <media:content url="https://www.kylereddoch.me/img/-Q3uXje-eE-5160.jpeg" medium="image" />
     </item>
   </channel>
 </rss>
