@@ -3289,6 +3289,50 @@
       
 
       <url>
+        <loc>https://www.kylereddoch.me/newsletter/check-your-email/</loc>
+        
+        <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+
+      
+
+      <url>
+        <loc>https://www.kylereddoch.me/newsletter/confirm/</loc>
+        
+        <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+
+      
+
+      <url>
+        <loc>https://www.kylereddoch.me/newsletter/confirmed/</loc>
+        
+        <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+
+      
+
+      <url>
+        <loc>https://www.kylereddoch.me/newsletter/</loc>
+        
+        <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+
+      
+
+      <url>
         <loc>https://www.kylereddoch.me/notes/</loc>
         
         <changefreq>monthly</changefreq>
@@ -3389,6 +3433,28 @@
 
       <url>
         <loc>https://www.kylereddoch.me/style/</loc>
+        
+        <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+
+      
+
+      <url>
+        <loc>https://www.kylereddoch.me/submit-news/thanks/</loc>
+        
+        <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+
+      
+
+      <url>
+        <loc>https://www.kylereddoch.me/submit-news/</loc>
         
         <changefreq>monthly</changefreq>
     </url>
