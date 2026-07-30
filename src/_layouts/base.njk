@@ -60,6 +60,7 @@
     {% set isNotes = url == '/notes/' or '/notes/' in url %}
     {% set isAbout = url == '/about/' %}
     {% set isContact = url == '/contact/' %}
+    {% set isNewsletter = url == '/newsletter/' or '/newsletter/' in url or '/submit-news/' in url %}
 
     <header class="bg-[var(--surface)] border-b border-gray-200 dark:border-gray-700">
       <div class="container mx-auto max-w-7xl px-4 py-3 flex items-center gap-3">
@@ -109,6 +110,7 @@
           <li><a href="/blog/" class="nav-item block py-2 text-purple-600 dark:text-purple-400 {% if isBlog %}underline font-semibold{% endif %}" {% if isBlog %}aria-current="page"{% endif %}>&#9997;&#65039; Blog</a></li>
           <li><a href="/topics/cybersecurity/" class="nav-item block py-2 text-purple-600 dark:text-purple-400 {% if isCybersecurity %}underline font-semibold{% endif %}" {% if isCybersecurity %}aria-current="page"{% endif %}>&#128737;&#65039; Cybersecurity</a></li>
           <li><a href="/notes/" class="nav-item block py-2 text-purple-600 dark:text-purple-400 {% if isNotes %}underline font-semibold{% endif %}" {% if isNotes %}aria-current="page"{% endif %}>&#128221; Notes</a></li>
+          <li><a href="/newsletter/" class="nav-item block py-2 text-purple-600 dark:text-purple-400 {% if isNewsletter %}underline font-semibold{% endif %}" {% if isNewsletter %}aria-current="page"{% endif %}>&#9993;&#65039; The Defender's Dispatch</a></li>
           <li><a href="/about/" class="nav-item block py-2 text-purple-600 dark:text-purple-400 {% if isAbout %}underline font-semibold{% endif %}" {% if isAbout %}aria-current="page"{% endif %}>&#128075; About</a></li>
           <li><a href="/contact/" class="nav-item block py-2 text-purple-600 dark:text-purple-400 {% if isContact %}underline font-semibold{% endif %}" {% if isContact %}aria-current="page"{% endif %}>&#128172; Contact</a></li>
         </ul>

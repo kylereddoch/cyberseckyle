@@ -1,0 +1,40 @@
+---
+layout: base
+permalink: /newsletter/confirm/
+title: Confirm Your Subscription
+description: "Confirm your subscription to The Defender’s Dispatch."
+excludeFromSearch: true
+---
+
+<article
+  class="newsletter-status-page"
+  data-newsletter-confirm
+  {% if newsletter.configured %}
+  data-newsletter-api-url="{{ newsletter.apiUrl }}"
+  {% endif %}
+>
+  <div class="newsletter-status-card">
+    <span class="newsletter-status-card__icon" aria-hidden="true">&#128737;&#65039;</span>
+    <p class="newsletter-kicker">Confirm subscription</p>
+    <h1>Join The Defender’s Dispatch</h1>
+    <p>Use the button below to confirm that you requested the newsletter. This extra click prevents automated email scanners from activating subscriptions.</p>
+
+    {% if newsletter.configured %}
+    <button class="newsletter-submit" type="button" data-newsletter-confirm-button>
+      <span data-newsletter-confirm-label>Confirm my subscription</span>
+    </button>
+    <p class="newsletter-form__status" data-newsletter-confirm-status role="status" aria-live="polite"></p>
+    {% else %}
+    <div class="newsletter-setup-note" role="status">
+      <strong>Confirmation is temporarily unavailable.</strong>
+      <span>Please try this link again shortly.</span>
+    </div>
+    {% endif %}
+
+    <p class="newsletter-status-card__muted">If you did not request the newsletter, close this page. No subscription will be activated.</p>
+  </div>
+</article>
+
+{% if newsletter.configured %}
+<script src="/assets/scripts/components/newsletter-signup.min.js" defer></script>
+{% endif %}

@@ -1,0 +1,29 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cyberseckyle-newsletter-api",
+  "main": "src/index.js",
+  "compatibility_date": "2026-07-30",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "SITE_ORIGIN": "https://www.kylereddoch.me",
+    "CONFIRMATION_REDIRECT_BASE": "https://www.kylereddoch.me",
+    "TURNSTILE_EXPECTED_HOSTNAME": "www.kylereddoch.me",
+    "RESEND_API_BASE_URL": "https://api.resend.com",
+    "NEWSLETTER_TOPIC_ID": "a7bb1a38-4d3c-4a87-9a1b-0ce86574eff2",
+    "CONFIRM_TEMPLATE_ID": "1dc9347a-7fa3-4b79-a598-1cc6d52de027",
+    "SUBMISSION_ACK_TEMPLATE_ID": "0bf47844-5853-45d9-8134-3e03516f9a8e",
+    "SUBMISSION_NOTIFY_TO": "newsletter@kylereddoch.me",
+    "SUBMISSION_FROM": "The Defender’s Dispatch <newsletter@updates.kylereddoch.me>",
+    "FOUNDING_READER_CUTOFF": ""
+  },
+  "kv_namespaces": [
+    {
+      "binding": "NEWSLETTER_DATA",
+      "id": "1879f0f5c3144b17acb54b0a06545f5c"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+---
+layout: base
+permalink: /newsletter/confirmed/
+title: Newsletter Confirmation
+description: "Subscription confirmation for The Defender’s Dispatch."
+excludeFromSearch: true
+---
+
+<article class="newsletter-status-page" data-newsletter-confirmation>
+  <div class="newsletter-status-card">
+    <span class="newsletter-status-card__icon" aria-hidden="true" data-confirmation-icon>&#128737;&#65039;</span>
+    <p class="newsletter-kicker" data-confirmation-kicker>Confirming subscription</p>
+    <h1 data-confirmation-heading>Finishing up</h1>
+    <p data-confirmation-message>Checking your confirmation link.</p>
+
+    <div class="newsletter-confirmation-copy" data-confirmation-success hidden>
+      <p>You are subscribed to <strong>The Defender’s Dispatch</strong>. The welcome email should be on its way.</p>
+      <div class="newsletter-status-actions">
+        <a class="newsletter-submit newsletter-submit--link" href="/blog/">Read the latest posts</a>
+        <a class="newsletter-secondary-link" href="/newsletter/">Newsletter home</a>
+      </div>
+    </div>
+
+    <div class="newsletter-confirmation-copy" data-confirmation-invalid hidden>
+      <p>This confirmation link is invalid, expired, or has already been used.</p>
+      <p>Submit the signup form again to receive a fresh link.</p>
+      <a class="newsletter-submit newsletter-submit--link" href="/newsletter/">Return to signup</a>
+    </div>
+
+    <div class="newsletter-confirmation-copy" data-confirmation-error hidden>
+      <p>The confirmation service could not finish the request. Your link has not been consumed, so it is safe to try again.</p>
+      <a class="newsletter-secondary-link" href="">Try this link again</a>
+    </div>
+  </div>
+</article>
+
+<script src="/assets/scripts/components/newsletter-signup.min.js" defer></script>

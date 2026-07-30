@@ -1,0 +1,219 @@
+---
+layout: base
+permalink: /submit-news/
+title: Submit a Story
+description: "Send a cybersecurity, IT, MSP, privacy, vulnerability, tool, or research link for possible inclusion in The Defender’s Dispatch."
+---
+
+<article
+  class="newsletter-page submission-page"
+  data-news-submission
+  {% if newsletter.configured %}
+  data-newsletter-api-url="{{ newsletter.apiUrl }}"
+  {% endif %}
+>
+  <header class="newsletter-hero submission-hero">
+    <p class="newsletter-kicker">Community Signal</p>
+    <h1>Send me a signal</h1>
+    <p class="newsletter-hero__lede">
+      Found reporting, research, an advisory, or a practical tool that deserves more attention?
+    </p>
+    <p>
+      Share the original link and tell me why it matters. I review submissions for possible inclusion in The Defender’s Dispatch, but submitting something does not guarantee publication.
+    </p>
+  </header>
+
+  <div class="submission-layout">
+    <section class="submission-form-card" aria-labelledby="submission-form-heading">
+      <p class="newsletter-signup-card__eyebrow">Reader submission</p>
+      <h2 id="submission-form-heading">What did you find?</h2>
+
+      {% if newsletter.configured %}
+      <form class="newsletter-form submission-form" data-news-submission-form novalidate>
+        <div class="newsletter-field">
+          <label for="submission-headline">Article headline</label>
+          <input
+            id="submission-headline"
+            name="headline"
+            type="text"
+            maxlength="180"
+            required
+          />
+        </div>
+
+        <div class="newsletter-field">
+          <label for="submission-url">Original article URL</label>
+          <input
+            id="submission-url"
+            name="article_url"
+            type="url"
+            inputmode="url"
+            placeholder="https://"
+            maxlength="2048"
+            required
+          />
+        </div>
+
+        <div class="newsletter-field">
+          <label for="submission-source">Source or publication <span>(optional)</span></label>
+          <input
+            id="submission-source"
+            name="source"
+            type="text"
+            maxlength="120"
+          />
+        </div>
+
+        <div class="newsletter-field">
+          <label for="submission-category">Category</label>
+          <select id="submission-category" name="category" required>
+            <option value="">Choose a category</option>
+            <option value="cybersecurity">Cybersecurity</option>
+            <option value="vulnerabilities">Vulnerabilities and exploits</option>
+            <option value="privacy">Privacy</option>
+            <option value="identity">Identity and access</option>
+            <option value="cloud">Cloud security</option>
+            <option value="it-operations">IT operations</option>
+            <option value="msp">MSP</option>
+            <option value="ai">AI and security</option>
+            <option value="tools-research">Tools and research</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="newsletter-field">
+          <label for="submission-why">Why does this deserve attention?</label>
+          <textarea
+            id="submission-why"
+            name="why_it_matters"
+            rows="6"
+            maxlength="1200"
+            aria-describedby="submission-why-help"
+            required
+          ></textarea>
+          <small id="submission-why-help">Focus on the defender, administrator, or MSP takeaway—not only the headline.</small>
+        </div>
+
+        <fieldset class="submission-fieldset">
+          <legend>About you</legend>
+
+          <div class="newsletter-field">
+            <label for="submission-name">Name or online handle <span>(optional for anonymous submissions)</span></label>
+            <input
+              id="submission-name"
+              name="submitter_name"
+              type="text"
+              autocomplete="name"
+              maxlength="100"
+            />
+          </div>
+
+          <div class="newsletter-field">
+            <label for="submission-email">Email address</label>
+            <input
+              id="submission-email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              inputmode="email"
+              maxlength="254"
+              required
+            />
+          </div>
+
+          <div class="newsletter-field">
+            <label for="submission-credit">How should I credit you?</label>
+            <select id="submission-credit" name="credit_preference" required>
+              <option value="">Choose a credit preference</option>
+              <option value="name">Credit my name</option>
+              <option value="handle">Credit my online handle</option>
+              <option value="anonymous">Keep my submission anonymous</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset class="submission-fieldset">
+          <legend>Relationship and disclosure</legend>
+
+          <div class="newsletter-field">
+            <label for="submission-relationship">What is your relationship to this material?</label>
+            <select id="submission-relationship" name="relationship" required>
+              <option value="">Choose one</option>
+              <option value="none">No relationship</option>
+              <option value="author">I am the author or a contributor</option>
+              <option value="employer">My employer is involved</option>
+              <option value="vendor">I represent the vendor or organization</option>
+              <option value="client">A client or customer is involved</option>
+              <option value="other">Other relationship</option>
+            </select>
+          </div>
+
+          <div class="newsletter-field">
+            <label for="submission-disclosure">Disclosure or additional context <span>(required when a relationship exists)</span></label>
+            <textarea
+              id="submission-disclosure"
+              name="disclosure"
+              rows="4"
+              maxlength="600"
+            ></textarea>
+          </div>
+        </fieldset>
+
+        <div class="newsletter-honeypot" aria-hidden="true">
+          <label for="submission-website">Leave this field blank</label>
+          <input
+            id="submission-website"
+            name="website"
+            type="text"
+            tabindex="-1"
+            autocomplete="off"
+          />
+        </div>
+
+        <label class="newsletter-consent">
+          <input name="consent" type="checkbox" required />
+          <span>I understand that submission does not guarantee inclusion and that my email will only be used to acknowledge or follow up on this submission.</span>
+        </label>
+
+        <div
+          class="cf-turnstile"
+          data-sitekey="{{ newsletter.turnstileSiteKey }}"
+          data-theme="auto"
+          data-action="reader-submission"
+        ></div>
+
+        <button class="newsletter-submit" type="submit" data-news-submission-submit>
+          <span data-news-submission-submit-label>Send this signal</span>
+        </button>
+
+        <p class="newsletter-form__status" data-news-submission-status role="status" aria-live="polite"></p>
+      </form>
+      {% else %}
+      <div class="newsletter-setup-note" role="status">
+        <strong>Reader submissions are almost ready.</strong>
+        <span>The submission service is being connected. Check back shortly.</span>
+      </div>
+      {% endif %}
+    </section>
+
+    <aside class="submission-guidelines" aria-labelledby="submission-guidelines-heading">
+      <p class="newsletter-kicker">Before you send it</p>
+      <h2 id="submission-guidelines-heading">A useful signal has context</h2>
+      <ul>
+        <li>Link to the original reporting, advisory, research, or project whenever possible.</li>
+        <li>Explain what defenders, administrators, or MSPs should notice.</li>
+        <li>Disclose whether you, your employer, a client, or a vendor is involved.</li>
+        <li>Do not send shortened links, files, press-release attachments, or confidential information.</li>
+      </ul>
+      <p>
+        This form does not subscribe you to The Defender’s Dispatch. Newsletter signup remains a separate, explicit choice.
+      </p>
+      <a class="newsletter-secondary-link" href="/newsletter/">About The Defender’s Dispatch</a>
+    </aside>
+  </div>
+</article>
+
+{% if newsletter.configured %}
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script src="/assets/scripts/components/news-submission.min.js" defer></script>
+{% endif %}

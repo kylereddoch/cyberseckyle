@@ -1,0 +1,189 @@
+---
+layout: base
+permalink: /newsletter/
+title: The Defender’s Dispatch
+description: "Subscribe to The Defender’s Dispatch, a practical CybersecKyle newsletter covering cybersecurity, IT, MSP operations, tools, and reader-submitted stories."
+---
+
+<article
+  class="newsletter-page"
+  data-newsletter-signup
+  {% if newsletter.configured %}
+  data-newsletter-api-url="{{ newsletter.apiUrl }}"
+  {% endif %}
+>
+  <header class="newsletter-hero">
+    <img
+      class="newsletter-hero__logo"
+      src="/assets/images/cyberseckyle-newsletter-logo-horizontal.png"
+      width="764"
+      height="288"
+      alt="CybersecKyle — cybersecurity, IT, and MSP"
+    />
+    <p class="newsletter-kicker">A CybersecKyle newsletter</p>
+    <h1>The Defender’s Dispatch</h1>
+    <p class="newsletter-hero__lede">
+      Practical cybersecurity, IT, and MSP news for people who actually have to run things.
+    </p>
+    <p>
+      The inbox is noisy enough. This newsletter is built around useful context: what happened, why it matters, and what defenders, administrators, and service providers should check next.
+    </p>
+  </header>
+
+  <div class="newsletter-layout">
+    <section class="newsletter-content" aria-labelledby="newsletter-inbox-heading">
+      <h2 id="newsletter-inbox-heading">What lands in your inbox</h2>
+      <div class="newsletter-feature-grid">
+        <article class="newsletter-feature-card">
+          <span class="newsletter-feature-card__marker" aria-hidden="true">01</span>
+          <h3>From Kyle’s desk</h3>
+          <p>A personal opening about the pattern, concern, or practical lesson that stood out that week.</p>
+        </article>
+        <article class="newsletter-feature-card">
+          <span class="newsletter-feature-card__marker" aria-hidden="true">02</span>
+          <h3>Security signals and next steps</h3>
+          <p>The most important stories from Security Signal Weekly, followed by a short checklist of what defenders should verify or do next.</p>
+        </article>
+        <article class="newsletter-feature-card">
+          <span class="newsletter-feature-card__marker" aria-hidden="true">03</span>
+          <h3>The IT and MSP desk</h3>
+          <p>Microsoft 365, identity, endpoints, RMM, backups, vendor changes, and the details that matter when you support real environments.</p>
+        </article>
+        <article class="newsletter-feature-card">
+          <span class="newsletter-feature-card__marker" aria-hidden="true">04</span>
+          <h3>Community and useful finds</h3>
+          <p>Reader-submitted reporting, worthwhile tools and long reads, plus the latest practical work from CybersecKyle.</p>
+        </article>
+      </div>
+    </section>
+
+    <aside class="newsletter-signup-card" aria-labelledby="newsletter-signup-heading">
+      <p class="newsletter-signup-card__eyebrow">Free weekly newsletter</p>
+      <h2 id="newsletter-signup-heading">Join the dispatch</h2>
+      <p>Subscribe with your email address, then confirm it from your inbox. No purchased lists, no surprise promotions, and no sharing your address.</p>
+
+      {% if newsletter.configured %}
+      <form class="newsletter-form" data-newsletter-form novalidate>
+        <div class="newsletter-field">
+          <label for="newsletter-first-name">First name <span>(optional)</span></label>
+          <input
+            id="newsletter-first-name"
+            name="first_name"
+            type="text"
+            autocomplete="given-name"
+            maxlength="80"
+          />
+        </div>
+
+        <div class="newsletter-field">
+          <label for="newsletter-email">Email address</label>
+          <input
+            id="newsletter-email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            inputmode="email"
+            maxlength="254"
+            required
+          />
+        </div>
+
+        <div class="newsletter-honeypot" aria-hidden="true">
+          <label for="newsletter-website">Leave this field blank</label>
+          <input
+            id="newsletter-website"
+            name="website"
+            type="text"
+            tabindex="-1"
+            autocomplete="off"
+          />
+        </div>
+
+        <label class="newsletter-consent">
+          <input name="consent" type="checkbox" required />
+          <span>Send me The Defender’s Dispatch. I understand that I can unsubscribe at any time.</span>
+        </label>
+
+        <div
+          class="cf-turnstile"
+          data-sitekey="{{ newsletter.turnstileSiteKey }}"
+          data-theme="auto"
+          data-action="newsletter-signup"
+        ></div>
+
+        <button class="newsletter-submit" type="submit" data-newsletter-submit>
+          <span data-newsletter-submit-label>Send my confirmation</span>
+        </button>
+
+        <p class="newsletter-form__status" data-newsletter-status role="status" aria-live="polite"></p>
+      </form>
+      {% else %}
+      <div class="newsletter-setup-note" role="status">
+        <strong>Signup is almost ready.</strong>
+        <span>The newsletter service is being connected to the site. Check back shortly.</span>
+      </div>
+      {% endif %}
+
+      <p class="newsletter-privacy-note">
+        Your address is handled by Resend for subscription management and delivery. Read the <a href="/privacy/">privacy policy</a>.
+      </p>
+    </aside>
+  </div>
+
+  <section class="newsletter-rotation" aria-labelledby="newsletter-rotation-heading">
+    <div class="newsletter-rotation__intro">
+      <p class="newsletter-kicker">Rotating field notes</p>
+      <h2 id="newsletter-rotation-heading">More than a news roundup</h2>
+      <p>Each issue will make room for one or two focused sections drawn from real support work, defensive practice, useful tools, and reader questions.</p>
+    </div>
+
+    <ul class="newsletter-rotation__list">
+      <li>
+        <strong>From the Service Desk</strong>
+        <span>An anonymized ticket or incident and the lesson behind it.</span>
+      </li>
+      <li>
+        <strong>Configuration Corner</strong>
+        <span>One setting worth reviewing in a system you may already run.</span>
+      </li>
+      <li>
+        <strong>Toolbox &amp; One Useful Command</strong>
+        <span>A practical tool, script, extension, or command worth keeping.</span>
+      </li>
+      <li>
+        <strong>What I’d Do Monday Morning</strong>
+        <span>A clear first-response plan for a current security problem.</span>
+      </li>
+      <li>
+        <strong>Myth vs. Reality</strong>
+        <span>Common advice tested against how real environments behave.</span>
+      </li>
+      <li>
+        <strong>Reader Question</strong>
+        <span>A direct answer to a submitted security, IT, MSP, or career question.</span>
+      </li>
+      <li>
+        <strong>Behind the Blog</strong>
+        <span>What Kyle is researching, building, testing, or learning.</span>
+      </li>
+      <li>
+        <strong>Small Win of the Week</strong>
+        <span>A worthwhile security or IT improvement that takes about ten minutes.</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="newsletter-community-callout">
+    <div>
+      <p class="newsletter-kicker">Community Signal</p>
+      <h2>Found something worth sharing?</h2>
+      <p>Send the original link and tell me why it matters. The submission form accepts context, not file attachments.</p>
+    </div>
+    <a class="newsletter-submit newsletter-submit--link" href="/submit-news/">Submit a story</a>
+  </section>
+</article>
+
+{% if newsletter.configured %}
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script src="/assets/scripts/components/newsletter-signup.min.js" defer></script>
+{% endif %}
