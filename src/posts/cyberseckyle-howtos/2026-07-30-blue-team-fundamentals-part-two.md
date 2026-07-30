@@ -9,8 +9,9 @@ featuredImageAlt: Terminal window on a workstation representing macOS command-li
 featuredImageCaption: macOS has strong defaults, but defaults still need ownership.
 tags: [cyberseckyle-howto-series, cybersecurity, security, macos, endpoint-security, security-operations, how-to]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/117009856276790918"
 mastodon_tags: [Cybersecurity, InfoSec, macOS, BlueTeam, CybersecKyleHowTo]
+publishedAt: "2026-07-30T16:25:15.164Z"
 ---
 
 > Part 2 of the Blue Team Fundamentals track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/) applies the same evidence-first baseline to macOS: updates, encryption, network exposure, powerful permissions, management, and recovery.
