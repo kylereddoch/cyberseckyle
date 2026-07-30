@@ -12,7 +12,7 @@ mastodon_tags: [Cybersecurity, InfoSec, ThreatIntel, WeeklySecurity]
 
 ## Overview
 
-This edition is landing Thursday because last Friday got away from me. The July 18-24 window was defined by a familiar but uncomfortable pattern: security and management platforms became the attack path. SharePoint, firewall consoles, VPN gateways, IT service management, AI workflow builders, routers, and product lifecycle systems all demanded more than a routine patch checkbox.
+This edition is landing a bit late because I was on vacation last Friday. The July 18-24 window was defined by a familiar but uncomfortable pattern: security and management platforms became the attack path. SharePoint, firewall consoles, VPN gateways, IT service management, AI workflow builders, routers, and product lifecycle systems all demanded more than a routine patch checkbox.
 
 > **Reality check:** When the vulnerable product controls identity, policy, remote access, support workflows, or engineering data, patching is only step one. Verify the fixed version, review exposure, and look for evidence that somebody arrived first.
 
