@@ -347,15 +347,29 @@ async function findExistingMastodonStatus(postUrl) {
       return null;
     }
 
-    const statusesResponse = await fetch(
-      `${instance}/api/v1/accounts/${encodeURIComponent(account.id)}/statuses?limit=40&exclude_replies=true`,
-      { headers }
-    );
+    const statusesEndpoint =
+      `${instance}/api/v1/accounts/${encodeURIComponent(account.id)}/statuses?limit=40&exclude_replies=true`;
+    let statusesResponse = await fetch(statusesEndpoint, { headers });
+
+    if (statusesResponse.status === 403 && defaultVisibility === 'public') {
+      const authenticatedErrorBody = await statusesResponse.text();
+
+      console.log(
+        `Authenticated account statuses returned HTTP 403, which can mean the token lacks ` +
+          `read:statuses. Retrying the public statuses endpoint without authorization. ` +
+          `Response body: ${summarizeResponseBody(authenticatedErrorBody) || '(empty response body)'}`
+      );
+
+      statusesResponse = await fetch(statusesEndpoint);
+    }
 
     if (!statusesResponse.ok) {
+      const statusesErrorBody = await statusesResponse.text();
+
       console.log(
         `Could not check for an existing Mastodon status: ` +
-          `account statuses returned HTTP ${statusesResponse.status}.`
+          `account statuses returned HTTP ${statusesResponse.status}. ` +
+          `Response body: ${summarizeResponseBody(statusesErrorBody) || '(empty response body)'}`
       );
       return null;
     }
