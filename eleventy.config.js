@@ -692,6 +692,11 @@ export default async function (eleventyConfig) {
     "src/assets/images/logo.png": "assets/images/logo.png"
   });
 
+  eleventyConfig.addPassthroughCopy({
+    "src/assets/images/cyberseckyle-newsletter-logo-horizontal.png":
+      "assets/images/cyberseckyle-newsletter-logo-horizontal.png"
+  });
+
 
   // --------------------- general config
   return {
