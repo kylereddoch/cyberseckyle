@@ -44,7 +44,6 @@ if (signupRoot) {
             firstName: String(formData.get('first_name') || ''),
             consent: formData.get('consent') === 'on',
             website: String(formData.get('website') || ''),
-            signupPath: window.location.pathname,
             turnstileToken
           })
         });

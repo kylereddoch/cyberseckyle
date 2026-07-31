@@ -30,7 +30,6 @@ const makeEnv = kv => ({
   TURNSTILE_SECRET_KEY: 'turnstile-secret',
   RESEND_API_BASE_URL: 'https://api.resend.test',
   RESEND_API_KEY: 'resend-secret',
-  NEWSLETTER_TOPIC_ID: 'topic-123',
   CONFIRM_TEMPLATE_ID: 'template-123',
   SUBMISSION_ACK_TEMPLATE_ID: 'submission-template-123',
   SUBMISSION_NOTIFY_TO: 'newsletter@example.com',
@@ -52,7 +51,6 @@ const makeSignupRequest = overrides =>
       firstName: 'Alex',
       consent: true,
       website: '',
-      signupPath: '/newsletter/',
       turnstileToken: 'valid-token',
       ...overrides
     })
@@ -140,7 +138,7 @@ test('signup creates a pending contact and sends the published confirmation temp
   const contactBody = JSON.parse(createContact.options.body);
   assert.equal(contactBody.unsubscribed, true);
   assert.equal(contactBody.first_name, 'Alex');
-  assert.equal(contactBody.properties.signup_source, 'website');
+  assert.equal('properties' in contactBody, false);
 
   const sendEmail = requests.find(item => item.url.endsWith('/emails'));
   const emailBody = JSON.parse(sendEmail.options.body);
@@ -148,7 +146,7 @@ test('signup creates a pending contact and sends the published confirmation temp
   assert.match(sendEmail.options.headers.get('idempotency-key'), /^newsletter-confirmation\//);
 });
 
-test('an intentional confirmation opts into the topic and triggers the welcome automation', async t => {
+test('an intentional confirmation triggers the welcome automation with email only', async t => {
   const kv = new MemoryKv();
   let confirmationUrl = '';
   let eventBody = null;
@@ -183,27 +181,6 @@ test('an intentional confirmation opts into the topic and triggers the welcome a
       }
       return Response.json({ id: 'email-123' });
     }
-    if (requestUrl.endsWith('/contacts/contact-123') && options.method !== 'PATCH') {
-      return Response.json({
-        id: 'contact-123',
-        email: 'reader@example.com',
-        unsubscribed: true
-      });
-    }
-    if (requestUrl.endsWith('/contacts/contact-123') && options.method === 'PATCH') {
-      assert.equal(JSON.parse(options.body).unsubscribed, false);
-      return Response.json({ id: 'contact-123' });
-    }
-    if (requestUrl.endsWith('/contacts/contact-123/topics') && options.method !== 'PATCH') {
-      return Response.json({
-        data: [{ id: 'topic-123', subscription: 'opt_out' }]
-      });
-    }
-    if (requestUrl.endsWith('/contacts/contact-123/topics') && options.method === 'PATCH') {
-      const topicBody = JSON.parse(options.body);
-      assert.deepEqual(topicBody, [{ id: 'topic-123', subscription: 'opt_in' }]);
-      return Response.json({ id: 'contact-123' });
-    }
     if (requestUrl.endsWith('/events/send')) {
       eventBody = JSON.parse(options.body);
       return Response.json({ id: 'event-123' });
@@ -232,15 +209,14 @@ test('an intentional confirmation opts into the topic and triggers the welcome a
 
   assert.equal(confirmResponse.status, 200);
   assert.equal(confirmResult.redirect, '/newsletter/confirmed/');
-  assert.equal(eventBody.event, 'newsletter.subscribed');
-  assert.equal(eventBody.email, 'reader@example.com');
-  assert.equal(eventBody.payload.founding_reader, 'false');
-  assert.equal(typeof eventBody.payload.confirmed_at, 'string');
+  assert.deepEqual(eventBody, {
+    event: 'newsletter.subscribed',
+    email: 'reader@example.com'
+  });
   assert.equal(notificationRequest.body.to[0], 'newsletter-owner@example.com');
   assert.equal(notificationRequest.body.subject, 'New confirmed newsletter subscriber');
   assert.match(notificationRequest.body.text, /Email: reader@example\.com/);
   assert.match(notificationRequest.body.text, /First name: Alex/);
-  assert.match(notificationRequest.body.text, /Signup page: \/newsletter\//);
   assert.match(
     notificationRequest.idempotencyKey,
     /^newsletter-subscriber-notification\//
@@ -283,18 +259,6 @@ test('a completed confirmation can be retried without triggering a second automa
       }
       return Response.json({ id: 'email-123' });
     }
-    if (requestUrl.endsWith('/contacts/contact-123') && options.method !== 'PATCH') {
-      return Response.json({ id: 'contact-123', unsubscribed: true });
-    }
-    if (requestUrl.endsWith('/contacts/contact-123/topics') && options.method !== 'PATCH') {
-      return Response.json({ data: [{ id: 'topic-123', subscription: 'opt_out' }] });
-    }
-    if (requestUrl.endsWith('/contacts/contact-123') && options.method === 'PATCH') {
-      return Response.json({ id: 'contact-123' });
-    }
-    if (requestUrl.endsWith('/contacts/contact-123/topics') && options.method === 'PATCH') {
-      return Response.json({ id: 'contact-123' });
-    }
     if (requestUrl.endsWith('/events/send')) {
       eventCount += 1;
       return Response.json({ id: 'event-123' });
@@ -324,10 +288,6 @@ test('a temporary confirmation failure keeps the token available for retry', asy
   const kv = new MemoryKv();
   let confirmationUrl = '';
   let eventCount = 0;
-  let contactActive = false;
-  let topicActive = false;
-  let contactActivationCount = 0;
-  let topicActivationCount = 0;
   let notificationCount = 0;
   const originalFetch = globalThis.fetch;
 
@@ -360,24 +320,6 @@ test('a temporary confirmation failure keeps the token available for retry', asy
         { status: 500 }
       );
     }
-    if (requestUrl.endsWith('/contacts/contact-123') && options.method !== 'PATCH') {
-      return Response.json({ id: 'contact-123', unsubscribed: !contactActive });
-    }
-    if (requestUrl.endsWith('/contacts/contact-123/topics') && options.method !== 'PATCH') {
-      return Response.json({
-        data: [{ id: 'topic-123', subscription: topicActive ? 'opt_in' : 'opt_out' }]
-      });
-    }
-    if (requestUrl.endsWith('/contacts/contact-123') && options.method === 'PATCH') {
-      contactActive = true;
-      contactActivationCount += 1;
-      return Response.json({ id: 'contact-123' });
-    }
-    if (requestUrl.endsWith('/contacts/contact-123/topics') && options.method === 'PATCH') {
-      topicActive = true;
-      topicActivationCount += 1;
-      return Response.json({ id: 'contact-123' });
-    }
     if (requestUrl.endsWith('/events/send')) {
       eventCount += 1;
       return eventCount === 1
@@ -402,8 +344,6 @@ test('a temporary confirmation failure keeps the token available for retry', asy
   assert.equal(failedResponse.status, 503);
   assert.equal(retryResponse.status, 200);
   assert.equal(eventCount, 2);
-  assert.equal(contactActivationCount, 1);
-  assert.equal(topicActivationCount, 1);
   assert.equal(notificationCount, 1);
 });
 
@@ -430,9 +370,6 @@ test('issuing a fresh confirmation link invalidates the previous link', async t 
     }
     if (requestUrl.endsWith('/contacts/reader%40example.com') && options.method === 'PATCH') {
       return Response.json({ id: 'contact-123' });
-    }
-    if (requestUrl.endsWith('/contacts/reader%40example.com/topics')) {
-      return Response.json({ data: [{ id: 'topic-123', subscription: 'opt_out' }] });
     }
     if (requestUrl.endsWith('/contacts')) {
       return Response.json({ id: 'contact-123', email: 'reader@example.com' });

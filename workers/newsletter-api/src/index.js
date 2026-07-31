@@ -77,12 +77,6 @@ const normalizeArticleUrl = value => {
   }
 };
 
-const sanitizePath = value => {
-  const path = String(value || '').trim();
-  if (!path.startsWith('/') || path.startsWith('//')) return '/newsletter/';
-  return path.slice(0, 256);
-};
-
 const getAllowedOrigin = (request, env) => {
   const origin = request.headers.get('origin');
   if (!origin) return '';
@@ -137,7 +131,6 @@ const hasRequiredConfiguration = env =>
   Boolean(
     env.RESEND_API_KEY &&
       env.TURNSTILE_SECRET_KEY &&
-      env.NEWSLETTER_TOPIC_ID &&
       env.CONFIRM_TEMPLATE_ID &&
       env.NEWSLETTER_DATA?.get &&
       env.NEWSLETTER_DATA?.put &&
@@ -280,21 +273,7 @@ const getContact = async (env, identifier) => {
   }
 };
 
-const getContactTopics = async (env, identifier) => {
-  const result = await resendRequest(
-    env,
-    `/contacts/${encodeURIComponent(identifier)}/topics`
-  );
-  return Array.isArray(result.data) ? result.data : [];
-};
-
 const ensurePendingContact = async (env, details) => {
-  const properties = {
-    signup_source: 'website',
-    signup_path: details.signupPath,
-    primary_interest: 'cybersecurity-it-msp',
-    founding_reader: details.foundingReader
-  };
   let contact = await getContact(env, details.email);
 
   if (!contact) {
@@ -304,38 +283,26 @@ const ensurePendingContact = async (env, details) => {
         body: JSON.stringify({
           email: details.email,
           first_name: details.firstName || undefined,
-          unsubscribed: true,
-          properties
+          unsubscribed: true
         })
       });
-      return { contact, alreadyActive: false };
+      return { alreadyActive: false };
     } catch (error) {
       if (error.upstreamStatus !== 409) throw error;
       contact = await getContact(env, details.email);
     }
   }
 
-  const update = { properties };
-  if (details.firstName) update.first_name = details.firstName;
-  await resendRequest(env, `/contacts/${encodeURIComponent(details.email)}`, {
-    method: 'PATCH',
-    body: JSON.stringify(update)
-  });
+  if (details.firstName) {
+    await resendRequest(env, `/contacts/${encodeURIComponent(details.email)}`, {
+      method: 'PATCH',
+      body: JSON.stringify({ first_name: details.firstName })
+    });
+  }
 
-  const topics = await getContactTopics(env, details.email);
-  const newsletterTopic = topics.find(topic => topic.id === env.NEWSLETTER_TOPIC_ID);
-  const alreadyActive =
-    contact?.unsubscribed === false &&
-    newsletterTopic?.subscription === 'opt_in';
+  const alreadyActive = contact?.unsubscribed === false;
 
-  return { contact, alreadyActive };
-};
-
-const isFoundingReader = env => {
-  const cutoff = String(env.FOUNDING_READER_CUTOFF || '').trim();
-  if (!cutoff) return 'false';
-  const cutoffTime = Date.parse(cutoff);
-  return Number.isFinite(cutoffTime) && Date.now() <= cutoffTime ? 'true' : 'false';
+  return { alreadyActive };
 };
 
 const sendConfirmationEmail = async (env, email, confirmationUrl, idempotencyKey) =>
@@ -364,9 +331,7 @@ const buildNewsletterSignupNotificationText = details =>
     '',
     `Email: ${details.email}`,
     `First name: ${details.firstName || 'Not provided'}`,
-    `Signup page: ${details.signupPath}`,
     `Confirmed: ${details.confirmedAt}`,
-    `Founding reader: ${details.foundingReader === 'true' ? 'Yes' : 'No'}`,
     '',
     'This subscriber completed the double opt-in confirmation process.'
   ].join('\n');
@@ -394,9 +359,7 @@ const buildNewsletterSignupNotificationHtml = details => `<!DOCTYPE html>
                     <td style="padding:20px;">
                       <p style="margin:0 0 8px;color:#cdd6f4;font-size:15px;line-height:23px;"><strong>Email:</strong> ${escapeHtml(details.email)}</p>
                       <p style="margin:0 0 8px;color:#cdd6f4;font-size:15px;line-height:23px;"><strong>First name:</strong> ${escapeHtml(details.firstName || 'Not provided')}</p>
-                      <p style="margin:0 0 8px;color:#cdd6f4;font-size:15px;line-height:23px;"><strong>Signup page:</strong> ${escapeHtml(details.signupPath)}</p>
-                      <p style="margin:0 0 8px;color:#cdd6f4;font-size:15px;line-height:23px;"><strong>Confirmed:</strong> ${escapeHtml(details.confirmedAt)}</p>
-                      <p style="margin:0;color:#cdd6f4;font-size:15px;line-height:23px;"><strong>Founding reader:</strong> ${details.foundingReader === 'true' ? 'Yes' : 'No'}</p>
+                      <p style="margin:0;color:#cdd6f4;font-size:15px;line-height:23px;"><strong>Confirmed:</strong> ${escapeHtml(details.confirmedAt)}</p>
                     </td>
                   </tr>
                 </table>
@@ -759,7 +722,6 @@ const handleSubscribe = async (request, env) => {
   const body = await parseJsonBody(request);
   const email = normalizeEmail(body.email);
   const firstName = normalizeName(body.firstName).slice(0, 80);
-  const signupPath = sanitizePath(body.signupPath);
 
   if (body.website) return genericAcceptedResponse(request, env);
   if (!body.consent) {
@@ -798,12 +760,9 @@ const handleSubscribe = async (request, env) => {
     return genericAcceptedResponse(request, env);
   }
 
-  const foundingReader = isFoundingReader(env);
-  const { contact, alreadyActive } = await ensurePendingContact(env, {
+  const { alreadyActive } = await ensurePendingContact(env, {
     email,
-    firstName,
-    signupPath,
-    foundingReader
+    firstName
   });
 
   if (alreadyActive) return genericAcceptedResponse(request, env);
@@ -816,11 +775,6 @@ const handleSubscribe = async (request, env) => {
     state: 'pending',
     email,
     firstName,
-    contactId: contact?.id || '',
-    signupSource: 'website',
-    signupPath,
-    primaryInterest: 'cybersecurity-it-msp',
-    foundingReader,
     issuedAt
   };
 
@@ -949,60 +903,15 @@ const handleConfirm = async (request, env) => {
     });
   }
 
-  let confirmationStage = 'contact_lookup';
+  const confirmationStage = 'automation_event';
 
   try {
-    const contactIdentifier = pending.contactId || pending.email;
-    const contact = await getContact(env, contactIdentifier);
-
-    if (!contact) {
-      throw new ServiceError('The pending newsletter contact no longer exists.', 409);
-    }
-
-    confirmationStage = 'topic_lookup';
-    const topics = await getContactTopics(env, contactIdentifier);
-    const newsletterTopic = topics.find(topic => topic.id === env.NEWSLETTER_TOPIC_ID);
-    const alreadyActive =
-      contact.unsubscribed === false &&
-      newsletterTopic?.subscription === 'opt_in';
-
-    if (!alreadyActive) {
-      confirmationStage = 'contact_activation';
-      await resendRequest(env, `/contacts/${encodeURIComponent(contactIdentifier)}`, {
-        method: 'PATCH',
-        body: JSON.stringify({ unsubscribed: false })
-      });
-
-      confirmationStage = 'topic_activation';
-      await resendRequest(
-        env,
-        `/contacts/${encodeURIComponent(contactIdentifier)}/topics`,
-        {
-          method: 'PATCH',
-          body: JSON.stringify([
-            {
-              id: env.NEWSLETTER_TOPIC_ID,
-              subscription: 'opt_in'
-            }
-          ])
-        }
-      );
-    }
-
     const confirmedAt = new Date().toISOString();
-    confirmationStage = 'automation_event';
     await resendRequest(env, '/events/send', {
       method: 'POST',
       body: JSON.stringify({
         event: 'newsletter.subscribed',
-        email: pending.email,
-        payload: {
-          signup_source: pending.signupSource,
-          signup_path: pending.signupPath,
-          confirmed_at: confirmedAt,
-          primary_interest: pending.primaryInterest,
-          founding_reader: pending.foundingReader
-        }
+        email: pending.email
       })
     });
 
@@ -1028,9 +937,7 @@ const handleConfirm = async (request, env) => {
         {
           email: pending.email,
           firstName: pending.firstName || '',
-          signupPath: pending.signupPath,
-          confirmedAt,
-          foundingReader: pending.foundingReader
+          confirmedAt
         },
         `newsletter-subscriber-notification/${tokenHash}`
       );
