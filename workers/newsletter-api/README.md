@@ -1,6 +1,6 @@
 # Newsletter API Worker
 
-This Cloudflare Worker powers the double opt-in signup flow for **The Defender’s Dispatch**. It keeps Resend credentials off the static Eleventy site, verifies Cloudflare Turnstile, rate-limits signup attempts, creates pending contacts, sends the published confirmation template, and triggers the existing `newsletter.subscribed` automation after confirmation.
+This Cloudflare Worker powers the double opt-in signup flow for **The Defender’s Dispatch**. It keeps Resend credentials off the static Eleventy site, verifies Cloudflare Turnstile, rate-limits signup attempts, creates pending contacts, sends the published confirmation template, triggers the existing `newsletter.subscribed` automation after confirmation, and sends the owner a best-effort notification for each confirmed subscriber.
 
 ## What it exposes
 
@@ -33,6 +33,8 @@ Do not put either value in the Eleventy repository, GitHub Actions variables, or
 ## Optional variables
 
 Set `FOUNDING_READER_CUTOFF` to an ISO 8601 timestamp if subscribers confirmed before a launch deadline should receive the `founding_reader` property. Leave it empty to store `false`.
+
+Set `NEWSLETTER_NOTIFY_TO` to the address that should receive new-subscriber notifications. If it is empty, the Worker falls back to `SUBMISSION_NOTIFY_TO`; if neither is configured, subscriber notifications are skipped without affecting confirmation.
 
 The allowed site origin, confirmation redirect, expected Turnstile hostname, Resend API base URL, Topic ID, and template ID are already defined in `wrangler.jsonc`.
 

@@ -355,6 +355,82 @@ const sendConfirmationEmail = async (env, email, confirmationUrl, idempotencyKey
     })
   });
 
+const getNewsletterNotificationRecipient = env =>
+  String(env.NEWSLETTER_NOTIFY_TO || env.SUBMISSION_NOTIFY_TO || '').trim();
+
+const buildNewsletterSignupNotificationText = details =>
+  [
+    'New confirmed newsletter subscriber',
+    '',
+    `Email: ${details.email}`,
+    `First name: ${details.firstName || 'Not provided'}`,
+    `Signup page: ${details.signupPath}`,
+    `Confirmed: ${details.confirmedAt}`,
+    `Founding reader: ${details.foundingReader === 'true' ? 'Yes' : 'No'}`,
+    '',
+    'This subscriber completed the double opt-in confirmation process.'
+  ].join('\n');
+
+const buildNewsletterSignupNotificationHtml = details => `<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body style="margin:0;background-color:#11111b;color:#cdd6f4;font-family:Arial,Helvetica,sans-serif;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" bgcolor="#11111b" style="width:100%;background-color:#11111b;">
+      <tr>
+        <td align="center" style="padding:32px 16px;">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" bgcolor="#1e1e2e" style="width:100%;max-width:600px;background-color:#1e1e2e;border-radius:14px;overflow:hidden;">
+            <tr>
+              <td bgcolor="#cba6f7" style="background-color:#cba6f7;font-size:3px;line-height:3px;height:3px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td style="padding:32px 36px;">
+                <p style="margin:0 0 10px;color:#a6e3a1;font-size:12px;line-height:18px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;">The Defender’s Dispatch</p>
+                <h1 style="margin:0 0 22px;color:#cdd6f4;font-size:28px;line-height:36px;">New confirmed subscriber</h1>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" bgcolor="#313244" style="width:100%;background-color:#313244;border-radius:10px;">
+                  <tr>
+                    <td style="padding:20px;">
+                      <p style="margin:0 0 8px;color:#cdd6f4;font-size:15px;line-height:23px;"><strong>Email:</strong> ${escapeHtml(details.email)}</p>
+                      <p style="margin:0 0 8px;color:#cdd6f4;font-size:15px;line-height:23px;"><strong>First name:</strong> ${escapeHtml(details.firstName || 'Not provided')}</p>
+                      <p style="margin:0 0 8px;color:#cdd6f4;font-size:15px;line-height:23px;"><strong>Signup page:</strong> ${escapeHtml(details.signupPath)}</p>
+                      <p style="margin:0 0 8px;color:#cdd6f4;font-size:15px;line-height:23px;"><strong>Confirmed:</strong> ${escapeHtml(details.confirmedAt)}</p>
+                      <p style="margin:0;color:#cdd6f4;font-size:15px;line-height:23px;"><strong>Founding reader:</strong> ${details.foundingReader === 'true' ? 'Yes' : 'No'}</p>
+                    </td>
+                  </tr>
+                </table>
+                <p style="margin:20px 0 0;color:#a6adc8;font-size:13px;line-height:20px;">This subscriber completed the double opt-in confirmation process.</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
+
+const sendNewsletterSignupNotification = (env, details, idempotencyKey) => {
+  const recipient = getNewsletterNotificationRecipient(env);
+  if (!recipient) return null;
+
+  return resendRequest(env, '/emails', {
+    method: 'POST',
+    headers: {
+      'idempotency-key': idempotencyKey
+    },
+    body: JSON.stringify({
+      from:
+        env.SUBMISSION_FROM ||
+        'The Defender’s Dispatch <newsletter@updates.kylereddoch.me>',
+      to: [recipient],
+      subject: 'New confirmed newsletter subscriber',
+      html: buildNewsletterSignupNotificationHtml(details),
+      text: buildNewsletterSignupNotificationText(details)
+    })
+  });
+};
+
 const genericAcceptedResponse = (request, env) =>
   jsonResponse(
     request,
@@ -739,6 +815,7 @@ const handleSubscribe = async (request, env) => {
   const pending = {
     state: 'pending',
     email,
+    firstName,
     contactId: contact?.id || '',
     signupSource: 'website',
     signupPath,
@@ -947,6 +1024,27 @@ const handleConfirm = async (request, env) => {
       env.NEWSLETTER_DATA.delete(`pending-email:${emailHash}`)
     ]);
 
+    try {
+      await sendNewsletterSignupNotification(
+        env,
+        {
+          email: pending.email,
+          firstName: pending.firstName || '',
+          signupPath: pending.signupPath,
+          confirmedAt,
+          foundingReader: pending.foundingReader
+        },
+        `newsletter-subscriber-notification/${tokenHash}`
+      );
+    } catch (error) {
+      console.error('Newsletter signup notification failed.', {
+        name: error.name,
+        status: error.upstreamStatus || error.status || 500,
+        upstreamCode: error.upstreamPayload?.name || error.upstreamPayload?.code || '',
+        upstreamMessage: error.upstreamPayload?.message || ''
+      });
+    }
+
     return jsonResponse(request, env, {
       ok: true,
       redirect: '/newsletter/confirmed/'
@@ -991,6 +1089,7 @@ export const handleRequest = async (request, env) => {
       ok: true,
       service: 'cyberseckyle-newsletter-api',
       confirmationMode: 'one-click-browser',
+      subscriberNotificationsConfigured: Boolean(getNewsletterNotificationRecipient(env)),
       configured: hasRequiredConfiguration(env),
       submissionsConfigured: hasRequiredSubmissionConfiguration(env)
     });

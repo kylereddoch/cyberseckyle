@@ -17,6 +17,7 @@
     "CONFIRM_TEMPLATE_ID": "1dc9347a-7fa3-4b79-a598-1cc6d52de027",
     "SUBMISSION_ACK_TEMPLATE_ID": "0bf47844-5853-45d9-8134-3e03516f9a8e",
     "SUBMISSION_NOTIFY_TO": "newsletter@kylereddoch.me",
+    "NEWSLETTER_NOTIFY_TO": "newsletter@kylereddoch.me",
     "SUBMISSION_FROM": "The Defender’s Dispatch <newsletter@updates.kylereddoch.me>",
     "FOUNDING_READER_CUTOFF": ""
   },

@@ -34,6 +34,7 @@ const makeEnv = kv => ({
   CONFIRM_TEMPLATE_ID: 'template-123',
   SUBMISSION_ACK_TEMPLATE_ID: 'submission-template-123',
   SUBMISSION_NOTIFY_TO: 'newsletter@example.com',
+  NEWSLETTER_NOTIFY_TO: 'newsletter-owner@example.com',
   SUBMISSION_FROM: 'The Defender’s Dispatch <newsletter@updates.example.com>',
   NEWSLETTER_DATA: kv
 });
@@ -151,6 +152,7 @@ test('an intentional confirmation opts into the topic and triggers the welcome a
   const kv = new MemoryKv();
   let confirmationUrl = '';
   let eventBody = null;
+  let notificationRequest = null;
   const originalFetch = globalThis.fetch;
 
   globalThis.fetch = async (url, options = {}) => {
@@ -170,7 +172,15 @@ test('an intentional confirmation opts into the topic and triggers the welcome a
       return Response.json({ id: 'contact-123', email: 'reader@example.com' });
     }
     if (requestUrl.endsWith('/emails')) {
-      confirmationUrl = JSON.parse(options.body).template.variables.CONFIRMATION_URL;
+      const emailBody = JSON.parse(options.body);
+      if (emailBody.template) {
+        confirmationUrl = emailBody.template.variables.CONFIRMATION_URL;
+      } else {
+        notificationRequest = {
+          body: emailBody,
+          idempotencyKey: options.headers.get('idempotency-key')
+        };
+      }
       return Response.json({ id: 'email-123' });
     }
     if (requestUrl.endsWith('/contacts/contact-123') && options.method !== 'PATCH') {
@@ -226,6 +236,15 @@ test('an intentional confirmation opts into the topic and triggers the welcome a
   assert.equal(eventBody.email, 'reader@example.com');
   assert.equal(eventBody.payload.founding_reader, 'false');
   assert.equal(typeof eventBody.payload.confirmed_at, 'string');
+  assert.equal(notificationRequest.body.to[0], 'newsletter-owner@example.com');
+  assert.equal(notificationRequest.body.subject, 'New confirmed newsletter subscriber');
+  assert.match(notificationRequest.body.text, /Email: reader@example\.com/);
+  assert.match(notificationRequest.body.text, /First name: Alex/);
+  assert.match(notificationRequest.body.text, /Signup page: \/newsletter\//);
+  assert.match(
+    notificationRequest.idempotencyKey,
+    /^newsletter-subscriber-notification\//
+  );
   const confirmationReceipt = [...kv.values.entries()].find(([key]) =>
     key.startsWith('confirm:')
   );
@@ -236,6 +255,7 @@ test('a completed confirmation can be retried without triggering a second automa
   const kv = new MemoryKv();
   let confirmationUrl = '';
   let eventCount = 0;
+  let notificationCount = 0;
   const originalFetch = globalThis.fetch;
 
   globalThis.fetch = async (url, options = {}) => {
@@ -255,7 +275,12 @@ test('a completed confirmation can be retried without triggering a second automa
       return Response.json({ id: 'contact-123', email: 'reader@example.com' });
     }
     if (requestUrl.endsWith('/emails')) {
-      confirmationUrl = JSON.parse(options.body).template.variables.CONFIRMATION_URL;
+      const emailBody = JSON.parse(options.body);
+      if (emailBody.template) {
+        confirmationUrl = emailBody.template.variables.CONFIRMATION_URL;
+      } else {
+        notificationCount += 1;
+      }
       return Response.json({ id: 'email-123' });
     }
     if (requestUrl.endsWith('/contacts/contact-123') && options.method !== 'PATCH') {
@@ -292,6 +317,7 @@ test('a completed confirmation can be retried without triggering a second automa
   assert.equal(firstResponse.status, 200);
   assert.equal(retryResponse.status, 200);
   assert.equal(eventCount, 1);
+  assert.equal(notificationCount, 1);
 });
 
 test('a temporary confirmation failure keeps the token available for retry', async t => {
@@ -302,6 +328,7 @@ test('a temporary confirmation failure keeps the token available for retry', asy
   let topicActive = false;
   let contactActivationCount = 0;
   let topicActivationCount = 0;
+  let notificationCount = 0;
   const originalFetch = globalThis.fetch;
 
   globalThis.fetch = async (url, options = {}) => {
@@ -321,8 +348,17 @@ test('a temporary confirmation failure keeps the token available for retry', asy
       return Response.json({ id: 'contact-123', email: 'reader@example.com' });
     }
     if (requestUrl.endsWith('/emails')) {
-      confirmationUrl = JSON.parse(options.body).template.variables.CONFIRMATION_URL;
-      return Response.json({ id: 'email-123' });
+      const emailBody = JSON.parse(options.body);
+      if (emailBody.template) {
+        confirmationUrl = emailBody.template.variables.CONFIRMATION_URL;
+        return Response.json({ id: 'email-123' });
+      }
+
+      notificationCount += 1;
+      return Response.json(
+        { name: 'temporary_error', message: 'Notification unavailable.' },
+        { status: 500 }
+      );
     }
     if (requestUrl.endsWith('/contacts/contact-123') && options.method !== 'PATCH') {
       return Response.json({ id: 'contact-123', unsubscribed: !contactActive });
@@ -368,6 +404,7 @@ test('a temporary confirmation failure keeps the token available for retry', asy
   assert.equal(eventCount, 2);
   assert.equal(contactActivationCount, 1);
   assert.equal(topicActivationCount, 1);
+  assert.equal(notificationCount, 1);
 });
 
 test('issuing a fresh confirmation link invalidates the previous link', async t => {
