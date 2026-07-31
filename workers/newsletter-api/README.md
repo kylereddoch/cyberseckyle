@@ -7,9 +7,9 @@ This Cloudflare Worker powers the double opt-in signup flow for **The Defender�
 - `GET /health`
 - `POST /newsletter/subscribe`
 - `GET /newsletter/confirm?token=<opaque-token>` — hands the token to the site without activating it
-- `POST /newsletter/confirm` — consumes the token after the reader presses the confirmation button
+- `POST /newsletter/confirm` — confirms the address when the visible site page loads, with a manual retry available after temporary failures
 
-Confirmation tokens are random, single-use, and expire after 24 hours. Fetching the link alone does not subscribe the address, which prevents automated email link scanners from completing the double opt-in flow. Pending signup data is kept temporarily in Workers KV and deleted after a successful confirmation.
+Confirmation tokens are random and expire after 24 hours. Fetching the email link alone only hands the token to the site in the URL fragment; it does not subscribe the address. The visible site page completes confirmation in the browser, which prevents ordinary automated email link scanners from activating subscriptions without requiring a second click from the reader. A short-lived completion receipt makes retries safe without triggering the welcome automation twice.
 
 ## Cloudflare setup
 
