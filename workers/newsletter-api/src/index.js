@@ -979,14 +979,12 @@ const handleConfirm = async (request, env) => {
         `/contacts/${encodeURIComponent(contactIdentifier)}/topics`,
         {
           method: 'PATCH',
-          body: JSON.stringify({
-            topics: [
-              {
-                id: env.NEWSLETTER_TOPIC_ID,
-                subscription: 'opt_in'
-              }
-            ]
-          })
+          body: JSON.stringify([
+            {
+              id: env.NEWSLETTER_TOPIC_ID,
+              subscription: 'opt_in'
+            }
+          ])
         }
       );
     }

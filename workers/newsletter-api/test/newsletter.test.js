@@ -201,7 +201,7 @@ test('an intentional confirmation opts into the topic and triggers the welcome a
     }
     if (requestUrl.endsWith('/contacts/contact-123/topics') && options.method === 'PATCH') {
       const topicBody = JSON.parse(options.body);
-      assert.deepEqual(topicBody.topics, [{ id: 'topic-123', subscription: 'opt_in' }]);
+      assert.deepEqual(topicBody, [{ id: 'topic-123', subscription: 'opt_in' }]);
       return Response.json({ id: 'contact-123' });
     }
     if (requestUrl.endsWith('/events/send')) {
