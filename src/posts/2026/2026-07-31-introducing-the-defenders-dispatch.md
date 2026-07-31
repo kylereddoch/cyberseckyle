@@ -7,9 +7,10 @@ searchIntent: Introduce The Defender’s Dispatch and explain how the weekly new
 featuredImage: /assets/images/defenders_dispatch_logo.png
 featuredImageAlt: The Defender’s Dispatch logo with a hooded defender beside the title and the subtitle A CybersecKyle Newsletter.
 mastodon_post: true
-mastodon_url: 
+mastodon_url: "https://infosec.exchange/@cyberseckyle/117016319033893623"
 mastodon_tags: [Cybersecurity, InfoSec, IT, MSP, News, Newsletter]
 tags: [cybersecurity, IT, MSP, editorials, personal]
+publishedAt: "2026-07-31T19:48:49.011Z"
 ---
 
 Cybersecurity news is not difficult to find. Deciding what deserves your attention—and what to do next—is the harder part.
