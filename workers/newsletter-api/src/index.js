@@ -271,19 +271,19 @@ const resendRequest = async (env, path, options = {}) => {
   return payload;
 };
 
-const getContact = async (env, email) => {
+const getContact = async (env, identifier) => {
   try {
-    return await resendRequest(env, `/contacts/${encodeURIComponent(email)}`);
+    return await resendRequest(env, `/contacts/${encodeURIComponent(identifier)}`);
   } catch (error) {
     if (error.upstreamStatus === 404) return null;
     throw error;
   }
 };
 
-const getContactTopics = async (env, email) => {
+const getContactTopics = async (env, identifier) => {
   const result = await resendRequest(
     env,
-    `/contacts/${encodeURIComponent(email)}/topics`
+    `/contacts/${encodeURIComponent(identifier)}/topics`
   );
   return Array.isArray(result.data) ? result.data : [];
 };
@@ -723,7 +723,7 @@ const handleSubscribe = async (request, env) => {
   }
 
   const foundingReader = isFoundingReader(env);
-  const { alreadyActive } = await ensurePendingContact(env, {
+  const { contact, alreadyActive } = await ensurePendingContact(env, {
     email,
     firstName,
     signupPath,
@@ -737,13 +737,19 @@ const handleSubscribe = async (request, env) => {
   const confirmationKey = `confirm:${tokenHash}`;
   const issuedAt = Date.now();
   const pending = {
+    state: 'pending',
     email,
+    contactId: contact?.id || '',
     signupSource: 'website',
     signupPath,
     primaryInterest: 'cybersecurity-it-msp',
     foundingReader,
     issuedAt
   };
+
+  if (existingPending?.confirmationKey) {
+    await env.NEWSLETTER_DATA.delete(existingPending.confirmationKey);
+  }
 
   await Promise.all([
     kvPutJson(env, confirmationKey, pending, CONFIRMATION_TTL_SECONDS),
@@ -828,6 +834,13 @@ const handleConfirm = async (request, env) => {
   const confirmationKey = `confirm:${tokenHash}`;
   const pending = await kvGetJson(env, confirmationKey);
 
+  if (pending?.state === 'confirmed') {
+    return jsonResponse(request, env, {
+      ok: true,
+      redirect: '/newsletter/confirmed/'
+    });
+  }
+
   if (!pending?.email || Date.now() - pending.issuedAt > CONFIRMATION_TTL_SECONDS * 1000) {
     if (pending) await env.NEWSLETTER_DATA.delete(confirmationKey);
     return jsonResponse(
@@ -838,24 +851,71 @@ const handleConfirm = async (request, env) => {
     );
   }
 
+  const emailHash = await sha256(pending.email);
+  const confirmedEmailKey = `confirmed-email:${emailHash}`;
+  const existingConfirmation = await kvGetJson(env, confirmedEmailKey);
+
+  if (existingConfirmation?.confirmedAt) {
+    await Promise.all([
+      kvPutJson(
+        env,
+        confirmationKey,
+        { state: 'confirmed', confirmedAt: existingConfirmation.confirmedAt },
+        CONFIRMATION_TTL_SECONDS
+      ),
+      env.NEWSLETTER_DATA.delete(`pending-email:${emailHash}`)
+    ]);
+
+    return jsonResponse(request, env, {
+      ok: true,
+      redirect: '/newsletter/confirmed/'
+    });
+  }
+
+  let confirmationStage = 'contact_lookup';
+
   try {
-    await resendRequest(
-      env,
-      `/contacts/${encodeURIComponent(pending.email)}/topics`,
-      {
+    const contactIdentifier = pending.contactId || pending.email;
+    const contact = await getContact(env, contactIdentifier);
+
+    if (!contact) {
+      throw new ServiceError('The pending newsletter contact no longer exists.', 409);
+    }
+
+    confirmationStage = 'topic_lookup';
+    const topics = await getContactTopics(env, contactIdentifier);
+    const newsletterTopic = topics.find(topic => topic.id === env.NEWSLETTER_TOPIC_ID);
+    const alreadyActive =
+      contact.unsubscribed === false &&
+      newsletterTopic?.subscription === 'opt_in';
+
+    if (!alreadyActive) {
+      confirmationStage = 'contact_activation';
+      await resendRequest(env, `/contacts/${encodeURIComponent(contactIdentifier)}`, {
         method: 'PATCH',
-        body: JSON.stringify({
-          topics: [
-            {
-              id: env.NEWSLETTER_TOPIC_ID,
-              subscription: 'opt_in'
-            }
-          ]
-        })
-      }
-    );
+        body: JSON.stringify({ unsubscribed: false })
+      });
+
+      confirmationStage = 'topic_activation';
+      await resendRequest(
+        env,
+        `/contacts/${encodeURIComponent(contactIdentifier)}/topics`,
+        {
+          method: 'PATCH',
+          body: JSON.stringify({
+            topics: [
+              {
+                id: env.NEWSLETTER_TOPIC_ID,
+                subscription: 'opt_in'
+              }
+            ]
+          })
+        }
+      );
+    }
 
     const confirmedAt = new Date().toISOString();
+    confirmationStage = 'automation_event';
     await resendRequest(env, '/events/send', {
       method: 'POST',
       body: JSON.stringify({
@@ -871,9 +931,19 @@ const handleConfirm = async (request, env) => {
       })
     });
 
-    const emailHash = await sha256(pending.email);
     await Promise.all([
-      env.NEWSLETTER_DATA.delete(confirmationKey),
+      kvPutJson(
+        env,
+        confirmationKey,
+        { state: 'confirmed', confirmedAt },
+        CONFIRMATION_TTL_SECONDS
+      ),
+      kvPutJson(
+        env,
+        confirmedEmailKey,
+        { confirmedAt },
+        CONFIRMATION_TTL_SECONDS
+      ),
       env.NEWSLETTER_DATA.delete(`pending-email:${emailHash}`)
     ]);
 
@@ -883,8 +953,11 @@ const handleConfirm = async (request, env) => {
     });
   } catch (error) {
     console.error('Newsletter confirmation failed.', {
+      stage: confirmationStage,
       name: error.name,
-      status: error.upstreamStatus || error.status || 500
+      status: error.upstreamStatus || error.status || 500,
+      upstreamCode: error.upstreamPayload?.name || error.upstreamPayload?.code || '',
+      upstreamMessage: error.upstreamPayload?.message || ''
     });
     return jsonResponse(
       request,

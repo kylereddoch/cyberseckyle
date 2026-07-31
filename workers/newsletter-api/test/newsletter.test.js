@@ -83,6 +83,16 @@ const makeSubmissionRequest = overrides =>
     })
   });
 
+const makeConfirmRequest = token =>
+  new Request('https://newsletter-api.example.workers.dev/newsletter/confirm', {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      origin: 'https://www.kylereddoch.me'
+    },
+    body: JSON.stringify({ token })
+  });
+
 test('signup creates a pending contact and sends the published confirmation template', async t => {
   const kv = new MemoryKv();
   const requests = [];
@@ -163,7 +173,23 @@ test('an intentional confirmation opts into the topic and triggers the welcome a
       confirmationUrl = JSON.parse(options.body).template.variables.CONFIRMATION_URL;
       return Response.json({ id: 'email-123' });
     }
-    if (requestUrl.endsWith('/contacts/reader%40example.com/topics')) {
+    if (requestUrl.endsWith('/contacts/contact-123') && options.method !== 'PATCH') {
+      return Response.json({
+        id: 'contact-123',
+        email: 'reader@example.com',
+        unsubscribed: true
+      });
+    }
+    if (requestUrl.endsWith('/contacts/contact-123') && options.method === 'PATCH') {
+      assert.equal(JSON.parse(options.body).unsubscribed, false);
+      return Response.json({ id: 'contact-123' });
+    }
+    if (requestUrl.endsWith('/contacts/contact-123/topics') && options.method !== 'PATCH') {
+      return Response.json({
+        data: [{ id: 'topic-123', subscription: 'opt_out' }]
+      });
+    }
+    if (requestUrl.endsWith('/contacts/contact-123/topics') && options.method === 'PATCH') {
       const topicBody = JSON.parse(options.body);
       assert.deepEqual(topicBody.topics, [{ id: 'topic-123', subscription: 'opt_in' }]);
       return Response.json({ id: 'contact-123' });
@@ -191,17 +217,7 @@ test('an intentional confirmation opts into the topic and triggers the welcome a
   assert.equal(handoffUrl.pathname, '/newsletter/confirm/');
   assert.ok(handoffUrl.hash.length > 40);
 
-  const confirmResponse = await handleRequest(
-    new Request('https://newsletter-api.example.workers.dev/newsletter/confirm', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        origin: 'https://www.kylereddoch.me'
-      },
-      body: JSON.stringify({ token: handoffUrl.hash.slice(1) })
-    }),
-    env
-  );
+  const confirmResponse = await handleRequest(makeConfirmRequest(handoffUrl.hash.slice(1)), env);
   const confirmResult = await confirmResponse.json();
 
   assert.equal(confirmResponse.status, 200);
@@ -210,10 +226,209 @@ test('an intentional confirmation opts into the topic and triggers the welcome a
   assert.equal(eventBody.email, 'reader@example.com');
   assert.equal(eventBody.payload.founding_reader, 'false');
   assert.equal(typeof eventBody.payload.confirmed_at, 'string');
-  assert.equal(
-    [...kv.values.keys()].some(key => key.startsWith('confirm:')),
-    false
+  const confirmationReceipt = [...kv.values.entries()].find(([key]) =>
+    key.startsWith('confirm:')
   );
+  assert.equal(JSON.parse(confirmationReceipt[1]).state, 'confirmed');
+});
+
+test('a completed confirmation can be retried without triggering a second automation run', async t => {
+  const kv = new MemoryKv();
+  let confirmationUrl = '';
+  let eventCount = 0;
+  const originalFetch = globalThis.fetch;
+
+  globalThis.fetch = async (url, options = {}) => {
+    const requestUrl = String(url);
+
+    if (requestUrl.startsWith('https://turnstile.test/')) {
+      return Response.json({
+        success: true,
+        action: 'newsletter-signup',
+        hostname: 'www.kylereddoch.me'
+      });
+    }
+    if (requestUrl.endsWith('/contacts/reader%40example.com')) {
+      return Response.json({ message: 'Not found' }, { status: 404 });
+    }
+    if (requestUrl.endsWith('/contacts')) {
+      return Response.json({ id: 'contact-123', email: 'reader@example.com' });
+    }
+    if (requestUrl.endsWith('/emails')) {
+      confirmationUrl = JSON.parse(options.body).template.variables.CONFIRMATION_URL;
+      return Response.json({ id: 'email-123' });
+    }
+    if (requestUrl.endsWith('/contacts/contact-123') && options.method !== 'PATCH') {
+      return Response.json({ id: 'contact-123', unsubscribed: true });
+    }
+    if (requestUrl.endsWith('/contacts/contact-123/topics') && options.method !== 'PATCH') {
+      return Response.json({ data: [{ id: 'topic-123', subscription: 'opt_out' }] });
+    }
+    if (requestUrl.endsWith('/contacts/contact-123') && options.method === 'PATCH') {
+      return Response.json({ id: 'contact-123' });
+    }
+    if (requestUrl.endsWith('/contacts/contact-123/topics') && options.method === 'PATCH') {
+      return Response.json({ id: 'contact-123' });
+    }
+    if (requestUrl.endsWith('/events/send')) {
+      eventCount += 1;
+      return Response.json({ id: 'event-123' });
+    }
+
+    return Response.json({ message: 'Unexpected request' }, { status: 500 });
+  };
+
+  t.after(() => {
+    globalThis.fetch = originalFetch;
+  });
+
+  const env = makeEnv(kv);
+  await handleRequest(makeSignupRequest(), env);
+  const token = new URL(confirmationUrl).searchParams.get('token');
+
+  const firstResponse = await handleRequest(makeConfirmRequest(token), env);
+  const retryResponse = await handleRequest(makeConfirmRequest(token), env);
+
+  assert.equal(firstResponse.status, 200);
+  assert.equal(retryResponse.status, 200);
+  assert.equal(eventCount, 1);
+});
+
+test('a temporary confirmation failure keeps the token available for retry', async t => {
+  const kv = new MemoryKv();
+  let confirmationUrl = '';
+  let eventCount = 0;
+  let contactActive = false;
+  let topicActive = false;
+  let contactActivationCount = 0;
+  let topicActivationCount = 0;
+  const originalFetch = globalThis.fetch;
+
+  globalThis.fetch = async (url, options = {}) => {
+    const requestUrl = String(url);
+
+    if (requestUrl.startsWith('https://turnstile.test/')) {
+      return Response.json({
+        success: true,
+        action: 'newsletter-signup',
+        hostname: 'www.kylereddoch.me'
+      });
+    }
+    if (requestUrl.endsWith('/contacts/reader%40example.com')) {
+      return Response.json({ message: 'Not found' }, { status: 404 });
+    }
+    if (requestUrl.endsWith('/contacts')) {
+      return Response.json({ id: 'contact-123', email: 'reader@example.com' });
+    }
+    if (requestUrl.endsWith('/emails')) {
+      confirmationUrl = JSON.parse(options.body).template.variables.CONFIRMATION_URL;
+      return Response.json({ id: 'email-123' });
+    }
+    if (requestUrl.endsWith('/contacts/contact-123') && options.method !== 'PATCH') {
+      return Response.json({ id: 'contact-123', unsubscribed: !contactActive });
+    }
+    if (requestUrl.endsWith('/contacts/contact-123/topics') && options.method !== 'PATCH') {
+      return Response.json({
+        data: [{ id: 'topic-123', subscription: topicActive ? 'opt_in' : 'opt_out' }]
+      });
+    }
+    if (requestUrl.endsWith('/contacts/contact-123') && options.method === 'PATCH') {
+      contactActive = true;
+      contactActivationCount += 1;
+      return Response.json({ id: 'contact-123' });
+    }
+    if (requestUrl.endsWith('/contacts/contact-123/topics') && options.method === 'PATCH') {
+      topicActive = true;
+      topicActivationCount += 1;
+      return Response.json({ id: 'contact-123' });
+    }
+    if (requestUrl.endsWith('/events/send')) {
+      eventCount += 1;
+      return eventCount === 1
+        ? Response.json({ name: 'temporary_error', message: 'Try again.' }, { status: 500 })
+        : Response.json({ id: 'event-123' });
+    }
+
+    return Response.json({ message: 'Unexpected request' }, { status: 500 });
+  };
+
+  t.after(() => {
+    globalThis.fetch = originalFetch;
+  });
+
+  const env = makeEnv(kv);
+  await handleRequest(makeSignupRequest(), env);
+  const token = new URL(confirmationUrl).searchParams.get('token');
+
+  const failedResponse = await handleRequest(makeConfirmRequest(token), env);
+  const retryResponse = await handleRequest(makeConfirmRequest(token), env);
+
+  assert.equal(failedResponse.status, 503);
+  assert.equal(retryResponse.status, 200);
+  assert.equal(eventCount, 2);
+  assert.equal(contactActivationCount, 1);
+  assert.equal(topicActivationCount, 1);
+});
+
+test('issuing a fresh confirmation link invalidates the previous link', async t => {
+  const kv = new MemoryKv();
+  const confirmationUrls = [];
+  const originalFetch = globalThis.fetch;
+
+  globalThis.fetch = async (url, options = {}) => {
+    const requestUrl = String(url);
+
+    if (requestUrl.startsWith('https://turnstile.test/')) {
+      return Response.json({
+        success: true,
+        action: 'newsletter-signup',
+        hostname: 'www.kylereddoch.me'
+      });
+    }
+    if (requestUrl.endsWith('/contacts/reader%40example.com') && options.method !== 'PATCH') {
+      const alreadyCreated = confirmationUrls.length > 0;
+      return alreadyCreated
+        ? Response.json({ id: 'contact-123', email: 'reader@example.com', unsubscribed: true })
+        : Response.json({ message: 'Not found' }, { status: 404 });
+    }
+    if (requestUrl.endsWith('/contacts/reader%40example.com') && options.method === 'PATCH') {
+      return Response.json({ id: 'contact-123' });
+    }
+    if (requestUrl.endsWith('/contacts/reader%40example.com/topics')) {
+      return Response.json({ data: [{ id: 'topic-123', subscription: 'opt_out' }] });
+    }
+    if (requestUrl.endsWith('/contacts')) {
+      return Response.json({ id: 'contact-123', email: 'reader@example.com' });
+    }
+    if (requestUrl.endsWith('/emails')) {
+      confirmationUrls.push(JSON.parse(options.body).template.variables.CONFIRMATION_URL);
+      return Response.json({ id: `email-${confirmationUrls.length}` });
+    }
+
+    return Response.json({ message: 'Unexpected request' }, { status: 500 });
+  };
+
+  t.after(() => {
+    globalThis.fetch = originalFetch;
+  });
+
+  const env = makeEnv(kv);
+  await handleRequest(makeSignupRequest(), env);
+
+  const cooldownEntry = [...kv.values.entries()].find(([key]) => key.startsWith('pending-email:'));
+  const cooldown = JSON.parse(cooldownEntry[1]);
+  cooldown.issuedAt -= 16 * 60 * 1000;
+  kv.values.set(cooldownEntry[0], JSON.stringify(cooldown));
+
+  await handleRequest(makeSignupRequest(), env);
+
+  const oldToken = new URL(confirmationUrls[0]).searchParams.get('token');
+  const oldResponse = await handleRequest(makeConfirmRequest(oldToken), env);
+  const oldResult = await oldResponse.json();
+
+  assert.equal(confirmationUrls.length, 2);
+  assert.equal(oldResponse.status, 400);
+  assert.equal(oldResult.code, 'invalid');
 });
 
 test('signup rejects an untrusted origin before contacting upstream services', async () => {

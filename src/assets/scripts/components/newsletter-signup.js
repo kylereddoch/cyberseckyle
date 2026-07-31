@@ -80,6 +80,9 @@ if (confirmationRoot) {
   const error = confirmationRoot.querySelector('[data-confirmation-error]');
 
   message.hidden = true;
+  success.hidden = true;
+  invalid.hidden = true;
+  error.hidden = true;
 
   if (state === 'invalid') {
     kicker.textContent = 'Confirmation link';
@@ -106,18 +109,34 @@ if (confirmRoot) {
   const button = confirmRoot.querySelector('[data-newsletter-confirm-button]');
   const label = confirmRoot.querySelector('[data-newsletter-confirm-label]');
   const status = confirmRoot.querySelector('[data-newsletter-confirm-status]');
+  const heading = confirmRoot.querySelector('[data-newsletter-confirm-heading]');
+  const kicker = confirmRoot.querySelector('[data-newsletter-confirm-kicker]');
+  const icon = confirmRoot.querySelector('[data-newsletter-confirm-icon]');
   const token = window.location.hash.slice(1);
   const tokenLooksValid = /^[A-Za-z0-9_-]{40,64}$/.test(token);
 
   if (!tokenLooksValid) {
     button.disabled = true;
+    button.hidden = true;
+    kicker.textContent = 'Confirmation link';
+    heading.textContent = 'This link cannot be used';
+    icon.textContent = '⚠️';
     status.textContent = 'This confirmation link is invalid or incomplete. Return to the signup page for a fresh link.';
     status.dataset.kind = 'error';
   } else {
-    button.addEventListener('click', async () => {
+    let confirmationInProgress = false;
+
+    const confirmSubscription = async () => {
+      if (confirmationInProgress) return;
+      confirmationInProgress = true;
       button.disabled = true;
-      label.textContent = 'Confirming…';
-      status.textContent = '';
+      button.hidden = true;
+      label.textContent = 'Try confirmation again';
+      kicker.textContent = 'Secure confirmation';
+      heading.textContent = 'Confirming your subscription…';
+      icon.textContent = '🛡️';
+      status.textContent = 'This should only take a moment.';
+      status.dataset.kind = '';
 
       try {
         const response = await fetch(`${apiUrl}/newsletter/confirm`, {
@@ -131,18 +150,44 @@ if (confirmRoot) {
         const result = await response.json().catch(() => ({}));
 
         if (!response.ok) {
-          window.location.assign(
-            result.code === 'invalid'
-              ? '/newsletter/confirmed/?status=invalid'
-              : '/newsletter/confirmed/?status=error'
-          );
-          return;
+          if (result.code === 'invalid') {
+            window.location.replace('/newsletter/confirmed/?status=invalid');
+            return;
+          }
+
+          throw new Error(result.message || 'The confirmation could not be completed.');
         }
 
-        window.location.assign(result.redirect || '/newsletter/confirmed/');
+        window.location.replace(result.redirect || '/newsletter/confirmed/');
       } catch {
-        window.location.assign('/newsletter/confirmed/?status=error');
+        confirmationInProgress = false;
+        kicker.textContent = 'Temporary problem';
+        heading.textContent = 'Confirmation did not finish';
+        icon.textContent = '🛠️';
+        status.textContent = 'Your secure link is still available. Check your connection, then try again.';
+        status.dataset.kind = 'error';
+        button.disabled = false;
+        button.hidden = false;
       }
-    });
+    };
+
+    button.addEventListener('click', confirmSubscription);
+
+    const startConfirmation = () => {
+      if (document.visibilityState === 'hidden') {
+        document.addEventListener(
+          'visibilitychange',
+          () => {
+            if (document.visibilityState === 'visible') confirmSubscription();
+          },
+          { once: true }
+        );
+        return;
+      }
+
+      confirmSubscription();
+    };
+
+    startConfirmation();
   }
 }

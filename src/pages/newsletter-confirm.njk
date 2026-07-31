@@ -14,16 +14,16 @@ excludeFromSearch: true
   {% endif %}
 >
   <div class="newsletter-status-card">
-    <span class="newsletter-status-card__icon" aria-hidden="true">&#128737;&#65039;</span>
-    <p class="newsletter-kicker">Confirm subscription</p>
-    <h1>Join The Defender’s Dispatch</h1>
-    <p>Use the button below to confirm that you requested the newsletter. This extra click prevents automated email scanners from activating subscriptions.</p>
+    <span class="newsletter-status-card__icon" aria-hidden="true" data-newsletter-confirm-icon>&#128737;&#65039;</span>
+    <p class="newsletter-kicker" data-newsletter-confirm-kicker>Secure confirmation</p>
+    <h1 data-newsletter-confirm-heading>Confirming your subscription…</h1>
+    <p>Your browser is securely completing the request. Email scanners cannot activate the subscription by fetching the link alone.</p>
 
     {% if newsletter.configured %}
-    <button class="newsletter-submit" type="button" data-newsletter-confirm-button>
-      <span data-newsletter-confirm-label>Confirm my subscription</span>
+    <button class="newsletter-submit" type="button" data-newsletter-confirm-button hidden>
+      <span data-newsletter-confirm-label>Try confirmation again</span>
     </button>
-    <p class="newsletter-form__status" data-newsletter-confirm-status role="status" aria-live="polite"></p>
+    <p class="newsletter-form__status" data-newsletter-confirm-status role="status" aria-live="polite">This should only take a moment.</p>
     {% else %}
     <div class="newsletter-setup-note" role="status">
       <strong>Confirmation is temporarily unavailable.</strong>
@@ -31,7 +31,7 @@ excludeFromSearch: true
     </div>
     {% endif %}
 
-    <p class="newsletter-status-card__muted">If you did not request the newsletter, close this page. No subscription will be activated.</p>
+    <p class="newsletter-status-card__muted">If you did not request the newsletter, close this page. The address will remain unsubscribed.</p>
   </div>
 </article>
 
