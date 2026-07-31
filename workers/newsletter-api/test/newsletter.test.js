@@ -519,10 +519,10 @@ test('reader submission sends a receipt and a structured editorial notification'
 
   assert.equal(receipt.body.to[0], 'alex@example.com');
   assert.equal(receipt.body.template.id, 'submission-template-123');
-  assert.equal(
-    receipt.body.template.variables.ARTICLE_HEADLINE,
-    'A useful security story'
-  );
+  assert.deepEqual(receipt.body.template.variables, {
+    SUBMITTER_NAME: 'Alex Defender',
+    ARTICLE_HEADLINE: 'A useful security story'
+  });
   assert.match(receipt.idempotencyKey, /^community-signal-receipt\//);
 
   assert.equal(notification.body.to[0], 'newsletter@example.com');
