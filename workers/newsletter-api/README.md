@@ -1,6 +1,6 @@
 # Newsletter API Worker
 
-This Cloudflare Worker powers the double opt-in signup flow for **The Defender’s Dispatch**. It keeps Resend credentials off the static Eleventy site, verifies Cloudflare Turnstile, rate-limits signup attempts, stores only the subscriber’s first name and email address, sends the published confirmation template, triggers the existing `newsletter.subscribed` automation after confirmation, and sends the owner a best-effort notification for each confirmed subscriber.
+This Cloudflare Worker powers the double opt-in signup flow for **The Defender’s Dispatch**. It keeps Resend credentials off the static Eleventy site, verifies Cloudflare Turnstile, rate-limits signup attempts, stores only the subscriber’s first name and email address on the Resend contact, sends the published confirmation template, triggers the existing `newsletter.subscribed` automation after confirmation, and sends the owner a best-effort notification for each confirmed subscriber. Signup source, signup page, and confirmation time are kept only in the temporary confirmation record and owner notification.
 
 ## What it exposes
 

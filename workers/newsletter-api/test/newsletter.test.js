@@ -51,6 +51,7 @@ const makeSignupRequest = overrides =>
       firstName: 'Alex',
       consent: true,
       website: '',
+      signupPath: '/newsletter/',
       turnstileToken: 'valid-token',
       ...overrides
     })
@@ -217,6 +218,8 @@ test('an intentional confirmation triggers the welcome automation with email onl
   assert.equal(notificationRequest.body.subject, 'New confirmed newsletter subscriber');
   assert.match(notificationRequest.body.text, /Email: reader@example\.com/);
   assert.match(notificationRequest.body.text, /First name: Alex/);
+  assert.match(notificationRequest.body.text, /Signup source: website/);
+  assert.match(notificationRequest.body.text, /Signup page: \/newsletter\//);
   assert.match(
     notificationRequest.idempotencyKey,
     /^newsletter-subscriber-notification\//

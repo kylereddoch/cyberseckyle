@@ -77,6 +77,12 @@ const normalizeArticleUrl = value => {
   }
 };
 
+const sanitizePath = value => {
+  const path = String(value || '').trim();
+  if (!path.startsWith('/') || path.startsWith('//')) return '/newsletter/';
+  return path.slice(0, 256);
+};
+
 const getAllowedOrigin = (request, env) => {
   const origin = request.headers.get('origin');
   if (!origin) return '';
@@ -331,6 +337,8 @@ const buildNewsletterSignupNotificationText = details =>
     '',
     `Email: ${details.email}`,
     `First name: ${details.firstName || 'Not provided'}`,
+    `Signup source: ${details.signupSource}`,
+    `Signup page: ${details.signupPath}`,
     `Confirmed: ${details.confirmedAt}`,
     '',
     'This subscriber completed the double opt-in confirmation process.'
@@ -359,6 +367,8 @@ const buildNewsletterSignupNotificationHtml = details => `<!DOCTYPE html>
                     <td style="padding:20px;">
                       <p style="margin:0 0 8px;color:#cdd6f4;font-size:15px;line-height:23px;"><strong>Email:</strong> ${escapeHtml(details.email)}</p>
                       <p style="margin:0 0 8px;color:#cdd6f4;font-size:15px;line-height:23px;"><strong>First name:</strong> ${escapeHtml(details.firstName || 'Not provided')}</p>
+                      <p style="margin:0 0 8px;color:#cdd6f4;font-size:15px;line-height:23px;"><strong>Signup source:</strong> ${escapeHtml(details.signupSource)}</p>
+                      <p style="margin:0 0 8px;color:#cdd6f4;font-size:15px;line-height:23px;"><strong>Signup page:</strong> ${escapeHtml(details.signupPath)}</p>
                       <p style="margin:0;color:#cdd6f4;font-size:15px;line-height:23px;"><strong>Confirmed:</strong> ${escapeHtml(details.confirmedAt)}</p>
                     </td>
                   </tr>
@@ -722,6 +732,7 @@ const handleSubscribe = async (request, env) => {
   const body = await parseJsonBody(request);
   const email = normalizeEmail(body.email);
   const firstName = normalizeName(body.firstName).slice(0, 80);
+  const signupPath = sanitizePath(body.signupPath);
 
   if (body.website) return genericAcceptedResponse(request, env);
   if (!body.consent) {
@@ -775,6 +786,8 @@ const handleSubscribe = async (request, env) => {
     state: 'pending',
     email,
     firstName,
+    signupSource: 'website',
+    signupPath,
     issuedAt
   };
 
@@ -937,6 +950,8 @@ const handleConfirm = async (request, env) => {
         {
           email: pending.email,
           firstName: pending.firstName || '',
+          signupSource: pending.signupSource || 'website',
+          signupPath: pending.signupPath || '/newsletter/',
           confirmedAt
         },
         `newsletter-subscriber-notification/${tokenHash}`
