@@ -2139,6 +2139,11 @@
   gap: 0.9rem;
 }
 
+.newsletter-confirmation-copy[hidden],
+.newsletter-submit[hidden] {
+  display: none;
+}
+
 .newsletter-status-actions {
   display: flex;
   flex-wrap: wrap;
