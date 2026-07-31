@@ -990,6 +990,7 @@ export const handleRequest = async (request, env) => {
     return jsonResponse(request, env, {
       ok: true,
       service: 'cyberseckyle-newsletter-api',
+      confirmationMode: 'one-click-browser',
       configured: hasRequiredConfiguration(env),
       submissionsConfigured: hasRequiredSubmissionConfiguration(env)
     });
