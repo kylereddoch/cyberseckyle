@@ -6,6 +6,9 @@ description: A new weekly CybersecKyle newsletter focused on practical cybersecu
 searchIntent: Introduce The Defender’s Dispatch and explain how the weekly newsletter will turn cybersecurity, IT, and MSP news into useful context and practical next steps.
 featuredImage: /assets/images/defenders_dispatch_logo.png
 featuredImageAlt: The Defender’s Dispatch logo with a hooded defender beside the title and the subtitle A CybersecKyle Newsletter.
+mastodon_post: true
+mastodon_url: 
+mastodon_tags: [Cybersecurity, InfoSec, IT, MSP, News, Newsletter]
 tags: [cybersecurity, IT, MSP, editorials, personal]
 ---
 
