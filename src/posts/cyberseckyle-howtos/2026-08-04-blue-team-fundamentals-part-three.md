@@ -9,8 +9,9 @@ featuredImageAlt: Vulnerability management themed image representing scanning, t
 featuredImageCaption: A scan report is not risk management until someone triages it.
 tags: [cyberseckyle-howto-series, cybersecurity, security, vulnerability-management, risk-management, how-to]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/117038341376782872"
 mastodon_tags: [Cybersecurity, InfoSec, VulnerabilityManagement, BlueTeam, CybersecKyleHowTo]
+publishedAt: "2026-08-04T17:09:23.296Z"
 ---
 
 > Part 3 of the Blue Team Fundamentals track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/) begins where a scanner export usually ends: deciding which results represent reachable risk, who owns the affected systems, and how a fix will be verified.
