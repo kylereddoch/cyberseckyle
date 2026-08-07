@@ -13,7 +13,7 @@
     <link>https://www.kylereddoch.me/</link>
     <description>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</description>
     <language>en</language>
-    <lastBuildDate>Fri, 07 Aug 2026 08:13:52 CDT</lastBuildDate>
+    <lastBuildDate>Fri, 07 Aug 2026 09:07:34 CDT</lastBuildDate>
     <atom:link href="https://www.kylereddoch.me/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://www.kylereddoch.me/assets/images/logo.png</url>
@@ -47,7 +47,7 @@
       <title>Apple&#39;s iCloud Private Relay Isn&#39;t Really That Private</title>
       <link>https://www.kylereddoch.me/blog/apples-icloud-private-relay-isnt-really-that-private/</link>
       <guid isPermaLink="true">https://www.kylereddoch.me/blog/apples-icloud-private-relay-isnt-really-that-private/</guid>
-      <pubDate>Fri, 07 Aug 2026 08:13:52 CDT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 09:07:34 CDT</pubDate>
       <xhtml:a class="browser-title" href="https://www.kylereddoch.me/blog/apples-icloud-private-relay-isnt-really-that-private/">Apple&#39;s iCloud Private Relay Isn&#39;t Really That Private</xhtml:a>
       <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/iOuwU5Sk3K-1672.jpeg" alt="Apple-style phone and laptop sending blue traffic through two relay nodes while a red connection bypasses them and reaches an exposed network endpoint." />
       <dc:creator>Kyle Reddoch</dc:creator>
