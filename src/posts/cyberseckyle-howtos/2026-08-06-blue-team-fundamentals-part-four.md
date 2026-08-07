@@ -9,8 +9,9 @@ featuredImageAlt: Cybersecurity risk maze artwork representing threat modeling a
 featuredImageCaption: Threat modeling is just structured curiosity with consequences.
 tags: [cyberseckyle-howto-series, cybersecurity, security, risk-management, appsec, how-to]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/117051540297921717"
 mastodon_tags: [Cybersecurity, InfoSec, ThreatModeling, AppSec, CybersecKyleHowTo]
+publishedAt: "2026-08-07T01:06:02.848Z"
 ---
 
 > Part 4 of the Blue Team Fundamentals track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/) uses one small system to connect architecture, abuse paths, controls, and tests before the design becomes expensive to change.
