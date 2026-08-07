@@ -13,7 +13,7 @@
     <link>https://www.kylereddoch.me/</link>
     <description>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 06 Aug 2026 10:00:00 CDT</lastBuildDate>
+    <lastBuildDate>Thu, 06 Aug 2026 20:06:02 CDT</lastBuildDate>
     <atom:link href="https://www.kylereddoch.me/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://www.kylereddoch.me/assets/images/logo.png</url>
@@ -47,7 +47,7 @@
       <title>CybersecKyle Security How-To Series: Blue Team Fundamentals, Part 4 - Threat Modeling a Small Target</title>
       <link>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-4-threat-modeling-a-small-target/</link>
       <guid isPermaLink="true">https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-4-threat-modeling-a-small-target/</guid>
-      <pubDate>Thu, 06 Aug 2026 10:00:00 CDT</pubDate>
+      <pubDate>Thu, 06 Aug 2026 20:06:02 CDT</pubDate>
       <xhtml:a class="browser-title" href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-4-threat-modeling-a-small-target/">CybersecKyle Security How-To Series: Blue Team Fundamentals, Part 4 - Threat Modeling a Small Target</xhtml:a>
       <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/Wgg4gCVhRO-1536.jpeg" alt="Cybersecurity risk maze artwork representing threat modeling and defensive decision paths." />
       <dc:creator>Kyle Reddoch</dc:creator>
