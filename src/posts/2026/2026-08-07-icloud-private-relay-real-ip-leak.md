@@ -9,8 +9,9 @@ featuredImageAlt: Apple-style phone and laptop sending blue traffic through two 
 featuredImageCaption: "Most traffic follows the protected relay path. One bypass is enough to expose the network behind it. (Image generated using ChatGPT.)"
 tags: [cybersecurity, privacy, apple, browsers]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/117054613402410930"
 mastodon_tags: [Cybersecurity, InfoSec, Apple, Privacy, BrowserSecurity]
+publishedAt: "2026-08-07T14:07:34.703Z"
 ---
 
 > If a privacy feature says it hides your IP address, every network request a website can trigger has to respect that promise. Protecting the main browser traffic is not enough when a side path can quietly go around it.
