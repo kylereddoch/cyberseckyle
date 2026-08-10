@@ -9,8 +9,9 @@ featuredImageAlt: ReelArrange showing a preview of a Jellyfin-ready movie folder
 tags: [projects, open-source, self-hosting, jellyfin, windows]
 category: projects
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/117072090054315393"
 mastodon_tags: [Jellyfin, SelfHosting, OpenSource, Windows]
+publishedAt: "2026-08-10T16:12:07.247Z"
 ---
 
 I like Jellyfin. I do not like the part right before Jellyfin gets involved.
