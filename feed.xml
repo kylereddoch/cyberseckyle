@@ -13,7 +13,7 @@
     <link>https://www.kylereddoch.me/</link>
     <description>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 10 Aug 2026 11:12:07 CDT</lastBuildDate>
+    <lastBuildDate>Mon, 10 Aug 2026 10:51:26 CDT</lastBuildDate>
     <atom:link href="https://www.kylereddoch.me/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://www.kylereddoch.me/assets/images/logo.png</url>
@@ -47,7 +47,7 @@
       <title>I Built ReelArrange to Get Downloads Ready for Jellyfin</title>
       <link>https://www.kylereddoch.me/blog/i-built-reelarrange-to-get-downloads-ready-for-jellyfin/</link>
       <guid isPermaLink="true">https://www.kylereddoch.me/blog/i-built-reelarrange-to-get-downloads-ready-for-jellyfin/</guid>
-      <pubDate>Mon, 10 Aug 2026 11:12:07 CDT</pubDate>
+      <pubDate>Mon, 10 Aug 2026 10:51:26 CDT</pubDate>
       <xhtml:a class="browser-title" href="https://www.kylereddoch.me/blog/i-built-reelarrange-to-get-downloads-ready-for-jellyfin/">I Built ReelArrange to Get Downloads Ready for Jellyfin</xhtml:a>
       <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/-hxL2W6N11-1672.jpeg" alt="ReelArrange showing a preview of a Jellyfin-ready movie folder and its transfer options" />
       <dc:creator>Kyle Reddoch</dc:creator>
