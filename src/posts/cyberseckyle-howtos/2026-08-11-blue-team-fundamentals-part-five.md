@@ -9,8 +9,9 @@ featuredImageAlt: Cybersecurity drill themed image representing first response p
 featuredImageCaption: The first few minutes matter because panic loves bad decisions.
 tags: [cyberseckyle-howto-series, cybersecurity, security, incident-response, digital-safety, how-to]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/117077774196454343"
 mastodon_tags: [Cybersecurity, InfoSec, IncidentResponse, DigitalSafety, CybersecKyleHowTo]
+publishedAt: "2026-08-11T16:17:40.374Z"
 ---
 
 > Part 5 of the Blue Team Fundamentals track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/) is the first page to open when a device, account, payment, or public service may be compromised.
