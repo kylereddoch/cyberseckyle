@@ -10,6 +10,8 @@ tags: [projects, open-source, self-hosting, jellyfin, linux]
 category: projects
 mastodon_post: true
 mastodon_tags: [RipFoundry, Jellyfin, SelfHosting, OpenSource, Linux]
+mastodon_url: "https://infosec.exchange/@cyberseckyle/117083352364971183"
+publishedAt: "2026-08-12T15:56:16.472Z"
 ---
 
 I have a shelf of DVDs and a Jellyfin server. The part between those two things used to be a pile of commands, notes, and small decisions I had to remember every time I wanted to add a movie.

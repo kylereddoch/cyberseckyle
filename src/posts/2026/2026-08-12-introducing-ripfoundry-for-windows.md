@@ -10,6 +10,8 @@ tags: [projects, open-source, self-hosting, jellyfin, windows]
 category: projects
 mastodon_post: true
 mastodon_tags: [RipFoundry, Jellyfin, SelfHosting, OpenSource, Windows]
+mastodon_url: "https://infosec.exchange/@cyberseckyle/117083352416187998"
+publishedAt: "2026-08-12T15:56:17.255Z"
 ---
 
 My DVD drive is attached to a Windows PC. My Jellyfin server runs somewhere else. For a while, the gap between them meant the server was still getting pulled into work the Windows machine was better positioned to do.
