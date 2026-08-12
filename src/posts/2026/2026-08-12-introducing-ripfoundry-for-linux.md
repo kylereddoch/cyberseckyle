@@ -4,7 +4,7 @@ title: I Built RipFoundry for Linux to Get DVDs Into Jellyfin
 seoTitle: RipFoundry for Linux Rips DVDs for Jellyfin
 description: RipFoundry is my Ubuntu and Debian workflow for preserving DVD remuxes, creating optional playback versions, and safely transferring verified movies into Jellyfin.
 searchIntent: Introduce RipFoundry for Linux and explain how it rips DVDs, matches movies with TMDB, creates Jellyfin versions, validates output, and verifies library transfers.
-featuredImage: /assets/images/ripfoundry-logo.png
+featuredImage: /assets/images/ripfoundry-linux-hero.png
 featuredImageAlt: RipFoundry logo showing a disc moving toward a digital media library
 tags: [projects, open-source, self-hosting, jellyfin, linux]
 category: projects

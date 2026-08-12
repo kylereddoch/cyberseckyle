@@ -7,7 +7,7 @@ projectOrder: 1
 projectType: Linux CLI
 projectStatus: Active
 badgeClasses: bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-200
-featuredImage: /assets/images/ripfoundry-logo.png
+featuredImage: /assets/images/ripfoundry-linux-hero.png
 featuredImageAlt: RipFoundry logo showing a disc moving toward a digital media library
 techStack:
   - Bash
@@ -77,4 +77,3 @@ The tool does not configure or mount a NAS on its own. The movie directory has t
 RipFoundry uses Bash along with MakeMKV, FFmpeg and FFprobe, HandBrakeCLI, `curl`, `jq`, and standard Linux utilities. The repository includes an installer, configuration example, diagnostics, NAS/CIFS guidance, troubleshooting notes, tests, and release-packaging instructions.
 
 The commands keep their original generations: `ripdvd-v3` and `upscale1080-v2`. That matters because this project packages the workflow I already relied on instead of quietly replacing it with a different one.
-

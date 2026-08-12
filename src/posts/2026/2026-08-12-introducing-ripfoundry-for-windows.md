@@ -4,7 +4,7 @@ title: I Brought RipFoundry to Windows
 seoTitle: RipFoundry for Windows Rips DVDs for Jellyfin
 description: RipFoundry for Windows brings my DVD-to-Jellyfin workflow into a guided desktop app that rips and encodes locally, validates the results, and verifies every library transfer.
 searchIntent: Introduce RipFoundry for Windows and explain its guided DVD ripping, TMDB matching, local processing, optional versions, validation, and safe Jellyfin transfers.
-featuredImage: /assets/images/ripfoundry-windows.png
+featuredImage: /assets/images/ripfoundry-windows-hero.png
 featuredImageAlt: RipFoundry for Windows showing the Rip DVD screen, processing options, and activity area
 tags: [projects, open-source, self-hosting, jellyfin, windows]
 category: projects

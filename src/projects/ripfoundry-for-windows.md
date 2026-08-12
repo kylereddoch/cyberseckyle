@@ -7,7 +7,7 @@ projectOrder: 0
 projectType: Windows App
 projectStatus: Active
 badgeClasses: bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-200
-featuredImage: /assets/images/ripfoundry-windows.png
+featuredImage: /assets/images/ripfoundry-windows-hero.png
 featuredImageAlt: RipFoundry for Windows showing the Rip DVD screen, processing options, and activity area
 techStack:
   - Python
@@ -78,4 +78,3 @@ That same approach applies to the Add 1080p Version tab. RipFoundry reads the or
 RipFoundry for Windows 1.1.0 is available as a portable project package. It runs from Python 3.10 or newer, and the included build script can create a normal windowless Windows executable with PyInstaller.
 
 The current package is intentionally portable rather than pretending to be a traditional installed application. A full Windows installer is a possible later improvement. For now, the release includes the application, launcher, shortcut helper, artwork, and build files needed to keep the setup understandable.
-
