@@ -3,7 +3,7 @@ title: EmojiCodec
 description: EmojiCodec is my VS Code extension for converting emoji between native characters, hexadecimal, Unicode escapes, HTML entities, and Markdown shortcodes without leaving the editor.
 summary: A privacy-minded VS Code extension that converts emoji and encoded emoji representations in either direction while preserving compound sequences.
 date: 2026-06-12T11:30:00-05:00
-projectOrder: 1
+projectOrder: 3
 projectType: VS Code Extension
 projectStatus: Active
 badgeClasses: bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-200

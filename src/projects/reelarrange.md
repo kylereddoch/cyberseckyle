@@ -3,7 +3,7 @@ title: ReelArrange
 description: ReelArrange is my Windows desktop helper for matching downloaded movies and TV shows with TMDB, previewing a Jellyfin-ready library layout, and copying or moving the media into place.
 summary: A Windows desktop app that turns downloaded movies and TV shows into a clean Jellyfin library layout without hiding what it plans to do.
 date: 2026-08-10T10:51:26-05:00
-projectOrder: 0
+projectOrder: 2
 projectType: Windows App
 projectStatus: Early Access
 badgeClasses: bg-violet-100 text-violet-800 dark:bg-violet-900/30 dark:text-violet-200
@@ -68,4 +68,3 @@ TMDB is the only network service ReelArrange needs. The saved TMDB credential is
 The activity log records completed file operations and errors, but it does not record the saved credential. ReelArrange renames and transfers files; it does not inspect, remux, or modify the media inside them.
 
 Version 0.1.0 is the first public release, so I still consider the project early. The preview deserves a careful look before any move operation. That is good advice for any media organizer, and ReelArrange makes the check difficult to skip.
-

@@ -3,7 +3,7 @@ title: Retro Garden
 description: Retro Garden is my Eleventy starter theme for personal sites that want more personality, IndieWeb-friendly defaults, and room to make the design their own.
 summary: An open-source Eleventy theme for personal sites that want IndieWeb publishing habits and early-web personality without giving up modern tooling, accessible defaults, and a flexible publishing workflow.
 date: 2026-04-09T13:15:00-05:00
-projectOrder: 2
+projectOrder: 4
 projectType: Eleventy Theme
 projectStatus: Active
 badgeClasses: bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-200
