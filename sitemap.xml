@@ -3230,6 +3230,71 @@
       
 
       <url>
+        <loc>https://www.kylereddoch.me/notes/2026/week-32-2026/</loc>
+        
+        <lastmod>2026-08-12T15:20:00.000Z</lastmod>
+        
+        <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+
+      
+
+      <url>
+        <loc>https://www.kylereddoch.me/blog/i-built-ripfoundry-for-linux-to-get-dvds-into-jellyfin/</loc>
+        
+        <lastmod>2026-08-12T15:21:12.000Z</lastmod>
+        
+        <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+
+      
+
+      <url>
+        <loc>https://www.kylereddoch.me/projects/ripfoundry-for-linux/</loc>
+        
+        <lastmod>2026-08-12T15:21:12.000Z</lastmod>
+        
+        <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+
+      
+
+      <url>
+        <loc>https://www.kylereddoch.me/blog/i-brought-ripfoundry-to-windows/</loc>
+        
+        <lastmod>2026-08-12T15:22:12.000Z</lastmod>
+        
+        <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+
+      
+
+      <url>
+        <loc>https://www.kylereddoch.me/projects/ripfoundry-for-windows/</loc>
+        
+        <lastmod>2026-08-12T15:22:12.000Z</lastmod>
+        
+        <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+
+      
+
+      <url>
         <loc>https://www.kylereddoch.me/about/</loc>
         
         <changefreq>monthly</changefreq>
@@ -4498,6 +4563,17 @@
 
       <url>
         <loc>https://www.kylereddoch.me/tags/life/</loc>
+        
+        <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+
+      
+
+      <url>
+        <loc>https://www.kylereddoch.me/tags/linux/</loc>
         
         <changefreq>monthly</changefreq>
     </url>
