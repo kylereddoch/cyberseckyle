@@ -13,7 +13,7 @@
     <link>https://www.kylereddoch.me/</link>
     <description>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 12 Aug 2026 10:56:18 CDT</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2026 10:00:00 CDT</lastBuildDate>
     <atom:link href="https://www.kylereddoch.me/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://www.kylereddoch.me/assets/images/logo.png</url>
@@ -44,6 +44,59 @@
       <xhtml:a href="https://www.kylereddoch.me/feed.json">JSON Feed</xhtml:a>
       <xhtml:a href="https://www.kylereddoch.me/blog/improving-my-rss-feed-and-making-it-more-human-readable/">How I improved this feed</xhtml:a>
     </xhtml:div><item>
+      <title>CybersecKyle Security How-To Series: Blue Team Fundamentals, Part 6 - SIEM-Lite with a Few Useful Alerts</title>
+      <link>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-6-siem-lite-with-a-few-useful-alerts/</link>
+      <guid isPermaLink="true">https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-6-siem-lite-with-a-few-useful-alerts/</guid>
+      <pubDate>Thu, 13 Aug 2026 10:00:00 CDT</pubDate>
+      <xhtml:a class="browser-title" href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-6-siem-lite-with-a-few-useful-alerts/">CybersecKyle Security How-To Series: Blue Team Fundamentals, Part 6 - SIEM-Lite with a Few Useful Alerts</xhtml:a>
+      <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/67AcQLD2Hy-800.jpeg" alt="Security operations center themed image representing alerting, monitoring, and SIEM-lite workflows." />
+      <dc:creator>Kyle Reddoch</dc:creator>
+      <description><![CDATA[A practical SIEM-lite guide for small environments: choose a few useful log sources, write alerts for account, endpoint, DNS, and service events, and tune noise before expanding.]]></description>
+      <xhtml:a class="browser-read-link" href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-6-siem-lite-with-a-few-useful-alerts/">Read on kylereddoch.me</xhtml:a>
+      <content:encoded><![CDATA[
+<p><img src="https://www.kylereddoch.me/img/67AcQLD2Hy-800.jpeg" alt="Security operations center themed image representing alerting, monitoring, and SIEM-lite workflows." /></p><blockquote><p>Part 6 of the Blue Team Fundamentals track in my <a href="https://www.kylereddoch.me/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/">CybersecKyle Security How-To Series</a> turns a few reliable log sources into detections with owners, response notes, and test evidence.</p></blockquote><p>SIEM-lite is not an undersized enterprise SIEM. It is a small operating model for environments that cannot justify collecting every endpoint, network, identity, and application event. The platform may be a hosted log service, an open-source stack, a monitoring tool, or several provider alerts routed to one reviewed destination. The requirements are the same: the event must arrive, preserve enough context, trigger a meaningful condition, and reach someone who knows what to do.</p><p>The earlier <a href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-5-security-logging-at-home/">home logging guide</a> starts with investigation questions. Keep that discipline. A SIEM does not rescue data that has the wrong timestamp, omits the affected user, or disappears before anyone looks.</p><h2 id="build-a-source-catalog-before-an-ingestion-pipeline">Build a source catalog before an ingestion pipeline</h2><p>Select sources that cover control points rather than every device:</p><pre class="language-text"><code class="language-text">Identity: successful and failed sign-ins, MFA and recovery changes, admin-role changes
+Endpoint: protection health, high-confidence detections, important policy changes
+Public service: proxy requests, application authentication, administrator actions
+DNS: security-category blocks tied to a known device
+Recovery: backup success, restore failures, certificate renewal, service health</code></pre><p>For each source, record:</p><pre class="language-text"><code class="language-text">Owner and system:
+Collection or notification method:
+Clock and timezone:
+Required fields:
+Expected event volume:
+Retention period:
+Access restrictions:
+Known gaps:
+Last successful event:</code></pre><p><a href="https://csrc.nist.gov/Projects/log-management" rel="noopener">NIST’s log-management project</a> frames the job around having the log data an organization needs, not collecting indiscriminately. Retention and disposal belong in the plan because sign-in records, IP addresses, DNS requests, filenames, and URLs can expose personal or business information.</p><p>Before writing an alert, confirm that test events arrive with a stable user or device identifier and a usable timestamp. A parser that drops fields or a connector that silently stopped last week is a detection failure even when the dashboard remains green.</p><h2 id="write-a-detection-as-a-decision-card">Write a detection as a decision card</h2><p>A rule name and query are not enough. Give every detection a small card:</p><pre class="language-text"><code class="language-text">Question:
+Threat or failure it covers:
+Required source and fields:
+Logic and time window:
+Expected benign causes:
+Severity and reason:
+Owner:
+First three checks:
+Containment authority:
+Evidence to preserve:
+Test method:
+Last test and tuning date:</code></pre><p>Consider “multiple failed sign-ins followed by success.” The detection needs an account identifier, result, time, source context, and an ordered time window. A useful card might say:</p><pre class="language-text"><code class="language-text">Question: Did repeated authentication failure end in a successful login?
+Logic: Five or more failures for one account in ten minutes, followed by success within five minutes
+First checks: Confirm the user, source, device, MFA result, and other account changes
+Benign causes: User corrected an old saved password; automation retried with stale credentials
+Containment: Revoke the session and reset credentials only when the surrounding evidence warrants it
+Test: Use a lab or designated test account within the provider's safe-use limits</code></pre><p>Those thresholds are examples, not universal values. Establish the normal behavior and provider lockout rules, then tune them. An alert that fires on every traveler or every service-account retry teaches the reviewer to dismiss it.</p><h2 id="start-with-control-changes-and-high-consequence-failures">Start with control changes and high-consequence failures</h2><p>A small initial set should favor events that are rare, understandable, and actionable:</p><ul><li>An owner or administrator role is granted.</li><li>MFA, a passkey, or a recovery method is removed or reset.</li><li>A new API token or connected application receives privileged access.</li><li>Endpoint protection is disabled or reports a high-confidence detection.</li><li>Repeated authentication failures on a public service end in success.</li><li>A backup fails repeatedly or ages beyond the recovery objective.</li><li>A public certificate approaches expiration after renewal failure.</li><li>A security-category DNS block repeats from one identified device and lines up with endpoint or account activity.</li></ul><p>Unusual location and impossible-travel alerts can be useful, but VPNs, mobile carriers, cloud gateways, and stale geolocation data produce noise. Treat location as context for identity and device evidence, not a verdict by itself.</p><p>Do not import a large public rule pack before confirming that its data model matches your sources. A detection written for fields you do not collect will never fire; one mapped to the wrong field may fire for the wrong reason.</p><h2 id="make-response-part-of-deployment">Make response part of deployment</h2><p>Run the first three checks from the card before changing the affected system. Preserve the triggering event, nearby activity, account or device identifier, source details, and actions taken. Then use the containment sequence from <a href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-5-first-response-at-home/">First Response at Home</a> when the evidence supports an incident.</p><p>Define who may revoke sessions, isolate a device, disable an account, or block an address. Small teams can still harm themselves with an automated response that disables the only administrator or blocks the shared office address. Keep consequential containment human-approved until the rule has strong evidence and a tested recovery path.</p><p>Close alerts with one of a few meaningful dispositions:</p><pre class="language-text"><code class="language-text">Confirmed incident
+Benign expected activity
+Authorized change
+Detection test
+Insufficient evidence</code></pre><p>Add a sentence explaining the evidence. “False positive” without a cause gives the next reviewer nothing to tune.</p><h2 id="test-measure-and-remove-noise">Test, measure, and remove noise</h2><p>Use provider-supported tests or designated lab accounts; do not weaken production security settings merely to see whether an alert fires.</p><pre class="language-text"><code class="language-text">[ ] A safe event reaches the collection point
+[ ] Required identity, device, source, and timestamp fields survive ingestion
+[ ] The alert fires within the expected delay
+[ ] The notification reaches the assigned owner
+[ ] The response card can be followed without tribal knowledge
+[ ] Closure preserves enough evidence for another reviewer
+[ ] The rule has a test date and next review date</code></pre><p>Review early alerts weekly. Track how often each rule fires, how many alerts receive investigation, which benign cause dominates, and how long it takes to reach a disposition. Tune the rule, repair the source, or remove the detection when it creates no useful decision.</p><p>Coverage should expand because a threat model or incident exposed a missing question, not because the dashboard has empty space. Five detections that have passed an end-to-end test provide more defensive value than fifty enabled rules whose owners, fields, and response paths remain unknown.</p><img src="https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fcyberseckyle-security-how-to-series-blue-team-fundamentals-part-6-siem-lite-with-a-few-useful-alerts%2F" alt="" style="width:1px;height:1px;border:0;" />]]></content:encoded>
+      <enclosure url="https://www.kylereddoch.me/img/67AcQLD2Hy-800.jpeg" type="image/jpeg" length="0" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/67AcQLD2Hy-800.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/67AcQLD2Hy-800.jpeg" medium="image" />
+    </item><item>
       <title>Building My Jellyfin Server, Releasing New Projects, and Escaping the Heat (Week 32, 2026)</title>
       <link>https://www.kylereddoch.me/notes/2026/week-32-2026/</link>
       <guid isPermaLink="true">https://www.kylereddoch.me/notes/2026/week-32-2026/</guid>
@@ -384,21 +437,6 @@ Owner:</code></pre><p>Also review <strong>System Settings → General → Login 
       <enclosure url="https://www.kylereddoch.me/img/B5quYBgtCX-1672.jpeg" type="image/jpeg" length="0" />
       <media:thumbnail url="https://www.kylereddoch.me/img/B5quYBgtCX-1672.jpeg" />
       <media:content url="https://www.kylereddoch.me/img/B5quYBgtCX-1672.jpeg" medium="image" />
-    </item><item>
-      <title>Walking the Stage and a Full San Antonio Trip (Week 30, 2026)</title>
-      <link>https://www.kylereddoch.me/notes/2026/week-30-2026/</link>
-      <guid isPermaLink="true">https://www.kylereddoch.me/notes/2026/week-30-2026/</guid>
-      <pubDate>Wed, 29 Jul 2026 14:15:45 CDT</pubDate>
-      <xhtml:a class="browser-title" href="https://www.kylereddoch.me/notes/2026/week-30-2026/">Walking the Stage and a Full San Antonio Trip (Week 30, 2026)</xhtml:a>
-      <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" alt="Walking the Stage and a Full San Antonio Trip (Week 30, 2026)" />
-      <dc:creator>Kyle Reddoch</dc:creator>
-      <description><![CDATA[Finally walking the stage for my University of Phoenix graduation, a packed family vacation in San Antonio, plenty of good food, and a much-needed recovery day afterward.]]></description>
-      <xhtml:a class="browser-read-link" href="https://www.kylereddoch.me/notes/2026/week-30-2026/">Read on kylereddoch.me</xhtml:a>
-      <content:encoded><![CDATA[
-<p><img src="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" alt="Walking the Stage and a Full San Antonio Trip (Week 30, 2026)" /></p><blockquote><p>This one is a little late. We were on vacation through Monday, and once we got home, I needed a day to recover before I could even think about getting back to my usual schedule.</p></blockquote><h2 id="the-vibe">The vibe</h2><p>Proud, happy, and completely worn out.</p><h2 id="highlights">Highlights</h2><ul><li>🎓 The biggest reason for the trip was to finally “walk the stage” for my University of Phoenix graduation. I officially finished my Bachelor of Science in Information Technology back in April, but getting to take part in the ceremony made it feel like the proper finish to that long road.</li><li>🧳 We made a family vacation out of the trip to San Antonio and packed quite a bit into the time we were there. It was a lot of fun, but we definitely did not take it easy.</li><li>🦒 We went to the San Antonio Zoo and the Witte Museum, then visited SEA LIFE and LEGOLAND Discovery Center. Of course, we also had to stop by the Alamo.</li><li>🚢 We finished our activities with a river cruise. It was a nice way to wrap up the trip after all the walking we had already done.</li><li>🍕 We ate at some nice places too, including Hard Rock Cafe, Rainforest Cafe, and Capo’s Pizza. I wanted to go to Fogo de Chão, but my daughter is a bit picky, so that one did not happen. Maybe next time. 😦</li><li>🛋️ By the time we got home, I was extremely worn out and sore. Tuesday became a full rest day because I could not think of doing much of anything else. LOL.</li><li>📷 I am putting together a Flickr album with photos from the trip, and I will link it here once it is ready.</li></ul><h2 id="worth-sharing">Worth sharing</h2><ul><li>Before leaving, I wrote about building a small monitoring routine without collecting a mountain of logs nobody will review in <a href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-5-security-logging-at-home/">Security Logging at Home</a>.</li><li>I also published <a href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-6-travel-mode-for-laptops-and-phones/">Travel Mode for Laptops and Phones</a>, which was fitting timing for a week when I was getting ready to leave town.</li></ul><p>✌️ That is it for this week. I hope you have a great week and remember to be kind to each other!</p><img src="https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fnotes%2F2026%2Fweek-30-2026%2F" alt="" style="width:1px;height:1px;border:0;" />]]></content:encoded>
-      <enclosure url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" type="image/jpeg" length="0" />
-      <media:thumbnail url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" />
-      <media:content url="https://www.kylereddoch.me/img/HUqddaRyDr-1536.jpeg" medium="image" />
     </item>
   </channel>
 </rss>
