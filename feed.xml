@@ -13,7 +13,7 @@
     <link>https://www.kylereddoch.me/</link>
     <description>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 13 Aug 2026 10:00:00 CDT</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2026 11:16:53 CDT</lastBuildDate>
     <atom:link href="https://www.kylereddoch.me/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://www.kylereddoch.me/assets/images/logo.png</url>
@@ -47,7 +47,7 @@
       <title>CybersecKyle Security How-To Series: Blue Team Fundamentals, Part 6 - SIEM-Lite with a Few Useful Alerts</title>
       <link>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-6-siem-lite-with-a-few-useful-alerts/</link>
       <guid isPermaLink="true">https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-6-siem-lite-with-a-few-useful-alerts/</guid>
-      <pubDate>Thu, 13 Aug 2026 10:00:00 CDT</pubDate>
+      <pubDate>Thu, 13 Aug 2026 11:16:53 CDT</pubDate>
       <xhtml:a class="browser-title" href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-6-siem-lite-with-a-few-useful-alerts/">CybersecKyle Security How-To Series: Blue Team Fundamentals, Part 6 - SIEM-Lite with a Few Useful Alerts</xhtml:a>
       <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/67AcQLD2Hy-800.jpeg" alt="Security operations center themed image representing alerting, monitoring, and SIEM-lite workflows." />
       <dc:creator>Kyle Reddoch</dc:creator>
