@@ -9,8 +9,9 @@ featuredImageAlt: Security operations center themed image representing alerting,
 featuredImageCaption: A few alerts you trust beat a wall of noise you ignore.
 tags: [cyberseckyle-howto-series, cybersecurity, security, security-operations, threat-detection, soc, how-to]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/117089095777226847"
 mastodon_tags: [Cybersecurity, InfoSec, SIEM, DetectionEngineering, CybersecKyleHowTo]
+publishedAt: "2026-08-13T16:16:53.988Z"
 ---
 
 > Part 6 of the Blue Team Fundamentals track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/) turns a few reliable log sources into detections with owners, response notes, and test evidence.
