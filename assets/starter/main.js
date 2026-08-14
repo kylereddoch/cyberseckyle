@@ -278,6 +278,8 @@
       document.documentElement.classList.toggle('system-fonts', enabled);
       fontToggle.textContent = enabled ? 'Web Fonts' : 'System Fonts';
       fontToggle.setAttribute('aria-pressed', enabled ? 'true' : 'false');
+      fontToggle.setAttribute('aria-label', enabled ? 'Switch to web fonts' : 'Switch to system fonts');
+      fontToggle.setAttribute('title', enabled ? 'Switch to web fonts' : 'Switch to system fonts');
     };
 
     fontToggle.addEventListener('click', () => {

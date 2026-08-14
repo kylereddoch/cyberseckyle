@@ -110,6 +110,7 @@
           var useDark = savedTheme ? savedTheme === 'dark' : true;
           document.documentElement.classList.toggle('dark', useDark);
           document.documentElement.classList.toggle('light', !useDark);
+          document.documentElement.classList.toggle('system-fonts', localStorage.getItem('systemFonts') === '1');
         } catch (error) {
           document.documentElement.classList.add('dark');
           document.documentElement.classList.remove('light');
