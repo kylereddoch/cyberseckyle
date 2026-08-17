@@ -9,8 +9,9 @@ featuredImageAlt: Open laptop on a desk in a hotel room with a blue encrypted co
 featuredImageCaption: "A hotel network can look normal while the traffic path behind it has been compromised. A VPN adds an encrypted tunnel across that untrusted network. (Image generated using ChatGPT.)"
 tags: [cybersecurity, privacy, vpn]
 mastodon_post: true
-mastodon_url: ""
+mastodon_url: "https://infosec.exchange/@cyberseckyle/117111763262005387"
 mastodon_tags: [Cybersecurity, InfoSec, PublicWiFi, VPN, Privacy]
+publishedAt: "2026-08-17T16:21:32.356Z"
 ---
 
 Hotel Wi-Fi asks us to make a strange trade. We trust a network we have never seen, operated by people we will never meet, using equipment we cannot inspect, because cellular service is weak and we need to answer an email.
