@@ -13,7 +13,7 @@
     <link>https://www.kylereddoch.me/</link>
     <description>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</description>
     <language>en</language>
-    <lastBuildDate>Tue, 18 Aug 2026 10:00:00 CDT</lastBuildDate>
+    <lastBuildDate>Tue, 18 Aug 2026 10:53:38 CDT</lastBuildDate>
     <atom:link href="https://www.kylereddoch.me/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://www.kylereddoch.me/assets/images/logo.png</url>
@@ -47,7 +47,7 @@
       <title>CybersecKyle Security How-To Series: Light Offensive to Think Defensively, Part 1 - Build a Safe Lab with Snapshots</title>
       <link>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-light-offensive-to-think-defensively-part-1-build-a-safe-lab-with-snapshots/</link>
       <guid isPermaLink="true">https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-light-offensive-to-think-defensively-part-1-build-a-safe-lab-with-snapshots/</guid>
-      <pubDate>Tue, 18 Aug 2026 10:00:00 CDT</pubDate>
+      <pubDate>Tue, 18 Aug 2026 10:53:38 CDT</pubDate>
       <xhtml:a class="browser-title" href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-light-offensive-to-think-defensively-part-1-build-a-safe-lab-with-snapshots/">CybersecKyle Security How-To Series: Light Offensive to Think Defensively, Part 1 - Build a Safe Lab with Snapshots</xhtml:a>
       <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/DY-5zxCs_G-1536.jpeg" alt="Network diagram sketch representing a safe lab design with isolated systems and known boundaries." />
       <dc:creator>Kyle Reddoch</dc:creator>
