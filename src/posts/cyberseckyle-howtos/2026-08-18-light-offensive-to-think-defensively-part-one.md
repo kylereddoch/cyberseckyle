@@ -9,8 +9,9 @@ featuredImageAlt: Network diagram sketch representing a safe lab design with iso
 featuredImageCaption: A good lab gives you room to break things without breaking real things.
 tags: [cyberseckyle-howto-series, cybersecurity, security, appsec, security-operations, how-to]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/117117315844202223"
 mastodon_tags: [Cybersecurity, InfoSec, Lab, BlueTeam, CybersecKyleHowTo]
+publishedAt: "2026-08-18T15:53:38.034Z"
 ---
 
 > Part 1 of the Light Offensive to Think Defensively track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/) builds the boundary every later exercise depends on: a lab target that is isolated, disposable, observable, and unquestionably authorized.
