@@ -13,7 +13,7 @@
     <link>https://www.kylereddoch.me/</link>
     <description>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 19 Aug 2026 09:30:00 CDT</lastBuildDate>
+    <lastBuildDate>Thu, 20 Aug 2026 10:00:00 CDT</lastBuildDate>
     <atom:link href="https://www.kylereddoch.me/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://www.kylereddoch.me/assets/images/logo.png</url>
@@ -44,6 +44,52 @@
       <xhtml:a href="https://www.kylereddoch.me/feed.json">JSON Feed</xhtml:a>
       <xhtml:a href="https://www.kylereddoch.me/blog/improving-my-rss-feed-and-making-it-more-human-readable/">How I improved this feed</xhtml:a>
     </xhtml:div><item>
+      <title>CybersecKyle Security How-To Series: Light Offensive to Think Defensively, Part 2 - Phishing Simulation to Study Prompts and Controls</title>
+      <link>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-light-offensive-to-think-defensively-part-2-phishing-simulation-to-study-prompts-and-controls/</link>
+      <guid isPermaLink="true">https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-light-offensive-to-think-defensively-part-2-phishing-simulation-to-study-prompts-and-controls/</guid>
+      <pubDate>Thu, 20 Aug 2026 10:00:00 CDT</pubDate>
+      <xhtml:a class="browser-title" href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-light-offensive-to-think-defensively-part-2-phishing-simulation-to-study-prompts-and-controls/">CybersecKyle Security How-To Series: Light Offensive to Think Defensively, Part 2 - Phishing Simulation to Study Prompts and Controls</xhtml:a>
+      <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/dnpDTkKdst-1536.jpeg" alt="Help desk and social engineering themed image representing phishing prompts, reporting, and identity controls." />
+      <dc:creator>Kyle Reddoch</dc:creator>
+      <description><![CDATA[A safe, defensive phishing simulation guide focused on studying prompts, consent, reporting, MFA, email controls, and user support without tricking real people or collecting real credentials.]]></description>
+      <xhtml:a class="browser-read-link" href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-light-offensive-to-think-defensively-part-2-phishing-simulation-to-study-prompts-and-controls/">Read on kylereddoch.me</xhtml:a>
+      <content:encoded><![CDATA[
+<p><img src="https://www.kylereddoch.me/img/dnpDTkKdst-1536.jpeg" alt="Help desk and social engineering themed image representing phishing prompts, reporting, and identity controls." /></p><blockquote><p>Part 2 of the Light Offensive to Think Defensively track in my <a href="https://www.kylereddoch.me/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/">CybersecKyle Security How-To Series</a> uses a controlled message to test email authentication, filtering, reporting, and response without collecting a real credential or turning coworkers into targets.</p></blockquote><p>A click rate by itself says very little. A recipient may recognize the exercise after opening the message, a gateway may rewrite the link, an automated scanner may visit it, or the reporting button may be too hard to find. The more useful questions are whether the message was authenticated and filtered as expected, whether the report preserved the headers, whether anybody received that report, and whether a stolen password would still be enough to reach the account.</p><p>Keep the first exercise inside the lab from Part 1. A workplace campaign requires written authorization, a defined audience, privacy and labor review where applicable, help-desk coordination, and an approved communication plan. Defensive intent does not remove the need for consent and authority.</p><h2 id="define-the-lesson-and-the-data-boundary">Define the lesson and the data boundary</h2><p>Choose one learning objective:</p><pre class="language-text"><code class="language-text">Can a user find and use the report-phishing control?
+Do reports reach a monitored queue with original headers?
+Does the mail system identify a sender-domain mismatch?
+Does the help desk follow the documented triage path?
+Would MFA or a passkey stop password-only access?</code></pre><p>Then write the campaign boundary:</p><pre class="language-text"><code class="language-text">Owner and written approval:
+Recipients and excluded groups:
+Sending system and domain:
+Message theme:
+Landing page:
+Fields collected:
+Fields explicitly not collected:
+Retention and deletion date:
+Who can see individual results:
+Stop condition:
+Debrief and support path:</code></pre><p>Do not collect passwords, MFA codes, recovery answers, payment data, or personal information. Avoid fake medical news, layoffs, legal threats, family emergencies, or other scenarios that create harm unrelated to the control being tested.</p><h2 id="build-the-first-message-in-a-closed-mail-path">Build the first message in a closed mail path</h2><p>GoPhish can organize templates, landing pages, groups, and campaign events. A lab mail catcher such as MailHog can receive the message without sending it to a real mailbox. Create one fictional recipient under a reserved test domain, such as <code>alex@example.test</code>, and keep both the sender and receiver inside the lab.</p><p>The landing page should explain the exercise and provide the lesson. GoPhish landing pages can be configured to capture submitted data, so review the page and campaign settings carefully and leave credential capture disabled. The project’s <a href="https://docs.getgophish.com/user-guide/documentation/landing-pages" rel="noopener">landing-page documentation</a> describes those options; do not copy or import a real sign-in page when a plain educational page will test the same report and click path.</p><p>Use a unique campaign identifier rather than personal data. A safe event record may contain:</p><pre class="language-text"><code class="language-text">Campaign ID
+Fictional recipient ID
+Sent, delivered, reported, or landing-page visit event
+Timestamp</code></pre><p>Even a visit can reveal an IP address and browser details, so collect only fields needed for the stated objective and delete them on schedule.</p><h2 id="inspect-how-the-message-was-handled">Inspect how the message was handled</h2><p>Read the raw headers from the received test message:</p><pre class="language-text"><code class="language-text">From
+Reply-To
+Return-Path
+Received
+Authentication-Results
+Message-ID</code></pre><p>Identify the visible sender, envelope sender, systems that relayed the message, and the SPF, DKIM, and DMARC results. Part 2 of the Power User track explains <a href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-2-email-security-with-spf-dkim-and-dmarc/">how those three controls align a message with the visible domain</a>.</p><p>In a real approved environment, compare delivery to the expected mail policy. Did the gateway quarantine it, add a banner, rewrite the link, or deliver it normally? Preserve the reason from the provider rather than grading the result only as inbox or spam. A well-authenticated test message may legitimately pass checks designed to identify spoofing; that does not mean the gateway endorses the content.</p><h2 id="design-the-prompt-around-a-control">Design the prompt around a control</h2><p>Use a routine scenario that supports the learning objective: a shared document, calendar invitation, password-expiration notice, invoice review, or shipping update. Include a small number of deliberate clues such as a mismatched sender domain, unexpected attachment, link target that differs from its label, request to bypass a normal process, or request for a password.</p><p>Document each clue and the control expected to respond:</p><pre class="language-text"><code class="language-text">Clue: Visible sender and actual domain differ
+User action: Inspect the sender and report the message
+Technical control: Impersonation or domain policy
+Response control: Report arrives with headers and opens a triage task</code></pre><p>This keeps the exercise from becoming an arbitrary trick. If the organization taught users to trust an exact banner or button that the simulation omits, the result may measure inconsistent design rather than user judgment.</p><h2 id="test-the-reporting-path-end-to-end">Test the reporting path end to end</h2><p>Use the same path people are expected to use for a real message: the provider’s report-phishing button, forwarding as an attachment to a monitored security mailbox, or a help-desk workflow.</p><p>Verify:</p><pre class="language-text"><code class="language-text">Who received the report
+Whether original headers and message content survived
+Whether a ticket or alert was created
+Which person owns first review
+What that person checks
+How the sender, link, or attachment would be contained
+How the reporter receives feedback</code></pre><p>A button that deletes the message locally but sends nothing to a reviewed queue is not a reporting control. A queue without an owner is not much better.</p><p>If the exercise includes authentication, use a separate lab identity and a fake password known only to the exercise. Do not ask a participant to enter an actual password. Observe whether MFA, passkeys, device conditions, and sign-in alerts would interrupt password-only access without attempting to defeat them.</p><h2 id="debrief-the-system-not-the-individual">Debrief the system, not the individual</h2><p>Report what each layer showed:</p><ul><li>Message authentication and gateway handling</li><li>Visibility and quality of the user prompt</li><li>Reporting-path delivery and preserved evidence</li><li>Help-desk or security response time</li><li>Identity controls that limit password-only compromise</li><li>Changes assigned to an owner</li></ul><p>Do not publish a leaderboard or treat a click as proof that somebody is careless. Automated systems, accessibility needs, job context, and prompt design all affect the result. Individual data should be visible only to the people named in the approved plan and retained only as long as that plan requires.</p><p>The exercise is ready to close when no real secret could have been submitted, every event stayed inside the authorized scope, the report reached a person who could act, and the debrief produced a change to the prompt, mail control, report path, identity policy, or response procedure.</p><img src="https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fcyberseckyle-security-how-to-series-light-offensive-to-think-defensively-part-2-phishing-simulation-to-study-prompts-and-controls%2F" alt="" style="width:1px;height:1px;border:0;" />]]></content:encoded>
+      <enclosure url="https://www.kylereddoch.me/img/dnpDTkKdst-1536.jpeg" type="image/jpeg" length="0" />
+      <media:thumbnail url="https://www.kylereddoch.me/img/dnpDTkKdst-1536.jpeg" />
+      <media:content url="https://www.kylereddoch.me/img/dnpDTkKdst-1536.jpeg" medium="image" />
+    </item><item>
       <title>The Model Is Not the Security Boundary: How to Secure AI Workflows</title>
       <link>https://www.kylereddoch.me/blog/the-model-is-not-the-security-boundary-how-to-secure-ai-workflows/</link>
       <guid isPermaLink="true">https://www.kylereddoch.me/blog/the-model-is-not-the-security-boundary-how-to-secure-ai-workflows/</guid>
@@ -388,56 +434,6 @@ Planned work, if any:</code></pre><p>An acceptance should expire when the system
       <enclosure url="https://www.kylereddoch.me/img/Wgg4gCVhRO-1536.jpeg" type="image/jpeg" length="0" />
       <media:thumbnail url="https://www.kylereddoch.me/img/Wgg4gCVhRO-1536.jpeg" />
       <media:content url="https://www.kylereddoch.me/img/Wgg4gCVhRO-1536.jpeg" medium="image" />
-    </item><item>
-      <title>CybersecKyle Security How-To Series: Blue Team Fundamentals, Part 3 - Vulnerability Scanning with Real Triage</title>
-      <link>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-3-vulnerability-scanning-with-real-triage/</link>
-      <guid isPermaLink="true">https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-3-vulnerability-scanning-with-real-triage/</guid>
-      <pubDate>Tue, 04 Aug 2026 12:09:23 CDT</pubDate>
-      <xhtml:a class="browser-title" href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-3-vulnerability-scanning-with-real-triage/">CybersecKyle Security How-To Series: Blue Team Fundamentals, Part 3 - Vulnerability Scanning with Real Triage</xhtml:a>
-      <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/SmlP7T6I8N-800.jpeg" alt="Vulnerability management themed image representing scanning, triage, and remediation." />
-      <dc:creator>Kyle Reddoch</dc:creator>
-      <description><![CDATA[A practical guide to vulnerability scanning that does not stop at a giant report: define scope, scan safely, prioritize risk, verify findings, assign owners, and track fixes.]]></description>
-      <xhtml:a class="browser-read-link" href="https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-3-vulnerability-scanning-with-real-triage/">Read on kylereddoch.me</xhtml:a>
-      <content:encoded><![CDATA[
-<p><img src="https://www.kylereddoch.me/img/SmlP7T6I8N-800.jpeg" alt="Vulnerability management themed image representing scanning, triage, and remediation." /></p><blockquote><p>Part 3 of the Blue Team Fundamentals track in my <a href="https://www.kylereddoch.me/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/">CybersecKyle Security How-To Series</a> begins where a scanner export usually ends: deciding which results represent reachable risk, who owns the affected systems, and how a fix will be verified.</p></blockquote><p>A vulnerability scanner is good at producing observations at scale. It may identify a software version, configuration, certificate, missing patch, or network service and associate that observation with known security information. It does not automatically know whether the asset is internet-facing, whether the vulnerable feature is enabled, whether a vendor backported the fix, or whether taking the service down would interrupt something critical.</p><p>That gap is triage. Skipping it creates two bad queues: urgent-looking false positives and real exposure buried under thousands of findings nobody has assigned.</p><h2 id="approve-scope-and-failure-limits-before-the-scan">Approve scope and failure limits before the scan</h2><p>Only scan systems you own or have explicit authorization to test. Write the authorization and operating limits so the scanner operator and asset owner agree on them:</p><pre class="language-text"><code class="language-text">IP ranges, hostnames, and cloud accounts in scope:
-Explicit exclusions:
-Asset owners:
-Scan source addresses:
-Authenticated or unauthenticated checks:
-Allowed intensity and test families:
-Maintenance window:
-Stop conditions:
-Monitoring and incident contacts:</code></pre><p>Printers, embedded devices, fragile appliances, production databases, and industrial equipment may fail under probes that an ordinary server tolerates. Start with vendor guidance and a low-impact profile, monitor the pilot, and stop when error rates, latency, or service health cross the agreed threshold.</p><p>An unauthenticated scan answers what the scanner can observe through the network. A credentialed scan can inspect installed packages, patch state, and local configuration, often with better accuracy. They are complementary views, not a competition for the larger finding count.</p><p>Treat scanner access as privileged. Use a dedicated service identity with only the rights required by the scanner, restrict where it can authenticate from, monitor its use, store it in the platform’s secret facility, and rotate it. Reusing a human domain administrator account turns the scanner into a high-value credential repository.</p><h2 id="preserve-the-evidence-behind-the-finding">Preserve the evidence behind the finding</h2><p>Before prioritizing, make sure the result can be revisited. Keep:</p><pre class="language-text"><code class="language-text">Scanner and plugin version
-Scan policy and timestamp
-Target asset and detected service
-Observed version or configuration
-CVE, advisory, or control reference
-Raw evidence returned by the check
-Authentication success or failure
-First and last seen dates</code></pre><p>Authentication failure is especially important. A report that was supposed to inspect local patch state but silently fell back to a network-only check may look complete while missing the evidence the team expected.</p><p>Do not attach an enormous raw export to every ticket. Link to protected scanner evidence and copy the minimum proof needed to understand the affected asset and condition.</p><h2 id="prioritize-with-threat-and-asset-context">Prioritize with threat and asset context</h2><p>CVSS provides a standardized description of technical severity. Scanner labels usually incorporate it, but neither one is a remediation schedule. Add context in a consistent order:</p><ol><li><strong>Exposure:</strong> Is the vulnerable service reachable from the internet, an untrusted user network, or only an isolated lab?</li><li><strong>Exploitation:</strong> Is the vulnerability known to be used in the wild? CISA maintains the <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" rel="noopener">Known Exploited Vulnerabilities catalog</a> specifically as an input to vulnerability prioritization.</li><li><strong>Likelihood:</strong> When available, <a href="https://www.first.org/epss/" rel="noopener">EPSS</a> estimates the probability of exploitation activity in the next 30 days. It is another input, not proof that one asset will be attacked.</li><li><strong>Asset consequence:</strong> What data, identity, availability, or downstream systems does this asset control?</li><li><strong>Attack requirements:</strong> Does exploitation require authentication, local access, a disabled feature, or a user action?</li><li><strong>Existing controls:</strong> Is the service blocked, the feature disabled, or the attack path otherwise constrained?</li><li><strong>Remediation:</strong> Is a tested patch, configuration change, isolation step, or service removal available?</li></ol><p>A medium-severity vulnerability on an exposed identity system can outrank a critical library installed on a powered-off lab VM. That is not ignoring CVSS; it is using severity for the job it can do and asset context for the decisions it cannot make.</p><h2 id="verify-enough-to-make-the-decision">Verify enough to make the decision</h2><p>Verification should not become unauthorized exploitation. Check the product version, installed package, service reachability, feature state, vendor advisory, and patch history. Determine whether the vendor backported the security fix without changing the version string the scanner expects.</p><p>Classify the result with evidence:</p><pre class="language-text"><code class="language-text">Confirmed
-Likely, pending owner validation
-False positive
-Not applicable
-Mitigated
-Risk accepted</code></pre><p>“False positive” must explain which scanner assumption was wrong. “Mitigated” must identify the control and how it was tested. “Risk accepted” needs an authorized owner, rationale, expiration date, and condition that triggers another review. None of those states means “we did not have time to investigate.”</p><h2 id="turn-the-result-into-owned-remediation">Turn the result into owned remediation</h2><p>Each confirmed finding or coherent finding group needs an asset owner and one actionable path:</p><pre class="language-text"><code class="language-text">Affected asset and service:
-Evidence:
-Priority and rationale:
-Patch, configuration change, removal, or mitigation:
-Change owner:
-Target date:
-Expected outage or compatibility risk:
-Validation method:
-Exception expiry, if any:</code></pre><p>Group identical findings when one change owner and deployment fixes them, but keep enough asset-level tracking to identify machines that failed the rollout. Conversely, do not combine unrelated CVEs under a ticket called “patch servers” when they have different exposure and validation requirements.</p><p>Close the work only after checking the outcome. Rescan the affected service, confirm the installed fixed version or configuration, and verify that the remediation did not create a new outage. If the scanner still reports the issue, resolve the discrepancy rather than closing the finding from a deployment-success message.</p><h2 id="measure-whether-the-program-is-reducing-exposure">Measure whether the program is reducing exposure</h2><p>A useful review is smaller than the exported report:</p><pre class="language-text"><code class="language-text">[ ] Every scanned asset has an owner and approved scope
-[ ] Scanner authentication failures are visible
-[ ] Internet-exposed and known-exploited findings were reviewed first
-[ ] High-priority findings have evidence, owner, date, and validation method
-[ ] False positives and mitigations include reproducible justification
-[ ] Exceptions expire and return to review
-[ ] Remediated findings were rescanned
-[ ] Assets that repeatedly miss patches have a root-cause task</code></pre><p>Finding count alone can rise because the scanner improved, the inventory expanded, or new vulnerabilities were published. Track time to triage, time to remediate by priority, recurring root causes, and overdue accepted risks. Those measures reveal whether the process is making important exposure shorter-lived instead of merely producing a fresh PDF every month.</p><img src="https://tinylytics.app/pixel/aK6PBymtmDm6DxSXaP2H.gif?path=%2Fblog%2Fcyberseckyle-security-how-to-series-blue-team-fundamentals-part-3-vulnerability-scanning-with-real-triage%2F" alt="" style="width:1px;height:1px;border:0;" />]]></content:encoded>
-      <enclosure url="https://www.kylereddoch.me/img/SmlP7T6I8N-800.jpeg" type="image/jpeg" length="0" />
-      <media:thumbnail url="https://www.kylereddoch.me/img/SmlP7T6I8N-800.jpeg" />
-      <media:content url="https://www.kylereddoch.me/img/SmlP7T6I8N-800.jpeg" medium="image" />
     </item>
   </channel>
 </rss>
