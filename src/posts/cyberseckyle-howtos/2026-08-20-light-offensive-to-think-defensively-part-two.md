@@ -9,8 +9,9 @@ featuredImageAlt: Help desk and social engineering themed image representing phi
 featuredImageCaption: The point of phishing simulation should be better controls, not gotcha moments.
 tags: [cyberseckyle-howto-series, cybersecurity, security, social-engineering, identity-security, how-to]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/117128649882667186"
 mastodon_tags: [Cybersecurity, InfoSec, Phishing, IdentitySecurity, CybersecKyleHowTo]
+publishedAt: "2026-08-20T15:56:01.738Z"
 ---
 
 > Part 2 of the Light Offensive to Think Defensively track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/) uses a controlled message to test email authentication, filtering, reporting, and response without collecting a real credential or turning coworkers into targets.
