@@ -32,6 +32,7 @@ import {
   getNowPosts,
   getPosts,
   getProjects,
+  getNewsletterIssues,
   showInSitemap,
   tagList
 } from './src/_config/collections.js';
@@ -308,6 +309,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addCollection('notes', getNotes);
   eleventyConfig.addCollection('journal', getJournalPosts);
   eleventyConfig.addCollection('projects', getProjects);
+  eleventyConfig.addCollection('newsletterIssues', getNewsletterIssues);
   eleventyConfig.addCollection('allPosts', getAllPosts);
   eleventyConfig.addCollection('showInSitemap', showInSitemap);
   eleventyConfig.addCollection('tagList', tagList);
@@ -383,6 +385,17 @@ export default async function (eleventyConfig) {
       date: getExplicitSearchDate(item)
     }));
 
+    const newsletterEntries = getNewsletterIssues(collectionApi).map(item => ({
+      id: item.url,
+      title: item.data?.title || '',
+      seoTitle: item.data?.seoTitle || '',
+      description: item.data?.description || '',
+      searchIntent: item.data?.searchIntent || '',
+      tags: ['The Defender\u2019s Dispatch', `Issue ${item.data?.issueNumber || ''}`],
+      content: getSearchableContent(item),
+      date: getExplicitSearchDate(item)
+    }));
+
     const pageEntries = collectionApi
       .getFilteredByGlob('./src/pages/**/*.{md,njk}')
       .filter(item => !item.data?.eleventyExcludeFromCollections && !item.data?.excludeFromSearch)
@@ -398,7 +411,7 @@ export default async function (eleventyConfig) {
       }));
 
     const seen = new Set();
-    return [...contentEntries, ...projectEntries, ...pageEntries].filter(item => {
+    return [...contentEntries, ...projectEntries, ...newsletterEntries, ...pageEntries].filter(item => {
       if (!item.id || seen.has(item.id)) return false;
       seen.add(item.id);
       return true;
