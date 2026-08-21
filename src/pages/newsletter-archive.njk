@@ -1,0 +1,49 @@
+---
+layout: base
+permalink: /newsletter/archive/
+title: "The Defender's Dispatch Archive"
+description: "Browse every web edition of The Defender's Dispatch from CybersecKyle."
+---
+
+<div class="h-feed mx-auto max-w-3xl">
+  <a href="/newsletter/" class="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 mb-3">
+    &larr; Back to the newsletter
+  </a>
+
+  <h1 class="p-name text-3xl font-bold mb-3">The Defender&rsquo;s Dispatch Archive</h1>
+  <a class="u-url hidden" href="{{ meta.url }}/newsletter/archive/"></a>
+  <p class="text-gray-600 dark:text-gray-400 mb-8">
+    Every issue has a permanent web edition. Browse the archive here, or <a class="underline text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300" href="/newsletter/#subscribe">subscribe for the next dispatch</a>.
+  </p>
+
+  <div class="space-y-8">
+    {% for issue in collections.newsletterIssues %}
+    <article class="h-entry border-b border-gray-200 dark:border-gray-700 pb-6">
+      <div class="flex flex-wrap items-center gap-3 mb-2">
+        <span class="entry-type-badge">
+          <span class="entry-type-badge__icon" aria-hidden="true">&#9993;&#65039;</span>
+          <span class="entry-type-badge__label">Issue {{ issue.data.issueNumber }}</span>
+        </span>
+      </div>
+
+      <h2 class="p-name text-xl font-semibold">
+        <a class="u-url hover:text-blue-600" href="{{ issue.url }}">{{ issue.data.title }}</a>
+      </h2>
+      <time class="dt-published text-sm text-gray-500 dark:text-gray-400 block mt-1" datetime="{{ issue.date | toIsoString }}">{{ issue.data.issueDateLabel }}</time>
+
+      <p class="p-summary mt-3 text-gray-700 dark:text-gray-300">{{ issue.data.description }}</p>
+
+      {% if issue.data.highlights %}
+      <p class="mt-3 text-sm text-gray-600 dark:text-gray-400">
+        <strong>In this issue:</strong>
+        {% for highlight in issue.data.highlights %}
+        {{ highlight }}{% if not loop.last %}<span aria-hidden="true"> &middot; </span>{% endif %}
+        {% endfor %}
+      </p>
+      {% endif %}
+    </article>
+    {% else %}
+    <p>The first web issue is being prepared.</p>
+    {% endfor %}
+  </div>
+</div>

@@ -21,6 +21,7 @@
     "build:11ty": "cross-env ELEVENTY_ENV=production eleventy",
     "start": "npm run dev:11ty",
     "start:future": "npm run dev:future",
+    "newsletter:email-preview": "node ./scripts/newsletter/render-email-preview.js",
     "build": "npm run clean && npm run build:11ty",
     "build-ghpages": "cross-env ELEVENTY_ENV=production npx @11ty/eleventy --pathprefix=/"
   },

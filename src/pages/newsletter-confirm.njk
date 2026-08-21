@@ -12,6 +12,9 @@ excludeFromSearch: true
   {% if newsletter.configured %}
   data-newsletter-api-url="{{ newsletter.apiUrl }}"
   {% endif %}
+  {% if newsletter.previewMode %}
+  data-newsletter-preview-only="true"
+  {% endif %}
 >
   <div class="newsletter-status-card">
     <span class="newsletter-status-card__icon" aria-hidden="true" data-newsletter-confirm-icon>&#128737;&#65039;</span>

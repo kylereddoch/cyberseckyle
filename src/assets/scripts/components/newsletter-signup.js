@@ -3,6 +3,7 @@ const signupRoot = document.querySelector('[data-newsletter-signup]');
 if (signupRoot) {
   const form = signupRoot.querySelector('[data-newsletter-form]');
   const apiUrl = signupRoot.dataset.newsletterApiUrl || '';
+  const previewOnly = signupRoot.dataset.newsletterPreviewOnly === 'true';
 
   if (form && apiUrl) {
     const submitButton = form.querySelector('[data-newsletter-submit]');
@@ -33,6 +34,12 @@ if (signupRoot) {
       submitLabel.textContent = 'Sending confirmation…';
 
       try {
+        if (previewOnly) {
+          setStatus('Preview complete. The form works, but no subscription or email was sent.', 'success');
+          if (window.turnstile) window.turnstile.reset();
+          return;
+        }
+
         const response = await fetch(`${apiUrl}/newsletter/subscribe`, {
           method: 'POST',
           headers: {
@@ -106,6 +113,7 @@ const confirmRoot = document.querySelector('[data-newsletter-confirm]');
 
 if (confirmRoot) {
   const apiUrl = confirmRoot.dataset.newsletterApiUrl || '';
+  const previewOnly = confirmRoot.dataset.newsletterPreviewOnly === 'true';
   const button = confirmRoot.querySelector('[data-newsletter-confirm-button]');
   const label = confirmRoot.querySelector('[data-newsletter-confirm-label]');
   const status = confirmRoot.querySelector('[data-newsletter-confirm-status]');
@@ -115,7 +123,14 @@ if (confirmRoot) {
   const token = window.location.hash.slice(1);
   const tokenLooksValid = /^[A-Za-z0-9_-]{40,64}$/.test(token);
 
-  if (!tokenLooksValid) {
+  if (previewOnly) {
+    button.disabled = true;
+    button.hidden = true;
+    kicker.textContent = 'Local preview mode';
+    heading.textContent = 'No subscription will be activated';
+    icon.textContent = '🧪';
+    status.textContent = 'The production confirmation flow is intentionally disabled during the local preview.';
+  } else if (!tokenLooksValid) {
     button.disabled = true;
     button.hidden = true;
     kicker.textContent = 'Confirmation link';

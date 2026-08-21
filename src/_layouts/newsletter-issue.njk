@@ -1,0 +1,71 @@
+---
+layout: base
+schema: Article
+---
+
+<a href="/newsletter/archive/" class="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 mb-3">
+  &larr; Back to the archive
+</a>
+
+<nav class="text-sm text-gray-600 dark:text-gray-400 mb-4" aria-label="Breadcrumb">
+  <ol class="flex flex-wrap items-center gap-2">
+    <li><a href="/" class="hover:text-blue-600">Home</a></li>
+    <li aria-hidden="true">/</li>
+    <li><a href="/newsletter/" class="hover:text-blue-600">The Defender&rsquo;s Dispatch</a></li>
+    <li aria-hidden="true">/</li>
+    <li><a href="/newsletter/archive/" class="hover:text-blue-600">Archive</a></li>
+    <li aria-hidden="true">/</li>
+    <li class="text-gray-900 dark:text-gray-100">Issue {{ issueNumber }}</li>
+  </ol>
+</nav>
+
+<article class="h-entry mx-auto max-w-3xl">
+  <div class="mb-8">
+    <img
+      class="u-photo w-full rounded-lg"
+      src="/assets/images/defenders-dispatch-logo-480h.png"
+      width="852"
+      height="480"
+      alt="The Defender&rsquo;s Dispatch &mdash; A CybersecKyle newsletter"
+    />
+  </div>
+
+  <header class="mb-6">
+    <p class="text-sm font-semibold uppercase tracking-wide text-purple-600 dark:text-purple-400 mb-2">The Defender&rsquo;s Dispatch &middot; Issue {{ issueNumber }}</p>
+    <h1 class="p-name text-3xl font-bold tracking-tight mb-3">{{ title }}</h1>
+    <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">{{ description }}</p>
+
+    <div class="text-sm text-gray-600 dark:text-gray-400">
+      Published on <time class="dt-published" datetime="{{ date | toIsoString }}">{{ issueDateLabel }}</time>
+      by <span class="p-author h-card"><a class="u-url p-name hover:text-blue-600" href="/about/">{{ meta.author.name }}</a></span>
+      <span aria-hidden="true" class="text-gray-400 dark:text-gray-500 mx-1">&bull;</span>
+      <span>{{ content | readTime }}</span>
+    </div>
+
+    <a class="u-url hidden" href="{{ page.url | url | absoluteUrl(meta.url) }}">Permalink</a>
+  </header>
+
+  <aside class="mb-8 border-l-4 border-purple-500 bg-purple-50 px-4 py-3 text-sm text-gray-700 dark:bg-gray-800 dark:text-gray-300" aria-label="Web edition note">
+    <strong>Web edition:</strong> The email version greets subscribers by first name when one is available.
+  </aside>
+
+  <div class="newsletter-issue-content e-content prose max-w-none">{{ content | safe }}</div>
+
+  <aside class="post-newsletter-callout" aria-labelledby="issue-signup-heading">
+    <div class="post-newsletter-callout__copy">
+      <p class="post-newsletter-callout__eyebrow">The Defender&rsquo;s Dispatch</p>
+      <h2 id="issue-signup-heading">Get the next issue in your inbox.</h2>
+      <p>Subscribe once, confirm your address, and unsubscribe whenever you want.</p>
+    </div>
+    <a class="post-newsletter-callout__link" href="/newsletter/#subscribe">Join the dispatch <span aria-hidden="true">&rarr;</span></a>
+  </aside>
+
+  <footer class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+    <p class="mb-2">{% if closingNote %}{{ closingNote }}{% else %}That&rsquo;s all for this week.{% endif %}</p>
+    <p class="mb-4">&mdash; Kyle</p>
+    <div class="flex flex-wrap gap-4 text-sm">
+      <a class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300" href="/newsletter/archive/">Read another issue</a>
+      <a class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300" href="/submit-news/">Send me a signal</a>
+    </div>
+  </footer>
+</article>

@@ -11,23 +11,40 @@ description: "Subscribe to The Defender’s Dispatch, a practical CybersecKyle n
   {% if newsletter.configured %}
   data-newsletter-api-url="{{ newsletter.apiUrl }}"
   {% endif %}
+  {% if newsletter.previewMode %}
+  data-newsletter-preview-only="true"
+  {% endif %}
 >
   <header class="newsletter-hero">
-    <img
-      class="newsletter-hero__logo"
-      src="/assets/images/cyberseckyle-newsletter-logo-horizontal.png"
-      width="764"
-      height="288"
-      alt="CybersecKyle — cybersecurity, IT, and MSP"
-    />
-    <p class="newsletter-kicker">A CybersecKyle newsletter</p>
-    <h1>The Defender’s Dispatch</h1>
-    <p class="newsletter-hero__lede">
-      Practical cybersecurity, IT, and MSP news for people who actually have to run things.
-    </p>
-    <p>
-      The inbox is noisy enough. This newsletter is built around useful context: what happened, why it matters, and what defenders, administrators, and service providers should check next.
-    </p>
+    <div class="newsletter-hero__inner">
+      <div class="newsletter-hero__brand">
+        <img
+          eleventy:ignore
+          class="newsletter-hero__logo"
+          src="/assets/images/cyberseckyle-newsletter-logo-horizontal.png"
+          width="764"
+          height="288"
+          loading="eager"
+          fetchpriority="high"
+          alt="CybersecKyle — cybersecurity, IT, and MSP"
+        />
+      </div>
+
+      <div class="newsletter-hero__copy">
+        <p class="newsletter-kicker">A CybersecKyle newsletter</p>
+        <h1>The Defender’s Dispatch</h1>
+        <p class="newsletter-hero__lede">
+          Practical cybersecurity, IT, and MSP news for people who actually have to run things.
+        </p>
+        <p class="newsletter-hero__description">
+          The inbox is noisy enough. This newsletter is built around useful context: what happened, why it matters, and what defenders, administrators, and service providers should check next.
+        </p>
+        <div class="newsletter-hero__actions">
+          <a class="newsletter-submit newsletter-submit--link" href="#subscribe">Subscribe free</a>
+          <a class="newsletter-hero__archive-link" href="/newsletter/archive/">Browse the archive <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
   </header>
 
   <div class="newsletter-layout">
@@ -57,10 +74,17 @@ description: "Subscribe to The Defender’s Dispatch, a practical CybersecKyle n
       </div>
     </section>
 
-    <aside class="newsletter-signup-card" aria-labelledby="newsletter-signup-heading">
+    <aside id="subscribe" class="newsletter-signup-card" aria-labelledby="newsletter-signup-heading">
       <p class="newsletter-signup-card__eyebrow">Free weekly newsletter</p>
       <h2 id="newsletter-signup-heading">Join the dispatch</h2>
       <p>Subscribe with your email address, then confirm it from your inbox. No purchased lists, no surprise promotions, and no sharing your address.</p>
+
+      {% if newsletter.previewMode %}
+      <div class="newsletter-preview-note" role="note">
+        <strong>Local preview mode</strong>
+        <span>You can try the form, but no address or message will leave this browser.</span>
+      </div>
+      {% endif %}
 
       {% if newsletter.configured %}
       <form class="newsletter-form" data-newsletter-form novalidate>

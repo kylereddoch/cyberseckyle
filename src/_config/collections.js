@@ -65,6 +65,20 @@ export const getProjects = collection =>
     .getFilteredByGlob('./src/projects/**/*.md')
     .sort(sortByProjectOrder);
 
+export const getNewsletterIssues = collection =>
+  collection
+    .getFilteredByGlob('./src/newsletter/issues/**/*.md')
+    .sort((a, b) => {
+      const issueA = Number(a?.data?.issueNumber);
+      const issueB = Number(b?.data?.issueNumber);
+
+      if (Number.isFinite(issueA) && Number.isFinite(issueB) && issueA !== issueB) {
+        return issueB - issueA;
+      }
+
+      return sortByNewest(a, b);
+    });
+
 /** Blog + notes + journal + /now, newest first */
 export const getAllPosts = collection => {
   return dedupeByUrl([
