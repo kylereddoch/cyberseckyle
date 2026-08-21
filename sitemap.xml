@@ -3191,6 +3191,19 @@
       
 
       <url>
+        <loc>https://www.kylereddoch.me/newsletter/defenders-dispatch/issue-001/2026-08-07/</loc>
+        
+        <lastmod>2026-08-08T00:05:31.000Z</lastmod>
+        
+        <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+
+      
+
+      <url>
         <loc>https://www.kylereddoch.me/blog/i-built-reelarrange-to-get-downloads-ready-for-jellyfin/</loc>
         
         <lastmod>2026-08-10T16:12:07.247Z</lastmod>
@@ -3311,6 +3324,19 @@
         <loc>https://www.kylereddoch.me/blog/security-signal-weekly-august-8-14-2026/</loc>
         
         <lastmod>2026-08-14T21:25:19.691Z</lastmod>
+        
+        <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+
+      
+
+      <url>
+        <loc>https://www.kylereddoch.me/newsletter/defenders-dispatch/issue-002/2026-08-14/</loc>
+        
+        <lastmod>2026-08-14T23:07:09.000Z</lastmod>
         
         <changefreq>monthly</changefreq>
     </url>
@@ -3565,6 +3591,17 @@
 
       <url>
         <loc>https://www.kylereddoch.me/media-kit/</loc>
+        
+        <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+
+      
+
+      <url>
+        <loc>https://www.kylereddoch.me/newsletter/archive/</loc>
         
         <changefreq>monthly</changefreq>
     </url>
