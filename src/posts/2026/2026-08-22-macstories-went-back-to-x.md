@@ -8,8 +8,9 @@ featuredImageAlt: A warmly lit independent website at the center of glowing path
 featuredImageCaption: An independent website can remain home even when its work travels through X, RSS, newsletters, and the open web. (Image generated using ChatGPT.)
 tags: [editorials, indieweb, mastodon]
 mastodon_post: true
-mastodon_url: 
+mastodon_url: "https://infosec.exchange/@cyberseckyle/117140142303077933"
 mastodon_tags: [IndieWeb, Mastodon]
+publishedAt: "2026-08-22T16:38:42.155Z"
 ---
 
 This is a little outside the kind of thing I normally write about here, but I have been following the discussion around MacStories returning to Twitter/X over the last couple of days, and I kept finding myself thinking about it.
