@@ -163,6 +163,9 @@ schema: BlogPosting
     {% if mastodonDiscussionUrl %}
       <a class="u-syndication" rel="syndication" href="{{ mastodonDiscussionUrl }}">Syndicated on Mastodon</a>
     {% endif %}
+    {% if x_url %}
+      <a class="u-syndication" rel="syndication" href="{{ x_url }}">Syndicated on X</a>
+    {% endif %}
     <img eleventy:ignore class="u-author h-card" src="{{ meta.author.avatar | url | absoluteUrl(meta.url) }}" alt="{{ meta.author.name }}" />
   </div>
 </article>

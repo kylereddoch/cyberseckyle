@@ -233,6 +233,8 @@ function renderPost(data, date, dateRange) {
     'mastodon_post: true',
     'mastodon_url:',
     `mastodon_tags: ${yamlArray(mastodonTags)}`,
+    'x_post: true',
+    'x_url:',
     '---'
   ];
 

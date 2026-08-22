@@ -106,4 +106,7 @@ layout: base
   {% if mastodonDiscussionUrl %}
     <a hidden class="u-syndication" rel="syndication" href="{{ mastodonDiscussionUrl }}">Syndicated on Mastodon</a>
   {% endif %}
+  {% if x_url %}
+    <a hidden class="u-syndication" rel="syndication" href="{{ x_url }}">Syndicated on X</a>
+  {% endif %}
 </article>

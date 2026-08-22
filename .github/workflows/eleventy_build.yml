@@ -87,9 +87,32 @@ jobs:
           MASTODON_POST_MAX_ATTEMPTS: 3
           MASTODON_POST_RETRY_DELAY_SECONDS: 10
 
-      - name: Commit Mastodon URLs
-        id: commit_mastodon
-        if: ${{ steps.post_mastodon.outputs.posted_count != '' && steps.post_mastodon.outputs.posted_count != '0' }}
+      - name: Post eligible articles to X
+        id: post_x
+        if: github.ref == 'refs/heads/main'
+        run: |
+          if [[ "${X_AUTO_POST_ENABLED}" != "true" ]]; then
+            echo "X auto-posting is disabled. Connect X in Buffer, add BUFFER_API_KEY, then set X_AUTO_POST_ENABLED to true."
+            echo "posted_count=0" >> "${GITHUB_OUTPUT}"
+            exit 0
+          fi
+
+          node scripts/post-to-x.mjs
+        env:
+          X_AUTO_POST_ENABLED: ${{ vars.X_AUTO_POST_ENABLED }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_X_CHANNEL_ID: ${{ vars.BUFFER_X_CHANNEL_ID }}
+          BUFFER_X_CHANNEL_NAME: ${{ vars.BUFFER_X_CHANNEL_NAME }}
+          X_SITE_URL: https://www.kylereddoch.me
+          X_WAIT_FOR_PUBLIC_URL: true
+          X_WAIT_TIMEOUT_SECONDS: 900
+          X_WAIT_INTERVAL_SECONDS: 15
+          BUFFER_WAIT_TIMEOUT_SECONDS: 120
+          BUFFER_WAIT_INTERVAL_SECONDS: 5
+
+      - name: Commit social post URLs
+        id: commit_social
+        if: ${{ (steps.post_mastodon.outputs.posted_count != '' && steps.post_mastodon.outputs.posted_count != '0') || (steps.post_x.outputs.posted_count != '' && steps.post_x.outputs.posted_count != '0') }}
         run: |
           set -euo pipefail
 
@@ -100,13 +123,13 @@ jobs:
           if git diff --cached --quiet; then
             echo "committed=false" >> "${GITHUB_OUTPUT}"
           else
-            git commit -m "Add Mastodon URLs for published posts"
+            git commit -m "Add social URLs for published posts"
             git push
             echo "committed=true" >> "${GITHUB_OUTPUT}"
           fi
 
-      - name: Rebuild site with Mastodon URLs
-        if: ${{ steps.commit_mastodon.outputs.committed == 'true' }}
+      - name: Rebuild site with social post URLs
+        if: ${{ steps.commit_social.outputs.committed == 'true' }}
         run: npm run build-ghpages
         env:
           TZ: America/Chicago
@@ -125,9 +148,9 @@ jobs:
           TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}
           WEBMENTION_IO_TOKEN: ${{ secrets.WEBMENTION_IO_TOKEN }}
 
-      - name: Deploy site with Mastodon URLs
-        if: ${{ steps.commit_mastodon.outputs.committed == 'true' }}
-        run: bash scripts/deploy-gh-pages.sh "Deploy Mastodon URLs $(git rev-parse HEAD)"
+      - name: Deploy site with social post URLs
+        if: ${{ steps.commit_social.outputs.committed == 'true' }}
+        run: bash scripts/deploy-gh-pages.sh "Deploy social post URLs $(git rev-parse HEAD)"
 
       - name: Notify Bridgy Fed
         if: github.ref == 'refs/heads/main'

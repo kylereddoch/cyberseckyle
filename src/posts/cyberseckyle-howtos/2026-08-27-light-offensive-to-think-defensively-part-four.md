@@ -11,6 +11,8 @@ tags: [cyberseckyle-howto-series, cybersecurity, security, risk-management, inci
 mastodon_post: true
 mastodon_url:
 mastodon_tags: [Cybersecurity, InfoSec, RiskManagement, BlueTeam, CybersecKyleHowTo]
+x_post: true
+x_url:
 ---
 
 > Part 4 of the Light Offensive to Think Defensively track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/) closes the series by turning one verified lab observation into work an owner can understand, schedule, fix, and retest.

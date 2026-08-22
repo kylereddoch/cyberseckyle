@@ -119,6 +119,8 @@ tags: [cybersecurity, infosec, security-signal-weekly, vulnerability-management,
 mastodon_post: true
 mastodon_url:
 mastodon_tags: [Cybersecurity, InfoSec, ThreatIntel, WeeklySecurity]
+x_post: true
+x_url:
 ---
 ```
 
@@ -130,6 +132,7 @@ Notes:
 - `tags` are lowercase site taxonomy tags and based on the post's content.
 - `mastodon_tags` are Fediverse hashtags without the `#`, usually TitleCase or community-standard casing.
 - Leave `mastodon_url:` blank so the existing Mastodon workflow can backfill it.
+- Leave `x_url:` blank so the opt-in X workflow can backfill it when X auto-posting is enabled.
 - Do not add the old body image shortcode.
 - Do not add a detached references section unless Kyle asks for it.
 

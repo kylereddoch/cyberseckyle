@@ -11,6 +11,8 @@ tags: [cyberseckyle-howto-series, cybersecurity, security, passwords, identity-s
 mastodon_post: true
 mastodon_url:
 mastodon_tags: [Cybersecurity, InfoSec, Passwords, IdentitySecurity, CybersecKyleHowTo]
+x_post: true
+x_url:
 ---
 
 > Part 3 of the Light Offensive to Think Defensively track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/) examines what a lab target reveals before authentication and how its identity controls respond to a small, authorized set of failed sign-ins.
