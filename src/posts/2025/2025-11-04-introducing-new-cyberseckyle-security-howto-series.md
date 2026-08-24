@@ -31,7 +31,7 @@ Planned parts:
 
 1. Password Managers + MFA [[Live now](/blog/cyberseckyle-security-how-to-series-everyday-defense-part-1-password-managers-mfa/)]
 2. 2FA Rescue and Recovery [[Live now](/blog/cyberseckyle-security-how-to-series-everyday-defense-part-2-2fa-rescue-and-recovery/)]
-3. Browser hygiene that sticks [[Live now](/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-—-browser-hygiene-that-actually-sticks/)]
+3. Browser hygiene that sticks [[Live now](/blog/cyberseckyle-security-how-to-series-everyday-defense-part-3-browser-hygiene-that-actually-sticks/)]
 4. Phone hardening you can live with [[Live now](/blog/cyberseckyle-security-how-to-series-everyday-defense-part-4-phone-hardening-you-can-live-with/)]
 5. Scam spotting with a 60 second pause protocol [[Live now](/blog/cyberseckyle-security-how-to-series-everyday-defense-part-5-scam-spotting-the-60-second-pause-protocol/)]
 6. Backups that actually restore [[Live now](/blog/cyberseckyle-security-how-to-series-everyday-defense-part-6-backups-that-actually-restore/)]
@@ -57,10 +57,10 @@ Planned parts:
 
 1. Account inventory and least privilege [[Live now](/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-1-account-inventory-and-least-privilege/)]
 2. Email security with SPF, DKIM, DMARC [[Live now](/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-2-email-security-with-spf-dkim-and-dmarc/)]
-3. Secrets management 101 for side projects
-4. Light self hosting behind a reverse proxy
-5. Security logging at home
-6. Travel mode for laptops and phones
+3. Secrets management 101 for side projects [[Live now](/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-3-secrets-management-101-for-side-projects/)]
+4. Light self hosting behind a reverse proxy [[Live now](/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-4-light-self-hosting-behind-a-reverse-proxy/)]
+5. Security logging at home [[Live now](/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-5-security-logging-at-home/)]
+6. Travel mode for laptops and phones [[Live now](/blog/cyberseckyle-security-how-to-series-power-user-and-small-team-part-6-travel-mode-for-laptops-and-phones/)]
 
 ## Season 4 · Blue Team Fundamentals (Intermediate to Advanced)
 
@@ -68,12 +68,12 @@ Baselines, visibility, and signals that matter.
 
 Planned parts:
 
-1. Windows workstation baseline with Defender and ASR rules
-2. macOS baseline with profiles and audit basics
-3. Vulnerability scanning with real triage
-4. Threat modeling a small target
-5. First response at home
-6. SIEM-lite with a few useful alerts
+1. Windows workstation baseline with Defender and ASR rules [[Live now](/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-1-windows-workstation-baseline-with-defender-and-asr-rules/)]
+2. macOS baseline with profiles and audit basics [[Live now](/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-2-macos-baseline-with-profiles-and-audit-basics/)]
+3. Vulnerability scanning with real triage [[Live now](/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-3-vulnerability-scanning-with-real-triage/)]
+4. Threat modeling a small target [[Live now](/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-4-threat-modeling-a-small-target/)]
+5. First response at home [[Live now](/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-5-first-response-at-home/)]
+6. SIEM-lite with a few useful alerts [[Live now](/blog/cyberseckyle-security-how-to-series-blue-team-fundamentals-part-6-siem-lite-with-a-few-useful-alerts/)]
 
 ## Season 5 · Light Offensive to Think Defensively (Advanced)
 
@@ -81,8 +81,8 @@ Learn how attacks work in a safe lab so you can fix the real gaps.
 
 Planned parts:
 
-1. Build a safe lab with snapshots
-2. Phishing simulation to study prompts and controls
+1. Build a safe lab with snapshots [[Live now](/blog/cyberseckyle-security-how-to-series-light-offensive-to-think-defensively-part-1-build-a-safe-lab-with-snapshots/)]
+2. Phishing simulation to study prompts and controls [[Live now](/blog/cyberseckyle-security-how-to-series-light-offensive-to-think-defensively-part-2-phishing-simulation-to-study-prompts-and-controls/)]
 3. Recon and password attack theory inside the lab
 4. From findings to fixes with a short report
 
