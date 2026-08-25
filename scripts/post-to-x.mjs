@@ -500,10 +500,12 @@ async function waitForBufferPost(post) {
 
   while (Date.now() < deadline) {
     if (currentPost.status === 'error') {
-      throw new Error(
-        `Buffer failed to publish post ${currentPost.id}: ` +
-          `${currentPost.error?.message || 'unknown publishing error'}`
+      console.warn(
+        `::warning::Buffer reported a publishing error for post ${currentPost.id}: ` +
+          `${currentPost.error?.message || 'unknown publishing error'}. ` +
+          `The Buffer ID has been retained so another workflow run will not create a duplicate.`
       );
+      return currentPost;
     }
 
     await sleep(bufferWaitIntervalSeconds * 1000);
@@ -532,8 +534,15 @@ async function publishFile(file) {
 
   const data = parsed.data;
   const relativePath = normalizePath(path.relative(root, file));
+  const hasXUrlField = Object.prototype.hasOwnProperty.call(data, 'x_url');
 
-  if (data.draft || isFutureDated(data) || data.x_post !== true || String(data.x_url || '').trim()) {
+  if (
+    data.draft ||
+    isFutureDated(data) ||
+    data.x_post !== true ||
+    !hasXUrlField ||
+    String(data.x_url || '').trim()
+  ) {
     return null;
   }
 
@@ -565,6 +574,11 @@ async function publishFile(file) {
   } else {
     await waitForPublishedPost(postUrl, relativePath);
     bufferPost = await createBufferPost(status);
+    fs.writeFileSync(
+      file,
+      setFrontMatterValues(raw, parsed, {x_buffer_post_id: bufferPost.id}),
+      'utf8'
+    );
     console.log(`Buffer accepted ${relativePath} for immediate X publishing: ${bufferPost.id}`);
   }
 
@@ -590,18 +604,33 @@ async function publishFile(file) {
 }
 
 const results = [];
+const failures = [];
 
 for (const file of getCandidateFiles()) {
-  const result = await publishFile(file);
+  try {
+    const result = await publishFile(file);
 
-  if (result) {
-    results.push(result);
+    if (result) {
+      results.push(result);
+    }
+  } catch (error) {
+    const relativePath = normalizePath(path.relative(root, file));
+    failures.push(relativePath);
+    console.warn(`::warning::X posting failed for ${relativePath}: ${error.message}`);
   }
 }
 
 setGitHubOutput('posted_count', results.length);
 setGitHubOutput('posted_files', results.map(result => result.file).join(' '));
+setGitHubOutput('failed_count', failures.length);
+setGitHubOutput('failed_files', failures.join(' '));
 
 if (!results.length) {
   console.log('No eligible posts found for X through Buffer.');
+}
+
+if (failures.length) {
+  console.warn(
+    `X posting finished with ${failures.length} warning(s). The site deployment remains successful.`
+  );
 }
