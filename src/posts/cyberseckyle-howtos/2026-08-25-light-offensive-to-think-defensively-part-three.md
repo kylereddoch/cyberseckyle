@@ -9,10 +9,11 @@ featuredImageAlt: Network ports and service mapping themed image representing la
 featuredImageCaption: Learning the shape of an attack helps you close the doors it depends on.
 tags: [cyberseckyle-howto-series, cybersecurity, security, passwords, identity-security, how-to]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/117157003644264666"
 mastodon_tags: [Cybersecurity, InfoSec, Passwords, IdentitySecurity, CybersecKyleHowTo]
 x_post: true
 x_url: "https://x.com/thecyberseckyle/status/2092282549623980060"
+publishedAt: "2026-08-25T16:06:45.804Z"
 ---
 
 > Part 3 of the Light Offensive to Think Defensively track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/) examines what a lab target reveals before authentication and how its identity controls respond to a small, authorized set of failed sign-ins.
