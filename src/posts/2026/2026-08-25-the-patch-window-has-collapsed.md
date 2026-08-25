@@ -9,10 +9,12 @@ featuredImageAlt: A defender monitors a network as a huge closing clock surround
 featuredImageCaption: "The shrinking window is not only time to patch. It is time to scope, contain, hunt, remediate, and verify. (Image generated using ChatGPT.)"
 tags: [cybersecurity, vulnerability-management, patch-management, incident-response, MSP, risk-management]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/117158460669386160"
 mastodon_tags: [Cybersecurity, InfoSec, VulnerabilityManagement, PatchManagement, IncidentResponse, MSP]
 x_post: true
-x_url:
+x_url: "https://twitter.com/thecyberseckyle/status/2092375799114424605"
+publishedAt: "2026-08-25T22:17:18.243Z"
+x_buffer_post_id: "6a8e146fce947d0974a13812"
 ---
 
 On July 31, N-able detected a threat actor exploiting a previously unknown vulnerability in N-central. By August 1, the company had published guidance. Hotfix 1 arrived on August 2. Continued monitoring found a related attack path, so Hotfix 2 followed on August 6. That is already a difficult timeline for any IT or security team, and then comes the part that matters even more.
