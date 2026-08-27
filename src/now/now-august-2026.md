@@ -5,7 +5,8 @@ date: 2026-08-27T15:34:15-05:00
 tags: [now, life, work, projects]
 description: I walked the stage for my degree, launched The Defender's Dispatch, built new tools around my Jellyfin server, and have been trying to enjoy what I am making without running myself into the ground.
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/117169603543881047"
+publishedAt: "2026-08-27T21:31:05.013Z"
 ---
 
 It has been a while since I updated this page, and quite a bit has happened since the last one. I am still writing about security and working in the MSP world. Outside of that, I have spent a lot of time on self-hosting, physical media, and building tools that solve problems I keep running into myself.
