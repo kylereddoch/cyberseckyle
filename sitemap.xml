@@ -1020,7 +1020,7 @@
       
 
       <url>
-        <loc>https://www.kylereddoch.me/now/now-december-2025/</loc>
+        <loc>https://www.kylereddoch.me/blog/december-2025/</loc>
         
         <lastmod>2025-12-05T15:00:00.000Z</lastmod>
         
@@ -1345,7 +1345,7 @@
       
 
       <url>
-        <loc>https://www.kylereddoch.me/now/now-january-2026/</loc>
+        <loc>https://www.kylereddoch.me/blog/january-2026/</loc>
         
         <lastmod>2026-01-26T17:30:00.000Z</lastmod>
         
@@ -2931,7 +2931,7 @@
       
 
       <url>
-        <loc>https://www.kylereddoch.me/now/now-july-2026/</loc>
+        <loc>https://www.kylereddoch.me/blog/july-2026/</loc>
         
         <lastmod>2026-07-13T18:00:00.000Z</lastmod>
         
@@ -3493,6 +3493,19 @@
         <loc>https://www.kylereddoch.me/blog/cyberseckyle-security-how-to-series-light-offensive-to-think-defensively-part-4-from-findings-to-fixes-with-a-short-report/</loc>
         
         <lastmod>2026-08-27T20:03:17.330Z</lastmod>
+        
+        <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+
+      
+
+      <url>
+        <loc>https://www.kylereddoch.me/blog/august-2026/</loc>
+        
+        <lastmod>2026-08-27T20:34:15.000Z</lastmod>
         
         <changefreq>monthly</changefreq>
     </url>
