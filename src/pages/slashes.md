@@ -19,7 +19,7 @@ layout: page
 
 **/defaults** - This is the list of apps I use daily for various tasks, etc.
 
-[/blogroll](/blogroll) - Sites, writers, and independent web corners I like keeping up with.
+[/friends](/friends) - Friends, people I have met around the internet, and people whose work I like and admire.
 
 [/bookshelf](/bookshelf) - Books I am reading, have read, or want to remember.
 
