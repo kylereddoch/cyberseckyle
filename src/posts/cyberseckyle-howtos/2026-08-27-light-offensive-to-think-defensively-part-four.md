@@ -1,5 +1,5 @@
 ---
-date: 2026-08-27T10:00:00-05:00
+date: 2026-08-27T14:30:00-05:00
 title: 'CybersecKyle Security How-To Series: Light Offensive to Think Defensively, Part 4 - From Findings to Fixes with a Short Report'
 seoTitle: From Security Findings to Fixes with a Short Report
 description: 'A practical guide to turning lab findings into defensive fixes: write clear evidence, explain impact, recommend realistic remediation, validate closure, and keep the report short enough to use.'
