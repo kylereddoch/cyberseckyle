@@ -102,7 +102,7 @@ excludeFromSearch: true
       <ul class="space-y-2">
         {% for post in recent | head(5) %}
         {% set entryType = post.data.contentType or 'post' %}
-        {% if '/now/' in post.url %}
+        {% if post.data.contentType == 'now' %}
           {% set entryType = 'now' %}
         {% endif %}
         {% if entryType == 'note' %}

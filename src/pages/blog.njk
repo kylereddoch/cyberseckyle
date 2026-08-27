@@ -17,7 +17,7 @@ description: "Writing from CybersecKyle, including long-form posts and dated /no
   <div class="space-y-8">
     {% for post in entries %}
       {% set publishedDate = post | publishedDate %}
-      {% if '/now/' in post.url %}
+      {% if post.data.contentType == 'now' %}
         {% set entryIcon = '&#128205;' %}
         {% set entryLabel = 'Now' %}
       {% else %}

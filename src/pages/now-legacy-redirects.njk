@@ -1,0 +1,23 @@
+---
+pagination:
+  data: collections.nowEntries
+  size: 1
+  alias: nowEntry
+permalink: '/now/{{ nowEntry.fileSlug }}/index.html'
+eleventyExcludeFromCollections: true
+excludeFromSitemap: true
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content="0; url={{ nowEntry.url }}" />
+    <meta name="robots" content="noindex,follow" />
+    <link rel="canonical" href="{{ meta.url }}{{ nowEntry.url }}" />
+    <title>Redirecting to {{ nowEntry.data.title }}</title>
+  </head>
+  <body>
+    <p>This entry moved to <a href="{{ nowEntry.url }}">{{ nowEntry.data.title }}</a>.</p>
+  </body>
+</html>

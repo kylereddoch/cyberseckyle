@@ -8,7 +8,8 @@ import { author as siteAuthor, url as configuredSiteUrl } from '../src/_data/met
 const root = process.cwd();
 const defaultSearchRoots = [
   path.join(root, 'src', 'posts'),
-  path.join(root, 'src', 'notes')
+  path.join(root, 'src', 'notes'),
+  path.join(root, 'src', 'now')
 ];
 const dryRun =
   process.argv.includes('--dry-run') ||

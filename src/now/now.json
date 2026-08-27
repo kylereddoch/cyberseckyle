@@ -1,0 +1,4 @@
+{
+  "contentType": "now",
+  "permalink": "/blog/{{ slug or title | slugify }}/index.html"
+}
