@@ -39,6 +39,9 @@
   <link rel="me" href="{{ personal.platforms.mastodon }}" />
 {% endif %}
 
+<!-- Delegate IndieAuth sign-in to IndieAuth.com -->
+<link rel="authorization_endpoint" href="https://indieauth.com/auth" />
+
 {% if meta.author.fediverse %}
   <!-- fediverse creator tag -->
   <meta name="fediverse:creator" content="{{ meta.author.fediverse }}" />

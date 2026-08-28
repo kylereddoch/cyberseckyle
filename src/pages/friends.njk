@@ -5,6 +5,152 @@ title: Friends
 description: 'Friends, people I have met around the internet, and people whose work I like and admire.'
 ---
 
+{%
+  set sections = [
+    {
+      "title": "Cybersecurity and IT",
+      "people": [
+        {
+          "name": "Adam Boileau",
+          "websiteUrl": "https://risky.biz/people/",
+          "websiteLabel": "risky.biz",
+          "socialUrl": "https://bsky.app/profile/metlstorm.risky.biz",
+          "socialLabel": "Bluesky",
+          "note": "Adam brings a sharp technical perspective to Risky Business without making security news feel dry."
+        },
+        {
+          "name": "Brian H. Suarez",
+          "websiteUrl": "https://bhsuarez.com/",
+          "websiteLabel": "bhsuarez.com",
+          "socialUrl": "https://suarez.social/@bh",
+          "socialLabel": "Mastodon",
+          "note": "Brian shared a thoughtful, people-first perspective on cybersecurity drills that stuck with me."
+        },
+        {
+          "name": "Brian Krebs",
+          "websiteUrl": "https://krebsonsecurity.com/",
+          "websiteLabel": "krebsonsecurity.com",
+          "socialUrl": "https://infosec.exchange/@briankrebs",
+          "socialLabel": "Mastodon",
+          "note": "Brian is the absolute security guy."
+        },
+        {
+          "name": "Catalin Cimpanu",
+          "websiteUrl": "https://risky.biz/people/",
+          "websiteLabel": "risky.biz",
+          "socialUrl": "https://bsky.app/profile/campuscodi.risky.biz",
+          "socialLabel": "Bluesky",
+          "note": "Catalin keeps the daily flood of security news useful and grounded through Risky Bulletin."
+        },
+        {
+          "name": "Jason Ormes",
+          "websiteUrl": "https://www.jasonormes.com/",
+          "websiteLabel": "jasonormes.com",
+          "socialUrl": "https://www.linkedin.com/in/skryking",
+          "socialLabel": "LinkedIn",
+          "note": "Jason is a friend in the security community whose questions always get me thinking."
+        },
+        {
+          "name": "Jerry Bell",
+          "websiteUrl": "https://defensivesecurity.org/",
+          "websiteLabel": "defensivesecurity.org",
+          "socialUrl": "https://infosec.exchange/@jerry",
+          "socialLabel": "Mastodon",
+          "note": "Jerry runs the Infosec.exchange Mastodon instance I use and hosts the great Defensive Security podcast."
+        },
+        {
+          "name": "Matt Organ",
+          "socialUrl": "https://infosec.exchange/@Slater450413",
+          "socialLabel": "Mastodon",
+          "note": "Matt is a fellow infosec and F1 fan whose perspective helped shape my thinking on cybersecurity drills."
+        },
+        {
+          "name": "Patrick Gray",
+          "websiteUrl": "https://risky.biz/",
+          "websiteLabel": "risky.biz",
+          "socialUrl": "https://bsky.app/profile/patrick.risky.biz",
+          "socialLabel": "Bluesky",
+          "note": "Patrick breaks down security news with the right mix of insight and snark on Risky Business."
+        },
+        {
+          "name": "Shellsharks",
+          "websiteUrl": "https://shellsharks.com/",
+          "websiteLabel": "shellsharks.com",
+          "socialUrl": "https://shellsharks.social/@shellsharks",
+          "socialLabel": "Mastodon",
+          "note": "Mike's digital garden is a fun mix of infosec, IndieWeb, and Fediverse writing that always gives me something interesting to explore."
+        },
+        {
+          "name": "Steve Gibson",
+          "websiteUrl": "https://www.grc.com/securitynow.htm",
+          "websiteLabel": "grc.com",
+          "socialUrl": "https://x.com/SGgrc",
+          "socialLabel": "X",
+          "note": "Steve has been making deeply technical security topics easier to understand on Security Now for years."
+        },
+        {
+          "name": "Troy Hunt",
+          "websiteUrl": "https://www.troyhunt.com/",
+          "websiteLabel": "troyhunt.com",
+          "socialUrl": "https://infosec.exchange/@troyhunt",
+          "socialLabel": "Mastodon",
+          "note": "Troy built Have I Been Pwned into one of the most useful security resources on the internet."
+        }
+      ]
+    },
+    {
+      "title": "IndieWeb and Personal Sites",
+      "people": [
+        {
+          "name": "Cliff Wade",
+          "websiteUrl": "https://seerofsouls.com/",
+          "websiteLabel": "seerofsouls.com",
+          "socialUrl": "https://infosec.exchange/@cliffwade",
+          "socialLabel": "Mastodon",
+          "note": "Cliff was a co-owner and admin with me at AllThingsTech and is a friend and an all-around great guy."
+        },
+        {
+          "name": "Nick Gray",
+          "websiteUrl": "https://nickgray.net/friends/",
+          "websiteLabel": "nickgray.net",
+          "socialUrl": "https://x.com/nickgraynews",
+          "socialLabel": "X",
+          "note": "Nick started the neat slashfriends.org project and brought back a friendlier side of the internet."
+        }
+      ]
+    },
+    {
+      "title": "Tech, Development, and Media",
+      "people": [
+        {
+          "name": "Gavin Wiggins",
+          "websiteUrl": "https://gavinw.me/",
+          "websiteLabel": "gavinw.me",
+          "socialUrl": "https://fosstodon.org/@wigging",
+          "socialLabel": "Mastodon",
+          "note": "Gavin builds thoughtful Mac tools and shares the kind of practical development work I enjoy following."
+        },
+        {
+          "name": "Jason Snell",
+          "websiteUrl": "https://sixcolors.com/",
+          "websiteLabel": "sixcolors.com",
+          "socialUrl": "https://zeppelin.flights/@jsnell",
+          "socialLabel": "Mastodon",
+          "note": "Jason has been covering Apple for decades, and I always enjoy his sharp perspective on Six Colors and the podcasts he hosts."
+        },
+        {
+          "name": "Leo Laporte",
+          "websiteUrl": "https://leo.fm/",
+          "websiteLabel": "leo.fm",
+          "socialUrl": "https://twit.social/@leo",
+          "socialLabel": "Mastodon",
+          "note": "Leo has been one of my favorite voices in tech for years and built TWiT into a network I still keep coming back to."
+        }
+      ]
+    }
+  ]
+%}
+
 <div class="max-w-4xl">
   <h1 class="text-3xl font-bold mb-2 flex items-center gap-2">
     <span aria-hidden="true">&#128101;</span>
@@ -16,186 +162,43 @@ description: 'Friends, people I have met around the internet, and people whose w
   </p>
 
   <div class="space-y-8">
-    <section>
-      <h2 class="text-xl font-semibold mb-4">Cybersecurity and IT</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-          <h3 class="font-semibold">
-            <a
-              class="text-blue-600 dark:text-blue-400 hover:underline"
-              href="https://bsky.app/profile/metlstorm.risky.biz"
-              >Adam Boileau</a
-            >
-          </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-            Adam brings a sharp technical perspective to Risky Business without making security news feel dry.
-          </p>
-        </div>
-        <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-          <h3 class="font-semibold">
-            <a class="text-blue-600 dark:text-blue-400 hover:underline" href="https://bhsuarez.com/"
-              >Brian H. Suarez</a
-            >
-          </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-            Brian shared a thoughtful, people-first perspective on cybersecurity drills that stuck with me.
-          </p>
-        </div>
-        <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-          <h3 class="font-semibold">
-            <a class="text-blue-600 dark:text-blue-400 hover:underline" href="https://krebsonsecurity.com/"
-              >Brian Krebs</a
-            >
-          </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Brian is the absolute security guy.</p>
-        </div>
-        <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-          <h3 class="font-semibold">
-            <a
-              class="text-blue-600 dark:text-blue-400 hover:underline"
-              href="https://bsky.app/profile/campuscodi.risky.biz"
-              >Catalin Cimpanu</a
-            >
-          </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-            Catalin keeps the daily flood of security news useful and grounded through Risky Bulletin.
-          </p>
-        </div>
-        <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-          <h3 class="font-semibold">
-            <a class="text-blue-600 dark:text-blue-400 hover:underline" href="https://www.jasonormes.com/"
-              >Jason Ormes</a
-            >
-          </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-            Jason is a friend in the security community whose questions always get me thinking.
-          </p>
-        </div>
-        <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-          <h3 class="font-semibold">
-            <a class="text-blue-600 dark:text-blue-400 hover:underline" href="https://defensivesecurity.org/"
-              >Jerry Bell</a
-            >
-          </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-            Jerry runs the Infosec.exchange Mastodon instance I use and hosts the great Defensive Security
-            podcast.
-          </p>
-        </div>
-        <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-          <h3 class="font-semibold">
-            <a
-              class="text-blue-600 dark:text-blue-400 hover:underline"
-              href="https://infosec.exchange/@Slater450413"
-              >Matt Organ</a
-            >
-          </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-            Matt is a fellow infosec and F1 fan whose perspective helped shape my thinking on cybersecurity
-            drills.
-          </p>
-        </div>
-        <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-          <h3 class="font-semibold">
-            <a
-              class="text-blue-600 dark:text-blue-400 hover:underline"
-              href="https://bsky.app/profile/patrick.risky.biz"
-              >Patrick Gray</a
-            >
-          </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-            Patrick breaks down security news with the right mix of insight and snark on Risky Business.
-          </p>
-        </div>
-        <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-          <h3 class="font-semibold">
-            <a class="text-blue-600 dark:text-blue-400 hover:underline" href="https://shellsharks.com/"
-              >Shellsharks</a
-            >
-          </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-            Mike's digital garden is a fun mix of infosec, IndieWeb, and Fediverse writing that always gives
-            me something interesting to explore.
-          </p>
-        </div>
-        <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-          <h3 class="font-semibold">
-            <a
-              class="text-blue-600 dark:text-blue-400 hover:underline"
-              href="https://www.grc.com/securitynow.htm"
-              >Steve Gibson</a
-            >
-          </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-            Steve has been making deeply technical security topics easier to understand on Security Now for
-            years.
-          </p>
-        </div>
-        <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-          <h3 class="font-semibold">
-            <a class="text-blue-600 dark:text-blue-400 hover:underline" href="https://www.troyhunt.com/"
-              >Troy Hunt</a
-            >
-          </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-            Troy built Have I Been Pwned into one of the most useful security resources on the internet.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2 class="text-xl font-semibold mb-4">IndieWeb and Personal Sites</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-          <h3 class="font-semibold">
-            <a class="text-blue-600 dark:text-blue-400 hover:underline" href="https://seerofsouls.com/"
-              >Cliff Wade</a
-            >
-          </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-            Cliff was a co-owner and admin with me at AllThingsTech and is a friend and an all-around great
-            guy.
-          </p>
-        </div>
-        <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-          <h3 class="font-semibold">
-            <a class="text-blue-600 dark:text-blue-400 hover:underline" href="http://www.nickgray.net/friends"
-              >Nick Gray</a
-            >
-          </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-            Nick started the neat slashfriends.org project and brought back a friendlier side of the internet.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2 class="text-xl font-semibold mb-4">Tech, Development, and Media</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-          <h3 class="font-semibold">
-            <a class="text-blue-600 dark:text-blue-400 hover:underline" href="https://gavinw.me/"
-              >Gavin Wiggins</a
-            >
-          </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-            Gavin builds thoughtful Mac tools and shares the kind of practical development work I enjoy
-            following.
-          </p>
-        </div>
-        <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-          <h3 class="font-semibold">
-            <a class="text-blue-600 dark:text-blue-400 hover:underline" href="https://leo.fm/">Leo Laporte</a>
-          </h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-            Leo has been one of my favorite voices in tech for years and built TWiT into a network I still
-            keep coming back to.
-          </p>
-        </div>
-      </div>
-    </section>
+    {% for section in sections %}
+      <section>
+        <h2 class="text-xl font-semibold mb-4">{{ section.title }}</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4" role="list">
+          {% for person in section.people %}
+            <li class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 flex flex-col">
+              <h3 class="font-semibold">
+                <a
+                  class="text-blue-600 dark:text-blue-400 hover:underline"
+                  href="{{ person.websiteUrl or person.socialUrl }}"
+                  >{{ person.name }}</a
+                >
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mt-1 flex-1">{{ person.note }}</p>
+              <div class="flex flex-wrap gap-2 mt-3">
+                {% if person.websiteUrl %}
+                  <a
+                    class="inline-block px-3 py-1 text-xs font-medium rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 hover:opacity-80 transition-opacity"
+                    href="{{ person.websiteUrl }}"
+                    aria-label="{{ person.name }} website: {{ person.websiteLabel }}"
+                    >{{ person.websiteLabel }}</a
+                  >
+                {% endif %}
+                {% if person.socialUrl %}
+                  <a
+                    class="inline-block px-3 py-1 text-xs font-medium rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 hover:opacity-80 transition-opacity"
+                    href="{{ person.socialUrl }}"
+                    aria-label="{{ person.name }} on {{ person.socialLabel }}"
+                    >{{ person.socialLabel }}</a
+                  >
+                {% endif %}
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endfor %}
   </div>
 
   <p class="mt-8 text-sm text-gray-600 dark:text-gray-400">
