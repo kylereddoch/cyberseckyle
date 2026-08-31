@@ -14,9 +14,11 @@ publishedAt: "2026-08-31T16:15:46.634Z"
 x_buffer_post_id: "6a95a8b453e01f69d9449f5d"
 ---
 
+> I spent most of this weekend moving, so Friday's edition slipped past me. I am publishing it late rather than pretending the week was quiet.
+
 ## Overview
 
-I spent most of this weekend moving, so Friday's edition slipped past me. I am publishing it late rather than pretending the week was quiet. PaperCut and NetScaler both moved into active-exploitation territory, Next.js shipped fixes for two critical remote-code-execution flaws, and another trusted npm publishing path was turned against developers.
+PaperCut and NetScaler both moved into active-exploitation territory, Next.js shipped fixes for two critical remote-code-execution flaws, and another trusted npm publishing path was turned against developers.
 
 The incident side was just as busy. Two large healthcare companies disclosed disruptions, ATF called an intrusion into a standalone system a major incident, and the FBI and Justice Department shut down infrastructure used to hide attacks against US critical networks. The practical thread is familiar: reduce exposed attack surface first, then verify the trusted systems and third parties that can still reach sensitive data.
 
