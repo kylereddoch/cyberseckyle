@@ -9,10 +9,12 @@ featuredImageAlt: A security analyst watches a glowing AI system work through co
 featuredImageCaption: "GPT-6 Astra’s most important security capability is its ability to keep working through a chain of decisions, tests, and failures. (Image generated using ChatGPT.)"
 tags: [openai, ai, cybersecurity, vulnerability-management, security-operations]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/117236314458791815"
 mastodon_tags: [OpenAI, GPT6Astra, Cybersecurity, InfoSec, AI, VulnerabilityManagement]
 x_post: true
-x_url:
+x_url: "https://twitter.com/thecyberseckyle/status/2097358440892932189"
+publishedAt: "2026-09-08T16:16:32.794Z"
+x_buffer_post_id: "6aa034e145fd8d4044dcebef"
 ---
 
 I have spent the past few days using OpenAI’s GPT-6 Astra across the kind of work I normally do: research, code, troubleshooting, and security analysis. What stands out is not one clever answer, but how long Astra can stay with a problem.
