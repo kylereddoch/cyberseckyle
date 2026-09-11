@@ -6,10 +6,12 @@ featuredImage: /assets/images/security-signal-weekly.png
 featuredImageAlt: "Security Signal Weekly editorial graphic with the series title, signal bars, and cybersecurity alert panels in the CybersecKyle site colors."
 tags: [cybersecurity, infosec, security-signal-weekly, vulnerability-management, incident-response, threat-intel, news]
 mastodon_post: true
-mastodon_url:
+mastodon_url: "https://infosec.exchange/@cyberseckyle/117254055670546789"
 mastodon_tags: [Cybersecurity, InfoSec, ThreatIntel, WeeklySecurity]
 x_post: true
-x_url:
+x_url: "https://twitter.com/thecyberseckyle/status/2098493879536210180"
+publishedAt: "2026-09-11T19:28:22.202Z"
+x_buffer_post_id: "6aa456574e27fbe1089a83fb"
 ---
 
 ## Overview
