@@ -52,8 +52,8 @@
   <link rel="pingback" href="https://webmention.io/{{ meta.url | replace('https://', '') | replace('http://', '') }}/xmlrpc" />
 {% endif %}
 
-{% set projectSocialImage = (featuredImage or featured_image) if layout == 'project' else '' %}
-{% set projectSocialImageAlt = featuredImageAlt or featured_image_alt or alt or title %}
+{% set detailSocialImage = (featuredImage or featured_image) if layout == 'project' or layout == 'app' else '' %}
+{% set detailSocialImageAlt = featuredImageAlt or featured_image_alt or alt or title %}
 
 <!-- Open Graph meta  -->
 <meta property="og:url" content="{{ meta.url }}{{ page.url }}" />
@@ -64,8 +64,8 @@
 />
 <meta
   property="og:image"
-  content="{%- if layout == 'project' and projectSocialImage -%}
-    {{- projectSocialImage | absoluteUrl(meta.url) -}}
+  content="{%- if detailSocialImage -%}
+    {{- detailSocialImage | absoluteUrl(meta.url) -}}
   {%- elif layout == 'post' or layout == 'note' or layout == 'journal' -%}
     {{- meta.url -}}/assets/og-images/{{ slug or title | slugify }}-preview.jpeg
   {%- else -%}
@@ -74,8 +74,8 @@
 />
 <meta
   property="og:image:alt"
-  content="{%- if layout == 'project' and projectSocialImage -%}
-    {{- projectSocialImageAlt -}}
+  content="{%- if detailSocialImage -%}
+    {{- detailSocialImageAlt -}}
   {%- elif layout == 'post' or layout == 'note' or layout == 'journal' -%}
     {{- title -}}
   {%- else -%}

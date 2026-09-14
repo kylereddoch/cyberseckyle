@@ -25,6 +25,7 @@ import esbuild from 'esbuild';
 import {
   categoryList,
   getPublishedDate,
+  getApps,
   getAllPosts,
   getBlogEntries,
   getJournalPosts,
@@ -278,6 +279,8 @@ export default async function (eleventyConfig) {
   eleventyConfig.addLayoutAlias('page', 'page.njk');
   eleventyConfig.addLayoutAlias('post', 'post.njk');
   eleventyConfig.addLayoutAlias('project', 'project.njk');
+  eleventyConfig.addLayoutAlias('app', 'app.njk');
+  eleventyConfig.addLayoutAlias('redirect', 'redirect.njk');
   eleventyConfig.addLayoutAlias('note', 'note.njk');
   eleventyConfig.addLayoutAlias('journal', 'journal.njk');
   eleventyConfig.addLayoutAlias('tags', 'tags.njk');
@@ -309,6 +312,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addCollection('notes', getNotes);
   eleventyConfig.addCollection('journal', getJournalPosts);
   eleventyConfig.addCollection('projects', getProjects);
+  eleventyConfig.addCollection('apps', getApps);
   eleventyConfig.addCollection('newsletterIssues', getNewsletterIssues);
   eleventyConfig.addCollection('allPosts', getAllPosts);
   eleventyConfig.addCollection('showInSitemap', showInSitemap);
@@ -385,6 +389,21 @@ export default async function (eleventyConfig) {
       date: getExplicitSearchDate(item)
     }));
 
+    const appEntries = getApps(collectionApi).map(item => ({
+      id: item.url,
+      title: item.data?.title || '',
+      seoTitle: item.data?.seoTitle || '',
+      description: item.data?.description || item.data?.summary || '',
+      searchIntent: item.data?.searchIntent || '',
+      tags: [
+        item.data?.appPlatform,
+        item.data?.appStatus,
+        ...(Array.isArray(item.data?.techStack) ? item.data.techStack : [])
+      ].filter(Boolean),
+      content: getSearchableContent(item),
+      date: getExplicitSearchDate(item)
+    }));
+
     const newsletterEntries = getNewsletterIssues(collectionApi).map(item => ({
       id: item.url,
       title: item.data?.title || '',
@@ -411,7 +430,7 @@ export default async function (eleventyConfig) {
       }));
 
     const seen = new Set();
-    return [...contentEntries, ...projectEntries, ...newsletterEntries, ...pageEntries].filter(item => {
+    return [...contentEntries, ...appEntries, ...projectEntries, ...newsletterEntries, ...pageEntries].filter(item => {
       if (!item.id || seen.has(item.id)) return false;
       seen.add(item.id);
       return true;

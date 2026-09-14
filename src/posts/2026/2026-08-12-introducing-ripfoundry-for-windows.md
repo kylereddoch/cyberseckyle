@@ -20,7 +20,7 @@ Ripping and video encoding are not lightweight background chores. They need loca
 
 So I brought RipFoundry to Windows.
 
-**RipFoundry for Windows** is the desktop companion to my Linux workflow. It scans a DVD, matches the selected titles with TMDB, preserves the MakeMKV remux, creates an optional playback-friendly version, validates the result, and transfers only the completed files into the Jellyfin library. The [project page](/projects/ripfoundry-for-windows/) has the short version, and [version 1.1.0 is available on GitHub](https://github.com/kylereddoch/RipFoundry-for-Windows/releases/tag/v1.1.0).
+**RipFoundry for Windows** is the desktop companion to my Linux workflow. It scans a DVD, matches the selected titles with TMDB, preserves the MakeMKV remux, creates an optional playback-friendly version, validates the result, and transfers only the completed files into the Jellyfin library. The [app page](/apps/ripfoundry-for-windows/) has the short version, and [version 1.1.0 is available on GitHub](https://github.com/kylereddoch/RipFoundry-for-Windows/releases/tag/v1.1.0).
 
 ## The Windows PC does the expensive part
 
@@ -95,4 +95,3 @@ It is a portable project package, not a traditional Windows installer. I would r
 For now, [the 1.1.0 release](https://github.com/kylereddoch/RipFoundry-for-Windows/releases/tag/v1.1.0) includes both a portable package and the project package, along with published SHA-256 sums. The [repository](https://github.com/kylereddoch/RipFoundry-for-Windows) has the complete setup and build instructions.
 
 The [Linux version](/projects/ripfoundry-for-linux/) is still there for the command-line workflow. Windows did not replace it. This version puts the optical drive, local staging, and encoding work on the Windows machine where I wanted them, while keeping the rules that made RipFoundry worth trusting in the first place.
-

@@ -1,0 +1,7 @@
+{
+  "layout": "app",
+  "tags": ["apps"],
+  "contentType": "app",
+  "excludeFromFeed": true,
+  "permalink": "/apps/{{ slug or page.fileSlug }}/"
+}

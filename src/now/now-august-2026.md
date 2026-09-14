@@ -33,7 +33,7 @@ My Jellyfin server has become one of my favorite projects. I have been ripping m
 
 That process also led to two new open-source projects.
 
-[ReelArrange](/projects/reelarrange/) is a Windows app for matching downloaded movies and shows with TMDB, previewing a Jellyfin-friendly layout, and moving or copying everything into place. [RipFoundry for Windows](/projects/ripfoundry-for-windows/) guides the DVD side of the process, from MakeMKV through optional processing, validation, and the final transfer into the library. I also brought [RipFoundry back to Linux](/projects/ripfoundry-for-linux/) for people who want that workflow there.
+[ReelArrange](/apps/reelarrange/) is a Windows app for matching downloaded movies and shows with TMDB, previewing a Jellyfin-friendly layout, and moving or copying everything into place. [RipFoundry for Windows](/apps/ripfoundry-for-windows/) guides the DVD side of the process, from MakeMKV through optional processing, validation, and the final transfer into the library. I also brought [RipFoundry back to Linux](/projects/ripfoundry-for-linux/) for people who want that workflow there.
 
 All of them started with a problem I was tired of solving by hand. I have already found plenty of weird edge cases while using them, but honestly, working through those has been part of the fun. I like building something, putting it into my own routine, and then improving it based on what actually breaks.
 

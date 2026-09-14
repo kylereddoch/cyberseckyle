@@ -3,12 +3,15 @@ title: RipFoundry for Windows
 description: RipFoundry for Windows is my guided desktop app for ripping DVDs locally, creating optional enhanced or 1080p versions, validating them, and safely transferring finished movies into Jellyfin.
 summary: A Windows desktop companion for turning DVDs into verified, Jellyfin-ready movie versions without making the media server do the heavy work.
 date: 2026-08-12T10:22:12-05:00
-projectOrder: 0
-projectType: Windows App
-projectStatus: Active
+appOrder: 1
+appPlatform: Windows 10 and 11
+appStatus: Available
+appPrice: Free and open source
 badgeClasses: bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-200
 featuredImage: /assets/images/ripfoundry-windows-hero.png
 featuredImageAlt: RipFoundry for Windows showing the Rip DVD screen, processing options, and activity area
+redirectFrom:
+  - /projects/ripfoundry-for-windows/
 techStack:
   - Python
   - Tkinter
@@ -18,9 +21,9 @@ techStack:
   - TMDB API
   - Jellyfin
   - Open Source
-projectLinks:
-  - label: Download version 1.1.0
-    url: https://github.com/kylereddoch/RipFoundry-for-Windows/releases/tag/v1.1.0
+appLinks:
+  - label: Download version 1.4.0
+    url: https://github.com/kylereddoch/RipFoundry-for-Windows/releases/tag/v1.4.0
   - label: View on GitHub
     url: https://github.com/kylereddoch/RipFoundry-for-Windows
   - label: Read the introduction
@@ -73,8 +76,8 @@ The app then calculates SHA-256 for the local file and the destination copy. The
 
 That same approach applies to the Add 1080p Version tab. RipFoundry reads the original movie from the library, encodes locally, validates the new version, and verifies the copy back into the existing movie folder. The source remains untouched.
 
-## Version 1.1.0
+## Version 1.4.0
 
-RipFoundry for Windows 1.1.0 is available as a portable project package. It runs from Python 3.10 or newer, and the included build script can create a normal windowless Windows executable with PyInstaller.
+RipFoundry for Windows 1.4.0 is available as a portable ZIP. Extract the complete folder and keep `RipFoundry.exe` beside its `_internal` folder. This release adds automatic MKVToolNix detection, tools for inspecting and extracting embedded subtitles, and stronger checks around subtitle preservation and destination collisions.
 
-The current package is intentionally portable rather than pretending to be a traditional installed application. A full Windows installer is a possible later improvement. For now, the release includes the application, launcher, shortcut helper, artwork, and build files needed to keep the setup understandable.
+The current package is intentionally portable rather than pretending to be a traditional installed application. A full Windows installer is a possible later improvement.

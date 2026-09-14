@@ -97,7 +97,6 @@ For an existing movie, `upscale1080` can take an MKV path directly or search the
 
 RipFoundry for Linux is now public on [GitHub](https://github.com/kylereddoch/RipFoundry-for-Linux). The repository has the installation steps, configuration reference, architecture and safety notes, NAS setup, troubleshooting, contribution guidance, and release-packaging instructions.
 
-There is also a [Windows version](/projects/ripfoundry-for-windows/) for doing the same expensive work on the Windows PC attached to the DVD drive. The interface is different, but the important rules carry over: preserve the source, stage locally, validate before transfer, and verify the final copy.
+There is also a [Windows version](/apps/ripfoundry-for-windows/) for doing the same expensive work on the Windows PC attached to the DVD drive. The interface is different, but the important rules carry over: preserve the source, stage locally, validate before transfer, and verify the final copy.
 
 I built RipFoundry because I wanted adding a DVD to Jellyfin to feel like a process I could trust, not a sequence I hoped I remembered correctly. Now the shelf-to-library path has a tool of its own.
-

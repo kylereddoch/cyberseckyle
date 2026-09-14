@@ -127,6 +127,15 @@
   text-decoration: none;
 }
 
+.prose a.support-button--coffee,
+.prose a.support-button--coffee:visited,
+.prose a.support-button--coffee:hover,
+.prose a.support-button--coffee:focus-visible,
+.prose a.support-button--coffee:active {
+  color: #000;
+  text-decoration: none;
+}
+
 #progress-bar {
   position: fixed;
   top: 0;

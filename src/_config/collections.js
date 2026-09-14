@@ -22,6 +22,17 @@ const sortByProjectOrder = (a, b) => {
   return String(a?.data?.title || '').localeCompare(String(b?.data?.title || ''));
 };
 
+const sortByAppOrder = (a, b) => {
+  const orderA = Number.isFinite(Number(a?.data?.appOrder)) ? Number(a.data.appOrder) : Number.MAX_SAFE_INTEGER;
+  const orderB = Number.isFinite(Number(b?.data?.appOrder)) ? Number(b.data.appOrder) : Number.MAX_SAFE_INTEGER;
+
+  if (orderA !== orderB) {
+    return orderA - orderB;
+  }
+
+  return String(a?.data?.title || '').localeCompare(String(b?.data?.title || ''));
+};
+
 const dedupeByUrl = items => {
   const map = new Map();
   items.forEach(item => {
@@ -64,6 +75,11 @@ export const getProjects = collection =>
   collection
     .getFilteredByGlob('./src/projects/**/*.md')
     .sort(sortByProjectOrder);
+
+export const getApps = collection =>
+  collection
+    .getFilteredByGlob('./src/apps/**/*.md')
+    .sort(sortByAppOrder);
 
 export const getNewsletterIssues = collection =>
   collection

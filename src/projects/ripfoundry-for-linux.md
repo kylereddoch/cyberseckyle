@@ -23,7 +23,7 @@ projectLinks:
   - label: Read the introduction
     url: /blog/i-built-ripfoundry-for-linux-to-get-dvds-into-jellyfin/
   - label: See the Windows version
-    url: /projects/ripfoundry-for-windows/
+    url: /apps/ripfoundry-for-windows/
 ---
 
 RipFoundry for Linux handles the complete trip from a physical DVD to a movie folder that Jellyfin understands.

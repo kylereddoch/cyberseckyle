@@ -3,21 +3,24 @@ title: ReelArrange
 description: ReelArrange is my Windows desktop helper for matching downloaded movies and TV shows with TMDB, previewing a Jellyfin-ready library layout, and copying or moving the media into place.
 summary: A Windows desktop app that turns downloaded movies and TV shows into a clean Jellyfin library layout without hiding what it plans to do.
 date: 2026-08-10T10:51:26-05:00
-projectOrder: 2
-projectType: Windows App
-projectStatus: Early Access
+appOrder: 2
+appPlatform: Windows 10 and 11
+appStatus: Early Access
+appPrice: Free and open source
 badgeClasses: bg-violet-100 text-violet-800 dark:bg-violet-900/30 dark:text-violet-200
 featuredImage: /assets/images/reelarrange-hero.webp
 featuredImageAlt: ReelArrange showing a preview of a Jellyfin-ready movie folder and its transfer options
+redirectFrom:
+  - /projects/reelarrange/
 techStack:
   - PowerShell
   - Windows Forms
   - TMDB API
   - Jellyfin
   - Open Source
-projectLinks:
-  - label: Download version 0.1.0
-    url: https://github.com/kylereddoch/reelarrange/releases/tag/v0.1.0
+appLinks:
+  - label: Download version 0.3.0
+    url: https://github.com/kylereddoch/reelarrange/releases/tag/v0.3.0
   - label: View on GitHub
     url: https://github.com/kylereddoch/reelarrange
   - label: Read the introduction
@@ -67,4 +70,8 @@ TMDB is the only network service ReelArrange needs. The saved TMDB credential is
 
 The activity log records completed file operations and errors, but it does not record the saved credential. ReelArrange renames and transfers files; it does not inspect, remux, or modify the media inside them.
 
-Version 0.1.0 is the first public release, so I still consider the project early. The preview deserves a careful look before any move operation. That is good advice for any media organizer, and ReelArrange makes the check difficult to skip.
+## Version 0.3.0
+
+Version 0.3.0 improves folder selection, remembers separate movie and TV source locations, recognizes more compact episode-number formats, and can stay open when I am ready to process another title.
+
+I still consider ReelArrange early access. The preview deserves a careful look before any move operation. That is good advice for any media organizer, and ReelArrange makes the check difficult to skip.

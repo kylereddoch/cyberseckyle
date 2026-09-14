@@ -22,7 +22,7 @@ None of that is especially difficult. It is just repetitive, easy to get slightl
 
 So I built **ReelArrange**.
 
-ReelArrange is a Windows desktop app that identifies downloaded movies and TV shows with TMDB, builds a Jellyfin-ready destination plan, and then copies or moves the media into place. You can read the shorter [ReelArrange project page](/projects/reelarrange/), browse the [source on GitHub](https://github.com/kylereddoch/reelarrange), or [download version 0.1.0](https://github.com/kylereddoch/reelarrange/releases/tag/v0.1.0).
+ReelArrange is a Windows desktop app that identifies downloaded movies and TV shows with TMDB, builds a Jellyfin-ready destination plan, and then copies or moves the media into place. You can read the shorter [ReelArrange app page](/apps/reelarrange/), browse the [source on GitHub](https://github.com/kylereddoch/reelarrange), or [download version 0.1.0](https://github.com/kylereddoch/reelarrange/releases/tag/v0.1.0).
 
 ## It started as a tool for my own library
 
@@ -97,6 +97,6 @@ ReelArrange 0.1.0 is early, and I mean that in the useful sense rather than the 
 
 For now, I would still inspect the preview carefully before moving a large library. ReelArrange makes that review part of the normal workflow because a media organizer should earn trust before it gets permission to rearrange terabytes of files.
 
-The project is available on [GitHub](https://github.com/kylereddoch/reelarrange), including installation instructions, the user guide, privacy notes, and the issue templates. The [ReelArrange project page](/projects/reelarrange/) has the shorter version if you only need the overview and links.
+The project is available on [GitHub](https://github.com/kylereddoch/reelarrange), including installation instructions, the user guide, privacy notes, and the issue templates. The [ReelArrange app page](/apps/reelarrange/) has the shorter version if you only need the overview and links.
 
 I built ReelArrange because the work between “download finished” and “Jellyfin understands it” was annoying me. Now that gap has its own app.
