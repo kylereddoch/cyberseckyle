@@ -3204,9 +3204,9 @@
       
 
       <url>
-        <loc>https://www.kylereddoch.me/blog/i-built-reelarrange-to-get-downloads-ready-for-jellyfin/</loc>
+        <loc>https://www.kylereddoch.me/apps/reelarrange/</loc>
         
-        <lastmod>2026-08-10T16:12:07.247Z</lastmod>
+        <lastmod>2026-08-10T15:51:26.000Z</lastmod>
         
         <changefreq>monthly</changefreq>
     </url>
@@ -3217,9 +3217,9 @@
       
 
       <url>
-        <loc>https://www.kylereddoch.me/projects/reelarrange/</loc>
+        <loc>https://www.kylereddoch.me/blog/i-built-reelarrange-to-get-downloads-ready-for-jellyfin/</loc>
         
-        <lastmod>2026-08-10T15:51:26.000Z</lastmod>
+        <lastmod>2026-08-10T16:12:07.247Z</lastmod>
         
         <changefreq>monthly</changefreq>
     </url>
@@ -3282,9 +3282,9 @@
       
 
       <url>
-        <loc>https://www.kylereddoch.me/blog/i-brought-ripfoundry-to-windows/</loc>
+        <loc>https://www.kylereddoch.me/apps/ripfoundry-for-windows/</loc>
         
-        <lastmod>2026-08-12T15:56:17.255Z</lastmod>
+        <lastmod>2026-08-12T15:22:12.000Z</lastmod>
         
         <changefreq>monthly</changefreq>
     </url>
@@ -3295,9 +3295,9 @@
       
 
       <url>
-        <loc>https://www.kylereddoch.me/projects/ripfoundry-for-windows/</loc>
+        <loc>https://www.kylereddoch.me/blog/i-brought-ripfoundry-to-windows/</loc>
         
-        <lastmod>2026-08-12T15:22:12.000Z</lastmod>
+        <lastmod>2026-08-12T15:56:17.255Z</lastmod>
         
         <changefreq>monthly</changefreq>
     </url>
@@ -3633,6 +3633,32 @@
       
 
       <url>
+        <loc>https://www.kylereddoch.me/apps/styleport/</loc>
+        
+        <lastmod>2026-09-14T14:53:00.000Z</lastmod>
+        
+        <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+
+      
+
+      <url>
+        <loc>https://www.kylereddoch.me/apps/trayage/</loc>
+        
+        <lastmod>2026-09-14T14:53:00.000Z</lastmod>
+        
+        <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+
+      
+
+      <url>
         <loc>https://www.kylereddoch.me/notes/2026/week-37-2026/</loc>
         
         <lastmod>2026-09-14T15:15:17.285Z</lastmod>
@@ -3658,6 +3684,17 @@
 
       <url>
         <loc>https://www.kylereddoch.me/ai/</loc>
+        
+        <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+
+      
+
+      <url>
+        <loc>https://www.kylereddoch.me/apps/</loc>
         
         <changefreq>monthly</changefreq>
     </url>
