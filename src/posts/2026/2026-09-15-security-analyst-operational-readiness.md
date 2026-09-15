@@ -8,7 +8,6 @@ featuredImage: /assets/images/security-analyst-operational-readiness.png
 featuredImageAlt: A security analyst explains an incident while a mentor and cross-functional response team review evidence and business impact in a security operations room.
 featuredImageCaption: "Analyst readiness is not only the ability to investigate an alert. It is the ability to explain the risk, navigate the organization, and recommend what happens next. (Image generated using ChatGPT.)"
 tags: [cybersecurity, security-operations, incident-response, ai]
-draft: true
 mastodon_post: true
 mastodon_url:
 mastodon_tags: [Cybersecurity, InfoSec, SecOps, SOC, IncidentResponse, CyberWorkforce]
