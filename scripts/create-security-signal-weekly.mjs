@@ -230,11 +230,9 @@ function renderPost(data, date, dateRange) {
     `featuredImage: ${data.featuredImage || defaultImage}`,
     `featuredImageAlt: ${yamlString(data.featuredImageAlt || defaultImageAlt)}`,
     `tags: ${yamlArray(tags)}`,
-    'mastodon_post: true',
-    'mastodon_url:',
-    `mastodon_tags: ${yamlArray(mastodonTags)}`,
-    'x_post: true',
-    'x_url:',
+    'social:',
+    '  post_to: [mastodon, x, linkedin]',
+    `  tags: ${yamlArray(mastodonTags)}`,
     '---'
   ];
 

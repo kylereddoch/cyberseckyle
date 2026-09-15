@@ -8,13 +8,11 @@ featuredImage: /assets/images/security-analyst-operational-readiness.png
 featuredImageAlt: A security analyst explains an incident while a mentor and cross-functional response team review evidence and business impact in a security operations room.
 featuredImageCaption: "Analyst readiness is not only the ability to investigate an alert. It is the ability to explain the risk, navigate the organization, and recommend what happens next. (Image generated using ChatGPT.)"
 tags: [cybersecurity, security-operations, incident-response, ai]
-mastodon_post: true
-mastodon_url: "https://infosec.exchange/@cyberseckyle/117276856376652995"
-mastodon_tags: [Cybersecurity, InfoSec, SecOps, SOC, IncidentResponse, CyberWorkforce]
-x_post: true
-x_url: "https://twitter.com/thecyberseckyle/status/2099953124865720831"
+social:
+  post_to: [mastodon, x]
+  tags: [Cybersecurity, InfoSec, SecOps, SOC, IncidentResponse, CyberWorkforce]
+  posts: {mastodon: {url: "https://infosec.exchange/@cyberseckyle/117276856376652995"}, x: {url: "https://twitter.com/thecyberseckyle/status/2099953124865720831", buffer_id: "6aa9a55eead2fcea2acf003f"}}
 publishedAt: "2026-09-15T20:06:53.369Z"
-x_buffer_post_id: "6aa9a55eead2fcea2acf003f"
 ---
 
 An analyst finds a serious problem. They can explain what happened, how it happened, and why the activity is technically dangerous.

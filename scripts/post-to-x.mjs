@@ -4,23 +4,52 @@ import yaml from 'js-yaml';
 import slugify from 'slugify';
 
 import {author as siteAuthor, url as configuredSiteUrl} from '../src/_data/meta.js';
+import {
+  getSocialBufferId,
+  getSocialStatus,
+  getSocialTags,
+  setSocialPostValues,
+  shouldPublishTo
+} from './social-front-matter.mjs';
 
 const root = process.cwd();
 const bufferEndpoint = 'https://api.buffer.com';
-const defaultSearchRoots = [path.join(root, 'src', 'posts'), path.join(root, 'src', 'notes')];
+const defaultSearchRoots = [
+  path.join(root, 'src', 'posts'),
+  path.join(root, 'src', 'notes'),
+  path.join(root, 'src', 'now')
+];
+const platformArgument = process.argv.find(argument => argument.startsWith('--platform='));
+const platform = String(platformArgument?.split('=')[1] || process.env.BUFFER_PLATFORM || 'x')
+  .trim()
+  .toLowerCase();
+
+if (!['x', 'linkedin'].includes(platform)) {
+  throw new Error(`Unsupported Buffer platform: ${platform}. Use x or linkedin.`);
+}
+
+const platformLabel = platform === 'x' ? 'X' : 'LinkedIn';
+const bufferService = platform === 'x' ? 'twitter' : 'linkedin';
+const environmentPrefix = platform === 'x' ? 'X' : 'LINKEDIN';
 const dryRun =
-  process.argv.includes('--dry-run') || String(process.env.X_DRY_RUN || '').toLowerCase() === 'true';
-const siteUrl = stripTrailingSlash(process.env.X_SITE_URL || siteAuthor?.website || configuredSiteUrl);
+  process.argv.includes('--dry-run') ||
+  String(process.env[`${environmentPrefix}_DRY_RUN`] || '').toLowerCase() === 'true';
+const siteUrl = stripTrailingSlash(
+  process.env[`${environmentPrefix}_SITE_URL`] || siteAuthor?.website || configuredSiteUrl
+);
 const bufferApiKey = String(process.env.BUFFER_API_KEY || '').trim();
-const configuredChannelId = String(process.env.BUFFER_X_CHANNEL_ID || '').trim();
-const configuredChannelName = String(process.env.BUFFER_X_CHANNEL_NAME || '')
+const configuredChannelId = String(process.env[`BUFFER_${environmentPrefix}_CHANNEL_ID`] || '').trim();
+const configuredChannelName = String(process.env[`BUFFER_${environmentPrefix}_CHANNEL_NAME`] || '')
   .trim()
   .replace(/^@/, '')
   .toLowerCase();
-const statusLimit = Number(process.env.X_STATUS_LIMIT || 280);
-const waitForPublicUrl = String(process.env.X_WAIT_FOR_PUBLIC_URL || 'true').toLowerCase() !== 'false';
-const waitTimeoutSeconds = Number(process.env.X_WAIT_TIMEOUT_SECONDS || 360);
-const waitIntervalSeconds = Number(process.env.X_WAIT_INTERVAL_SECONDS || 10);
+const statusLimit = Number(
+  process.env[`${environmentPrefix}_STATUS_LIMIT`] || (platform === 'x' ? 280 : 3000)
+);
+const waitForPublicUrl =
+  String(process.env[`${environmentPrefix}_WAIT_FOR_PUBLIC_URL`] || 'true').toLowerCase() !== 'false';
+const waitTimeoutSeconds = Number(process.env[`${environmentPrefix}_WAIT_TIMEOUT_SECONDS`] || 360);
+const waitIntervalSeconds = Number(process.env[`${environmentPrefix}_WAIT_INTERVAL_SECONDS`] || 10);
 const bufferWaitTimeoutSeconds = Number(process.env.BUFFER_WAIT_TIMEOUT_SECONDS || 120);
 const bufferWaitIntervalSeconds = Number(process.env.BUFFER_WAIT_INTERVAL_SECONDS || 5);
 
@@ -84,10 +113,6 @@ function truncateAtWord(value, maxLength) {
   const lastSpace = truncated.lastIndexOf(' ');
 
   return `${(lastSpace > 40 ? truncated.slice(0, lastSpace) : truncated).trim()}…`;
-}
-
-function yamlQuote(value) {
-  return JSON.stringify(String(value));
 }
 
 function walkMarkdownFiles(directory) {
@@ -170,14 +195,19 @@ function getPostUrl(file, data) {
 
 function getStatusText(data, postUrl) {
   const title = String(data.title || '').trim();
-  const tags = formatTags(data.x_tags || data.mastodon_tags || []);
-  const customStatus = String(data.x_status || '').trim();
+  const description = String(data.description || '').trim();
+  const tags = formatTags(getSocialTags(data, platform));
+  const customStatus = getSocialStatus(data, platform);
 
   if (customStatus) {
     return customStatus
       .replaceAll('{title}', title)
-      .replaceAll('{description}', String(data.description || '').trim())
+      .replaceAll('{description}', description)
       .replaceAll('{url}', postUrl);
+  }
+
+  if (platform === 'linkedin') {
+    return [`New by me: ${title}`, description, postUrl, tags].filter(Boolean).join('\n\n');
   }
 
   const suffix = [postUrl, tags].filter(Boolean).join('\n\n');
@@ -186,28 +216,6 @@ function getStatusText(data, postUrl) {
   const heading = `${headingPrefix}${truncateAtWord(title, availableTitleLength)}`;
 
   return [heading, suffix].filter(Boolean).join('\n\n');
-}
-
-function setFrontMatterValues(raw, parsed, values) {
-  const eol = parsed.lineEnding;
-  let header = parsed.header;
-
-  for (const [key, value] of Object.entries(values)) {
-    if (value === undefined || value === null || value === '') {
-      continue;
-    }
-
-    const valueLine = `${key}: ${yamlQuote(value)}`;
-    const headerPattern = new RegExp(`^${key}:.*$`, 'm');
-
-    if (headerPattern.test(header)) {
-      header = header.replace(headerPattern, valueLine);
-    } else {
-      header = `${header}${eol}${valueLine}`;
-    }
-  }
-
-  return `---${eol}${header}${eol}---${eol}${parsed.body}`;
 }
 
 function setGitHubOutput(name, value) {
@@ -270,7 +278,7 @@ async function waitForPublishedPost(postUrl, relativePath) {
     } catch (error) {
       lastError = error.message;
       console.log(
-        `Waiting for ${relativePath} to be live before posting to X through Buffer ` +
+        `Waiting for ${relativePath} to be live before posting to ${platformLabel} through Buffer ` +
           `(attempt ${attempt}): ${lastError}`
       );
       await sleep(waitIntervalSeconds * 1000);
@@ -280,7 +288,7 @@ async function waitForPublishedPost(postUrl, relativePath) {
   throw new Error(
     `Timed out after ${waitTimeoutSeconds}s waiting for ${relativePath} to be publicly available. ` +
       `Checked URL: ${postUrl}. Last check: ${lastError}. ` +
-      `The article must be live before Buffer posts it to X.`
+      `The article must be live before Buffer posts it to ${platformLabel}.`
   );
 }
 
@@ -294,7 +302,7 @@ function summarize(value, maxLength = 700) {
 
 async function bufferRequest(query, variables = {}) {
   if (!bufferApiKey) {
-    throw new Error('BUFFER_API_KEY is required to post to X through Buffer.');
+    throw new Error(`BUFFER_API_KEY is required to post to ${platformLabel} through Buffer.`);
   }
 
   const response = await fetch(bufferEndpoint, {
@@ -328,27 +336,31 @@ function channelLabel(channel) {
   return `@${channel.name || channel.displayName || channel.id}`;
 }
 
-function validateXChannel(channel) {
+function validateBufferChannel(channel) {
   if (!channel) {
     throw new Error('The configured Buffer channel was not found.');
   }
 
-  if (channel.service !== 'twitter') {
-    throw new Error(`Buffer channel ${channel.id} is a ${channel.service} channel, not an X channel.`);
+  if (channel.service !== bufferService) {
+    throw new Error(
+      `Buffer channel ${channel.id} is a ${channel.service} channel, not a ${platformLabel} channel.`
+    );
   }
 
   if (channel.isDisconnected) {
-    throw new Error(`Buffer reports that X channel ${channelLabel(channel)} is disconnected.`);
+    throw new Error(
+      `Buffer reports that ${platformLabel} channel ${channelLabel(channel)} is disconnected.`
+    );
   }
 
   if (channel.isLocked) {
-    throw new Error(`Buffer reports that X channel ${channelLabel(channel)} is locked.`);
+    throw new Error(`Buffer reports that ${platformLabel} channel ${channelLabel(channel)} is locked.`);
   }
 
   return channel;
 }
 
-async function getXChannel() {
+async function getBufferChannel() {
   if (selectedChannel) {
     return selectedChannel;
   }
@@ -371,8 +383,10 @@ async function getXChannel() {
       }
     `);
 
-    selectedChannel = validateXChannel(data.channel);
-    console.log(`Using Buffer X channel ${channelLabel(selectedChannel)} (${selectedChannel.id}).`);
+    selectedChannel = validateBufferChannel(data.channel);
+    console.log(
+      `Using Buffer ${platformLabel} channel ${channelLabel(selectedChannel)} (${selectedChannel.id}).`
+    );
     return selectedChannel;
   }
 
@@ -399,40 +413,47 @@ async function getXChannel() {
     channels.push(...(data.channels || []));
   }
 
-  let xChannels = channels.filter(
-    channel => channel.service === 'twitter' && !channel.isDisconnected && !channel.isLocked
+  let matchingChannels = channels.filter(
+    channel => channel.service === bufferService && !channel.isDisconnected && !channel.isLocked
   );
 
   if (configuredChannelName) {
-    xChannels = xChannels.filter(channel =>
+    matchingChannels = matchingChannels.filter(channel =>
       [channel.name, channel.displayName]
         .filter(Boolean)
         .some(name => String(name).replace(/^@/, '').toLowerCase() === configuredChannelName)
     );
   }
 
-  if (!xChannels.length) {
+  if (!matchingChannels.length) {
     const nameHint = configuredChannelName ? ` matching @${configuredChannelName}` : '';
-    throw new Error(`No connected, unlocked X channel${nameHint} was found in Buffer.`);
-  }
-
-  if (xChannels.length > 1) {
-    const choices = xChannels.map(channel => `${channelLabel(channel)} (${channel.id})`).join(', ');
     throw new Error(
-      `Multiple X channels were found in Buffer: ${choices}. ` + `Set BUFFER_X_CHANNEL_ID to select one.`
+      `No connected, unlocked ${platformLabel} channel${nameHint} was found in Buffer.`
     );
   }
 
-  selectedChannel = xChannels[0];
-  console.log(`Using Buffer X channel ${channelLabel(selectedChannel)} (${selectedChannel.id}).`);
+  if (matchingChannels.length > 1) {
+    const choices = matchingChannels
+      .map(channel => `${channelLabel(channel)} (${channel.id})`)
+      .join(', ');
+    throw new Error(
+      `Multiple ${platformLabel} channels were found in Buffer: ${choices}. ` +
+        `Set BUFFER_${environmentPrefix}_CHANNEL_ID to select one.`
+    );
+  }
+
+  selectedChannel = matchingChannels[0];
+  console.log(
+    `Using Buffer ${platformLabel} channel ${channelLabel(selectedChannel)} (${selectedChannel.id}).`
+  );
   return selectedChannel;
 }
 
-async function createBufferPost(status) {
-  const channel = await getXChannel();
+async function createBufferPost(status, postUrl) {
+  const channel = await getBufferChannel();
   const data = await bufferRequest(
     `
-      mutation PublishXPost($input: CreatePostInput!) {
+      mutation PublishSocialPost($input: CreatePostInput!) {
         createPost(input: $input) {
           __typename
           ... on PostActionSuccess {
@@ -455,14 +476,25 @@ async function createBufferPost(status) {
         channelId: channel.id,
         schedulingType: 'automatic',
         mode: 'shareNow',
-        assets: []
+        assets: [],
+        ...(platform === 'linkedin'
+          ? {
+              metadata: {
+                linkedin: {
+                  linkAttachment: {url: postUrl}
+                }
+              }
+            }
+          : {})
       }
     }
   );
   const result = data.createPost;
 
   if (result?.__typename !== 'PostActionSuccess' || !result.post?.id) {
-    throw new Error(`Buffer could not create the X post: ${result?.message || 'unknown error'}`);
+    throw new Error(
+      `Buffer could not create the ${platformLabel} post: ${result?.message || 'unknown error'}`
+    );
   }
 
   return result.post;
@@ -517,7 +549,7 @@ async function waitForBufferPost(post) {
   }
 
   console.log(
-    `Buffer accepted post ${post.id}, but its X URL was not available after ` +
+    `Buffer accepted post ${post.id}, but its ${platformLabel} URL was not available after ` +
       `${bufferWaitTimeoutSeconds}s. The Buffer ID will be saved so a later run can recover it ` +
       `without creating a duplicate.`
   );
@@ -534,20 +566,13 @@ async function publishFile(file) {
 
   const data = parsed.data;
   const relativePath = normalizePath(path.relative(root, file));
-  const hasXUrlField = Object.prototype.hasOwnProperty.call(data, 'x_url');
 
-  if (
-    data.draft ||
-    isFutureDated(data) ||
-    data.x_post !== true ||
-    !hasXUrlField ||
-    String(data.x_url || '').trim()
-  ) {
+  if (data.draft || isFutureDated(data) || !shouldPublishTo(data, platform)) {
     return null;
   }
 
   if (!data.title) {
-    throw new Error(`${relativePath} has x_post: true but no title.`);
+    throw new Error(`${relativePath} targets ${platformLabel} but has no title.`);
   }
 
   const postUrl = getPostUrl(file, data);
@@ -555,49 +580,56 @@ async function publishFile(file) {
 
   if (status.length > statusLimit) {
     throw new Error(
-      `${relativePath} generated a ${status.length}-character X post. Limit is ${statusLimit}.`
+      `${relativePath} generated a ${status.length}-character ${platformLabel} post. ` +
+        `Limit is ${statusLimit}.`
     );
   }
 
   if (dryRun) {
-    console.log(`[dry-run] Would post ${relativePath} to X immediately through Buffer`);
+    console.log(
+      `[dry-run] Would post ${relativePath} to ${platformLabel} immediately through Buffer`
+    );
     console.log(status);
-    return {file: relativePath, xUrl: 'dry-run', postUrl};
+    return {file: relativePath, socialUrl: 'dry-run', postUrl};
   }
 
   let bufferPost;
-  const existingBufferPostId = String(data.x_buffer_post_id || '').trim();
+  const existingBufferPostId = getSocialBufferId(data, platform);
 
   if (existingBufferPostId) {
     console.log(`Recovering existing Buffer post ${existingBufferPostId} for ${relativePath}.`);
     bufferPost = await getBufferPost(existingBufferPostId);
   } else {
     await waitForPublishedPost(postUrl, relativePath);
-    bufferPost = await createBufferPost(status);
+    bufferPost = await createBufferPost(status, postUrl);
     fs.writeFileSync(
       file,
-      setFrontMatterValues(raw, parsed, {x_buffer_post_id: bufferPost.id}),
+      setSocialPostValues(raw, parsed, platform, {buffer_id: bufferPost.id}),
       'utf8'
     );
-    console.log(`Buffer accepted ${relativePath} for immediate X publishing: ${bufferPost.id}`);
+    console.log(
+      `Buffer accepted ${relativePath} for immediate ${platformLabel} publishing: ${bufferPost.id}`
+    );
   }
 
   bufferPost = await waitForBufferPost(bufferPost);
 
   const values = {
-    x_buffer_post_id: bufferPost.id,
-    x_url: bufferPost.externalLink
+    buffer_id: bufferPost.id,
+    url: bufferPost.externalLink
   };
 
-  fs.writeFileSync(file, setFrontMatterValues(raw, parsed, values), 'utf8');
+  fs.writeFileSync(file, setSocialPostValues(raw, parsed, platform, values), 'utf8');
 
   if (bufferPost.externalLink) {
-    console.log(`Posted ${relativePath} to X through Buffer: ${bufferPost.externalLink}`);
+    console.log(
+      `Posted ${relativePath} to ${platformLabel} through Buffer: ${bufferPost.externalLink}`
+    );
   }
 
   return {
     file: relativePath,
-    xUrl: bufferPost.externalLink || '',
+    socialUrl: bufferPost.externalLink || '',
     bufferPostId: bufferPost.id,
     postUrl
   };
@@ -616,7 +648,9 @@ for (const file of getCandidateFiles()) {
   } catch (error) {
     const relativePath = normalizePath(path.relative(root, file));
     failures.push(relativePath);
-    console.warn(`::warning::X posting failed for ${relativePath}: ${error.message}`);
+    console.warn(
+      `::warning::${platformLabel} posting failed for ${relativePath}: ${error.message}`
+    );
   }
 }
 
@@ -626,11 +660,12 @@ setGitHubOutput('failed_count', failures.length);
 setGitHubOutput('failed_files', failures.join(' '));
 
 if (!results.length) {
-  console.log('No eligible posts found for X through Buffer.');
+  console.log(`No eligible posts found for ${platformLabel} through Buffer.`);
 }
 
 if (failures.length) {
   console.warn(
-    `X posting finished with ${failures.length} warning(s). The site deployment remains successful.`
+    `${platformLabel} posting finished with ${failures.length} warning(s). ` +
+      `The site deployment remains successful.`
   );
 }

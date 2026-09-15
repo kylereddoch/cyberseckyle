@@ -8,11 +8,10 @@ featuredImage: /assets/images/network-ports.jpg
 featuredImageAlt: Network ports and service mapping themed image representing lab reconnaissance and exposure review.
 featuredImageCaption: Learning the shape of an attack helps you close the doors it depends on.
 tags: [cyberseckyle-howto-series, cybersecurity, security, passwords, identity-security, how-to]
-mastodon_post: true
-mastodon_url: "https://infosec.exchange/@cyberseckyle/117157003644264666"
-mastodon_tags: [Cybersecurity, InfoSec, Passwords, IdentitySecurity, CybersecKyleHowTo]
-x_post: true
-x_url: "https://x.com/thecyberseckyle/status/2092282549623980060"
+social:
+  post_to: [mastodon, x]
+  tags: [Cybersecurity, InfoSec, Passwords, IdentitySecurity, CybersecKyleHowTo]
+  posts: {mastodon: {url: "https://infosec.exchange/@cyberseckyle/117157003644264666"}, x: {url: "https://x.com/thecyberseckyle/status/2092282549623980060"}}
 publishedAt: "2026-08-25T16:06:45.804Z"
 ---
 

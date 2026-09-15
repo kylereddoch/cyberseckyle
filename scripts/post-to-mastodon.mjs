@@ -4,6 +4,12 @@ import yaml from 'js-yaml';
 import slugify from 'slugify';
 
 import { author as siteAuthor, url as configuredSiteUrl } from '../src/_data/meta.js';
+import {
+  getSocialStatus,
+  getSocialTags,
+  setSocialPostValues,
+  shouldPublishTo
+} from './social-front-matter.mjs';
 
 const root = process.cwd();
 const defaultSearchRoots = [
@@ -72,10 +78,6 @@ function formatTags(tags) {
     .filter(Boolean)
     .map(tag => `#${tag}`)
     .join(' ');
-}
-
-function yamlQuote(value) {
-  return JSON.stringify(String(value));
 }
 
 function truncateAtWord(value, maxLength) {
@@ -174,8 +176,8 @@ function getPostUrl(file, data) {
 function getStatusText(data, postUrl) {
   const title = String(data.title || '').trim();
   const description = String(data.description || '').trim();
-  const tags = formatTags(data.mastodon_tags || defaultTags);
-  const customStatus = String(data.mastodon_status || '').trim();
+  const tags = formatTags(getSocialTags(data, 'mastodon', defaultTags));
+  const customStatus = getSocialStatus(data, 'mastodon');
 
   if (customStatus) {
     return customStatus
@@ -187,24 +189,6 @@ function getStatusText(data, postUrl) {
   const heading = title ? `New by me: ${title}` : 'New by me';
 
   return [heading, postUrl, tags].filter(Boolean).join('\n\n');
-}
-
-function setFrontMatterValues(raw, parsed, values) {
-  const eol = parsed.lineEnding;
-  let header = parsed.header;
-
-  for (const [key, value] of Object.entries(values)) {
-    const valueLine = `${key}: ${yamlQuote(value)}`;
-    const headerPattern = new RegExp(`^${key}:.*$`, 'm');
-
-    if (headerPattern.test(header)) {
-      header = header.replace(headerPattern, valueLine);
-    } else {
-      header = `${header}${eol}${valueLine}`;
-    }
-  }
-
-  return `---${eol}${header}${eol}---${eol}${parsed.body}`;
 }
 
 function setGitHubOutput(name, value) {
@@ -517,12 +501,7 @@ async function publishFile(file) {
   const data = parsed.data;
   const relativePath = normalizePath(path.relative(root, file));
 
-  if (
-    data.draft ||
-    isFutureDated(data) ||
-    data.mastodon_post !== true ||
-    String(data.mastodon_url || '').trim()
-  ) {
+  if (data.draft || isFutureDated(data) || !shouldPublishTo(data, 'mastodon')) {
     return null;
   }
 
@@ -556,10 +535,7 @@ async function publishFile(file) {
 
   fs.writeFileSync(
     file,
-    setFrontMatterValues(raw, parsed, {
-      mastodon_url: mastodonUrl,
-      publishedAt
-    }),
+    setSocialPostValues(raw, parsed, 'mastodon', { url: mastodonUrl }, { publishedAt }),
     'utf8'
   );
 

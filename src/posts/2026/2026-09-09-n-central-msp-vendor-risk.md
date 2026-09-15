@@ -8,13 +8,11 @@ featuredImage: /assets/images/n-central-msp-vendor-risk.png
 featuredImageAlt: A central remote management server connected to several separate client environments as a red intrusion path reaches the server and blue barriers segment the downstream networks.
 featuredImageCaption: "An RMM platform concentrates administrative reach across many customers. That efficiency becomes blast radius when the management plane is compromised. (Image generated using ChatGPT.)"
 tags: [cybersecurity, MSP, vulnerability-management, incident-response]
-mastodon_post: true
-mastodon_url: "https://infosec.exchange/@cyberseckyle/117242149984054842"
-mastodon_tags: [Cybersecurity, InfoSec, MSP, Nable, Ncentral, RMM, VendorRisk, IncidentResponse]
-x_post: true
-x_url: "https://twitter.com/thecyberseckyle/status/2097731914475987190"
+social:
+  post_to: [mastodon, x]
+  tags: [Cybersecurity, InfoSec, MSP, Nable, Ncentral, RMM, VendorRisk, IncidentResponse]
+  posts: {mastodon: {url: "https://infosec.exchange/@cyberseckyle/117242149984054842"}, x: {url: "https://twitter.com/thecyberseckyle/status/2097731914475987190", buffer_id: "6aa190b45e8b0a4dedb84938"}}
 publishedAt: "2026-09-09T17:00:35.843Z"
-x_buffer_post_id: "6aa190b45e8b0a4dedb84938"
 ---
 
 N-able has released four N-central hotfixes in five weeks.

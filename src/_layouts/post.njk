@@ -23,7 +23,9 @@ schema: BlogPosting
   {% set webmentionBase = meta.author.website or meta.url %}
   {% set pageWebmentionTarget = page.url | url | absoluteUrl(webmentionBase) | webmentionTarget %}
   {% set pageMentions = webmentions.byTarget | lookup(pageWebmentionTarget) %}
-  {% set mastodonDiscussionUrl = mastodon_url or pageMentions.syndicationUrl %}
+  {% set mastodonDiscussionUrl = social.posts.mastodon.url or mastodon_url or pageMentions.syndicationUrl %}
+  {% set xSyndicationUrl = social.posts.x.url or x_url %}
+  {% set linkedinSyndicationUrl = social.posts.linkedin.url or linkedin_url %}
   {% set mastodonAccountUrl = meta.creator.social or meta.author.website %}
   {% set publishedDate = publishedAt or published_at or actualPublishedAt or actual_published_at or page.date %}
 
@@ -163,8 +165,11 @@ schema: BlogPosting
     {% if mastodonDiscussionUrl %}
       <a class="u-syndication" rel="syndication" href="{{ mastodonDiscussionUrl }}">Syndicated on Mastodon</a>
     {% endif %}
-    {% if x_url %}
-      <a class="u-syndication" rel="syndication" href="{{ x_url }}">Syndicated on X</a>
+    {% if xSyndicationUrl %}
+      <a class="u-syndication" rel="syndication" href="{{ xSyndicationUrl }}">Syndicated on X</a>
+    {% endif %}
+    {% if linkedinSyndicationUrl %}
+      <a class="u-syndication" rel="syndication" href="{{ linkedinSyndicationUrl }}">Syndicated on LinkedIn</a>
     {% endif %}
     <img eleventy:ignore class="u-author h-card" src="{{ meta.author.avatar | url | absoluteUrl(meta.url) }}" alt="{{ meta.author.name }}" />
   </div>

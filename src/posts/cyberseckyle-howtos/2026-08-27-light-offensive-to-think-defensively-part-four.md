@@ -8,13 +8,11 @@ featuredImage: /assets/images/person_laptop_checklists.jpg
 featuredImageAlt: Person reviewing a checklist on a laptop, representing turning security findings into tracked fixes.
 featuredImageCaption: A finding is only useful when it helps someone fix the problem.
 tags: [cyberseckyle-howto-series, cybersecurity, security, risk-management, incident-response, how-to]
-mastodon_post: true
-mastodon_url: "https://infosec.exchange/@cyberseckyle/117169258320726384"
-mastodon_tags: [Cybersecurity, InfoSec, RiskManagement, BlueTeam, CybersecKyleHowTo]
-x_post: true
-x_url: "https://twitter.com/thecyberseckyle/status/2093066846383579461"
+social:
+  post_to: [mastodon, x]
+  tags: [Cybersecurity, InfoSec, RiskManagement, BlueTeam, CybersecKyleHowTo]
+  posts: {mastodon: {url: "https://infosec.exchange/@cyberseckyle/117169258320726384"}, x: {url: "https://twitter.com/thecyberseckyle/status/2093066846383579461", buffer_id: "6a909805fdbdebf2ca1e6853"}}
 publishedAt: "2026-08-27T20:03:17.330Z"
-x_buffer_post_id: "6a909805fdbdebf2ca1e6853"
 ---
 
 > Part 4 of the Light Offensive to Think Defensively track in my [CybersecKyle Security How-To Series](/blog/introducing-my-new-cyberseckyle-security-how-to-series-the-full-roadmap/) closes the series by turning one verified lab observation into work an owner can understand, schedule, fix, and retest.

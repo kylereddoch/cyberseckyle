@@ -97,7 +97,7 @@ jobs:
             exit 0
           fi
 
-          node scripts/post-to-x.mjs
+          node scripts/post-to-buffer.mjs --platform=x
         env:
           X_AUTO_POST_ENABLED: ${{ vars.X_AUTO_POST_ENABLED }}
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
@@ -110,9 +110,32 @@ jobs:
           BUFFER_WAIT_TIMEOUT_SECONDS: 120
           BUFFER_WAIT_INTERVAL_SECONDS: 5
 
+      - name: Post eligible articles to LinkedIn
+        id: post_linkedin
+        if: github.ref == 'refs/heads/main'
+        run: |
+          if [[ "${LINKEDIN_AUTO_POST_ENABLED}" != "true" ]]; then
+            echo "LinkedIn auto-posting is disabled. Connect LinkedIn in Buffer, add BUFFER_API_KEY, then set LINKEDIN_AUTO_POST_ENABLED to true."
+            echo "posted_count=0" >> "${GITHUB_OUTPUT}"
+            exit 0
+          fi
+
+          node scripts/post-to-buffer.mjs --platform=linkedin
+        env:
+          LINKEDIN_AUTO_POST_ENABLED: ${{ vars.LINKEDIN_AUTO_POST_ENABLED }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_LINKEDIN_CHANNEL_ID: ${{ vars.BUFFER_LINKEDIN_CHANNEL_ID }}
+          BUFFER_LINKEDIN_CHANNEL_NAME: ${{ vars.BUFFER_LINKEDIN_CHANNEL_NAME }}
+          LINKEDIN_SITE_URL: https://www.kylereddoch.me
+          LINKEDIN_WAIT_FOR_PUBLIC_URL: true
+          LINKEDIN_WAIT_TIMEOUT_SECONDS: 900
+          LINKEDIN_WAIT_INTERVAL_SECONDS: 15
+          BUFFER_WAIT_TIMEOUT_SECONDS: 120
+          BUFFER_WAIT_INTERVAL_SECONDS: 5
+
       - name: Commit social post URLs
         id: commit_social
-        if: ${{ (steps.post_mastodon.outputs.posted_count != '' && steps.post_mastodon.outputs.posted_count != '0') || (steps.post_x.outputs.posted_count != '' && steps.post_x.outputs.posted_count != '0') || (steps.post_x.outputs.failed_count != '' && steps.post_x.outputs.failed_count != '0') }}
+        if: ${{ (steps.post_mastodon.outputs.posted_count != '' && steps.post_mastodon.outputs.posted_count != '0') || (steps.post_x.outputs.posted_count != '' && steps.post_x.outputs.posted_count != '0') || (steps.post_x.outputs.failed_count != '' && steps.post_x.outputs.failed_count != '0') || (steps.post_linkedin.outputs.posted_count != '' && steps.post_linkedin.outputs.posted_count != '0') || (steps.post_linkedin.outputs.failed_count != '' && steps.post_linkedin.outputs.failed_count != '0') }}
         run: |
           set -euo pipefail
 
