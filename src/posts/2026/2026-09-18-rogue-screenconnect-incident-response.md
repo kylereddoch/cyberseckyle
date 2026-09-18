@@ -36,7 +36,6 @@ social:
       {url}
 
       #Cybersecurity #IncidentResponse #MSP #ScreenConnect
-draft: true
 ---
 
 The alert looked ordinary for about five seconds.
