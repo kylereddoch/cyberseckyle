@@ -36,6 +36,8 @@ social:
       {url}
 
       #Cybersecurity #IncidentResponse #MSP #ScreenConnect
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117293003030286528}, x: {url: https://twitter.com/thecyberseckyle/status/2100986509146861594, buffer_id: 6aad67c89f49d0351ae65f6d}, linkedin: {url: https://www.linkedin.com/feed/update/urn:li:share:7506752295800479744, buffer_id: 6aad67ca6eac239c6c55353e}}
+publishedAt: "2026-09-18T16:33:11.751Z"
 ---
 
 The alert looked ordinary for about five seconds.
