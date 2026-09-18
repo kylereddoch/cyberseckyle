@@ -13,7 +13,7 @@
     <link>https://www.kylereddoch.me/</link>
     <description>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</description>
     <language>en</language>
-    <lastBuildDate>Fri, 18 Sep 2026 10:29:18 CDT</lastBuildDate>
+    <lastBuildDate>Fri, 18 Sep 2026 11:33:11 CDT</lastBuildDate>
     <atom:link href="https://www.kylereddoch.me/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://www.kylereddoch.me/assets/images/logo.png</url>
@@ -47,7 +47,7 @@
       <title>From the Field: Investigating an Unauthorized ScreenConnect Session</title>
       <link>https://www.kylereddoch.me/blog/from-the-field-investigating-an-unauthorized-screenconnect-session/</link>
       <guid isPermaLink="true">https://www.kylereddoch.me/blog/from-the-field-investigating-an-unauthorized-screenconnect-session/</guid>
-      <pubDate>Fri, 18 Sep 2026 10:29:18 CDT</pubDate>
+      <pubDate>Fri, 18 Sep 2026 11:33:11 CDT</pubDate>
       <xhtml:a class="browser-title" href="https://www.kylereddoch.me/blog/from-the-field-investigating-an-unauthorized-screenconnect-session/">From the Field: Investigating an Unauthorized ScreenConnect Session</xhtml:a>
       <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/z6ks0Tqk6M-1600.jpeg" alt="Official ScreenConnect product graphic showing remote support, access, session, and privileged access features on a dark teal background." />
       <dc:creator>Kyle Reddoch</dc:creator>
