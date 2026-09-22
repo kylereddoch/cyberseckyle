@@ -10,6 +10,8 @@ featuredImageCaption: 'BYD Shark 6 interior, shown for illustration. Photo by <a
 social:
   post_to: [mastodon, x, linkedin]
   tags: [Cybersecurity, Privacy, ConnectedCars]
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117316269793812169}, x: {url: https://twitter.com/thecyberseckyle/status/2102475582365651127, buffer_id: 6ab2d2971e19ddcbdf0ad069}, linkedin: {url: https://www.linkedin.com/feed/update/urn:li:share:7508241370357157889, buffer_id: 6ab2d2993bea9d442e7029d1}}
+publishedAt: "2026-09-22T19:10:14.388Z"
 ---
 
 A researcher switched off a BYD Shark 6's headlights while a journalist drove it at night. The same investigation demonstrated remote location tracking and access to the cabin microphone. Those are substantial capabilities to lose control of in something you use to get your family home.
