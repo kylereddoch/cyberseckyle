@@ -25,8 +25,15 @@ jobs:
       contents: write
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v6
+        with:
+          # Resolve main after this job acquires the concurrency slot. An event
+          # SHA can predate the previous run's saved social URLs and Buffer IDs.
+          # Keep the default event checkout for PRs and other branches.
+          ref: ${{ github.ref == 'refs/heads/main' && 'main' || '' }}
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v6
@@ -69,7 +76,7 @@ jobs:
 
       - name: Deploy to gh-pages
         if: github.ref == 'refs/heads/main'
-        run: bash scripts/deploy-gh-pages.sh "Deploy ${GITHUB_SHA}"
+        run: bash scripts/deploy-gh-pages.sh "Deploy $(git rev-parse HEAD)"
 
       - name: Post eligible articles to Mastodon
         id: post_mastodon
@@ -135,7 +142,9 @@ jobs:
 
       - name: Commit social post URLs
         id: commit_social
-        if: ${{ (steps.post_mastodon.outputs.posted_count != '' && steps.post_mastodon.outputs.posted_count != '0') || (steps.post_x.outputs.posted_count != '' && steps.post_x.outputs.posted_count != '0') || (steps.post_x.outputs.failed_count != '' && steps.post_x.outputs.failed_count != '0') || (steps.post_linkedin.outputs.posted_count != '' && steps.post_linkedin.outputs.posted_count != '0') || (steps.post_linkedin.outputs.failed_count != '' && steps.post_linkedin.outputs.failed_count != '0') }}
+        # Save accepted post IDs even if a later publishing step fails before
+        # emitting its counts. An unchanged tree is handled below.
+        if: ${{ !cancelled() && github.ref == 'refs/heads/main' && steps.post_mastodon.outcome != '' && steps.post_mastodon.outcome != 'skipped' }}
         run: |
           set -euo pipefail
 
@@ -146,10 +155,31 @@ jobs:
           if git diff --cached --quiet; then
             echo "committed=false" >> "${GITHUB_OUTPUT}"
           else
+            # Keep a recovery copy if a conflicting edit or push failure prevents
+            # persistence. Retrying below only pushes Git data; it never reposts.
+            git diff --cached --binary > "${RUNNER_TEMP}/social-post-state.patch"
             git commit -m "Add social URLs for published posts"
-            git push
-            echo "committed=true" >> "${GITHUB_OUTPUT}"
+            for attempt in 1 2 3; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then
+                echo "committed=true" >> "${GITHUB_OUTPUT}"
+                exit 0
+              fi
+              echo "Social metadata push attempt ${attempt} failed; refreshing main before retrying."
+            done
+            echo "::error::Social post results could not be saved. Recover the social-post-state artifact before rerunning publishing."
+            exit 1
           fi
+
+      - name: Preserve social post results on save failure
+        if: ${{ failure() && steps.commit_social.outcome == 'failure' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: social-post-state-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/social-post-state.patch
+          if-no-files-found: ignore
+          retention-days: 30
 
       - name: Rebuild site with social post URLs
         if: ${{ steps.commit_social.outputs.committed == 'true' }}
