@@ -7,8 +7,6 @@ searchIntent: Explain connected car security and privacy risks through documente
 featuredImage: /assets/images/connected-cars-byd-shark-interior.jpg
 featuredImageAlt: Interior of a BYD Shark 6 showing the steering wheel, digital instrument display, central touchscreen, and console.
 featuredImageCaption: 'BYD Shark 6 interior, shown for illustration. Photo by <a href="https://commons.wikimedia.org/wiki/File:BYD_Shark_6_DMO_AWD_interior.jpg">Ethan Llamas / Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Resized for web display.'
-tags: [cybersecurity, privacy, connected-cars, digital-safety]
-draft: true
 social:
   post_to: [mastodon, x, linkedin]
   tags: [Cybersecurity, Privacy, ConnectedCars]
