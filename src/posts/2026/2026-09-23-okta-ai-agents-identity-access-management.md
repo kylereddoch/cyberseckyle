@@ -36,6 +36,8 @@ social:
       {url}
 
       #Cybersecurity #IAM #AISecurity #MSP
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117320874831548510}, x: {url: https://twitter.com/thecyberseckyle/status/2102770304510538027, buffer_id: 6ab3e51228ee7c1854c6a5be}, linkedin: {url: https://www.linkedin.com/feed/update/urn:li:share:7508536092732858368, buffer_id: 6ab3e514d1d84858efc8e8b3}}
+publishedAt: "2026-09-23T14:41:21.689Z"
 ---
 
 An AI agent can use a valid credential, call an approved tool, and still make a change the business never intended. That is the problem I kept coming back to while reading [Maria Korolov's CSO analysis of Okta's push into AI agent security](https://www.csoonline.com/article/4225230/okta-bets-on-identity-to-control-ai-agents-but-is-identity-alone-enough.html).
