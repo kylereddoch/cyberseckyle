@@ -38,6 +38,8 @@ social:
       {url}
 
       #MSP #ITSupport #Cybersecurity
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117321626332184442}, x: {url: https://twitter.com/thecyberseckyle/status/2102818400007299262, buffer_id: 6ab411dd478b91dc1bb97dc5}, linkedin: {url: https://www.linkedin.com/feed/update/urn:li:share:7508584187696697345, buffer_id: 6ab411df839fd8d46551a9cf}}
+publishedAt: "2026-09-23T17:52:28.674Z"
 ---
 
 Consider a client who wants multi-factor authentication turned off because the extra prompts are getting in the way of work. The complaint deserves attention. The requested fix deserves scrutiny.
