@@ -142,8 +142,15 @@ const frontMatter = [
   `title: ${yamlString(title)}`,
   description ? `description: ${yamlString(description)}` : null,
   'tags: [notes]',
+  'social:',
+  '  post_to: [mastodon]',
+  '  status:',
+  '    mastodon: |-',
+  '      New note from me: {title}',
+  '',
+  '      {url}',
   '---'
-].filter(Boolean);
+].filter(line => line !== null);
 
 const note = `${frontMatter.join('\n')}\n\n${body}\n`;
 
