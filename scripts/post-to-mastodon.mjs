@@ -167,7 +167,9 @@ function getPostUrl(file, data) {
   }
 
   if (relativePath.startsWith('src/notes/')) {
-    return `${siteUrl}/notes/${path.basename(file, '.md')}/`;
+    // Notes use page.fileSlug, which removes the leading date from the filename.
+    const slug = path.basename(file, '.md').replace(/^\d{4}-\d{2}-\d{2}-/, '');
+    return `${siteUrl}/notes/${slug}/`;
   }
 
   return `${siteUrl}/blog/${normalizeSlug(data.slug) || slugifyTitle(data.title)}/`;
