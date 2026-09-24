@@ -3,7 +3,7 @@ layout: base
 schema: BlogPosting
 ---
 
-<a href="/blog/" class="inline-flex items-center text-blue-600 hover:text-blue-800 mb-3">
+<a href="/blog/" class="post-back-link inline-flex items-center text-blue-600 hover:text-blue-800 mb-3">
   &larr; Back to Blog
 </a>
 
@@ -17,7 +17,7 @@ schema: BlogPosting
   </ol>
 </nav>
 
-<article class="h-entry mx-auto max-w-3xl">
+<article class="h-entry post-article mx-auto max-w-3xl">
   {% set heroImage = featuredImage or featured_image %}
   {% set heroImageAlt = featuredImageAlt or featured_image_alt or alt or ('Featured image for ' ~ title) %}
   {% set webmentionBase = meta.author.website or meta.url %}
@@ -29,19 +29,10 @@ schema: BlogPosting
   {% set mastodonAccountUrl = meta.creator.social or meta.author.website %}
   {% set publishedDate = publishedAt or published_at or actualPublishedAt or actual_published_at or page.date %}
 
-  {% if heroImage %}
-    <div class="mb-8">
-      <img class="u-photo w-full rounded-lg" src="{{ heroImage }}" alt="{{ heroImageAlt }}" />
-      {% if featuredImageCaption %}
-        <p class="text-sm text-gray-600 dark:text-gray-400 mt-4 text-center">{{ featuredImageCaption | featuredImageCaptionHtml | safe }}</p>
-      {% endif %}
-    </div>
-  {% endif %}
-
-  <header class="mb-6">
-    <h1 class="p-name text-3xl font-bold tracking-tight mb-3">{{ title }}</h1>
+  <header class="post-header mb-6">
+    <h1 class="p-name post-title text-3xl font-bold tracking-tight mb-3">{{ title }}</h1>
     {% if description %}
-      <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">{{ description }}</p>
+      <p class="post-description text-lg text-gray-600 dark:text-gray-400 mb-4">{{ description }}</p>
     {% endif %}
 
     <div class="text-sm text-gray-600 dark:text-gray-400">
@@ -66,6 +57,29 @@ schema: BlogPosting
     <a class="u-url hidden" href="{{ page.url | url | absoluteUrl(meta.url) }}">Permalink</a>
   </header>
 
+  {% if heroImage %}
+    <figure class="post-hero">
+      <img class="u-photo w-full rounded-lg" src="{{ heroImage }}" alt="{{ heroImageAlt }}" loading="eager" fetchpriority="high" eleventy:widths="480,768,960" sizes="(max-width: 56rem) calc(100vw - 2rem), 54rem" />
+      {% if featuredImageCaption %}
+        <figcaption>{{ featuredImageCaption | featuredImageCaptionHtml | safe }}</figcaption>
+      {% endif %}
+    </figure>
+  {% endif %}
+
+  {% set headings = content | articleHeadings %}
+  {% if toc != false and headings | length >= 3 %}
+    <nav class="article-toc" aria-label="On this page">
+      <details open>
+        <summary>On this page <span class="article-toc__count">{{ headings | length }} sections</span></summary>
+        <ol>
+          {% for heading in headings %}
+            <li><a href="{{ heading.href | escape }}">{{ heading.text | escape }}</a></li>
+          {% endfor %}
+        </ol>
+      </details>
+    </nav>
+  {% endif %}
+
   {%- set isOldPost -%}{{ publishedDate | isOldPost }}{%- endset -%}
   {% if isOldPost == "true" %}
     <aside class="old-post-warning mb-8" aria-label="Older post notice">
@@ -78,13 +92,13 @@ schema: BlogPosting
     </aside>
   {% endif %}
 
-  <div class="e-content prose max-w-none">
+  <div class="e-content prose article-prose">
     {{ content | safe }}
   </div>
 
   {% if tags and tags.length %}
     <section class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
-      <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Tags</h2>
+      <h2 class="post-tags-title text-sm font-semibold uppercase tracking-wide mb-3">Tags</h2>
       <div class="flex flex-wrap gap-2">
         {% for tag in tags %}
           {% if tag != 'posts' %}
@@ -105,8 +119,8 @@ schema: BlogPosting
           <h2 class="font-semibold text-lg">About {{ meta.author.name }}</h2>
           <p class="text-gray-600 dark:text-gray-400 mt-1">I am a cybersecurity expert and IT professional who writes as CybersecKyle. I share day-to-day security and MSP work on Mastodon and publish tools and experiments on GitHub.</p>
           <div class="mt-3 flex flex-wrap gap-4 text-sm">
-            <a href="/about/" class="text-blue-600 hover:text-blue-800">More about me</a>
-            <a href="/donate/" class="text-green-600 hover:text-green-800">Support my work</a>
+            <a href="/about/" class="post-author-link">More about me</a>
+            <a href="/donate/" class="post-author-link">Support my work</a>
           </div>
         </div>
       </div>
@@ -151,7 +165,7 @@ schema: BlogPosting
 
     <div class="mt-6">
       <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Give this post some kudos.</p>
-      <button class="tinylytics_kudos" data-path="{{ page.url | url }}"></button>
+      <button class="tinylytics_kudos" data-path="{{ page.url | url }}" aria-label="Give this post kudos"></button>
     </div>
 
     {% include "partials/webmentions.njk" %}

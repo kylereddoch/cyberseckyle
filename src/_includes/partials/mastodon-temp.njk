@@ -3,19 +3,16 @@
     <blockquote class="mastodon-post-quote" data-key="content"></blockquote>
     <figcaption class="mastodon-post__caption"><!--<cite> — <a data-key="url" rel="me"><span
                     data-key="username"></span>@<span data-key="hostname"></span></a></cite>-->
-        <dl class="mastodon-post__stats">
-            <div class="mastodon-post__stat">
-                <a {% if mastodonPostUrl %}href="{{ mastodonPostUrl }}/reblogs/"{% endif %} data-mastodon-link="reblogs" class="no-indicator"><dt><i class="fa-solid fa-rocket" aria-label="Boosts"></i></dt>
-                <dd data-key="reblogs_count"></dd></a>
-            </div>
-            <div class="mastodon-post__stat">
-                <a {% if mastodonPostUrl %}href="{{ mastodonPostUrl }}/"{% endif %} data-mastodon-link="status" class="no-indicator"><dt><i class="fa-solid fa-comment" aria-label="Replies"></i></dt>
-                <dd data-key="replies_count"></dd></a>
-            </div>
-            <div class="mastodon-post__stat">
-                <a {% if mastodonPostUrl %}href="{{ mastodonPostUrl }}/favourites/"{% endif %} data-mastodon-link="favourites" class="no-indicator"><dt><i class="fa-solid fa-heart" aria-label="Favorites"></i></dt>
-                <dd data-key="favourites_count"></dd></a>
-            </div>
-        </dl>
+        <ul class="mastodon-post__stats" aria-label="Mastodon reactions">
+            <li class="mastodon-post__stat">
+                <a {% if mastodonPostUrl %}href="{{ mastodonPostUrl }}/reblogs/"{% endif %} data-mastodon-link="reblogs" class="no-indicator"><i class="fa-solid fa-rocket" aria-hidden="true"></i><span class="visually-hidden">Boosts: </span><span data-key="reblogs_count"></span></a>
+            </li>
+            <li class="mastodon-post__stat">
+                <a {% if mastodonPostUrl %}href="{{ mastodonPostUrl }}/"{% endif %} data-mastodon-link="status" class="no-indicator"><i class="fa-solid fa-comment" aria-hidden="true"></i><span class="visually-hidden">Replies: </span><span data-key="replies_count"></span></a>
+            </li>
+            <li class="mastodon-post__stat">
+                <a {% if mastodonPostUrl %}href="{{ mastodonPostUrl }}/favourites/"{% endif %} data-mastodon-link="favourites" class="no-indicator"><i class="fa-solid fa-heart" aria-hidden="true"></i><span class="visually-hidden">Favorites: </span><span data-key="favourites_count"></span></a>
+            </li>
+        </ul>
     </figcaption>
 </figure>

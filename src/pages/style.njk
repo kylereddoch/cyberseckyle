@@ -103,14 +103,59 @@ description: "The CybersecKyle branding, typography, colors, and tools behind Ky
       </div>
     </section>
 
-    <section class="prose max-w-none">
-      <h2>Content Styling</h2>
-      <p>This section shows the prose rhythm used for articles and notes, including links, code, and quotes.</p>
-      <blockquote>
-        <p>A good personal site should feel calm, readable, and unmistakably yours.</p>
-      </blockquote>
-      <pre><code class="language-njk">{% raw %}&lt;a href="/blog/" class="font-medium"&gt;Read the blog&lt;/a&gt;{% endraw %}</code></pre>
-      <p>Inline code like <code>featuredImage</code> and <code>mastodonHandle</code> should stay readable in both themes.</p>
+    <section aria-labelledby="article-components">
+      <div class="prose">
+        <h2 id="article-components">Shared content styling</h2>
+        <p>Posts, notes, and pages share these headings, quotes, callouts, and interactive details.</p>
+        <blockquote>
+          <p>A good personal site should feel calm, readable, and unmistakably yours.</p>
+        </blockquote>
+
+        {% articleCallout "In practice" %}
+Keep the useful instruction beside the explanation. A short callout gives it room without interrupting the rest of the article.
+        {% endarticleCallout %}
+
+        {% articleCallout "Example", "example" %}
+A vendor advisory and a software inventory may use different names for the same product. A precise version range helps connect the two.
+        {% endarticleCallout %}
+
+        {% articleCallout "A limitation", "caution" %}
+A matching version is a reason to investigate. It does not, by itself, establish whether a vulnerable feature is reachable in a particular environment.
+        {% endarticleCallout %}
+
+        <h3>Supporting detail, when you want it</h3>
+        {% articleDetails "See the product-matching example" %}
+An advisory might cover one release branch while another already contains the fix. Compare the installed version with the vendor's affected range before deciding which systems need attention.
+
+The main explanation stays visible in the article; this panel holds the additional example.
+        {% endarticleDetails %}
+
+        {% articleSteps "From an advisory to a response", [
+          {title: "Read the advisory", text: "Identify the product and affected versions."},
+          {title: "Check the inventory", text: "Find candidate systems and investigate exposure."},
+          {title: "Verify the result", text: "Confirm the mitigation or update took effect."}
+        ] %}
+
+        {% articleDetails "Show the article formatting examples" %}
+Use a callout for a short practical point:
+
+```njk
+{% raw %}{% articleCallout "In practice" %}
+Your paragraph, with **Markdown** if needed.
+{% endarticleCallout %}{% endraw %}
+```
+
+Use an expandable panel for optional background:
+
+```njk
+{% raw %}{% articleDetails "See the example" %}
+The supporting explanation goes here.
+{% endarticleDetails %}{% endraw %}
+```
+
+The contents section appears automatically on articles with at least three main headings. Set `toc: false` in an article's front matter to omit it.
+        {% endarticleDetails %}
+      </div>
     </section>
 
     <section>

@@ -26,19 +26,36 @@ description: "Welcome to CybersecKyle, where Kyle Reddoch writes about cybersecu
 
     <div class="flex flex-wrap justify-center gap-4">
       <a href="/about/" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg transition-colors">&#128075; Learn more about me</a>
-      <a href="/feed.xml" class="border border-purple-600 text-purple-600 hover:bg-purple-50 dark:hover:bg-purple-900/20 px-6 py-2 rounded-lg transition-colors">&#128225; Subscribe via RSS</a>
+      <a href="/feed.xml" class="home-rss-link border border-purple-600 text-purple-600 hover:bg-purple-50 dark:hover:bg-purple-900/20 px-6 py-2 rounded-lg transition-colors">&#128225; Subscribe via RSS</a>
     </div>
   </div>
 
-  <section class="mb-10">
+  <section class="home-latest mb-10">
     <div class="mb-6">
       <h2 class="text-2xl font-semibold">&#9997;&#65039; Latest from around the site</h2>
     </div>
 
     {% set recent = collections.homeEntries | default([]) %}
+    {% set featured = recent | homeFeature %}
+    {% set recentLimit = 5 %}
     {% if recent | length > 0 %}
-      <div class="space-y-8">
-        {% for entry in recent | head(5) %}
+      {% if featured %}
+        {% set recentLimit = 4 %}
+        <article class="h-entry home-feature">
+          <div class="home-feature__image">
+            <img class="u-photo" src="{{ featured.data.featuredImage or featured.data.featured_image }}" alt="{{ featured.data.featuredImageAlt or featured.data.featured_image_alt or '' }}" eleventy:widths="360,540,768" sizes="(max-width: 42rem) calc(100vw - 2rem), 22rem" loading="lazy" />
+          </div>
+          <div class="home-feature__body">
+            <p class="home-feature__eyebrow">Latest article</p>
+            <time class="dt-published home-entry__date" datetime="{{ featured | publishedDate | htmlDateString }}">{{ featured | publishedDate | readableDate }}</time>
+            <h3 class="p-name"><a class="u-url" href="{{ featured.url }}">{{ featured.data.title }}</a></h3>
+            {% if featured.data.description %}<p class="p-summary">{{ featured.data.description }}</p>{% endif %}
+            <a class="home-feature__read" href="{{ featured.url }}" aria-label="Read the article: {{ featured.data.title | escape }}">Read the article <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </article>
+      {% endif %}
+      <div class="home-entry-list">
+        {% for entry in recent | withoutEntry(featured.url) | head(recentLimit) %}
           {% set publishedDate = entry | publishedDate %}
           {% set entryType = entry.data.contentType or 'post' %}
           {% if entry.data.contentType == 'now' %}
@@ -57,14 +74,14 @@ description: "Welcome to CybersecKyle, where Kyle Reddoch writes about cybersecu
             {% set entryIcon = '&#9997;&#65039;' %}
             {% set entryLabel = 'Post' %}
           {% endif %}
-          <article class="h-entry border-b border-gray-200 dark:border-gray-700 pb-6 last:border-b-0">
+          <article class="h-entry home-entry home-entry--{{ entryType }}">
             <div class="flex flex-wrap items-center gap-3 mb-2">
               <span class="entry-type-badge">
                 <span class="entry-type-badge__icon" aria-hidden="true">{{ entryIcon | safe }}</span>
                 <span class="entry-type-badge__label">{{ entryLabel }}</span>
               </span>
               {% if publishedDate %}
-                <time class="dt-published text-sm text-gray-500 dark:text-gray-400" datetime="{{ publishedDate | htmlDateString }}">{{ publishedDate | readableDate }}</time>
+                <time class="dt-published home-entry__date" datetime="{{ publishedDate | htmlDateString }}">{{ publishedDate | readableDate }}</time>
               {% endif %}
             </div>
 

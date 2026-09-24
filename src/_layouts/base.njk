@@ -31,6 +31,8 @@
       })();
     </script>
 
+    <link rel="preload" href="/assets/fonts/atkinson/atkinson-hyperlegible-regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/atkinson/atkinson-hyperlegible-bold.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/assets/starter/build.min.css" />
     <link rel="stylesheet" href="/assets/starter/cyberseckyle.min.css" />
 
@@ -64,7 +66,7 @@
     {% set isNewsletter = url == '/newsletter/' or '/newsletter/' in url or '/submit-news/' in url %}
 
     <header class="bg-[var(--surface)] border-b border-gray-200 dark:border-gray-700">
-      <div class="container mx-auto max-w-7xl px-4 py-3 flex items-center gap-3">
+      <div class="site-header-row container mx-auto max-w-7xl px-4 py-3 flex items-center gap-3">
         <button id="hamburger" class="md:hidden p-2 rounded border border-gray-300 dark:border-gray-600" aria-label="Toggle menu" aria-controls="primary-nav" aria-expanded="false">
           <span class="bar-1 block w-5 h-0.5 bg-gray-700 dark:bg-gray-200 mb-1 transition-transform"></span>
           <span class="bar-2 block w-5 h-0.5 bg-gray-700 dark:bg-gray-200 mb-1 transition-opacity"></span>
@@ -88,7 +90,7 @@
           />
         </form>
 
-        <div class="flex items-center gap-2 ml-2">
+        <div class="site-tools flex items-center gap-2 ml-2">
           <button id="dark-toggle" class="px-2 py-1 text-sm border rounded" aria-pressed="false" aria-label="Toggle dark mode">&#127769;</button>
           <div class="relative">
             <button id="a11y-toggle" class="px-2 py-1 text-sm border rounded" aria-expanded="false" aria-controls="a11y-menu">A11y</button>

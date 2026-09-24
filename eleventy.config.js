@@ -42,6 +42,8 @@ import filters from './src/_config/filters.js';
 import dateFilters from './src/_config/filters/oldpost.js';
 import plugins from './src/_config/plugins.js';
 import shortcodes from './src/_config/shortcodes.js';
+import { articleHeadings } from './src/_config/filters/article-headings.js';
+import { articleCallout, articleDetails, articleSteps } from './src/_config/shortcodes/article-components.js';
 import { buildAllJs } from './src/_config/plugins/js-config.js';
 
 // reading time plugin
@@ -606,6 +608,17 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter('readableDateTime', filters.formatArticleDateTime);
   eleventyConfig.addFilter('htmlDateString', date => filters.formatDate(date, 'YYYY-MM-DD'));
   eleventyConfig.addFilter('markdownFormat', filters.markdownFormat);
+  eleventyConfig.addFilter('articleHeadings', articleHeadings);
+  eleventyConfig.addPairedShortcode('articleCallout', articleCallout);
+  eleventyConfig.addPairedShortcode('articleDetails', articleDetails);
+  eleventyConfig.addShortcode('articleSteps', articleSteps);
+  eleventyConfig.addFilter('homeFeature', entries => (entries || []).find(entry =>
+    entry.inputPath.replace(/\\/g, '/').startsWith('./src/posts/') &&
+    !entry.inputPath.replace(/\\/g, '/').includes('/weeklynotes/') &&
+    !entry.inputPath.replace(/\\/g, '/').includes('/journal/') &&
+    (entry.data.featuredImage || entry.data.featured_image)
+  ));
+  eleventyConfig.addFilter('withoutEntry', (entries, url) => (entries || []).filter(entry => entry.url !== url));
   eleventyConfig.addFilter('metaDescription', filters.metaDescription);
   eleventyConfig.addAsyncFilter('feedImage', filters.feedImage);
   eleventyConfig.addFilter('cdata', filters.cdata);
