@@ -13,7 +13,7 @@
     <link>https://www.kylereddoch.me/</link>
     <description>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 24 Sep 2026 09:04:00 CDT</lastBuildDate>
+    <lastBuildDate>Thu, 24 Sep 2026 09:55:49 CDT</lastBuildDate>
     <atom:link href="https://www.kylereddoch.me/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://www.kylereddoch.me/assets/images/logo.png</url>
@@ -47,7 +47,7 @@
       <title>Better CVE Data Should Mean Less Guesswork for Defenders</title>
       <link>https://www.kylereddoch.me/blog/better-cve-data-should-mean-less-guesswork-for-defenders/</link>
       <guid isPermaLink="true">https://www.kylereddoch.me/blog/better-cve-data-should-mean-less-guesswork-for-defenders/</guid>
-      <pubDate>Thu, 24 Sep 2026 09:04:00 CDT</pubDate>
+      <pubDate>Thu, 24 Sep 2026 09:55:49 CDT</pubDate>
       <xhtml:a class="browser-title" href="https://www.kylereddoch.me/blog/better-cve-data-should-mean-less-guesswork-for-defenders/">Better CVE Data Should Mean Less Guesswork for Defenders</xhtml:a>
       <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/6Jj5wjKZ5--1672.jpeg" alt="An illustrated CVE record connected to software inventory cards, with an unfinished connection suggesting missing identification data." />
       <dc:creator>Kyle Reddoch</dc:creator>
