@@ -2052,8 +2052,9 @@ html.system-fonts {
 
 html {
   scroll-behavior: smooth;
-  overflow-y: scroll;
-  width: 100vw;
+  overflow-y: auto;
+  /* Keep scrollbar space stable without making the page wider than it. */
+  scrollbar-gutter: stable;
   box-sizing: border-box;
 }
 
