@@ -36,6 +36,8 @@ social:
       {url}
 
       #MSP #Microsoft365 #ITOperations
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117349181996527411}, x: {url: https://twitter.com/thecyberseckyle/status/2104581962992165274, buffer_id: 6aba7c4fbaa2ae49524b86c5}, linkedin: {url: https://www.linkedin.com/feed/update/urn:li:share:7510347752854306816, buffer_id: 6aba7c52c62b374cee984067}}
+publishedAt: "2026-09-28T14:40:14.743Z"
 ---
 
 Consider a Microsoft 365 migration where all the email arrives, but the accounting team cannot send invoices from its shared mailbox. The files are in the destination, but the office manager's saved links do not open. Staff can sign in through a browser, while their usual desktop applications still need attention.
