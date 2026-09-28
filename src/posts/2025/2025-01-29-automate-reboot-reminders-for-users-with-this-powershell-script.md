@@ -2,7 +2,7 @@
 date: 2025-01-29
 title: 'Automate Reboot Reminders for Users with This PowerShell Script'
 description: "Automate reboot reminders for Windows users. Prevent delays, enforce restarts, and improve system stability with this easy-to-deploy PowerShell script."
-tags: [powershell, scripts, MSP, IT]
+tags: [powershell, scripts, MSP, IT, it-operations]
 mastodon_url: https://infosec.exchange/@beardedtechguy/113912748097776817
 ---
 

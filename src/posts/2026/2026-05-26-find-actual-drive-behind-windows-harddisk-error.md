@@ -7,7 +7,7 @@ description: "A quick, easy way to map obscure Windows disk controller errors ba
 searchIntent: "Help Windows admins and MSP techs map \\Device\\HarddiskX\\DRX controller errors to the actual disk, volume, drive letter, model, and serial number."
 featuredImage: /assets/images/windows-disk-controller-error.png
 featuredImageAlt: A hard drive sitting on a desk in front of a blurred computer monitor showing a red warning icon and disk health dashboard.
-tags: [windows, powershell, MSP, tutorials]
+tags: [windows, powershell, MSP, tutorials, it-operations]
 lastModified: 2026-05-26T16:26:27-05:00
 mastodon_post: true
 mastodon_url: "https://infosec.exchange/@cyberseckyle/116641981140627952"

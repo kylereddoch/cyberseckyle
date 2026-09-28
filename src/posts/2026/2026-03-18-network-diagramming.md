@@ -2,7 +2,7 @@
 date: 2026-03-18T15:00:00-05:00
 title: Network diagrams are boring until you need one
 description: A practical, personal look at why network diagramming matters, how I build useful diagrams, and which free and paid tools are worth considering.
-tags: [networking, documentation, diagrams, sysadmin, IT, MSP]
+tags: [networking, documentation, diagrams, sysadmin, IT, MSP, it-operations]
 mastodon_url: https://infosec.exchange/@cyberseckyle/116252242345990175
 ---
 
