@@ -36,6 +36,8 @@ social:
       {url}
 
       #Cybersecurity #Privacy #Encryption #MSP
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117356256147275305}, x: {url: https://twitter.com/thecyberseckyle/status/2105034709466018269, buffer_id: 6abc21f6d3050be9e374a478}, linkedin: {url: https://www.linkedin.com/feed/update/urn:li:share:7510800497725886464, buffer_id: 6abc21f95df9296bd8d27b1d}}
+publishedAt: "2026-09-29T20:39:17.718Z"
 ---
 
 A computer you do not control can receive your private messages while the encryption works exactly as designed. Link that computer to the account, and the messaging app has another device to deliver to. The security problem is how it became a recipient.
