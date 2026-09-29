@@ -40,6 +40,8 @@ social:
       {url}
 
       #Mastodon #Fediverse #OpenSource
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117356129523672510}, x: {buffer_id: 6abc1a6aa1ba5ce146dad29f}, linkedin: {url: https://www.linkedin.com/feed/update/urn:li:share:7510792393982386176, buffer_id: 6abc1a6dd3050be9e373dd10}}
+publishedAt: "2026-09-29T20:07:05.594Z"
 ---
 
 Sharing a passage from an article can mean copying the quote, opening Mastodon, finding the article again for its title and URL, and assembling the post by hand. I wanted to highlight the part worth sharing, click an extension icon, and have those pieces waiting in an editable draft.
