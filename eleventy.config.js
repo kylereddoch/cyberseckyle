@@ -742,6 +742,11 @@ export default async function (eleventyConfig) {
       "assets/images/cyberseckyle-newsletter-logo-horizontal.png"
   });
 
+  // Project social metadata and article schema reference the original hero URL.
+  eleventyConfig.addPassthroughCopy({
+    "src/assets/images/drift-hero.png": "assets/images/drift-hero.png"
+  });
+
 
   // --------------------- general config
   return {
