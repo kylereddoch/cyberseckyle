@@ -946,7 +946,7 @@ const editorialQueueDashboard = () => `<!doctype html>
   <h1>Defender's Dispatch editorial queue</h1>
   <p>Private review view for Community Signal submissions. The access token stays in this browser tab's session storage.</p>
   <div class="bar">
-    <input id="token" type="password" autocomplete="current-password" placeholder="Editorial queue access token" aria-label="Editorial queue access token">
+    <input id="token" name="editorial-queue-token" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" inputmode="text" maxlength="64" pattern="[0-9a-fA-F]{64}" placeholder="64-character editorial queue token" aria-label="Editorial queue access token">
     <select id="filter" aria-label="Queue status">
       <option value="pending-review">Pending review</option>
       <option value="">All statuses</option>
@@ -956,6 +956,7 @@ const editorialQueueDashboard = () => `<!doctype html>
       <option value="rejected">Rejected</option>
       <option value="archived">Archived</option>
     </select>
+    <button id="paste" type="button">Paste token</button>
     <button id="load" type="button">Load queue</button>
     <button id="forget" type="button">Forget token</button>
   </div>
@@ -967,6 +968,7 @@ const editorialQueueDashboard = () => `<!doctype html>
   const filter = document.querySelector('#filter');
   const status = document.querySelector('#status');
   const queue = document.querySelector('#queue');
+  const isQueueToken = value => /^[0-9a-f]{64}$/i.test(value);
   tokenInput.value = sessionStorage.getItem('editorialQueueToken') || '';
 
   const add = (parent, name, value) => {
@@ -1024,6 +1026,11 @@ const editorialQueueDashboard = () => `<!doctype html>
       status.textContent = 'Enter the private access token.';
       return;
     }
+    if (!isQueueToken(token)) {
+      sessionStorage.removeItem('editorialQueueToken');
+      status.textContent = 'Paste the 64-character queue token copied by the local launcher. Browser password autofill will not work.';
+      return;
+    }
     sessionStorage.setItem('editorialQueueToken', token);
     status.textContent = 'Loading…';
     queue.replaceChildren();
@@ -1035,6 +1042,11 @@ const editorialQueueDashboard = () => `<!doctype html>
         cache: 'no-store'
       });
       const result = await response.json();
+      if (response.status === 401) {
+        sessionStorage.removeItem('editorialQueueToken');
+        tokenInput.value = '';
+        throw new Error('That token was not accepted. Run the local queue launcher again, then choose Paste token.');
+      }
       if (!response.ok) throw new Error(result.message || 'The queue could not be loaded.');
       render(result.items || []);
       status.textContent = (result.items?.length || 0) + ' submission(s) loaded.';
@@ -1043,6 +1055,18 @@ const editorialQueueDashboard = () => `<!doctype html>
     }
   };
 
+  document.querySelector('#paste').addEventListener('click', async () => {
+    try {
+      const clipboardToken = (await navigator.clipboard.readText()).trim();
+      if (!isQueueToken(clipboardToken)) {
+        throw new Error('The clipboard does not contain the 64-character queue token. Run the local queue launcher again.');
+      }
+      tokenInput.value = clipboardToken;
+      await loadQueue();
+    } catch (error) {
+      status.textContent = error.message || 'Clipboard access was blocked. Click the token field and press Ctrl+V instead.';
+    }
+  });
   document.querySelector('#load').addEventListener('click', loadQueue);
   filter.addEventListener('change', loadQueue);
   document.querySelector('#forget').addEventListener('click', () => {
@@ -1051,7 +1075,7 @@ const editorialQueueDashboard = () => `<!doctype html>
     status.textContent = 'Token removed from this tab.';
     queue.replaceChildren();
   });
-  if (tokenInput.value) loadQueue();
+  if (isQueueToken(tokenInput.value)) loadQueue();
 </script>
 </body>
 </html>`;

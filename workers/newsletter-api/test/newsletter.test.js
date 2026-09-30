@@ -705,6 +705,9 @@ test('editorial queue dashboard contains no submission data before authorization
   assert.equal(response.status, 200);
   assert.match(response.headers.get('content-security-policy'), /default-src 'none'/);
   assert.match(html, /Defender's Dispatch editorial queue/);
+  assert.match(html, /autocomplete="off"/);
+  assert.match(html, /Paste token/);
+  assert.match(html, /\[0-9a-fA-F\]\{64\}/);
   assert.doesNotMatch(html, /Private queued headline/);
 });
 
