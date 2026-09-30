@@ -1,3 +1,5 @@
+import { timingSafeEqual } from 'node:crypto';
+
 const DEFAULT_SITE_ORIGIN = 'https://www.kylereddoch.me';
 const DEFAULT_RESEND_API_BASE_URL = 'https://api.resend.com';
 const DEFAULT_TURNSTILE_VERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
@@ -7,6 +9,17 @@ const RATE_LIMIT_WINDOW_SECONDS = 10 * 60;
 const RATE_LIMIT_MAX_REQUESTS = 8;
 const SUBMISSION_DEDUPE_TTL_SECONDS = 24 * 60 * 60;
 const MAX_REQUEST_BYTES = 8 * 1024;
+const EDITORIAL_QUEUE_PREFIX = 'editorial:community-signal:';
+const EDITORIAL_QUEUE_SCHEMA_VERSION = 1;
+const EDITORIAL_QUEUE_MAX_PAGE_SIZE = 100;
+const EDITORIAL_QUEUE_STATUSES = new Set([
+  'pending-review',
+  'vetted-candidate',
+  'needs-review',
+  'rejected',
+  'selected',
+  'archived'
+]);
 const SUBMISSION_CATEGORIES = new Map([
   ['cybersecurity', 'Cybersecurity'],
   ['vulnerabilities', 'Vulnerabilities and exploits'],
@@ -153,6 +166,14 @@ const hasRequiredSubmissionConfiguration = env =>
       env.NEWSLETTER_DATA?.put
   );
 
+const hasRequiredEditorialQueueConfiguration = env =>
+  Boolean(
+    env.EDITORIAL_QUEUE_TOKEN &&
+      env.NEWSLETTER_DATA?.get &&
+      env.NEWSLETTER_DATA?.list &&
+      env.NEWSLETTER_DATA?.put
+  );
+
 const toBase64Url = bytes => {
   let binary = '';
   bytes.forEach(byte => {
@@ -180,8 +201,62 @@ const kvGetJson = async (env, key) => {
   }
 };
 
-const kvPutJson = (env, key, value, expirationTtl) =>
-  env.NEWSLETTER_DATA.put(key, JSON.stringify(value), { expirationTtl });
+const kvPutJson = (env, key, value, expirationTtl, metadata) => {
+  const options = {};
+  if (expirationTtl) options.expirationTtl = expirationTtl;
+  if (metadata) options.metadata = metadata;
+  return env.NEWSLETTER_DATA.put(key, JSON.stringify(value), options);
+};
+
+const editorialQueueKey = submissionId => `${EDITORIAL_QUEUE_PREFIX}${submissionId}`;
+
+const buildEditorialQueueMetadata = record => ({
+  schemaVersion: record.schemaVersion,
+  status: record.status,
+  receivedAt: record.receivedAt,
+  updatedAt: record.updatedAt,
+  headline: record.headline,
+  articleUrl: record.articleUrl,
+  category: record.category,
+  categoryLabel: record.categoryLabel,
+  submitterName: record.submitter.name,
+  creditLabel: record.submitter.creditLabel,
+  relationshipLabel: record.submitter.relationshipLabel
+});
+
+const buildEditorialQueueRecord = (details, submissionId, receivedAt) => ({
+  schemaVersion: EDITORIAL_QUEUE_SCHEMA_VERSION,
+  submissionId,
+  status: 'pending-review',
+  receivedAt,
+  updatedAt: receivedAt,
+  headline: details.headline,
+  articleUrl: details.articleUrl,
+  source: details.source,
+  whyItMatters: details.whyItMatters,
+  category: details.category,
+  categoryLabel: details.categoryLabel,
+  submitter: {
+    name: details.submitterName,
+    email: details.email,
+    creditPreference: details.creditPreference,
+    creditLabel: details.creditLabel,
+    relationship: details.relationship,
+    relationshipLabel: details.relationshipLabel,
+    disclosure: details.disclosure
+  },
+  review: null
+});
+
+const ensureEditorialQueueRecord = async (env, details, submissionId, receivedAt) => {
+  const key = editorialQueueKey(submissionId);
+  const existing = await env.NEWSLETTER_DATA.get(key, { type: 'json' });
+  if (existing) return existing;
+
+  const record = buildEditorialQueueRecord(details, submissionId, receivedAt);
+  await kvPutJson(env, key, record, undefined, buildEditorialQueueMetadata(record));
+  return record;
+};
 
 const parseJsonBody = async request => {
   const declaredLength = Number(request.headers.get('content-length') || 0);
@@ -199,6 +274,124 @@ const parseJsonBody = async request => {
   } catch {
     throw new ServiceError('The request body must be valid JSON.', 400);
   }
+};
+
+const getBearerToken = request => {
+  const authorization = request.headers.get('authorization') || '';
+  const match = authorization.match(/^Bearer\s+(.+)$/i);
+  return match ? match[1].trim() : '';
+};
+
+const matchesEditorialQueueToken = (request, env) => {
+  const provided = new TextEncoder().encode(getBearerToken(request));
+  const expected = new TextEncoder().encode(String(env.EDITORIAL_QUEUE_TOKEN || ''));
+  return provided.byteLength === expected.byteLength && timingSafeEqual(provided, expected);
+};
+
+const requireEditorialQueueAccess = (request, env) => {
+  if (!hasRequiredEditorialQueueConfiguration(env)) {
+    return jsonResponse(
+      request,
+      env,
+      { message: 'The editorial queue reader is not configured.' },
+      503
+    );
+  }
+  if (!matchesEditorialQueueToken(request, env)) {
+    return jsonResponse(request, env, { message: 'Unauthorized.' }, 401);
+  }
+  return null;
+};
+
+const parseEditorialQueueLimit = value => {
+  const parsed = Number.parseInt(String(value || ''), 10);
+  if (!Number.isFinite(parsed)) return 50;
+  return Math.min(Math.max(parsed, 1), EDITORIAL_QUEUE_MAX_PAGE_SIZE);
+};
+
+const handleEditorialQueueList = async (request, env) => {
+  const accessError = requireEditorialQueueAccess(request, env);
+  if (accessError) return accessError;
+
+  const url = new URL(request.url);
+  const status = String(url.searchParams.get('status') || '').trim();
+  if (status && !EDITORIAL_QUEUE_STATUSES.has(status)) {
+    return jsonResponse(request, env, { message: 'Unknown editorial queue status.' }, 400);
+  }
+
+  const cursor = String(url.searchParams.get('cursor') || '').slice(0, 2048);
+  const page = await env.NEWSLETTER_DATA.list({
+    prefix: EDITORIAL_QUEUE_PREFIX,
+    limit: parseEditorialQueueLimit(url.searchParams.get('limit')),
+    cursor: cursor || undefined
+  });
+  const records = await Promise.all(
+    page.keys.map(item => env.NEWSLETTER_DATA.get(item.name, { type: 'json' }))
+  );
+  const items = records
+    .filter(record => record && (!status || record.status === status))
+    .sort((left, right) => String(right.receivedAt).localeCompare(String(left.receivedAt)));
+
+  return jsonResponse(request, env, {
+    items,
+    cursor: page.list_complete ? null : page.cursor
+  });
+};
+
+const getEditorialQueueSubmissionId = pathname => {
+  const match = pathname.match(
+    /^\/internal\/editorial-queue\/([0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})$/i
+  );
+  return match ? match[1].toLowerCase() : '';
+};
+
+const handleEditorialQueueItem = async (request, env, submissionId) => {
+  const accessError = requireEditorialQueueAccess(request, env);
+  if (accessError) return accessError;
+
+  const record = await env.NEWSLETTER_DATA.get(editorialQueueKey(submissionId), {
+    type: 'json'
+  });
+  if (!record) return jsonResponse(request, env, { message: 'Not found.' }, 404);
+  return jsonResponse(request, env, record);
+};
+
+const handleEditorialQueueUpdate = async (request, env, submissionId) => {
+  const accessError = requireEditorialQueueAccess(request, env);
+  if (accessError) return accessError;
+
+  const key = editorialQueueKey(submissionId);
+  const record = await env.NEWSLETTER_DATA.get(key, { type: 'json' });
+  if (!record) return jsonResponse(request, env, { message: 'Not found.' }, 404);
+
+  const body = await parseJsonBody(request);
+  const status = String(body.status || '').trim();
+  if (!EDITORIAL_QUEUE_STATUSES.has(status)) {
+    return jsonResponse(request, env, { message: 'Choose a valid editorial queue status.' }, 400);
+  }
+
+  const verifiedSources = Array.isArray(body.verifiedSources)
+    ? body.verifiedSources
+        .slice(0, 20)
+        .map(normalizeArticleUrl)
+        .filter(Boolean)
+    : [];
+  const reviewedAt = new Date().toISOString();
+  const updated = {
+    ...record,
+    status,
+    updatedAt: reviewedAt,
+    review: {
+      reviewedAt,
+      summary: normalizeLongText(body.summary, 2400),
+      wordingCaution: normalizeLongText(body.wordingCaution, 1200),
+      queuePath: normalizeInlineText(body.queuePath, 512),
+      verifiedSources
+    }
+  };
+
+  await kvPutJson(env, key, updated, undefined, buildEditorialQueueMetadata(updated));
+  return jsonResponse(request, env, updated);
 };
 
 const verifyTurnstile = async (request, env, token, expectedAction) => {
@@ -696,15 +889,18 @@ const handleSubmission = async (request, env) => {
   const submissionId =
     existing?.submissionId ||
     crypto.randomUUID();
+  const receivedAt = existing?.receivedAt || new Date().toISOString();
 
   if (!existing?.submissionId) {
     await kvPutJson(
       env,
       dedupeKey,
-      { submissionId, createdAt: Date.now() },
+      { submissionId, createdAt: Date.now(), receivedAt },
       SUBMISSION_DEDUPE_TTL_SECONDS
     );
   }
+
+  await ensureEditorialQueueRecord(env, details, submissionId, receivedAt);
 
   await Promise.all([
     sendSubmissionAcknowledgement(env, details, submissionId),
@@ -713,6 +909,164 @@ const handleSubmission = async (request, env) => {
 
   return genericSubmissionAcceptedResponse(request, env);
 };
+
+const editorialQueueDashboard = () => `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Defender's Dispatch editorial queue</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background:#11111b; color:#cdd6f4; }
+    body { margin:0; padding:32px 18px 64px; }
+    main { width:min(980px,100%); margin:0 auto; }
+    h1 { margin:0 0 8px; font-size:clamp(1.8rem,5vw,2.8rem); }
+    p { color:#bac2de; line-height:1.6; }
+    .bar { display:flex; flex-wrap:wrap; gap:10px; margin:24px 0; }
+    input, select, button { font:inherit; border:1px solid #45475a; border-radius:8px; padding:10px 12px; background:#1e1e2e; color:#cdd6f4; }
+    input { flex:1 1 360px; }
+    button { cursor:pointer; background:#313244; }
+    button:hover, button:focus-visible { border-color:#89b4fa; }
+    .status { min-height:24px; color:#f9e2af; }
+    .grid { display:grid; gap:16px; }
+    article { background:#1e1e2e; border:1px solid #313244; border-radius:12px; padding:20px; }
+    article h2 { margin:8px 0 10px; font-size:1.25rem; }
+    article a { color:#89b4fa; }
+    .meta { display:flex; flex-wrap:wrap; gap:8px 16px; color:#a6adc8; font-size:.9rem; }
+    .badge { display:inline-block; border-radius:999px; padding:4px 9px; background:#313244; color:#a6e3a1; font-size:.8rem; font-weight:700; }
+    dl { display:grid; grid-template-columns:max-content 1fr; gap:6px 12px; margin:16px 0 0; }
+    dt { color:#a6adc8; }
+    dd { margin:0; overflow-wrap:anywhere; }
+    .empty { padding:28px; border:1px dashed #45475a; border-radius:12px; text-align:center; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Defender's Dispatch editorial queue</h1>
+  <p>Private review view for Community Signal submissions. The access token stays in this browser tab's session storage.</p>
+  <div class="bar">
+    <input id="token" type="password" autocomplete="current-password" placeholder="Editorial queue access token" aria-label="Editorial queue access token">
+    <select id="filter" aria-label="Queue status">
+      <option value="pending-review">Pending review</option>
+      <option value="">All statuses</option>
+      <option value="vetted-candidate">Vetted candidates</option>
+      <option value="needs-review">Needs review</option>
+      <option value="selected">Selected</option>
+      <option value="rejected">Rejected</option>
+      <option value="archived">Archived</option>
+    </select>
+    <button id="load" type="button">Load queue</button>
+    <button id="forget" type="button">Forget token</button>
+  </div>
+  <p id="status" class="status" role="status"></p>
+  <section id="queue" class="grid" aria-live="polite"></section>
+</main>
+<script>
+  const tokenInput = document.querySelector('#token');
+  const filter = document.querySelector('#filter');
+  const status = document.querySelector('#status');
+  const queue = document.querySelector('#queue');
+  tokenInput.value = sessionStorage.getItem('editorialQueueToken') || '';
+
+  const add = (parent, name, value) => {
+    const term = document.createElement('dt');
+    const description = document.createElement('dd');
+    term.textContent = name;
+    description.textContent = value || 'Not provided';
+    parent.append(term, description);
+  };
+
+  const render = items => {
+    queue.replaceChildren();
+    if (!items.length) {
+      const empty = document.createElement('p');
+      empty.className = 'empty';
+      empty.textContent = 'No submissions match this view.';
+      queue.append(empty);
+      return;
+    }
+    for (const item of items) {
+      const card = document.createElement('article');
+      const badge = document.createElement('span');
+      badge.className = 'badge';
+      badge.textContent = item.status;
+      const heading = document.createElement('h2');
+      const link = document.createElement('a');
+      link.href = item.articleUrl;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = item.headline;
+      heading.append(link);
+      const meta = document.createElement('div');
+      meta.className = 'meta';
+      const received = document.createElement('span');
+      received.textContent = new Date(item.receivedAt).toLocaleString();
+      const category = document.createElement('span');
+      category.textContent = item.categoryLabel;
+      meta.append(received, category);
+      const details = document.createElement('dl');
+      add(details, 'Source', item.source);
+      add(details, 'Why it matters', item.whyItMatters);
+      add(details, 'Submitter', item.submitter?.name);
+      add(details, 'Email', item.submitter?.email);
+      add(details, 'Credit', item.submitter?.creditLabel);
+      add(details, 'Relationship', item.submitter?.relationshipLabel);
+      add(details, 'Disclosure', item.submitter?.disclosure);
+      card.append(badge, heading, meta, details);
+      queue.append(card);
+    }
+  };
+
+  const loadQueue = async () => {
+    const token = tokenInput.value.trim();
+    if (!token) {
+      status.textContent = 'Enter the private access token.';
+      return;
+    }
+    sessionStorage.setItem('editorialQueueToken', token);
+    status.textContent = 'Loading…';
+    queue.replaceChildren();
+    const params = new URLSearchParams({ limit: '100' });
+    if (filter.value) params.set('status', filter.value);
+    try {
+      const response = await fetch('/internal/editorial-queue?' + params, {
+        headers: { authorization: 'Bearer ' + token, accept: 'application/json' },
+        cache: 'no-store'
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.message || 'The queue could not be loaded.');
+      render(result.items || []);
+      status.textContent = (result.items?.length || 0) + ' submission(s) loaded.';
+    } catch (error) {
+      status.textContent = error.message;
+    }
+  };
+
+  document.querySelector('#load').addEventListener('click', loadQueue);
+  filter.addEventListener('change', loadQueue);
+  document.querySelector('#forget').addEventListener('click', () => {
+    sessionStorage.removeItem('editorialQueueToken');
+    tokenInput.value = '';
+    status.textContent = 'Token removed from this tab.';
+    queue.replaceChildren();
+  });
+  if (tokenInput.value) loadQueue();
+</script>
+</body>
+</html>`;
+
+const handleEditorialQueueDashboard = () =>
+  new Response(editorialQueueDashboard(), {
+    headers: {
+      'content-type': 'text/html; charset=utf-8',
+      'cache-control': 'no-store',
+      'content-security-policy': "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'",
+      'referrer-policy': 'no-referrer',
+      'x-content-type-options': 'nosniff',
+      'x-frame-options': 'DENY'
+    }
+  });
 
 const handleSubscribe = async (request, env) => {
   const allowedOrigin = getAllowedOrigin(request, env);
@@ -1001,6 +1355,7 @@ const handleOptions = (request, env) => {
 
 export const handleRequest = async (request, env) => {
   const url = new URL(request.url);
+  const editorialQueueSubmissionId = getEditorialQueueSubmissionId(url.pathname);
 
   if (request.method === 'OPTIONS') return handleOptions(request, env);
 
@@ -1016,6 +1371,18 @@ export const handleRequest = async (request, env) => {
   }
 
   try {
+    if (request.method === 'GET' && url.pathname === '/editorial-queue') {
+      return handleEditorialQueueDashboard();
+    }
+    if (request.method === 'GET' && url.pathname === '/internal/editorial-queue') {
+      return await handleEditorialQueueList(request, env);
+    }
+    if (request.method === 'GET' && editorialQueueSubmissionId) {
+      return await handleEditorialQueueItem(request, env, editorialQueueSubmissionId);
+    }
+    if (request.method === 'PATCH' && editorialQueueSubmissionId) {
+      return await handleEditorialQueueUpdate(request, env, editorialQueueSubmissionId);
+    }
     if (request.method === 'POST' && url.pathname === '/newsletter/subscribe') {
       return await handleSubscribe(request, env);
     }

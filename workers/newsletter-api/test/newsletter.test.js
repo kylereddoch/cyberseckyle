@@ -5,6 +5,7 @@ import { handleRequest } from '../src/index.js';
 class MemoryKv {
   constructor() {
     this.values = new Map();
+    this.metadata = new Map();
   }
 
   async get(key, options = {}) {
@@ -13,12 +14,34 @@ class MemoryKv {
     return options.type === 'json' ? JSON.parse(value) : value;
   }
 
-  async put(key, value) {
+  async put(key, value, options = {}) {
     this.values.set(key, value);
+    if ('metadata' in options) this.metadata.set(key, options.metadata);
   }
 
   async delete(key) {
     this.values.delete(key);
+    this.metadata.delete(key);
+  }
+
+  async list(options = {}) {
+    const prefix = String(options.prefix || '');
+    const limit = Number(options.limit || 1000);
+    const offset = Number(options.cursor || 0);
+    const names = [...this.values.keys()]
+      .filter(key => key.startsWith(prefix))
+      .sort();
+    const selected = names.slice(offset, offset + limit);
+    const nextOffset = offset + selected.length;
+    const result = {
+      keys: selected.map(name => ({
+        name,
+        ...(this.metadata.has(name) ? { metadata: this.metadata.get(name) } : {})
+      })),
+      list_complete: nextOffset >= names.length
+    };
+    if (!result.list_complete) result.cursor = String(nextOffset);
+    return result;
   }
 }
 
@@ -35,6 +58,7 @@ const makeEnv = kv => ({
   SUBMISSION_NOTIFY_TO: 'newsletter@example.com',
   NEWSLETTER_NOTIFY_TO: 'newsletter-owner@example.com',
   SUBMISSION_FROM: 'The Defender’s Dispatch <newsletter@updates.example.com>',
+  EDITORIAL_QUEUE_TOKEN: 'editorial-queue-test-token',
   NEWSLETTER_DATA: kv
 });
 
@@ -535,6 +559,153 @@ test('reader submission sends a receipt and a structured editorial notification'
     [...kv.values.keys()].some(key => key.startsWith('submission:')),
     true
   );
+  const queueEntry = [...kv.values.entries()].find(([key]) =>
+    key.startsWith('editorial:community-signal:')
+  );
+  assert.ok(queueEntry);
+  const queueRecord = JSON.parse(queueEntry[1]);
+  assert.equal(queueRecord.status, 'pending-review');
+  assert.equal(queueRecord.headline, 'A useful security story');
+  assert.equal(queueRecord.articleUrl, 'https://security.example/story');
+  assert.equal(queueRecord.submitter.email, 'alex@example.com');
+  assert.equal(queueRecord.submitter.creditLabel, 'Credit my name');
+  assert.equal(queueRecord.submitter.relationshipLabel, 'No relationship');
+  assert.equal(kv.metadata.get(queueEntry[0]).status, 'pending-review');
+});
+
+test('editorial queue API requires the private token and returns pending submissions', async () => {
+  const kv = new MemoryKv();
+  const submissionId = '11111111-1111-4111-8111-111111111111';
+  const record = {
+    schemaVersion: 1,
+    submissionId,
+    status: 'pending-review',
+    receivedAt: '2026-09-30T12:00:00.000Z',
+    updatedAt: '2026-09-30T12:00:00.000Z',
+    headline: 'Queued signal',
+    articleUrl: 'https://security.example/queued',
+    source: 'Security Example',
+    whyItMatters: 'It has useful operational context.',
+    category: 'cybersecurity',
+    categoryLabel: 'Cybersecurity',
+    submitter: {
+      name: 'Alex Defender',
+      email: 'alex@example.com',
+      creditPreference: 'name',
+      creditLabel: 'Credit my name',
+      relationship: 'none',
+      relationshipLabel: 'No relationship',
+      disclosure: ''
+    },
+    review: null
+  };
+  await kv.put(
+    `editorial:community-signal:${submissionId}`,
+    JSON.stringify(record),
+    { metadata: { status: 'pending-review' } }
+  );
+
+  const unauthorized = await handleRequest(
+    new Request('https://newsletter-api.example.workers.dev/internal/editorial-queue'),
+    makeEnv(kv)
+  );
+  assert.equal(unauthorized.status, 401);
+
+  const authorized = await handleRequest(
+    new Request(
+      'https://newsletter-api.example.workers.dev/internal/editorial-queue?status=pending-review',
+      { headers: { authorization: 'Bearer editorial-queue-test-token' } }
+    ),
+    makeEnv(kv)
+  );
+  const result = await authorized.json();
+
+  assert.equal(authorized.status, 200);
+  assert.equal(result.items.length, 1);
+  assert.equal(result.items[0].submissionId, submissionId);
+  assert.equal(result.items[0].submitter.email, 'alex@example.com');
+  assert.equal(result.cursor, null);
+});
+
+test('editorial queue API records a vetted review without accepting arbitrary fields', async () => {
+  const kv = new MemoryKv();
+  const submissionId = '22222222-2222-4222-8222-222222222222';
+  const record = {
+    schemaVersion: 1,
+    submissionId,
+    status: 'pending-review',
+    receivedAt: '2026-09-30T12:00:00.000Z',
+    updatedAt: '2026-09-30T12:00:00.000Z',
+    headline: 'Queued signal',
+    articleUrl: 'https://security.example/queued',
+    source: 'Security Example',
+    whyItMatters: 'It has useful operational context.',
+    category: 'cybersecurity',
+    categoryLabel: 'Cybersecurity',
+    submitter: {
+      name: 'Alex Defender',
+      email: 'alex@example.com',
+      creditPreference: 'name',
+      creditLabel: 'Credit my name',
+      relationship: 'none',
+      relationshipLabel: 'No relationship',
+      disclosure: ''
+    },
+    review: null
+  };
+  await kv.put(`editorial:community-signal:${submissionId}`, JSON.stringify(record));
+
+  const response = await handleRequest(
+    new Request(
+      `https://newsletter-api.example.workers.dev/internal/editorial-queue/${submissionId}`,
+      {
+        method: 'PATCH',
+        headers: {
+          authorization: 'Bearer editorial-queue-test-token',
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify({
+          status: 'vetted-candidate',
+          summary: 'Verified against the original advisory.',
+          wordingCaution: 'Do not overstate exploitation.',
+          queuePath: 'C:\\editorial\\queued-signal.md',
+          verifiedSources: [
+            'https://vendor.example/advisory#details',
+            'file:///etc/passwd'
+          ],
+          headline: 'Untrusted replacement headline'
+        })
+      }
+    ),
+    makeEnv(kv)
+  );
+  const result = await response.json();
+
+  assert.equal(response.status, 200);
+  assert.equal(result.status, 'vetted-candidate');
+  assert.equal(result.headline, 'Queued signal');
+  assert.equal(result.review.summary, 'Verified against the original advisory.');
+  assert.deepEqual(result.review.verifiedSources, ['https://vendor.example/advisory']);
+  assert.equal(kv.metadata.get(`editorial:community-signal:${submissionId}`).status, 'vetted-candidate');
+});
+
+test('editorial queue dashboard contains no submission data before authorization', async () => {
+  const kv = new MemoryKv();
+  await kv.put(
+    'editorial:community-signal:33333333-3333-4333-8333-333333333333',
+    JSON.stringify({ headline: 'Private queued headline' })
+  );
+
+  const response = await handleRequest(
+    new Request('https://newsletter-api.example.workers.dev/editorial-queue'),
+    makeEnv(kv)
+  );
+  const html = await response.text();
+
+  assert.equal(response.status, 200);
+  assert.match(response.headers.get('content-security-policy'), /default-src 'none'/);
+  assert.match(html, /Defender's Dispatch editorial queue/);
+  assert.doesNotMatch(html, /Private queued headline/);
 });
 
 test('reader submission honeypot returns success without sending email', async t => {
@@ -558,6 +729,42 @@ test('reader submission honeypot returns success without sending email', async t
 
   assert.equal(response.status, 202);
   assert.equal(fetchCalled, false);
+});
+
+test('reader submission is retained in the private queue when notification delivery fails', async t => {
+  const kv = new MemoryKv();
+  const originalFetch = globalThis.fetch;
+
+  globalThis.fetch = async url => {
+    const requestUrl = String(url);
+    if (requestUrl.startsWith('https://turnstile.test/')) {
+      return Response.json({
+        success: true,
+        action: 'reader-submission',
+        hostname: 'www.kylereddoch.me'
+      });
+    }
+    if (requestUrl.endsWith('/emails')) {
+      return Response.json(
+        { name: 'temporary_error', message: 'Email unavailable.' },
+        { status: 503 }
+      );
+    }
+    return Response.json({ message: 'Unexpected request' }, { status: 500 });
+  };
+
+  t.after(() => {
+    globalThis.fetch = originalFetch;
+  });
+
+  const response = await handleRequest(makeSubmissionRequest(), makeEnv(kv));
+  const queueEntries = [...kv.values.entries()].filter(([key]) =>
+    key.startsWith('editorial:community-signal:')
+  );
+
+  assert.equal(response.status, 503);
+  assert.equal(queueEntries.length, 1);
+  assert.equal(JSON.parse(queueEntries[0][1]).status, 'pending-review');
 });
 
 test('reader submission rejects non-web URLs before contacting upstream services', async t => {
