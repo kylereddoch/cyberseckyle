@@ -10,6 +10,7 @@ featuredImageAlt: Drift's white rising quotation marks and wordmark on a blue ba
 featuredImageCaption: 'Original Drift promotional artwork from my <a href="https://github.com/kylereddoch/drift">Drift project</a>, released under the <a href="https://github.com/kylereddoch/drift/blob/main/LICENSE">MIT license</a>.'
 tags: [projects, open-source, mastodon, fediverse, browsers]
 category: projects
+lastModified: 2026-09-30T10:49:00-04:00
 social:
   post_to: [mastodon, x, linkedin]
   tags: [Mastodon, Fediverse, OpenSource]
@@ -17,13 +18,13 @@ social:
     mastodon: |-
       I built Drift for Chrome. Highlight a passage, click the icon, and edit a Mastodon draft with the quote first, then the title and link.
 
-      It opens your server's composer for the final review. Version 1.0.0 is submitted for store review; the GitHub build is available now.
+      It opens your server's composer for the final review. Version 1.0.0 is now available on the Chrome Web Store.
 
       {url}
 
       #Mastodon #Fediverse #OpenSource
     x: |-
-      I built Drift: highlight a passage in Chrome, click the icon, and edit a Mastodon draft with the quote, title, and link. Submitted for store review; GitHub build available.
+      I built Drift: highlight a passage in Chrome, click the icon, and edit a Mastodon draft with the quote, title, and link. Now available on the Chrome Web Store.
 
       {url}
 
@@ -35,7 +36,7 @@ social:
 
       The implementation uses temporary access to the page you choose to share, local preferences, and session-only drafts. It needs no Mastodon password or API token. The post explains the tradeoff of passing a draft through a share URL, along with installation and the limits of selected-text capture.
 
-      Version 1.0.0 has been submitted for Chrome Web Store review. The source and submission build are available on GitHub.
+      Version 1.0.0 is now available on the Chrome Web Store, with the source on GitHub.
 
       {url}
 
@@ -43,6 +44,10 @@ social:
   posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117356129523672510}, x: {buffer_id: 6abc1a6aa1ba5ce146dad29f}, linkedin: {url: https://www.linkedin.com/feed/update/urn:li:share:7510792393982386176, buffer_id: 6abc1a6dd3050be9e373dd10}}
 publishedAt: "2026-09-29T20:07:05.594Z"
 ---
+
+{% articleCallout "Update, September 30, 2026" %}
+Drift 1.0.0 has been approved and is now live on the [Chrome Web Store](https://chromewebstore.google.com/detail/gfngoampnddkablfoplbllkdcfkifnij).
+{% endarticleCallout %}
 
 Sharing a passage from an article can mean copying the quote, opening Mastodon, finding the article again for its title and URL, and assembling the post by hand. I wanted to highlight the part worth sharing, click an extension icon, and have those pieces waiting in an editable draft.
 
@@ -100,9 +105,9 @@ The handoff uses the selected server's `/share?text=...` page, so Drift needs no
 Selecting **Continue to Mastodon** sends the draft to that server in an HTTPS URL. It can appear in browser history and server logs even if you never publish the post. Check for private text or confidential links before continuing. The [privacy policy](https://kylereddoch.github.io/drift/privacy.html) explains this and the local storage behavior.
 {% endarticleCallout %}
 
-## Trying Drift while the store review is pending
+## Install Drift in Chrome
 
-The [1.0.0 GitHub release](https://github.com/kylereddoch/drift/releases/tag/v1.0.0) includes `drift-1.0.0.zip`. For a manual install, extract that ZIP, open `chrome://extensions`, enable **Developer mode**, and choose **Load unpacked**. Select the extracted folder containing `manifest.json`, add your server on the welcome page, and pin Drift from Chrome's Extensions menu. The store listing will provide the normal install path once it is approved and live.
+Open [Drift's Chrome Web Store listing](https://chromewebstore.google.com/detail/gfngoampnddkablfoplbllkdcfkifnij) in Chrome, choose **Add to Chrome**, and confirm **Add extension**. Add your Mastodon server on the welcome page and pin Drift from Chrome's Extensions menu. Then open an article, highlight a passage, and click the Drift icon to prepare your first draft.
 
 There are limits to the highlight flow. Some PDF viewers, protected pages, and embedded frames prevent Chrome from reading the selection. Browser settings pages and local files cannot be shared. Drift targets Mastodon's share composer; other Fediverse software and alternative clients have not been tested. Its character count describes the draft, while the server applies its own posting limit. Very long share URLs are rejected with a suggestion to shorten or copy the text instead of silently cutting a passage off.
 
