@@ -1115,6 +1115,7 @@ const editorialQueueDashboard = () => `<!doctype html>
   const filter = document.querySelector('#filter');
   const status = document.querySelector('#status');
   const queue = document.querySelector('#queue');
+  const pasteButton = document.querySelector('#paste');
   const isQueueToken = value => /^[0-9a-f]{64}$/i.test(value);
   const statusLabels = {
     'pending-review': 'Pending vetting',
@@ -1315,7 +1316,14 @@ const editorialQueueDashboard = () => `<!doctype html>
     }
   };
 
-  document.querySelector('#paste').addEventListener('click', async () => {
+  const waitForManualPaste = () => {
+    tokenInput.value = '';
+    tokenInput.focus();
+    pasteButton.textContent = 'Waiting for Ctrl+V';
+    status.textContent = 'Automatic paste is blocked by this browser. Press Ctrl+V now; the queue will load automatically.';
+  };
+
+  pasteButton.addEventListener('click', async () => {
     try {
       const clipboardToken = (await navigator.clipboard.readText()).trim();
       if (!isQueueToken(clipboardToken)) {
@@ -1323,9 +1331,19 @@ const editorialQueueDashboard = () => `<!doctype html>
       }
       tokenInput.value = clipboardToken;
       await loadQueue();
-    } catch (error) {
-      status.textContent = error.message || 'Clipboard access was blocked. Click the token field and press Ctrl+V instead.';
+    } catch {
+      waitForManualPaste();
     }
+  });
+  tokenInput.addEventListener('paste', () => {
+    setTimeout(async () => {
+      pasteButton.textContent = 'Paste token';
+      if (isQueueToken(tokenInput.value.trim())) {
+        await loadQueue();
+      } else {
+        status.textContent = 'That was not the 64-character queue token. Run the local queue launcher again, then press Ctrl+V in this field.';
+      }
+    }, 0);
   });
   document.querySelector('#load').addEventListener('click', loadQueue);
   filter.addEventListener('change', loadQueue);

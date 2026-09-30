@@ -880,6 +880,8 @@ test('editorial queue dashboard contains no submission data before authorization
   assert.match(html, /Defender's Dispatch editorial queue/);
   assert.match(html, /autocomplete="off"/);
   assert.match(html, /Paste token/);
+  assert.match(html, /Automatic paste is blocked by this browser/);
+  assert.match(html, /tokenInput\.addEventListener\('paste'/);
   assert.match(html, /Select for next newsletter/);
   assert.match(html, /Return to needs review/);
   assert.match(html, /\[0-9a-fA-F\]\{64\}/);
