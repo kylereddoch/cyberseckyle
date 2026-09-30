@@ -10,7 +10,7 @@ const RATE_LIMIT_MAX_REQUESTS = 8;
 const SUBMISSION_DEDUPE_TTL_SECONDS = 24 * 60 * 60;
 const MAX_REQUEST_BYTES = 8 * 1024;
 const EDITORIAL_QUEUE_PREFIX = 'editorial:community-signal:';
-const EDITORIAL_QUEUE_SCHEMA_VERSION = 1;
+const EDITORIAL_QUEUE_SCHEMA_VERSION = 2;
 const EDITORIAL_QUEUE_MAX_PAGE_SIZE = 100;
 const EDITORIAL_QUEUE_STATUSES = new Set([
   'pending-review',
@@ -245,7 +245,16 @@ const buildEditorialQueueRecord = (details, submissionId, receivedAt) => ({
     relationshipLabel: details.relationshipLabel,
     disclosure: details.disclosure
   },
-  review: null
+  review: null,
+  publication: null,
+  reviewReadyNotifiedAt: null,
+  history: [
+    {
+      status: 'pending-review',
+      at: receivedAt,
+      actor: 'submission'
+    }
+  ]
 });
 
 const ensureEditorialQueueRecord = async (env, details, submissionId, receivedAt) => {
@@ -370,27 +379,72 @@ const handleEditorialQueueUpdate = async (request, env, submissionId) => {
     return jsonResponse(request, env, { message: 'Choose a valid editorial queue status.' }, 400);
   }
 
-  const verifiedSources = Array.isArray(body.verifiedSources)
-    ? body.verifiedSources
-        .slice(0, 20)
-        .map(normalizeArticleUrl)
-        .filter(Boolean)
-    : [];
-  const reviewedAt = new Date().toISOString();
+  const hasReviewUpdate = [
+    'summary',
+    'wordingCaution',
+    'queuePath',
+    'verifiedSources'
+  ].some(field => Object.hasOwn(body, field));
+  const existingReview = record.review || {};
+  const verifiedSources = Object.hasOwn(body, 'verifiedSources')
+    ? Array.isArray(body.verifiedSources)
+      ? body.verifiedSources
+          .slice(0, 20)
+          .map(normalizeArticleUrl)
+          .filter(Boolean)
+      : []
+    : existingReview.verifiedSources || [];
+  const updatedAt = new Date().toISOString();
+  const actor = normalizeInlineText(body.actor, 80) || 'editorial-automation';
+  const history = Array.isArray(record.history) ? [...record.history] : [];
+  if (record.status !== status) {
+    history.push({ status, at: updatedAt, actor });
+  }
+
+  const issueNumber = /^\d{3}$/.test(String(body.issueNumber || '').trim())
+    ? String(body.issueNumber).trim()
+    : '';
+  const issueUrl = normalizeArticleUrl(body.issueUrl);
+  const publication =
+    issueNumber && issueUrl
+      ? { issueNumber, issueUrl, archivedAt: updatedAt }
+      : record.publication || null;
   const updated = {
     ...record,
+    schemaVersion: EDITORIAL_QUEUE_SCHEMA_VERSION,
     status,
-    updatedAt: reviewedAt,
-    review: {
-      reviewedAt,
-      summary: normalizeLongText(body.summary, 2400),
-      wordingCaution: normalizeLongText(body.wordingCaution, 1200),
-      queuePath: normalizeInlineText(body.queuePath, 512),
-      verifiedSources
-    }
+    updatedAt,
+    history: history.slice(-50),
+    publication,
+    review: hasReviewUpdate
+      ? {
+          reviewedAt: updatedAt,
+          summary: Object.hasOwn(body, 'summary')
+            ? normalizeLongText(body.summary, 2400)
+            : existingReview.summary || '',
+          wordingCaution: Object.hasOwn(body, 'wordingCaution')
+            ? normalizeLongText(body.wordingCaution, 1200)
+            : existingReview.wordingCaution || '',
+          queuePath: Object.hasOwn(body, 'queuePath')
+            ? normalizeInlineText(body.queuePath, 512)
+            : existingReview.queuePath || '',
+          verifiedSources
+        }
+      : record.review || null
   };
 
   await kvPutJson(env, key, updated, undefined, buildEditorialQueueMetadata(updated));
+
+  if (status === 'needs-review' && !updated.reviewReadyNotifiedAt) {
+    await sendReviewReadyNotification(
+      env,
+      updated,
+      `${new URL(request.url).origin}/editorial-queue`
+    );
+    updated.reviewReadyNotifiedAt = new Date().toISOString();
+    await kvPutJson(env, key, updated, undefined, buildEditorialQueueMetadata(updated));
+  }
+
   return jsonResponse(request, env, updated);
 };
 
@@ -760,6 +814,89 @@ const sendSubmissionNotification = (env, details, submissionId) =>
     })
   });
 
+const buildReviewReadyNotificationText = (record, dashboardUrl) =>
+  [
+    'Community Signal ready for your review',
+    '',
+    record.headline,
+    '',
+    `Submitted article: ${record.articleUrl}`,
+    `Category: ${record.categoryLabel}`,
+    '',
+    'VETTING SUMMARY',
+    record.review?.summary || 'No summary was recorded.',
+    '',
+    'WORDING CAUTION',
+    record.review?.wordingCaution || 'None recorded.',
+    '',
+    'VERIFIED SOURCES',
+    ...(record.review?.verifiedSources?.length
+      ? record.review.verifiedSources
+      : ['None recorded.']),
+    '',
+    `Review and decide: ${dashboardUrl}`
+  ].join('\n');
+
+const buildReviewReadyNotificationHtml = (record, dashboardUrl) => {
+  const verifiedSources = record.review?.verifiedSources?.length
+    ? `<ul style="margin:8px 0 0;padding-left:20px;color:#bac2de;">${record.review.verifiedSources
+        .map(
+          source =>
+            `<li style="margin-bottom:6px;"><a href="${escapeHtml(source)}" style="color:#89b4fa;">${escapeHtml(source)}</a></li>`
+        )
+        .join('')}</ul>`
+    : '<p style="margin:8px 0 0;color:#bac2de;">None recorded.</p>';
+
+  return `<!doctype html>
+<html>
+  <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
+  <body style="margin:0;background:#11111b;color:#cdd6f4;font-family:Arial,Helvetica,sans-serif;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" bgcolor="#11111b">
+      <tr><td align="center" style="padding:32px 16px;">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" bgcolor="#1e1e2e" style="max-width:620px;border-radius:14px;overflow:hidden;">
+          <tr><td style="height:3px;background:#a6e3a1;font-size:1px;line-height:1px;">&nbsp;</td></tr>
+          <tr><td style="padding:32px;">
+            <p style="margin:0 0 10px;color:#a6e3a1;font-size:12px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;">Community Signal · Needs review</p>
+            <h1 style="margin:0 0 20px;color:#cdd6f4;font-size:28px;line-height:36px;">${escapeHtml(record.headline)}</h1>
+            <p style="margin:0 0 20px;color:#bac2de;font-size:15px;line-height:24px;">The automated vetting pass is complete. Review the evidence, then choose <strong>Selected</strong> or <strong>Rejected</strong> in the private queue.</p>
+            <div style="margin:0 0 16px;padding:18px 20px;background:#181825;border-radius:10px;">
+              <p style="margin:0 0 7px;color:#74c7ec;font-size:12px;font-weight:bold;letter-spacing:.7px;text-transform:uppercase;">Vetting summary</p>
+              <p style="margin:0;color:#bac2de;font-size:15px;line-height:24px;">${htmlWithLineBreaks(record.review?.summary || 'No summary was recorded.')}</p>
+            </div>
+            <div style="margin:0 0 16px;padding:18px 20px;background:#313244;border-radius:10px;">
+              <p style="margin:0 0 7px;color:#f9e2af;font-size:12px;font-weight:bold;letter-spacing:.7px;text-transform:uppercase;">Wording caution</p>
+              <p style="margin:0;color:#bac2de;font-size:15px;line-height:24px;">${htmlWithLineBreaks(record.review?.wordingCaution || 'None recorded.')}</p>
+            </div>
+            <div style="margin:0 0 24px;padding:18px 20px;background:#181825;border-radius:10px;">
+              <p style="margin:0;color:#cba6f7;font-size:12px;font-weight:bold;letter-spacing:.7px;text-transform:uppercase;">Verified sources</p>
+              ${verifiedSources}
+            </div>
+            <p style="margin:0;text-align:center;"><a href="${escapeHtml(dashboardUrl)}" style="display:inline-block;padding:12px 18px;background:#89b4fa;color:#11111b;border-radius:8px;font-weight:bold;text-decoration:none;">Review this signal</a></p>
+          </td></tr>
+        </table>
+      </td></tr>
+    </table>
+  </body>
+</html>`;
+};
+
+const sendReviewReadyNotification = (env, record, dashboardUrl) =>
+  resendRequest(env, '/emails', {
+    method: 'POST',
+    headers: {
+      'idempotency-key': `community-signal-review-ready/${record.submissionId}`
+    },
+    body: JSON.stringify({
+      from:
+        env.SUBMISSION_FROM ||
+        'The Defender’s Dispatch <newsletter@updates.kylereddoch.me>',
+      to: [env.SUBMISSION_NOTIFY_TO],
+      subject: `Community Signal ready to review: ${record.headline.slice(0, 100)}`,
+      html: buildReviewReadyNotificationHtml(record, dashboardUrl),
+      text: buildReviewReadyNotificationText(record, dashboardUrl)
+    })
+  });
+
 const genericSubmissionAcceptedResponse = (request, env) =>
   jsonResponse(
     request,
@@ -928,6 +1065,7 @@ const editorialQueueDashboard = () => `<!doctype html>
     input { flex:1 1 360px; }
     button { cursor:pointer; background:#313244; }
     button:hover, button:focus-visible { border-color:#89b4fa; }
+    button:disabled { cursor:wait; opacity:.65; }
     .status { min-height:24px; color:#f9e2af; }
     .grid { display:grid; gap:16px; }
     article { background:#1e1e2e; border:1px solid #313244; border-radius:12px; padding:20px; }
@@ -938,23 +1076,32 @@ const editorialQueueDashboard = () => `<!doctype html>
     dl { display:grid; grid-template-columns:max-content 1fr; gap:6px 12px; margin:16px 0 0; }
     dt { color:#a6adc8; }
     dd { margin:0; overflow-wrap:anywhere; }
+    .review { margin-top:18px; padding:16px; background:#181825; border-radius:10px; }
+    .review h3 { margin:0 0 10px; font-size:1rem; color:#a6e3a1; }
+    .review p { margin:8px 0 0; }
+    .review ul { margin:8px 0 0; padding-left:20px; }
+    .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; padding-top:16px; border-top:1px solid #313244; }
+    .actions .select { background:#a6e3a1; border-color:#a6e3a1; color:#11111b; font-weight:700; }
+    .actions .reject { background:#f38ba8; border-color:#f38ba8; color:#11111b; font-weight:700; }
+    .waiting { margin:18px 0 0; color:#a6adc8; font-size:.92rem; }
     .empty { padding:28px; border:1px dashed #45475a; border-radius:12px; text-align:center; }
+    @media (max-width:640px) { dl { grid-template-columns:1fr; gap:2px; } dd { margin-bottom:8px; } .actions button { flex:1 1 100%; } }
   </style>
 </head>
 <body>
 <main>
   <h1>Defender's Dispatch editorial queue</h1>
-  <p>Private review view for Community Signal submissions. The access token stays in this browser tab's session storage.</p>
+  <p>Private review view for Community Signal submissions. Items under <strong>Needs review</strong> are ready for your decision. The access token stays in this browser tab's session storage.</p>
   <div class="bar">
     <input id="token" name="editorial-queue-token" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" inputmode="text" maxlength="64" pattern="[0-9a-fA-F]{64}" placeholder="64-character editorial queue token" aria-label="Editorial queue access token">
     <select id="filter" aria-label="Queue status">
-      <option value="pending-review">Pending review</option>
-      <option value="">All statuses</option>
-      <option value="vetted-candidate">Vetted candidates</option>
       <option value="needs-review">Needs review</option>
       <option value="selected">Selected</option>
       <option value="rejected">Rejected</option>
+      <option value="pending-review">Pending vetting</option>
+      <option value="vetted-candidate">Vetted candidates</option>
       <option value="archived">Archived</option>
+      <option value="">All statuses</option>
     </select>
     <button id="paste" type="button">Paste token</button>
     <button id="load" type="button">Load queue</button>
@@ -969,6 +1116,14 @@ const editorialQueueDashboard = () => `<!doctype html>
   const status = document.querySelector('#status');
   const queue = document.querySelector('#queue');
   const isQueueToken = value => /^[0-9a-f]{64}$/i.test(value);
+  const statusLabels = {
+    'pending-review': 'Pending vetting',
+    'vetted-candidate': 'Vetted candidate',
+    'needs-review': 'Needs review',
+    selected: 'Selected',
+    rejected: 'Rejected',
+    archived: 'Archived'
+  };
   tokenInput.value = sessionStorage.getItem('editorialQueueToken') || '';
 
   const add = (parent, name, value) => {
@@ -977,6 +1132,73 @@ const editorialQueueDashboard = () => `<!doctype html>
     term.textContent = name;
     description.textContent = value || 'Not provided';
     parent.append(term, description);
+  };
+
+  const addAction = (parent, item, nextStatus, label, className) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.textContent = label;
+    if (className) button.className = className;
+    button.addEventListener('click', () => updateItemStatus(item, nextStatus, label, button));
+    parent.append(button);
+  };
+
+  const renderReview = item => {
+    const review = document.createElement('section');
+    review.className = 'review';
+    const heading = document.createElement('h3');
+    heading.textContent = 'Automated vetting';
+    review.append(heading);
+    if (item.review?.summary) {
+      const summary = document.createElement('p');
+      summary.textContent = item.review.summary;
+      review.append(summary);
+    }
+    if (item.review?.wordingCaution) {
+      const caution = document.createElement('p');
+      const strong = document.createElement('strong');
+      strong.textContent = 'Caution: ';
+      caution.append(strong, document.createTextNode(item.review.wordingCaution));
+      review.append(caution);
+    }
+    if (item.review?.verifiedSources?.length) {
+      const sourceHeading = document.createElement('p');
+      const strong = document.createElement('strong');
+      strong.textContent = 'Verified sources';
+      sourceHeading.append(strong);
+      const list = document.createElement('ul');
+      for (const source of item.review.verifiedSources) {
+        const listItem = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = source;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = source;
+        listItem.append(link);
+        list.append(listItem);
+      }
+      review.append(sourceHeading, list);
+    }
+    return review;
+  };
+
+  const renderActions = item => {
+    if (item.status === 'pending-review' || item.status === 'vetted-candidate') {
+      const waiting = document.createElement('p');
+      waiting.className = 'waiting';
+      waiting.textContent = 'Automated vetting is still in progress.';
+      return waiting;
+    }
+    if (item.status === 'archived') return null;
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+    if (item.status === 'needs-review') {
+      addAction(actions, item, 'selected', 'Select for next newsletter', 'select');
+      addAction(actions, item, 'rejected', 'Reject', 'reject');
+    } else {
+      addAction(actions, item, 'needs-review', 'Return to needs review', '');
+    }
+    return actions;
   };
 
   const render = items => {
@@ -992,7 +1214,7 @@ const editorialQueueDashboard = () => `<!doctype html>
       const card = document.createElement('article');
       const badge = document.createElement('span');
       badge.className = 'badge';
-      badge.textContent = item.status;
+      badge.textContent = statusLabels[item.status] || item.status;
       const heading = document.createElement('h2');
       const link = document.createElement('a');
       link.href = item.articleUrl;
@@ -1016,7 +1238,45 @@ const editorialQueueDashboard = () => `<!doctype html>
       add(details, 'Relationship', item.submitter?.relationshipLabel);
       add(details, 'Disclosure', item.submitter?.disclosure);
       card.append(badge, heading, meta, details);
+      if (item.review) card.append(renderReview(item));
+      const actions = renderActions(item);
+      if (actions) card.append(actions);
       queue.append(card);
+    }
+  };
+
+  const updateItemStatus = async (item, nextStatus, label, button) => {
+    if (nextStatus === 'rejected' && !confirm('Reject this Community Signal?')) return;
+    const token = tokenInput.value.trim();
+    if (!isQueueToken(token)) {
+      status.textContent = 'Load the queue with the private token first.';
+      return;
+    }
+    button.disabled = true;
+    status.textContent = label + '…';
+    try {
+      const response = await fetch('/internal/editorial-queue/' + item.submissionId, {
+        method: 'PATCH',
+        headers: {
+          authorization: 'Bearer ' + token,
+          accept: 'application/json',
+          'content-type': 'application/json'
+        },
+        cache: 'no-store',
+        body: JSON.stringify({ status: nextStatus, actor: 'Kyle' })
+      });
+      const result = await response.json();
+      if (response.status === 401) {
+        sessionStorage.removeItem('editorialQueueToken');
+        tokenInput.value = '';
+        throw new Error('That token was not accepted. Run the local queue launcher again, then choose Paste token.');
+      }
+      if (!response.ok) throw new Error(result.message || 'The status could not be updated.');
+      await loadQueue();
+      status.textContent = 'Status changed to ' + (statusLabels[nextStatus] || nextStatus) + '.';
+    } catch (error) {
+      button.disabled = false;
+      status.textContent = error.message;
     }
   };
 

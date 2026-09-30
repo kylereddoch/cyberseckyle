@@ -2,7 +2,7 @@
 
 This Cloudflare Worker powers the double opt-in signup and Community Signal submission flows for **The Defender’s Dispatch**. It keeps Resend credentials off the static Eleventy site, verifies Cloudflare Turnstile, rate-limits signup attempts, stores only the subscriber’s first name and email address on the Resend contact, sends the published confirmation template, triggers the existing `newsletter.subscribed` automation after confirmation, and sends the owner a best-effort notification for each confirmed subscriber. Signup source, signup page, and confirmation time are kept only in the temporary confirmation record and owner notification.
 
-Accepted Community Signal submissions are stored as durable `pending-review` records in the private `NEWSLETTER_DATA` KV namespace before acknowledgement and editorial-notification emails are sent. Each record preserves the normalized submission, credit preference, and relationship disclosure. Queue data is available only through the bearer-token-protected internal API; the browser dashboard contains no submission data until that API authorizes the request.
+Accepted Community Signal submissions are stored as durable `pending-review` records in the private `NEWSLETTER_DATA` KV namespace before acknowledgement and editorial-notification emails are sent. Each record preserves the normalized submission, credit preference, and relationship disclosure. A separate scheduled editorial automation researches pending submissions, records its evidence, advances vetted items through `vetted-candidate` to `needs-review`, and triggers a second owner notification. Queue data is available only through the bearer-token-protected internal API; the browser dashboard contains no submission data until that API authorizes the request.
 
 ## What it exposes
 
@@ -11,7 +11,7 @@ Accepted Community Signal submissions are stored as durable `pending-review` rec
 - `GET /newsletter/confirm?token=<opaque-token>` — hands the token to the site without activating it
 - `POST /newsletter/confirm` — confirms the address when the visible site page loads, with a manual retry available after temporary failures
 - `POST /news/submit` — validates, queues, acknowledges, and privately notifies on a Community Signal
-- `GET /editorial-queue` — private queue dashboard shell; requires the queue access token before it can load data
+- `GET /editorial-queue` — private queue dashboard shell; requires the queue access token before it can load data and lets the owner select or reject reviewed signals
 - `GET /internal/editorial-queue` — lists queue records after bearer-token authentication
 - `GET /internal/editorial-queue/<submission-id>` — returns one authenticated queue record
 - `PATCH /internal/editorial-queue/<submission-id>` — records an authenticated editorial status and review summary
@@ -42,7 +42,15 @@ Do not put the editorial queue token in a URL. The dashboard stores it only in t
 
 ## Private editorial queue
 
-The queue uses keys beginning with `editorial:community-signal:` in the existing `NEWSLETTER_DATA` namespace. New records start as `pending-review`. Trusted editorial clients may move them to `vetted-candidate`, `needs-review`, `rejected`, `selected`, or `archived` and attach a concise review summary, wording caution, verified source URLs, and the corresponding local queue-file path.
+The queue uses keys beginning with `editorial:community-signal:` in the existing `NEWSLETTER_DATA` namespace. New records start as `pending-review`. Trusted editorial clients may move them to `vetted-candidate`, `needs-review`, `rejected`, `selected`, or `archived` and attach a concise review summary, wording caution, verified source URLs, and the corresponding local queue-file path. Status-only decisions preserve the automated review evidence and add a bounded transition history. Moving a signal to `needs-review` sends the owner one idempotent review-ready email. Archival updates may include `issueNumber` and `issueUrl` so the queue retains where the signal was published.
+
+The intended lifecycle is:
+
+1. `pending-review` — accepted and waiting for automated research.
+2. `vetted-candidate` — evidence has been recorded by the vetting automation.
+3. `needs-review` — ready for the owner's decision; a review-ready email has been sent.
+4. `selected` or `rejected` — the owner's editorial decision.
+5. `archived` — a selected signal was actually used in a published newsletter issue.
 
 The internal API returns `503` until `EDITORIAL_QUEUE_TOKEN` exists and `401` when the bearer token is missing or incorrect. The public submission flow continues storing private KV records even when the read token has not been configured.
 

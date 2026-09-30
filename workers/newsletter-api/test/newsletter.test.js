@@ -686,7 +686,180 @@ test('editorial queue API records a vetted review without accepting arbitrary fi
   assert.equal(result.headline, 'Queued signal');
   assert.equal(result.review.summary, 'Verified against the original advisory.');
   assert.deepEqual(result.review.verifiedSources, ['https://vendor.example/advisory']);
+  assert.deepEqual(result.history, [
+    {
+      status: 'vetted-candidate',
+      at: result.updatedAt,
+      actor: 'editorial-automation'
+    }
+  ]);
   assert.equal(kv.metadata.get(`editorial:community-signal:${submissionId}`).status, 'vetted-candidate');
+});
+
+test('moving a vetted signal to needs review preserves evidence and sends one owner notification', async t => {
+  const kv = new MemoryKv();
+  const submissionId = '44444444-4444-4444-8444-444444444444';
+  const record = {
+    schemaVersion: 2,
+    submissionId,
+    status: 'vetted-candidate',
+    receivedAt: '2026-09-30T12:00:00.000Z',
+    updatedAt: '2026-09-30T12:15:00.000Z',
+    headline: 'Vetted signal',
+    articleUrl: 'https://security.example/vetted',
+    source: 'Security Example',
+    whyItMatters: 'It has useful operational context.',
+    category: 'cybersecurity',
+    categoryLabel: 'Cybersecurity',
+    submitter: {
+      name: 'Alex Defender',
+      email: 'alex@example.com',
+      creditPreference: 'name',
+      creditLabel: 'Credit my name',
+      relationship: 'none',
+      relationshipLabel: 'No relationship',
+      disclosure: ''
+    },
+    review: {
+      reviewedAt: '2026-09-30T12:15:00.000Z',
+      summary: 'The original advisory confirms the affected product.',
+      wordingCaution: 'Exploitation has not been confirmed.',
+      queuePath: '',
+      verifiedSources: ['https://vendor.example/advisory']
+    },
+    reviewReadyNotifiedAt: null,
+    history: [
+      { status: 'pending-review', at: '2026-09-30T12:00:00.000Z', actor: 'submission' },
+      { status: 'vetted-candidate', at: '2026-09-30T12:15:00.000Z', actor: 'automated-vetting' }
+    ]
+  };
+  await kv.put(`editorial:community-signal:${submissionId}`, JSON.stringify(record));
+
+  const emailRequests = [];
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async (url, options = {}) => {
+    if (String(url).endsWith('/emails')) {
+      emailRequests.push({
+        body: JSON.parse(options.body),
+        idempotencyKey: options.headers.get('idempotency-key')
+      });
+      return Response.json({ id: 'email-review-ready' });
+    }
+    return Response.json({ message: 'Unexpected request' }, { status: 500 });
+  };
+  t.after(() => {
+    globalThis.fetch = originalFetch;
+  });
+
+  const makeUpdateRequest = () =>
+    new Request(
+      `https://newsletter-api.example.workers.dev/internal/editorial-queue/${submissionId}`,
+      {
+        method: 'PATCH',
+        headers: {
+          authorization: 'Bearer editorial-queue-test-token',
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify({ status: 'needs-review', actor: 'automated-vetting' })
+      }
+    );
+
+  const firstResponse = await handleRequest(makeUpdateRequest(), makeEnv(kv));
+  const firstResult = await firstResponse.json();
+  const retryResponse = await handleRequest(makeUpdateRequest(), makeEnv(kv));
+
+  assert.equal(firstResponse.status, 200);
+  assert.equal(retryResponse.status, 200);
+  assert.equal(firstResult.status, 'needs-review');
+  assert.equal(firstResult.review.summary, record.review.summary);
+  assert.equal(firstResult.review.wordingCaution, record.review.wordingCaution);
+  assert.deepEqual(firstResult.review.verifiedSources, record.review.verifiedSources);
+  assert.ok(firstResult.reviewReadyNotifiedAt);
+  assert.equal(emailRequests.length, 1);
+  assert.equal(emailRequests[0].body.to[0], 'newsletter@example.com');
+  assert.match(emailRequests[0].body.subject, /ready to review/i);
+  assert.match(emailRequests[0].body.text, /The original advisory confirms/);
+  assert.match(emailRequests[0].body.text, /editorial-queue/);
+  assert.equal(
+    emailRequests[0].idempotencyKey,
+    `community-signal-review-ready/${submissionId}`
+  );
+  assert.equal(firstResult.history.at(-1).status, 'needs-review');
+});
+
+test('owner selection and newsletter archival preserve vetting evidence and publication details', async () => {
+  const kv = new MemoryKv();
+  const submissionId = '55555555-5555-4555-8555-555555555555';
+  const record = {
+    schemaVersion: 2,
+    submissionId,
+    status: 'needs-review',
+    receivedAt: '2026-09-30T12:00:00.000Z',
+    updatedAt: '2026-09-30T12:15:00.000Z',
+    headline: 'Review-ready signal',
+    articleUrl: 'https://security.example/review-ready',
+    source: 'Security Example',
+    whyItMatters: 'It has useful operational context.',
+    category: 'cybersecurity',
+    categoryLabel: 'Cybersecurity',
+    submitter: {
+      name: 'Alex Defender',
+      email: 'alex@example.com',
+      creditPreference: 'name',
+      creditLabel: 'Credit my name',
+      relationship: 'none',
+      relationshipLabel: 'No relationship',
+      disclosure: ''
+    },
+    review: {
+      reviewedAt: '2026-09-30T12:15:00.000Z',
+      summary: 'Evidence-backed summary.',
+      wordingCaution: '',
+      queuePath: '',
+      verifiedSources: ['https://vendor.example/advisory']
+    },
+    reviewReadyNotifiedAt: '2026-09-30T12:16:00.000Z',
+    history: []
+  };
+  await kv.put(`editorial:community-signal:${submissionId}`, JSON.stringify(record));
+
+  const update = body =>
+    handleRequest(
+      new Request(
+        `https://newsletter-api.example.workers.dev/internal/editorial-queue/${submissionId}`,
+        {
+          method: 'PATCH',
+          headers: {
+            authorization: 'Bearer editorial-queue-test-token',
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(body)
+        }
+      ),
+      makeEnv(kv)
+    );
+
+  const selectedResponse = await update({ status: 'selected', actor: 'Kyle' });
+  const selected = await selectedResponse.json();
+  const archivedResponse = await update({
+    status: 'archived',
+    actor: 'newsletter-automation',
+    issueNumber: '008',
+    issueUrl: 'https://www.kylereddoch.me/newsletter/defenders-dispatch/issue-008/'
+  });
+  const archived = await archivedResponse.json();
+
+  assert.equal(selected.status, 'selected');
+  assert.equal(selected.review.summary, 'Evidence-backed summary.');
+  assert.equal(selected.history.at(-1).actor, 'Kyle');
+  assert.equal(archived.status, 'archived');
+  assert.equal(archived.review.summary, 'Evidence-backed summary.');
+  assert.deepEqual(archived.publication, {
+    issueNumber: '008',
+    issueUrl: 'https://www.kylereddoch.me/newsletter/defenders-dispatch/issue-008/',
+    archivedAt: archived.updatedAt
+  });
+  assert.equal(archived.history.at(-1).actor, 'newsletter-automation');
 });
 
 test('editorial queue dashboard contains no submission data before authorization', async () => {
@@ -707,6 +880,8 @@ test('editorial queue dashboard contains no submission data before authorization
   assert.match(html, /Defender's Dispatch editorial queue/);
   assert.match(html, /autocomplete="off"/);
   assert.match(html, /Paste token/);
+  assert.match(html, /Select for next newsletter/);
+  assert.match(html, /Return to needs review/);
   assert.match(html, /\[0-9a-fA-F\]\{64\}/);
   assert.doesNotMatch(html, /Private queued headline/);
 });
