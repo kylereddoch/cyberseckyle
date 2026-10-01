@@ -40,7 +40,7 @@ social:
       Approving an AI assistant for an MSP's internal work does not grant permission to send every client's data to it. I wrote about that boundary and what to check if the information has already been shared.
 
       {url}
-  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117366877761427753}, x: {buffer_id: 6abe9b0f5a657f22ab61b4ce}, linkedin: {url: https://www.linkedin.com/feed/update/urn:li:share:7511480835418615812, buffer_id: 6abe9b96399500185dac0e85}, facebook: {url: https://facebook.com/750783578127787_122154235317071487, buffer_id: 6abe9bb0e0299a86f41ada16}}
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117366877761427753}, x: {buffer_id: 6abe9b0f5a657f22ab61b4ce, url: https://x.com/16885564/status/2105715792260001919}, linkedin: {url: https://www.linkedin.com/feed/update/urn:li:share:7511480835418615812, buffer_id: 6abe9b96399500185dac0e85}, facebook: {url: https://facebook.com/750783578127787_122154235317071487, buffer_id: 6abe9bb0e0299a86f41ada16}}
 publishedAt: "2026-10-01T17:40:30.688Z"
 ---
 
