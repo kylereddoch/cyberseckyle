@@ -26,6 +26,7 @@ schema: BlogPosting
   {% set mastodonDiscussionUrl = social.posts.mastodon.url or mastodon_url or pageMentions.syndicationUrl %}
   {% set xSyndicationUrl = social.posts.x.url or x_url %}
   {% set linkedinSyndicationUrl = social.posts.linkedin.url or linkedin_url %}
+  {% set facebookSyndicationUrl = social.posts.facebook.url %}
   {% set mastodonAccountUrl = meta.creator.social or meta.author.website %}
   {% set publishedDate = publishedAt or published_at or actualPublishedAt or actual_published_at or page.date %}
 
@@ -184,6 +185,9 @@ schema: BlogPosting
     {% endif %}
     {% if linkedinSyndicationUrl %}
       <a class="u-syndication" rel="syndication" href="{{ linkedinSyndicationUrl }}">Syndicated on LinkedIn</a>
+    {% endif %}
+    {% if facebookSyndicationUrl %}
+      <a class="u-syndication" rel="syndication" href="{{ facebookSyndicationUrl }}">Syndicated on Facebook</a>
     {% endif %}
     <img eleventy:ignore class="u-author h-card" src="{{ meta.author.avatar | url | absoluteUrl(meta.url) }}" alt="{{ meta.author.name }}" />
   </div>

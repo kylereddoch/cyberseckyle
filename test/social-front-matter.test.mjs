@@ -57,6 +57,36 @@ test('recorded social posts are not eligible for duplicate publishing', () => {
   assert.equal(getSocialBufferId(data, 'x'), 'buffer-1');
 });
 
+test('Facebook Page is per-article opt-in and retains its Buffer ID', () => {
+  const raw = `---
+title: Example
+social:
+  post_to: [mastodon, facebook]
+  status:
+    facebook: |-
+      Read {title} at {url}
+---
+Body
+`;
+  const parsed = parseDocument(raw);
+
+  assert.equal(shouldPublishTo(parsed.data, 'facebook'), true);
+  assert.equal(getSocialStatus(parsed.data, 'facebook'), 'Read {title} at {url}');
+  const accepted = setSocialPostValues(raw, parsed, 'facebook', {buffer_id: 'buffer-facebook-1'});
+  const acceptedData = parseDocument(accepted).data;
+  assert.equal(getSocialBufferId(acceptedData, 'facebook'), 'buffer-facebook-1');
+  assert.equal(shouldPublishTo(acceptedData, 'facebook'), true);
+
+  const sent = setSocialPostValues(accepted, parseDocument(accepted), 'facebook', {
+    buffer_id: 'buffer-facebook-1',
+    url: 'https://www.facebook.com/example/posts/1'
+  });
+  const sentData = parseDocument(sent).data;
+  assert.equal(getSocialPostUrl(sentData, 'facebook'), 'https://www.facebook.com/example/posts/1');
+  assert.equal(shouldPublishTo(sentData, 'facebook'), false);
+  assert.equal(shouldPublishTo({social: {post_to: ['mastodon']}}, 'facebook'), false);
+});
+
 test('publishing state is added without removing custom status copy', () => {
   const raw = `---
 title: Example

@@ -15,6 +15,15 @@ const bash = process.platform === 'win32' ? path.resolve(gitExecPath, '../../../
 const article = 'src/posts/example.md';
 const initial = '---\ntitle: Example\nsocial:\n  post_to: [linkedin]\n---\nAn unchanged article.\n';
 
+test('Facebook Page publishing is gated independently from the other platforms', () => {
+  const facebook = steps.find(step => step.id === 'post_facebook');
+  assert.ok(facebook);
+  assert.match(facebook.run, /FACEBOOK_AUTO_POST_ENABLED/);
+  assert.match(facebook.run, /post-to-buffer\.mjs --platform=facebook/);
+  assert.equal(facebook.env.BUFFER_API_KEY, '${{ secrets.BUFFER_API_KEY }}');
+  assert.equal(facebook.env.BUFFER_FACEBOOK_CHANNEL_ID, '${{ vars.BUFFER_FACEBOOK_CHANNEL_ID }}');
+});
+
 function fixture(t) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'cyberseckyle-social-test-'));
   const env = {

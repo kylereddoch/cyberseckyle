@@ -140,6 +140,29 @@ jobs:
           BUFFER_WAIT_TIMEOUT_SECONDS: 120
           BUFFER_WAIT_INTERVAL_SECONDS: 5
 
+      - name: Post eligible articles to Facebook Page
+        id: post_facebook
+        if: github.ref == 'refs/heads/main'
+        run: |
+          if [[ "${FACEBOOK_AUTO_POST_ENABLED}" != "true" ]]; then
+            echo "Facebook auto-posting is disabled. Connect the Page in Buffer, then set FACEBOOK_AUTO_POST_ENABLED to true."
+            echo "posted_count=0" >> "${GITHUB_OUTPUT}"
+            exit 0
+          fi
+
+          node scripts/post-to-buffer.mjs --platform=facebook
+        env:
+          FACEBOOK_AUTO_POST_ENABLED: ${{ vars.FACEBOOK_AUTO_POST_ENABLED }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_FACEBOOK_CHANNEL_ID: ${{ vars.BUFFER_FACEBOOK_CHANNEL_ID }}
+          BUFFER_FACEBOOK_CHANNEL_NAME: ${{ vars.BUFFER_FACEBOOK_CHANNEL_NAME }}
+          FACEBOOK_SITE_URL: https://www.kylereddoch.me
+          FACEBOOK_WAIT_FOR_PUBLIC_URL: true
+          FACEBOOK_WAIT_TIMEOUT_SECONDS: 900
+          FACEBOOK_WAIT_INTERVAL_SECONDS: 15
+          BUFFER_WAIT_TIMEOUT_SECONDS: 120
+          BUFFER_WAIT_INTERVAL_SECONDS: 5
+
       - name: Commit social post URLs
         id: commit_social
         # Save accepted post IDs even if a later publishing step fails before

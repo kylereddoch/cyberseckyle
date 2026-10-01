@@ -24,13 +24,13 @@ const platform = String(platformArgument?.split('=')[1] || process.env.BUFFER_PL
   .trim()
   .toLowerCase();
 
-if (!['x', 'linkedin'].includes(platform)) {
-  throw new Error(`Unsupported Buffer platform: ${platform}. Use x or linkedin.`);
+if (!['x', 'linkedin', 'facebook'].includes(platform)) {
+  throw new Error(`Unsupported Buffer platform: ${platform}. Use x, linkedin, or facebook.`);
 }
 
-const platformLabel = platform === 'x' ? 'X' : 'LinkedIn';
-const bufferService = platform === 'x' ? 'twitter' : 'linkedin';
-const environmentPrefix = platform === 'x' ? 'X' : 'LINKEDIN';
+const platformLabel = {x: 'X', linkedin: 'LinkedIn', facebook: 'Facebook'}[platform];
+const bufferService = {x: 'twitter', linkedin: 'linkedin', facebook: 'facebook'}[platform];
+const environmentPrefix = {x: 'X', linkedin: 'LINKEDIN', facebook: 'FACEBOOK'}[platform];
 const dryRun =
   process.argv.includes('--dry-run') ||
   String(process.env[`${environmentPrefix}_DRY_RUN`] || '').toLowerCase() === 'true';
@@ -44,7 +44,8 @@ const configuredChannelName = String(process.env[`BUFFER_${environmentPrefix}_CH
   .replace(/^@/, '')
   .toLowerCase();
 const statusLimit = Number(
-  process.env[`${environmentPrefix}_STATUS_LIMIT`] || (platform === 'x' ? 280 : 3000)
+  process.env[`${environmentPrefix}_STATUS_LIMIT`] ||
+    (platform === 'x' ? 280 : platform === 'facebook' ? 5000 : 3000)
 );
 const waitForPublicUrl =
   String(process.env[`${environmentPrefix}_WAIT_FOR_PUBLIC_URL`] || 'true').toLowerCase() !== 'false';
@@ -210,6 +211,10 @@ function getStatusText(data, postUrl) {
     return [`New by me: ${title}`, description, postUrl, tags].filter(Boolean).join('\n\n');
   }
 
+  if (platform === 'facebook') {
+    return [`New by me: ${title}`, description, postUrl].filter(Boolean).join('\n\n');
+  }
+
   const suffix = [postUrl, tags].filter(Boolean).join('\n\n');
   const headingPrefix = 'New by me: ';
   const availableTitleLength = statusLimit - headingPrefix.length - suffix.length - 2;
@@ -347,6 +352,10 @@ function validateBufferChannel(channel) {
     );
   }
 
+  if (platform === 'facebook' && channel.type !== 'page') {
+    throw new Error(`Buffer channel ${channel.id} is a Facebook ${channel.type} channel, not a Page.`);
+  }
+
   if (channel.isDisconnected) {
     throw new Error(
       `Buffer reports that ${platformLabel} channel ${channelLabel(channel)} is disconnected.`
@@ -370,6 +379,7 @@ async function getBufferChannel() {
     name
     displayName
     service
+    type
     isDisconnected
     isLocked
   `;
@@ -414,7 +424,11 @@ async function getBufferChannel() {
   }
 
   let matchingChannels = channels.filter(
-    channel => channel.service === bufferService && !channel.isDisconnected && !channel.isLocked
+    channel =>
+      channel.service === bufferService &&
+      (platform !== 'facebook' || channel.type === 'page') &&
+      !channel.isDisconnected &&
+      !channel.isLocked
   );
 
   if (configuredChannelName) {
@@ -477,10 +491,11 @@ async function createBufferPost(status, postUrl) {
         schedulingType: 'automatic',
         mode: 'shareNow',
         assets: [],
-        ...(platform === 'linkedin'
+        ...(platform === 'linkedin' || platform === 'facebook'
           ? {
               metadata: {
-                linkedin: {
+                [platform]: {
+                  ...(platform === 'facebook' ? {type: 'post'} : {}),
                   linkAttachment: {url: postUrl}
                 }
               }
