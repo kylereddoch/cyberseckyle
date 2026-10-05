@@ -97,19 +97,19 @@ Inventory self-managed Email Protection Gateway nodes, upgrade each one, and ver
 
 ## Two field notes for this week
 
-One exercise for a trusted platform and one small change to the way secret findings are closed.
+One configuration check for systems that hold their own evidence and one look at how a reader submission changed the wording of this issue.
 
-### What I’d do Monday morning: draw one access path
+### Configuration corner: keep the evidence outside the system
 
-Pick one gateway, remote-support platform, RMM server, help desk, or network manager. Draw the systems it can administer, the identities and credentials it uses, the logs it sends elsewhere, and the person who can disable its access without using the platform itself.
+For one gateway, remote-support platform, RMM server, help desk, or network manager, verify that administrator, authentication, configuration-change, and system logs leave the platform for a separate destination. Confirm the timestamps, device identity, and administrator identity survive the trip, then check how long the external copy is retained.
 
-Keep the result small enough to maintain. The useful test is whether another technician can use it during an incident to isolate the platform, preserve evidence, rotate the right secrets, and identify the downstream systems that need verification. If a required log exists only on the system being investigated, fix that collection gap before the next urgent advisory.
+The collection path should keep working when the platform is isolated, rebuilt, or unavailable. If an administrator on the system can silently erase the only copy, the logs may disappear at the same moment the investigation needs them most. Record who can change the external destination and test one alert or search before treating the configuration as complete.
 
-### Small win of the week: prove the old credential is dead
+### Behind the blog: the outcome changed the headline
 
-Add one field to the secret-remediation ticket: evidence that the exposed value no longer authenticates. A clean repository scan proves the scanner cannot find the string there. It does not prove the service stopped accepting it.
+Mike Moore’s submitted headline said an agent hacked a government site. The underlying research showed exploit attempts and a control bypass, but AIHW’s own investigation found no evidence of compromise, unauthorized access, or access to non-public information. Those facts support a useful warning without supporting the stronger outcome in the headline.
 
-Capture the revocation event, a safe failed-authentication test, or the provider record that invalidated the key. Record which workloads received the replacement and which owner confirmed they still work. That turns “removed from Git” into an access-control result someone can verify later.
+That distinction is why the community item says the traffic became exploit-shaped and describes the pre-production access precisely. A submitted signal can point to the right operational problem while still needing a narrower claim. Credit the person who surfaced it, link the original work, and make the wording match what the evidence proves.
 
 ---
 
