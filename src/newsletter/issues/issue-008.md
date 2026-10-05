@@ -105,11 +105,11 @@ For one gateway, remote-support platform, RMM server, help desk, or network mana
 
 The collection path should keep working when the platform is isolated, rebuilt, or unavailable. If an administrator on the system can silently erase the only copy, the logs may disappear at the same moment the investigation needs them most. Record who can change the external destination and test one alert or search before treating the configuration as complete.
 
-### Behind the blog: the outcome changed the headline
+### Behind the blog: building a source trail for community signals
 
-Mike Moore’s submitted headline said an agent hacked a government site. The underlying research showed exploit attempts and a control bypass, but AIHW’s own investigation found no evidence of compromise, unauthorized access, or access to non-public information. Those facts support a useful warning without supporting the stronger outcome in the headline.
+I’m testing a more disciplined path for reader submissions. Each signal keeps the submitted URL, requested credit, relationship disclosure, primary sources used for verification, and any wording caution in one record. That means a useful lead can move from the queue into an issue without losing the evidence behind the final wording.
 
-That distinction is why the community item says the traffic became exploit-shaped and describes the pre-production access precisely. A submitted signal can point to the right operational problem while still needing a narrower claim. Credit the person who surfaced it, link the original work, and make the wording match what the evidence proves.
+Mike Moore’s submission was a useful stress test. His article surfaced the right operational concern, while Transluce and AIHW established the narrower claim this issue could support. Keeping those sources together made it possible to credit Mike, disclose that he wrote the article, and publish the useful part without repeating an unverified outcome. The next step is making that source trail easy to reuse whenever a reader sends something worth investigating.
 
 ---
 
