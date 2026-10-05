@@ -1,13 +1,13 @@
 ---
 layout: newsletter-issue
-permalink: /newsletter/defenders-dispatch/issue-008/2026-10-02/
+permalink: /newsletter/defenders-dispatch/issue-008/2026-10-05/
 title: Map What the Trusted System Can Reach
 seoTitle: "Defender’s Dispatch Issue 008: Map What the Trusted System Can Reach"
 description: Exploited Citrix, Cisco, and Zammad paths, plus TeamViewer, agent egress, credential, and Kiteworks checks.
 searchIntent: Read The Defender’s Dispatch Issue 008 and its practical cybersecurity, IT, and MSP checks.
 issueNumber: "008"
-issueDateLabel: October 2, 2026
-date: 2026-10-02T19:00:00-05:00
+issueDateLabel: October 5, 2026
+date: 2026-10-05T11:10:00-05:00
 emailSubject: "[Issue 008] Defender’s Dispatch: Map What the Trusted System Can Reach"
 emailPreview: Citrix, Cisco, and Zammad exploitation, plus TeamViewer, agent egress, credential, and Kiteworks checks.
 trackingPath: /newsletter/defenders-dispatch/issue-008
@@ -22,6 +22,8 @@ highlights:
 <p class="dispatch-eyebrow">From Kyle’s desk</p>
 
 ## Map what the trusted system can reach
+
+**A quick note from me:** This issue is arriving a few days later than usual. Thanks for your patience. The reporting window still ends Friday, October 2; the date above reflects when this issue is being sent.
 
 A remote-access gateway, SD-WAN manager, help-desk platform, or support client earns trust because it has to reach something important. That same access can turn one compromised product into a wider incident.
 
