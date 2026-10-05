@@ -123,7 +123,7 @@ DIVD separates confirmed facts, working assumptions, and unanswered questions wh
 
 <p class="dispatch-eyebrow dispatch-eyebrow--blue">From CybersecKyle</p>
 
-## [Shadow AI Puts MSP Client Data Boundaries to the Test](/blog/shadow-ai-msp-client-data-boundary/)
+## [Shadow AI Puts MSP Client Data Boundaries to the Test](/blog/shadow-ai-puts-msp-client-data-boundaries-to-the-test/)
 
 My latest MSP piece looks at the ordinary support shortcut behind a larger data decision: pasting a client ticket, screenshot, log, or incident note into an unapproved service. An MSP’s approval of a tool does not automatically cover every client’s data. The article lays out what the provider and client need to decide, what a useful approval record contains, and what to preserve if information has already gone out.
 
