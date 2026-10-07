@@ -42,6 +42,8 @@ social:
       That's where I'd start a security budget conversation: what can fail, what recovery actually takes, and what the proposed spending improves. I wrote about it from an IT and MSP angle, including why a big breach estimate doesn't automatically make every security purchase a good one.
 
       {url}
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117401923645592835}, x: {url: https://twitter.com/thecyberseckyle/status/2107959940065186261, buffer_id: 6ac6c64c2977c961bdb97476}, linkedin: {url: https://www.linkedin.com/feed/update/urn:li:share:7513725727674925056, buffer_id: 6ac6c64e2977c961bdb974b4}, facebook: {url: https://facebook.com/750783578127787_122155101051071487, buffer_id: 6ac6c6695632f7b74bcea8c9}}
+publishedAt: "2026-10-07T22:13:08.444Z"
 ---
 
 Consider a business owner being asked to approve $15,000 a year for better recovery capability. The proposal lists backup storage, protected copies, and scheduled restore testing. It explains the service well enough to price it. It says much less about what would happen if the company's order-processing system were unavailable for three days.
