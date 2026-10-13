@@ -27,6 +27,8 @@ social:
       My review: {url}
 
       #RSS #Feedbin #EnzoReader #ChatGPT
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117434766253442675}, x: {url: https://twitter.com/thecyberseckyle/status/2110059357337493581, buffer_id: 6ace698811032ccdb8c2e627}}
+publishedAt: "2026-10-13T17:25:26.869Z"
 ---
 
 I asked Enzo Reader to catch me up on my RSS reading. It gave me a short list of stories to open first, then a longer briefing organized by topic. I already have my feeds in Feedbin, so the appeal was immediate: I could ask a question about a collection I had chosen instead of feeding ChatGPT a pile of links one at a time.
