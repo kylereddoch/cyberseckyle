@@ -45,6 +45,7 @@ import shortcodes from './src/_config/shortcodes.js';
 import { articleHeadings } from './src/_config/filters/article-headings.js';
 import { articleCallout, articleDetails, articleSteps } from './src/_config/shortcodes/article-components.js';
 import { buildAllJs } from './src/_config/plugins/js-config.js';
+import { articleDownloads } from './src/_config/plugins/article-downloads.js';
 
 // reading time plugin
 import readingTime from 'eleventy-plugin-reading-time';
@@ -518,6 +519,7 @@ export default async function (eleventyConfig) {
   // ---------------------  Plugins
   eleventyConfig.addPlugin(plugins.htmlConfig);
   eleventyConfig.addPlugin(plugins.drafts);
+  eleventyConfig.addPlugin(articleDownloads);
 
   eleventyConfig.addPlugin(plugins.EleventyRenderPlugin);
   eleventyConfig.addPlugin(plugins.rss);
