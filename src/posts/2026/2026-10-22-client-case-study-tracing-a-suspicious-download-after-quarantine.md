@@ -1,5 +1,5 @@
 ---
-date: 2026-10-22T11:00:29-05:00
+date: 2026-10-22T13:45:29-05:00
 title: 'Client Case Study: Tracing a Suspicious Download After Quarantine'
 seoTitle: 'Client Case Study: Investigating a Quarantined MSIX Download'
 description: 'An anonymized case from my client work, with practical lessons for MSPs and defenders on tracing a suspicious download, checking collection gaps, and reporting what the evidence supports.'
@@ -8,7 +8,6 @@ featuredImage: /assets/images/quarantined-download-browser-history.png
 featuredImageAlt: A magnifying glass rests over illustrated browser-history cards beside a file enclosed in a transparent box, with question marks between them.
 featuredImageCaption: 'Conceptual illustration of investigating a quarantined download. Generated with OpenAI image generation; no real incident data is shown.'
 tags: [cybersecurity, incident-response, powershell, browsers, MSP, threat-detection]
-draft: true
 social:
   post_to: [mastodon, x, linkedin]
   tags: [Cybersecurity, IncidentResponse, PowerShell, MSP]
