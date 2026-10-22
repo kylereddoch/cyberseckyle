@@ -38,6 +38,8 @@ social:
       {url}
 
       #Cybersecurity #IncidentResponse #MSP
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117486177325878577}, x: {url: https://twitter.com/thecyberseckyle/status/2113349663810064582, buffer_id: 6ada61dee374ecc98220e5e1}, linkedin: {url: https://www.linkedin.com/feed/update/urn:li:share:7519115454171340800, buffer_id: 6ada61e0e391db54dafa1529}}
+publishedAt: "2026-10-22T19:19:57.574Z"
 ---
 
 I encountered the same suspicious MSIX installer in two unrelated managed client environments. Antivirus successfully quarantined it, which was good to see. I still wanted to understand how it had arrived and whether there was evidence that it had run.
