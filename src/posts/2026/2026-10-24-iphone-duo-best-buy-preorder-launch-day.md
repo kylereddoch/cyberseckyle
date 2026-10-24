@@ -25,6 +25,8 @@ social:
       My story and Best Buy's delay update: {url}
 
       #Apple #iPhone #iPhoneDuo #BestBuy
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117496545670347678}}
+publishedAt: "2026-10-24T15:16:45.961Z"
 ---
 
 I started iPhone Duo launch day running on too little sleep, too much excitement, and coffee. I ended it with no Duo, an order with no pickup date, and an email telling me Best Buy might cancel the whole thing on November 6.
