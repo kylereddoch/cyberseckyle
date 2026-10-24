@@ -749,6 +749,11 @@ export default async function (eleventyConfig) {
     "src/assets/images/drift-hero.png": "assets/images/drift-hero.png"
   });
 
+  eleventyConfig.addPassthroughCopy({
+    "src/assets/images/iphone-duo-best-buy-preorder-delayed.jpg":
+      "assets/images/iphone-duo-best-buy-preorder-delayed.jpg"
+  });
+
 
   // --------------------- general config
   return {
