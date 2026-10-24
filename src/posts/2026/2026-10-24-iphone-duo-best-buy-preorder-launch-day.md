@@ -25,7 +25,11 @@ social:
       My story and Best Buy's delay update: {url}
 
       #Apple #iPhone #iPhoneDuo #BestBuy
-  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117496545670347678}}
+  posts:
+    mastodon:
+      url: https://infosec.exchange/@cyberseckyle/117496545670347678
+    x:
+      url: https://x.com/thecyberseckyle/status/2114014070193996007
 publishedAt: "2026-10-24T15:16:45.961Z"
 ---
 
