@@ -1,6 +1,6 @@
 import {promises as fsPromises, existsSync} from 'node:fs';
 import path from 'node:path';
-import Image from '@11ty/eleventy-img';
+import sharp from 'sharp';
 
 const socialPreviewImagesDir = 'dist/assets/og-images';
 const sourcePreviewImagesDir = 'src/assets/og-images';
@@ -18,15 +18,6 @@ function getPositiveInteger(value, fallback) {
 
 const concurrency = getPositiveInteger(process.env.OG_IMAGE_CONCURRENCY, 4);
 const maxAttempts = getPositiveInteger(process.env.OG_IMAGE_MAX_ATTEMPTS, 2);
-
-async function fileExists(file) {
-  try {
-    await fsPromises.access(file);
-    return true;
-  } catch {
-    return false;
-  }
-}
 
 async function runLimited(items, limit, task) {
   const results = [];
@@ -56,18 +47,17 @@ async function runLimited(items, limit, task) {
   return results;
 }
 
-async function convertSvgToJpeg(svgPath, outputFilename) {
+async function convertSvgToJpeg(svgPath, outputFilename, outputDir) {
   let lastError;
 
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
     try {
-      await Image(svgPath, {
-        formats: ['jpeg'],
-        outputDir: socialPreviewImagesDir,
-        filenameFormat: function (id, src, width, format) {
-          return `${outputFilename}.${format}`;
-        }
-      });
+      // Render the current SVG every time. A JPEG's existence cannot prove it
+      // matches a changed title/template, and passthrough may copy an old one.
+      await sharp(await fsPromises.readFile(svgPath))
+        .flatten({ background: '#0f0a1a' })
+        .jpeg({ quality: 90, chromaSubsampling: '4:4:4' })
+        .toFile(path.join(outputDir, `${outputFilename}.jpeg`));
 
       return;
     } catch (error) {
@@ -81,13 +71,16 @@ async function convertSvgToJpeg(svgPath, outputFilename) {
   throw lastError;
 }
 
-export const svgToJpeg = async function () {
-  if (!existsSync(socialPreviewImagesDir)) {
+export const svgToJpeg = async function ({ dir } = {}) {
+  const outputDir = dir?.output
+    ? path.join(dir.output, 'assets/og-images')
+    : socialPreviewImagesDir;
+  if (!existsSync(outputDir)) {
     console.log('⚠ No OG images dir found');
     return;
   }
 
-  const files = await fsPromises.readdir(socialPreviewImagesDir);
+  const files = await fsPromises.readdir(outputDir);
   if (files.length === 0) {
     console.log('⚠ No images found on OG images dir');
     return;
@@ -97,19 +90,10 @@ export const svgToJpeg = async function () {
   const results = await runLimited(svgFiles, concurrency, async filename => {
     const outputFilename = filename.substring(0, filename.length - 4);
     const jpegFilename = `${outputFilename}.jpeg`;
-    const distOutputPath = path.join(socialPreviewImagesDir, jpegFilename);
+    const distOutputPath = path.join(outputDir, jpegFilename);
     const sourceOutputPath = path.join(sourcePreviewImagesDir, jpegFilename);
 
-    if (await fileExists(distOutputPath)) {
-      return { status: 'skipped' };
-    }
-
-    if (await fileExists(sourceOutputPath)) {
-      await fsPromises.copyFile(sourceOutputPath, distOutputPath);
-      return { status: 'copied' };
-    }
-
-    await convertSvgToJpeg(path.join(socialPreviewImagesDir, filename), outputFilename);
+    await convertSvgToJpeg(path.join(outputDir, filename), outputFilename, outputDir);
 
     if (writeSourceImages) {
       await fsPromises.mkdir(sourcePreviewImagesDir, { recursive: true });
@@ -129,7 +113,7 @@ export const svgToJpeg = async function () {
   const failures = results.filter(result => result.status === 'failed');
 
   console.log(
-    `[og-images] ${counts.skipped || 0} cached, ${counts.copied || 0} copied, ${counts.generated || 0} generated`
+    `[og-images] ${counts.generated || 0} generated`
   );
 
   if (failures.length > 0) {

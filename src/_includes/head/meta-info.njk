@@ -7,15 +7,7 @@
   {% set bodyMetaDescription = (page.rawInput or content) | metaDescription %}
 {% endif %}
 
-{% set metaDescription %}
-  {%- if description -%}
-    {{- description -}}
-  {%- elif isPostLike and bodyMetaDescription -%}
-    {{- bodyMetaDescription -}}
-  {%- else -%}
-    {{- meta.siteDescription -}}
-  {%- endif -%}
-{% endset %}
+{% set metaDescription = description or bodyMetaDescription or meta.siteDescription %}
 
 <meta name="description" content="{{ metaDescription | trim | escape }}" />
 <meta name="theme-color" content="{{ meta.themeDark }}" media="(prefers-color-scheme: dark)" />
@@ -55,35 +47,28 @@
 {% set detailSocialImage = (featuredImage or featured_image) if layout == 'project' or layout == 'app' else '' %}
 {% set detailSocialImageAlt = featuredImageAlt or featured_image_alt or alt or title %}
 
-<!-- Open Graph meta  -->
+{% if detailSocialImage %}
+  {% set socialImage = detailSocialImage | absoluteUrl(meta.url) %}
+  {% set socialImageAlt = detailSocialImageAlt %}
+{% elif isPostLike %}
+  {% set socialImage = meta.url ~ '/assets/og-images/' ~ (slug or title | slugify) ~ '-preview.jpeg' %}
+  {% set socialImageAlt = title %}
+{% else %}
+  {% set socialImage = meta.opengraph_default | absoluteUrl(meta.url) %}
+  {% set socialImageAlt = meta.opengraph_default_alt %}
+{% endif %}
+
+<!-- Open Graph and X share the same image and accessible description. -->
 <meta property="og:url" content="{{ meta.url }}{{ page.url }}" />
-<meta property="og:type" content="{% if layout == 'post' or layout == 'note' or layout == 'journal' %}article{% else %}website{% endif %}" />
-<meta
-  property="og:title"
-  content="{{ metaTitle }}"
-/>
-<meta
-  property="og:image"
-  content="{%- if detailSocialImage -%}
-    {{- detailSocialImage | absoluteUrl(meta.url) -}}
-  {%- elif layout == 'post' or layout == 'note' or layout == 'journal' -%}
-    {{- meta.url -}}/assets/og-images/{{ slug or title | slugify }}-preview.jpeg
-  {%- else -%}
-    {{- meta.url -}}{{- meta.opengraph_default -}}
-  {%- endif -%}"
-/>
-<meta
-  property="og:image:alt"
-  content="{%- if detailSocialImage -%}
-    {{- detailSocialImageAlt -}}
-  {%- elif layout == 'post' or layout == 'note' or layout == 'journal' -%}
-    {{- title -}}
-  {%- else -%}
-    {{- meta.opengraph_default_alt -}}
-  {%- endif -%}"
-/>
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
+<meta property="og:type" content="{% if isPostLike %}article{% else %}website{% endif %}" />
+<meta property="og:title" content="{{ metaTitle | escape }}" />
+<meta property="og:image" content="{{ socialImage | trim | escape }}" />
+<meta property="og:image:alt" content="{{ socialImageAlt | trim | escape }}" />
+{% if isPostLike %}
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+{% endif %}
 <meta property="og:description" content="{{ metaDescription | trim | escape }}" />
 <meta property="og:site_name" content="{{ meta.siteName }}" />
 <meta property="og:locale" content="{{ meta.locale }}" />
@@ -100,7 +85,14 @@
   {% endif %}
 {% endif %}
 
-<!-- Twitter specific head data was removed in v2 -->
+<!-- Explicitly request a wide card so X does not square-crop title artwork. -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@thecyberseckyle" />
+<meta name="twitter:creator" content="@thecyberseckyle" />
+<meta name="twitter:title" content="{{ metaTitle | escape }}" />
+<meta name="twitter:description" content="{{ metaDescription | trim | escape }}" />
+<meta name="twitter:image" content="{{ socialImage | trim | escape }}" />
+<meta name="twitter:image:alt" content="{{ socialImageAlt | trim | escape }}" />
 
 <!-- RSS Autodiscovery. Loops over meta.blog.feedLinks -->
 {% for feedLink in meta.blog.feedLinks %}

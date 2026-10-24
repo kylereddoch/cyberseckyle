@@ -702,8 +702,8 @@ export default async function (eleventyConfig) {
   eleventyConfig.addJavaScriptFunction('mastodon', mastodonEmbedShortcode);
 
   // --------------------- Events ---------------------
-  eleventyConfig.on('eleventy.after', async () => {
-    await events.svgToJpeg();
+  eleventyConfig.on('eleventy.after', async event => {
+    await events.svgToJpeg(event);
     await minifyBuiltAssets();
   });
 
