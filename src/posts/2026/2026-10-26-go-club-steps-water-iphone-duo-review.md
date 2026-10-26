@@ -27,6 +27,7 @@ social:
       {url}
 
       #GoClub #AppReview #iPhone
+  posts: {x: {url: https://twitter.com/thecyberseckyle/status/2114858358981144828, buffer_id: 6adfdef39a87effac42bf5f2}}
 ---
 
 I have been using GO Club for two things I already paid attention to: my steps and how much water I drink. Apple Health records steps, and I have used apps dedicated to either activity or hydration. GO Club stays on my iPhone Duo because it puts both habits in one place. Its widgets keep the numbers visible, and I can log water from my Apple Watch without opening my phone.
