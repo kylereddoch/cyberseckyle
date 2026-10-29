@@ -37,7 +37,7 @@ schema: BlogPosting
     {% endif %}
 
     <div class="text-sm text-gray-600 dark:text-gray-400">
-      Published on <time class="dt-published" datetime="{{ publishedDate | toIsoString }}">{{ publishedDate | readableDateTime }}</time>
+      {% if draft %}Unpublished draft · Created{% else %}Published on{% endif %} <time class="dt-published" datetime="{{ publishedDate | toIsoString }}">{{ publishedDate | readableDateTime }}</time>
       by <span class="p-author h-card">
         <a class="u-url p-name hover:text-blue-600" href="/about/">{{ meta.author.name }}</a>
       </span>

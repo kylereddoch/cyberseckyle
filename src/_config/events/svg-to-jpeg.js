@@ -71,9 +71,10 @@ async function convertSvgToJpeg(svgPath, outputFilename, outputDir) {
   throw lastError;
 }
 
-export const svgToJpeg = async function ({ dir } = {}) {
-  const outputDir = dir?.output
-    ? path.join(dir.output, 'assets/og-images')
+export const svgToJpeg = async function ({ directories, dir } = {}) {
+  const buildOutput = directories?.output || dir?.output;
+  const outputDir = buildOutput
+    ? path.join(buildOutput, 'assets/og-images')
     : socialPreviewImagesDir;
   if (!existsSync(outputDir)) {
     console.log('⚠ No OG images dir found');

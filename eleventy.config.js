@@ -165,8 +165,8 @@ const getBuiltAssetFiles = dir => {
 
 const getMinifiedAssetPath = file => file.replace(/\.(css|js)$/i, '.min.$1');
 
-const minifyBuiltAssets = async () => {
-  const outputDir = path.join(process.cwd(), 'dist');
+const minifyBuiltAssets = async ({ directories, dir } = {}) => {
+  const outputDir = path.resolve(directories?.output || dir?.output || 'dist');
   const files = getBuiltAssetFiles(outputDir);
 
   await Promise.all(files.map(async file => {
@@ -704,7 +704,7 @@ export default async function (eleventyConfig) {
   // --------------------- Events ---------------------
   eleventyConfig.on('eleventy.after', async event => {
     await events.svgToJpeg(event);
-    await minifyBuiltAssets();
+    await minifyBuiltAssets(event);
   });
 
   // --------------------- Passthrough File Copy
