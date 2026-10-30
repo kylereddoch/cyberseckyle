@@ -754,6 +754,10 @@ export default async function (eleventyConfig) {
       "assets/images/iphone-duo-best-buy-preorder-delayed.jpg"
   });
 
+  // Article links and social metadata use the original Duo screenshot URLs.
+  eleventyConfig.addPassthroughCopy({
+    "src/assets/images/iphone-duo-cyberseckyle-*.png": "assets/images"
+  });
 
   // --------------------- general config
   return {
