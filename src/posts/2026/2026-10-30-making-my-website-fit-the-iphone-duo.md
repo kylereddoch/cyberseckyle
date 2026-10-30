@@ -23,6 +23,8 @@ social:
       #iPhoneDuo #Eleventy #WebDesign
     x: |-
       I tightened my site for the iPhone Duo's closed and open screens and fixed the menu on resize. Here's the CSS, Safari's side-control limit, and where Brim and Wider fit: {url} #iPhoneDuo #Eleventy
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117532415642286307}, x: {url: https://twitter.com/thecyberseckyle/status/2116308917886046702, buffer_id: 6ae525e3b84259308ba81d86}}
+publishedAt: "2026-10-30T23:18:58.296Z"
 ---
 
 On the iPhone Duo's closed screen, Safari gives my site a short page with its controls running down the right side. The homepage still worked, but its welcome section took up more of that limited height than it needed to. Open the Duo in landscape and the problem changes: there is room for the full navigation, but the viewport is short again. Open it in portrait and the page has a more familiar, taller reading layout.
