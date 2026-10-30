@@ -235,6 +235,13 @@
       hamburger.classList.toggle('open', !isHidden);
       hamburger.setAttribute('aria-expanded', isHidden ? 'false' : 'true');
     });
+
+    window.matchMedia('(min-width: 48rem)').addEventListener('change', (event) => {
+      if (!event.matches) return;
+      primaryNav.classList.add('hidden');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
   }
 
   const a11yToggle = document.getElementById('a11y-toggle');

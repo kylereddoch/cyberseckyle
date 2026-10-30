@@ -107,7 +107,7 @@
     </header>
 
     <nav class="bg-[var(--surface)] border-b border-gray-200 dark:border-gray-700">
-      <div id="primary-nav" class="container mx-auto max-w-7xl px-4 py-2 hidden md:block">
+      <div id="primary-nav" class="site-primary-nav container mx-auto max-w-7xl px-4 py-2 hidden md:block">
         <ul class="flex flex-col md:flex-row text-base md:text-sm space-y-3 md:space-y-0 md:space-x-6">
           <li><a href="/" class="nav-item block py-2 text-purple-600 dark:text-purple-400 {% if isHome %}underline font-semibold{% endif %}" {% if isHome %}aria-current="page"{% endif %}>&#127968; Home</a></li>
           <li><a href="/blog/" class="nav-item block py-2 text-purple-600 dark:text-purple-400 {% if isBlog %}underline font-semibold{% endif %}" {% if isBlog %}aria-current="page"{% endif %}>&#9997;&#65039; Blog</a></li>
@@ -120,7 +120,7 @@
       </div>
     </nav>
 
-    <div class="container mx-auto px-4 py-6 max-w-4xl flex-1">
+    <div class="site-main-shell container mx-auto px-4 py-6 max-w-4xl flex-1">
       <main id="main">
         {{ content | safe }}
       </main>
