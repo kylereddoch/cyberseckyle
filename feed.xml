@@ -13,7 +13,7 @@
     <link>https://www.kylereddoch.me/</link>
     <description>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 02 Nov 2026 09:14:08 CST</lastBuildDate>
+    <lastBuildDate>Mon, 02 Nov 2026 09:48:35 CST</lastBuildDate>
     <atom:link href="https://www.kylereddoch.me/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://www.kylereddoch.me/assets/images/logo.png</url>
@@ -47,7 +47,7 @@
       <title>LXD and MicroCloud Certificate Bypass: What Administrators Should Check Now</title>
       <link>https://www.kylereddoch.me/blog/lxd-microcloud-certificate-bypass-msp/</link>
       <guid isPermaLink="true">https://www.kylereddoch.me/blog/lxd-microcloud-certificate-bypass-msp/</guid>
-      <pubDate>Mon, 02 Nov 2026 09:14:08 CST</pubDate>
+      <pubDate>Mon, 02 Nov 2026 09:48:35 CST</pubDate>
       <xhtml:a class="browser-title" href="https://www.kylereddoch.me/blog/lxd-microcloud-certificate-bypass-msp/">LXD and MicroCloud Certificate Bypass: What Administrators Should Check Now</xhtml:a>
       <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/HuHfRHAiWg-1672.jpeg" alt="Two linked certificate cards and a key face a guarded gateway to servers and virtual machine blocks." />
       <dc:creator>Kyle Reddoch</dc:creator>
