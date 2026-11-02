@@ -10,7 +10,7 @@ featuredImageAlt: "Two linked certificate cards and a key face a guarded gateway
 featuredImageCaption: "Conceptual illustration of certificate verification at a management boundary. Generated with OpenAI image generation; not an incident screenshot."
 tags: [cybersecurity, linux, vulnerability-management, MSP, it-operations]
 social:
-  post_to: []
+  post_to: [x, mastodon]
   tags: [Cybersecurity, Linux, MSP]
   status:
     x: "An LXD trust-store check accepted a certificate in the chain without proving its private key was held. Here's how to scope CVE-2026-112816 and verify the fix before you close the ticket. {url} #MSP #Linux"
