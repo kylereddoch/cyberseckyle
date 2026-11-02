@@ -8,6 +8,7 @@ docs
 dist
 src/_includes/css
 src/_includes/scripts
+editorial-drafts/
 
 # cache
 .cache
