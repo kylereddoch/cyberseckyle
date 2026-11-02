@@ -15,6 +15,8 @@ social:
   status:
     x: "An LXD trust-store check accepted a certificate in the chain without proving its private key was held. Here's how to scope CVE-2026-112816 and verify the fix before you close the ticket. {url} #MSP #Linux"
     mastodon: "Canonical's LXD/MicroCloud advisory is a useful reminder that TLS encryption and certificate identity checks are not the same thing. I wrote through the affected HTTPS management path, fixed versions, and what an admin should verify after updating. {url} #Linux #Cybersecurity"
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117547631596162161}, x: {url: https://twitter.com/thecyberseckyle/status/2117282736985551119, buffer_id: 6ae8b0d404fa73faa231122f}}
+publishedAt: "2026-11-02T15:48:35.325Z"
 ---
 
 A client certificate is supposed to prove more than an identity printed on a certificate. It is supposed to prove that the connecting client has the corresponding private key. That's the trust boundary at the center of [Canonical's October 28 security advisory](https://discourse.ubuntu.com/t/security-advisory-critical-vulnerability-found-in-canonical-lxd-and-microcloud/90557) for LXD and MicroCloud.
