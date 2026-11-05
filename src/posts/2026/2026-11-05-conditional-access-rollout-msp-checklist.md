@@ -16,6 +16,8 @@ social:
     x: "A Conditional Access policy is not finished when it saves without an error. The real test is whether people, devices, and emergency access still work. Here's a rollout checklist for MSPs. {url} #MSP #Microsoft365"
     mastodon: "Conditional Access rollouts need more than a new policy and a green Save button. I've put together an MSP-focused sequence for documenting dependencies, testing report-only results, piloting real devices, protecting emergency access, and planning rollback. {url} #Microsoft365 #MSP"
     linkedin: "Conditional Access rollouts need more than a new policy and a green Save button. I've put together an MSP-focused sequence for documenting dependencies, testing report-only results, piloting real devices, protecting emergency access, and planning rollback. {url} #Microsoft365 #MSP"
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117564519537847300}, x: {url: https://twitter.com/thecyberseckyle/status/2118363567267164508, buffer_id: 6aec9f6e2eedef58a9d40dfe}, linkedin: {url: https://www.linkedin.com/feed/update/urn:li:share:7524129355585912832, buffer_id: 6aec9f700fcbe7315a2b3049}}
+publishedAt: "2026-11-05T15:23:24.864Z"
 ---
 
 Microsoft Entra Conditional Access can close some important identity gaps. It can also interrupt normal work quickly if an MSP enables a broad blocking rule without understanding what a tenant relies on.
