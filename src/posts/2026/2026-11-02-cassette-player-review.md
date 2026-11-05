@@ -9,11 +9,19 @@ featuredImage: /assets/images/app-reviews-2026-11-05/cassette/featured.jpg
 featuredImageAlt: "Two photos of Cassette Player on an iPhone Duo, showing a bronze tape over a circuit-board background on the open phone and playback controls on the compact screen."
 featuredImageCaption: 'Cassette Player on my iPhone Duo, open and compact. Photos by Kyle Reddoch; app by Rafikki Studio. Full photos: <a href="/assets/images/app-reviews-2026-11-05/cassette/open-player-full.jpg">open player</a> and <a href="/assets/images/app-reviews-2026-11-05/cassette/compact-player-full.jpg">compact player</a>.'
 tags: [reviews, ios, music]
-draft: false
 social:
-  post_to: []
-  tags: []
-  status: {}
+  post_to: [x, mastodon]
+  tags: [iPhoneDuo, IndieApps, AppleMusic]
+  status:
+    x: "Cassette Player gives the iPhone Duo a tape deck and an album shelf. My review looks at its playful design, Apple Music support, and Studio upgrade. Review code provided. {url} #iPhoneDuo"
+    mastodon: |-
+      I miss music apps with a little physical character. Cassette Player brings tapes, circuitry, and an album shelf to the iPhone Duo's different layouts.
+
+      My review covers the design, Apple Music and local files, the Studio purchase, and why I would check playback before paying for extras. Includes my own photos. Review code provided.
+
+      {url}
+
+      #iPhoneDuo #IndieApps #AppleMusic
 ---
 
 I miss the willingness of early iPhone apps to be a little ridiculous in a good way. The beer apps that turned the screen into a glass understood that the phone itself could be part of the fun. An app did not always have to justify its existence with another productivity promise.

@@ -9,11 +9,19 @@ featuredImage: /assets/images/app-reviews-2026-11-05/typedraw/featured.jpg
 featuredImageAlt: "TypeDraw on an open iPhone Duo resting on a table, showing a black notebook labeled Kyle beside a fountain pen and paper clips."
 featuredImageCaption: 'TypeDraw’s notebook and desk interface on my iPhone Duo. Photo by Kyle Reddoch; app by Shaped Fonts. <a href="/assets/images/app-reviews-2026-11-05/typedraw/notebook-desk-full.jpg">View full photo</a>.'
 tags: [reviews, ios]
-draft: false
 social:
-  post_to: []
-  tags: []
-  status: {}
+  post_to: [x, mastodon]
+  tags: [iPhoneDuo, IndieApps]
+  status:
+    x: "TypeDraw turns the iPhone Duo into a pocket notebook. My review covers Smart Marks, separate notebooks, and PDF export, with my own photos. Review code provided. {url} #iPhoneDuo"
+    mastodon: |-
+      A cover outside, two pages inside. TypeDraw makes the iPhone Duo's fold part of the notebook, and that is what draws me to it.
+
+      My review looks at Smart Marks, separate notebooks, PDF export, and the one-time pricing, with photos from my own Duo. Review code provided.
+
+      {url}
+
+      #iPhoneDuo #IndieApps
 ---
 
 Of the things a folding phone can pretend to be, a notebook might be the most immediately satisfying. A cover on the outside, pages when it opens, and room for a sentence beside a sketch. TypeDraw understands why that is a good fit for the iPhone Duo.

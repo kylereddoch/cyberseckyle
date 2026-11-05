@@ -9,11 +9,19 @@ featuredImage: /assets/images/app-reviews-2026-11-05/moneycoach/featured.jpg
 featuredImageAlt: "Two photos of MoneyCoach on an iPhone Duo: an open leather-style wallet with account cards and blurred balances, and the patterned wallet cover on the closed phone."
 featuredImageCaption: 'MoneyCoach’s open wallet and closed cover on my iPhone Duo. Photos by Kyle Reddoch; app by MoneyCoach UG. Balances are blurred in the supplied open-wallet photo. Full photos: <a href="/assets/images/app-reviews-2026-11-05/moneycoach/open-wallet-full.jpg">open wallet</a> and <a href="/assets/images/app-reviews-2026-11-05/moneycoach/closed-wallet-full.jpg">closed cover</a>.'
 tags: [reviews, ios, macos]
-draft: false
 social:
-  post_to: []
-  tags: []
-  status: {}
+  post_to: [x, mastodon]
+  tags: [iPhoneDuo, IndieApps, Budgeting]
+  status:
+    x: "MoneyCoach turns the iPhone Duo into a wallet. I look at the design, budgeting tools, bank support, and paid plans in my review. Review code provided. {url} #iPhoneDuo"
+    mastodon: |-
+      Opening the phone opens the wallet. MoneyCoach gives the iPhone Duo a playful way into accounts, with a fuller budgeting interface behind the cards.
+
+      My review covers the wallet design, transaction views, bank support, and subscription choices, with my own photos. The question for me is whether the record stays clear and manageable. Review code provided.
+
+      {url}
+
+      #iPhoneDuo #IndieApps #Budgeting
 ---
 
 I would not have put a budgeting app at the top of a list of playful iPhone software. MoneyCoach's Duo wallet is a good reason to reconsider that. A phone that folds becomes a wallet that opens, with accounts represented as cards inside. The physical action and the interface belong together.

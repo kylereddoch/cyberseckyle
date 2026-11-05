@@ -9,11 +9,19 @@ featuredImage: /assets/images/app-reviews-2026-11-05/lume/featured.jpg
 featuredImageAlt: "Lume on an open iPhone Duo, with a recipe library beside the ingredients for Crockpot Jalapeño Popper Chicken Pasta."
 featuredImageCaption: 'Lume’s wide recipe view on my iPhone Duo. Photo by Kyle Reddoch; app by João Franco. The recipe shown is by Recipes With Scotty. <a href="/assets/images/app-reviews-2026-11-05/lume/wide-recipe-full.jpg">View full photo</a>.'
 tags: [reviews, ios]
-draft: false
 social:
-  post_to: []
-  tags: []
-  status: {}
+  post_to: [x, mastodon]
+  tags: [iPhoneDuo, IndieApps, Cooking]
+  status:
+    x: "Lume gives the iPhone Duo a job on the kitchen counter. My review covers its recipe layouts, Cook Mode, imports, and Pro pricing, with my own photos. Review code provided. {url} #iPhoneDuo"
+    mastodon: |-
+      A wide cookbook view and a phone that can stand on the counter make a good starting point for a recipe app.
+
+      My Lume review looks at how its iPhone Duo layouts support cooking, plus recipe imports, meal planning, groceries, and the Pro options. I've included my own photos and the import questions I would check before moving a whole collection. Review code provided.
+
+      {url}
+
+      #iPhoneDuo #IndieApps #Cooking
 ---
 
 Lume is the kind of app that makes the iPhone Duo's shape feel useful. A recipe needs room for ingredients and instructions, and a phone on a kitchen counter needs to be readable without being held all the time. Those are good reasons for a developer to think beyond a conventional portrait screen.

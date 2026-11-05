@@ -9,11 +9,19 @@ featuredImage: /assets/images/app-reviews-2026-11-05/showcase/featured.jpg
 featuredImageAlt: "Two photos of Showcase on an iPhone Duo showing the Available TV queue in a wide two-column layout and a compact single-column layout."
 featuredImageCaption: 'Showcase’s Available queue in two Duo layouts. Photos by Kyle Reddoch; app by Ryan Gittings / Gittings Studio Ltd. Full photos: <a href="/assets/images/app-reviews-2026-11-05/showcase/wide-queue-full.jpg">wide queue</a> and <a href="/assets/images/app-reviews-2026-11-05/showcase/compact-queue-full.jpg">compact queue</a>.'
 tags: [reviews, ios, streaming]
-draft: false
 social:
-  post_to: []
-  tags: []
-  status: {}
+  post_to: [x, mastodon]
+  tags: [iPhoneDuo, IndieApps, Trakt]
+  status:
+    x: "Showcase gives the iPhone Duo a place beside the couch. My review covers its movie and TV layouts, Trakt support, and Plus pricing, with my own photos. Review code provided. {url} #iPhoneDuo"
+    mastodon: |-
+      A watchlist is partly a record and partly the fun of choosing what comes next. Showcase gives both sides room on the iPhone Duo.
+
+      My review looks at its folding layouts, movie and TV tracking, Trakt support, and Plus pricing. Years of watch history make continuity especially important to me. Includes my own photos. Review code provided.
+
+      {url}
+
+      #iPhoneDuo #IndieApps #Trakt
 ---
 
 One of the things I like about the iPhone Duo is that developers have a reason to think about what a phone can become in your hands. Open it, close it, prop it beside you, and there is an opportunity to give the software a different role. Showcase makes sense to me in exactly that context: a movie and TV tracker that can become a small companion to movie night.
