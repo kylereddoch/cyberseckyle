@@ -15,6 +15,20 @@ const bash = process.platform === 'win32' ? path.resolve(gitExecPath, '../../../
 const article = 'src/posts/example.md';
 const initial = '---\ntitle: Example\nsocial:\n  post_to: [linkedin]\n---\nAn unchanged article.\n';
 
+test('unresolved social recovery blocks every publisher without preventing site deployment', () => {
+  const recoveryIndex = steps.findIndex(step => step.id === 'social_recovery');
+  const recovery = steps[recoveryIndex];
+  assert.equal(workflow.jobs.deploy.permissions.actions, 'read');
+  assert.equal(recovery.if, "github.ref == 'refs/heads/main'");
+  assert.equal(recovery.run, 'node scripts/check-social-recovery.mjs');
+  assert.equal(recovery.env.GH_TOKEN, '${{ secrets.GITHUB_TOKEN }}');
+  assert.ok(recoveryIndex > steps.findIndex(step => step.name === 'Deploy to gh-pages'));
+  for (const id of ['post_mastodon', 'post_x', 'post_linkedin', 'post_facebook']) {
+    assert.ok(steps.findIndex(step => step.id === id) > recoveryIndex);
+    assert.doesNotMatch(steps.find(step => step.id === id).if, /always\(|!cancelled\(/);
+  }
+});
+
 test('Facebook Page publishing is gated independently from the other platforms', () => {
   const facebook = steps.find(step => step.id === 'post_facebook');
   assert.ok(facebook);
@@ -26,8 +40,12 @@ test('Facebook Page publishing is gated independently from the other platforms',
 
 function fixture(t) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'cyberseckyle-social-test-'));
+  const bin = path.join(root, 'bin');
+  fs.mkdirSync(bin);
+  fs.writeFileSync(path.join(bin, 'sleep'), '#!/bin/sh\nprintf "%s\\n" "$1" >> "$RUNNER_TEMP/sleeps"\n', {mode: 0o755});
   const env = {
     ...process.env,
+    PATH: `${bin}${path.delimiter}${process.env.PATH}`,
     GIT_CONFIG_GLOBAL: path.join(root, 'empty-gitconfig'),
     GIT_CONFIG_NOSYSTEM: '1',
     GIT_TERMINAL_PROMPT: '0',
@@ -74,6 +92,7 @@ test('a queued main run loads the preceding run\'s records and skips LinkedIn', 
   f.write(f.runner, article, f.record('original'));
   const saved = f.save();
   assert.equal(saved.status, 0, saved.stderr);
+  assert.match(f.git(f.remote, 'log', '-1', '--format=%s'), /\[skip ci\]/);
 
   // The checkout input must resolve the branch at job start, not the event SHA.
   assert.equal(steps[0].with.ref, "${{ github.ref == 'refs/heads/main' && 'main' || '' }}");
@@ -136,8 +155,45 @@ test('rejected Git pushes retry without rerunning publishers and retain a recove
   fs.writeFileSync(hook, '#!/bin/sh\nexit 1\n', {mode: 0o755});
   const saved = f.save();
   assert.notEqual(saved.status, 0);
-  assert.equal((saved.stdout.match(/Social metadata push attempt/g) || []).length, 3);
+  assert.equal((saved.stdout.match(/Social metadata save attempt/g) || []).length, 5);
+  assert.equal(fs.readFileSync(path.join(f.root, 'sleeps'), 'utf8'), '15\n30\n60\n120\n');
   assert.equal(f.git(f.remote, 'rev-parse', 'main'), before);
   assert.match(fs.readFileSync(path.join(f.root, 'social-post-state.patch'), 'utf8'), /buffer-accepted/);
   assert.doesNotMatch(saveScript, /post-to-(?:buffer|x|mastodon)/);
+});
+
+test('a transient GitHub receive-hook failure recovers after backoff without reposting', t => {
+  const f = fixture(t);
+  f.write(f.runner, article, f.record('accepted'));
+  const hook = path.join(f.remote, 'hooks/pre-receive');
+  fs.writeFileSync(hook, `#!/bin/sh
+count_file="${path.join(f.root, 'push-count')}"
+count=0
+test ! -f "$count_file" || count=$(cat "$count_file")
+count=$((count + 1))
+echo "$count" > "$count_file"
+if test "$count" -lt 3; then
+  echo 'fatal error in commit_refs_rules' >&2
+  exit 1
+fi
+`, {mode: 0o755});
+  const saved = f.save();
+  assert.equal(saved.status, 0, saved.stderr);
+  assert.equal(fs.readFileSync(path.join(f.root, 'sleeps'), 'utf8'), '15\n30\n');
+  assert.match(f.git(f.remote, 'show', `main:${article}`), /buffer-accepted/);
+  assert.equal(f.git(f.remote, 'rev-list', '--count', 'main'), '2');
+});
+
+test('a branch-rule rejection stops without bypassing protection or retrying', t => {
+  const f = fixture(t);
+  f.write(f.runner, article, f.record('accepted'));
+  fs.writeFileSync(path.join(f.remote, 'hooks/pre-receive'),
+    '#!/bin/sh\necho "GH013: Repository rule violations found" >&2\nexit 1\n', {mode: 0o755});
+  const before = f.git(f.remote, 'rev-parse', 'main');
+  const saved = f.save();
+  assert.notEqual(saved.status, 0);
+  assert.match(saved.stdout, /No protection will be bypassed/);
+  assert.equal(fs.existsSync(path.join(f.root, 'sleeps')), false);
+  assert.equal(f.git(f.remote, 'rev-parse', 'main'), before);
+  assert.match(fs.readFileSync(path.join(f.root, 'social-post-state.patch'), 'utf8'), /buffer-accepted/);
 });

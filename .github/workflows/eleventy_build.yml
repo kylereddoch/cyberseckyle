@@ -21,6 +21,7 @@ jobs:
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     permissions:
       contents: write
+      actions: read
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: false
@@ -75,6 +76,13 @@ jobs:
       - name: Deploy to gh-pages
         if: github.ref == 'refs/heads/main'
         run: bash scripts/deploy-gh-pages.sh "Deploy $(git rev-parse HEAD)"
+
+      - name: Verify previous social results are restored
+        id: social_recovery
+        if: github.ref == 'refs/heads/main'
+        run: node scripts/check-social-recovery.mjs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Post eligible articles to Mastodon
         id: post_mastodon
@@ -179,15 +187,31 @@ jobs:
             # Keep a recovery copy if a conflicting edit or push failure prevents
             # persistence. Retrying below only pushes Git data; it never reposts.
             git diff --cached --binary > "${RUNNER_TEMP}/social-post-state.patch"
-            git commit -m "Add social URLs for published posts"
-            for attempt in 1 2 3; do
-              git fetch origin main
-              git rebase origin/main
-              if git push origin HEAD:main; then
-                echo "committed=true" >> "${GITHUB_OUTPUT}"
-                exit 0
+            git commit -m "Add social URLs for published posts [skip ci]"
+            retry_delays=(15 30 60 120)
+            for attempt in 1 2 3 4 5; do
+              if git fetch origin main; then
+                if ! git rebase origin/main; then
+                  echo "::error::Social metadata conflicts with newer content. Recover the saved patch without overwriting the remote changes."
+                  exit 1
+                fi
+                if git push origin HEAD:main > "${RUNNER_TEMP}/social-state-push.log" 2>&1; then
+                  cat "${RUNNER_TEMP}/social-state-push.log"
+                  echo "committed=true" >> "${GITHUB_OUTPUT}"
+                  exit 0
+                fi
+                cat "${RUNNER_TEMP}/social-state-push.log"
+                if grep -Eqi 'GH006|GH013|protected branch|repository rule violations|permission .* denied|authentication failed' "${RUNNER_TEMP}/social-state-push.log"; then
+                  echo "::error::GitHub refused the metadata push due to permissions or branch rules. No protection will be bypassed."
+                  exit 1
+                fi
               fi
-              echo "Social metadata push attempt ${attempt} failed; refreshing main before retrying."
+              echo "Social metadata save attempt ${attempt} failed."
+              if (( attempt < 5 )); then
+                delay="${retry_delays[$((attempt - 1))]}"
+                echo "Retrying Git persistence in ${delay}s; social publishers will not be rerun."
+                sleep "${delay}"
+              fi
             done
             echo "::error::Social post results could not be saved. Recover the social-post-state artifact before rerunning publishing."
             exit 1
