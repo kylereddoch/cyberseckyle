@@ -759,6 +759,29 @@ export default async function (eleventyConfig) {
     "src/assets/images/iphone-duo-cyberseckyle-*.png": "assets/images"
   });
 
+  // Personal review photos follow their article's publication state. Keep full
+  // photo links and hero/schema URLs working once the scheduled date arrives.
+  // Draft/future previews can include them without publishing them early.
+  const reviewPhotoArticles = {
+    cassette: 'cassette-player',
+    lume: 'lume-recipe-manager',
+    moneycoach: 'moneycoach-budget-planner',
+    showcase: 'showcase-movie-tv-tracker',
+    typedraw: 'typedraw-notebook'
+  };
+  for (const [app, article] of Object.entries(reviewPhotoArticles)) {
+    const source = fs.readFileSync(`src/posts/2026/2026-11-02-${article}-review.md`, 'utf8');
+    const frontMatter = yaml.load(source.match(/^---\r?\n([\s\S]*?)\r?\n---/)[1]);
+    const previewRequested = process.env.BUILD_DRAFTS || process.argv.includes('--serve') || process.argv.includes('--watch');
+    const draftPreview = previewRequested && process.env.ELEVENTY_ENV !== 'production';
+    const publishDate = new Date(frontMatter.date);
+    const dateReached = !Number.isNaN(publishDate.getTime()) && publishDate <= new Date();
+    if (draftPreview || (!frontMatter.draft && (dateReached || process.env.BUILD_FUTURE))) {
+      const directory = `assets/images/app-reviews-2026-11-05/${app}`;
+      eleventyConfig.addPassthroughCopy({ [`src/${directory}`]: directory });
+    }
+  }
+
   // --------------------- general config
   return {
     markdownTemplateEngine: 'njk',
