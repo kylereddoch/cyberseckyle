@@ -22,6 +22,8 @@ social:
       {url}
 
       #iPhoneDuo #IndieApps
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117566398020932094}, x: {url: https://twitter.com/thecyberseckyle/status/2118483788216868908, buffer_id: 6aed0f6586fe9b83795ba750}}
+publishedAt: "2026-11-05T23:21:08.242Z"
 ---
 
 Of the things a folding phone can pretend to be, a notebook might be the most immediately satisfying. A cover on the outside, pages when it opens, and room for a sentence beside a sketch. TypeDraw understands why that is a good fit for the iPhone Duo.
