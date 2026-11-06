@@ -22,6 +22,8 @@ social:
       {url}
 
       #iPhoneDuo #IndieApps #Budgeting
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117571266191439160}}
+publishedAt: "2026-11-06T19:59:10.629Z"
 ---
 
 I would not have put a budgeting app at the top of a list of playful iPhone software. MoneyCoach's Duo wallet is a good reason to reconsider that. A phone that folds becomes a wallet that opens, with accounts represented as cards inside. The physical action and the interface belong together.
