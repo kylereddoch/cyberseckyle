@@ -22,6 +22,8 @@ social:
       {url}
 
       #iPhoneDuo #IndieApps #AppleMusic
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117567257184583071}, x: {url: https://twitter.com/thecyberseckyle/status/2118538776653840556, buffer_id: 6aed429b07f945cca9387d61}}
+publishedAt: "2026-11-06T02:59:38.040Z"
 ---
 
 I miss the willingness of early iPhone apps to be a little ridiculous in a good way. The beer apps that turned the screen into a glass understood that the phone itself could be part of the fun. An app did not always have to justify its existence with another productivity promise.
