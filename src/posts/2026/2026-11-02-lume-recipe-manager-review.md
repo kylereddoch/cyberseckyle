@@ -22,6 +22,8 @@ social:
       {url}
 
       #iPhoneDuo #IndieApps #Cooking
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117570370076993426}, x: {url: https://twitter.com/thecyberseckyle/status/2118738001274572853, buffer_id: 6aedfc264525bf695e6e027d}}
+publishedAt: "2026-11-06T16:11:17.006Z"
 ---
 
 Lume is the kind of app that makes the iPhone Duo's shape feel useful. A recipe needs room for ingredients and instructions, and a phone on a kitchen counter needs to be readable without being held all the time. Those are good reasons for a developer to think beyond a conventional portrait screen.
