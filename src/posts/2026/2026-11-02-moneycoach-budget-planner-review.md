@@ -10,7 +10,7 @@ featuredImageAlt: "Two photos of MoneyCoach on an iPhone Duo: an open leather-st
 featuredImageCaption: 'MoneyCoach’s open wallet and closed cover on my iPhone Duo. Photos by Kyle Reddoch; app by MoneyCoach UG. Balances are blurred in the supplied open-wallet photo. Full photos: <a href="/assets/images/app-reviews-2026-11-05/moneycoach/open-wallet-full.jpg">open wallet</a> and <a href="/assets/images/app-reviews-2026-11-05/moneycoach/closed-wallet-full.jpg">closed cover</a>.'
 tags: [reviews, ios, macos]
 social:
-  post_to: [x, mastodon]
+  post_to: [mastodon]
   tags: [iPhoneDuo, IndieApps, Budgeting]
   status:
     x: "MoneyCoach turns the iPhone Duo into a wallet. I look at the design, budgeting tools, bank support, and paid plans in my review. Review code provided. {url} #iPhoneDuo"
