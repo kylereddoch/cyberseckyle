@@ -6,7 +6,7 @@
     {% set documentTitle = seoTitle or title %}
     <title>
       {% if page.url == '/' %}
-        {{ meta.siteName }}
+        {{ documentTitle or meta.siteName }}
       {% elseif documentTitle %}
         {{ documentTitle }} - {{ meta.siteName }}
       {% else %}
