@@ -1,12 +1,12 @@
 ---
 title: Trayage
-description: Trayage is a native macOS app for reviewing installers, likely duplicate downloads, older files, large files, and recent downloads before deciding what belongs in the Trash.
+description: Trayage is a native macOS app for reviewing downloads, saving Smart Filters, and choosing which files move to the Trash. File review is free, with an optional one-time cleanup unlock.
 summary: A calmer, local-first way to review the files collecting in your Downloads folder and choose what should move to the Trash.
 date: 2026-09-14T09:53:00-05:00
 appOrder: 0
 appPlatform: macOS 14+
 appStatus: Available
-appPrice: US$29.99 direct purchase
+appPrice: Free review; US$9.99 one-time cleanup unlock
 badgeClasses: bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-200
 techStack:
   - Swift
@@ -18,6 +18,8 @@ appLinks:
     url: https://trayage.app/
   - label: Download for Mac
     url: https://trayage.app/download/
+  - label: View on Mac App Store
+    url: https://apps.apple.com/us/app/trayage/id6810382134
   - label: View the roadmap
     url: https://trayage.app/roadmap/
 ---
@@ -30,8 +32,10 @@ The app reviews one folder at a time and groups the files that may deserve atten
 
 - Reviews the selected folder locally on your Mac
 - Groups files by the reason they may deserve attention
+- Offers 14 Smart Filter presets and lets you save your own conditions for file type, name, size, dates, Finder tags, and recorded source website
+- Provides a full review window and menu-bar Glance or Quick Review views
 - Shows file details and can reveal an item in Finder
-- Lets you ignore a suggestion for the current review
+- Lets you hide a suggestion until the file changes or you restore it in Settings
 - Moves only selected files to the system Trash
 - Requires confirmation before cleanup
 - Never empties the Trash
@@ -44,6 +48,10 @@ Selected files move to the Trash only after confirmation. That keeps the normal 
 
 ## Availability
 
-Trayage supports macOS 14 and later. The direct edition is available from the Trayage website with a seven-day cleanup trial and a US$29.99 one-time license for up to three active Macs. The trial ends without an automatic charge, and file review remains available after it ends.
+Trayage supports macOS 14 and later and is available directly and on the Mac App Store. File review is free. An optional seven-day cleanup trial lets you try moving selected files to the Trash, ends without an automatic charge, and leaves file review available afterward.
+
+The direct edition has a US$9.99 one-time cleanup license for up to three active Macs. The Mac App Store edition is a free download with a separate US$9.99 one-time in-app cleanup unlock; Apple shows the local price, and trial eligibility applies. Neither edition requires a subscription.
+
+Purchases stay with their channel: a direct license does not unlock the App Store edition, and an Apple purchase does not provide a direct license key. Version 1.x updates are included. Future major upgrades are optional.
 
 The Trayage website is the source for current downloads, purchase details, support, privacy information, release notes, and the public roadmap.
