@@ -83,24 +83,21 @@ If you want to support what I am building, here are the pages:
 <p class="support-badges">
   <a href="https://github.com/sponsors/kylereddoch">
     <img
-      eleventy:optional="keep"
-      src="https://img.shields.io/badge/GitHub%20Sponsors-Support-1f6feb?logo=githubsponsors&logoColor=white"
+      src="/assets/svg/badges/github-sponsors.svg"
       alt="Support me on GitHub Sponsors"
       height="28"
     >
   </a>
   <a href="https://ko-fi.com/kylereddoch">
     <img
-      eleventy:optional="keep"
-      src="https://img.shields.io/badge/Ko--fi-Support-ff5f5f?logo=kofi&logoColor=white"
+      src="/assets/svg/badges/ko-fi.svg"
       alt="Support me on Ko-fi"
       height="28"
     >
   </a>
   <a href="https://buymeacoffee.com/kylereddoch">
     <img
-      eleventy:optional="keep"
-      src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Support-ffdd00?logo=buymeacoffee&logoColor=000000"
+      src="/assets/svg/badges/buy-me-a-coffee.svg"
       alt="Support me on Buy Me a Coffee"
       height="28"
     >
