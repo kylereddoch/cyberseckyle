@@ -22,6 +22,8 @@ social:
       {url}
 
       #iPhoneDuo #IndieApps #Trakt
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117576467106559311}}
+publishedAt: "2026-11-07T18:01:50.296Z"
 ---
 
 One of the things I like about the iPhone Duo is that developers have a reason to think about what a phone can become in your hands. Open it, close it, prop it beside you, and there is an opportunity to give the software a different role. Showcase makes sense to me in exactly that context: a movie and TV tracker that can become a small companion to movie night.
