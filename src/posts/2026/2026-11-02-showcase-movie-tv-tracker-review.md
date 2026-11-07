@@ -10,7 +10,7 @@ featuredImageAlt: "Two photos of Showcase on an iPhone Duo showing the Available
 featuredImageCaption: 'Showcase’s Available queue in two Duo layouts. Photos by Kyle Reddoch; app by Ryan Gittings / Gittings Studio Ltd. Full photos: <a href="/assets/images/app-reviews-2026-11-05/showcase/wide-queue-full.jpg">wide queue</a> and <a href="/assets/images/app-reviews-2026-11-05/showcase/compact-queue-full.jpg">compact queue</a>.'
 tags: [reviews, ios, streaming]
 social:
-  post_to: [x, mastodon]
+  post_to: [mastodon]
   tags: [iPhoneDuo, IndieApps, Trakt]
   status:
     x: "Showcase gives the iPhone Duo a place beside the couch. My review covers its movie and TV layouts, Trakt support, and Plus pricing, with my own photos. Review code provided. {url} #iPhoneDuo"
