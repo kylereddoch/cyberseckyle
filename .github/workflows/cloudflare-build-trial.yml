@@ -1,0 +1,44 @@
+name: Isolated Linux build trial
+on:
+  push:
+    branches: ['test/cloudflare-build-2026-11-09']
+    paths:
+      - '.github/workflows/cloudflare-build-trial.yml'
+      - 'scripts/cloudflare-build-trial.mjs'
+permissions:
+  contents: read
+concurrency:
+  group: isolated-cloudflare-build-trial
+  cancel-in-progress: true
+jobs:
+  build-only:
+    if: github.ref == 'refs/heads/test/cloudflare-build-2026-11-09'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install pinned dependencies without lifecycle scripts
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Build with fixtures and blocked service requests
+        run: node scripts/cloudflare-build-trial.mjs
+      - name: Run isolated unit tests with blocked network
+        env:
+          NODE_OPTIONS: --require=./trial-network-guard.cjs
+          TZ: America/Chicago
+        run: node --test test/article-headings.test.mjs test/quick-note-mastodon.test.mjs test/social-cards.test.mjs test/social-front-matter.test.mjs workers/newsletter-api/test/newsletter.test.js
+      - name: Verify output and record result
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          for (const f of ['index.html','404.html','blog/index.html','newsletter/index.html','search/index.html','search.json','feed.xml']) assert.ok(fs.existsSync('dist/'+f), f);
+          JSON.parse(fs.readFileSync('dist/search.json','utf8'));
+          assert.ok(!fs.existsSync('blocked-network-second.log'), 'Unexpected network request');
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, '## Isolated build passed\nLinux / '+process.version+'; fixture data and images; 32 selected unit tests; required outputs and search JSON checked.\nNo Cloudflare credentials, deployment, social posting, email delivery, or production writes. This does not test Cloudflare-hosted builds or concurrent uncommitted changes.\n');
+          NODE
