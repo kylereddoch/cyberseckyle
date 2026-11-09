@@ -31,6 +31,14 @@ schema: BlogPosting
   {% set publishedDate = publishedAt or published_at or actualPublishedAt or actual_published_at or page.date %}
 
   <header class="post-header mb-6">
+    {% if tags and ('reviews' in tags) %}
+      <div class="mb-3">
+        <span class="entry-type-badge">
+          <span class="entry-type-badge__icon" aria-hidden="true">&#11088;</span>
+          <span class="entry-type-badge__label">Tech Review</span>
+        </span>
+      </div>
+    {% endif %}
     <h1 class="p-name post-title text-3xl font-bold tracking-tight mb-3">{{ title }}</h1>
     {% if description %}
       <p class="post-description text-lg text-gray-600 dark:text-gray-400 mb-4">{{ description }}</p>

@@ -20,6 +20,9 @@ description: "Writing from CybersecKyle, including long-form posts and dated /no
       {% if post.data.contentType == 'now' %}
         {% set entryIcon = '&#128205;' %}
         {% set entryLabel = 'Now' %}
+      {% elseif post.data.tags and ('reviews' in post.data.tags) %}
+        {% set entryIcon = '&#11088;' %}
+        {% set entryLabel = 'Tech Review' %}
       {% else %}
         {% set entryIcon = '&#9997;&#65039;' %}
         {% set entryLabel = 'Post' %}

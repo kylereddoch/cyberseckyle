@@ -47,7 +47,14 @@ description: "Welcome to CybersecKyle, where Kyle Reddoch writes about cybersecu
             <img class="u-photo" src="{{ featured.data.featuredImage or featured.data.featured_image }}" alt="{{ featured.data.featuredImageAlt or featured.data.featured_image_alt or '' }}" eleventy:widths="360,540,768" sizes="(max-width: 42rem) calc(100vw - 2rem), 22rem" loading="lazy" />
           </div>
           <div class="home-feature__body">
-            <p class="home-feature__eyebrow">Latest article</p>
+            {% if featured.data.tags and ('reviews' in featured.data.tags) %}
+              <span class="entry-type-badge">
+                <span class="entry-type-badge__icon" aria-hidden="true">&#11088;</span>
+                <span class="entry-type-badge__label">Tech Review</span>
+              </span>
+            {% else %}
+              <p class="home-feature__eyebrow">Latest article</p>
+            {% endif %}
             <time class="dt-published home-entry__date" datetime="{{ featured | publishedDate | htmlDateString }}">{{ featured | publishedDate | readableDate }}</time>
             <h3 class="p-name"><a class="u-url" href="{{ featured.url }}">{{ featured.data.title }}</a></h3>
             {% if featured.data.description %}<p class="p-summary">{{ featured.data.description }}</p>{% endif %}
@@ -71,6 +78,9 @@ description: "Welcome to CybersecKyle, where Kyle Reddoch writes about cybersecu
           {% elseif entryType == 'now' %}
             {% set entryIcon = '&#128205;' %}
             {% set entryLabel = 'Now' %}
+          {% elseif entry.data.tags and ('reviews' in entry.data.tags) %}
+            {% set entryIcon = '&#11088;' %}
+            {% set entryLabel = 'Tech Review' %}
           {% else %}
             {% set entryIcon = '&#9997;&#65039;' %}
             {% set entryLabel = 'Post' %}

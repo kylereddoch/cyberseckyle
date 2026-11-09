@@ -35,6 +35,14 @@ excludeFromSearch: true
       {% for post in taggedPosts %}
         {% set publishedDate = post | publishedDate %}
         <article class="border-b border-gray-200 dark:border-gray-700 pb-6">
+          {% if post.data.tags and ('reviews' in post.data.tags) %}
+            <div class="mb-2">
+              <span class="entry-type-badge">
+                <span class="entry-type-badge__icon" aria-hidden="true">&#11088;</span>
+                <span class="entry-type-badge__label">Tech Review</span>
+              </span>
+            </div>
+          {% endif %}
           <h2 class="text-xl font-semibold">
             <a href="{{ post.url }}" class="hover:text-blue-600">{{ post.data.title }}</a>
           </h2>
