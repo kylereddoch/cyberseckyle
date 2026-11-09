@@ -1,0 +1,35 @@
+name: Isolated recovery trial
+on:
+  push:
+    branches: ['test/cloudflare-build-2026-11-09']
+    paths: ['.github/workflows/isolated-recovery-trial.yml']
+permissions:
+  contents: read
+jobs:
+  recovery-only:
+    if: github.ref == 'refs/heads/test/cloudflare-build-2026-11-09'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Prepare fail-closed network guard
+        run: |
+          cat > recovery-network-guard.cjs <<'NODE'
+          const deny=()=>{throw Error('TRIAL_NETWORK_DISABLED');};
+          globalThis.fetch=deny;
+          for(const n of ['node:http','node:https']){const m=require(n);m.request=deny;m.get=deny;}
+          const net=require('node:net');net.connect=deny;net.createConnection=deny;net.Socket.prototype.connect=deny;
+          require('node:tls').connect=deny;require('node:module').syncBuiltinESMExports();
+          NODE
+      - name: Test recovery using local repositories and mocked APIs
+        env:
+          NODE_OPTIONS: --require=${{ github.workspace }}/recovery-network-guard.cjs
+          GIT_ALLOW_PROTOCOL: file
+          GIT_TERMINAL_PROMPT: '0'
+        run: node --test test/social-recovery.test.mjs test/social-workflow.test.mjs
