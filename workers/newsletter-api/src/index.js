@@ -1686,15 +1686,27 @@ export const handleRequest = async (request, env) => {
       return await handleEditorialQueueUpdate(request, env, editorialQueueSubmissionId);
     }
     if (request.method === 'POST' && url.pathname === '/newsletter/subscribe') {
+      if (env.NEWSLETTER_CLOSED === 'true') {
+        return jsonResponse(request, env, { message: 'The Defender’s Dispatch has ended. New subscriptions are closed.' }, 410);
+      }
       return await handleSubscribe(request, env);
     }
     if (request.method === 'GET' && url.pathname === '/newsletter/confirm') {
+      if (env.NEWSLETTER_CLOSED === 'true') {
+        return Response.redirect(new URL('/newsletter/', env.CONFIRMATION_REDIRECT_BASE || env.SITE_ORIGIN), 302);
+      }
       return await handleConfirmLanding(request, env);
     }
     if (request.method === 'POST' && url.pathname === '/newsletter/confirm') {
+      if (env.NEWSLETTER_CLOSED === 'true') {
+        return jsonResponse(request, env, { message: 'The Defender’s Dispatch has ended. Subscription confirmation is closed.' }, 410);
+      }
       return await handleConfirm(request, env);
     }
     if (request.method === 'POST' && url.pathname === '/news/submit') {
+      if (env.NEWSLETTER_CLOSED === 'true') {
+        return jsonResponse(request, env, { message: 'The Defender’s Dispatch has ended. Community Signal submissions are closed.' }, 410);
+      }
       return await handleSubmission(request, env);
     }
   } catch (error) {

@@ -37,21 +37,21 @@ Some posts show public Webmentions, replies, likes, reposts, bookmarks, or menti
 
 ## Newsletter subscriptions
 
-If you subscribe to [The Defender’s Dispatch](/newsletter/), I collect the email address you provide and, if you choose to enter it, your first name. I also store basic signup details such as the page where you subscribed, when you confirmed, and whether you joined during the founding-reader period.
+The Defender’s Dispatch ended on November 9, 2026, and new subscriptions are closed. For existing subscribers, I collected the email address provided and, when entered, a first name. I also stored basic signup details such as the page where a reader subscribed, when they confirmed, and whether they joined during the founding-reader period.
 
-The newsletter uses double opt-in. Submitting the form creates a pending signup and sends a confirmation link. You are not added to the active subscriber list until you use that link. Pending confirmation records are stored temporarily in Cloudflare Workers KV and expire after 24 hours.
+The newsletter used double opt-in. Pending confirmation records were stored temporarily in Cloudflare Workers KV and expired after 24 hours.
 
-[Resend](https://resend.com/) processes subscriber information, sends confirmation and welcome messages, manages subscriptions and preferences, and delivers newsletter issues. Click tracking is enabled so I can understand which stories readers found useful. Open tracking is disabled. You can unsubscribe or change newsletter preferences using the links included in newsletter emails.
+[Resend](https://resend.com/) processes subscriber information and manages subscriptions and preferences. It delivered newsletter issues and handles the final closing notice. Click tracking was enabled so I could understand which stories readers found useful. Open tracking was disabled. You can unsubscribe or change newsletter preferences using the links included in newsletter emails.
 
-The signup form uses [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/) to reduce automated abuse. Cloudflare receives the technical information needed to verify that security check. The newsletter service also applies short-lived rate limits without keeping a permanent log of signup IP addresses.
+The former signup form used [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/) to reduce automated abuse. Cloudflare received the technical information needed to verify that security check. The newsletter service also applied short-lived rate limits without keeping a permanent log of signup IP addresses.
 
 ## Reader-submitted stories
 
-If you use the [Submit a Story](/submit-news/) form, I collect the article link, headline, source, category, your explanation of why it matters, the name or handle you provide, your email address, your credit preference, and any relationship or disclosure information you include.
+Community Signal submissions are closed. When readers used the former [Submit a Story](/submit-news/) form, I collected the article link, headline, source, category, explanation of why it mattered, name or handle, email address, credit preference, and any relationship or disclosure information provided.
 
-I use that information to review the submission, verify its context, decide whether it belongs in The Defender’s Dispatch, credit you according to your preference, and contact you when clarification is needed. Submitting a story does not subscribe you to the newsletter. Resend sends the submission receipt and the private editorial notification, while Cloudflare Workers, Workers KV, and Turnstile provide the protected submission endpoint, short-lived duplicate protection, and abuse controls.
+I used that information to review submissions, verify context, decide whether a story belonged in The Defender’s Dispatch, credit submitters according to their preference, and contact them when clarification was needed. Submitting a story did not subscribe anyone to the newsletter. Resend sent submission receipts and private editorial notifications, while Cloudflare Workers, Workers KV, and Turnstile provided the protected submission endpoint, short-lived duplicate protection, and abuse controls.
 
-Do not submit confidential information, private customer details, attachments, or material you are not authorized to share. A submission may be retained as part of the editorial record even when it is not selected for publication. You can request deletion by emailing the address at the bottom of this page.
+Past submissions may be retained as part of the editorial record even when they were not selected for publication. You can request deletion by emailing the address at the bottom of this page.
 
 ## Third-party services
 

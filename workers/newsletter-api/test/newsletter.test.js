@@ -117,6 +117,23 @@ const makeConfirmRequest = token =>
     body: JSON.stringify({ token })
   });
 
+test('closed newsletter rejects new subscriptions, confirmations, and submissions', async () => {
+  const env = { ...makeEnv(new MemoryKv()), NEWSLETTER_CLOSED: 'true' };
+  const signup = await handleRequest(makeSignupRequest(), env);
+  const confirmation = await handleRequest(makeConfirmRequest('pending-token'), env);
+  const submission = await handleRequest(makeSubmissionRequest(), env);
+  const confirmationLink = await handleRequest(
+    new Request('https://newsletter-api.example.workers.dev/newsletter/confirm?token=pending-token'),
+    env
+  );
+
+  assert.equal(signup.status, 410);
+  assert.equal(confirmation.status, 410);
+  assert.equal(submission.status, 410);
+  assert.equal(confirmationLink.status, 302);
+  assert.equal(confirmationLink.headers.get('location'), 'https://www.kylereddoch.me/newsletter/');
+});
+
 test('signup creates a pending contact and sends the published confirmation template', async t => {
   const kv = new MemoryKv();
   const requests = [];

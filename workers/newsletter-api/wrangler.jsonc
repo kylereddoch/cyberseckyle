@@ -9,6 +9,7 @@
     "enabled": true
   },
   "vars": {
+    "NEWSLETTER_CLOSED": "true",
     "SITE_ORIGIN": "https://www.kylereddoch.me",
     "CONFIRMATION_REDIRECT_BASE": "https://www.kylereddoch.me",
     "TURNSTILE_EXPECTED_HOSTNAME": "www.kylereddoch.me",
