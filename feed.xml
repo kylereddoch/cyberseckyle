@@ -13,7 +13,7 @@
     <link>https://www.kylereddoch.me/</link>
     <description>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 09 Nov 2026 12:01:55 CST</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2026 12:36:18 CST</lastBuildDate>
     <atom:link href="https://www.kylereddoch.me/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://www.kylereddoch.me/assets/images/logo.png</url>
@@ -47,7 +47,7 @@
       <title>SonicWall&#39;s SAML VPN Bypass: The Questions MSPs Need to Answer</title>
       <link>https://www.kylereddoch.me/blog/sonicwall-sslvpn-saml-bypass-msp-verification/</link>
       <guid isPermaLink="true">https://www.kylereddoch.me/blog/sonicwall-sslvpn-saml-bypass-msp-verification/</guid>
-      <pubDate>Mon, 09 Nov 2026 12:01:55 CST</pubDate>
+      <pubDate>Mon, 09 Nov 2026 12:36:18 CST</pubDate>
       <xhtml:a class="browser-title" href="https://www.kylereddoch.me/blog/sonicwall-sslvpn-saml-bypass-msp-verification/">SonicWall&#39;s SAML VPN Bypass: The Questions MSPs Need to Answer</xhtml:a>
       <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/Z7uGkeRs_s-1672.jpeg" alt="An unbranded network firewall beside a laptop displaying an abstract authentication flow." />
       <dc:creator>Kyle Reddoch</dc:creator>
