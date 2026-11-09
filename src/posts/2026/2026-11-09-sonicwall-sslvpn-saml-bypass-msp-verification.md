@@ -35,7 +35,7 @@ social:
       {url}
 
       #SonicWall #MSP #Cybersecurity
-  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117587927275385115}}
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117587927275385115}, x: {url: https://x.com/16885564/status/2119862211464016204}, linkedin: {url: https://www.linkedin.com/feed/update/urn:li:share:7525628140992393216}}
 publishedAt: "2026-11-09T18:36:18.594Z"
 ---
 
