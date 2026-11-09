@@ -28,7 +28,7 @@ jobs:
         run: node scripts/cloudflare-build-trial.mjs
       - name: Run isolated unit tests with blocked network
         env:
-          NODE_OPTIONS: --require=./trial-network-guard.cjs
+          NODE_OPTIONS: --require=${{ github.workspace }}/trial-network-guard.cjs
           TZ: America/Chicago
         run: node --test test/article-headings.test.mjs test/quick-note-mastodon.test.mjs test/social-cards.test.mjs test/social-front-matter.test.mjs workers/newsletter-api/test/newsletter.test.js
       - name: Verify output and record result
