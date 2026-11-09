@@ -35,6 +35,8 @@ social:
       {url}
 
       #SonicWall #MSP #Cybersecurity
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117587927275385115}}
+publishedAt: "2026-11-09T18:36:18.594Z"
 ---
 
 A ticket that says “SonicWall patched” leaves out the question at the center of **CVE-2026-19868**: which sign-in routes would the SSL VPN accept, and did they all enforce the intended controls? For an MSP with several client firewalls, that question needs an answer for each deployment, not just a firmware job marked complete.
