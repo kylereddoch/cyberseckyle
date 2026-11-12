@@ -782,6 +782,19 @@ export default async function (eleventyConfig) {
     }
   }
 
+  // Keep this article's original schema image available with the article,
+  // including local draft previews, without shipping the draft asset early.
+  const quarantineArticle = fs.readFileSync('src/posts/2026/2026-11-12-quarantine-is-a-starting-point-not-a-closed-security-ticket.md', 'utf8');
+  const quarantineMetadata = yaml.load(quarantineArticle.match(/^---\r?\n([\s\S]*?)\r?\n---/)[1]);
+  const quarantinePreviewRequested = process.env.BUILD_DRAFTS || process.argv.includes('--serve') || process.argv.includes('--watch');
+  const quarantineDraftPreview = quarantinePreviewRequested && process.env.ELEVENTY_ENV !== 'production';
+  const quarantineDate = new Date(quarantineMetadata.date);
+  const quarantineDateReached = !Number.isNaN(quarantineDate.getTime()) && quarantineDate <= new Date();
+  if (quarantineDraftPreview || (!quarantineMetadata.draft && (quarantineDateReached || process.env.BUILD_FUTURE))) {
+    const quarantineImage = quarantineMetadata.featuredImage.replace(/^\//, '');
+    eleventyConfig.addPassthroughCopy({ [`src/${quarantineImage}`]: quarantineImage });
+  }
+
   // --------------------- general config
   return {
     markdownTemplateEngine: 'njk',
