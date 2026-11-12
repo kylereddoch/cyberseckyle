@@ -13,7 +13,7 @@
     <link>https://www.kylereddoch.me/</link>
     <description>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 12 Nov 2026 13:38:22 CST</lastBuildDate>
+    <lastBuildDate>Thu, 12 Nov 2026 14:00:13 CST</lastBuildDate>
     <atom:link href="https://www.kylereddoch.me/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://www.kylereddoch.me/assets/images/logo.png</url>
@@ -47,7 +47,7 @@
       <title>Quarantine Is a Starting Point, Not a Closed Security Ticket</title>
       <link>https://www.kylereddoch.me/blog/endpoint-quarantine-investigation-checklist-msp/</link>
       <guid isPermaLink="true">https://www.kylereddoch.me/blog/endpoint-quarantine-investigation-checklist-msp/</guid>
-      <pubDate>Thu, 12 Nov 2026 13:38:22 CST</pubDate>
+      <pubDate>Thu, 12 Nov 2026 14:00:13 CST</pubDate>
       <xhtml:a class="browser-title" href="https://www.kylereddoch.me/blog/endpoint-quarantine-investigation-checklist-msp/">Quarantine Is a Starting Point, Not a Closed Security Ticket</xhtml:a>
       <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/3tglGbVvYQ-1672.jpeg" alt="Analyst workstation with an abstract event timeline, a magnifying glass, and an amber file contained beneath the continuing timeline." />
       <dc:creator>Kyle Reddoch</dc:creator>
