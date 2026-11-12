@@ -46,7 +46,7 @@ social:
       {url}
 
       #Cybersecurity #IncidentResponse #MSP
-  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117605244170653549}}
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117605244170653549}, x: {url: https://x.com/16885564/status/2120970851013058883}, linkedin: {url: https://www.linkedin.com/feed/update/urn:li:share:7526737084833763328}}
 publishedAt: "2026-11-12T20:00:13.474Z"
 ---
 
