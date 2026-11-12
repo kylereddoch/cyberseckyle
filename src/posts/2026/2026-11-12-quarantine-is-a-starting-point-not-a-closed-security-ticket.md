@@ -46,6 +46,8 @@ social:
       {url}
 
       #Cybersecurity #IncidentResponse #MSP
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117605244170653549}}
+publishedAt: "2026-11-12T20:00:13.474Z"
 ---
 
 An antivirus console says a file was quarantined. The endpoint is online. The user has not called the help desk. That can feel like an easy ticket to close.
