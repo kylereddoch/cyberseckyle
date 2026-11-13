@@ -45,7 +45,7 @@ social:
       {url}
 
       #Microsoft365 #MSP #ITOperations
-  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117610064605254553}}
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117610064605254553}, x: {url: https://x.com/16885564/status/2121278896012153142, buffer_id: 6af73a8a6d13383e4b401cd0}, linkedin: {url: https://www.linkedin.com/feed/update/urn:li:share:7527044895212044288}}
 publishedAt: "2026-11-13T16:26:07.440Z"
 ---
 
