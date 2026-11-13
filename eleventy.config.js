@@ -795,6 +795,19 @@ export default async function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ [`src/${quarantineImage}`]: quarantineImage });
   }
 
+  // Keep the outage article's original hero/schema URL available only with
+  // its article, including local previews while it remains a draft.
+  const outageArticle = fs.readFileSync('src/posts/2026/2026-11-13-microsoft-365-global-outage-business-schools-msps.md', 'utf8');
+  const outageMetadata = yaml.load(outageArticle.match(/^---\r?\n([\s\S]*?)\r?\n---/)[1]);
+  const outagePreviewRequested = process.env.BUILD_DRAFTS || process.argv.includes('--serve') || process.argv.includes('--watch');
+  const outageDraftPreview = outagePreviewRequested && process.env.ELEVENTY_ENV !== 'production';
+  const outageDate = new Date(outageMetadata.date);
+  const outageDateReached = !Number.isNaN(outageDate.getTime()) && outageDate <= new Date();
+  if (outageDraftPreview || (!outageMetadata.draft && (outageDateReached || process.env.BUILD_FUTURE))) {
+    const outageImage = outageMetadata.featuredImage.replace(/^\//, '');
+    eleventyConfig.addPassthroughCopy({ [`src/${outageImage}`]: outageImage });
+  }
+
   // --------------------- general config
   return {
     markdownTemplateEngine: 'njk',
