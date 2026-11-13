@@ -45,6 +45,8 @@ social:
       {url}
 
       #Microsoft365 #MSP #ITOperations
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117610064605254553}}
+publishedAt: "2026-11-13T16:26:07.440Z"
 ---
 
 When email stops working, the first question is usually whether something is wrong with the computer. When calendars, customer communications, and parts of the support process start failing together, that question gets much bigger.
