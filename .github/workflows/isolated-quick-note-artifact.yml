@@ -1,0 +1,57 @@
+name: Isolated quick-note artifact transport
+on:
+  push:
+    branches: ['test/cloudflare-build-2026-11-09']
+    paths: ['.github/workflows/isolated-quick-note-artifact.yml']
+permissions:
+  contents: read
+jobs:
+  fixture-receipt:
+    if: github.ref == 'refs/heads/test/cloudflare-build-2026-11-09'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Create disposable note commit and data-only receipt
+        env:
+          TZ: America/Chicago
+          GIT_ALLOW_PROTOCOL: file
+          GIT_TERMINAL_PROMPT: '0'
+        run: |
+          python3 - <<'PY'
+          import os, pathlib, tempfile, subprocess, json, hashlib, shutil
+          root=pathlib.Path(os.environ['GITHUB_WORKSPACE'])
+          output=pathlib.Path(os.environ['RUNNER_TEMP'])/'quick-note-receipt'
+          output.mkdir()
+          with tempfile.TemporaryDirectory(prefix='quick-note-fixture-',dir=os.environ['RUNNER_TEMP']) as temp:
+              p=pathlib.Path(temp)
+              def git(*args): return subprocess.check_output(['git','-C',str(p),*args],text=True).strip()
+              git('init','-b','fixture')
+              git('config','user.name','Offline Trial')
+              git('config','user.email','trial@example.invalid')
+              (p/'README').write_text('Isolated test fixture only.')
+              git('add','README');git('commit','-m','Fixture base')
+              base=git('rev-parse','HEAD')
+              subprocess.run(['node',str(root/'scripts/create-note.mjs')],cwd=p,env={'PATH':os.environ['PATH'],'TZ':'America/Chicago','NOTE_TITLE':'Isolated receipt transport fixture','NOTE_BODY':'Synthetic fixture. Never publish.','NOTE_DATE':'2000-09-24'},check=True)
+              note='src/notes/2000/2000-09-24-isolated-receipt-transport-fixture.md'
+              git('add','--',note);git('commit','-m','Synthetic note fixture')
+              commit=git('rev-parse','HEAD')
+              assert git('rev-list','--parents','-n','1',commit).split()==[commit,base]
+              assert git('diff-tree','--no-commit-id','--name-status','-r',commit)=='A\t'+note
+              assert git('remote')==''
+              receipt={'schema':1,'kind':'isolated-fixture-only','repository':os.environ['GITHUB_REPOSITORY'],'repositoryId':int(os.environ['GITHUB_REPOSITORY_ID']),'runId':int(os.environ['GITHUB_RUN_ID']),'attempt':int(os.environ['GITHUB_RUN_ATTEMPT']),'sourceSha':os.environ['GITHUB_SHA'],'sourceRef':os.environ['GITHUB_REF'],'baseSha':base,'commitSha':commit,'notePath':note,'noteBlob':git('rev-parse',commit+':'+note),'noteSha256':hashlib.sha256((p/note).read_bytes()).hexdigest(),'createScriptSha256':hashlib.sha256((root/'scripts/create-note.mjs').read_bytes()).hexdigest(),'gitRemotes':[]}
+              (output/'receipt.json').write_text(json.dumps(receipt,sort_keys=True))
+          assert not p.exists()
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:f.write('Synthetic local note commit created and removed. Data-only receipt uploaded. No remote push, deployment, social or provider calls.\n')
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: isolated-note-receipt-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/quick-note-receipt/receipt.json
+          if-no-files-found: error
+          retention-days: 1
+      - name: Remove temporary receipt
+        if: always()
+        run: python3 -c "import os,pathlib,shutil; p=pathlib.Path(os.environ['RUNNER_TEMP'])/'quick-note-receipt'; shutil.rmtree(p,ignore_errors=True)"
