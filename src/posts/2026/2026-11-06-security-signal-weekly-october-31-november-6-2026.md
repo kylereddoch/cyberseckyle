@@ -8,7 +8,7 @@ tags: [cybersecurity, infosec, security-signal-weekly, vulnerability-management,
 social:
   post_to: [mastodon, x, linkedin]
   tags: [Cybersecurity, InfoSec, ThreatIntel, WeeklySecurity]
-  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117571539317578925}}
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117571539317578925}, x: {url: https://twitter.com/thecyberseckyle/status/2124232088647795116, buffer_id: 6b01f8ead864a01105700eb7}, linkedin: {url: https://www.linkedin.com/feed/update/urn:li:share:7529997883379499008, buffer_id: 6b01f8ecd864a011057014fc}}
 publishedAt: "2026-11-06T21:08:38.203Z"
 ---
 
