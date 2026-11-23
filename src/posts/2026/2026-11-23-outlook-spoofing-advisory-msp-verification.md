@@ -25,6 +25,8 @@ social:
       {url}
 
       #Outlook #MSP
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117667011015774455}, x: {url: https://twitter.com/thecyberseckyle/status/2124923020095475983, buffer_id: 6b047c654129dae9438159aa}}
+publishedAt: "2026-11-23T17:48:20.704Z"
 ---
 
 If someone calls the help desk and says they opened a suspicious email in Outlook, my first question would be, “Did you read the email, or did you open a file attached to it?” For [CVE-2026-124194](https://msrc.microsoft.com/security-guidance/advisory/CVE-2026-124194), that detail changes what I’d investigate. Microsoft says the flaw requires someone to open a specially prepared file in an affected copy of Outlook. It explicitly rules out the Preview Pane.
