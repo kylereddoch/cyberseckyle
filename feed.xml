@@ -13,7 +13,7 @@
     <link>https://www.kylereddoch.me/</link>
     <description>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 23 Nov 2026 11:21:00 CST</lastBuildDate>
+    <lastBuildDate>Mon, 23 Nov 2026 11:48:20 CST</lastBuildDate>
     <atom:link href="https://www.kylereddoch.me/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://www.kylereddoch.me/assets/images/logo.png</url>
@@ -47,7 +47,7 @@
       <title>An Outlook Spoofing Advisory Isn&#39;t a Complete Incident Story</title>
       <link>https://www.kylereddoch.me/blog/outlook-spoofing-advisory-msp-verification/</link>
       <guid isPermaLink="true">https://www.kylereddoch.me/blog/outlook-spoofing-advisory-msp-verification/</guid>
-      <pubDate>Mon, 23 Nov 2026 11:21:00 CST</pubDate>
+      <pubDate>Mon, 23 Nov 2026 11:48:20 CST</pubDate>
       <xhtml:a class="browser-title" href="https://www.kylereddoch.me/blog/outlook-spoofing-advisory-msp-verification/">An Outlook Spoofing Advisory Isn&#39;t a Complete Incident Story</xhtml:a>
       <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/XOojKAlB1o-1672.jpeg" alt="A laptop showing an envelope and a warning triangle beside a paper checklist." />
       <dc:creator>Kyle Reddoch</dc:creator>
