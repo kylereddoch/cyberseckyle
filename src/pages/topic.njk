@@ -38,6 +38,7 @@ eleventyComputed:
 {% if not starterPost and topicPosts.length %}
   {% set starterPost = topicPosts[0] %}
 {% endif %}
+{% set visiblePosts = topicPosts | head(12) %}
 
 <div class="topic-page" style="--topic-accent: {{ topic.accentColor }};">
   <nav class="topic-breadcrumb" aria-label="Breadcrumb">
@@ -59,7 +60,7 @@ eleventyComputed:
     <p>{{ topic.intro }}</p>
   </header>
 
-  {% if starterPost %}
+  {% if starterPost and topic.showStarter != false %}
     {% set starterPublishedDate = starterPost | publishedDate %}
     <section class="topic-start-card">
       <p class="topic-kicker">Start Here</p>
@@ -77,13 +78,17 @@ eleventyComputed:
     <div class="topic-section__header">
       <div>
         <h2>Latest in {{ topic.name }}</h2>
-        <p>{{ topicPosts.length }} post{% if topicPosts.length != 1 %}s{% endif %} currently match this topic.</p>
+        {% if visiblePosts.length < topicPosts.length %}
+          <p>Showing the latest {{ visiblePosts.length }} of {{ topicPosts.length }} matching posts.</p>
+        {% else %}
+          <p>{{ topicPosts.length }} post{% if topicPosts.length != 1 %}s{% endif %} currently match this topic.</p>
+        {% endif %}
       </div>
     </div>
 
     {% if topicPosts.length %}
       <div class="topic-post-list">
-        {% for post in topicPosts | head(12) %}
+        {% for post in visiblePosts %}
           {% set publishedDate = post | publishedDate %}
           <article class="topic-post-card">
             <h3>
@@ -110,7 +115,7 @@ eleventyComputed:
     {% endif %}
   </section>
 
-  <section class="topic-match-card">
+  <section class="topic-match-card{% if topic.neutralMatchCard %} topic-match-card--neutral{% endif %}">
     <h2>Matching Tags</h2>
     <div class="topic-tags">
       {% for tag in topic.matchTags %}

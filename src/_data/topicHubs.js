@@ -42,6 +42,18 @@ export default [
     ]
   },
   {
+    name: 'Tech Reviews',
+    slug: 'tech-reviews',
+    icon: '&#11088;',
+    accentColor: '#f59e0b',
+    description: 'Reviews of apps, services, and hardware from across the site, collected in one place.',
+    intro: 'Browse my tech reviews, from apps and services to the devices and accessories I have covered.',
+    matchTags: ['reviews'],
+    featuredUrls: [],
+    showStarter: false,
+    neutralMatchCard: true
+  },
+  {
     name: 'Windows and PowerShell',
     slug: 'windows-powershell',
     icon: '&#128187;',

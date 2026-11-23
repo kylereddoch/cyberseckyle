@@ -3039,6 +3039,14 @@ pre[class*='language-'] code .token.variable {
     var(--surface);
 }
 
+.topic-match-card--neutral {
+  border-color: rgb(226 232 240 / 1);
+}
+
+.dark .topic-match-card--neutral {
+  border-color: rgb(55 65 81 / 1);
+}
+
 .topic-match-card h2 {
   color: var(--topic-accent, #8b5cf6);
   font-size: 1.15rem;

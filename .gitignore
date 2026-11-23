@@ -9,6 +9,8 @@ dist
 src/_includes/css
 src/_includes/scripts
 editorial-drafts/
+wallpapers/
+work/
 
 # cache
 .cache
