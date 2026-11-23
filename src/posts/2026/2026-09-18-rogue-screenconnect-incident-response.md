@@ -8,6 +8,7 @@ featuredImage: /assets/images/screenconnect-product-featured.webp
 featuredImageAlt: Official ScreenConnect product graphic showing remote support, access, session, and privileged access features on a dark teal background.
 featuredImageCaption: "ScreenConnect product graphic. Source: ScreenConnect; used for editorial identification."
 tags: [cybersecurity, MSP, incident-response, endpoint-security]
+lastModified: 2026-11-23T14:10:03-06:00
 social:
   post_to: [mastodon, x, linkedin]
   tags: [Cybersecurity, InfoSec, IncidentResponse, MSP, ScreenConnect]
@@ -127,6 +128,12 @@ That is not proof that CVE-2026-84869 was used.
 The vulnerability explains how file transfer and execution could be abused through an active session. It does not explain how an unauthorized ScreenConnect client first appeared on a workstation belonging to an organization that did not use the product. It also does not establish which ScreenConnect client version was involved or prove that the session met the vulnerability’s exact exploit conditions.
 
 The evidence supported a connection worth investigating, not a conclusion I could defend as fact.
+
+## November 23, 2026 update — Huntress confirms exploitation on a technician’s workstation
+
+On November 12, an MSP technician joined a ScreenConnect session. The technician’s workstation ran a batch file sent by the guest without prompting for approval. About nine seconds later, a rogue copy of ScreenConnect disguised as Windows Update was running on that workstation and connected to the attacker’s relay. [Huntress traced that sequence in the workstation’s process logs](https://www.huntress.com/blog/cve-2026-84869-screenconnect-technician-exploitation) and confirmed exploitation of CVE-2026-84869. [The Hacker News covered the findings on November 23](https://thehackernews.com/2026/11/hackers-exploit-critical-screenconnect.html).
+
+In September, I found `WindowsUpdate.exe` in a ScreenConnect temp folder on a customer workstation where nobody was authorized to use the tool. I could tie a `RunFile` action and relay traffic to the session. The endpoint record left the executable’s status unknown, and I couldn’t establish which ScreenConnect version was on the machine. I still can’t verify that the same exploit was used in my case.
 
 ## A related campaign looked similar, but not identical
 
