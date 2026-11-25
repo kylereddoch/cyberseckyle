@@ -739,11 +739,6 @@ export default async function (eleventyConfig) {
     "src/assets/images/logo.png": "assets/images/logo.png"
   });
 
-  // Weekly notes reuse this already-public artwork in article schema metadata.
-  eleventyConfig.addPassthroughCopy({
-    "src/assets/images/weeklynotes-hero.png": "assets/images/weeklynotes-hero.png"
-  });
-
   eleventyConfig.addPassthroughCopy({
     "src/assets/images/cyberseckyle-newsletter-logo-horizontal.png":
       "assets/images/cyberseckyle-newsletter-logo-horizontal.png"
