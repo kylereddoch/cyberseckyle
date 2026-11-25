@@ -42,10 +42,14 @@ const dedupeByUrl = items => {
   return [...map.values()];
 };
 
+const isWeeklyNote = item =>
+  item.inputPath.replaceAll('\\', '/').includes('/weeklynotes/') ||
+  (Array.isArray(item.data?.tags) && item.data.tags.includes('weeklynotes'));
+
 export const getPosts = collection =>
   collection
     .getFilteredByGlob('./src/posts/**/*.md')
-    .filter(item => !item.inputPath.includes('\\weeklynotes\\') && !item.inputPath.includes('/weeklynotes/'))
+    .filter(item => !isWeeklyNote(item))
     .sort(sortByNewest);
 
 export const getBlogEntries = collection =>
@@ -58,9 +62,10 @@ export const getBlogEntries = collection =>
 export const getNotes = collection =>
   collection
     .getFilteredByGlob([
-      './src/posts/weeklynotes/**/*.md',
+      './src/posts/**/*.md',
       './src/notes/**/*.md'
     ])
+    .filter(item => item.inputPath.replaceAll('\\', '/').startsWith('./src/notes/') || isWeeklyNote(item))
     .sort(sortByNewest);
 
 export const getJournalPosts = collection =>
