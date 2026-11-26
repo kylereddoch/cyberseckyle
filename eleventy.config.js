@@ -749,6 +749,12 @@ export default async function (eleventyConfig) {
     "src/assets/images/drift-hero.png": "assets/images/drift-hero.png"
   });
 
+  // Keep the published article's original hero URL available to structured data.
+  eleventyConfig.addPassthroughCopy({
+    "src/assets/images/inactive-edr-agents-visibility-exceptions-msp.webp":
+      "assets/images/inactive-edr-agents-visibility-exceptions-msp.webp"
+  });
+
   eleventyConfig.addPassthroughCopy({
     "src/assets/images/iphone-duo-best-buy-preorder-delayed.jpg":
       "assets/images/iphone-duo-best-buy-preorder-delayed.jpg"
