@@ -45,6 +45,8 @@ social:
       {url}
 
       #Cybersecurity #EndpointSecurity #MSP
+  posts: {mastodon: {url: https://infosec.exchange/@cyberseckyle/117685460129949832}, x: {url: https://twitter.com/thecyberseckyle/status/2126103768928272809, buffer_id: 6b08c80d70e2a88e2cdde05b}, linkedin: {url: https://www.linkedin.com/feed/update/urn:li:share:7531869559776059394, buffer_id: 6b08c8119131f7416c590c5a}}
+publishedAt: "2026-11-27T00:00:11.848Z"
 ---
 
 A quiet endpoint is not necessarily a healthy endpoint. If its security agent has stopped reporting, an empty alert list leaves a question open: what can we actually see?
