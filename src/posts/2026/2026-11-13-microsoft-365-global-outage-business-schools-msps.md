@@ -59,6 +59,14 @@ I’m looking at this from the IT and managed service provider side: what Micros
 This account was checked on **November 13, 2026, at 9:57 a.m. Central Standard Time (15:57 UTC)**. Microsoft’s 14:56 UTC [public service-health update](https://status.cloud.microsoft/) reported sustained improvements in service availability, with intermittent connectivity problems and delayed email still possible. Microsoft was validating recovery and addressing remaining issues. Full mitigation remained pending. Microsoft said it had no evidence of malicious activity and would publish a post-incident report.
 {% endarticleCallout %}
 
+{% articleCallout "November 26 update: Microsoft’s final incident report", "note" %}
+When I first wrote this, the cause was still open. Microsoft’s [November 20 post-incident report for EX1550543 and MO1550821](https://tianyin.github.io/misc/pir_microsoft_365_11-12-2026.pdf) traces the outage to a Windows defect in the configuration used by Exchange Online’s gateways. Maintenance had reduced available capacity, Teams traffic had shifted onto those gateways, and peak demand exposed the defect. Load tests hadn’t reproduced that traffic mix on the newer hardware. As servers stopped responding, automatic rerouting sent more traffic to gateways with the same defect, first in North America and then in other regions.
+
+Microsoft says active customer impact ended at **10:10 a.m. CST on November 13**. It declared the incident resolved at **10:15 p.m. CST that evening** after monitoring recovery and clearing the backlog. Queued enterprise mail was delivered. Some delayed messages to inactive consumer mailboxes expired.
+
+Microsoft lists narrower regional failover and separate gateway pools for different workloads as follow-up work. Here’s the test I’d run at an MSP: if email is down, can a customer still get an urgent ticket to a technician without going through the same mailbox, sign-in, or integration?
+{% endarticleCallout %}
+
 ## What happened, and what is still unknown
 
 Microsoft’s incident record gives Exchange Online incident **EX1550543** a start time of **16:17 UTC on November 12**, or **10:17 a.m. CST**. The broader Microsoft 365 incident, **MO1550821**, followed at **18:26 UTC**, or **12:26 p.m. CST**. These are the vendor’s recorded incident times, not a claim that every customer lost service simultaneously. The University of Pennsylvania publishes a [public extract of Microsoft’s incident messages](https://mailservices.isc.upenn.edu/computing/email/penno365/alerts/ms-incidents.html?q=MO1550821).
