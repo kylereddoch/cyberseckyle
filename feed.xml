@@ -13,7 +13,7 @@
     <link>https://www.kylereddoch.me/</link>
     <description>CybersecKyle is the personal site of Kyle Reddoch, a cybersecurity expert and IT professional sharing practical guides, incident lessons, everyday defense tips, and more.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 26 Nov 2026 17:27:57 CST</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 18:00:11 CST</lastBuildDate>
     <atom:link href="https://www.kylereddoch.me/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://www.kylereddoch.me/assets/images/logo.png</url>
@@ -47,7 +47,7 @@
       <title>When the Security Agent Goes Quiet, Your Dashboard Needs an Exception</title>
       <link>https://www.kylereddoch.me/blog/inactive-edr-agents-visibility-exceptions-msp/</link>
       <guid isPermaLink="true">https://www.kylereddoch.me/blog/inactive-edr-agents-visibility-exceptions-msp/</guid>
-      <pubDate>Thu, 26 Nov 2026 17:27:57 CST</pubDate>
+      <pubDate>Thu, 26 Nov 2026 18:00:11 CST</pubDate>
       <xhtml:a class="browser-title" href="https://www.kylereddoch.me/blog/inactive-edr-agents-visibility-exceptions-msp/">When the Security Agent Goes Quiet, Your Dashboard Needs an Exception</xhtml:a>
       <xhtml:img class="browser-image" src="https://www.kylereddoch.me/img/_lyeCH-UZs-1672.jpeg" alt="An abstract endpoint inventory with four teal reporting rows and one grey row marked by an amber warning and a flat signal." />
       <dc:creator>Kyle Reddoch</dc:creator>
